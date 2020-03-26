@@ -1,0 +1,58 @@
+{
+    "code" : 0,
+    "message" : null,
+    "data" : {
+      "totalCount" : 8,
+      "totalPage" : 1,
+      "currentPage" : 1,
+      "result" : [ {
+        "createTime" : "2019-04-27 18:45:30",
+        "imageUrl" : null,
+        "content" : "{\"media\":{\"items\":[{\"mediaId\":\"13055710138309357733\",\"media_thumb_url\":\"wx_image/hujing0302/sns/wxid_8o0wyr7y4q2s22/snsu_13055710138309357733.jpg\",\"media_url\":\"wx_image/hujing0302/sns/wxid_8o0wyr7y4q2s22/snsu_13055710138309357733.jpg\",\"title\":\"\"},{\"mediaId\":\"13055710138347565247\",\"media_thumb_url\":\"wx_image/hujing0302/sns/wxid_8o0wyr7y4q2s22/snsu_13055710138347565247.jpg\",\"media_url\":\"wx_image/hujing0302/sns/wxid_8o0wyr7y4q2s22/snsu_13055710138347565247.jpg\",\"title\":\"\"}],\"redirect_url\":\"\",\"title\":\"\"},\"title\":\"虎鲸工作手机\"}",
+        "channel" : 1,
+        "type" : 1
+      }, {
+        "createTime" : "2019-04-27 15:27:45",
+        "imageUrl" : null,
+        "content" : "{\"media\":{\"items\":[{\"mediaId\":\"13055610606581526688\",\"media_thumb_url\":\"wx_image/hujing0302/sns/wxid_8o0wyr7y4q2s22/snsu_13055610606581526688.jpg\",\"media_url\":\"wx_image/hujing0302/sns/wxid_8o0wyr7y4q2s22/snsu_13055610606581526688.jpg\",\"title\":\"\"}],\"redirect_url\":\"\",\"title\":\"\"},\"title\":\"\"}",
+        "channel" : 1,
+        "type" : 1
+      }, {
+        "createTime" : "2019-04-27 14:04:13",
+        "imageUrl" : null,
+        "content" : "{\"media\":{\"items\":[{\"mediaId\":\"13055568564823208118\",\"media_thumb_url\":\"http://vweixinthumb.tc.qq.com/150/20250/snsvideodownload?filekey=30340201010420301e0202009604025348041046feb444ebc38424ecbb54823a0b174c02021c80040d00000004627466730000000131&hy=SH&storeid=32303139303432373134303431313030303633326532376137313532353639303961333330613030303030303936&bizid=1023\",\"media_url\":\"http://shzjwxsns.video.qq.com/102/20202/snsvideodownload?filekey=30340201010420301e0201660402534804102b4efb2915a1e30a23c43cbf3b6835da02031644bc040d00000004627466730000000131&hy=SH&storeid=32303139303432373134303431313030303634353437376137313532353639303961333330613030303030303636&dotrans=2&ef=1_0&bizid=1023\",\"title\":\"虎鲸工作手机\"}],\"redirect_url\":\"\",\"title\":\"微信小视频\"},\"title\":\"虎鲸工作手机\"}",
+        "channel" : 1,
+        "type" : 15
+      }, {
+        "createTime" : "2019-04-27 14:01:34",
+        "imageUrl" : null,
+        "content" : "{\"media\":{\"items\":[{\"localPath\":\"\",\"mediaId\":\"13055567233757425828\",\"media_thumb_url\":\"http://shmmsns.qpic.cn/mmsns/CkBYF6IYNs3ibpvrx3LuaUzGcdjLvdiaUo5dQPqszZWcib86AD7YXiajekWF0KyqWeTTI3RFTvEBpNE/150\",\"media_url\":\"http://shmmsns.qpic.cn/mmsns/CkBYF6IYNs3ibpvrx3LuaUzGcdjLvdiaUo5dQPqszZWcib86AD7YXiajekWF0KyqWeTTI3RFTvEBpNE/0\",\"title\":\"\"},{\"localPath\":\"\",\"mediaId\":\"13055567233808543922\",\"media_thumb_url\":\"http://shmmsns.qpic.cn/mmsns/CkBYF6IYNs3ibpvrx3LuaUzyPXBUaJgQSbgyDDmuJia4BA21A6YDlq6OGrpiaZKzosD5VyWh7F9AnQ/150\",\"media_url\":\"http://shmmsns.qpic.cn/mmsns/CkBYF6IYNs3ibpvrx3LuaUzyPXBUaJgQSbgyDDmuJia4BA21A6YDlq6OGrpiaZKzosD5VyWh7F9AnQ/0\",\"title\":\"\"}],\"redirect_url\":\"\",\"title\":\"\"},\"title\":\"虎鲸工作手机\"}",
+        "channel" : 1,
+        "type" : 1
+      }, {
+        "createTime" : "2019-04-26 10:27:16",
+        "imageUrl" : null,
+        "content" : "{\"media\":{\"items\":[{\"mediaId\":\"13054734598707949719\",\"media_thumb_url\":\"http://vweixinthumb.tc.qq.com/150/20250/snsvideodownload?filekey=30340201010420301e0202009604025348041046feb444ebc38424ecbb54823a0b174c02021c80040d00000004627466730000000131&hy=SH&storeid=32303139303432363130323731343030303961633232376137313532353638643965333330613030303030303936&bizid=1023\",\"media_url\":\"http://shzjwxsns.video.qq.com/102/20202/snsvideodownload?filekey=30340201010420301e0201660402534804102b4efb2915a1e30a23c43cbf3b6835da02031644bc040d00000004627466730000000131&hy=SH&storeid=32303139303432363130323731343030303965616362376137313532353638643965333330613030303030303636&dotrans=2&ef=1_0&bizid=1023\",\"title\":\"\"}],\"redirect_url\":\"\",\"title\":\"微信小视频\"},\"title\":\"\"}",
+        "channel" : 1,
+        "type" : 15
+      }, {
+        "createTime" : "2019-04-26 08:40:54",
+        "imageUrl" : null,
+        "content" : "{\"media\":{\"items\":[{\"localPath\":\"\",\"mediaId\":\"13054681063703392416\",\"media_thumb_url\":\"http://shmmsns.qpic.cn/mmsns/CkBYF6IYNs3ibpvrx3LuaU7PiaBIX4NAtuCkCkAV7ia1HftPNPykZV44iaFibP2yXslfPqswJZIvrG1M/150\",\"media_url\":\"http://shmmsns.qpic.cn/mmsns/CkBYF6IYNs3ibpvrx3LuaU7PiaBIX4NAtuCkCkAV7ia1HftPNPykZV44iaFibP2yXslfPqswJZIvrG1M/0\",\"title\":\"\"},{\"localPath\":\"\",\"mediaId\":\"13054681063766438071\",\"media_thumb_url\":\"http://shmmsns.qpic.cn/mmsns/CkBYF6IYNs3ibpvrx3LuaU7PiaBIX4NAtuRKL9uibv4oRBsse3BecnVSfaTBOTEbRcHV9jPNx19WBU/150\",\"media_url\":\"http://shmmsns.qpic.cn/mmsns/CkBYF6IYNs3ibpvrx3LuaU7PiaBIX4NAtuRKL9uibv4oRBsse3BecnVSfaTBOTEbRcHV9jPNx19WBU/0\",\"title\":\"\"}],\"redirect_url\":\"\",\"title\":\"\"},\"title\":\"虎鲸工作手机\"}",
+        "channel" : 1,
+        "type" : 1
+      }, {
+        "createTime" : "2019-04-26 08:36:24",
+        "imageUrl" : null,
+        "content" : "{\"media\":{\"items\":[],\"redirect_url\":\"\",\"title\":\"\"},\"title\":\"郑州的朋友，你们好！\"}",
+        "channel" : 1,
+        "type" : 2
+      }, {
+        "createTime" : "2019-04-25 16:12:01",
+        "imageUrl" : null,
+        "content" : "{\"media\":{\"items\":[],\"redirect_url\":\"\",\"title\":\"\"},\"title\":\"123123\"}",
+        "channel" : 1,
+        "type" : 2
+      } ]
+    }
+  }

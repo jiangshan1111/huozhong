@@ -1,0 +1,200 @@
+{
+    "code" : 0,
+    "message" : null,
+    "data" : {
+      "totalCount" : null,
+      "totalPage" : null,
+      "currentPage" : null,
+      "result" : [ {
+        "friendId" : 2273839,
+        "nick" : "111",
+        "nickName" : "111",
+        "wxId" : null,
+        "type" : 1,
+        "date" : "2019-04-29 05:38:13",
+        "index" : null,
+        "id" : "223419",
+        "channel" : 1
+      }, {
+        "friendId" : 2144825,
+        "nick" : "虎鲸客服-2",
+        "nickName" : "虎鲸客服-2",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-04-28 13:58:12",
+        "index" : null,
+        "id" : "9c5675e78c934a5186e69b32d8426a1f",
+        "channel" : 1
+      }, {
+        "friendId" : 2145522,
+        "nick" : "单车",
+        "nickName" : "单车",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-04-23 11:45:37",
+        "index" : null,
+        "id" : "77ce5f7fd49e44e1916dac5eb9891ffe",
+        "channel" : 1
+      }, {
+        "friendId" : 2839938,
+        "nick" : "漫漫星空",
+        "nickName" : "漫漫星空",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-04-03 20:24:24",
+        "index" : null,
+        "id" : "b03dfee2528a4d66afce3e141cd9bd45",
+        "channel" : 1
+      }, {
+        "friendId" : 2839939,
+        "nick" : "彭冠中-Hunter",
+        "nickName" : "彭冠中-Hunter",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-04-03 20:23:23",
+        "index" : null,
+        "id" : "88cc26f35e5c469499811265413d11d2",
+        "channel" : 1
+      }, {
+        "friendId" : 2826151,
+        "nick" : "Chris",
+        "nickName" : "Chris",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-04-03 15:14:14",
+        "index" : null,
+        "id" : "f6cf006f6f444e0595e7c450aa95f942",
+        "channel" : 1
+      }, {
+        "friendId" : 2473552,
+        "nick" : "常丰峰2019-04-28",
+        "nickName" : "常丰峰2019-04-28",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-04-02 16:03:44",
+        "index" : null,
+        "id" : "7c5a0be25a584da19ba5de4de4d22479",
+        "channel" : 1
+      }, {
+        "friendId" : 2143240,
+        "nick" : "砍手机",
+        "nickName" : "砍手机",
+        "wxId" : null,
+        "type" : 1,
+        "date" : "2019-03-25 17:04:46",
+        "index" : null,
+        "id" : "212914",
+        "channel" : 1
+      }, {
+        "friendId" : 2143245,
+        "nick" : "四海3",
+        "nickName" : "四海3",
+        "wxId" : null,
+        "type" : 1,
+        "date" : "2019-03-25 17:02:56",
+        "index" : null,
+        "id" : "212916",
+        "channel" : 1
+      }, {
+        "friendId" : 2143242,
+        "nick" : "挂挂赚7群",
+        "nickName" : "挂挂赚7群",
+        "wxId" : null,
+        "type" : 1,
+        "date" : "2019-03-18 10:04:41",
+        "index" : null,
+        "id" : "212915",
+        "channel" : 1
+      }, {
+        "friendId" : 2143238,
+        "nick" : "微信粉",
+        "nickName" : "微信粉",
+        "wxId" : null,
+        "type" : 1,
+        "date" : "2019-03-18 10:02:59",
+        "index" : null,
+        "id" : "212913",
+        "channel" : 1
+      }, {
+        "friendId" : 2200366,
+        "nick" : "新天地传媒昆明0075",
+        "nickName" : "新天地传媒昆明0075",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-03-18 09:29:30",
+        "index" : null,
+        "id" : "387d8a098aed4055b725bbeb2e3d6eaa",
+        "channel" : 1
+      }, {
+        "friendId" : 2143236,
+        "nick" : "无所畏惧",
+        "nickName" : "无所畏惧",
+        "wxId" : null,
+        "type" : 1,
+        "date" : "2019-03-16 16:20:25",
+        "index" : null,
+        "id" : "212912",
+        "channel" : 1
+      }, {
+        "friendId" : 2160443,
+        "nick" : "绵阳微大众",
+        "nickName" : "绵阳微大众",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-03-16 10:02:59",
+        "index" : null,
+        "id" : "9e351863c592457caeb65e8e706aa415",
+        "channel" : 1
+      }, {
+        "friendId" : 2155201,
+        "nick" : "想挣钱加我",
+        "nickName" : "想挣钱加我",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-03-16 00:10:49",
+        "index" : null,
+        "id" : "7dcbccaef4f143709f2799be82103362",
+        "channel" : 1
+      }, {
+        "friendId" : 2145525,
+        "nick" : "仿魜dē风筝",
+        "nickName" : "仿魜dē风筝",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-03-15 19:43:37",
+        "index" : null,
+        "id" : "26353b0fc65f4972a7602670c08fdb58",
+        "channel" : 1
+      }, {
+        "friendId" : 2143235,
+        "nick" : "花漾",
+        "nickName" : "花漾",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-03-15 16:53:32",
+        "index" : null,
+        "id" : "dc74be5df8bc44458dc31b0db4180ac8",
+        "channel" : 1
+      }, {
+        "friendId" : 2136535,
+        "nick" : "滴滴",
+        "nickName" : "滴滴",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-03-15 15:49:42",
+        "index" : null,
+        "id" : "eac0f6de334040118914d9b1f19bed90",
+        "channel" : 1
+      }, {
+        "friendId" : 2115614,
+        "nick" : "吴雪飞",
+        "nickName" : "吴雪飞",
+        "wxId" : null,
+        "type" : 0,
+        "date" : "2019-03-15 11:18:06",
+        "index" : null,
+        "id" : "5c09694268e349ddb0410812a99c9881",
+        "channel" : 1
+      } ]
+    }
+  }

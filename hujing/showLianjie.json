@@ -1,0 +1,70 @@
+{
+    "code" : 0,
+    "message" : null,
+    "data" : {
+      "totalCount" : 1,
+      "totalPage" : 1,
+      "currentPage" : 1,
+      "result" : [ {
+        "createTime" : "2019-03-18 14:55:20",
+        "sentence" : "https://m.weibo.cn/status/HlrjZ9n1P?jumpfrom=weibocom",
+        "type" : "word",
+        "author" : null,
+        "friend" : "刘老师",
+        "chatId" : "cf6941104877465d8770d43f40302bae",
+        "sensitiveWords" : null,
+        "telephones" : null,
+        "nickName" : null,
+        "nick" : null,
+        "headimg" : null,
+        "wxId" : null,
+        "channel" : 1,
+        "sentenceJson" : null
+      } ,{
+        "createTime" : "2019-03-18 14:55:20",
+        "sentence" : "https://m.weibo.cn/status/HlrjZ9n1P?jumpfrom=weibocom0",
+        "type" : "word",
+        "author" : null,
+        "friend" : "刘老师",
+        "chatId" : "cf6941104877465d8770d43f40302bae",
+        "sensitiveWords" : null,
+        "telephones" : null,
+        "nickName" : null,
+        "nick" : null,
+        "headimg" : null,
+        "wxId" : null,
+        "channel" : 1,
+        "sentenceJson" : null
+      } ,{
+        "createTime" : "2019-03-18 14:55:20",
+        "sentence" : "https://m.weibo.cn/status/HlrjZ9n1P?jumpfrom=weibocom1",
+        "type" : "word",
+        "author" : null,
+        "friend" : "刘老师",
+        "chatId" : "cf6941104877465d8770d43f40302bae",
+        "sensitiveWords" : null,
+        "telephones" : null,
+        "nickName" : null,
+        "nick" : null,
+        "headimg" : null,
+        "wxId" : null,
+        "channel" : 1,
+        "sentenceJson" : null
+      } ,{
+        "createTime" : "2019-03-18 14:55:20",
+        "sentence" : "https://m.weibo.cn/status/HlrjZ9n1P?jumpfrom=weibocom2",
+        "type" : "word",
+        "author" : null,
+        "friend" : "刘老师",
+        "chatId" : "cf6941104877465d8770d43f40302bae",
+        "sensitiveWords" : null,
+        "telephones" : null,
+        "nickName" : null,
+        "nick" : null,
+        "headimg" : null,
+        "wxId" : null,
+        "channel" : 1,
+        "sentenceJson" : null
+      } ]
+    }
+  }

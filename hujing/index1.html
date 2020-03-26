@@ -1,0 +1,1140 @@
+<div data-v-417bc76c="" v-if="activeIndexa == 0" class="v-container container1">
+    <div data-v-6e367a74="" data-v-417bc76c="" class="v-container bg-color chart-page1">
+      <div data-v-6e367a74="" class="header v-home">
+        <div data-v-6e367a74="" class="time time-panel clearfix">
+          <template>
+            <div class="block" style="display:inline-block">
+              <el-date-picker v-model="value7" type="daterange" align="right" unlink-panels
+                start-placeholder="开始日期" end-placeholder="结束日期" :picker-options="pickerOptions2">
+              </el-date-picker>
+            </div>
+          </template>
+          <div class="block" style="float: right;">
+            <el-cascader :options="options" ref="judh" placeholder="组织架构" change-on-select v-model="selectedOptions" @change="optclick(selectedOptions)">
+            </el-cascader>
+            <el-cascader :options="options3" ref="judh" placeholder="人名" change-on-select v-model="selectedOptions2">
+              </el-cascader>
+            <button style="    background: #4394f7;
+                  color: #fff;border:none ;  height: 34px;padding:0 20px;cursor:pointer;border-radius :3px;"
+              @click="inquiry">查询</button>
+          </div>
+        </div>
+      </div>
+      <div data-v-6e367a74="" class="el-scrollbar">
+        <div class="el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+          <div class="el-scrollbar__view">
+            <div data-v-6e367a74="" style="height: 100%;">
+              <div data-v-6e367a74="" class="v-content"
+                style="margin-bottom: 5px; position: relative; overflow: visible;">
+                <div data-v-6e367a74="" class="condition-select hidden1">
+                  <span data-v-6e367a74="" class="condition-select-active"
+                    @click="selectCon(0,'callout_num','个数（个）')">呼出总数</span>
+                  <span data-v-6e367a74="" class=""
+                    @click="selectCon(1,'callout_connect_num','个数（个）')">呼出接通数</span>
+                  <span data-v-6e367a74="" class="" @click="selectCon(2,'callout_rate','%')">呼出接通率</span>
+                  <span data-v-6e367a74="" class="" @click="selectCon(3,'callin_num','个数（个）')">呼入总数</span>
+                  <span data-v-6e367a74="" class="" @click="selectCon(4,'callin_connect_num')">呼入接通数</span>
+                  <span data-v-6e367a74="" class="" @click="selectCon(5,'callin_rate','%')">呼入接通率</span>
+                  <span data-v-6e367a74="" class="" @click="selectCon(6,'call_num','个数（个）')">呼出+呼入总数</span>
+                  <span data-v-6e367a74="" class=""
+                    @click="selectCon(7,'call_connect_num','个数（个）')">呼出+呼入接通数</span>
+                  <span data-v-6e367a74="" class="" @click="selectCon(8,'call_rate','%')">呼出+呼入接通率</span>
+                  <span data-v-6e367a74="" class=""
+                    @click="selectCon(9,'callout_duration','时长（s）')">呼出时长</span>
+                  <span data-v-6e367a74="" class=""
+                    @click="selectCon(10,'callout_durationA','时长（s）')">呼出平均时长</span>
+                  <span data-v-6e367a74="" class=""
+                    @click="selectCon(11,'callin_duration','时长（s）')">呼入时长</span>
+                  <span data-v-6e367a74="" class=""
+                    @click="selectCon(12,'callin_durationA','时长（s）')">呼入平均时长</span>
+                  <span data-v-6e367a74="" class="" @click="selectCon(13,'duration','时长（s）')">总时长</span>
+                  <span data-v-6e367a74="" class="" @click="selectCon(14,'call_durationA','时长（s）')">总平均时长</span>
+                </div>
+                <div data-v-6e367a74="" class="hidden1" id="myChart" _echarts_instance_="ec_1556179465759"
+                  style="border-top: 1px solid rgb(223, 223, 225); padding-top: 6px; width: 1360px; height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;">
+                  <div
+                    style="position: relative; overflow: hidden; width: 1360px; height: 293px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+                    <canvas data-zr-dom-id="zr_0" width="1360" height="293"
+                      style="position: absolute; left: 0px; top: 0px; width: 1360px; height: 293px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                  </div>
+                  <div
+                    style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px/21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 549px; top: 91px;">
+                    2019-04-06<br><span
+                      style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#c23531;"></span>新增客户:
+                    0</div>
+                </div>
+              </div>
+              <div data-v-6e367a74="" id="viewBox1" class="v-content" style="min-height: 310px;">
+                <div data-v-6e367a74="">
+                  分析
+                  <div data-v-6e367a74="" class="title-icon"><span data-v-6e367a74="" @click="exportt"><i
+                        data-v-6e367a74="" class="anticon anticon-upload"></i></span></div>
+                </div>
+                <div class="xiangying">
+                </div>
+                <div data-v-6e367a74="" class="ant-breadcrumb" style="margin-bottom: 10px; margin-top: 10px;">
+                  <template>
+                    <el-table height="550"
+                      :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)" border
+                      style="width: 100%">
+                      <el-table-column fixed prop="date" label="日期" width="100">
+                      </el-table-column>
+                      <el-table-column label="呼出">
+                        <el-table-column prop="callout_num" label="总数" width="80">
+                        </el-table-column>
+                        <el-table-column prop="callout_connect_num" label="接通数" width="80">
+                        </el-table-column>
+                        <el-table-column prop="callout_rate" label="接通率" width="80">
+                        </el-table-column>
+                      </el-table-column>
+                      <el-table-column label="呼入">
+                        <el-table-column prop="callin_num" label="总数" width="80">
+                        </el-table-column>
+                        <el-table-column prop="callin_connect_num" label="接通数" width="80">
+                        </el-table-column>
+                        <el-table-column prop="callin_rate" label="接通率" width="80">
+                        </el-table-column>
+                      </el-table-column>
+                      <el-table-column label="呼出+呼入">
+                        <el-table-column prop="call_num" label="总数" width="80">
+                        </el-table-column>
+                        <el-table-column prop="call_connect_num" label="接通数" width="80">
+                        </el-table-column>
+                        <el-table-column prop="call_rate" label="接通率" width="80">
+                        </el-table-column>
+                      </el-table-column>
+                      <el-table-column label="时长">
+                        <el-table-column prop="callout_duration" label="呼出" width="80">
+                        </el-table-column>
+                        <el-table-column prop="callout_durationA" label="呼出平均" width="80">
+                        </el-table-column>
+                        <el-table-column prop="callin_duration" label="呼入" width="80">
+                        </el-table-column>
+                        <el-table-column prop="callin_durationA" label="呼入平均" width="80">
+                        </el-table-column>
+                        <el-table-column prop="duration" label="总时长" width="80">
+                        </el-table-column>
+                        <el-table-column prop="call_durationA" label="总平均" width="80">
+                        </el-table-column>
+                      </el-table-column>
+                    </el-table>
+                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                      :current-page="currentPage" :page-sizes="[1, 10, 20, 40]" :page-size="pagesize"
+                      layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                    </el-pagination>
+                  </template>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="el-scrollbar__bar is-horizontal">
+          <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+        </div>
+        <div class="el-scrollbar__bar is-vertical">
+          <div class="el-scrollbar__thumb" style="height: 87.7241%; transform: translateY(0%);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-v-417bc76c="" v-if="activeIndexa == 1" class="v-container container1">
+    <div data-v-16750612="" class="header">
+      <div data-v-16750612="" class="time time-panel clearfix">
+        <div data-v-16750612="" class="clearfix fl" style="">
+          <span data-v-16750612="" class="time-option" @click="flclick(0)">今日</span>
+          <span data-v-16750612="" @click="flclick(1)" class="time-option">昨日</span>
+          <span data-v-16750612="" @click="flclick(2)" class="time-option time-active">自定义时间段</span>
+          <template v-if="flindex == 2">
+            <div class="block" style="display:inline-block">
+              <el-date-picker v-model="value7" type="daterange" align="right" unlink-panels
+                start-placeholder="开始日期" end-placeholder="结束日期" :picker-options="pickerOptions2">
+              </el-date-picker>
+            </div>
+          </template>
+        </div>
+        <div data-v-16750612="" class="clearfix" style="float: right; width: 300px;">
+          <el-cascader :options="options" change-on-select v-model="selectedOptions">
+          </el-cascader>
+          <button data-v-16750612="" type="button" class="ant-btn ant-btn-primary" @click="exporttt()">
+
+            <span>导出</span></button>
+        </div>
+      </div>
+    </div>
+    <div data-v-16750612="" class="v-content clearfix" style="padding-bottom: 10px;">
+      <template>
+        <el-table :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)" border
+          style="width: 100%">
+          <el-table-column fixed prop="deptName" label="销售单元" width="100">
+          </el-table-column>
+          <el-table-column label="呼出">
+            <el-table-column prop="callOutTotal" label="总数" width="80">
+            </el-table-column>
+            <el-table-column prop="callOutConnectNum" label="接通数" width="80">
+            </el-table-column>
+            <el-table-column prop="callOutConnectRate" label="接通率" width="80">
+            </el-table-column>
+          </el-table-column>
+          <el-table-column label="呼入">
+            <el-table-column prop="callInTotal" label="总数" width="80">
+            </el-table-column>
+            <el-table-column prop="callInConnectNum" label="接通数" width="80">
+            </el-table-column>
+            <el-table-column prop="callInConnectRate" label="接通率" width="80">
+            </el-table-column>
+          </el-table-column>
+          <el-table-column label="呼出+呼入">
+            <el-table-column prop="callTotal" label="总数" width="80">
+            </el-table-column>
+            <el-table-column prop="callConnectNum" label="接通数" width="80">
+            </el-table-column>
+            <el-table-column prop="callConnectRate" label="接通率" width="80">
+            </el-table-column>
+          </el-table-column>
+          <el-table-column label="时长">
+            <el-table-column prop="callOutTimeTotal" label="呼出" width="80">
+            </el-table-column>
+            <el-table-column prop="callOutTimeAvg" label="呼出平均" width="80">
+            </el-table-column>
+            <el-table-column prop="callInTimeTotal" label="呼入" width="80">
+            </el-table-column>
+            <el-table-column prop="callInTimeAvg" label="呼入平均" width="80">
+            </el-table-column>
+            <el-table-column prop="callTimeTotal" label="总时长" width="80">
+            </el-table-column>
+            <el-table-column prop="callTimeAvg" label="总平均" width="80">
+            </el-table-column>
+          </el-table-column>
+        </el-table>
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+          :current-page="currentPage" :page-sizes="[1, 10, 20, 40]" :page-size="pagesize"
+          layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+        </el-pagination>
+      </template>
+    </div>
+  </div>
+  <div data-v-417bc76c="" v-if="activeIndexa == 2" class="v-container container1"
+    style="    background-color: white;">
+    <div data-v-16750612="" class="header">
+      <div data-v-16750612="" class="time time-panel clearfix">
+        <div data-v-16750612="" class="clearfix fl" style="">
+          <span data-v-16750612="" class="time-option" @click="flclick(0)">今日</span>
+          <span data-v-16750612="" @click="flclick(1)" class="time-option">昨日</span>
+          <span data-v-16750612="" @click="flclick(2)" class="time-option time-active">自定义时间段</span>
+          <template v-if="flindex == 2">
+            <div class="block" style="display:inline-block">
+              <el-date-picker v-model="value7" type="daterange" align="right" unlink-panels
+                start-placeholder="开始日期" end-placeholder="结束日期" :picker-options="pickerOptions2">
+              </el-date-picker>
+            </div>
+          </template>
+        </div>
+        <div data-v-16750612="" class="clearfix" style="float: right; width: 300px;">
+          <el-cascader :options="options" change-on-select v-model="selectedOptions">
+          </el-cascader>
+          <button data-v-16750612="" type="button" class="ant-btn ant-btn-primary" @click="exportttt()">
+
+            <span>导出</span></button>
+        </div>
+      </div>
+    </div>
+    <!-- <div style="background: white;"> -->
+    <div data-v-332e64b9="" class="ant-table ant-table-large ant-table-bordered" style="height: auto;">
+      <div data-v-332e64b9="">
+        <div data-v-332e64b9="" style="float: right; margin-bottom: 10px; position: relative;"><input
+            data-v-332e64b9="" type="text" placeholder="销售姓名/客户电话/销售ID" autocomplete="off"
+            class="input-box ant-input" style="width: 200px; padding-right: 28px;"> <i data-v-332e64b9=""
+            class="anticon anticon-search"
+            style="position: absolute; right: 10px; top: 12px; font-size: 14px; color: rgb(217, 217, 217);"></i>
+        </div>
+      </div>
+      <div data-v-332e64b9="" style="line-height: 32px;">
+        已选择<span class="cSpan"></span>条
+        &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <button data-v-332e64b9="" type="button" class="ant-btn"> <span @click="luyin">下载</span></button>
+      </div>
+    </div>
+    <template>
+      <el-table :data="userList1.slice((currentPage1-1)*pagesize1,currentPage1*pagesize1)" border
+        style="width: 100%" max-height="450" @selection-change="handleSelectionChange">
+        <el-table-column type="selection" width="55">
+        </el-table-column>
+        <el-table-column fixed prop="username" label="销售姓名" width="160">
+        </el-table-column>
+        <el-table-column prop="deptName" label="部门" width="160">
+        </el-table-column>
+        <el-table-column prop="contact_name" label="客户名称" width="160">
+        </el-table-column>
+        <el-table-column prop="contact_phone" label="客户电话" width="160">
+        </el-table-column>
+        <el-table-column prop="start_time" label="开始时间" width="160">
+          </el-table-column>
+        <el-table-column prop="call_type" label="通话类型" width="160">
+        </el-table-column>
+        <el-table-column prop="duration_str" label="通话时长" width="160">
+        </el-table-column>
+        <el-table-column label="操作" width="160">
+          <template slot-scope="scope">
+            <div style="height: 23px;" v-show="scope.row.id != showid">
+              <el-button type="text" size="small" @click="showId(scope.row)">播放</el-button>
+              <el-button type="text" size="small" @click="showdownload(scope.row)">下载</el-button>
+            </div>
+            <div  v-show="scope.row.id == showid" data-v-332e64b9=""
+              style="text-align: center; color: rgb(102, 102, 102); position: relative;">
+              <div data-v-332e64b9="" class="clearfix">
+                <div data-v-332e64b9="" style="width: 88%; float: left;padding-top: 3px">
+                  <div data-v-18b8333c="" data-v-332e64b9="" class="">
+                    <div data-v-18b8333c="" class="flex-fit">
+                      <div data-v-18b8333c="" class="song-title">
+                        <div data-v-18b8333c="" class="flex-fit"><span data-v-18b8333c=""><a
+                          data-v-18b8333c="" href="#" class="undefined"><span data-v-18b8333c=""><i
+                                  data-v-18b8333c="" :data-id="scope.row.id"   class="fa fa-fw fa-play fa-lg" @click="range(scope.row)"></i> </span></a></span>
+                          <input data-v-18b8333c="" :data-id="scope.row.id" type="range" min="0" :max="scope.row.duration_str" step="any"
+                            style="display: inline-block; " value="0" @change="rangea(scope.row)"></div>
+                      </div>
+                    </div> <audio :data-id="scope.row.id" data-v-18b8333c=""
+                      src="http://hujing-salesman-dev.oss-cn-beijing.aliyuncs.com/record_voice/hujing0302/wxid_7mcaqwas9vmb22/1557295511149.mp3?Expires=1557729521&OSSAccessKeyId=LTAI8gFP0ULUW2WC&Signature=glDTVR1QHZRU4DahrKBBnAIEdSQ%3D"
+                      preload="metadata">
+                      您的浏览器不支持语言播放，请更换谷歌浏览器。
+                    </audio>
+                  </div>
+                </div>
+                <div data-v-332e64b9="" style="width: 12%; float: left;"><button @click="hideId(scope.row)" data-v-332e64b9=""
+                    type="button" class="close-btn ant-btn ant-btn-ghost ant-btn-circle-outline">
+                     <i class="anticon anticon-close"></i>
+                    </button></div>
+              </div>
+            </div>
+          </template>
+        </el-table-column>
+
+      </el-table>
+      <el-pagination @size-change="handleSizeChange1" @current-change="handleCurrentChange1"
+        :current-page="currentPage1" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize1"
+        layout="total, sizes, prev, pager, next, jumper" :total="userList1.length">
+      </el-pagination>
+    </template>
+  </div>
+
+  <!-- </div> -->
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="el-tcl" style="display:none">
+<!-- style="display:none" -->
+
+<template>
+
+<el-transfer v-model="value2" :data="data2">
+</el-transfer>
+</template>
+</div>
+
+</div>
+
+<div class="ant-tooltip ant-tooltip-placement-lefttop"
+style="display:none;left: 1129px; top: 127px; position: absolute; display: none;">
+<div class="ant-tooltip-content">
+<div class="ant-tooltip-arrow"></div>
+<div class="ant-tooltip-inner"><span>
+<p style="font-size: 16px;">字段说明</p>
+<p style="line-height: 24px;">新增客户: 主动添加好友成功数+被加成为好友数</p>
+<p style="line-height: 24px;">主动申请：主动申请添加好友数，同一好友进行排重</p>
+<p style="line-height: 24px;">申请通过率：主动申请好友通过数/主动申请</p>
+<p style="line-height: 24px;">被加通过：设置了验证通过的+未设置验证被加为好友的，单向好友也算&nbsp;&nbsp;</p>
+<p style="line-height: 24px;">跟进率：新增客户中微信跟进数/新增客户</p>
+<p style="line-height: 24px;">有效沟通率：新增客户中微信有效沟通数/新增客户</p>
+<p style="line-height: 24px;">跟进客户-老：微信跟进的老客户数</p>
+<p style="line-height: 24px;">有效沟通-老：微信有效沟通的老客户数</p>
+<p style="line-height: 24px;">总有效沟通：微信有效沟通的新增客户加老客户数</p>
+<p style="line-height: 24px;">总通话数：新客户和老客户中，呼出接通和呼入接通的通话个数</p>
+<p style="line-height: 24px;">总时长：新客户和老客户中，呼出时长和呼入时长的总和</p>
+<p style="line-height: 24px;">总平均时长：新客户和老客户中，(通话时长总和)/(通话总个数)</p>
+<p style="line-height: 24px;">回复时间：微信回复客户信息的平均时间</p>
+</span></div>
+</div>
+
+</div>
+
+</body>
+<script>
+
+option = {
+title: {
+// text: '未来一周气温变化',
+// subtext: '纯属虚构'
+},
+tooltip: {
+trigger: 'axis'
+},
+// legend: {
+//     data:['最高气温','最低气温']
+// },
+xAxis: {
+type: 'category',
+boundaryGap: false,
+data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+},
+yAxis: {
+type: 'value',
+boundaryGap: false,
+data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+// axisLabel: {
+//     formatter: '{value} °C'
+// },
+max: '9'
+},
+series: [{
+name: '',
+type: 'line',
+data: [11, 11, 15, 13, 12, 13, 10],
+}]
+};
+
+function getTable(opt, colName, typeName) {
+var axisData = opt.xAxis[0].data; //获取图形的data数组
+var series = opt.series; //获取series
+var num = 0; //记录序号
+var sum = new Array(); //获取合计数组（根据对应的系数生成相应数量的sum）
+for (var i = 0; i < series.length; i++) {
+sum[i] = 0;
+}
+var table = '<table class="bordered"><thead><tr>' +
+'<th>' + colName + '</th>' +
+'<th>' + typeName + '</th>';
+for (var i = 0; i < series.length; i++) {
+table += '<th>' + series[i].name + '</th>'
+}
+table += '</tr></thead><tbody>';
+for (var i = 0, l = axisData.length; i < l; i++) {
+num += 1;
+for (var n = 0; n < series.length; n++) {
+if (series[n].data[i]) {
+sum[n] += Number(series[n].data[i]);
+} else {
+sum[n] += Number(0);
+}
+
+}
+table += '<tr>' +
+'<td>' + num + '</td>' +
+'<td>' + axisData[i] + '</td>';
+for (var j = 0; j < series.length; j++) {
+if (series[j].data[i]) {
+table += '<td>' + series[j].data[i] + '</td>';
+} else {
+table += '<td>' + 0 + '</td>';
+}
+
+}
+table += '</tr>';
+}
+//最后一行加上合计
+table += '<tr>' + '<td>' + (num + 1) + '</td>' + '<td>合计</td>';
+for (var n = 0; n < series.length; n++) {
+if (String(sum[n]).indexOf(".") > -1)
+table += '<td>' + (Number(sum[n])).toFixed(2) + '</td>';
+else
+table += '<td>' + Number(sum[n]) + '</td>';
+}
+table += '</tr></tbody></table>';
+return table;
+}
+
+var jdata = ""
+
+new Vue({
+el: '#app',
+data: function () {
+function generateData2() {
+const data = [];
+const cities = ['上海', '北京', '广州', '深圳', '南京', '西安', '成都'];
+cities.forEach((city, index) => {
+data.push({
+  label: city,
+  key: index
+});
+});
+return data;
+};
+return {
+data2: generateData2(),
+value2: [],
+activeIndexb: 1,
+activeIndexa: 0,
+flindex: 2,
+tableData4: [],
+pickerOptions2: {
+shortcuts: [{
+  text: '最近一周',
+  onClick(picker) {
+    const end = new Date();
+    const start = new Date();
+    start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+    picker.$emit('pick', [start, end]);
+  }
+}, {
+  text: '最近一个月',
+  onClick(picker) {
+    const end = new Date();
+    const start = new Date();
+    start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+    picker.$emit('pick', [start, end]);
+  }
+}, {
+  text: '最近三个月',
+  onClick(picker) {
+    const end = new Date();
+    const start = new Date();
+    start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+    picker.$emit('pick', [start, end]);
+  }
+}]
+},
+pickerOptions: {
+shortcuts: [{
+  text: '最近一周',
+  onClick(picker) {
+    const end = new Date();
+    const start = new Date();
+    start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+    picker.$emit('pick', [start, end]);
+  }
+}, {
+  text: '最近一个月',
+  onClick(picker) {
+    const end = new Date();
+    const start = new Date();
+    start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+    picker.$emit('pick', [start, end]);
+  }
+}, {
+  text: '最近三个月',
+  onClick(picker) {
+    const end = new Date();
+    const start = new Date();
+    start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+    picker.$emit('pick', [start, end]);
+  }
+}]
+},
+value6: '',
+value7: [new Date(new Date().getTime() - 24 * 60 * 60 * 1000), new Date()],
+options3:[],
+options: [{
+value: 'zhinan',
+label: '指南',
+children: [{
+  value: 'shejiyuanze',
+  label: '设计原则',
+  children: [{
+    value: 'yizhi',
+    label: '一致'
+  }, {
+    value: 'fankui',
+    label: '反馈'
+  }, {
+    value: 'xiaolv',
+    label: '效率'
+  }, {
+    value: 'kekong',
+    label: '可控'
+  }]
+}, {
+  value: 'daohang',
+  label: '导航',
+  children: [{
+    value: 'cexiangdaohang',
+    label: '侧向导航'
+  }, {
+    value: 'dingbudaohang',
+    label: '顶部导航'
+  }]
+}]
+}],
+labelAll : [],
+selectedOptions: [],
+selectedOptions2: [],
+currentPage: 1, //初始页
+pagesize: 10, //
+currentPage1: 1, //初始页
+pagesize1: 10, //    每页的数据
+userList: [],
+userList1: [],
+model2:0,
+showid : "",
+multipleSelection: [],
+timer:''
+}
+},
+created() {
+// this.handleUserList()
+let _this = this
+$.ajax({
+url: 'app3.json',
+type: 'get',
+success: function (data) {
+console.log(data)
+jdata = data
+_this.init('callout_num', '个数（个）')
+_this.userList = jdata.date
+_this.tableData4 = jdata.date
+},
+error: function () {
+
+}
+})
+$.ajax({
+url: 'showZZ.json',
+type: 'get',
+success: function (data) {
+data.sort(function(a,b){
+  return a.grade-b.grade
+})
+console.log(data)
+_this.labelAll = data
+var max = data[data.length-1].grade;
+var option = []
+for (let k = 0; k < max+1; k++) {
+  option[k] = [];
+  for (let j = 0; j < data.length; j++) {
+    // data[j].children =[]
+    data[j].label =data[j].name
+    data[j].value =data[j].name
+    if(data[j].grade == k){
+      option[k].push(data[j])
+    }
+  }
+}
+ 
+for (let k = max; k > 0; k--) {
+  // option[k+1]
+   for (let i = 0; i < option[k-1].length; i++) {
+     option[k-1][i].children =[]
+     for (let j = 0; j < option[k].length; j++) {
+     if(option[k][j].fid == option[k-1][i].sid){
+        option[k-1][i].children.push(option[k][j])
+     }
+   }
+   if(option[k-1][i].children.length == 0){
+     delete option[k-1][i].children
+   }
+  }
+}
+console.log(option)
+_this.options = option[0]
+},
+error: function () {
+
+}
+})
+},
+mounted() {
+console.log($('.el-transfer'))
+$('.el-transfer').append(
+`<p style="position:absolute;top:5%;right: 5%;"><span style="font-size:25px;display:inline-block;width:40px;height:40px;line-height:40px;text-align:center;cursor:pointer" onclick=" $('.el-tcl').css('display','none')">x</span></p>`
+)
+
+aa = $('input [type = range]')[0];
+console.log($(aa).val(),$(aa).attr('max'))
+// $('input[type = range]').change(function(){
+// })
+// this.userList = jdata.data['user']
+},
+methods: {
+audioInit(){
+$('audio').each(function(index,el){
+$(el)[0].pause();
+$(el)[0].currentTime = 0;
+})
+clearInterval(this.timer);
+$('input[type = range]').each(function(index,el){
+$(el).val(0)
+})
+$('i').each(function(index,el){
+if($(el).attr('class').indexOf('fa-pause')>0){
+  $(el).removeClass('fa-pause')
+      $(el).addClass('fa-play')
+}
+})
+console.log($('i'))
+},
+showId(row){
+this.showid = row.id
+this.audioInit()
+},
+hideId(row){
+this.showid = '';
+arang = 'input[data-id='+row.id+']'
+aa = $(arang)[0];
+audi = 'audio[data-id='+row.id+']'
+audio = $(audi)[0]
+i = 'i[data-id='+row.id+']'
+console.log($(i).attr('class'))
+$(i).removeClass('fa-pause')
+$(i).addClass('fa-play')
+clearInterval(this.timer);
+audio.currentTime = aa.value
+audio.pause()
+},
+optclick(item){
+console.log()
+
+_this = this;
+console.log(item[item.length-1],this.labelAll)
+var arr = this.labelAll;
+for (let i = 0; i < arr.length; i++) {
+if(arr[i].name == item[item.length-1]){
+  if(arr[i].children == undefined){
+    console.log(arr[i].children)
+    $.ajax({
+      url:'renyuan.json',
+      data:'',
+      success:function(data){
+        for (let i = 0; i < data.length; i++) {
+          data[i].value = data[i].name
+          data[i].label = data[i].name
+          // $('.el-cascader-menu')[3].innerHTML+=`<li tabindex="-1" role="menuitem" id="menu-4826-2-0" class="el-cascader-menu__item"><span>`+data[i].name+`</span></li>`
+        }
+        _this.options3=data
+      }
+    })
+  }else{
+    this.options3 = []
+    console.log(1)
+  }
+}
+}
+},
+rangea(a){
+i = 'i[data-id='+a.id+']'
+console.log($(i).attr('class'))
+$(i).removeClass('fa-play')
+$(i).addClass('fa-pause')
+_this = this
+this.timer= setInterval(function(){
+aa.value=parseFloat(aa.value)+1;
+
+  if(parseFloat(aa.value)==a.duration_str){
+    audio.pause()
+      aa.value=0
+      audio.currentTime = 0;
+      $(i).removeClass('fa-pause')
+      $(i).addClass('fa-play')
+      clearInterval(_this.timer);
+      return
+  }
+},1000)
+aa = $('input[type=range]')[0];
+console.log(aa.value)
+audi = 'audio[data-id='+a.id+']'
+audio = $(audi)[0]
+audio.currentTime = aa.value
+audio.play()
+},
+range(a){
+console.log()
+arang = 'input[data-id='+a.id+']'
+aa = $(arang)[0];
+audi = 'audio[data-id='+a.id+']'
+audio = $(audi)[0]
+console.log(a,audio)
+var target = event.target
+if($(target).attr('class').indexOf('fa-play')>0){
+$(target).removeClass('fa-play')
+$(target).addClass('fa-pause')
+audio.play()
+audio.currentTime = aa.value
+_this = this
+this.timer= setInterval(function(){
+aa.value=parseFloat(aa.value)+1;
+
+  if(parseFloat(aa.value)==a.duration_str){
+    audio.pause()
+      aa.value=0
+      audio.currentTime = 0;
+      $(target).removeClass('fa-pause')
+      $(target).addClass('fa-play')
+      clearInterval(_this.timer);
+      return
+  }
+},1000)
+}else{
+audio.pause()
+audio.currentTime = aa.value
+$(target).removeClass('fa-pause')
+$(target).addClass('fa-play')
+clearInterval(this.timer);
+}
+
+},
+openTcl() {
+$('.el-tcl').css('display', 'block')
+},
+tablexq(data) {
+console.log(data)
+window.location.href = "index.3.html"
+},
+flclick(flindex) {
+this.flindex = flindex
+$('.fl span').each(function (index, el) {
+$(el).removeClass('time-active')
+})
+$($('.fl span')[this.flindex]).addClass('time-active')
+if (this.flindex == 0) {
+
+} else if (this.flindex == 1) {
+
+} else {
+
+}
+},
+handleChange(value, direction, movedKeys) {
+console.log(value, direction, movedKeys);
+},
+inquiry() {
+var arr = $('.el-cascader__label').text().split(''),
+str = "";
+for (let i = 0; i < arr.length; i++) {
+if (arr[i] != " " && arr[i] != "\n") {
+  str += arr[i]
+}
+}
+// this.value7 = [new Date(new Date().getTime()-24*60*60*1000), new Date()];
+let _this = this
+switch (this.activeIndexa) {
+case 0:
+  $.ajax({
+    url: 'app3.json',
+    type: 'get',
+    data: {
+      belong: str,
+      time1: $('.el-range-input')[0] == undefined ? '' : $('.el-range-input')[0].value,
+      time2: $('.el-range-input')[1] == undefined ? '' : $('.el-range-input')[1].value
+    },
+    success: function (data) {
+      console.log(data)
+      jdata = data
+      _this.init('callout_num', '个数（个）')
+      _this.userList = jdata.date
+      _this.tableData4 = jdata.date
+    },
+    error: function () {
+
+    }
+  })
+  break;
+case 1:
+  $.ajax({
+    url: 'fenxi.json',
+    type: 'get',
+    data: {
+      belong: str,
+      time1: $('.el-range-input')[0] == undefined ? '' : $('.el-range-input')[0].value,
+      time2: $('.el-range-input')[1] == undefined ? '' : $('.el-range-input')[1].value
+    },
+    success: function (data) {
+      console.log(data)
+      jdata = data
+      _this.userList = jdata.data
+      _this.currentPage = 1
+      _this.pagesize = 1
+    },
+    error: function () {
+
+    }
+  })
+  break;
+case 2:
+  console.log($('.el-range-input'))
+  $.ajax({
+    url: 'xiangdan.json',
+    type: 'get',
+    data: {
+      belong: str,
+      time1: $('.el-range-input')[0] == undefined ? '' : $('.el-range-input')[0].value,
+      time2: $('.el-range-input')[1] == undefined ? '' : $('.el-range-input')[1].value
+    },
+    success: function (data) {
+      console.log(data)
+      // jdata = data
+      _this.userList1 = data.data.result
+    },
+    error: function () {
+
+    }
+  })
+  break;
+default:
+  break;
+}
+},
+handleClose(key, keyPath) {
+console.log(key, keyPath);
+},
+iconActive1(value) {
+$('.container1 .hidden2').css('display', 'none')
+$('.container1 .hidden1').css('display', 'block')
+this.titleCon(0)
+
+},
+iconActive2(value) {
+$('.container1 .hidden1').css('display', 'none')
+$('.container1 .hidden2').css('display', 'block')
+
+this.titleCon(1)
+//  console.log(this.tableData4)
+this.tableData4 = jdata.data['date']
+},
+iconActive3(value) {
+//  this.titleCon(2)
+att = $('.container1 .el-table')[0]
+res = this.tableData4;
+this.export(att, res)
+},
+overShow() {
+$('.ant-tooltip').css('display', 'block')
+},
+outHide() {
+$('.ant-tooltip').css('display', 'none')
+
+},
+init(dir, Yname) {
+var myChart = echarts.init(document.getElementById('myChart'));
+Xarr = [], Yarr = [];
+for (let i = 0; i < jdata.date.length; i++) {
+var jh = jdata.date[i][dir];
+Xarr.push(jdata.date[i]['date'])
+if(dir == "callout_rate" ||dir == "callin_rate" ||dir == "call_rate" ){
+  Yarr.push(jh.split('%')[0])
+}else{
+  Yarr.push(jh)
+}
+
+}
+var max = Yarr[0];
+var min = Yarr[0];
+for (var i = 0; i < Yarr.length; i++) {
+
+if (Yarr[i] > max) {
+  max = Yarr[i];
+} else
+if (Yarr[i] < min) {
+  min = Yarr[i];
+}
+}
+option.xAxis.data = Xarr
+option.series[0].data = Yarr
+//  option.yAxis.max = Yarr.sort()[0]
+option.yAxis.max = max
+option.yAxis.name = Yname
+myChart.setOption(option);
+},
+exportt() {
+att = $('.ant-breadcrumb table')
+res = this.userList;
+this.export(att, res)
+},
+exporttt(){
+console.log(1)
+att = $('.clearfix table')
+res = this.userList;
+str = "";
+console.log(att[0].querySelectorAll('tr'),res,att);
+str=" ,呼出,,,呼入,,,呼出+呼入,,,时长"+'\r\n'+"销售单元,总数,接通数,接通率,总数,接通数,接通率,总数,接通数,接通率,呼出,呼出平均,呼入,呼入平均,总时长,总平均"+'\r\n'
+for (let k = 0; k < att[1].querySelectorAll('tr').length ; k++) {
+
+  stra = ""
+  console.log(att[1].querySelectorAll('tr')[k].querySelectorAll('td'))
+  $(att[1].querySelectorAll('tr')[k].querySelectorAll('td')).each(function (
+    index, el) {
+    stra += $(el)[0].querySelectorAll('div')[0].innerHTML
+    stra += ','
+  })
+  str += stra + '\r\n';
+// const element = array[k];
+
+}
+console.log(str)
+var fileName = "MyReport_";
+fileName += "Download".replace(/ /g, "_");
+var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+var link = document.createElement("a");
+link.href = uri;
+link.style = "visibility:hidden";
+link.download = fileName + ".CSV";
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+},
+exportttt(){
+console.log($('.container1 table'))
+att = $('.container1 table')
+// res = this.userList;
+str = "";
+console.log(att[0].querySelectorAll('tr')[0]);
+stra = ""
+$(att[0].querySelectorAll('tr')[0].querySelectorAll('th')).each(function (
+    index, el) {
+    if(index!=0 && index!=8 && index!=9){
+      console.log($(el)[0].querySelectorAll('div')[0])
+      stra += $(el)[0].querySelectorAll('div')[0].innerHTML
+      stra += ','
+    }
+  })
+  str += stra + '\r\n';
+// str=" ,呼出,,,呼入,,,呼出+呼入,,,时长"+'\r\n'+"销售单元,总数,接通数,接通率,总数,接通数,接通率,总数,接通数,接通率,呼出,呼出平均,呼入,呼入平均,总时长,总平均"+'\r\n'
+for (let k = 0; k < att[1].querySelectorAll('tr').length ; k++) {
+
+  stra = ""
+  console.log(att[1].querySelectorAll('tr')[k].querySelectorAll('td'))
+  $(att[1].querySelectorAll('tr')[k].querySelectorAll('td')).each(function (
+    index, el) {
+      if(index!=0 && index!=8 && index!=9){
+        stra += $(el)[0].querySelectorAll('div')[0].innerHTML
+         stra += ','
+      }
+    
+  })
+  str += stra + '\r\n';
+// const element = array[k];
+
+}
+console.log(str)
+var fileName = "MyReport_";
+fileName += "Download".replace(/ /g, "_");
+var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+var link = document.createElement("a");
+link.href = uri;
+link.style = "visibility:hidden";
+link.download = fileName + ".CSV";
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+},
+selectCon(num, name, Yname) {
+_this = this
+$('.container1 .condition-select span').each(function (index, el) {
+$(el).removeClass('condition-select-active')
+if (index == num) {
+  $(el).addClass('condition-select-active')
+  _this.init(name, Yname)
+}
+})
+},
+titleCon(num) {
+$('.container1 .title-icon span').each(function (index, el) {
+$(el).removeClass('title-icon-active')
+if (index == num) {
+  $(el).addClass('title-icon-active')
+}
+})
+},
+getNowFormatDate(date) {
+var seperator1 = "-";
+var seperator2 = ":";
+var month = date.getMonth() + 1;
+var strDate = date.getDate();
+if (month >= 1 && month <= 9) {
+month = "0" + month;
+}
+if (strDate >= 0 && strDate <= 9) {
+strDate = "0" + strDate;
+}
+var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+return currentdate;
+},
+coMtitleCon(num) {
+$('.common-title span').each(function (index, el) {
+$(el).removeClass('active')
+if (index == num) {
+  $(el).addClass('active')
+}
+})
+console.log(this.flindex)
+this.flindex = 2
+$('.fl span').each(function (index, el) {
+$(el).removeClass('time-active')
+})
+$($('.fl span')[this.flindex]).addClass('time-active')
+console.log(this.flindex)
+this.activeIndexa = num
+// $('.el-range-input')[0].value = this.getNowFormatDate(new Date(new Date().getTime()-24*60*60*1000))
+// $('.el-range-input')[1].value =  this.getNowFormatDate(new Date())
+this.inquiry()
+},
+export (att, res) {
+str = "";
+console.log(att[0].querySelectorAll('tr'),res);
+str=" ,呼出,,,呼入,,,呼出+呼入,,,时长"+'\r\n'+"日期,总数,接通数,接通率,总数,接通数,接通率,总数,接通数,接通率,呼出,呼出平均,呼入,呼入平均,总时长,总平均"+'\r\n'
+for (let k = 0; k < att[1].querySelectorAll('tr').length ; k++) {
+
+  stra = ""
+  console.log(att[1].querySelectorAll('tr')[k].querySelectorAll('td'))
+  $(att[1].querySelectorAll('tr')[k].querySelectorAll('td')).each(function (
+    index, el) {
+    stra += $(el)[0].querySelectorAll('div')[0].innerHTML
+    stra += ','
+  })
+  str += stra + '\r\n';
+// const element = array[k];
+
+}
+console.log(str)
+var fileName = "MyReport_";
+fileName += "Download".replace(/ /g, "_");
+var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+var link = document.createElement("a");
+link.href = uri;
+link.style = "visibility:hidden";
+link.download = fileName + ".CSV";
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+},
+handleSizeChange: function (size) {
+this.pagesize = size;
+console.log(this.pagesize) //每页下拉显示数据
+},
+handleCurrentChange: function (currentPage) {
+this.currentPage = currentPage;
+console.log(this.currentPage) //点击第几页
+},
+handleSizeChange1: function (size) {
+this.pagesize1 = size;
+console.log(this.pagesize1) //每页下拉显示数据
+},
+handleCurrentChange1: function (currentPage) {
+this.currentPage1 = currentPage;
+console.log(this.currentPage1) //点击第几页
+},
+toggleSelection(rows) {
+if (rows) {
+rows.forEach(row => {
+  this.$refs.multipleTable.toggleRowSelection(row);
+});
+} else {
+this.$refs.multipleTable.clearSelection();
+}
+},
+handleSelectionChange(val) {
+this.multipleSelection = val;
+console.log(this.multipleSelection.length)
+$('.cSpan').text(this.multipleSelection.length)
+},
+luyin() {
+console.log(this.multipleSelection)
+}
+}
+})
+var myChart = echarts.init(document.getElementById('myChart'));
+
+//使用制定的配置项和数据显示图表
+myChart.setOption(option);
+</script>
+
+</html>

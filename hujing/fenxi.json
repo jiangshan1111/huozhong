@@ -1,0 +1,24 @@
+{
+  "code": 200,
+  "message": "\u6210\u529f",
+  "data": {
+    "\u57fa\u91d1\u4e8b\u4e1a\u90e8": {
+      "user": "\u57fa\u91d1\u4e8b\u4e1a\u90e8",
+      "callout_num": 0,
+      "callout_connect_num": 0,
+      "callin_num": 0,
+      "callin_connect_num": 0,
+      "duration": 0,
+      "callin_duration": 0,
+      "call_num": 0,
+      "call_connect_num": 0,
+      "callout_rate": "0%",
+      "callin_rate": "0%",
+      "call_rate": "0%",
+      "callout_duration": 0,
+      "callin_durationA": 0,
+      "callout_durationA": 0,
+      "call_durationA": 0
+    }
+  }
+}

@@ -1,0 +1,660 @@
+{
+    "code" : 0,
+    "message" : null,
+    "data" : {
+      "totalCount" : 9,
+      "totalPage" : 1,
+      "currentPage" : 1,
+      "result" : [ {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      },  {
+        "id" : 32873,
+        "username" : "徐洋",
+        "sales_id" : "hujing0302_cc1",
+        "department_id" : 30691,
+        "department_name" : "试用部门",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34501,
+          "wxId" : "wxid_njqiofvug1o422",
+          "nickName" : "烟花巷陌",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/Spd9TYTcWVgQF9epCBMqfQJj5Skl0K0ztJhX7VuS9n8veSVvZBOPxRiadgrKM2rdjk9aauUqOopvWCVMNhDUbHVW7iaLV5Ot2cqImCqqm0Ztk/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        }, {
+          "id" : 34621,
+          "wxId" : "wxid_zwfhbp6bvmil22",
+          "nickName" : "徐洋-虎鲸跳跃",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/jeB3x80snHRbnyOVjM5Stiajx8h9SRwklaIGeYibHR2DDVaDAX9Nbibc6pzM71Zr5ju5HZX8TSNiaLwYiaw7podUIVbEZAiaCX5z5icngOuc0kG0Tg/96",
+          "userId" : "hujing0302_cc1",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      }, {
+        "id" : 32874,
+        "username" : "刘鑫",
+        "sales_id" : "hujing0302_cc2",
+        "department_id" : 30691,
+        "department_name" : "商务",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34476,
+          "wxId" : "wxid_2hbth9u7ojkq22",
+          "nickName" : "刘鑫，教育机构",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/g2dK29NmnnOibO1HXxIlYibhMhq0CicibLPic8YYP7cpxaOBeYfQbQ3tIFicGrrxiaiaBAsog0ZWwIcWRJBZ1dkianOrnMS4s8djfvooplKZ6Flu2ygk/96",
+          "userId" : "hujing0302_cc2",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 1,
+        "friend_id" : null
+      }, {
+        "id" : 32993,
+        "username" : "段东伟",
+        "sales_id" : "duandongwei@aihujing.com",
+        "department_id" : 30691,
+        "department_name" : "商务",
+        "status" : 1,
+        "wxInfos" : [ ],
+        "is_check" : 0,
+        "friend_id" : null
+      }, {
+        "id" : 33217,
+        "username" : "市场体验1",
+        "sales_id" : "17085500033",
+        "department_id" : 30731,
+        "department_name" : "市场",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34846,
+          "wxId" : "wxid_8o0wyr7y4q2s22",
+          "nickName" : "七堇年華",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/C9eBJ2Ts9xpcPMUAWXz7lCziaTAmo3LrIS1V7qadyjwQLCQauG28ABUeAiaTGf2QJpPNXzeLQgDmMaMiaaZBnVdV9SfsU3BykteXcSmQXlwS4E/96",
+          "userId" : "17085500033",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : "hujingsdr2",
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      }, {
+        "id" : 33473,
+        "username" : "市场体验2",
+        "sales_id" : "17085500030",
+        "department_id" : 30731,
+        "department_name" : "市场",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 34762,
+          "wxId" : "wxid_t1lbot1phvqp22",
+          "nickName" : "虎鲸售前咨询",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/k2R5Hiaw9icyev8J9WLwW1cU5KYksZH7via6poRRtyrf83me1rwULksnicjWAE3CibWyNy5A3vYm1LpXm5xpIPeIJrj2qn37k8VIiaEdKDNHqKmz8/96",
+          "userId" : "17085500030",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : "hjsdr01",
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      }, {
+        "id" : 33623,
+        "username" : "刘富东",
+        "sales_id" : "liufudong@aihujing.com",
+        "department_id" : 30691,
+        "department_name" : "商务",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 35239,
+          "wxId" : "wxid_6yp7wxdibdrl22",
+          "nickName" : "刘富东",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/ico81YWibiar4jEicuB3ibVMmyFzCqErBqq7HOYoQbOyY5HIkopF11mVO8COVyxBLXE8xwLFTsIWaG9MStPAPia6Guj94jz8ppNFTwp5ODK4HkBso/96",
+          "userId" : "liufudong@aihujing.com",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : null,
+          "status" : "完成"
+        } ],
+        "is_check" : 1,
+        "friend_id" : null
+      }, {
+        "id" : 34259,
+        "username" : "新员工2",
+        "sales_id" : "15367654567",
+        "department_id" : 30861,
+        "department_name" : "ACCA一组",
+        "status" : 1,
+        "wxInfos" : [ ],
+        "is_check" : 1,
+        "friend_id" : null
+      }, {
+        "id" : 34487,
+        "username" : "马文兵",
+        "sales_id" : "mawenbing@aihujing.com",
+        "department_id" : 30691,
+        "department_name" : "商务",
+        "status" : 1,
+        "wxInfos" : [ {
+          "id" : 35972,
+          "wxId" : "wxid_rmqntcg16oi112",
+          "nickName" : "随风",
+          "headImg" : "",
+          "userId" : "mawenbing@aihujing.com",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : "suifengma77",
+          "status" : "完成"
+        }, {
+          "id" : 36080,
+          "wxId" : "tianwei3434",
+          "nickName" : "田威@",
+          "headImg" : "http://wx.qlogo.cn/mmhead/ver_1/iabFGB4vq5MCaibkpPPIuwUrJgjHRHk7z7P1peiccH6K3tcl5Nib07dJvzF9SIrC277on0M40TgHXTaabFynicpe4xf45MJqZmwibNjDLKRAYlfBY/0",
+          "userId" : "mawenbing@aihujing.com",
+          "userName" : "",
+          "departmentName" : null,
+          "alias" : "",
+          "status" : "完成"
+        } ],
+        "is_check" : 0,
+        "friend_id" : null
+      }, {
+        "id" : 34868,
+        "username" : "test",
+        "sales_id" : "test",
+        "department_id" : 30691,
+        "department_name" : "商务",
+        "status" : 1,
+        "wxInfos" : [ ],
+        "is_check" : 0,
+        "friend_id" : null
+      } ]
+    }
+  }

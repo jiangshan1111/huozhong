@@ -1,0 +1,55 @@
+{
+    "code" : 0,
+    "message" : null,
+    "data" : {
+      "totalCount" : 3,
+      "totalPage" : 1,
+      "currentPage" : 1,
+      "result" : [ {
+        "createTime" : "2019-03-18 16:16:18",
+        "sentence" : "{\"receivertitle\":\"恭喜你，亲爱的\",\"des\":\"我给你发了一个红包，赶紧去拆!\",\"sendertitle\":\"恭喜你，亲爱的\",\"title\":\"微信红包\",\"thumburl\":\"https://wx.gtimg.com/hongbao/1800/hb.png\"}",
+        "type" : "436207665",
+        "author" : null,
+        "friend" : "刘老师",
+        "chatId" : "d523f2c80cfd4b0bb451b7b8af0b8fa7",
+        "sensitiveWords" : null,
+        "telephones" : null,
+        "nickName" : null,
+        "nick" : null,
+        "headimg" : null,
+        "wxId" : null,
+        "channel" : 1,
+        "sentenceJson" : null
+      }, {
+        "createTime" : "2019-03-18 14:51:50",
+        "sentence" : "{\"des\":\"收到转账2.00元。如需收钱，请点此升级至最新版本\",\"feedesc\":\"￥2.00\",\"transcationid\":\"100005010119031800079342620239222895\",\"title\":\"微信转账\",\"transferid\":\"1000050101201903181806030025796\",\"paysubtype\":\"1\"}",
+        "type" : "419430449",
+        "author" : null,
+        "friend" : "刘鑫",
+        "chatId" : "f0756355398f4385959ad2018fccd08a",
+        "sensitiveWords" : null,
+        "telephones" : null,
+        "nickName" : null,
+        "nick" : null,
+        "headimg" : null,
+        "wxId" : null,
+        "channel" : 1,
+        "sentenceJson" : null
+      }, {
+        "createTime" : "2019-03-18 14:51:42",
+        "sentence" : "{\"receivertitle\":\"恭喜发财，大吉大利\",\"des\":\"我给你发了一个红包，赶紧去拆!\",\"sendertitle\":\"恭喜发财，大吉大利\",\"title\":\"微信红包\",\"thumburl\":\"https://wx.gtimg.com/hongbao/1800/hb.png\"}",
+        "type" : "436207665",
+        "author" : null,
+        "friend" : "刘鑫",
+        "chatId" : "aeb1b4d5255e4711abddeb7a206a67ed",
+        "sensitiveWords" : null,
+        "telephones" : null,
+        "nickName" : null,
+        "nick" : null,
+        "headimg" : null,
+        "wxId" : null,
+        "channel" : 1,
+        "sentenceJson" : null
+      } ]
+    }
+  }
