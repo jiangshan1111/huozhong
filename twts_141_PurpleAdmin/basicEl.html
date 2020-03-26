@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>火种教育</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/element-ui.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+  
+  <style>
+    .el-notification {
+    background-color: #57c7d4;
+    }
+    .form-control{
+      height:2.5rem;
+    }
+    .tableSpan span{
+      display:inline-block;
+      padding:2px 20px;
+    }
+    select.form-control {
+    color: black;
+}
+    .content-wrapper {
+    background: #f2edf3;
+    padding: 1.25rem 1.25rem;
+    width: 100%;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+.card .card-body {
+    padding: 1.5rem 1.5rem;
+}
+    .mail span{
+  float: left;
+  width: 80px;
+  cursor: pointer;
+  margin:2px  10px;
+  border: 1px solid rgb(210,210,210);
+  border-radius: 3px;
+  background-color: white;
+}
+    .dropdownn-menu{
+      border: none;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+    position: static;
+    float: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #343a40;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ebedf2;
+    border-radius: 0.25rem;
+    }
+    .btn.btn-fw.btn-outline-successf,.btn.btn-fw.btn-outline-successff {
+    color: #1bcfb4;
+    background-color: transparent;
+    background-image: none;
+    border-color: #1bcfb4;
+    padding:0.875rem 0;
+    min-width: 10px;
+    width:10%;
+    margin-right:1.1% ;
+    margin-bottom:1rem;
+    }
+    .btn.btn-fw.btn-outline-successff {
+    color: white;
+    background-color:#1bcfb4;
+    }
+    @media only screen and (max-width:750px){
+      .btn.btn-fw.btn-outline-successf,.btn.btn-fw.btn-outline-successff {
+        width:31%;
+        margin-right:2.3% ;
+      }
+      .btn{
+        margin-bottom:.5rem;
+      }
+    }
+    .table th, .table td {
+        padding: 0.6rem;
+        white-space: nowrap;
+    }
+    table td:nth-of-type(2n+1){
+      color:#b66dff
+    }
+    .grid-margin, .purchase-popup {
+    margin-bottom: 0;
+}
+#scrollnav::-webkit-scrollbar {
+    display: none;
+}
+    .dropdownn-menu{
+      border: none;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+    position: static;
+    float: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #343a40;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ebedf2;
+    border-radius: 0.25rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-scroller"  id="app"  v-loading="Loading">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="index.html">火种教育</a>
+        <a class="navbar-brand brand-logo-mini" href="index.html">火种教育</a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <div class="search-field d-none d-md-block">
+          <form class="d-flex align-items-center h-100" action="#">
+            <div class="input-group">
+              <div class="input-group-prepend bg-transparent">
+                  <i class="input-group-text border-0 mdi mdi-magnify"></i>                
+              </div>
+              <input type="text" class="form-control bg-transparent border-0" placeholder="机会列表">
+            </div>
+          </form>
+        </div>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <div class="nav-profile-img">
+                <img src="images/faces/face15.jpg" alt="image">
+                <span class="availability-status online"></span>             
+              </div>
+              <div class="nav-profile-text">
+                <p class="mb-1 text-black">江山</p>
+              </div>
+            </a>
+            <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item" href="#">
+                <i class="mdi mdi-cached mr-2 text-success"></i>
+                库存分析表
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <i class="mdi mdi-logout mr-2 text-primary"></i>
+                数据分析表
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./basicEl.html" >
+                <i class="mdi mdi-login mr-2 text-success"></i>
+                新建订单
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdownn">
+            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <div class="nav-profile-text">
+                <p class="mb-1 text-black">学员基本信息</p>
+              </div>
+            </a>
+            <div class="col-md-12 dropdownn-menu navbar-dropdown" aria-labelledby="profileDropdown" style="overflow: auto">
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    
+                      <table class="table table-bordered">
+                          <tbody>
+                            <tr>
+                              <td>合同编号</td>
+                              <td colspan="3">{{stu.contract_id}}</td>
+                              <td>代报名</td>
+                              <td>{{stu.instead_sign}}</td>
+                              <td>紧急联系人</td>
+                              <td>{{stu.ergent_people}}</td>
+                              <td>紧急联系电话</td>
+                              <td>{{stu.ergent_mobile}}</td>
+                            </tr>
+                            <tr>
+                              <td>姓名</td>
+                              <td>{{stu.stu_name}}</td>
+                              <td>咨询号码</td>
+                              <td style="cursor: pointer" @click="call">{{stu.mobile}}</td>
+                              <td>课程号码</td>
+                              <td>{{stu.class_mobile}}</td>
+                              <td>身份证</td>
+                              <td>{{stu.id_num}}</td>
+                              <td>微信号</td>
+                              <td>{{stu.weixin}}</td>
+                            </tr>
+                            <tr>
+                              <td>邮箱</td>
+                              <td>{{stu.email}}</td>
+                              <td>邮寄地址</td>
+                              <td>{{stu.mail_address}}</td>
+                              <td>报考省份</td>
+                              <td>{{stu.exam_province}}</td>
+                              <td>报考城市</td>
+                              <td>{{stu.exam_city}}</td>
+                              <td>总金额</td>
+                              <td>{{stu.price}}</td>
+                            </tr>
+                            <tr>
+                              <td>培训费用</td>
+                              <td>{{stu.pxfei}}</td>
+                              <td>消防代报名费</td>
+                              <td>{{stu.instead_sign=="是"?'1500':'0'}}</td>
+                              <td>基金换科补费</td>
+                              <td>{{stu.jjhk == undefined?'0':stu.jjhk}}</td>
+                              <td>项目</td>
+                              <td>{{stu.project}}</td>
+                              <td>班型</td>
+                              <td>{{stu.classType}}</td>
+                            </tr>
+                            <tr>
+                              <td>报名类型</td>
+                              <td>{{stu.sign_type}}</td>
+                              <td>支付方式</td>
+                              <td>{{stu.pay_way}}</td>
+                              <td>学历</td>
+                              <td>{{stu.education}}</td>
+                              <td>行业</td>
+                              <td>{{stu.trade}}</td>
+                              <td>工作年限</td>
+                              <td>{{stu.work_year}}</td>
+                            </tr>
+                            <tr>
+                              <td>职位</td>
+                              <td>{{stu.zhiwei}}</td>
+                              <td>单位</td>
+                              <td>{{stu.danwei}}</td>
+                              <td>科目</td>
+                              <td>{{stu.section}}</td>
+                              <td>考期</td>
+                              <td>{{stu.exam_date}}</td>
+                              <td>姓名</td>
+                              <td>{{stu.stu_name}}</td>
+                            </tr>
+                            <tr v-for="(item,index) in tran">
+                              <td>异动<br>({{item.type}})</td>
+                              <td colspan="9" style="white-space: inherit;" class="tableSpan">
+                                  <span style="color:red">状态：{{item.is_status=='1'?'已处理':'未处理'}}</span>
+                                  <span v-if="item.do_time">操作时间：{{item.do_time}}</span>
+                                  <span v-if="item.jijinhuanke">基金换科补费：{{item.jijinhuanke}}</span>
+                                  <span v-if="item.sc_oneScore">科一成绩：{{item.sc_oneScore}}</span>
+                                  <span v-if="item.sc_twoScore">科二成绩：{{item.sc_twoScore}}</span>
+                                  <span v-if="item.sc_threeScore">科三成绩：{{item.sc_threeScore}}</span>
+                                  <span v-if="item.sc_oneAttend">科一出勤率：{{item.sc_oneAttend}}</span>
+                                  <span v-if="item.sc_twoAttend">科二出勤率：{{item.sc_twoAttend}}</span>
+                                  <span v-if="item.sc_threeAttend">科三出勤率：{{item.sc_threeAttend}}</span>
+                                  <span v-if="item.apaly_price">收款金额（元）：{{item.apaly_price}}</span>
+                                  <span v-if="item.pay_way">收款方式：{{item.pay_way}}</span>
+                                  <span v-if="item.apaly_numa">收款账号：{{item.apaly_numa}}</span>
+                                  <span v-if="item.back_name">收款姓名：{{item.back_name}}</span>
+                                  <span v-if="item.bank_num">收款卡号：{{item.bank_num}}</span>
+                                  <span v-if="item.bank_khh">开户行：{{item.bank_khh}}</span>
+                                  <span v-if="item.frozen_time">冻结时长：{{item.frozen_time}}</span>
+                                  <span v-if="item.bp_reason">退费原因：{{item.bp_reason}}</span>
+                                  <span v-if="item.djtime">退费描述：{{item.djtime}}</span>
+                                  <span v-if="item.bp_desc">冻结时长：{{item.bp_desc}}</span>
+                                  <span v-if="item.bp_price">退费金额（元）：{{item.bp_price}}</span>
+                                  <span v-if="item.bp_account">退费追责：{{item.bp_account}}</span>
+                                  <span v-if="item.exam_province2">重修省份：{{item.exam_province2}}</span>
+                                  <span v-if="item.exam_city2">重修城市：{{item.exam_city2}}</span>
+                                  <span v-if="item.cxkq">重修考期：{{item.cxkq}}</span>
+                                  <span v-if="item.stu_name">学员姓名：{{item.stu_name}}</span>
+                                  <span v-if="item.order_time">创建时间：{{item.order_time}}</span>
+                                  <span v-if="item.workyear">工作年限：{{item.workyear}}</span>
+                                  <span v-if="item.sex">学员性别:{{item.sex}}</span>
+                                  <span v-if="item.project">项目：{{item.project}}</span>
+                                  <span v-if="item.email">邮箱：{{item.email}}</span>
+                                  <span v-if="item.education">学历:{{item.education}}</span>
+                                  <span v-if="item.mail_address">考试地址：{{item.mail_address}}</span>
+                                  <span v-if="item.mail_num">邮编：{{item.mail_num}}</span>
+                                  <span v-if="item.proof_type">证件类型：{{item.proof_type}}</span>
+                                  <span v-if="item.id_num">证件号码：{{item.id_num}}</span>
+                                  <span v-if="item.class_mobile">课程号码：{{item.class_mobile}}</span>
+                                  <span v-if="item.ergent_people">紧急联系人：{{item.ergent_people}}</span>
+                                  <span v-if="item.ergent_mobile">紧急联系手机：{{item.ergent_mobile}}</span>
+                                  <span v-if="item.classType">推荐班型：{{item.classType}}</span>
+                                  <span v-if="item.section">推荐科目：{{item.section}}</span>
+                                  <span v-if="item.sign_type">报名类型：{{item.sign_type}}</span>
+                                  <span v-if="item.exam_date">考期：{{item.exam_date}}</span>
+                                  <span v-if="item.price">班型价格：{{item.price}}</span>
+                                  <span v-if="item.instead_sign">代报名：{{item.instead_sign}}</span>
+                                  <input type="button" @click="tranClick(item)" v-if="item.is_status=='0'" class="btn btn-gradient-primary mr-2" style="float: right;    padding: 0.4rem 1rem;" value="处理">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block full-screen-link">
+            <a class="nav-link">
+              <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+            </a>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav" id="scrollnav" style="height: 600px;
+        overflow: auto;
+        position: fixed;
+   ">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="images/faces/face15.jpg" alt="profile">
+                <span class="login-status online"></span> <!--change to offline or busy as needed-->              
+              </div>
+              <div class="nav-profile-text d-flex flex-column">
+                <span class="font-weight-bold mb-2">江山</span>
+                <span class="text-secondary text-small">web前端工程师</span>
+              </div>
+              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+          <li :class="[activeIndexb ==0? 'nav-item active':'nav-item']" @click="activeIndex(0)">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">基金换科补费</span>
+              <i class="mdi mdi-home menu-icon"></i>
+            </a>
+          </li>
+          <li :class="[activeIndexb ==1? 'nav-item active':'nav-item']" @click="activeIndex(1)">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">转介绍</span>
+              <!-- <i class="menu-arrow"></i> -->
+              <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+            </a>
+          </li>
+          <li :class="[activeIndexb ==2? 'nav-item active':'nav-item']" @click="activeIndex(2)">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">升班</span>
+              <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+          </li>
+          <li :class="[activeIndexb ==3? 'nav-item active':'nav-item']" @click="activeIndex(3)">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">续报</span>
+              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            </a>
+          </li>
+          <li :class="[activeIndexb ==4? 'nav-item active':'nav-item']" @click="activeIndex(4)">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">重修</span>
+              <i class="mdi mdi-chart-bar menu-icon"></i>
+            </a>
+          </li>
+          <li :class="[activeIndexb ==5? 'nav-item active':'nav-item']" @click="activeIndex(5)">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">奖学金申请</span>
+              <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+          </li>
+          <li :class="[activeIndexb ==6? 'nav-item active':'nav-item']" @click="activeIndex(6)">
+            <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+              <span class="menu-title">冻结</span>
+              <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+          </li>
+          <li :class="[activeIndexb ==7? 'nav-item active':'nav-item']" @click="activeIndex(7)">
+            <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+              <span class="menu-title">退费</span>
+              <i class="mdi mdi-medical-bag menu-icon"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">        
+        <div class="content-wrapper">
+          <div class="row">
+              <div class="col-12 grid-margin" v-if="activeIndexb ==0">
+                  <div class="card">
+                    <div class="card-body">
+                      <form class="form-sample" id="huanke">
+                          <p class="card-description" style="text-align: center">换科</p>
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label>基金换科补费：</label>
+                              <input type="text" class="form-control form-control-sm" v-model="jijinhuanke.jijinhuanke" placeholder="补费">
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="form-group">
+                                  <label>科目：</label>
+                                  <div class="row" style="margin: 0">
+                                    <div class="form-check form-check-success col-md-4" style="text-align: center;">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" v-model="stu_checked4" class="form-check-input" >
+                                        科一
+                                      <i class="input-helper"></i></label>
+                                    </div>
+                                    <div class="form-check form-check-success col-md-4" style="text-align: center;">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" v-model="stu_checked5" class="form-check-input">
+                                        科二
+                                      <i class="input-helper"></i></label>
+                                    </div>
+                                    <div class="form-check form-check-success col-md-4" style="text-align: center;">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" v-model="stu_checked6" class="form-check-input">
+                                        科三
+                                      <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                          </div>
+                          <!-- <div class="col-md-3">
+                            <div class="form-group">
+                              <label>上传截图：</label>
+                              <input type="file" name="img[]" class="file-upload-default" multiple="multiple">
+                              <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                                <span class="input-group-append">
+                                  <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                </span>
+                              <button type="button" class="btn btn-outline-success btn-fw" style="padding: 0.75rem 2.5rem;">上传</button>
+                              </div> 
+                            </div>
+                          </div> -->
+                        </div>
+                      </form>
+                      <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="row" style="margin-top: 0px;">
+                            <div class="form-group col-md-12" id="file"style="margin-bottom: 0;margin-top:20px">
+                                <div class="form-group field-uploadform-excelfiles" style="margin-bottom: 0">
+                                    <label class="control-label btn"
+                                           for="uploadform-excelfiles" style="    border: 1px solid rgb(200,200,200);">上传截图</label><input type="file" id="uploadform-excelfiles" @change="file" name="UploadForm[excelFiles][]"
+                                                                                                                                          multiple class="attachment-upload" style="left:-9999px;position:absolute;">
+                                    <div class="help-block"></div>
+                        
+                                    <div id="fileName2"></div>
+                                </div>
+                        
+                            </div>
+                        </div>
+                        <div class="pretable">
+                            <table role="presentation" class="table"><tbody id="files">
+                              <tr style="padding-top: 7px;" v-for="(item,index) in filecon"> 
+                                <td style="    line-height: 30px;">{{item.name}}</td> 
+                                <td><div class="row">
+                                  <div class="col-md-4">
+                                    <select class="form-control company">
+                                      <option value="">请选择</option>
+                                      <option value="北京创睿造智教育科技有限公司">北京创睿造智教育科技有限公司</option>
+                                      <option value="北京智汇火种教育科技有限公司">北京智汇火种教育科技有限公司</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <select class="form-control payway">
+                                      <option value="">请选择</option>
+                                      <option value="支付宝">支付宝</option>
+                                      <option value="微信">微信</option>
+                                      <option value="淘宝">淘宝</option>
+                                      <option value="现金">现金</option>
+                                      <option value="银行公户">银行公户</option>
+                                    </select></div><div class="col-md-4">
+                                      <input class="form-control form-control-sm money" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,``);}).call(this)" placeholder="请输入支付金额" type="text"><div></div></td>
+                                <td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete" @click="del(item,index)">删除</a></td>
+                                </tr>
+                            </tbody></table>
+                        </div>
+                        <p class="payp"></p>
+                        </form>
+                        <input type="button" @click="submit"  class="btn btn-gradient-primary mr-2" style="float: right" value="提交">
+                    </div>
+                  </div>
+                </div>
+            <div class="col-12 grid-margin" v-if="activeIndexb ==2||activeIndexb ==3||activeIndexb ==1 ">
+              <div class="card">
+                <div class="card-body">
+                  <form class="form-sample">
+                    <p class="card-description" style="text-align: center" v-if="activeIndexb ==1">转介绍</p>
+                    <p class="card-description" style="text-align: center" v-if="activeIndexb ==2">升班</p>
+                    <p class="card-description" style="text-align: center" v-if="activeIndexb ==3">续保</p>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>学员姓名：</label>
+                          <input type="text" v-model="order.stu_name" class="form-control form-control-sm" placeholder="学员姓名" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>工作年限：</label>
+                          <select class="form-control payway" v-model="order.work_year">
+                            <option value="">请选择工作年限</option>
+                            <option value="应届生">应届生</option>
+                            <option value="1-3年">1-3年</option>
+                            <option value="3-5年">3-5年</option>
+                            <option value="5-10年">5-10年</option>
+                            <option value="10年以上">10年以上</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>学员性别：</label>
+                          <select class="form-control payway" v-model="order.sex">
+                            <option value="">请选择性别</option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                            <label>微信：</label>
+                            <input type="text" v-model="order.weixin" class="form-control form-control-sm" placeholder="微信" aria-label="Username">
+                          </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                            <label>手机号：</label>
+                            <input type="text" v-model="order.mobile" class="form-control form-control-sm" placeholder="手机号" aria-label="Username">
+                          </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>项目：</label>
+                          <select class="form-control payway" v-model="order.project">
+                            <option value="">请选择项目</option>
+                            <option value="基金项目">基金项目</option>
+                            <option value="消防项目">消防项目</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                            <label>邮箱：</label>
+                            <input type="text" v-model="order.email" class="form-control form-control-sm" placeholder="邮箱" aria-label="Username">
+                          </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>学历：</label>
+                          <select class="form-control payway" v-model="order.education">
+                            <option value="">请选择学历</option>
+                            <option value="高中（中专或同等学历）">高中（中专或同等学历）</option>
+                            <option value="大专、高职（或同等学历）">大专、高职（或同等学历）</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                            <option value="博士及以上学历">博士及以上学历</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>邮寄地址（省）：</label>
+                          <select class="form-control payway" id="province2" name="exam_province" @change="chooseP1" v-model="mail_address1">
+                            <option value="">请选择省</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>邮寄地址（市）：</label>
+                          <select class="form-control payway"@change="chooseC" v-model="mail_address2">
+                              <option value="" v-if="exam_citys1.length==0">请选择市</option>
+                              <option v-bind:value="Item.name == undefined?Item:Item.name" v-for="Item in exam_citys1">{{Item.name == undefined?Item:Item.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>邮寄地址（县）：</label>
+                          <select class="form-control payway" v-model="mail_address3">
+                              <option value="" v-if="exam_area.length==0">请选择县</option>
+                              <option v-bind:value="Item.name == undefined?Item:Item.name" v-for="Item in exam_area">{{Item.name == undefined?Item:Item.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>邮寄地址（具体地址）：</label>
+                          <input type="text"v-model="mail_address4" class="form-control form-control-sm" placeholder="邮寄地址（具体地址）" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>考试地址（省）：</label>
+                          <select v-model="order.exam_province" id="province1" name="exam_province" @change="chooseP"   class="form-control payway">
+                            <option value="">请选择省</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>考试地址（市）：</label>
+                          <select v-model="order.exam_city"  id="city1" onChange="" name="exam_city" class="form-control payway">
+                            <option value="" v-if="exam_citys.length==0">请选择市</option>
+                            <option v-bind:value="Item.name == undefined?Item:Item.name" v-for="Item in exam_citys">{{Item.name == undefined?Item:Item.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>证件类型：</label>
+                          <select v-model="order.proof_type" class="form-control payway">
+                            <option value="">请选择证件</option>
+                            <option value="身份证">身份证</option>
+                            <option value="护照">护照</option>
+                            <option value="港澳居民来往内地通行证">港澳居民来往内地通行证</option>
+                            <option value="台湾居民来往内地通行证">台湾居民来往内地通行证</option>
+                            <option value="港澳居民居住证">港澳居民居住证</option>
+                            <option value="台湾居民居住证">台湾居民居住证</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>证件号码：</label>
+                          <input v-model="order.id_num" type="text" class="form-control form-control-sm" placeholder="证件号码" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>课程号码：</label>
+                          <input v-model="order.class_mobile" type="text" class="form-control form-control-sm" placeholder="课程号码" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>紧急联系人：</label>
+                          <input v-model="order.ergent_people" type="text" class="form-control form-control-sm" placeholder="紧急联系人" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>紧急联系手机：</label>
+                          <input v-model="order.ergent_mobile" type="text" class="form-control form-control-sm" placeholder="紧急联系手机" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>推荐班型：</label>
+                          <select v-model="order.classType" class="form-control payway">
+                            <option value="">请选择班型</option>
+                            <option value="直播密训班">直播密训班</option>
+                            <option value="一次取证班">一次取证班</option>
+                            <option value="VIP不过退费班">VIP不过退费班</option>
+                            <option value="高校取证班">高校取证班</option>
+                            <option value="推荐挂靠班">推荐挂靠班</option>
+                            <option value="基础通关班">基础通关班</option>
+                            <option value="名师密训班">名师密训班</option>
+                            <option value="VIP零基础保障班">VIP零基础保障班</option>
+                            <option value="一次取证班">一次取证班</option>
+                            <option value="皇家内训班">皇家内训班</option>
+                            <option value="私教冲刺班">私教冲刺班</option>
+                            <option value="VIP一次取证班">VIP一次取证班</option>
+                            <option value="一级注册消防工程师考试签约特招班">一级注册消防工程师考试签约特招班</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>科目：</label>
+                          <div class="row" style="margin: 0">
+                            <div class="form-check form-check-success col-md-4" style="text-align: center;">
+                              <label class="form-check-label">
+                                <input type="checkbox" v-model="stu_checked1" class="form-check-input">
+                                科一
+                              <i class="input-helper"></i></label>
+                            </div>
+                            <div class="form-check form-check-success col-md-4" style="text-align: center;">
+                              <label class="form-check-label">
+                                <input type="checkbox" v-model="stu_checked2" class="form-check-input">
+                                科二
+                              <i class="input-helper"></i></label>
+                            </div>
+                            <div class="form-check form-check-success col-md-4" style="text-align: center;">
+                              <label class="form-check-label">
+                                <input type="checkbox" v-model="stu_checked3" @click="che" class="form-check-input" >
+                                科三
+                              <i class="input-helper"></i></label>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>报名类型：</label>
+                          <select v-model="order.sign_type" class="form-control payway">
+                            <option value="">请选择类型</option>
+                            <option value="定金">定金</option>
+                            <option value="定金补费">定金补费</option>
+                            <option value="全款报名">全款报名</option>
+                            <option value="团报">团报</option>
+                            <option value="转介绍">转介绍</option>
+                            <option value="升班">升班</option>
+                            <option value="代报名补费">代报名补费</option>
+                            <option value="续报">续报</option>
+                            <option value="首付">首付</option>
+                            <option value="尾款">尾款</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>考期：</label>
+                          <select v-model="order.exam_date" class="form-control payway">
+                            <option value="">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>班型价格：</label>
+                          <input v-model="order.price" type="text" class="form-control form-control-sm" placeholder="班型价格" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>代报名：</label>
+                          <select v-model="order.instead_sign" class="form-control payway">
+                            <!-- <option value="是" v-show="'id'=='i2d'">是</option> -->
+                            <option value="否">否</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <input type="button"  class="btn btn-gradient-primary mr-2" style="float: right" value="提交"> -->
+                  </form>
+                  <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="row" style="margin-top: 0px;">
+                        <div class="form-group col-md-12" id="file"style="margin-bottom: 0;margin-top:20px">
+                            <div class="form-group field-uploadform-excelfiles" style="margin-bottom: 0">
+                                <label class="control-label btn"
+                                       for="uploadform-excelfiles" style="    border: 1px solid rgb(200,200,200);">上传截图</label><input type="file" id="uploadform-excelfiles" @change="file" name="UploadForm[excelFiles][]"
+                                                                                                                                      multiple class="attachment-upload" style="left:-9999px;position:absolute;">
+                                <div class="help-block"></div>
+                    
+                                <div id="fileName2"></div>
+                            </div>
+                    
+                        </div>
+                    </div>
+                    <div class="pretable">
+                        <table role="presentation" class="table"><tbody id="files">
+                          <tr style="padding-top: 7px;" v-for="(item,index) in filecon"> 
+                            <td style="    line-height: 30px;">{{item.name}}</td> 
+                            <td><div class="row">
+                              <div class="col-md-4">
+                                <select class="form-control company">
+                                  <option value="">请选择</option>
+                                  <option value="北京创睿造智教育科技有限公司">北京创睿造智教育科技有限公司</option>
+                                  <option value="北京智汇火种教育科技有限公司">北京智汇火种教育科技有限公司</option>
+                                </select>
+                              </div>
+                              <div class="col-md-4">
+                                <select class="form-control payway">
+                                  <option value="">请选择</option>
+                                  <option value="支付宝">支付宝</option>
+                                  <option value="微信">微信</option>
+                                  <option value="淘宝">淘宝</option>
+                                  <option value="现金">现金</option>
+                                  <option value="银行公户">银行公户</option>
+                                </select></div><div class="col-md-4">
+                                  <input class="form-control form-control-sm money" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,``);}).call(this)" placeholder="请输入支付金额" type="text"><div></div></td>
+                            <td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete" @click="del(item,index)">删除</a></td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                    <p class="payp"></p>
+                    </form>
+                    <input type="button" @click="submit"  class="btn btn-gradient-primary mr-2" style="float: right" value="提交">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 grid-margin" v-if="activeIndexb ==4">
+              <div class="card">
+                <div class="card-body">
+                  <form class="form-sample" id="huanke">
+                      <p class="card-description" style="text-align: center">重修</p>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>报考省份：</label>
+                          <select v-model="restudy.exam_province2" class="form-control" id="province3" @change="choosePP" v-model="province3">
+                            <option value="">请选择省</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>报考城市：</label>
+                          <select v-model="restudy.exam_city2" class="form-control"  id="city1" onChange="">
+                            <option value="" v-if="exam_cityss.length==0">请选择市</option>
+                            <option v-bind:value="Item.name == undefined?Item:Item.name" v-for="Item in exam_cityss">{{Item.name == undefined?Item:Item.name}}</option>
+                            <!-- <option v-for="item in exam_citys" :value="item.name" >{{item.name}}</option> v-model="stu.exam_city"-->
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>考期：</label>
+                          <select v-model="restudy.cxkq" class="form-control payway">
+                            <option value="">请选择考期</option>
+                            <option v-bind:value="Item.exam_date" v-for="Item in exam_dates">{{Item.exam_date}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="row" style="margin-top: 0px;">
+                        <div class="form-group col-md-12" id="file"style="margin-bottom: 0;margin-top:20px">
+                            <div class="form-group field-uploadform-excelfiles" style="margin-bottom: 0">
+                                <label class="control-label btn"
+                                       for="uploadform-excelfiles" style="    border: 1px solid rgb(200,200,200);">上传截图</label><input type="file" id="uploadform-excelfiles" @change="file" name="UploadForm[excelFiles][]"
+                                                                                                                                      multiple class="attachment-upload" style="left:-9999px;position:absolute;">
+                                <div class="help-block"></div>
+                    
+                                <div id="fileName2"></div>
+                            </div>
+                    
+                        </div>
+                    </div>
+                    <div class="pretable">
+                        <table role="presentation" class="table"><tbody id="files">
+                          <tr style="padding-top: 7px;" v-for="(item,index) in filecon"> 
+                            <td style="    line-height: 30px;">{{item.name}}</td> 
+                            <td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete" @click="del(item,index)">删除</a></td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                    <p class="payp"></p>
+                    </form>
+                    <input type="button" @click="submit"  class="btn btn-gradient-primary mr-2" style="float: right" value="提交">
+                </div>
+              </div>
+            </div>
+              <div class="col-12 grid-margin" v-if="activeIndexb ==5">
+                <div class="card">
+                <div class="card-body">
+                  <form class="form-sample" id="huanke">
+                      <p class="card-description" style="text-align: center">奖学金申请</p>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>科一成绩：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.sc_oneScore" placeholder="科一成绩" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>科二成绩：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.sc_twoScore" placeholder="科二成绩" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>科三成绩：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.sc_threeScore" placeholder="科三成绩" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>科一出勤率：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.sc_oneAttend" placeholder="科一出勤率" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>科二出勤率：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.sc_twoAttend" placeholder="科二出勤率" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>科三出勤率：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.sc_threeAttend" placeholder="科三出勤率" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>收款金额（元）：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.apaly_price" placeholder="收款金额" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>收款方式：</label>
+                          <select class="form-control payway" @change="jxjInit()" v-model="jxj.pay_way">
+                            <option value="">请选择</option>
+                            <option value="支付宝">支付宝</option>
+                            <option value="银行卡">银行卡</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3" v-if="jxj.pay_way == '支付宝'">
+                        <div class="form-group">
+                          <label>收款账号：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.apaly_num" placeholder="收款账号" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3" v-if="jxj.pay_way == '银行卡'">
+                        <div class="form-group">
+                          <label>姓名：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.back_name" placeholder="姓名" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3" v-if="jxj.pay_way == '银行卡'">
+                        <div class="form-group">
+                          <label>卡号：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.bank_num" placeholder="卡号" aria-label="Username">
+                        </div>
+                      </div>
+                      <div class="col-md-3" v-if="jxj.pay_way == '银行卡'">
+                        <div class="form-group">
+                          <label>开户行：</label>
+                          <input type="text" class="form-control form-control-sm" v-model="jxj.bank_khh" placeholder="开户行" aria-label="Username">
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="row" style="margin-top: 0px;">
+                        <div class="form-group col-md-12" id="file"style="margin-bottom: 0;margin-top:20px">
+                            <div class="form-group field-uploadform-excelfiles" style="margin-bottom: 0">
+                                <label class="control-label btn"
+                                       for="uploadform-excelfiles" style="    border: 1px solid rgb(200,200,200);">上传截图</label><input type="file" id="uploadform-excelfiles" @change="file" name="UploadForm[excelFiles][]"
+                                                                                                                                      multiple class="attachment-upload" style="left:-9999px;position:absolute;">
+                                <div class="help-block"></div>
+                    
+                                <div id="fileName2"></div>
+                            </div>
+                    
+                        </div>
+                    </div>
+                    <div class="pretable">
+                        <table role="presentation" class="table"><tbody id="files">
+                          <tr style="padding-top: 7px;" v-for="(item,index) in filecon"> 
+                            <td style="    line-height: 30px;">{{item.name}}</td> 
+                            <td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete" @click="del(item,index)">删除</a></td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                    <p class="payp"></p>
+                    </form>
+                    <input type="button" @click="submit"  class="btn btn-gradient-primary mr-2" style="float: right" value="提交">
+                </div>
+              </div>
+              </div>
+              <div class="col-12 grid-margin" v-if="activeIndexb ==6">
+                <div class="card">
+                <div class="card-body">
+                  <form class="form-sample" id="huanke">
+                      <p class="card-description" style="text-align: center">冻结</p>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>冻结时长：</label>
+                          <select v-model="dj.djtime" class="form-control payway">
+                              <option value="">请选择时长</option>
+                              <option value="一个月">一个月</option>
+                              <option value="二个月">二个月</option>
+                              <option value="三个月">三个月</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="row" style="margin-top: 0px;">
+                        <div class="form-group col-md-12" id="file"style="margin-bottom: 0;margin-top:20px">
+                            <div class="form-group field-uploadform-excelfiles" style="margin-bottom: 0">
+                                <label class="control-label btn"
+                                       for="uploadform-excelfiles" style="    border: 1px solid rgb(200,200,200);">上传截图</label><input type="file" id="uploadform-excelfiles" @change="file" name="UploadForm[excelFiles][]"
+                                                                                                                                      multiple class="attachment-upload" style="left:-9999px;position:absolute;">
+                                <div class="help-block"></div>
+                    
+                                <div id="fileName2"></div>
+                            </div>
+                    
+                        </div>
+                    </div>
+                    <div class="pretable">
+                        <table role="presentation" class="table"><tbody id="files">
+                          <tr style="padding-top: 7px;" v-for="(item,index) in filecon"> 
+                            <td style="    line-height: 30px;">{{item.name}}</td> 
+                            <td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete" @click="del(item,index)">删除</a></td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                    <p class="payp"></p>
+                    </form>
+                    <input type="button" @click="submit"  class="btn btn-gradient-primary mr-2" style="float: right" value="提交">
+                </div>
+              </div>
+              </div>
+                <div class="col-12 grid-margin" v-if="activeIndexb ==7">
+                  <div class="card">
+                  <div class="card-body">
+                    <form class="form-sample" id="huanke">
+                        <p class="card-description" style="text-align: center">退费</p>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>退费原因：</label>
+                            <select class="form-control payway" v-model="tf.bp_reason">
+                              <option value="">请选择原因</option>
+                              <option value="前端原因">前端原因</option>
+                              <option value="后端原因">后端原因</option>
+                              <option value="自身原因">自身原因</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>退费描述：</label>
+                            <input type="text" v-model="tf.bp_desc" class="form-control form-control-sm" v-model="stu.name" placeholder="退费描述" aria-label="Username">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>退费金额（元）：</label>
+                            <input type="text" v-model="tf.bp_price" class="form-control form-control-sm" v-model="stu.name" placeholder="退费金额" aria-label="Username">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>退费追责：</label>
+                            <select class="form-control payway" v-model="tf.bp_account">
+                              <option value="">请选择</option>
+                              <option value="扣流水">扣流水</option>
+                              <option value="扣工资">扣工资</option>
+                              <option value="无扣款">无扣款</option>
+                              <option value="扣绩效分">扣绩效分</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>收款方式：</label>
+                            <select class="form-control payway" v-model="tf.pay_way" @change="tfInit">
+                              <option value="">请选择</option>
+                              <option value="支付宝">支付宝</option>
+                              <option value="银行卡">银行卡</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3" v-if="tf.pay_way == '支付宝'">
+                          <div class="form-group">
+                            <label>收款账号：</label>
+                            <input type="text" class="form-control form-control-sm" v-model="tf.apaly_num" placeholder="收款账号" aria-label="Username">
+                          </div>
+                        </div>
+                        <div class="col-md-3" v-if="tf.pay_way == '银行卡'">
+                          <div class="form-group">
+                            <label>姓名：</label>
+                            <input type="text" class="form-control form-control-sm" v-model="tf.back_name" placeholder="姓名" aria-label="Username">
+                          </div>
+                        </div>
+                        <div class="col-md-3" v-if="tf.pay_way == '银行卡'">
+                          <div class="form-group">
+                            <label>卡号：</label>
+                            <input type="text" class="form-control form-control-sm" v-model="tf.bank_num" placeholder="卡号" aria-label="Username">
+                          </div>
+                        </div>
+                        <div class="col-md-3" v-if="tf.pay_way == '银行卡'">
+                          <div class="form-group">
+                            <label>开户行：</label>
+                            <input type="text" class="form-control form-control-sm" v-model="tf.bank_khh" placeholder="开户行" aria-label="Username">
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    <form id="uploadForm" enctype="multipart/form-data">
+                      <div class="row" style="margin-top: 0px;">
+                          <div class="form-group col-md-12" id="file"style="margin-bottom: 0;margin-top:20px">
+                              <div class="form-group field-uploadform-excelfiles" style="margin-bottom: 0">
+                                  <label class="control-label btn"
+                                         for="uploadform-excelfiles" style="    border: 1px solid rgb(200,200,200);">上传截图</label><input type="file" id="uploadform-excelfiles" @change="file" name="UploadForm[excelFiles][]"
+                                                                                                                                        multiple class="attachment-upload" style="left:-9999px;position:absolute;">
+                                  <div class="help-block"></div>
+                      
+                                  <div id="fileName2"></div>
+                              </div>
+                      
+                          </div>
+                      </div>
+                      <div class="pretable">
+                          <table role="presentation" class="table"><tbody id="files">
+                            <tr style="padding-top: 7px;" v-for="(item,index) in filecon"> 
+                              <td style="    line-height: 30px;">{{item.name}}</td> 
+                              <td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete" @click="del(item,index)">删除</a></td>
+                              </tr>
+                          </tbody></table>
+                      </div>
+                      <p class="payp"></p>
+                      </form>
+                      <input type="button" @click="submit"  class="btn btn-gradient-primary mr-2" style="float: right" value="提交">
+                  </div>
+                </div>
+                </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019<a href="#" target="_blank">火种教育</a></span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <script src="js/off-canvas.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/element-ui.js"></script>
+  <script src="js/misc.js"></script>
+  <script src="js/file-upload.js"></script> 
+  <script src="js/city1.js"></script>
+  <script src="js/citya.js"></script>
+  <script>
+      function address(a,b){
+    var str=a,str1='';
+    var provrin = '',provrinIndex = '',citys=[],area="",city="",cityIndex='',areas=[],areaIndex='';
+    
+    if(str.substring(0,2)=="黑龙"){
+            provrin = "黑龙江";
+            provrinIndex = 29;
+            citys = provinceList[29].cityList;
+        }else if(str.substring(0,2)=="内蒙"){
+            provrinIndex = 20;
+            provrin = "内蒙古";
+            citys = provinceList[20].cityList;
+        }
+    for (var i = 0; i < provinceList.length; i++) {
+        if(provinceList[i].name == str.substring(0,2)){
+            provrinIndex = i;
+            provrin = provinceList[i].name;
+            citys = provinceList[i].cityList;
+        }
+    }
+    
+    str1 = str.split(provrin)[1];
+    if(provrin == "北京"||provrin == "天津"||provrin == "上海"){
+        for (var i = 0; i < provinceList[provrinIndex].cityList[0].areaList.length; i++) {
+            if(str.indexOf(provinceList[provrinIndex].cityList[0].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 0;
+                city = '市辖区';
+                area=provinceList[provrinIndex].cityList[0].areaList[i];
+                
+                // 
+                str1 = str1.split(provinceList[provrinIndex].cityList[0].areaList[i])[1]
+            }
+        }
+        for (var i = 0; i < provinceList[provrinIndex].cityList[1].areaList.length; i++) {
+            if(str.indexOf(provinceList[provrinIndex].cityList[1].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 1;
+                city = '县';
+                area=provinceList[provrinIndex].cityList[1].areaList[i];
+                str1 = str1.split(provinceList[provrinIndex].cityList[1].areaList[i])[1]
+            }
+        }
+    }else if(provrin == "重庆"){
+        
+        for (var i = 0; i < provinceList[3].cityList[1].areaList.length; i++) {
+            if(str.indexOf(provinceList[3].cityList[1].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 1;
+                city = "县";
+                
+                area=provinceList[3].cityList[1].areaList[i];
+                str1 = str1.split(provinceList[3].cityList[1].areaList[i])[1]
+            }
+        }
+        for (var i = 0; i < provinceList[3].cityList[2].areaList.length; i++) {
+            
+            if(str.indexOf(provinceList[3].cityList[2].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 2;
+                city = "县";
+                area=provinceList[3].cityList[2].areaList[i];
+                
+                str1 = str1.split(provinceList[3].cityList[2].areaList[i])[1]
+            }
+        }
+        for (var i = 0; i < provinceList[3].cityList[0].areaList.length; i++) {
+           
+            if(str.indexOf(provinceList[3].cityList[0].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 0;
+                city = "市辖区";
+                area=provinceList[3].cityList[0].areaList[i];
+                
+                str1 = str1.split(provinceList[3].cityList[0].areaList[i])[1]
+            }
+        }
+    }else{
+        for (var i = 0; i < citys.length; i++) {
+            if(str.indexOf(citys[i].name)>-1){
+                cityIndex = i;
+                areas = citys[i].areaList
+                
+                city = citys[i].name
+                str1 = str1.split(citys[i].name)[1];
+                
+            }
+        }
+        for (var i = 0; i < areas.length; i++) {
+            if(str.indexOf(areas[i])>-1){
+                areaIndex = i;
+                area = areas[i]
+                
+                str1 = str1.split(areas[i])[1]
+            }
+        }
+
+    }
+    return[provrin,city,area,str1]
+}
+// 
+ var form = document.getElementById("uploadForm");
+  var formData = new FormData(form);
+  // formData.delete('UploadForm[excelFiles][]');
+  Array.prototype.del = function(dx) 
+{ 
+    if(isNaN(dx)||dx>this.length){return false;} 
+    this.splice(dx,1); 
+} 
+function form2Json(id) {
+
+var arr = $("#" + id).serializeArray();
+var jsonStr = "";
+// 
+jsonStr += '{';
+for (var i = 0; i < arr.length; i++) {
+    jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+}
+jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+jsonStr += '}'
+// 
+var json = JSON.parse(jsonStr)
+return json
+// 
+}
+    new Vue({
+        el: '#app',
+        data: function () {
+          return {
+            value2: [],
+            activeIndexb: 0,
+            activeIndexa: 0,
+            filecon:[],
+            stu_checked1:false,
+            stu_checked2:false,
+            stu_checked3:false,
+            stu_checked4:false,
+            stu_checked5:false,
+            stu_checked6:false,
+            mail_address1:'',
+            mail_address2:'',
+            mail_address3:'',
+            mail_address4:'',
+            exam_citys:[],
+            province3:'',
+            exam_cityss:[],
+            //正则表达式
+            zhengze:{
+              mobile:/^1[3|4|5|6|7|8|9][0-9]{9}$/,
+              text:/^([\u4e00-\u9fa5]){2,10}$/,
+              account:/^[\u4E00-\u9FA5A-Za-z]+$/,
+              reg13:/^[\u4E00-\u9FA5A-Za-z0-9]+$/,
+              reg14:/^[A-Za-z0-9]+$/,
+              regkd:/^[0-9.]{0,}$/,
+              regnum:/^\d{0,}$/,
+              reg21:/^\d{6}$/,
+              id_num:/(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
+              regsh:/^[A-Za-z0-9]{15,20}$/,
+              reg4445:/^\d{11,12}$/,
+              regemail:/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/,
+            },
+            exam_citys1:[],
+            exam_area:[],
+            //换科
+            jijinhuanke:{
+              jijinhuanke:'',
+              ke:'',
+              tran_id:'',
+            },
+            //重修
+            restudy:{
+              exam_province2:'',
+              exam_city2:'',
+              cxkq:'',
+            },
+            //奖学金申请
+            jxj:{
+              sc_oneScore:'',
+              sc_twoScore:'',
+              sc_threeScore:'',
+              sc_oneAttend:'',
+              sc_twoAttend:'',
+              sc_threeAttend:'',
+              apaly_price:'',
+              pay_way:'',
+              apaly_num:'',
+              back_name:'',
+              bank_num:'',
+              bank_khh:'',
+            },
+            //冻结
+            dj:{
+              djtime:'',
+            },
+            //退费
+            tf:{
+              bp_reason:'',
+              bp_desc:'',
+              bp_price:'',
+              bp_account:'',
+              pay_way:'',
+              apaly_num:'',
+              back_name:'',
+              bank_num:'',
+              bank_khh:'',
+            },
+            //学员基本信息
+            stu:{},
+            Loading: false,
+            
+            //转介绍、升班、续报
+            order:{
+                    "stu_name":"",
+                    "work_year":"",
+                    "sex":"",
+                    "weixin":"",
+                    "email":"",
+                    "education":"",
+                    "mail_address":"",
+                    "exam_province":"",
+                    "exam_city":"",
+                    "mail_num":"",
+                    "proof_type":"",
+                    "id_num":"",
+                    "class_mobile":"",
+                    "ergent_people":"",
+                    "ergent_mobile":"",
+                    "classType":"",
+                    "section":"",
+                    "sign_type":"",
+                    "exam_date":"",
+                    "price":'',
+                    "instead_sign":"否",
+                    "payment":"",
+                    "mobile":"",
+                    "project":"",
+                    "belong_to":"0",
+                    "tea_name":"0",
+                    "old":0
+                  },
+          }
+        },
+        created:function(){
+          _this = this
+          
+          console.log(localStorage.stu)
+          this.stu = JSON.parse(localStorage.stu)
+          this.tran = JSON.parse(localStorage.tran)
+          if(this.stu.project != "基金项目"){
+            this.exam_dates = ['201811','201911','2020考期']
+            this.exam_dates = [{
+                exam_date:'201811',
+                exam_start:'2018-11-11',
+                exam_end:'2018-11-11',
+              },{
+                exam_date:'201911',
+                exam_start:'2019-11-11',
+                exam_end:'2019-11-11',
+              },{
+                exam_date:'2020考期',
+                exam_start:'2020-11-11',
+                exam_end:'2020-11-11',
+              }]
+          }else{
+            this.exam_dates = [{
+                exam_date:'201901',
+                exam_start:'2019-01-01',
+                exam_end:'2019-01-01',
+              },
+              {
+                exam_date:'201903',
+                exam_start:'2019-03-30',
+                exam_end:'2019-03-30',
+              },
+              {
+                exam_date:'201904',
+                exam_start:'2019-04-20',
+                exam_end:'2019-04-21',
+              },
+              {
+                exam_date:'201905',
+                exam_start:'2019-05-25',
+                exam_end:'2019-05-25',
+              },
+              {
+                exam_date:'201906',
+                exam_start:'2019-06-22',
+                exam_end:'2019-06-22',
+              },
+              {
+                exam_date:'201909',
+                exam_start:'2019-09-21',
+                exam_end:'2019-09-22',
+              },
+              {
+                exam_date:'201910',
+                exam_start:'2019-10-19',
+                exam_end:'2019-10-19',
+              },
+              {
+                exam_date:'201911',
+                exam_start:'2019-11-23',
+                exam_end:'2019-11-24',
+              }]
+          }
+          _this.init(_this)
+        },
+        mounted:function(){
+          $('.dropdownn a').click(function(){
+            console.log($('.dropdownn-menu').css('display')) 
+            if($('.dropdownn-menu').css('display') == "none"){
+              $('.dropdownn-menu').css('display','block')
+            }else{
+              $('.dropdownn-menu').css('display','none')
+             }
+          })
+        },
+        methods: {
+          che(){
+            console.log(this.checked)
+          },
+          stu_form(){
+            console.log(this.stu)
+          },
+          file(e){
+            // var allFile = [];
+            console.log(e.target)
+            var fileError = 0;
+            fileList = e.currentTarget.files;
+            console.log(fileList)
+            _this = this
+            //  console.log(this.filecon[0].name)
+            $.each(fileList, function (index, item) {
+              index = 0    // $(itme).setAttribute('type','file');
+            // var fileName = item.name;
+            // var fileEnd = fileName.substring(fileName.indexOf("."));
+            console.log(item.size)
+          //上传文件格式判断
+            type = item.type;
+            var maxsize = 2*1024*1024
+            if(type.indexOf("image/")<0){
+                console.log(1)
+                _this.$notify.error({
+                  title: '错误',
+                  message: '请选择图片上传',
+                  duration:0
+                });
+                
+                // $('.payp')[0].innerHTML = `请选择图片上传`;
+                // $('.payp')[0].style.color = `red`;
+            }else if(item.size > maxsize){
+              _this.$notify.error({
+                  title: '错误',
+                  message: '图片尺寸不能超过2MB',
+                });
+                // $('.payp')[0].innerHTML = `图片尺寸不能超过2MB`;
+                // $('.payp')[0].style.color = `red`;
+            }else if (window.FileReader) {
+              console.log(_this.filecon)  
+              if(_this.filecon.length == 0){
+                _this.filecon.push(item);
+              }else{
+                for (let i = 0; i < _this.filecon.length; i++) {
+                  console.log(_this.filecon[i].name == item.name)
+                  if(_this.filecon[i].name == item.name){
+                    // _this.filecon.push(item);
+                    index+=1
+                    break;
+                  }
+                }
+                if(index == 0){
+                  _this.filecon.push(item);
+                }
+              }
+              console.log($('.ded').val() == "奖学金申请")
+            }
+            // 
+          });
+          $(e.target).val('')
+        },
+        orderzz(){
+          console.log(1)
+          for (var k in this.order) {
+            if((this.order[k] === ""||this.order[k] == "无")&&(k!='mail_num'&&k!='danwei')){
+              console.log(k)
+              this.$notify.error({
+                title: '错误',
+                message: '有内容为空或者为无，无法提交',
+              });
+              return false;
+            }
+          }
+          if(!this.zhengze.mobile.test(this.order.mobile)){
+            this.$notify.error({
+                title: '错误',
+                message: '咨询号码格式错误',
+                
+              });
+            return false;
+          }
+          if(!this.zhengze.account.test(this.order.stu_name)){
+            this.$notify.error({
+                title: '错误',
+                message: '姓名格式错误',
+                
+              });
+            return false;
+          }
+          if(!this.zhengze.account.test(this.order.ergent_people)){
+            this.$notify.error({
+                title: '错误',
+                message: '紧急联系人格式错误',
+                
+              });
+            return false;
+          }
+          if(!this.zhengze.mobile.test(this.order.class_mobile)){
+            this.$notify.error({
+                title: '错误',
+                message: '课程号码格式错误',
+                
+              });
+            return false;
+          }
+          if(!this.zhengze.regnum.test(this.order.price)){
+            this.$notify.error({
+                title: '错误',
+                message: '班型价格格式错误',
+              });
+            return false;
+          }
+          if(!this.zhengze.reg4445.test(this.order.ergent_mobile)){
+            this.$notify.error({
+                title: '错误',
+                message: '紧急联系电话格式错误',
+                
+              });
+            return false;
+          }
+          if(!this.zhengze.id_num.test(this.order.id_num)){
+            this.$notify.error({
+                title: '错误',
+                message: '身份证格式错误',
+                
+              });
+            return false;
+          }
+          if(!this.zhengze.regemail.test(this.order.email)){
+            this.$notify.error({
+                title: '错误',
+                message: '邮箱格式错误',
+                
+              });
+            return false;
+          }    
+        },
+        orderinit(item){
+          _this = item
+          _this.stu_checked1 =  _this.order.section.indexOf('科一')>-1
+          _this.stu_checked2 =  _this.order.section.indexOf('科二')>-1
+          _this.stu_checked3 =  _this.order.section.indexOf('科三')>-1
+          _this.exam_citys = chooseProvince1(_this.order.exam_province)
+          _this.mail_address1 = address(_this.order.mail_address)[0]
+          _this.mail_address2 = address(_this.order.mail_address)[1]
+          _this.mail_address3 = address(_this.order.mail_address)[2]
+          _this.mail_address4 = address(_this.order.mail_address)[3]
+          _this.exam_citys1 = chooseProvince2(_this.mail_address1)
+          _this.exam_area = chooseCity(_this.mail_address1,_this.mail_address2)
+        },
+        init(){
+          _this = this 
+          switch (_this.activeIndexb) {
+            //换科
+            case 0:
+              $.ajax({
+                url:'',
+                type:'get',
+                data:{},
+                // dataType:'json',
+                success:function(data){
+                  data = [{
+                    jijinhuanke:'123',
+                    ke:'科一,科三',
+                    tran_id:'',
+                  }]
+                  if(data.length>0){
+                    _this.jijinhuanke = data[0]
+                    _this.stu_checked4 =  _this.jijinhuanke.ke.indexOf('科一')>-1
+                    _this.stu_checked5 =  _this.jijinhuanke.ke.indexOf('科二')>-1
+                    _this.stu_checked6 =  _this.jijinhuanke.ke.indexOf('科三')>-1
+                  }
+                },
+              })
+              break;
+             //转介绍
+             case 1:
+               console.log(1)
+              $.ajax({
+                url:'',
+                type:'get',
+                data:{},
+                // dataType:'json',
+                success:function(data){
+                  data = [{
+                    "stu_name":"孙璐",
+                    "work_year":"3-5年",
+                    "sex":"女",
+                    "weixin":"sun1520462045",
+                    "email":"1520462045@qq.com",
+                    "education":"大专、高职（或同等学历）",
+                    "mail_address":"山东省东营市东营区东营港经济开发区大明工业园",
+                    "exam_province":"山东",
+                    "exam_city":"临沂市",
+                    "mail_num":"",
+                    "proof_type":"身份证",
+                    "id_num":"654123199408205129",
+                    "class_mobile":"18699052227",
+                    "ergent_people":"孙璐",
+                    "ergent_mobile":"18699052227",
+                    "classType":"一级注册消防工程师考试签约特招班",
+                    "section":"科一,科二,科三",
+                    "sign_type":"定金补费",
+                    "exam_date":"201911",
+                    "price":5392,
+                    "instead_sign":"否",
+                    "payment":"['6841556\u5b59\u7490\u5c3e\u6b3e.png']",
+                    "mobile":"18699052227",
+                    "project":"消防项目",
+                    "belong_to":"239",
+                    "tea_name":"679",
+                    "old":1
+                  }]
+                  // console.log(data.length)
+                  if(data.length>0){
+                    _this.order = data[0]
+                    _this.orderinit(_this)
+                  }
+                },
+              })
+              break;
+              //升班
+            case 2:
+               console.log(1)
+              $.ajax({
+                url:'',
+                type:'get',
+                data:{},
+                // dataType:'json',
+                success:function(data){
+                  data = [{
+                    "stu_name":"孙璐",
+                    "work_year":"3-5年",
+                    "sex":"女",
+                    "weixin":"sun1520462045",
+                    "email":"1520462045@qq.com",
+                    "education":"大专、高职（或同等学历）",
+                    "mail_address":"山东省东营市东营区东营港经济开发区大明工业园",
+                    "exam_province":"山东",
+                    "exam_city":"临沂市",
+                    "mail_num":"",
+                    "proof_type":"身份证",
+                    "id_num":"654123199408205129",
+                    "class_mobile":"18699052227",
+                    "ergent_people":"孙璐",
+                    "ergent_mobile":"18699052227",
+                    "classType":"一级注册消防工程师考试签约特招班",
+                    "section":"科一,科二,科三",
+                    "sign_type":"定金补费",
+                    "exam_date":"201911",
+                    "price":5392,
+                    "instead_sign":"否",
+                    "payment":"['6841556\u5b59\u7490\u5c3e\u6b3e.png']",
+                    "mobile":"18699052227",
+                    "project":"消防项目",
+                    "belong_to":"239",
+                    "tea_name":"679",
+                    "old":1
+                  }]
+                  // console.log(data.length)
+                  if(data.length>0){
+                    _this.order = data[0]
+                    _this.orderinit(_this)
+                  }
+                },
+              })
+              break;
+            //续报
+            case 3:
+               console.log(1)
+              $.ajax({
+                url:'',
+                type:'get',
+                data:{},
+                // dataType:'json',
+                success:function(data){
+                  data = [{
+                    "stu_name":"孙璐",
+                    "work_year":"3-5年",
+                    "sex":"女",
+                    "weixin":"sun1520462045",
+                    "email":"1520462045@qq.com",
+                    "education":"大专、高职（或同等学历）",
+                    "mail_address":"山东省东营市东营区东营港经济开发区大明工业园",
+                    "exam_province":"山东",
+                    "exam_city":"临沂市",
+                    "mail_num":"",
+                    "proof_type":"身份证",
+                    "id_num":"654123199408205129",
+                    "class_mobile":"18699052227",
+                    "ergent_people":"孙璐",
+                    "ergent_mobile":"18699052227",
+                    "classType":"一级注册消防工程师考试签约特招班",
+                    "section":"科一,科二,科三",
+                    "sign_type":"定金补费",
+                    "exam_date":"201911",
+                    "price":5392,
+                    "instead_sign":"否",
+                    "payment":"['6841556\u5b59\u7490\u5c3e\u6b3e.png']",
+                    "mobile":"18699052227",
+                    "project":"消防项目",
+                    "belong_to":"239",
+                    "tea_name":"679",
+                    "old":1
+                  }]
+                  // console.log(data.length)
+                  if(data.length>0){
+                    _this.order = data[0]
+                    _this.orderinit(_this)
+                  }
+                },
+              })
+              break;
+            //重修
+            case 4:
+              $.ajax({
+                url:'',
+                type:'get',
+                data:{},
+                // dataType:'json',
+                success:function(data){
+                  data = [{
+                    exam_province2:'北京',
+                    exam_city2:'密云县',
+                    cxkq:'201911',
+                  }]
+                  if(data.length>0){
+                    _this.restudy = data[0]
+                    _this.exam_cityss = chooseProvince1(_this.restudy.exam_province2)
+                  }
+                },
+              })
+              break;
+            //奖学金申请
+            case 5:
+              $.ajax({
+                url:'',
+                type:'get',
+                data:{},
+                // dataType:'json',
+                success:function(data){
+                  data = [{
+                    sc_oneScore:'1',
+                    sc_twoScore:'2',
+                    sc_threeScore:'3',
+                    sc_oneAttend:'4',
+                    sc_twoAttend:'5',
+                    sc_threeAttend:'6',
+                    apaly_price:'7',
+                    pay_way:'银行卡',
+                    apaly_num:'8',
+                    back_name:'9',
+                    bank_num:'11',
+                    bank_khh:'12',
+                  }]
+                  if(data.length>0){
+                    _this.jxj = data[0]
+                  }
+                },
+              })
+              break;
+            //冻结
+            case 6:
+              $.ajax({
+                url:'',
+                type:'get',
+                data:{},
+                // dataType:'json',
+                success:function(data){
+                  data = [{
+                    djtime:'一个月',
+                  }]
+                  if(data.length>0){
+                    _this.dj = data[0]
+                  }
+                },
+              })
+              break;
+            //冻结
+            case 7:
+              $.ajax({
+                url:'',
+                type:'get',
+                data:{},
+                // dataType:'json',
+                success:function(data){
+                  data = [{
+                    bp_reason:'前端原因',
+                    bp_desc:'2',
+                    bp_price:'3',
+                    bp_account:'扣工资',
+                    pay_way:'银行卡',
+                    apaly_num:'8',
+                    back_name:'9',
+                    bank_num:'11',
+                    bank_khh:'12',
+                  }]
+                  if(data.length>0){
+                    _this.tf = data[0]
+                  }
+                },
+              })
+              break;
+            default:
+              break;
+          }
+        },
+        del(item,index){
+          console.log(item,index)
+          console.log(this.filecon)
+          this.filecon.del(index)
+        },
+        activeIndex(num){
+          _this = this
+          this.forminit()
+          console.log(num,_this.activeIndexb)
+          _this.activeIndexb = num;
+            setTimeout(function(){
+              _this.forminit()
+          _this.init()
+          if(_this.activeIndexb == 4){
+            
+          }
+          if(_this.activeIndexb == 8){
+              $('.btn').click(function(){
+                console.log($(this).attr('class'))
+                if($(this).attr('class').split(' ')[1] == "btn-outlin/re-successf"){
+                  $(this).attr('class','btn btn-outline-successff btn-fw');
+                }else if($(this).attr('class').split(' ')[1] == "btn-outline-successff"){
+                  $(this).attr('class','btn btn-outline-successf btn-fw');
+                }
+              })
+          }
+            },20)
+        },
+        forminit(){
+          this.formdelete()
+          // formData.delete('UploadForm[excelFiles][]');
+          this.filecon = []
+        },
+        jxjInit(){
+          this.jxj.apaly_num = ""
+          this.jxj.back_name = ""
+          this.jxj.bank_num = ""
+          this.jxj.bank_khh = ""
+        },
+        tranClick(item){
+            console.log(item)
+          },
+        tfInit(){
+          this.tf.apaly_num = ""
+          this.tf.back_name = ""
+          this.tf.bank_num = ""
+          this.tf.bank_khh = ""
+        },
+        formdelete(){
+          for (var [a, b] of formData.entries()) {
+            console.log(a,b);
+            formData.delete(a);
+          }
+          formData.delete('company[]')
+          formData.delete('payway[]')
+          formData.delete('money[]')
+          formData.delete('image[]')
+        //     for (var key of formData.keys()){
+        //   console.log(key)
+        //         formData.delete(key);
+        //     };
+        },
+        choosePP(){
+          _this = this
+            this.exam_cityss = chooseProvince1(this.restudy.exam_province2)
+            console.log(this.exam_cityss)
+            this.restudy.exam_city2 = this.exam_cityss[0].name == undefined?this.exam_cityss[0]:this.exam_cityss[0].name
+        },
+          chooseP(){
+            _this = this
+            
+            this.exam_citys = chooseProvince1(this.order.exam_province)
+            this.order.exam_city = this.exam_citys[0].name == undefined?this.exam_citys[0]:this.exam_citys[0].name
+          },
+          chooseC(){
+            _this = this
+            
+            this.exam_area = chooseCity(this.mail_address1,this.mail_address2)
+            this.mail_address3 = this.exam_area[0].name == undefined?this.exam_area[0]:this.exam_area[0].name
+            // 
+            // this.exam_citys = chooseCity(this.order.exam_province)
+            // this.order.exam_city = this.exam_citys[0].name == undefined?this.exam_citys[0]:this.exam_citys[0].name
+          },
+          chooseP1(){
+            _this = this
+            this.exam_citys1 = chooseProvince2(this.mail_address1)
+            this.mail_address2 = this.exam_citys1[0].name == undefined?this.exam_citys1[0]:this.exam_citys1[0].name
+            this.exam_area = chooseCity(this.mail_address1,this.mail_address2)
+            this.mail_address3 = this.exam_area[0].name == undefined?this.exam_area[0]:this.exam_area[0].name
+          },
+          call(){
+            console.log(this.stu.mobile)
+          },
+          submit(){
+          
+            _this = this
+            _this.formdelete()
+            setTimeout(function(){
+              
+            _this.formdelete()
+              switch (_this.activeIndexb) {
+                case 0:
+                  //换科
+                  var str="";
+                  if (_this.stu_checked4 == true) {
+                    str+=",科一"
+                  }
+                  if (_this.stu_checked5 == true) {
+                    str+=",科二" 
+                  }
+                  if (_this.stu_checked6 == true) {
+                    str+=",科三"
+                  }
+                  _this.jijinhuanke.ke = str.substr(1);
+                  for(var k in _this.jijinhuanke){
+                    if(_this.jijinhuanke[k] == "" && k != "tran_id"){
+                      console.log(k)
+                      _this.$notify.error({
+                        title: '错误',
+                        message: '有内容为空，无法提交',
+                        
+                      });
+                      return
+                    }
+                    formData.set(k,_this.jijinhuanke[k])
+                  }
+                  // formData.set('section',str.substr(1))
+                  // formData.set('jijinhuanke',_this.stu.name)
+                  break;
+                case 1:
+                  //转介绍
+                  if(_this.orderzz() == false){
+                    return
+                  };
+                  var str="";
+                  if (_this.stu_checked1 == true) {
+                    str+=",科一"
+                  }
+                  if (_this.stu_checked2 == true) {
+                    str+=",科二" 
+                  }
+                  if (_this.stu_checked3 == true) {
+                    str+=",科三"
+                  }
+                  _this.order.section = str.substr(1);
+                for(var k in _this.order){
+                  
+                    formData.set(k,_this.order[k])
+                  }
+                  break;
+                case 2:
+                  //升班
+                  if(_this.orderzz() == false){
+                    return
+                  };
+                  var str="";
+                  if (_this.stu_checked1 == true) {
+                    str+=",科一"
+                  }
+                  if (_this.stu_checked2 == true) {
+                    str+=",科二" 
+                  }
+                  if (_this.stu_checked3 == true) {
+                    str+=",科三"
+                  }
+                  _this.order.section = str.substr(1);
+                for(var k in _this.order){
+                    formData.set(k,_this.order[k])
+                  }
+                  break; 
+                case 3:
+                  //续报
+                  if(_this.orderzz() == false){
+                    return
+                  };
+                  var str="";
+                  if (_this.stu_checked1 == true) {
+                    str+=",科一"
+                  }
+                  if (_this.stu_checked2 == true) {
+                    str+=",科二" 
+                  }
+                  if (_this.stu_checked3 == true) {
+                    str+=",科三"
+                  }
+                  _this.order.section = str.substr(1);
+                  for(var k in _this.order){
+                    formData.set(k,_this.order[k])
+                  }
+                  break;
+                case 4:
+                  //重修
+                  for(var k in _this.restudy){
+                    if(_this.restudy[k] == "" && k != "tran_id"){
+                      console.log(k)
+                      _this.$notify.error({
+                        title: '错误',
+                        message: '有内容为空，无法提交',
+                        
+                      });
+                      return
+                    }
+                    formData.set(k,_this.restudy[k])
+                  }
+                  break; 
+                case 5:
+                  //奖学金申请                  
+                  if(_this.jxj.pay_way == '支付宝' && _this.jxj.apaly_num == ""){
+                    console.log(k)
+                    _this.$notify.error({
+                        title: '错误',
+                        message: '有内容为空，无法提交',
+                        
+                      });
+                    return
+                  }
+                  if(_this.jxj.pay_way == '银行卡' && (_this.jxj.bank_num == ""||_this.jxj.bank_khh == ""||_this.jxj.back_name == "")){
+                    console.log(k)
+                    _this.$notify.error({
+                        title: '错误',
+                        message: '有内容为空，无法提交',
+                        
+                      });
+                    return
+                  }
+                  for(var k in _this.jxj){
+                    if(_this.jxj[k] == "" && k != "tran_id"&& k != "bank_num"&& k != "bank_khh"&& k != "back_name"&& k != "apaly_num"){
+                      console.log(k)
+                      _this.$notify.error({
+                        title: '错误',
+                        message: '有内容为空，无法提交',
+                        
+                      });
+                      return
+                    }
+                    formData.set(k,_this.jxj[k])
+                  }
+                  break;   
+                case 6:
+                  //冻结
+                  for(var k in _this.dj){
+                    if(_this.dj[k] == "" && k != "tran_id"){
+                      console.log(k)
+                      _this.$notify.error({
+                        title: '错误',
+                        message: '有内容为空，无法提交',
+                        
+                      });
+                      return
+                    }
+                    formData.set(k,_this.dj[k])
+                  }
+                  break;
+                case 7:
+                  //退费
+                  if(_this.tf.pay_way == '支付宝' && _this.tf.apaly_num == ""){
+                    console.log(k)
+                    _this.$notify.error({
+                        title: '错误',
+                        message: '有内容为空，无法提交',
+                        
+                      });
+                    return
+                  }
+                  if(_this.tf.pay_way == '银行卡' && (_this.tf.bank_num == ""||_this.tf.bank_khh == ""||_this.tf.back_name == "")){
+                    console.log(k)
+                    _this.$notify.error({
+                        title: '错误',
+                        message: '有内容为空，无法提交',
+                        
+                      });
+                    return
+                  }
+                  for(var k in _this.tf){
+                    if(_this.tf[k] == "" && k != "apaly_num"&& k != "bank_num"&& k != "bank_khh"&& k != "back_name"){
+                      console.log(k)
+                      _this.$notify.error({
+                        title: '错误',
+                        message: '有内容为空，无法提交',
+                        
+                      });
+                      return
+                    }
+                    formData.set(k,_this.tf[k])
+                  }
+                  break;                      
+                default:
+                  break;
+              }
+              for (let k = 0; k < _this.filecon.length; k++) {
+                formData.append('image[]',_this.filecon[k])
+              }
+              for (let i = 0; i < $('#files .company').length; i++) {
+                if($($('#files .company')[i]).val() == ""){
+                  _this.$notify.error({
+                        title: '错误',
+                        message: '请选择截图对应的公司',
+                        
+                      });
+                  return
+                }
+                formData.append('company[]',$($('#files .company')[i]).val())
+              }
+              for (let i = 0; i < $('#files .payway').length; i++) {
+                if($($('#files .payway')[i]).val() == ""){
+                  _this.$notify.error({
+                        title: '错误',
+                        message: '请填写截图对应的支付方式',
+                        
+                      });
+                  return
+                }
+                formData.append('payway[]',$($('#files .payway')[i]).val())
+              }
+              for (let i = 0; i < $('#files .money').length; i++) {
+                if($($('#files .money')[i]).val() == ""){
+                  _this.$notify.error({
+                        title: '错误',
+                        message: '请选择截图对应的金额',
+                        
+                      });
+                  return
+                }
+                formData.append('money[]',$($('#files .money')[i]).val())
+              }
+              if(_this.filecon.length == 0){
+                _this.$notify.error({
+                        title: '错误',
+                        message: '没有截图，无法提交',
+                        
+                      });
+                return
+              }
+                _this.Loading = true
+                _this.$notify({
+                        title: '提示',
+                        message: '提交中',
+                        type: 'warning',
+                      });
+              $.ajax({
+                url:'',
+                type:'post',
+                data:formData,
+                processData: false,
+                contentType: false,
+                success:function(data){
+                  _this.Loading = false
+                  _this.$notify({
+                        title: '提示',
+                        message: '提交成功',
+                        
+                      });
+                },
+                error:function(){
+                  _this.Loading = false
+                  _this.$notify({
+                        title: '提示',
+                        message: '提交成功',
+                        
+                      });
+                }
+              })
+              
+            },20)
+          // 
+        }
+      },
+    })
+      
+  </script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>

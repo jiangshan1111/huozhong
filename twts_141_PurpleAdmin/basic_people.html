@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>火种教育</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css" />
+  <!-- <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css"> -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/element-ui.css" />
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+  <style>
+    .el-notification {
+      background-color: #57c7d4;
+    }
+
+    .el-message-box__message p {
+      margin: 0;
+      line-height: 24px;
+      text-align: center;
+    }
+
+    .form-control {
+      height: 2.5rem;
+    }
+
+    .tableSpan span {
+      display: inline-block;
+      padding: 2px 20px;
+    }
+
+    select.form-control {
+      color: black;
+    }
+
+    .el-date-editor.el-input,
+    .el-date-editor.el-input__inner {
+      width: 100%;
+    }
+
+    .mail span {
+      float: left;
+      width: 80px;
+      cursor: pointer;
+      margin: 2px 10px;
+      border: 1px solid rgb(210, 210, 210);
+      border-radius: 3px;
+      background-color: white;
+    }
+
+    .card .card-body {
+      padding: 1.5rem 1.5rem;
+    }
+
+    .content-wrapper {
+      background: #f2edf3;
+      padding: 1.25rem 1.25rem;
+      width: 100%;
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+    }
+
+    .table th,
+    .table td {
+      padding: 0.6rem;
+      white-space: nowrap;
+    }
+
+    .jiangshan th,
+    .jiangshan td {
+      padding: 0.6rem;
+      white-space: normal;
+      width: 12.5%;
+      min-width: 80px;
+    }
+
+    .jiangshan1 th,
+    .jiangshan1 td {
+      padding: 0.6rem;
+      white-space: normal;
+      width: 16.6%;
+      min-width: 80px;
+    }
+
+    .dropdownn-menu {
+      border: none;
+      border-radius: 5px;
+      -webkit-box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+      position: static;
+      float: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      display: none;
+      float: left;
+      min-width: 10rem;
+      padding: 0.5rem 0;
+      margin: 0.125rem 0 0;
+      font-size: 1rem;
+      color: #343a40;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ebedf2;
+      border-radius: 0.25rem;
+    }
+
+    .btn.btn-fw.btn-outline-successf,
+    .btn.btn-fw.btn-outline-successff {
+      color: #1bcfb4;
+      background-color: transparent;
+      background-image: none;
+      border-color: #1bcfb4;
+      padding: 0.875rem 0;
+      min-width: 10px;
+      width: 10%;
+      margin-right: 1.1%;
+      margin-bottom: 1rem;
+    }
+
+    .btn.btn-fw.btn-outline-successff {
+      color: white;
+      background-color: #1bcfb4;
+    }
+
+    table td:nth-of-type(2n+1) {
+      color: #b66dff
+    }
+
+    table td:nth-of-type(2n) {
+      color: rgb(130, 130, 130)
+    }
+
+    @media only screen and (max-width:750px) {
+
+      .btn.btn-fw.btn-outline-successf,
+      .btn.btn-fw.btn-outline-successff {
+        width: 31%;
+        margin-right: 2.3%;
+      }
+
+      .btn {
+        margin-bottom: .5rem;
+      }
+    }
+
+    #scrollnav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .el-scrollbar__wrap {
+      height: 700px;
+      overflow: visible;
+      overflow-x: hidden;
+    }
+
+    #simple_1 {
+      display: none;
+    }
+
+    #simple_1+label {
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+      position: relative;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+      margin: 0px 20px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    #simple_1+label:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 20px;
+      height: 20px;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    #simple_1:checked+label.red {
+      background: #ECA9A7;
+    }
+
+    #simple_1:checked+label.red:after {
+      background: #D9534F;
+    }
+
+    #simple_1:checked+label.green {
+      background: #AEDCAE;
+    }
+
+    #simple_1:checked+label.green:after {
+      background: white;
+    }
+
+    #simple_1:checked+label:after {
+      left: calc(100% - 20px);
+    }
+
+    #simple_1+label {
+      background: rgb(0, 138, 235);
+      border-radius: 20px;
+      box-shadow: 1px 1px 3px #aaa;
+    }
+
+    #simple_1+label:after {
+      background: white;
+      border-radius: 50%;
+      box-shadow: 1px 1px 3px #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-scroller" id="app">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="index.html">火种教育</a>
+        <a class="navbar-brand brand-logo-mini" href="index.html">火种教育</a>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html height: 600px;
+        overflow: auto;
+        position: fixed;-->
+      <!-- partial -->
+      <div class="main-panel" style="width: 100%">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <form class="form-sample">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>中级客服：</label>
+                          <div class="row" style="margin: 0">
+                            <div v-for="(item,index) in middle_people" class="form-check form-check-success" style="text-align: center;">
+                              <label class="form-check-label" style="padding: 0px 20px 0px 10px;"> <input
+                                  type="checkbox" class="form-check-input" v-model="item.check"/>{{item.name}} <i
+                                  class="input-helper"></i></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>高级客服：</label>
+                          <div class="row" style="margin: 0">
+                            <div v-for="(item,index) in high_people" class="form-check form-check-success" style="text-align: center;">
+                              <label class="form-check-label" style="padding: 0px 20px 0px 10px;"> <input
+                                  type="checkbox" class="form-check-input" v-model="item.check" />{{item.name}} <i
+                                  class="input-helper"></i></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <input type="button" @click="submit" class="btn btn-gradient-primary mr-2" style="float: right"
+                      value="提交" />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019<a href="#"
+                target="_blank">火种教育</a></span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/element-ui.js"></script>
+  <script src="js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="js/file-upload.js"></script>
+  <script src="js/city1.js"></script>
+  <script>
+    var addInfoa = {};
+    new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          middle_people:[{
+            'uid': '11',
+            'name': '江山',
+            'check':false,
+          },{
+            'uid': '12',
+            'name': '江山1',
+            'check':false,
+          },{
+            'uid': '13',
+            'name': '江山2',
+            'check':false,
+          },{
+            'uid': '14',
+            'name': '江山3',
+            'check':false,
+          }],
+          high_people:[{
+            'uid': '21',
+            'name': '江山4',
+            'check':false,
+          },{
+            'uid': '22',
+            'name': '江山5',
+            'check':false,
+          },{
+            'uid': '23',
+            'name': '江山6',
+            'check':false,
+          },{
+            'uid': '24',
+            'name': '江山7',
+            'check':false,
+          }],
+        }
+      },
+      computed: {
+
+
+      },
+      created: function () {
+
+      },
+      mounted: function () {
+        // console.log(this.addInfo)
+        // addInfoa = this.addInfo
+
+      },
+      methods: {
+        submit() {
+          middle_people = [];
+          high_people = [];
+          for (let i = 0; i < this.middle_people.length; i++) {
+            if(this.middle_people[i].check == true){
+              middle_people.push(this.middle_people[i].uid)
+            }
+          }
+          for (let i = 0; i < this.high_people.length; i++) {
+            if(this.high_people[i].check == true){
+              high_people.push(this.high_people[i].uid)
+            }
+          }
+          console.log(high_people,middle_people)
+          $.ajax({
+            url:'',
+            data:{
+              high_people,
+              middle_people
+            },
+            dataType:'json',
+            success:function(){
+
+            },
+            error:function(){
+              
+            }
+          })
+        }
+      },
+    })
+  </script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>

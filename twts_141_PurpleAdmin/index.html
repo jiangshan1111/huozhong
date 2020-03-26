@@ -1,0 +1,4044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>火种教育</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/c/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/element-ui.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+  <style>
+    .el-notification {
+      background-color: #57c7d4;
+    }
+
+    .card .card-body {
+      padding: 1rem;
+    }
+
+    .col-md-3 {
+      padding-right: 0;
+      padding-left: 1.5rem;
+    }
+
+    .grid-margin,
+    .purchase-popup {
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .col-md-3 {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+      }
+    }
+
+    .stretch-card {
+      cursor: pointer;
+    }
+
+    p {
+      margin: 0;
+      margin-bottom: .3rem;
+    }
+
+    .content-wrapper {
+      padding: 1.5rem 1.5rem;
+    }
+
+    #scrollnav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .el-message-box {
+      width: 80%
+    }
+
+    .el-scrollbar__wrap {
+      /* height: 700px;
+      overflow: visible;
+      overflow-x: hidden; */
+    }
+
+    /* .el-scrollbar {
+      position: fixed;
+      width: 260px;
+    } */
+
+    .row::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-scroller" id="app" v-loading="Loading">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="index.html">火种教育</a>
+        <a class="navbar-brand brand-logo-mini" href="index.html">火种教育</a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <div class="search-field d-none d-md-block">
+          <form class="d-flex align-items-center h-100" action="#">
+            <div class="input-group">
+              <div class="input-group-prepend bg-transparent">
+                <i class="input-group-text border-0 mdi mdi-magnify"></i>
+              </div>
+              <input type="text" class="form-control bg-transparent border-0" />
+            </div>
+          </form>
+        </div>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item nav-profile dropdown"> <a class="nav-link dropdown-toggle" id="profileDropdown" href="#"
+              data-toggle="dropdown" aria-expanded="false">
+              <div class="nav-profile-img">
+                <img src="images/faces/face15.jpg" alt="image" />
+                <span class="availability-status online"></span>
+              </div>
+              <div class="nav-profile-text">
+                <p class="mb-1 text-black">江山</p>
+              </div>
+            </a>
+            <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item" href="#"> <i class="mdi mdi-cached mr-2 text-success"></i> 数据分析表</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#"> <i class="mdi mdi-logout mr-2 text-primary"></i> 库存分析表 </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" @click="model = 2"> <i class="mdi mdi-logout mr-2 text-primary"></i>
+                查看奖品 </a>
+              <a class="dropdown-item" href="#" @click="model = 3"> <i class="mdi mdi-logout mr-2 text-primary"></i>
+                新建退费订单 </a>
+              <a class="dropdown-item" href="#" @click="WX_bd"> <i class="mdi mdi-logout mr-2 text-primary"></i>
+                绑定微信号 </a>
+              <a class="dropdown-item" href="#" @click="service_bd"> <i class="mdi mdi-logout mr-2 text-primary"></i>
+                绑定服务 </a>
+              <a class="dropdown-item" href="#" @click="tf_info"> <i class="mdi mdi-logout mr-2 text-primary"></i>
+                退费信息 </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block full-screen-link"> <a class="nav-link"> <i class="mdi mdi-fullscreen"
+                id="fullscreen-button"></i> </a> </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas"> <span class="mdi mdi-menu"></span> </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html      height: 600px;
+     overflow: auto;
+     position: fixed;overflow-y: auto;
+          overflow-x: hidden;
+          height: 0;
+    -->
+
+      <nav class="sidebar sidebar-offcanvas " id="sidebar">
+        <!-- -->
+        <el-scrollbar class="sidebar sidebar-offcanvas " id="sidebar" style="overflow-y: auto;
+overflow-x: hidden;
+height: 0;">
+          <ul class="nav" id="scrollnav" style="-webkit-flex-grow: 1;
+    flex-grow: 1;
+">
+            <li class="nav-item nav-profile"> <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="images/faces/face15.jpg" alt="profile" />
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">江山</span>
+                  <span class="text-secondary text-small">web前端工程师</span>
+                </div> <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a> </li>
+            <li :class="[activeIndexb ==0? 'nav-item active':'nav-item']" @click="activeIndex(0)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">新分配学员</span> <i class="mdi mdi-home menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==1? 'nav-item active':'nav-item']" @click="activeIndex(1)"> <a class="nav-link"
+                data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic"> <span
+                  class="menu-title">微信待通过</span>
+                <!-- <i class="menu-arrow"></i> --> <i class="mdi mdi-crosshairs-gps menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==2? 'nav-item active':'nav-item']" @click="activeIndex(2)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">协议待回执</span> <i class="mdi mdi-contacts menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==3? 'nav-item active':'nav-item']" @click="activeIndex(3)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">协议已回执待审核</span> <i class="mdi mdi-format-list-bulleted menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==4? 'nav-item active':'nav-item']" @click="activeIndex(4)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">待邮寄学员</span> <i class="mdi mdi-chart-bar menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==5? 'nav-item active':'nav-item']" @click="activeIndex(5)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">已邮寄学员</span> <i class="mdi mdi-table-large menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==6? 'nav-item active':'nav-item']" @click="activeIndex(6)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">今日应回访</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==7? 'nav-item active':'nav-item']" @click="activeIndex(7)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">考试账号待注册</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==8? 'nav-item active':'nav-item']" @click="activeIndex(8)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">应代报名</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==9? 'nav-item active':'nav-item']" @click="activeIndex(9)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">已代报名未审核</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==10? 'nav-item active':'nav-item']" @click="activeIndex(10)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">工单待处理</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==11? 'nav-item active':'nav-item']" @click="activeIndex(11)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">订单未通过</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==12? 'nav-item active':'nav-item']" @click="activeIndex(12)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">退挽待处理（客服）</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==13? 'nav-item active':'nav-item']" @click="activeIndex(13)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">退挽待处理（院长）</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==14? 'nav-item active':'nav-item']" @click="activeIndex(14)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">开课待审核（主管）</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==15? 'nav-item active':'nav-item']" @click="activeIndex(15)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">退费未处理</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==16? 'nav-item active':'nav-item']" @click="activeIndex(16)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">学员未签名</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==17? 'nav-item active':'nav-item']" @click="activeIndex(17)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">已签名未审核</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==18? 'nav-item active':'nav-item']" @click="activeIndex(18)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">财务未退款</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==19? 'nav-item active':'nav-item']" @click="activeIndex(19)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">财务已退款</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==20? 'nav-item active':'nav-item']" @click="activeIndex(20)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">待超管审核</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==21? 'nav-item active':'nav-item']" @click="activeIndex(21)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">超管审核</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==22? 'nav-item active':'nav-item']" @click="activeIndex(22)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">工单待处理</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==23? 'nav-item active':'nav-item']" @click="activeIndex(23)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">审核介绍人</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+            <li :class="[activeIndexb ==24? 'nav-item active':'nav-item']" @click="activeIndex(24)"> <a class="nav-link"
+                data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <span
+                  class="menu-title">支付截图（转介绍）</span> <i class="mdi mdi-medical-bag menu-icon"></i> </a> </li>
+          </ul>
+        </el-scrollbar>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel" v-if="activeIndexb == 0">
+        <div class="content-wrapper" style="overflow-y: auto;
+        overflow-x:hidden;
+        height: 0;">
+          <!-- <div class="infinite-list-wrapper">
+              <ul
+                class="list"
+                v-infinite-scroll="load"
+                infinite-scroll-disabled="disabled">
+                <li v-for="i in count" class="list-item">`` i ``</li>
+              </ul>
+              <p v-if="loading1">加载中...</p>
+              <p v-if="noMore">没有更多了</p>
+            </div> height: 700px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      overflow: auto;
+      display: flex;
+    flex-wrap: wrap;
+    margin-right: -20px;
+    margin-left: -20px;         
+    
+    overflow: hidden auto;
+    height: 0px;
+    background: #f2edf3;
+    width: 100%;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;-->
+
+          <div class="row" v-infinite-scroll="load" infinite-scroll-disabled="disabled" style="
+
+          ">
+
+
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in newallot" @click="toNext(0)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>分配时间：</b><span>``item.last_mark_time``</span></p>
+                    <p><b>咨询师归属：</b><span>``item.zixunshi``</span></p>
+                    <p><b>教务归属：</b><span>``item.user_name``</span></p>
+                    <p><b>班型：</b><span>``item.classType``</span></p>
+                    <p><b>报名类型：</b><span>``item.sign_type``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12" style="text-align: center">
+              <p v-if="loading1">加载中...</p>
+              <p v-if="noMore">没有更多了</p>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.htlml -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 1">
+        <div class="content-wrapper" v-infinite-scroll="load1" infinite-scroll-disabled="disabled1" style="
+        overflow-y: auto;
+        overflow-x:hidden;
+        height: 0;
+    ;">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in weixinr">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name`` <input type="button" @click="tongguo(item.did)"
+                        class="btn btn-gradient-warning btn-rounded mr-2"
+                        style="padding: 0.5rem 1.5rem;float: right;position: relative;z-index: 99" value="通过" /></h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>微信：</b><span>``item.weixin``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12" style="text-align: center">
+              <p v-if="loading2">加载中...</p>
+              <p v-if="noMore1">没有更多了</p>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 2">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in xieyidhz" @click="toNext(0)">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>报名时间：</b><span>``item.last_mark_time``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 3">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in xieyixhz" @click="toNext(0)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>报名时间：</b><span>``item.last_mark_time``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 4">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in maildyj" @click="toNext(8)">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>协议回执日期：</b><span>``item.agr_back``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 5">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in mailyyj" @click="toNext(8)">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>快递单号：</b><span>``item.sm_courier_number``</span></p>
+                    <p><b>邮寄内容：</b><span>``item.sm_con``</span></p>
+                    <p><b>书本：</b><span>``((item.jt_one == 1?',基通1':'')+(item.jt_two == 1?',基通2':'')+(item.jt_three ==
+                        1?',基通3':'')+(item.jj_one == 1?',基教1':'')+(item.jj_two == 1?',基教2':'')+(item.jj_three ==
+                        1?',基教3':'')+(item.fire_xt == 1?',消通':'')+(item.fire_xj == 1?',消教':'')+(item.xieyi ==
+                        1?',协议':'')).substring(1)``</span></p>
+                    <p><b>邮寄日期：</b><span>``item.sm_date``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 6">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in todayhf" @click="toNext(5)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 7">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in examdzc" @click="toNext(2)">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>报名时间：</b><span>``item.last_mark_time``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 8">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in shouldSign" @click="toNext(4)">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>考期：</b><span>``item.exam_date``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 9">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in alreadysign" @click="toNext(4)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``<span
+                        style="font-size:14px;margin-left:3px">``item.project``</span></a>
+                    <p><b>考期：</b><span>``item.exam_date``</span></p>
+                    <p><b>科目：</b><span>``((item.keyi_once == item.exam_date?',科一':'')+(item.keyi_second ==
+                        item.exam_date?',科一':'')+(item.keyi_third == item.exam_date?',科一':'')+(item.keer_once ==
+                        item.exam_date?',科二':'')+(item.keer_second == item.exam_date?',科二':'')+(item.keer_third ==
+                        item.exam_date?',科二':'')+(item.kesan_once == item.exam_date?',科三':'')+(item.kesan_second ==
+                        item.exam_date?',科三':'')+(item.kesan_third == item.exam_date?',科三':'')).substring(1)``</span>
+                    </p>
+                    <p><b>费用：</b><span>``((item.keyi_once ==
+                        item.exam_date?','+item.keyi_once_money:'')+(item.keyi_second ==
+                        item.exam_date?','+item.keyi_second_money:'')+(item.keyi_third ==
+                        item.exam_date?','+item.keyi_third_money:'')+(item.keer_once ==
+                        item.exam_date?','+item.keer_once_money:'')+(item.keer_second ==
+                        item.exam_date?','+item.keer_second_money:'')+(item.keer_third ==
+                        item.exam_date?','+item.keer_third_money:'')+(item.kesan_once ==
+                        item.exam_date?','+item.kesan_once_money:'')+(item.kesan_second ==
+                        item.exam_date?','+item.kesan_second_money:'')+(item.kesan_third ==
+                        item.exam_date?','+item.kesan_third_money:'')).substring(1)``</span></p>
+                    <input type="button" class="btn btn-gradient-warning btn-rounded mr-2"
+                      style="padding: 0.5rem 1.5rem;;float: right" value="审核" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 10">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in workdcl">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body" @click="open">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 11">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in orderwtg" @click="toNext(0)">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>审核不通过原因：</b><span>``item.back_reason``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 12">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in giveupdclk" @click="toNext(9)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>退费申请日期：</b><span>``item.pd_date``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 13">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in giveupdcly" @click="toNext(9)">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``</h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>退费申请日期：</b><span>``item.pd_date``</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 14">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in openClassz">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="7">
+                    <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4>
+                    <a class="phone">``item.mobile``</a>
+                    <p><b>班型：</b><span>``item.classType``</span></p>
+                    <p><b>科目：</b><span>``item.section``</span></p>
+                    <input type="button" @click.stop="openClass(item.did)"
+                      class="btn btn-gradient-warning btn-rounded mr-2"
+                      style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 15">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund" @click="toNext(12)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                      class="btn btn-gradient-warning btn-rounded mr-2"
+                      style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 16">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund" @click="toNext(12)">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                        class="btn btn-gradient-warning btn-rounded mr-2"
+                        style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+                <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 17">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund" @click="toNext(12)">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                          class="btn btn-gradient-warning btn-rounded mr-2"
+                          style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+                  <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 18">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund" @click="toNext(12)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                            class="btn btn-gradient-warning btn-rounded mr-2"
+                            style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+                    <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 19">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund" @click="toNext(12)">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                              class="btn btn-gradient-warning btn-rounded mr-2"
+                              style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+                      <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 20">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund" @click="toNext(12)">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                                class="btn btn-gradient-warning btn-rounded mr-2"
+                                style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+                        <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 21">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund" @click="toNext(12)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                                  class="btn btn-gradient-warning btn-rounded mr-2"
+                                  style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+                          <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 22">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund" @click="click_order">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                                  class="btn btn-gradient-warning btn-rounded mr-2"
+                                  style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+                          <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 23">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund"
+              @click="click_intro(item.mobile)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                                  class="btn btn-gradient-warning btn-rounded mr-2"
+                                  style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+                          <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="main-panel" v-if="activeIndexb == 24">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-3 stretch-card grid-margin" v-for="(item,index) in refund" @click="click_pay(item.id)">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <div class="thumbnail Avdi" atype="12">
+                    <!-- <h4>``item.stu_name``<span style="font-size:14px;margin-left:3px">``item.project``</span></h4> -->
+                    <!-- <a class="phone">``item.mobile``</a> -->
+                    <p><b>手机号：</b><span>``item.mobile``</span></p>
+                    <p><b>时间：</b><span>``item.contract_id``</span></p>
+                    <!-- <input type="button" @click.stop="openClass(item.did)"
+                                  class="btn btn-gradient-warning btn-rounded mr-2"
+                                  style="padding: 0.5rem 1.5rem;;float: right;position: relative;z-index: 99" value="开课" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright &copy; 2019 <a href=""
+                target="_blank">火种教育</a> </span>
+            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+                          <i class="mdi mdi-heart text-danger"></i> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span> -->
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <div class="v-modal" v-show="model  != 0" tabindex="0" style="z-index: 2000;display: none"></div>
+      <div tabindex="-1" v-show="model == 1" role="dialog" aria-modal="true" aria-label="HTML 片段"
+        class="el-message-box__wrapper" style="overflow: auto;z-index: 2001;display: none">
+        <div class="el-message-box" style="
+           overflow: auto;
+       ">
+          <div class="el-message-box__header">
+            <div class="el-message-box__title">
+              <span>工单详情</span>
+            </div>
+            <button type="button" aria-label="Close" @click="model = 0" class="el-message-box__headerbtn"><i
+                class="el-message-box__close el-icon-close"></i></button>
+          </div>
+          <div class="el-message-box__content">
+            <div class="el-message-box__message">
+              <p> </p>
+              <div class="">
+                <div class="content-wrapper" style="background: white">
+
+                  <form class="form-sample">
+                    <div class="row">
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>学员账号：</label>
+                          <input type="text" v-bind:value="answer.mobile1" disabled
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>咨询时间：</label>
+                          <input type="text" v-bind:value="answer.ask_time" disabled
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>班主任：</label>
+                          <input type="text" v-bind:value="answer.tea_name" disabled
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>提交人：</label>
+                          <input type="text" v-bind:value="answer.submit_name" disabled
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>问题：</label>
+                          <input type="text" v-bind:value="answer.bigproblem+'--'+answer.smallproblem" disabled
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>问题描述：</label>
+                          <div style="    height: 37px;
+                     overflow-y: auto;" v-html="answer.problem_note">
+
+                          </div>
+                          <!-- <input type="text" class="form-control form-control-sm"  />  -->
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>查看附件：</label><br>
+                          <a :href="'http://new.huozhongedu.com/img/annex/'+answer.annex" style="line-height: 37px"
+                            v-html="answer.annex">aaa</a>
+                          <!-- <input type="text" class="form-control form-control-sm"  />  -->
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>处理状态：</label>
+                          <select class="form-control payway" @change="" v-bind:value="answer.process_status">
+                            <option value="">请选择</option>
+                            <option value="已处理">已处理</option>
+                            <option value="已处理待跟进">已处理待跟进</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-12" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>处理备注：</label>
+                          <input type="text" v-bind:value="answer.process_note" class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                    </div>
+                    <input type="button" @click="tijiao" class="btn btn-gradient-primary mr-2" style="float: right"
+                      value="提交">
+                  </form>
+
+                </div>
+              </div>
+              <p></p>
+            </div>
+            <div class="el-message-box__input" style="display: none;">
+              <div class="el-input">
+                <input type="text" autocomplete="off" />
+              </div>
+              <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
+            </div>
+          </div>
+          <!-- <div class="el-message-box__btns">
+          <button type="button" class="el-button el-button--default el-button--small el-button--primary "><span> 确定 </span></button>
+         </div> -->
+        </div>
+      </div>
+      <div tabindex="-1" v-show="model == 12" role="dialog" aria-modal="true" aria-label="HTML 片段"
+        class="el-message-box__wrapper" style="overflow: auto;z-index: 2001;display: none">
+        <div class="el-message-box" style="
+           overflow: auto;
+       ">
+          <div class="el-message-box__header">
+            <div class="el-message-box__title">
+              <span>审核介绍人</span>
+            </div>
+            <button type="button" aria-label="Close" @click="model = 0" class="el-message-box__headerbtn"><i
+                class="el-message-box__close el-icon-close"></i></button>
+          </div>
+          <div class="el-message-box__content">
+            <div class="el-message-box__message">
+              <p> </p>
+              <div class="">
+                <div class="content-wrapper" style="background: white">
+
+                  <form class="form-sample">
+                    <div class="row">
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>被介绍人姓名：</label>
+                          <input type="text" v-model="intro_info.stu_name" class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>介绍人身份证号：</label>
+                          <input type="text" v-model="intro_info.id_num" class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>介绍人收款账号：</label>
+                          <input type="text" v-model="intro_info.band_num" class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>介绍人开户行：</label>
+                          <input type="text" v-model="intro_info.band_address" class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                    </div>
+                    <input type="button" @click="intro_submit" class="btn btn-gradient-primary mr-2"
+                      style="float: right" value="提交">
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="el-message-box__btns">
+          <button type="button" class="el-button el-button--default el-button--small el-button--primary "><span> 确定 </span></button>
+         </div> -->
+        </div>
+      </div>
+      <div tabindex="-1" v-show="model == 2" role="dialog" aria-modal="true" aria-label="HTML 片段"
+        class="el-message-box__wrapper" style="overflow: auto;z-index: 2001;display: none">
+        <div class="el-message-box" style="
+         overflow: auto;
+     ">
+          <div class="el-message-box__header">
+            <div class="el-message-box__title">
+              <span>工单详情</span>
+            </div>
+            <button type="button" aria-label="Close" @click="model = 0" class="el-message-box__headerbtn"><i
+                class="el-message-box__close el-icon-close"></i></button>
+          </div>
+          <div class="el-message-box__content">
+            <div class="el-message-box__message">
+              <p> </p>
+              <div class="">
+                <div class="content-wrapper" style="background: white">
+
+                  <form class="form-sample">
+                    <div class="row">
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>手机号：</label>
+                          <input type="text" v-model="award_mobile" class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>兑换码：</label>
+                          <input type="text" v-model="award_duihuan" class="form-control form-control-sm" />
+                        </div>
+                      </div>
+
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>奖品：</label>
+                          <div style="    height: 37px;line-height: 37px;color:red">
+                            iphone7
+                          </div>
+                          <!-- <input type="text" v-bind:value="answer.ask_time" disabled class="form-control form-control-sm"  />  -->
+
+                        </div>
+                      </div>
+                    </div>
+                    <input type="button" @click="award" class="btn btn-gradient-primary mr-2" style="float: right"
+                      value="提交">
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="el-message-box__btns">
+        <button type="button" class="el-button el-button--default el-button--small el-button--primary "><span> 确定 </span></button>
+       </div>-->
+        </div>
+      </div>
+      <div tabindex="-1" v-show="model == 10" role="dialog" aria-modal="true" aria-label="HTML 片段"
+        class="el-message-box__wrapper" style="overflow: auto;z-index: 2001;display: none">
+        <div class="el-message-box" style="
+           overflow: auto;
+       ">
+          <div class="el-message-box__header">
+            <div class="el-message-box__title">
+              <span>绑定微信号</span>
+            </div>
+            <button type="button" aria-label="Close" @click="model = 0" class="el-message-box__headerbtn"><i
+                class="el-message-box__close el-icon-close"></i></button>
+          </div>
+          <div class="el-message-box__content">
+            <div class="el-message-box__message">
+              <p> </p>
+              <div class="">
+                <div class="content-wrapper" style="background: white">
+
+                  <form class="form-sample">
+                    <div class="row">
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>教师：</label>
+                          <select class="form-control" v-model="WX_submit.uid">
+                            <option value="">请选择教师</option>
+                            <option v-for="(item,index) in WXs" :value="item.uid">``item.user_name``--``item.project``
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>搜索：</label>
+                          <input type="text" placeholder="搜索" @keyup="search_WX" v-model="WX_search"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>微信号：</label>
+                          <input type="text" placeholder="微信号" v-model="WX_submit.weixin"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>微信号：</label>
+                          <input type="text" placeholder="微信号" v-model="WX_submit.weixin"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>微信号：</label>
+                          <input type="text" placeholder="微信号" v-model="WX_submit.weixin"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-3" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>微信号：</label>
+                          <input type="text" placeholder="微信号" v-model="WX_submit.weixin"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                    </div>
+                    <input type="button" @click="WX_submit_btn" class="btn btn-gradient-primary mr-2"
+                      style="float: right" value="提交">
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="el-message-box__btns">
+          <button type="button" class="el-button el-button--default el-button--small el-button--primary "><span> 确定 </span></button>
+         </div> -->
+        </div>
+      </div>
+      <div tabindex="-1" v-show="model == 20" role="dialog" aria-modal="true" aria-label="HTML 片段"
+        class="el-message-box__wrapper" style="overflow: auto;z-index: 2001;display: none">
+        <div class="el-message-box" style="
+           overflow: auto;
+       ">
+          <div class="el-message-box__header">
+            <div class="el-message-box__title">
+              <span>提交工单</span>
+            </div>
+            <button type="button" aria-label="Close" @click="model = 0" class="el-message-box__headerbtn"><i
+                class="el-message-box__close el-icon-close"></i></button>
+          </div>
+          <div class="el-message-box__content">
+            <div class="el-message-box__message">
+              <p> </p>
+              <div class="">
+                <div class="content-wrapper" style="background: white">
+
+                  <form class="form-sample">
+                    <div class="row">
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>*咨询号码：</label>
+                          <input type="text" placeholder="咨询号码" v-model="add_order_info.mobile"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>*报名班型：</label>
+                          <select class="form-control" v-model="add_order_info.classType">
+                            <option value="">请选择</option>
+                            <option v-for="(item,index) in old_class" :value="item.name">``item.name``</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>*缴费金额：</label>
+                          <input type="text" placeholder="缴费金额" v-model="add_order_info.price"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>*报名类型：</label>
+                          <select class="form-control" v-model="add_order_info.sign_type">
+                            <option value="">请选择类型</option>
+                            <option value="定金">定金</option>
+                            <option value="定金补费">定金补费</option>
+                            <option value="全款报名">全款报名</option>
+                            <option value="升班">升班</option>
+                            <option value="代报名补费">代报名补费</option>
+                            <option value="续报">续报</option>
+                            <option value="基金换科补费">基金换科补费</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>*是否代报名：</label>
+                          <select class="form-control" v-model="add_order_info.instead_sign">
+                            <option value="">请选择</option>
+                            <option value="0">否</option>
+                            <option value="1500">是</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>数据类型：</label>
+                          <select class="form-control" v-model="add_order_info.data_type">
+                            <option value="">请选择类型</option>
+                            <option value="普通">普通</option>
+                            <option value="团报">团报</option>
+                            <option value="转介绍">转介绍</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>团报转介绍号码：</label>
+                          <input type="text" placeholder="团报或转介绍号码" v-model="add_order_info.consult_mobile"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>*姓名：</label>
+                          <input type="text" placeholder="姓名" v-model="add_order_info.stu_name"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>性别：</label>
+                          <select class="form-control" v-model="add_order_info.sex">
+                            <option value="">请选择性别</option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>*证件类型：</label>
+                          <select class="form-control" v-model="add_order_info.proof_type">
+                            <option value="">请选择证件</option>
+                            <option value="身份证">身份证</option>
+                            <option value="护照">护照</option>
+                            <option value="港澳居民内地通行证">港澳居民内地通行证</option>
+                            <option value="台湾居民内地通行证">台湾居民内地通行证</option>
+                            <option value="港澳居民居住证">港澳居民居住证</option>
+                            <option value="台湾居民居住证">台湾居民居住证</option>
+                            <option value="军官证">军官证</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>*证件号码：</label>
+                          <input type="text" placeholder="证件号码" v-model="add_order_info.id_num"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>*课程号码：</label>
+                          <input type="text" placeholder="课程号码" v-model="add_order_info.class_mobile"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>分配时间：</label>
+                          <el-date-picker v-model="add_order_info.order_time" type="datetime" style="width: 100%"
+                            placeholder="分配时间">
+                          </el-date-picker>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>考期：</label>
+                          <select id="" class="form-control"  v-model="add_order_info.exam_date">
+                            <option value="">请选择考期</option>
+                            <option value="201801">201801</option>
+                            <option value="201802">201802</option>
+                            <option value="201803">201803</option>
+                            <option value="201804">201804</option>
+                            <option value="201805">201805</option>
+                            <option value="201806">201806</option>
+                            <option value="201807">201807</option>
+                            <option value="201808">201808</option>
+                            <option value="201809">201809</option>
+                            <option value="201810">201810</option>
+                            <option value="201811">201811</option>
+                            <option value="201812">201812</option>
+                            <option value="201901">201901</option>
+                            <option value="201902">201902</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201907">201907</option>
+                            <option value="201908">201908</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                            <option value="202011">202011</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>支付方式：</label>
+                          <select class="form-control"  v-model="add_order_info.pay_way">
+                            <option value="">请选择</option>
+                            <option value="支付宝">支付宝</option>
+                            <option value="微信">微信</option>
+                            <option value="淘宝">淘宝</option>
+                            <option value="现金">现金</option>
+                            <option value="银行公户">银行公户</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>报考省份：</label>
+                          <select class="form-control" id="province1" name="exam_province" @change="chooseP"
+                            v-model="add_order_info.exam_province">
+                            <option value="">请选择省</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>报考城市：</label>
+                          <select class="form-control" id="city1" onchange="" name="exam_city"
+                            v-model="add_order_info.exam_city">
+                            <option value="">请选择市</option>
+                            <option v-bind:value="Item.name == undefined?Item:Item.name" v-for="Item in exam_citys">
+                              ``Item.name == undefined?Item:Item.name``</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>优惠码：</label>
+                          <input type="text" placeholder="优惠码" v-model="add_order_info.coupon_num"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>qq：</label>
+                          <input type="text" placeholder="qq" v-model="add_order_info.qq"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>微信：</label>
+                          <input type="text" placeholder="微信" v-model="add_order_info.weixin"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>邮箱：</label>
+                          <input type="text" placeholder="邮箱" v-model="add_order_info.email"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>邮寄地址：</label>
+                          <input type="text" placeholder="邮寄地址" v-model="add_order_info.mail_address"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>邮编：</label>
+                          <input type="text" placeholder="邮编" v-model="add_order_info.mail_num"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>紧急联系人：</label>
+                          <input type="text" placeholder="紧急联系人" v-model="add_order_info.ergent_people"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>紧急联系电话：</label>
+                          <input type="text" placeholder="紧急联系电话" v-model="add_order_info.ergent_mobile"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>工作年限：</label>
+                          <select id="" class="form-control"  v-model="add_order_info.work_year">
+                            <option value="">请选择工作年限</option>
+                            <option value="无">无</option>
+                            <option value="应届生">应届生</option>
+                            <option value="1-3年">1-3年</option>
+                            <option value="3-5年">3-5年</option>
+                            <option value="5-10年">5-10年</option>
+                            <option value="10年以上" selected="selected">10年以上</option>
+                        </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>学历：</label>
+                          <select id="" class="form-control"  v-model="add_order_info.education">
+                            <option value="">请选择学历</option>
+                            <option value="无">无</option>
+                            <option value="高中（中专或同等学历）" selected="selected">高中（中专或同等学历）</option>
+                            <option value="大专、高职（或同等学历）">大专、高职（或同等学历）</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                            <option value="博士及以上学历">博士及以上学历</option>
+                        </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>座机号码：</label>
+                          <input type="text" placeholder="座机号码" v-model="add_order_info.Tel_num"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>常用手机：</label>
+                          <input type="text" placeholder="常用手机" v-model="add_order_info.common_tel"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>行业：</label>
+                          <input type="text" placeholder="行业" v-model="add_order_info.trade"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>职位：</label>
+                          <input type="text" placeholder="职位" v-model="add_order_info.zhiwei"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-2" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>单位：</label>
+                          <input type="text" placeholder="单位" v-model="add_order_info.danwei"
+                            class="form-control form-control-sm" />
+                        </div>
+                      </div>
+                      <div class="col-md-4" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label>报名科目：</label>
+                          <div class="row" style="margin: 0px;">
+                            <div class="form-check form-check-success col-md-4" style="text-align: center;"><label
+                                class="form-check-label"><input type="checkbox" v-model="add_order_info.section1"
+                                  class="form-check-input"> 科一 <i class="input-helper"></i><i
+                                  class="input-helper"></i></label></div>
+                            <div class="form-check form-check-success col-md-4" style="text-align: center;"><label
+                                class="form-check-label"><input type="checkbox" v-model="add_order_info.section2"
+                                  class="form-check-input"> 科二 <i class="input-helper"></i><i
+                                  class="input-helper"></i></label></div>
+                            <div class="form-check form-check-success col-md-4" style="text-align: center;"><label
+                                class="form-check-label"><input type="checkbox" v-model="add_order_info.section3"
+                                  class="form-check-input"> 科三 <i class="input-helper"></i><i
+                                  class="input-helper"></i></label></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <input type="button" @click="submit_order_info" class="btn btn-gradient-primary mr-2"
+                      style="float: right" value="提交">
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="el-message-box__btns">
+          <button type="button" class="el-button el-button--default el-button--small el-button--primary "><span> 确定 </span></button>
+         </div> -->
+        </div>
+      </div>
+      <div tabindex="-1" v-show="model == 4" role="dialog" aria-modal="true" aria-label="HTML 片段"
+        class="el-message-box__wrapper" style="overflow: auto;z-index: 2001;display: none">
+        <div class="el-message-box" style="
+         overflow: auto;
+     ">
+          <div class="el-message-box__header">
+            <div class="el-message-box__title">
+              <span>处理工单</span>
+            </div>
+            <button type="button" aria-label="Close" @click="model = 0" class="el-message-box__headerbtn"><i
+                class="el-message-box__close el-icon-close"></i></button>
+          </div>
+          <div class="el-message-box__content">
+            <div class="el-message-box__message">
+              <p> </p>
+              <div class="">
+                <div class="content-wrapper" style="background: white">
+
+                  <form class="form-sample">
+                    <div class="row">
+                      <div class="col-md-12" style="padding-left: 1.5rem;padding-right: 1.5rem;">
+                        <div class="form-group">
+                          <label style="text-align:center;width: 100%;">工单详情：</label>
+                          <!-- <input type="text" placeholder="手机号" v-model="award_mobile"
+                          class="form-control form-control-sm" /> -->
+                          <div style="line-height: 37px" v-html="answer.problem_note"></div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <input type="button" @click="award" class="btn btn-gradient-primary mr-2" style="float: right"
+                      value="处理">
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="el-message-box__btns">
+        <button type="button" class="el-button el-button--default el-button--small el-button--primary "><span> 确定 </span></button>
+       </div> -->
+        </div>
+      </div>
+      <div tabindex="-1" role="dialog" v-show="model == 13" aria-modal="true" aria-label="提示"
+        class="el-message-box__wrapper" style="z-index: 2007;">
+        <div class="el-message-box" style="width:auto;max-width:400px">
+          <div class="el-message-box__header">
+            <div class="el-message-box__title">
+              <!----><span>提示</span></div><button @click="model = 0" type="button" aria-label="Close"
+              class="el-message-box__headerbtn"><i class="el-message-box__close el-icon-close"></i></button>
+          </div>
+          <div class="el-message-box__content">
+            <div class="el-message-box__status el-icon-warning"></div>
+            <div class="el-message-box__message" style="max-height:400px;overflow:auto">
+              <p><img :src="intro_img_src" style="
+        width: 100%;
+        margin: 0 auto;
+    "></p>
+            </div>
+            <div class="el-message-box__input" style="display: none;">
+              <div class="el-input">
+                <!----><input type="text" autocomplete="off" placeholder="" class="el-input__inner">
+              </div>
+              <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
+            </div>
+          </div>
+          <div class="el-message-box__btns"><button @click="intro_bh" type="button"
+              class="el-button el-button--default el-button--small"><span>
+                驳回
+              </span></button><button @click="intro_go" type="button"
+              class="el-button el-button--default el-button--small el-button--primary ">
+              <span>
+                同意
+              </span></button></div>
+        </div>
+      </div>
+      <div tabindex="-1" role="dialog" v-show="model == 14" aria-modal="true" aria-label="提示"
+        class="el-message-box__wrapper" style="z-index: 2007;">
+        <div class="el-message-box" style="width:600px">
+          <div class="el-message-box__header">
+            <div class="el-message-box__title">
+              <!----><span>转介绍退费信息</span></div><button @click="model = 0" type="button" aria-label="Close"
+              class="el-message-box__headerbtn"><i class="el-message-box__close el-icon-close"></i></button>
+          </div>
+          <div class="el-message-box__content">
+            <div class="el-message-box__message" style="max-height:400px;overflow:auto">
+              <div class="row" style="margin: 0;">
+                <div class="col-md-8" style="padding-left: 0;padding-right: 0;">
+                  <div class="form-group">
+                    <input type="text" placeholder="输入手机号" v-model="search_intro_tf_mobile"
+                      class="form-control form-control-sm" />
+                  </div>
+                </div>
+                <div class="col-md-4" style="padding-left: 0;padding-right: 0;text-align: center;">
+                  <button @click="search_intro_tf" style="    margin-top: 1px;" type="button"
+                    class="el-button el-button--default el-button--small el-button--primary ">
+                    <span>
+                      查询
+                    </span></button>
+                </div>
+                <table style="    border-collapse: collapse;
+              border: 1px solid  rgb(210,210,210);  width: 100%;text-align: center">
+                  <tr>
+                    <td style="
+                  border: 1px solid  rgb(210,210,210);height:30px">被介绍人号码</td>
+                    <td style="
+                  border: 1px solid  rgb(210,210,210);height:30px">转介绍退费状态</td>
+                  </tr>
+                  <tr v-for="(item,index) in tf_infos">
+                    <td style="
+                  border: 1px solid  rgb(210,210,210);height:30px">``item.mobile``</td>
+                    <td style="
+                  border: 1px solid  rgb(210,210,210);height:30px">``item.status``</td>
+                  </tr>
+                </table>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/element-ui.js"></script>
+  <script src="js/misc.js"></script>
+  <script src="js/city1.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+  <script>
+    Array.prototype.indexOf = function (val) {
+      for (var i = 0; i < this.length; i++) {
+        if (this[i] == val) return i;
+      }
+      return -1;
+    };
+    Array.prototype.remove = function (val) {
+      var index = this.indexOf(val);
+      if (index > -1) {
+        this.splice(index, 1);
+      }
+    };
+    $('.dropdownn a').click(function () {
+      console.log($('.dropdownn-menu').css('display'))
+      if ($('.dropdownn-menu').css('display') == "none") {
+        $('.dropdownn-menu').css('display', 'block')
+      } else {
+        $('.dropdownn-menu').css('display', 'none')
+      }
+    })
+    new Vue({
+      el: '#app',
+      delimiters: ['``', '``'],
+      data: function () {
+        return {
+          value2: [],
+          count: 10,
+          activeIndexb: 0,
+          activeIndexa: 0,
+          Loading: false,
+          count: 10,
+          model: 20,
+          belong_to: '1',
+          award_duihuan: '',
+          award_mobile: '',
+          noMore: false,
+          loading1: false,
+          noMore1: false,
+          loading2: false,
+          answer: {
+            mobile1: 'hehe',
+            ask_time: '2014-08-20 09:20:10',
+            tea_name: '江山',
+            submit_name: '江山',
+            bigproblem: '你为什么',
+            problem_note: '召唤师可从以下28名LPL候选人中，选出两名选手参加2018全明星赛。在投票截止之后，得票最高的两名候选人将代表LPL赛区参加本次全明星赛。投票期间，每个QQ号只能投一次票，且游戏等级需满31级及以上。在投票结束后，2018全明星赛组委会在综合投票情况后会在全球候选人范围内额外选出4名选手参加本次全明星赛！',
+            smallproblem: '不说话',
+            annex: 'aaa.jpg',
+            process_note: '1323232323',
+            process_status: '已处理',
+          },
+          pickerOptions: [],
+          //新建工单班型
+          old_class: [{
+            name: "一级"
+          }],
+          //新建工单
+          add_order_info: {
+            mobile: '',
+            classType: '',
+            section: '',
+            //checkbox 科一。。
+            section1: true,
+            section2: true,
+            section3: true,
+            price: '',
+            sign_type: '',
+            instead_sign: '',
+            consult_mobile: '',
+            stu_name: '',
+            sex: '',
+            id_num: '',
+            proof_type: '',
+            class_mobile: '',
+            order_time: '',
+            data_type: '',
+            exam_date: '',
+            pay_way: '',
+            exam_province: '',
+            exam_city: '',
+            coupon_num: '',
+            qq: '',
+            weixin: '',
+            email: '',
+            mail_address: '',
+            mail_num: '',
+            ergent_people: '',
+            ergent_mobile: '',
+            work_year: '',
+            education: '',
+            Tel_num: '',
+            common_tel: '',
+            trade: '',
+            zhiwei: '',
+            danwei: '',
+          },
+          //协议待回执
+          xieyidhz: [{
+              "did": 123506,
+              "stu_name": "曾有全",
+              "mobile": "15881961801",
+              "weixin": "zyg15881961801",
+              "contract_id": 1335056224
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 180429,
+              "stu_name": "常英",
+              "mobile": "18609164578",
+              "weixin": "13519155383",
+              "contract_id": 1335170070
+            }
+          ],
+          //待邮寄学员
+          maildyj: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          //已邮寄学员
+          mailyyj: [{
+            "did": 180017,
+            "stu_name": "\u738b\u5c0f\u6770",
+            "mobile": "18691083192",
+            "sm_courier_number": "73114920568263",
+            "sm_con": "\u6559\u6750,\u5b9d\u5178",
+            "jt_one": 0,
+            "jt_two": 0,
+            "jt_three": 0,
+            "jj_one": 0,
+            "jj_two": 0,
+            "jj_three": 0,
+            "fire_xt": 1,
+            "fire_xj": 1,
+            "sm_date": "2019-06-14 16:17:39",
+            "sm_address": "\u9655\u897f\u54b8\u9633\u5e02\u5f6c\u53bf\u9655\u897f\u7701\u5f6c\u5dde\u5e02\u65f6\u5c1a\u672a\u67651\u5355\u5143",
+            "agr_back": "2019-06-14 13:54:46",
+            "contract_id": 1335169246
+          }, {
+            "did": 182423,
+            "stu_name": "\u8096\u4e3d",
+            "mobile": "13595001943",
+            "sm_courier_number": "73114921143426",
+            "sm_con": "\u5b9d\u5178",
+            "jt_one": 0,
+            "jt_two": 0,
+            "jt_three": 0,
+            "jj_one": 0,
+            "jj_two": 0,
+            "jj_three": 0,
+            "fire_xt": 1,
+            "fire_xj": 0,
+            "sm_date": "2019-06-14 16:26:49",
+            "sm_address": "\u8d35\u5dde\u8d35\u9633\u5e02\u6e05\u9547\u5e02\u897f\u57ce\u5927\u9662",
+            "agr_back": "2019-06-14 15:49:32",
+            "contract_id": 1335174058
+          }, {
+            "did": 173770,
+            "stu_name": "\u6768\u767d\u6597",
+            "mobile": "18268119652",
+            "sm_courier_number": "73114921142976",
+            "sm_con": "\u6559\u6750,\u5b9d\u5178",
+            "jt_one": 0,
+            "jt_two": 0,
+            "jt_three": 0,
+            "jj_one": 0,
+            "jj_two": 0,
+            "jj_three": 0,
+            "fire_xt": 1,
+            "fire_xj": 1,
+            "sm_date": "2019-06-14 16:25:24",
+            "sm_address": "\u6d59\u6c5f\u7701\u676d\u5dde\u5e02\u5bcc\u9633\u65b0\u767b\u9547\u6da8\u5730120\u53f7",
+            "agr_back": "2019-06-14 15:50:40",
+            "contract_id": 1335156752
+          }, {
+            "did": 179664,
+            "stu_name": "\u5f20\u7acb\u8d85",
+            "mobile": "15839110491",
+            "sm_courier_number": "73114921145742",
+            "sm_con": "\u6559\u6750,\u5b9d\u5178",
+            "jt_one": 0,
+            "jt_two": 0,
+            "jt_three": 0,
+            "jj_one": 0,
+            "jj_two": 0,
+            "jj_three": 0,
+            "fire_xt": 1,
+            "fire_xj": 1,
+            "sm_date": "2019-06-14 16:26:00",
+            "sm_address": "\u6cb3\u5357\u7126\u4f5c\u5e02\u6e29\u53bf\u62db\u8d24\u4e61\u53e4\u57ce\u6751",
+            "agr_back": "2019-06-14 15:43:45",
+            "contract_id": 1335168540
+          }],
+          //今日应回访
+          todayhf: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          //考试账号待注册
+          examdzc: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          //应代报名
+          shouldSign: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          //已代报名未审核
+          alreadysign: [{
+            "did": 4,
+            "is_status": 0,
+            "keyi_once": "201906",
+            "keyi_once_money": "65",
+            "keyi_second": "0",
+            "keyi_second_money": "0",
+            "keyi_third": "0",
+            "keyi_third_money": "0",
+            "keer_once": "201906",
+            "keer_once_money": "130",
+            "keer_second": "0",
+            "keer_second_money": "0",
+            "keer_third": "0",
+            "keer_third_money": "0",
+            "kesan_once": "0",
+            "kesan_once_money": "0",
+            "kesan_second": "0",
+            "kesan_second_money": "0",
+            "kesan_third": "0",
+            "kesan_third_money": "0",
+            "stu_name": "\u82cf\u7af9\u9716",
+            "project": "\u57fa\u91d1\u9879\u76ee",
+            "mobile": "13234968033",
+            "exam_date": "201906",
+            "contract_id": 1334809220
+          }],
+          //工单待处理
+          workdcl: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          //订单未通过
+          orderwtg: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          //退挽待处理（客服）
+          giveupdclk: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          //退挽待处理（院长）
+          giveupdcly: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          //开课待审核（主管）
+          openClassz: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          refund: [{
+            "did": 123506,
+            "stu_name": "曾有全",
+            "mobile": "15881961801",
+            "weixin": "zyg15881961801",
+            "contract_id": 1335056224
+          }],
+          //协议已回执待审核
+          xieyixhz: [{
+              "did": 114608,
+              "stu_name": "刘文斌 ",
+              "user_name": "苗萌萌",
+              "zixunshi": "贾收收",
+              "last_mark_time": "2019-04-30 20:44:42",
+              "mobile": "18970456828",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "代报名补费",
+              "project": "消防项目",
+              "contract_id": 1335038428
+            },
+            {
+              "did": 119987,
+              "stu_name": "李明兰",
+              "user_name": "郝瑞峰",
+              "zixunshi": "刘佳楠",
+              "last_mark_time": "2019-06-14 09:30:02",
+              "mobile": "15839028330",
+              "classType": "一级注册消防工程师考试定金班",
+              "sign_type": "定金",
+              "project": "消防项目",
+              "contract_id": 1335049186
+            },
+            {
+              "did": 127232,
+              "stu_name": "孙璐",
+              "user_name": "王宁",
+              "zixunshi": "母秋梅",
+              "last_mark_time": "2019-03-21 17:39:09",
+              "mobile": "18699052227",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "定金补费",
+              "project": "消防项目",
+              "contract_id": 1335063676
+            },
+            {
+              "did": 151457,
+              "stu_name": "王改芳",
+              "user_name": "苗萌萌",
+              "zixunshi": "胡苗苗",
+              "last_mark_time": "2019-04-28 16:48:10",
+              "mobile": "18568739889",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "代报名补费",
+              "project": "消防项目",
+              "contract_id": 1335112126
+            },
+            {
+              "did": 152125,
+              "stu_name": "郑福超",
+              "user_name": "赵恩泽",
+              "zixunshi": "艾超",
+              "last_mark_time": "2019-04-29 15:14:46",
+              "mobile": "18750915756",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "代报名补费",
+              "project": "消防项目",
+              "contract_id": 1335113462
+            },
+            {
+              "did": 154197,
+              "stu_name": "陈园园",
+              "user_name": "弓智超",
+              "zixunshi": "高岑",
+              "last_mark_time": "2019-06-13 09:52:43",
+              "mobile": "13689028274",
+              "classType": "一级注册消防工程师考试一次取证班",
+              "sign_type": "全款报名",
+              "project": "消防项目",
+              "contract_id": 1335117606
+            },
+            {
+              "did": 157265,
+              "stu_name": "曾小琴",
+              "user_name": "杨冉冉",
+              "zixunshi": "吴长剑",
+              "last_mark_time": "2019-05-09 14:12:41",
+              "mobile": "18982652554",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "定金补费",
+              "project": "消防项目",
+              "contract_id": 1335123742
+            },
+            {
+              "did": 176129,
+              "stu_name": "王梦璇",
+              "user_name": "郝瑞峰",
+              "zixunshi": "李业庭",
+              "last_mark_time": "2019-06-14 10:05:08",
+              "mobile": "18609856665",
+              "classType": "一级注册消防工程师考试一次取证班",
+              "sign_type": "全款报名",
+              "project": "消防项目",
+              "contract_id": 1335161470
+            },
+            {
+              "did": 179646,
+              "stu_name": "刘俊标",
+              "user_name": "王子欣",
+              "zixunshi": "罗兴",
+              "last_mark_time": "2019-06-14 09:24:41",
+              "mobile": "13587135780",
+              "classType": "一级注册消防工程师考试一次取证班",
+              "sign_type": "全款报名",
+              "project": "消防项目",
+              "contract_id": 1335168504
+            }
+          ],
+          //微信待通过
+          weixinr: [{
+              "did": 123506,
+              "stu_name": "曾有全",
+              "mobile": "15881961801",
+              "weixin": "zyg15881961801",
+              "contract_id": 1335056224
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 146989,
+              "stu_name": "孙美英",
+              "mobile": "18642564057",
+              "weixin": "18642564057",
+              "contract_id": 1335103190
+            },
+            {
+              "did": 147187,
+              "stu_name": "云星",
+              "mobile": "15048766560",
+              "weixin": "15048766560",
+              "contract_id": 1335103586
+            },
+            {
+              "did": 147447,
+              "stu_name": "荆巧波",
+              "mobile": "15309880237",
+              "weixin": "15309880237",
+              "contract_id": 1335104106
+            },
+            {
+              "did": 152756,
+              "stu_name": "顾玺熠",
+              "mobile": "18036019509",
+              "weixin": "18036019509",
+              "contract_id": 1335114724
+            },
+            {
+              "did": 157868,
+              "stu_name": "钟施辉",
+              "mobile": "13576670930",
+              "weixin": "13576670930",
+              "contract_id": 1335124948
+            },
+            {
+              "did": 175969,
+              "stu_name": "余娓",
+              "mobile": "18296486541",
+              "weixin": "18296486541",
+              "contract_id": 1335161150
+            },
+            {
+              "did": 180429,
+              "stu_name": "常英",
+              "mobile": "18609164578",
+              "weixin": "13519155383",
+              "contract_id": 1335170070
+            }
+          ],
+          //新分配学员        
+          newallot: [{
+              "did": 114608,
+              "stu_name": "刘文斌 ",
+              "user_name": "苗萌萌",
+              "zixunshi": "贾收收",
+              "last_mark_time": "2019-04-30 20:44:42",
+              "mobile": "18970456828",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "代报名补费",
+              "project": "消防项目",
+              "contract_id": 1335038428
+            },
+            {
+              "did": 119987,
+              "stu_name": "李明兰",
+              "user_name": "郝瑞峰",
+              "zixunshi": "刘佳楠",
+              "last_mark_time": "2019-06-14 09:30:02",
+              "mobile": "15839028330",
+              "classType": "一级注册消防工程师考试定金班",
+              "sign_type": "定金",
+              "project": "消防项目",
+              "contract_id": 1335049186
+            },
+            {
+              "did": 127232,
+              "stu_name": "孙璐",
+              "user_name": "王宁",
+              "zixunshi": "母秋梅",
+              "last_mark_time": "2019-03-21 17:39:09",
+              "mobile": "18699052227",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "定金补费",
+              "project": "消防项目",
+              "contract_id": 1335063676
+            },
+            {
+              "did": 114608,
+              "stu_name": "刘文斌 ",
+              "user_name": "苗萌萌",
+              "zixunshi": "贾收收",
+              "last_mark_time": "2019-04-30 20:44:42",
+              "mobile": "18970456828",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "代报名补费",
+              "project": "消防项目",
+              "contract_id": 1335038428
+            },
+            {
+              "did": 119987,
+              "stu_name": "李明兰",
+              "user_name": "郝瑞峰",
+              "zixunshi": "刘佳楠",
+              "last_mark_time": "2019-06-14 09:30:02",
+              "mobile": "15839028330",
+              "classType": "一级注册消防工程师考试定金班",
+              "sign_type": "定金",
+              "project": "消防项目",
+              "contract_id": 1335049186
+            },
+            {
+              "did": 127232,
+              "stu_name": "孙璐",
+              "user_name": "王宁",
+              "zixunshi": "母秋梅",
+              "last_mark_time": "2019-03-21 17:39:09",
+              "mobile": "18699052227",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "定金补费",
+              "project": "消防项目",
+              "contract_id": 1335063676
+            },
+            {
+              "did": 114608,
+              "stu_name": "刘文斌 ",
+              "user_name": "苗萌萌",
+              "zixunshi": "贾收收",
+              "last_mark_time": "2019-04-30 20:44:42",
+              "mobile": "18970456828",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "代报名补费",
+              "project": "消防项目",
+              "contract_id": 1335038428
+            },
+            {
+              "did": 119987,
+              "stu_name": "李明兰",
+              "user_name": "郝瑞峰",
+              "zixunshi": "刘佳楠",
+              "last_mark_time": "2019-06-14 09:30:02",
+              "mobile": "15839028330",
+              "classType": "一级注册消防工程师考试定金班",
+              "sign_type": "定金",
+              "project": "消防项目",
+              "contract_id": 1335049186
+            },
+            {
+              "did": 127232,
+              "stu_name": "孙璐",
+              "user_name": "王宁",
+              "zixunshi": "母秋梅",
+              "last_mark_time": "2019-03-21 17:39:09",
+              "mobile": "18699052227",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "定金补费",
+              "project": "消防项目",
+              "contract_id": 1335063676
+            },
+            {
+              "did": 114608,
+              "stu_name": "刘文斌 ",
+              "user_name": "苗萌萌",
+              "zixunshi": "贾收收",
+              "last_mark_time": "2019-04-30 20:44:42",
+              "mobile": "18970456828",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "代报名补费",
+              "project": "消防项目",
+              "contract_id": 1335038428
+            },
+            {
+              "did": 119987,
+              "stu_name": "李明兰",
+              "user_name": "郝瑞峰",
+              "zixunshi": "刘佳楠",
+              "last_mark_time": "2019-06-14 09:30:02",
+              "mobile": "15839028330",
+              "classType": "一级注册消防工程师考试定金班",
+              "sign_type": "定金",
+              "project": "消防项目",
+              "contract_id": 1335049186
+            },
+            {
+              "did": 127232,
+              "stu_name": "孙璐",
+              "user_name": "王宁",
+              "zixunshi": "母秋梅",
+              "last_mark_time": "2019-03-21 17:39:09",
+              "mobile": "18699052227",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "定金补费",
+              "project": "消防项目",
+              "contract_id": 1335063676
+            },
+            {
+              "did": 114608,
+              "stu_name": "刘文斌 ",
+              "user_name": "苗萌萌",
+              "zixunshi": "贾收收",
+              "last_mark_time": "2019-04-30 20:44:42",
+              "mobile": "18970456828",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "代报名补费",
+              "project": "消防项目",
+              "contract_id": 1335038428
+            },
+            {
+              "did": 119987,
+              "stu_name": "李明兰",
+              "user_name": "郝瑞峰",
+              "zixunshi": "刘佳楠",
+              "last_mark_time": "2019-06-14 09:30:02",
+              "mobile": "15839028330",
+              "classType": "一级注册消防工程师考试定金班",
+              "sign_type": "定金",
+              "project": "消防项目",
+              "contract_id": 1335049186
+            },
+            {
+              "did": 127232,
+              "stu_name": "孙璐",
+              "user_name": "王宁",
+              "zixunshi": "母秋梅",
+              "last_mark_time": "2019-03-21 17:39:09",
+              "mobile": "18699052227",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "定金补费",
+              "project": "消防项目",
+              "contract_id": 1335063676
+            },
+            {
+              "did": 114608,
+              "stu_name": "刘文斌 ",
+              "user_name": "苗萌萌",
+              "zixunshi": "贾收收",
+              "last_mark_time": "2019-04-30 20:44:42",
+              "mobile": "18970456828",
+              "classType": "一级注册消防工程师考试签约特招班",
+              "sign_type": "代报名补费",
+              "project": "消防项目",
+              "contract_id": 1335038428
+            },
+            {
+              "did": 119987,
+              "stu_name": "李明兰",
+              "user_name": "郝瑞峰",
+              "zixunshi": "刘佳楠",
+              "last_mark_time": "2019-06-14 09:30:02",
+              "mobile": "15839028330",
+              "classType": "一级注册消防工程师考试定金班",
+              "sign_type": "定金",
+              "project": "消防项目",
+              "contract_id": 1335049186
+            },
+
+
+          ],
+          options: ['各课程模块体验课', '第一轮（基础精讲课）', '第二轮（3D精讲课）', '第三轮（3D精讲课）', '消防规范独家专题', '三合一串讲提分课', '案例满分速成课',
+            '绝密押题课',
+            '开学典礼', '3D导学课', '月度规划课', 'AI+大师陪练课', '3D全景实操系统'
+          ],
+          options1: ['服务期限/延时重修', '在线答疑（客服类问题）', '报考指导', '跟踪管理', '1对1私人助教（学习类问题）', '推荐兼职', '不过全额退费', '考过学费全退',
+            '入门课程规划报告'
+          ],
+          options2: ['课程讲义（电子版）', '消防规范（电子版）', '思维导图（电子版）', '通关宝典（纸质版）', '高频消防规范口袋书（纸质版）', '消防考试红宝书（纸质版）',
+            '密训卷（纸质版）'
+          ],
+          options3: ['模拟考试系统', '章节练习题', '历年真题', '篇章测评'],
+          value_kc: [],
+          value_fw: [],
+          value_jf: [],
+          value_tk: [],
+          search_intro_tf_mobile: '',
+          WXs: [{
+            uid: 1,
+            user_name: '江山',
+            project: '基金项目',
+          }, {
+            uid: 2,
+            user_name: '江山1',
+            project: '基金项目',
+          }, {
+            uid: 3,
+            user_name: '江山2',
+            project: '基金项目',
+          }, ],
+          WXs_copy: [{
+            uid: 1,
+            user_name: '江山',
+            project: '基金项目',
+          }, {
+            uid: 2,
+            user_name: '江山1',
+            project: '基金项目',
+          }, {
+            uid: 3,
+            user_name: '江山2',
+            project: '基金项目',
+          }, ],
+          WX_search: '',
+          WX_submit: {
+            uid: 1,
+            weixin: 'huozhong'
+          },
+          intro_img_id: '',
+          tf_infos: [],
+          intro_img_src: 'http://new.huozhongedu.com/img/activity/60bef7c5336.gif',
+          intro_info: {
+            stu_name: '',
+            numb: '',
+            id_num: '',
+            band_num: '',
+            band_address: '',
+          },
+          exam_citys: [],
+        }
+      },
+      methods: {
+        search_intro_tf() {
+          console.log(this.search_intro_tf_mobile)
+        },
+        chooseP() {
+          _this = this
+          console.log(this.add_order_info.exam_province)
+          this.exam_citys = chooseProvince1(this.add_order_info.exam_province)
+          this.add_order_info.exam_city = this.exam_citys[0].name == undefined ? this.exam_citys[0] : this
+            .exam_citys[0].name
+        },
+        getNowFormatDate(date) {
+          var seperator1 = "-";
+          var seperator2 = ":";
+          var month = date.getMonth() + 1;
+          var strDate = date.getDate();
+          var hour = date.getHours();
+          var minute = date.getMinutes();
+          var second = date.getSeconds();
+          if (month >= 1 && month <= 9) {
+            month = "0" + month;
+          }
+          if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+          }
+          if (hour >= 0 && hour <= 9) {
+            hour = "0" + hour;
+          }
+          if (minute >= 0 && minute <= 9) {
+            minute = "0" + minute;
+          }
+          if (second >= 0 && second <= 9) {
+            second = "0" + second;
+          }
+          var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+            " " + hour + seperator2 + minute +
+            seperator2 + second;
+          return currentdate;
+        },
+        search_WX() {
+          console.log(this.WX_search)
+          this.WXs = []
+          for (let i = 0; i < this.WXs_copy.length; i++) {
+            if (this.WXs_copy[i].user_name.indexOf(this.WX_search) > -1) {
+              this.WXs.push(this.WXs_copy[i])
+            }
+          }
+          this.WX_submit.uid = this.WXs[0].uid
+        },
+        tf_info() {
+          this.tf_infos = [{
+            mobile: '13437259576',
+            status: '退费',
+          }]
+          this.model = 14
+        },
+        intro_submit() {
+          console.log(this.intro_info)
+        },
+        click_pay(num) {
+          this.model = 13
+          this.intro_img_id = num
+        },
+        intro_go() {
+          console.log(this.intro_img_id)
+        },
+        intro_bh() {
+          console.log(this.intro_img_id)
+        },
+        xinjian() {
+          str = this.value_kc.concat(this.value_fw).concat(this.value_jf).concat(this.value_tk).join(',')
+          console.log(str)
+        },
+        //提交新建工单
+        submit_order_info() {
+          let _this = this
+          obj = JSON.parse(JSON.stringify(this.add_order_info))
+          obj.section = ((obj.section1 ? ',科一' : '') + (obj.section2 ? ',科二' : '') + (obj.section3 ? ',科三' : ''))
+            .substring(1)
+            obj.order_time = this.getNowFormatDate(new Date(obj.order_time))
+          delete obj.section1
+          delete obj.section2
+          delete obj.section3
+          console.log(obj)
+          if (obj.mobile == '' ||
+            obj.classType == '' ||
+            obj.price == '' ||
+            obj.sign_type == '' ||
+            obj.stu_name == '' ||
+            obj.id_num == '' ||
+            obj.class_mobile == '' ||
+            obj.instead_sign == '') {
+            _this.$notify.error({
+              title: "提示",
+              message: '有必填项为空，无法提交'
+            })
+            return
+          }
+          $.ajax({
+            url: '',
+            type: 'get',
+            data: obj,
+            dataType: 'json',
+            success: function (data) {
+
+            },
+            error: function () {
+              _this.$notify.error({
+                title: '错误',
+                message: '获取内容失败',
+              });
+            }
+          })
+        },
+        WX_submit_btn() {
+          console.log(this.WX_submit)
+          if (this.WX_submit.uid == "" || this.WX_submit.weixin == "") {
+            _this.$notify({
+              title: '提示',
+              message: '内容获取中',
+            });
+          }
+        },
+        service_bd() {
+          _this = this
+        },
+        open() {
+          this.model = 1;
+        },
+        activeIndex(num) {
+          _this = this
+          this.activeIndexb = num;
+
+          localStorage.scrollI = num
+          _this.Loading = true
+          _this.$notify({
+            title: '提示',
+            message: '内容获取中',
+          });
+          switch (_this.activeIndexb) {
+            case (0):
+              //新分配学员
+              _this.noMore = false,
+                _this.loading1 = false,
+                $.ajax({
+                  url: '',
+                  type: 'get',
+                  data: {},
+                  // dataType:'json',
+                  success: function (data) {
+                    _this.Loading = false;
+                  },
+                  error: function () {
+                    _this.Loading = false
+                    _this.$notify.error({
+                      title: '错误',
+                      message: '获取内容失败',
+                    });
+                  }
+                })
+              break;
+            case (1):
+              //微信待通过
+              _this.noMore1 = false,
+                _this.loading2 = false,
+                $.ajax({
+                  url: '',
+                  type: 'post',
+                  data: {},
+                  dataType: 'json',
+                  success: function (data) {
+                    _this.weixinr = data;
+                  },
+                  error: function () {
+                    _this.Loading = false
+                    _this.$notify.error({
+                      title: '错误',
+                      message: '获取内容失败',
+                    });
+                  }
+                })
+              break;
+            case (2):
+              //协议待回执
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.xieyidhz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (3):
+              //协议已回执待审核
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.xieyixhz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (4):
+              //待邮寄学员
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.maildyj = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (5):
+              //已邮寄学员
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.mailyyj = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (6):
+              //今日应回访
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.todayhf = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (7):
+              //考试账号待注册
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.examdzc = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (8):
+              //应代报名
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.shouldSign = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (9):
+              //已代报名未审核
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.alreadysign = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (10):
+              //工单待处理
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.workdcl = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (11):
+              //订单未通过
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.orderwtg = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (12):
+              //退挽待处理（客服）
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.giveupdclk = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (13):
+              //退挽待处理（院长）
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.giveupdcly = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (14):
+              //开课待审核（主管）
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (15):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (16):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (17):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (18):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (19):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (20):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (21):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (22):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (23):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            case (24):
+              //未处理退费
+              $.ajax({
+                url: '',
+                type: 'post',
+                data: {},
+                dataType: 'json',
+                success: function (data) {
+                  _this.openClassz = data;
+                },
+                error: function () {
+                  _this.Loading = false
+                  _this.$notify.error({
+                    title: '错误',
+                    message: '获取内容失败',
+                  });
+                }
+              })
+              break;
+            default:
+              break;
+          }
+        },
+        //跳转
+        //     load () {
+        //       console.log(1)
+        //   this.count += 2
+        // },
+        toNext(num) {
+          window.location.href = 'basic_elements.html'
+          localStorage.scrollT = num
+        },
+        WX_bd() {
+          _this = this
+          _this.model = 10
+          $.ajax({
+            url: '',
+            type: 'get',
+            data: {},
+            // dataType:'json',
+            success: function (data) {
+              _this.Loading = false;
+            },
+            error: function () {
+              _this.Loading = false
+              _this.$notify.error({
+                title: '错误',
+                message: '获取内容失败',
+              });
+            }
+          })
+        },
+        click_order() {
+          this.model = 4
+        },
+        click_intro(num) {
+          this.model = 12
+          this.intro_info.numb = num
+        },
+        //工单提交
+        tijiao() {
+          _this = this
+          $.ajax({
+            url: '',
+            type: 'get',
+            data: {
+              process_note: _this.answer.process_note,
+              did: '1',
+              process_status: _this.answer.process_status
+            },
+            success: function (data) {
+
+            },
+          })
+        },
+        //通过
+        tongguo(did) {
+          _this = this
+          console.log(did)
+          for (let i = 0; i < _this.weixinr.length; i++) {
+            if (did == _this.weixinr[i].did) {
+              _this.weixinr.splice(i, 1)
+            }
+          }
+        },
+        //开课
+        openClass(did) {
+          console.log(did)
+        },
+        award() {
+          console.log(this.award_duihuan, this.award_mobile)
+        },
+        load() {
+          this.loading1 = true
+          setTimeout(() => {
+            console.log(22)
+            arr = [{
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              }, {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              }, {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              }, {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              }, {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              }, {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              }, {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+            ]
+            if (this.newallot.length > 100) {
+              this.noMore = true
+            }
+            this.newallot = this.newallot.concat(arr)
+            this.loading1 = false
+          }, 2000)
+        },
+        load1() {
+          this.loading2 = true
+          setTimeout(() => {
+            console.log(11)
+            arr = [{
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+              {
+                "did": 114608,
+                "stu_name": "刘文斌 ",
+                "user_name": "苗萌萌",
+                "zixunshi": "贾收收",
+                "last_mark_time": "2019-04-30 20:44:42",
+                "mobile": "18970456828",
+                "classType": "一级注册消防工程师考试签约特招班",
+                "sign_type": "代报名补费",
+                "project": "消防项目",
+                "contract_id": 1335038428
+              },
+            ]
+            if (this.weixinr.length > 100) {
+              this.noMore1 = true
+            }
+            this.weixinr = this.weixinr.concat(arr)
+            this.loading2 = false
+          }, 2000)
+        },
+      },
+      created: function () {
+        _this = this
+        // _this.loading1 = false
+        // _this.loading2 = false
+        // _this.noMore = false
+        // _this.noMore1 = false
+        // _this.Loading = true
+        _this.$notify.success({
+          title: '提示',
+          message: '内容获取中',
+          duration: '2000'
+        })
+        console.log(window.screen.availHeight)
+        setTimeout(function () {
+          console.log()
+        }, 20)
+        //新分配学员
+
+      },
+      computed: {
+        disabled() {
+          return this.loading1 || this.noMore
+        },
+        disabled1() {
+          return this.loading2 || this.noMore1
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
