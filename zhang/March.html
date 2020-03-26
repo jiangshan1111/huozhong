@@ -1,0 +1,1318 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            color: white;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 176, 6, 1)), to(rgba(255, 222, 111, 1)));
+        }
+        .swiper-container{
+            width: 100%;
+            height: 100%;
+          }
+     .table{
+         position: absolute;
+         top:310px;
+         left:310px;
+         height:420px;
+         width:1010px;
+     }
+     .table1{
+         position: absolute;
+         top:212px;
+         left:377px;
+         height:416px;
+         width:972px;
+     }
+     .table td{
+         width:185px;
+         height: 56px;
+         text-align: center;
+         color: white;
+         font-family: "宋体";
+         line-height: 140px;
+         font-weight: 600;
+         font-size: 59px;
+         /* background: red; */
+         padding: 0;
+     }
+     tbody{
+        display: table-header-group;
+    vertical-align: unset;
+    border-color: inherit;
+     }
+     .table1 td{
+         width:185px;
+         height: 50px;
+         font-family: "Microsoft YaHei";
+         text-align: center;
+         font-size: 50px;
+         line-height: 106px;
+         color: white;
+         font-weight: 600;
+     }
+     /* #dowebok,#dowebok1,#dowebok2,#dowebok3,#dowebok5,#dowebok6,#dowebok7,#dowebok8{
+            animation-duration: 2s; 
+            animation-delay: 13s;
+            animation-direction:normal
+        } */
+        #dowebok4,#dowebok9{
+            text-align: center;
+            font-size: 250px;
+            line-height: 800px;
+            animation-duration: 2s; 
+            animation-delay: 13s;
+            animation-direction:normal;
+            overflow: hidden;
+        }
+        #dowebok,#dowebok1,#dowebok2,#dowebok3,#dowebok4,#dowebok5,#dowebok6,#dowebok7,#dowebok8,#dowebok9,#dowebok10,#dowebok11,#dowebok12,#dowebok13,#dowebok14,#dowebok15,#dowebok16,#dowebok17,#dowebok18,#dowebok19,#dowebok20,#dowebok21,#dowebok22,#dowebok23,#dowebok24,#dowebok25,#dowebok26,#dowebok27,#dowebok28,#dowebok29,#dowebok30{
+            text-align: center;
+            font-size: 140px;
+            line-height: 580px;
+            animation-duration: 1.5s; 
+            animation-delay: 13.5s;
+            animation-direction:normal;
+            overflow: hidden;
+        }
+        @keyframes masked-animation {
+            0% {
+                background-position: 0 0;   /*background-position 属性设置背景图像的起始位置。*/
+            }
+            100% {
+                background-position: -100% 0;
+            }
+        }
+        .zhaop{
+            position: absolute;
+            width: 370px;
+            height: 370px;
+            top:230px;
+            left: 140px;
+            
+            border-radius: 50%;
+        }
+        #dowebok p,#dowebok1 p,#dowebok2 p,#dowebok5 p,#dowebok6 p,#dowebok7 p{
+            font-family: "楷体";
+            font-weight: 600;
+        }
+        .p1{
+            position:absolute;height:145px;line-height: 155px;right:0px;top:70px;font-size:175px;width:600px;text-align: center;
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                    #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text; 
+                    background-size: 200% 100%;      
+                    font-family :'宋体';
+                    animation: masked-animation 8s infinite linear;
+        }
+        .p3{
+            position:absolute;right:0px;top:250px;font-size:220px;width:900px;text-align: center;
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                    #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text; 
+                    background-size: 200% 100%;      
+                    font-family :'宋体';
+                    animation: masked-animation 8s infinite linear;
+        }
+        .p4{
+            position:absolute;right:0px;top:450px;font-size:220px;width:900px;text-align: center;
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                    #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text; 
+                    background-size: 200% 100%;      
+                    font-family :'宋体';
+                    animation: masked-animation 8s infinite linear;
+        }
+        #dowebok10 span{
+            position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 4.05rem;
+    color: white;
+    /* background: yellow; */
+    text-align: center;
+    font-size: .65rem;
+    font-weight: 600;
+    line-height: 1rem;
+    }
+    #dowebok span,#dowebok1 span,#dowebok2 span,#dowebok3 span,#dowebok4 span,#dowebok5 span,#dowebok6 span,#dowebok7 span,#dowebok8 span,#dowebok9 span,#dowebok10 span,#dowebok11 span,#dowebok12 span,#dowebok13 span,#dowebok14 span,#dowebok15 span,#dowebok16 span,#dowebok17 span,#dowebok18 span,#dowebok19 span,#dowebok20 span,#dowebok21 span,#dowebok22 span,#dowebok23 span,#dowebok24 span,#dowebok25 span,#dowebok26 span,#dowebok27 span,#dowebok28 span,#dowebok29 span,#dowebok30 span{
+            position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 4.05rem;
+    color: white;
+    /* background: yellow; */
+    text-align: center;
+    font-size: .65rem;
+    font-weight: 600;
+    line-height: 1rem;
+    }
+    </style>
+      <script src="js/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+        <script>
+                ! function (e) {
+                    function t() {
+                        var e = d.getBoundingClientRect().width;
+                        u = e / 10, d.style.fontSize = u + "px"
+                        console.log(u)
+                    }
+        
+                    function n() {
+                        o.body && (o.body.style.fontSize = 14 / (i / 10) + "rem")
+                    }
+                    var i = 375,
+                        o = e.document,
+                        d = o.documentElement,
+                        c = d.getBoundingClientRect().width,
+                        u = (window.devicePixelRatio || 1, c / 10),
+                        l = null;
+                    e.addEventListener("resize", function () {
+                        clearTimeout(l), l = setTimeout(t, 300)
+                    }, !1)
+                    , n(), "complete" === o.readyState ? n() : o.addEventListener("DOMContentLoaded", function () {
+                        n()
+                    }, !1)
+                    ,t()
+                }(window);
+                </script>
+      <div class="swiper-container">
+          <div class="swiper-wrapper" style="width:100%;height:100%;overflow: hidden;">
+                <div class="swiper-slide" id="dowebok" style="width:100%;height:100%;background:url('images/province.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">17</span>
+                </div>
+                <div class="swiper-slide" id="dowebok1" style="width:100%;height:100%;background:url('images/province1.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">10</span>
+                </div>
+                <div class="swiper-slide" id="dowebok2" style="width:100%;height:100%;background:url('images/province2.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">14</span>
+                </div>
+                <div class="swiper-slide" id="dowebok3" style="width:100%;height:100%;background:url('images/province3.jpg') no-repeat;background-size:100% 100%;display:none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">9</span>
+                </div>
+                <div class="swiper-slide" id="dowebok4" style="width:100%;height:100%;background:url('images/province4.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                </div>
+                <div class="swiper-slide" id="dowebok5" style="width:100%;height:100%;background:url('images/province5.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">21</span>
+                </div>
+                <div class="swiper-slide" id="dowebok6" style="width:100%;height:100%;background:url('images/province6.jpg') no-repeat;background-size:100% 100%;display: block">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">1</span>
+                </div>
+                <div class="swiper-slide" id="dowebok7" style="width:100%;height:100%;background:url('images/province7.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">19</span>
+                </div>
+                <div class="swiper-slide" id="dowebok8" style="width:100%;height:100%;background:url('images/province8.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">3</span>
+                </div>
+                <div class="swiper-slide" id="dowebok9" style="width:100%;height:100%;background:url('images/province9.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">13</span>
+                </div>
+                <div class="swiper-slide" id="dowebok10" style="width:100%;height:100%;background:url('images/province10.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">25</span>
+                </div>
+                <div class="swiper-slide" id="dowebok11" style="width:100%;height:100%;background:url('images/province11.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">20</span>
+                </div>
+                <div class="swiper-slide" id="dowebok12" style="width:100%;height:100%;background:url('images/province12.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                </div>
+                <div class="swiper-slide" id="dowebok13" style="width:100%;height:100%;background:url('images/province13.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                </div>
+                <div class="swiper-slide" id="dowebok14" style="width:100%;height:100%;background:url('images/province14.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">18</span>
+                </div>
+                <div class="swiper-slide" id="dowebok15" style="width:100%;height:100%;background:url('images/province15.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">12</span>
+                </div>
+                <div class="swiper-slide" id="dowebok16" style="width:100%;height:100%;background:url('images/province16.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">7</span>
+                </div>
+                <div class="swiper-slide" id="dowebok17" style="width:100%;height:100%;background:url('images/province17.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">22</span>
+                </div>
+                <div class="swiper-slide" id="dowebok18" style="width:100%;height:100%;background:url('images/province18.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">23</span>
+                </div>
+                <div class="swiper-slide" id="dowebok19" style="width:100%;height:100%;background:url('images/province19.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">16</span>
+                </div>
+                <div class="swiper-slide" id="dowebok20" style="width:100%;height:100%;background:url('images/province20.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">6</span>
+                </div>
+                <div class="swiper-slide" id="dowebok21" style="width:100%;height:100%;background:url('images/province21.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                </div>
+                <div class="swiper-slide" id="dowebok22" style="width:100%;height:100%;background:url('images/province22.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">8</span>
+                </div>
+                <div class="swiper-slide" id="dowebok23" style="width:100%;height:100%;background:url('images/province23.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">24</span>
+                </div>
+                <div class="swiper-slide" id="dowebok24" style="width:100%;height:100%;background:url('images/province24.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">5</span>
+                </div>
+                <div class="swiper-slide" id="dowebok25" style="width:100%;height:100%;background:url('images/province25.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">11</span>
+                </div>
+                <div class="swiper-slide" id="dowebok26" style="width:100%;height:100%;background:url('images/province26.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">2</span>
+                </div>
+                <div class="swiper-slide" id="dowebok27" style="width:100%;height:100%;background:url('images/province27.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">15</span>
+                </div>
+                <div class="swiper-slide" id="dowebok28" style="width:100%;height:100%;background:url('images/province28.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">26</span>
+                </div>
+                <div class="swiper-slide" id="dowebok29" style="width:100%;height:100%;background:url('images/province29.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                    <span style="    right: 0.2rem;
+                    top: 0.2rem;
+                    border: .02rem solid white;
+                    border-radius: 50%;
+                    width: .6rem;
+                    height: .6rem;
+                    line-height: .6rem;
+                    font-size: .3rem;">4</span>
+                </div>
+                <div class="swiper-slide" id="dowebok30" style="width:100%;height:100%;background:url('images/province30.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a>
+                    <span style="left:0.7rem;"></span>
+                    <span style="left:2.6rem;"></span>
+                    <span style="left:4.5rem;"></span>
+                    <span style="left:6.4rem;"></span>
+                    <span style="left:8.3rem;"></span>
+                </div>
+          </div>
+      </div>
+      <script>
+    function table(){
+        $.ajax({
+            url:'ranking.php',
+            type:'get',
+            data:{type:'1'},
+              dataType:'json',
+            success:function(data){
+                // if(data[0].personal_ranking>150000){
+                //     $('.jiangjin')[0].innerText = 11111;
+                // }else if(data[0].personal_ranking>100000){
+                //     $('.jiangjin')[0].innerText = 8888;
+                // }else{
+                //     $('.jiangjin')[0].innerText = 5555;
+                // }
+                // if(data[1].personal_ranking>150000){
+                //     $('.jiangjin')[1].innerText = 8888;
+                // }else if(data[1].personal_ranking>100000){
+                //     $('.jiangjin')[1].innerText = 5555;
+                // }else{
+                //     $('.jiangjin')[1].innerText = 3333;
+                // }
+                // if(data[2].personal_ranking>150000){
+                //     $('.jiangjin')[2].innerText = 5555;
+                // }else if(data[2].personal_ranking>100000){
+                //     $('.jiangjin')[2].innerText = 3333;
+                // }else{
+                //     $('.jiangjin')[2].innerText = 1111;
+                // }
+                for (var i = 0; i < 3; i++) {
+                    user_name = data[i].user_name.split('xf')[0];
+                    console.log(user_name)
+                    $('.p3')[i].innerText = user_name;
+                    $('.p4')[i].innerText = data[i].personal_ranking;
+                    
+                    if(data[i].header == "" || data[i].header == null){
+                        header = "images/dabai.jpg"
+                    }else{
+                        header = "http://new.huozhongedu.com/img/header/"+data[i].header;
+                    }
+                    $('.zhaop')[i].style.background = "url("+header+") no-repeat"
+                    $('.zhaop')[i].style.backgroundSize = "100% 100%"
+                }
+                $('.table')[0].innerHTML = ''
+                for (var i = 3; i < 6; i++) {
+                    if(i >= data.length){
+                        $('.table')[0].innerHTML += `<tr>
+                        <td colspan="4">`+"虚位以待"+`</td></tr>`
+                    }else{
+                       group = data[i].group.substring(2,4);
+                        user_name = data[i].user_name.split('xf')[0];
+                        $('.table')[0].innerHTML += `<tr><td>`+data[i].sector+`</td>
+                        <td>`+group+`</td>
+                        <td>`+user_name+`</td>
+                        <td>`+data[i].personal_ranking+`</td></tr>` 
+                    }
+                    
+                }
+            }
+            
+        })
+    }
+    function Allmoney(){
+        $.ajax({
+            url:'ranking.php',
+            type:'get',
+            data:{type:'2'},
+            dataType:'json',
+            success:function(data){
+                if(data[0].money == null){
+                    money = 0
+                }else{
+                    money = data[0].money
+                }
+                $('.Allmoney')[0].innerText = money;
+            }
+            
+        })
+    }
+    function Singlemoney(){
+        $.ajax({
+            url:'ranking.php',
+            type:'get',
+            data:{type:'4'},
+            dataType:'json',
+            success:function(data){
+                if(data[0].money == null){
+                    money = 0
+                }else{
+                    money = data[0].money
+                }
+                $('.Singlemoney')[0].innerText = money;
+            }
+            
+        })
+    }
+    function table1(){
+        $.ajax({
+            url:'ranking.php',
+            type:'get',
+            data:{type:'3'},
+            dataType:'json',
+            success:function(data){
+                // var data = [{"sector":"\u6d88\u9632\u4e8c\u90e8","group":"\u6d88\u9632\u4e8c\u7ec4","header":"3lann2JAQgo64xHVqIpT18nGoK88oYlYcho1uytY.jpeg","group_ranking":"97484"},{"sector":"\u6d88\u9632\u4e00\u90e8","group":"\u6d88\u9632\u56db\u7ec4","header":"iUyCZUf3dU6HqgEXkdtcmQDEG9ZOb1QrI1Mnf6HV.jpeg","group_ranking":"71249"},{"sector":"\u6d88\u9632\u4e8c\u90e8","group":"\u6d88\u9632\u4e03\u7ec4","header":"","group_ranking":"63300"},{"sector":"\u6d88\u9632\u4e00\u90e8","group":"\u6d88\u9632\u516d\u7ec4","header":"JILn7TTA2CAeAJ9naoYitBnwIPQ6mgD8w3NkNGzS.jpeg","group_ranking":"60300"},{"sector":"\u6d88\u9632\u4e00\u90e8","group":"\u6d88\u9632\u4e00\u7ec4","header":"B45fQlZX7pxt6mItHrraCyNJSiV2CBk7zKCBAth8.png","group_ranking":"50140"},{"sector":"\u6d88\u9632\u4e09\u90e8","group":"\u6d88\u9632\u4e09\u7ec4","header":"","group_ranking":"47040"},{"sector":"\u6d88\u9632\u4e09\u90e8","group":"\u6d88\u9632\u516b\u7ec4","header":"","group_ranking":"44160"},{"sector":"\u6d88\u9632\u4e09\u90e8","group":"\u6d88\u9632\u4e94\u7ec4","header":"","group_ranking":"27140"}]
+                $('.table1')[0].innerHTML = '';
+                for (var i = 0; i < 3; i++) {
+                    $('.p3')[i+3].innerText = data[i].group;
+                    $('.p3')[i+3].style.fontSize = "150px"
+                    $('.p4')[i+3].style.fontSize = "180px"
+                    $('.p3')[i+3].style.top = "280px"
+                    $('.p4')[i+3].style.top = "470px"
+                    $('.p4')[i+3].innerText = data[i].group_ranking;
+                    if(data[i].header == ""){
+                        header = "images/xiaoxiong.jpg"
+                    }else{
+                        header = "http://new.huozhongedu.com/img/header/"+data[i].header;
+                    }
+                    $('.zhaop')[i+3].style.background = "url("+header+") no-repeat"
+                    $('.zhaop')[i+3].style.backgroundSize = "100% 100%"
+                }
+                for (var i = 3; i < 8; i++) {
+                   
+                    if(i >= data.length){
+                        $('.table1')[0].innerHTML += `<tr><td></td>
+                        <td>`+"虚位以待"+`</td>
+                        <td></td></tr>` 
+                    }else{ 
+                        group = data[i].group.substring(2,4);
+                       $('.table1')[0].innerHTML += `<tr><td>`+data[i].sector+`</td>
+                        <td>`+group+`</td>
+                        <td>`+data[i].group_ranking+`</td></tr>` 
+                    }
+                    
+                }
+            }
+        })
+    }
+       $(function(){
+        // table1();
+                // table();
+                // Allmoney();
+                // Singlemoney();
+           function hehe(){
+            //    $('#dowebok').addClass('animated zoomOutLeft');
+                // setTimeout(function(){
+                //     $('#dowebok').removeClass('zoomOutLeft');
+                //     $('#dowebok').css('display','none');
+                //     $('#dowebok1').css('display','block');
+                //     $('#dowebok1').addClass('animated zoomOutLeft');
+                // }, 15000);
+                // setTimeout(function(){
+                //     $('#dowebok1').removeClass('zoomOutLeft');
+                //     $('#dowebok1').css('display','none');
+                //     $('#dowebok2').css('display','block');
+                //     $('#dowebok2').addClass('animated zoomOutLeft');
+                // }, 30000);
+                // setTimeout(function(){
+                //     $('#dowebok2').removeClass('zoomOutLeft');
+                //     $('#dowebok2').css('display','none');
+                //     $('#dowebok3').css('display','block');
+                //     $('#dowebok3').addClass('animated zoomOutLeft');
+                // }, 45000);
+                // setTimeout(function(){
+                //     $('#dowebok3').removeClass('zoomOutLeft');
+                //     $('#dowebok3').css('display','none');
+                //     $('#dowebok4').css('display','block');
+                //     $('#dowebok4').addClass('animated zoomOutLeft');
+                // }, 60000);
+                // setTimeout(function(){
+                //     $('#dowebok4').removeClass('zoomOutLeft');
+                //     $('#dowebok4').css('display','none');
+                //     $('#dowebok5').css('display','block');
+                //     $('#dowebok5').addClass('animated zoomOutLeft');
+                // }, 75000);
+                // setTimeout(function(){
+                //     $('#dowebok5').removeClass('zoomOutLeft');
+                //     $('#dowebok5').css('display','none');
+                //     $('#dowebok6').css('display','block');
+                //     $('#dowebok6').addClass('animated zoomOutLeft');
+                // }, 90000);
+                // setTimeout(function(){
+                //     $('#dowebok6').removeClass('zoomOutLeft');
+                //     $('#dowebok6').css('display','none');
+                //     $('#dowebok7').css('display','block');
+                //     $('#dowebok7').addClass('animated zoomOutLeft');
+                // }, 105000);
+                // setTimeout(function(){
+                //     $('#dowebok7').removeClass('zoomOutLeft');
+                //     $('#dowebok7').css('display','none');
+                //     $('#dowebok8').css('display','block');
+                //     $('#dowebok8').addClass('animated zoomOutLeft');
+                // }, 120000);
+                // setTimeout(function(){
+                //     $('#dowebok8').removeClass('zoomOutLeft');
+                //     $('#dowebok8').css('display','none');
+                //     $('#dowebok9').css('display','block');
+                //     $('#dowebok9').addClass('animated zoomOutLeft');
+                // }, 135000);
+                // setTimeout(function(){
+                //     $('#dowebok9').removeClass('zoomOutLeft');
+                //     $('#dowebok9').css('display','none');
+                //     $('#dowebok10').css('display','block');
+                //     $('#dowebok10').addClass('animated zoomOutLeft');
+                // }, 150000);
+                // setTimeout(function(){
+                //     $('#dowebok10').removeClass('zoomOutLeft');
+                //     $('#dowebok10').css('display','none');
+                //     $('#dowebok11').css('display','block');
+                //     $('#dowebok11').addClass('animated zoomOutLeft');
+                // }, 165000);
+                // setTimeout(function(){
+                //     $('#dowebok11').removeClass('zoomOutLeft');
+                //     $('#dowebok11').css('display','none');
+                //     $('#dowebok12').css('display','block');
+                //     $('#dowebok12').addClass('animated zoomOutLeft');
+                // }, 180000);
+                // setTimeout(function(){
+                //     $('#dowebok12').removeClass('zoomOutLeft');
+                //     $('#dowebok12').css('display','none');
+                //     $('#dowebok13').css('display','block');
+                //     $('#dowebok13').addClass('animated zoomOutLeft');
+                // }, 195000);
+                // setTimeout(function(){
+                //     $('#dowebok13').removeClass('zoomOutLeft');
+                //     $('#dowebok13').css('display','none');
+                //     $('#dowebok14').css('display','block');
+                //     $('#dowebok14').addClass('animated zoomOutLeft');
+                // }, 210000);
+                // setTimeout(function(){
+                //     $('#dowebok14').removeClass('zoomOutLeft');
+                //     $('#dowebok14').css('display','none');
+                //     $('#dowebok15').css('display','block');
+                //     $('#dowebok15').addClass('animated zoomOutLeft');
+                // }, 225000);
+                // setTimeout(function(){
+                //     $('#dowebok15').removeClass('zoomOutLeft');
+                //     $('#dowebok15').css('display','none');
+                //     $('#dowebok16').css('display','block');
+                //     $('#dowebok16').addClass('animated zoomOutLeft');
+                // }, 240000);
+                // setTimeout(function(){
+                //     $('#dowebok16').removeClass('zoomOutLeft');
+                //     $('#dowebok16').css('display','none');
+                //     $('#dowebok17').css('display','block');
+                //     $('#dowebok17').addClass('animated zoomOutLeft');
+                // }, 255000);
+                // setTimeout(function(){
+                //     $('#dowebok17').removeClass('zoomOutLeft');
+                //     $('#dowebok17').css('display','none');
+                //     $('#dowebok18').css('display','block');
+                //     $('#dowebok18').addClass('animated zoomOutLeft');
+                // }, 270000);
+                // setTimeout(function(){
+                //     $('#dowebok18').removeClass('zoomOutLeft');
+                //     $('#dowebok18').css('display','none');
+                //     $('#dowebok19').css('display','block');
+                //     $('#dowebok19').addClass('animated zoomOutLeft');
+                // }, 285000);
+                // setTimeout(function(){
+                //     $('#dowebok19').removeClass('zoomOutLeft');
+                //     $('#dowebok19').css('display','none');
+                //     $('#dowebok20').css('display','block');
+                //     $('#dowebok20').addClass('animated zoomOutLeft');
+                // }, 300000);
+                // setTimeout(function(){
+                //     $('#dowebok20').removeClass('zoomOutLeft');
+                //     $('#dowebok20').css('display','none');
+                //     $('#dowebok21').css('display','block');
+                //     $('#dowebok21').addClass('animated zoomOutLeft');
+                // }, 315000);
+                // setTimeout(function(){
+                //     $('#dowebok21').removeClass('zoomOutLeft');
+                //     $('#dowebok21').css('display','none');
+                //     $('#dowebok22').css('display','block');
+                //     $('#dowebok22').addClass('animated zoomOutLeft');
+                // }, 330000);
+                // setTimeout(function(){
+                //     $('#dowebok22').removeClass('zoomOutLeft');
+                //     $('#dowebok22').css('display','none');
+                //     $('#dowebok23').css('display','block');
+                //     $('#dowebok23').addClass('animated zoomOutLeft');
+                // }, 345000);
+                // setTimeout(function(){
+                //     $('#dowebok23').removeClass('zoomOutLeft');
+                //     $('#dowebok23').css('display','none');
+                //     $('#dowebok24').css('display','block');
+                //     $('#dowebok24').addClass('animated zoomOutLeft');
+                // }, 360000);
+                // setTimeout(function(){
+                //     $('#dowebok24').removeClass('zoomOutLeft');
+                //     $('#dowebok24').css('display','none');
+                //     $('#dowebok25').css('display','block');
+                //     $('#dowebok25').addClass('animated zoomOutLeft');
+                // }, 375000);
+                // setTimeout(function(){
+                //     $('#dowebok25').removeClass('zoomOutLeft');
+                //     $('#dowebok25').css('display','none');
+                //     $('#dowebok26').css('display','block');
+                //     $('#dowebok26').addClass('animated zoomOutLeft');
+                // }, 390000);
+                // setTimeout(function(){
+                //     $('#dowebok26').removeClass('zoomOutLeft');
+                //     $('#dowebok26').css('display','none');
+                //     $('#dowebok27').css('display','block');
+                //     $('#dowebok27').addClass('animated zoomOutLeft');
+                // }, 405000);
+                // setTimeout(function(){
+                //     $('#dowebok27').removeClass('zoomOutLeft');
+                //     $('#dowebok27').css('display','none');
+                //     $('#dowebok28').css('display','block');
+                //     $('#dowebok28').addClass('animated zoomOutLeft');
+                // }, 420000);
+                // setTimeout(function(){
+                //     $('#dowebok28').removeClass('zoomOutLeft');
+                //     $('#dowebok28').css('display','none');
+                //     $('#dowebok29').css('display','block');
+                //     $('#dowebok29').addClass('animated zoomOutLeft');
+                // }, 435000);
+                // setTimeout(function(){
+                //     $('#dowebok29').removeClass('zoomOutLeft');
+                //     $('#dowebok29').css('display','none');
+                //     $('#dowebok30').css('display','block');
+                //     $('#dowebok30').addClass('animated zoomOutLeft');
+                // }, 450000);
+                // setTimeout(function(){
+                //     $('#dowebok30').removeClass('zoomOutLeft');
+                //     $('#dowebok30').css('display','none');
+                //     $('#dowebok').css('display','block');
+                //     $('#dowebok').addClass('animated zoomOutLeft');
+                // }, 465000);
+                $('#dowebok6').addClass('animated hinge');
+                mide = 1500
+                setTimeout(function(){
+                    $('#dowebok6').removeClass('hinge');
+                    $('#dowebok6').css('display','none');
+                    $('#dowebok26').css('display','block');
+                    $('#dowebok26').addClass('animated hinge');
+                }, mide);
+                setTimeout(function(){
+                    $('#dowebok26').removeClass('hinge');
+                    $('#dowebok26').css('display','none');
+                    $('#dowebok8').css('display','block');
+                    $('#dowebok8').addClass('animated hinge');
+                }, mide*2);
+                setTimeout(function(){
+                    $('#dowebok8').removeClass('hinge');
+                    $('#dowebok8').css('display','none');
+                    $('#dowebok29').css('display','block');
+                    $('#dowebok29').addClass('animated hinge');
+                }, mide*3);
+                setTimeout(function(){
+                    $('#dowebok29').removeClass('hinge');
+                    $('#dowebok29').css('display','none');
+                    $('#dowebok24').css('display','block');
+                    $('#dowebok24').addClass('animated hinge');
+                }, mide*4);
+                setTimeout(function(){
+                    $('#dowebok24').removeClass('hinge');
+                    $('#dowebok24').css('display','none');
+                    $('#dowebok20').css('display','block');
+                    $('#dowebok20').addClass('animated hinge');
+                }, mide*5);
+                setTimeout(function(){
+                    $('#dowebok20').removeClass('hinge');
+                    $('#dowebok20').css('display','none');
+                    $('#dowebok16').css('display','block');
+                    $('#dowebok16').addClass('animated hinge');
+                }, mide*6);
+                setTimeout(function(){
+                    $('#dowebok16').removeClass('hinge');
+                    $('#dowebok16').css('display','none');
+                    $('#dowebok22').css('display','block');
+                    $('#dowebok22').addClass('animated hinge');
+                }, mide*7);
+                setTimeout(function(){
+                    $('#dowebok22').removeClass('hinge');
+                    $('#dowebok22').css('display','none');
+                    $('#dowebok3').css('display','block');
+                    $('#dowebok3').addClass('animated hinge');
+                }, mide*8);
+                setTimeout(function(){
+                    $('#dowebok3').removeClass('hinge');
+                    $('#dowebok3').css('display','none');
+                    $('#dowebok1').css('display','block');
+                    $('#dowebok1').addClass('animated hinge');
+                }, mide*9);
+                setTimeout(function(){
+                    $('#dowebok1').removeClass('hinge');
+                    $('#dowebok1').css('display','none');
+                    $('#dowebok25').css('display','block');
+                    $('#dowebok25').addClass('animated hinge');
+                }, mide*10);
+                setTimeout(function(){
+                    $('#dowebok25').removeClass('hinge');
+                    $('#dowebok25').css('display','none');
+                    $('#dowebok15').css('display','block');
+                    $('#dowebok15').addClass('animated hinge');
+                }, mide*11);
+                setTimeout(function(){
+                    $('#dowebok15').removeClass('hinge');
+                    $('#dowebok15').css('display','none');
+                    $('#dowebok9').css('display','block');
+                    $('#dowebok9').addClass('animated hinge');
+                }, mide*12);
+                setTimeout(function(){
+                    $('#dowebok9').removeClass('hinge');
+                    $('#dowebok9').css('display','none');
+                    $('#dowebok2').css('display','block');
+                    $('#dowebok2').addClass('animated hinge');
+                }, mide*13);
+                setTimeout(function(){
+                    $('#dowebok2').removeClass('hinge');
+                    $('#dowebok2').css('display','none');
+                    $('#dowebok27').css('display','block');
+                    $('#dowebok27').addClass('animated hinge');
+                }, mide*14);
+                setTimeout(function(){
+                    $('#dowebok27').removeClass('hinge');
+                    $('#dowebok27').css('display','none');
+                    $('#dowebok19').css('display','block');
+                    $('#dowebok19').addClass('animated hinge');
+                }, mide*15);
+                setTimeout(function(){
+                    $('#dowebok19').removeClass('hinge');
+                    $('#dowebok19').css('display','none');
+                    $('#dowebok').css('display','block');
+                    $('#dowebok').addClass('animated hinge');
+                }, mide*16);
+                setTimeout(function(){
+                    $('#dowebok').removeClass('hinge');
+                    $('#dowebok').css('display','none');
+                    $('#dowebok14').css('display','block');
+                    $('#dowebok14').addClass('animated hinge');
+                }, mide*17);
+                setTimeout(function(){
+                    $('#dowebok14').removeClass('hinge');
+                    $('#dowebok14').css('display','none');
+                    $('#dowebok7').css('display','block');
+                    $('#dowebok7').addClass('animated hinge');
+                }, mide*18);
+                setTimeout(function(){
+                    $('#dowebok7').removeClass('hinge');
+                    $('#dowebok7').css('display','none');
+                    $('#dowebok11').css('display','block');
+                    $('#dowebok11').addClass('animated hinge');
+                }, mide*19);
+                setTimeout(function(){
+                    $('#dowebok11').removeClass('hinge');
+                    $('#dowebok11').css('display','none');
+                    $('#dowebok5').css('display','block');
+                    $('#dowebok5').addClass('animated hinge');
+                }, mide*20);
+                setTimeout(function(){
+                    $('#dowebok5').removeClass('hinge');
+                    $('#dowebok5').css('display','none');
+                    $('#dowebok17').css('display','block');
+                    $('#dowebok17').addClass('animated hinge');
+                }, mide*21);
+                setTimeout(function(){
+                    $('#dowebok17').removeClass('hinge');
+                    $('#dowebok17').css('display','none');
+                    $('#dowebok18').css('display','block');
+                    $('#dowebok18').addClass('animated hinge');
+                }, mide*22);
+                setTimeout(function(){
+                    $('#dowebok18').removeClass('hinge');
+                    $('#dowebok18').css('display','none');
+                    $('#dowebok23').css('display','block');
+                    $('#dowebok23').addClass('animated hinge');
+                }, mide*23);
+                setTimeout(function(){
+                    $('#dowebok23').removeClass('hinge');
+                    $('#dowebok23').css('display','none');
+                    $('#dowebok10').css('display','block');
+                    $('#dowebok10').addClass('animated hinge');
+                }, mide*24);
+                setTimeout(function(){
+                    $('#dowebok10').removeClass('hinge');
+                    $('#dowebok10').css('display','none');
+                    $('#dowebok28').css('display','block');
+                    $('#dowebok28').addClass('animated hinge');
+                }, mide*25);
+                setTimeout(function(){
+                    $('#dowebok28').removeClass('hinge');
+                    $('#dowebok28').css('display','none');
+                    $('#dowebok6').css('display','block');
+                    $('#dowebok6').addClass('animated hinge');
+                }, mide*26);
+           }
+           hehe()
+            setInterval(hehe,mide*26)
+            // setInterval(function(){
+            //     table1();
+            //     table();
+            //     Allmoney();
+            //     Singlemoney();
+            // },300000)
+        });
+        // var timstr= '2019-9-1 00:00:00'; 
+var _timer; 
+  
+window.onload = function() 
+{ 
+ timerfunc();
+} 
+timerfunc = function(){ 
+ _timer = setInterval("tfunc($('#dowebok span'),'2019-9-17 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok1 span'),'2019-9-8 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok2 span'),'2019-9-9 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok3 span'),'2019-9-10 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok4 span'),'2019-9-3 00:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok5 span'),'2019-9-16 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok6 span'),'2019-9-19 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok7 span'),'2019-9-16 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok8 span'),'2019-9-11 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok9 span'),'2019-9-8 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok10 span'),'2019-9-16 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok11 span'),'2019-9-17 17:30:00')",90);
+ _timer = setInterval("tfunc($('#dowebok12 span'),'2019-9-3 00:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok13 span'),'2019-9-3 00:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok14 span'),'2019-9-12 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok15 span'),'2019-9-12 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok16 span'),'2019-9-15 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok17 span'),'2019-9-16 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok18 span'),'2019-9-17 18:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok19 span'),'2019-9-17 00:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok20 span'),'2019-9-9 16:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok21 span'),'2019-9-3 00:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok22 span'),'2019-9-9 12:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok23 span'),'2019-9-18 16:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok24 span'),'2019-9-19 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok25 span'),'2019-9-11 16:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok26 span'),'2019-9-18 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok27 span'),'2019-9-18 19:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok28 span'),'2019-9-18 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok29 span'),'2019-9-12 17:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok30 span'),'2019-9-3 00:00:00')",90);
+} 
+  
+tfunc = function($s,timstr){ 
+ var ntim = new Date(); 
+ var _tm = timstr.replace(/-/g,'\/'); 
+ var ftim = new Date(_tm); 
+ var rs = timGap(ntim.getTime(),ftim.getTime()); 
+ $s[0].innerHTML = rs.d
+ $s[1].innerHTML = rs.h
+ $s[2].innerHTML = rs.m
+ $s[3].innerHTML = rs.s
+ $s[4].innerHTML = rs.ms
+} 
+  
+timGap = function(ntim,ftim){ 
+ var date3 = ftim - ntim; 
+ if(date3 < 0){
+    var days = '--'
+    var hours = '--'
+    var minutes = '--'
+    var seconds = '--'
+    var milliseconds = '--'
+ }else{
+    var days = Math.floor(date3/(24*3600*1000)); 
+    if(days >= 0 && days < 10){
+        days = '0'+days
+    }
+    var level1 = date3%(24*3600*1000);
+    var hours = Math.floor(level1/(3600*1000));
+    if(hours >= 0 && hours < 10){
+        hours = '0'+hours
+    }
+    var level2 = level1%(3600*1000);
+    var minutes = Math.floor(level2/(60*1000));
+    if(minutes >= 0 && minutes < 10){
+        minutes = '0'+minutes
+    }
+    
+    var level3 = level2%(60*1000);
+    var seconds = Math.floor(level3/1000); 
+    if(seconds >= 0 && seconds < 10){
+        seconds = '0'+seconds
+    }
+    var milliseconds = parseInt((level3/1000-seconds)*100)
+    if(milliseconds >= 0 && milliseconds < 10){
+        milliseconds = '0'+milliseconds
+    }
+ }
+
+ var tim = {}; 
+ tim['d'] = days; 
+ tim['h'] = hours; 
+ tim['m'] = minutes; 
+ tim['s'] = seconds; 
+ tim['ms'] = milliseconds;
+ return tim; 
+} 
+    </script>
+  </body>
+  </html>
+      
+  

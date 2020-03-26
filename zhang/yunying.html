@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            color: white;
+        }
+
+        .yytable {
+            margin-top: 1.4rem;
+            height: 4.2rem;
+            overflow: hidden;
+        }
+
+        #dowebok10 .yytable li span {
+            text-align: center;
+            /* display: inline-block; */
+            float: left;
+            font-size: .22rem;
+            line-height: 0.84rem;
+        }
+
+        .tone {
+            width: 8%;
+        }
+
+        .ttwo {
+            width: 11%;
+        }
+
+        .tthree {
+            width: 15%;
+        }
+
+        .tfour {
+            width: 12%;
+        }
+
+        .tfive {
+            width: 15.5%;
+        }
+
+        .tsix {
+            width: 12%;
+        }
+
+        .tseven {
+            width: 17.5%;
+        }
+
+        .teight {
+            width: 9%;
+            font-size: .15rem !important;
+        }
+
+        #dowebok10 .yytable li {
+            text-align: left;
+            font-size: .22rem;
+            line-height: 0.84rem;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 176, 6, 1)), to(rgba(255, 222, 111, 1)));
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .table {
+            position: absolute;
+            top: 310px;
+            left: 310px;
+            height: 420px;
+            width: 1010px;
+        }
+
+        .table1 {
+            position: absolute;
+            top: 212px;
+            left: 377px;
+            height: 416px;
+            width: 972px;
+        }
+
+        .table td {
+            width: 185px;
+            height: 56px;
+            text-align: center;
+            color: white;
+            font-family: "宋体";
+            line-height: 140px;
+            font-weight: 600;
+            font-size: 59px;
+            /* background: red; */
+            padding: 0;
+        }
+
+        tbody {
+            display: table-header-group;
+            vertical-align: unset;
+            border-color: inherit;
+        }
+
+        .table1 td {
+            width: 185px;
+            height: 50px;
+            font-family: "Microsoft YaHei";
+            text-align: center;
+            font-size: 50px;
+            line-height: 106px;
+            color: white;
+            font-weight: 600;
+        }
+
+        #dowebok,
+        #dowebok1,
+        #dowebok2,
+        #dowebok3,
+        #dowebok5,
+        #dowebok6,
+        #dowebok7,
+        #dowebok8 {
+            animation-duration: 2s;
+            animation-delay: 13s;
+            animation-direction: normal
+        }
+
+        #dowebok4,
+        #dowebok9 {
+            text-align: center;
+            font-size: 250px;
+            line-height: 800px;
+            animation-duration: 2s;
+            animation-delay: 13s;
+            animation-direction: normal;
+            overflow: hidden;
+        }
+
+        #dowebok10 {
+            text-align: center;
+            font-size: 220px;
+            line-height: 580px;
+            animation-duration: 2s;
+            animation-delay: 13s;
+            animation-direction: normal;
+            overflow: hidden;
+        }
+
+        @keyframes masked-animation {
+            0% {
+                background-position: 0 0;
+                /*background-position 属性设置背景图像的起始位置。*/
+            }
+
+            100% {
+                background-position: -100% 0;
+            }
+        }
+
+        .zhaop {
+            position: absolute;
+            width: 370px;
+            height: 370px;
+            top: 230px;
+            left: 140px;
+
+            border-radius: 50%;
+        }
+
+        #dowebok p,
+        #dowebok1 p,
+        #dowebok2 p,
+        #dowebok5 p,
+        #dowebok6 p,
+        #dowebok7 p {
+            font-family: "楷体";
+            font-weight: 600;
+        }
+
+        .p1 {
+            position: absolute;
+            height: 145px;
+            line-height: 155px;
+            right: 0px;
+            top: 70px;
+            font-size: 175px;
+            width: 600px;
+            text-align: center;
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                    #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-size: 200% 100%;
+            font-family: '宋体';
+            animation: masked-animation 8s infinite linear;
+        }
+
+        .p3 {
+            position: absolute;
+            right: 0px;
+            top: 250px;
+            font-size: 220px;
+            width: 900px;
+            text-align: center;
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                    #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-size: 200% 100%;
+            font-family: '宋体';
+            animation: masked-animation 8s infinite linear;
+        }
+
+        .p4 {
+            position: absolute;
+            right: 0px;
+            top: 450px;
+            font-size: 220px;
+            width: 900px;
+            text-align: center;
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                    #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-size: 200% 100%;
+            font-family: '宋体';
+            animation: masked-animation 8s infinite linear;
+        }
+
+        /* #dowebok10 span{
+        position: absolute;
+        width:130px;
+        height: 110px;
+        top:520px;
+        color: white;
+        text-align: center;
+        font-size: 90px;
+        font-weight: 600;
+        line-height: 200px;
+    } */
+    </style>
+    <script>
+    var ac = 0;
+        			! function (e) {
+                        
+				function t() {
+                    var e = d.getBoundingClientRect().width;
+                    ac = e;
+					u = e / 10, d.style.fontSize = u + "px"
+				}
+
+				function n() {
+					o.body && (o.body.style.fontSize = 14 / (i / 10) + "rem")
+				}
+				var i = 375,
+					o = e.document,
+					d = o.documentElement,
+					c = d.getBoundingClientRect().width,
+					u = (window.devicePixelRatio || 1, c / 10),
+					l = null;
+				e.addEventListener("resize", function () {
+					clearTimeout(l), l = setTimeout(t, 300)
+				}, !1), n(), "complete" === o.readyState ? n() : o.addEventListener("DOMContentLoaded", function () {
+					n()
+				}, !1), t()
+			}(window);
+    </script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper" style="width:100%;height:100%">
+            <div class="swiper-slide" id="dowebok"
+                style="width:100%;height:100%;background:url('images/gold.jpg');display: none">
+                <div class="zhaop" style=""></div>
+                <p class="p1" style=""><span class="jiangjin" style="    float:right;font-size: 170px;margin-right:40px;
+                    "></span><span style="    float:right;font-size: 130px;margin-right:20px;
+                    ">&yen;</span></p>
+                <p class="p3" style=""></p>
+                <p class="p4" style=""></p>
+            </div>
+            <div class="swiper-slide" id="dowebok1"
+                style="width:100%;height:100%;background:url('images/silvery.jpg');display:none">
+                <div class="zhaop" style="width: 370px;
+                    height: 370px;
+                    top:230px;
+                    left: 140px; ;"></div>
+                <p class="p1" style=""><span class="jiangjin" style="    float:right;font-size: 170px;margin-right:40px;
+                        "></span><span style="    float:right;font-size: 130px;margin-right:20px;
+                        ">&yen;</span></p>
+                <p class="p3" style=""></p>
+                <p class="p4" style=""></p>
+            </div>
+            <div class="swiper-slide" id="dowebok2"
+                style="width:100%;height:100%;background:url('images/copper.jpg');display:none">
+                <div class="zhaop" style="width: 372px;
+                    height: 372px;
+                    top:230px;
+                    left: 145px; ;"></div>
+                <p class="p1" style=""><span class="jiangjin" style="    float:right;font-size: 170px;margin-right:40px;
+                        "></span><span style="    float:right;font-size: 130px;margin-right:20px;
+                        ">&yen;</span></p>
+                <p class="p3" style=""></p>
+                <p class="p4" style=""></p>
+            </div>
+            <div class="swiper-slide" id="dowebok3"
+                style="width:100%;height:100%;background:url('images/four.jpg');display:none">
+                <table class="table">
+                </table>
+            </div>
+
+            <div class="swiper-slide" id="dowebok5"
+                style="width:100%;height:100%;background:url('images/groupgold.jpg');display:none">
+                <div class="zhaop" style="width: 344px;
+                    height: 419px;
+                    top:217px;
+                    left: 128px; ;border-radius:20px"></div>
+                <p class="p1" style="top:90px"><span class="jiangjin" style="    float:right;font-size: 170px;margin-right:40px;
+                        ">5000</span><span style="    float:right;font-size: 130px;margin-right:20px;
+                        ">&yen;</span></p>
+                <p class="p3" style="    top: 300px;"></p>
+                <p class="p4" style=""></p>
+            </div>
+            <div class="swiper-slide" id="dowebok6"
+                style="width:100%;height:100%;background:url('images/groupsilvery.jpg');display:none">
+                <div class="zhaop" style="width: 344px;
+                    height: 419px;
+                    top:217px;
+                    left: 128px; ;border-radius:20px"></div>
+                <p class="p3" style=""></p>
+                <p class="p4" style=""></p>
+            </div>
+            <div class="swiper-slide" id="dowebok7"
+                style="width:100%;height:100%;background:url('images/groupcopper.jpg');display:none">
+                <div class="zhaop" style="width: 344px;
+                    height: 419px;
+                    top:217px;
+                    left: 128px; ;border-radius:20px"></div>
+
+                <p class="p3" style=""></p>
+                <p class="p4" style=""></p>
+            </div>
+            <div class="swiper-slide" id="dowebok8"
+                style="width:100%;height:100%;background:url('images/paihangg.jpg');display:none">
+                <table class="table1"></table>
+            </div>
+            <div class="swiper-slide" id="dowebok9"
+                style="width:100%;height:100%;background:url('images/single.jpg');display:none">
+                <p class="Singlemoney" style="background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text; 
+                background-size: 200% 100%;      
+                font-weight:600; 
+                font-family :'宋体';
+                animation: masked-animation 8s infinite linear;"></p>
+            </div>
+            <div class="swiper-slide" id="dowebok10"
+                style="width:100%;height:100%;background:url('images/yunying.jpg') no-repeat;background-size:100% 100%;display:block">
+                <!-- <a style=" color:rgb(226, 211, 99);
+                    font-weight:1000;  
+                    font-family :'宋体';font-size: 180px;position: absolute;height: 200px;line-height: 200px;left: 825px;top: 205px;"></a> -->
+                <!-- <span style="left:120px;"></span>
+                    <span style="left:367px;"></span>
+                    <span style="left:620px;"></span>
+                    <span style="left:865px;"></span>
+                    <span style="left:1115px;"></span> -->
+                <!-- <table class="yytable">
+                        <tr>
+                            <td>0911</td>
+                            <td>0912</td>
+                            <td>0913</td>
+                            <td>0914</td>
+                            <td>0915</td>
+                            <td>0916</td>
+                            <td>0917</td>
+                            <td>0918</td>
+                        </tr>
+                        <tr>
+                            <td>0911</td>
+                            <td>0912</td>
+                            <td>0913</td>
+                            <td>0914</td>
+                            <td>0915</td>
+                            <td>0916</td>
+                            <td>0917</td>
+                            <td>0918</td>
+                        </tr>
+                        <tr>
+                            <td>0911</td>
+                            <td>0912</td>
+                            <td>0913</td>
+                            <td>0914</td>
+                            <td>0915</td>
+                            <td>0916</td>
+                            <td>0917</td>
+                            <td>0918</td>
+                        </tr>
+                        <tr>
+                            <td>0911</td>
+                            <td>0912</td>
+                            <td>0913</td>
+                            <td>0914</td>
+                            <td>0915</td>
+                            <td>0916</td>
+                            <td>0917</td>
+                            <td>0918</td>
+                        </tr>
+                        <tr>
+                            <td>0911</td>
+                            <td>0912</td>
+                            <td>0913</td>
+                            <td>0914</td>
+                            <td>0915</td>
+                            <td>0916</td>
+                            <td>0917</td>
+                            <td>0918</td>
+                        </tr>
+                    </table> -->
+                <div class="yytable">
+                    <ul>
+                        <li>
+                            <span class="tone">河南</span>
+                            <span class="ttwo">8月24日</span>
+                            <span class="tthree">8月24日</span>
+                            <span class="tfour">8月24日</span>
+                            <span class="tfive">8月24日</span>
+                            <span class="tsix">8月24日</span>
+                            <span class="tseven">20天</span>
+                            <span class="teight">材料审核中</span>
+                        </li>
+                        <li>
+                            <span class="tone">河南</span>
+                            <span class="ttwo">8月24日</span>
+                            <span class="tthree">8月24日</span>
+                            <span class="tfour">8月24日</span>
+                            <span class="tfive">8月24日</span>
+                            <span class="tsix">8月24日</span>
+                            <span class="tseven">20天</span>
+                            <span class="teight">材料审核中</span>
+                        </li>
+                        <li>
+                            <span class="tone">河南</span>
+                            <span class="ttwo">8月24日</span>
+                            <span class="tthree">8月24日</span>
+                            <span class="tfour">8月24日</span>
+                            <span class="tfive">8月24日</span>
+                            <span class="tsix">8月24日</span>
+                            <span class="tseven">20天</span>
+                            <span class="teight">材料审核中</span>
+                        </li>
+                        <li>
+                            <span class="tone">河南</span>
+                            <span class="ttwo">8月24日</span>
+                            <span class="tthree">8月24日</span>
+                            <span class="tfour">8月24日</span>
+                            <span class="tfive">8月24日</span>
+                            <span class="tsix">8月24日</span>
+                            <span class="tseven">20天</span>
+                            <span class="teight">材料审核中</span>
+                        </li>
+                        <li>
+                            <span class="tone">河南</span>
+                            <span class="ttwo">8月24日</span>
+                            <span class="tthree">8月24日</span>
+                            <span class="tfour">8月24日</span>
+                            <span class="tfive">8月24日</span>
+                            <span class="tsix">8月24日</span>
+                            <span class="tseven">20天</span>
+                            <span class="teight">材料审核中</span>
+                        </li>
+                        <li>
+                            <span class="tone">河南</span>
+                            <span class="ttwo">8月24日</span>
+                            <span class="tthree">8月24日</span>
+                            <span class="tfour">8月24日</span>
+                            <span class="tfive">8月24日</span>
+                            <span class="tsix">8月24日</span>
+                            <span class="tseven">20天</span>
+                            <span class="teight">材料审核中</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function table() {
+            $.ajax({
+                url: 'ranking.php',
+                type: 'get',
+                data: {
+                    type: '1'
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data[0].personal_ranking > 150000) {
+                        $('.jiangjin')[0].innerText = 11111;
+                    } else if (data[0].personal_ranking > 100000) {
+                        $('.jiangjin')[0].innerText = 8888;
+                    } else {
+                        $('.jiangjin')[0].innerText = 5555;
+                    }
+                    if (data[1].personal_ranking > 150000) {
+                        $('.jiangjin')[1].innerText = 8888;
+                    } else if (data[1].personal_ranking > 100000) {
+                        $('.jiangjin')[1].innerText = 5555;
+                    } else {
+                        $('.jiangjin')[1].innerText = 3333;
+                    }
+                    if (data[2].personal_ranking > 150000) {
+                        $('.jiangjin')[2].innerText = 5555;
+                    } else if (data[2].personal_ranking > 100000) {
+                        $('.jiangjin')[2].innerText = 3333;
+                    } else {
+                        $('.jiangjin')[2].innerText = 1111;
+                    }
+                    for (var i = 0; i < 3; i++) {
+                        user_name = data[i].user_name.split('xf')[0];
+                        console.log(user_name)
+                        $('.p3')[i].innerText = user_name;
+                        $('.p4')[i].innerText = data[i].personal_ranking;
+
+                        if (data[i].header == "" || data[i].header == null) {
+                            header = "images/dabai.jpg"
+                        } else {
+                            header = "http://new.huozhongedu.com/img/header/" + data[i].header;
+                        }
+                        $('.zhaop')[i].style.background = "url(" + header + ") no-repeat"
+                        $('.zhaop')[i].style.backgroundSize = "100% 100%"
+                    }
+                    $('.table')[0].innerHTML = ''
+                    for (var i = 3; i < 6; i++) {
+                        if (i >= data.length) {
+                            $('.table')[0].innerHTML += `<tr>
+                        <td colspan="4">` + "虚位以待" + `</td></tr>`
+                        } else {
+                            group = data[i].group.substring(2, 4);
+                            user_name = data[i].user_name.split('xf')[0];
+                            $('.table')[0].innerHTML += `<tr><td>` + data[i].sector + `</td>
+                        <td>` + group + `</td>
+                        <td>` + user_name + `</td>
+                        <td>` + data[i].personal_ranking + `</td></tr>`
+                        }
+
+                    }
+                }
+
+            })
+        }
+
+        function Allmoney() {
+            $.ajax({
+                url: 'ranking.php',
+                type: 'get',
+                data: {
+                    type: '2'
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data[0].money == null) {
+                        money = 0
+                    } else {
+                        money = data[0].money
+                    }
+                    $('.Allmoney')[0].innerText = money;
+                }
+
+            })
+        }
+
+        function Singlemoney() {
+            $.ajax({
+                url: 'ranking.php',
+                type: 'get',
+                data: {
+                    type: '4'
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data[0].money == null) {
+                        money = 0
+                    } else {
+                        money = data[0].money
+                    }
+                    $('.Singlemoney')[0].innerText = money;
+                }
+
+            })
+        }
+
+        function table1() {
+            $.ajax({
+                url: 'ranking.php',
+                type: 'get',
+                data: {
+                    type: '3'
+                },
+                dataType: 'json',
+                success: function (data) {
+                    // var data = [{"sector":"\u6d88\u9632\u4e8c\u90e8","group":"\u6d88\u9632\u4e8c\u7ec4","header":"3lann2JAQgo64xHVqIpT18nGoK88oYlYcho1uytY.jpeg","group_ranking":"97484"},{"sector":"\u6d88\u9632\u4e00\u90e8","group":"\u6d88\u9632\u56db\u7ec4","header":"iUyCZUf3dU6HqgEXkdtcmQDEG9ZOb1QrI1Mnf6HV.jpeg","group_ranking":"71249"},{"sector":"\u6d88\u9632\u4e8c\u90e8","group":"\u6d88\u9632\u4e03\u7ec4","header":"","group_ranking":"63300"},{"sector":"\u6d88\u9632\u4e00\u90e8","group":"\u6d88\u9632\u516d\u7ec4","header":"JILn7TTA2CAeAJ9naoYitBnwIPQ6mgD8w3NkNGzS.jpeg","group_ranking":"60300"},{"sector":"\u6d88\u9632\u4e00\u90e8","group":"\u6d88\u9632\u4e00\u7ec4","header":"B45fQlZX7pxt6mItHrraCyNJSiV2CBk7zKCBAth8.png","group_ranking":"50140"},{"sector":"\u6d88\u9632\u4e09\u90e8","group":"\u6d88\u9632\u4e09\u7ec4","header":"","group_ranking":"47040"},{"sector":"\u6d88\u9632\u4e09\u90e8","group":"\u6d88\u9632\u516b\u7ec4","header":"","group_ranking":"44160"},{"sector":"\u6d88\u9632\u4e09\u90e8","group":"\u6d88\u9632\u4e94\u7ec4","header":"","group_ranking":"27140"}]
+                    $('.table1')[0].innerHTML = '';
+                    for (var i = 0; i < 3; i++) {
+                        $('.p3')[i + 3].innerText = data[i].group;
+                        $('.p3')[i + 3].style.fontSize = "150px"
+                        $('.p4')[i + 3].style.fontSize = "180px"
+                        $('.p3')[i + 3].style.top = "280px"
+                        $('.p4')[i + 3].style.top = "470px"
+                        $('.p4')[i + 3].innerText = data[i].group_ranking;
+                        if (data[i].header == "") {
+                            header = "images/xiaoxiong.jpg"
+                        } else {
+                            header = "http://new.huozhongedu.com/img/header/" + data[i].header;
+                        }
+                        $('.zhaop')[i + 3].style.background = "url(" + header + ") no-repeat"
+                        $('.zhaop')[i + 3].style.backgroundSize = "100% 100%"
+                    }
+                    for (var i = 3; i < 8; i++) {
+
+                        if (i >= data.length) {
+                            $('.table1')[0].innerHTML += `<tr><td></td>
+                        <td>` + "虚位以待" + `</td>
+                        <td></td></tr>`
+                        } else {
+                            group = data[i].group.substring(2, 4);
+                            $('.table1')[0].innerHTML += `<tr><td>` + data[i].sector + `</td>
+                        <td>` + group + `</td>
+                        <td>` + data[i].group_ranking + `</td></tr>`
+                        }
+
+                    }
+                }
+            })
+        }
+        //    $(function(){
+        //     table1();
+        //             table();
+        //             Allmoney();
+        //             Singlemoney();
+        //        function hehe(){
+        //            $('#dowebok').addClass('animated zoomOutLeft');
+        //             setTimeout(function(){
+        //                 $('#dowebok').removeClass('zoomOutLeft');
+        //                 $('#dowebok').css('display','none');
+        //                 $('#dowebok1').css('display','block');
+        //                 $('#dowebok1').addClass('animated zoomOutLeft');
+        //             }, 15000);
+        //             setTimeout(function(){
+        //                 $('#dowebok1').removeClass('zoomOutLeft');
+        //                 $('#dowebok1').css('display','none');
+        //                 $('#dowebok2').css('display','block');
+        //                 $('#dowebok2').addClass('animated zoomOutLeft');
+        //             }, 30000);
+        //             setTimeout(function(){
+        //                 $('#dowebok2').removeClass('zoomOutLeft');
+        //                 $('#dowebok2').css('display','none');
+        //                 $('#dowebok3').css('display','block');
+        //                 $('#dowebok3').addClass('animated zoomOutLeft');
+        //             }, 45000);
+        //             setTimeout(function(){
+        //                 $('#dowebok3').removeClass('zoomOutLeft');
+        //                 $('#dowebok3').css('display','none');
+        //                 $('#dowebok5').css('display','block');
+        //                 $('#dowebok5').addClass('animated zoomOutLeft');
+        //             }, 60000);
+        //             setTimeout(function(){
+        //                 $('#dowebok5').removeClass('zoomOutLeft');
+        //                 $('#dowebok5').css('display','none');
+        //                 $('#dowebok6').css('display','block');
+        //                 $('#dowebok6').addClass('animated zoomOutLeft');
+        //             }, 75000);
+        //             setTimeout(function(){
+        //                 $('#dowebok6').removeClass('zoomOutLeft');
+        //                 $('#dowebok6').css('display','none');
+        //                 $('#dowebok7').css('display','block');
+        //                 $('#dowebok7').addClass('animated zoomOutLeft');
+        //             }, 90000);
+        //             setTimeout(function(){
+        //                 $('#dowebok7').removeClass('zoomOutLeft');
+        //                 $('#dowebok7').css('display','none');
+        //                 $('#dowebok8').css('display','block');
+        //                 $('#dowebok8').addClass('animated zoomOutLeft');
+        //             }, 105000);
+        //             setTimeout(function(){
+        //                 $('#dowebok8').removeClass('zoomOutLeft');
+        //                 $('#dowebok8').css('display','none');
+        //                 $('#dowebok9').css('display','block');
+        //                 $('#dowebok9').addClass('animated zoomOutLeft');
+        //             }, 120000);
+        //             setTimeout(function(){
+        //                 $('#dowebok9').removeClass('zoomOutLeft');
+        //                 $('#dowebok9').css('display','none');
+        //                 $('#dowebok10').css('display','block');
+        //                 $('#dowebok10').addClass('animated zoomOutLeft');
+        //             }, 135000);
+        //             setTimeout(function(){
+        //                 $('#dowebok10').removeClass('zoomOutLeft');
+        //                 $('#dowebok10').css('display','none');
+        //                 $('#dowebok').css('display','block');
+        //                 $('#dowebok').addClass('animated zoomOutLeft');
+        //             }, 150000);
+        //        }
+        //        hehe()
+        //         setInterval(hehe,150000)
+        //         setInterval(function(){
+        //             table1();
+        //             table();
+        //             Allmoney();
+        //             Singlemoney();
+        //         },300000)
+        //     });
+        //         var timstr= '2019-3-23 00:00:00'; 
+        // var _timer; 
+
+        // window.onload = function() 
+        // { 
+        // //  timerfunc();
+
+        // } 
+        // timerfunc = function(){ 
+        //  _timer = setInterval('tfunc()',90);
+        // } 
+
+        // tfunc = function(){ 
+        //  var ntim = new Date(); 
+        //  var _tm = timstr.replace(/-/g,'\/'); 
+        //  var ftim = new Date(_tm); 
+        //  var rs = timGap(ntim.getTime(),ftim.getTime()); 
+        //  $('#dowebok10 span')[0].innerHTML = rs.d
+        // $('#dowebok10 span')[1].innerHTML = rs.h
+        // $('#dowebok10 span')[2].innerHTML = rs.m
+        // $('#dowebok10 span')[3].innerHTML = rs.s
+        // $('#dowebok10 span')[4].innerHTML = rs.ms
+        // } 
+
+        // timGap = function(ntim,ftim){ 
+        //  var date3 = ftim - ntim; 
+
+        //  var days = Math.floor(date3/(24*3600*1000)); 
+
+        //  var level1 = date3%(24*3600*1000);
+        //  var hours = Math.floor(level1/(3600*1000));
+        //  if(hours >= 0 && hours < 10){
+        //     hours = '0'+hours
+        //  }
+        //  var level2 = level1%(3600*1000);
+        //  var minutes = Math.floor(level2/(60*1000));
+        //  if(minutes >= 0 && minutes < 10){
+        //     minutes = '0'+minutes
+        //  }
+
+        //  var level3 = level2%(60*1000);
+        //  var seconds = Math.floor(level3/1000); 
+        //  if(seconds >= 0 && seconds < 10){
+        //      seconds = '0'+seconds
+        //  }
+        //   var milliseconds = parseInt((level3/1000-seconds)*100)
+        //   if(milliseconds >= 0 && milliseconds < 10){
+        //     milliseconds = '0'+milliseconds
+        //  }
+        //  var tim = {}; 
+        //  tim['d'] = days; 
+        //  tim['h'] = hours; 
+        //  tim['m'] = minutes; 
+        //  tim['s'] = seconds; 
+        //  tim['ms'] = milliseconds;
+        //  return tim; 
+        // } 
+        (function ($) {
+            $.fn.myScroll = function (options) {
+                //默认配置
+                var defaults = {
+                    speed: 40, //滚动速度,值越大速度越慢
+                    rowHeight: 44 //每行的高度
+                };
+                var opts = $.extend({}, defaults, options),
+                    intId = [];
+
+                function marquee(obj, step) {
+                    obj.find("ul").animate({
+                        marginTop: '-=' + opts["rowHeight"]
+                    }, 1000, function () {
+                        var s = Math.abs(parseInt($(this).css("margin-top")));
+                        console.log(s,step)
+                        if (s >= step -1) {
+                            $(this).find("li").slice(0, 1).appendTo($(this));
+                            $(this).css("margin-top", 0);
+                        }
+                    }).delay(5000);
+                    //
+                }
+                // 
+                this.each(function (i) {
+                    var sh = opts["rowHeight"],
+                        speed = opts["speed"],
+                        _this = $(this);
+                    intId[i] = setInterval(function () {
+                        if (_this.find("ul").height() <= _this.height()) {
+                            clearInterval(intId[i]);
+                        } else {
+                            marquee(_this, sh);
+                        }
+                    }, speed);
+                    // setTimeout(function(){
+                    //     clearInterval(intId[i]);
+                    // }, speed)
+                    // _this.hover(function(){
+                    //     clearInterval(intId[i]);
+                    // },function(){
+                    //     intId[i] = setInterval(function(){
+                    //         if(_this.find("ul").height()<=_this.height()){
+                    //             clearInterval(intId[i]);
+                    //         }else{
+                    //             marquee(_this, sh);
+                    //         }
+                    //     }, speed);
+                    // });        
+                });
+            }
+        })(jQuery);
+        $(document).ready(function () {
+            $('.buy-list li:even').addClass('lieven');
+        })
+        $(function () {
+            function DDate(time) {
+                return new Date("2019/" + time.split('月')[0] + '/' + time.split('月')[1].split('日')[0])
+            }
+            var date = new Date();
+            var d = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
+            var d = "2019/9/26"
+            console.log(d)
+            data = [{
+                    'city': '安徽',
+                    'time1': '8月1日',
+                    'time2': '8月5日',
+                    'time3': '8月5日',
+                    'time4': '7月23日',
+                    'time5': '9月24日'
+                },
+                {
+                    'city': '北京',
+                    'time1': '8月25日',
+                    'time2': '8月5日',
+                    'time3': '7月13日',
+                    'time4': '9月24日',
+                    'time5': '9月25日'
+                },
+                {
+                    'city': '重庆',
+                    'time1': '8月26日',
+                    'time2': '8月5日',
+                    'time3': '9月12日',
+                    'time4': '9月25日',
+                    'time5': '9月26日'
+                },
+                {
+                    'city': '福建',
+                    'time1': '8月27日',
+                    'time2': '8月5日',
+                    'time3': '7月13日',
+                    'time4': '9月26日',
+                    'time5': '9月27日'
+                },
+                {
+                    'city': '甘肃',
+                    'time1': '8月28日',
+                    'time2': '8月5日',
+                    'time3': '9月14日',
+                    'time4': '9月27日',
+                    'time5': '9月28日'
+                },
+                {
+                    'city': '广东',
+                    'time1': '8月29日',
+                    'time2': '8月5日',
+                    'time3': '9月15日',
+                    'time4': '9月28日',
+                    'time5': '9月29日'
+                }
+            ];
+            data.sort(function (a, b) {
+                if (DDate(b.time3).getTime() < new Date(d).getTime()) {
+                    return 1;
+                }else if (DDate(a.time3).getTime() <= DDate(b.time3).getTime()) {
+                    return -1;
+                }else if (DDate(a.time3).getTime() > DDate(b.time3).getTime()) {
+                    return 1;
+                }
+                //  else 
+            })
+            console.log($(".yytable"))
+            $(".yytable ul").html('')
+            for (var i = 0; i < data.length; i++) {
+                data[i].day = (DDate(data[i].time3).getTime() - new Date(d).getTime()) / 3600000 / 24
+                if (data[i].day == 0) {
+                    data[i].day = "今天截止"
+                } else if (data[i].day < 0) {
+                    data[i].day = "报名截止"
+                } else {
+                    data[i].day = data[i].day + '天'
+                }
+
+                if (new Date(d).getTime() < DDate(data[i].time1).getTime()) {
+                    data[i].status = "无"
+                } else if (new Date(d).getTime() <= DDate(data[i].time3).getTime()) {
+                    // data[i].time1 = '--'
+                    data[i].status = "报名中"
+                } else if (new Date(d).getTime() <= DDate(data[i].time4).getTime()) {
+                    // data[i].time1 = '--'
+                    // data[i].time3 = '--'
+                    data[i].status = "报名截止"
+                } else if (new Date(d).getTime() <= DDate(data[i].time5).getTime()) {
+                    // data[i].time1 = '--'
+                    // data[i].time3 = '--'
+                    // data[i].time4 = '--'
+                    data[i].status = "材料审核中"
+                } else {
+                    // data[i].time1 = '--'
+                    // data[i].time3 = '--'
+                    // data[i].time4 = '--'
+                    // data[i].time5 = '--'
+                    data[i].status = "缴费中"
+                }
+
+                // console.log((DDate(data[i].time1).getTime()-new Date(d).getTime())/3600000/24)
+                $(".yytable ul")[0].innerHTML += `
+                <li>
+                            <span class="tone">` + data[i].city + `</span>
+                            <span class="ttwo">` + data[i].time1 + `</span>
+                            <span class="tthree">` + data[i].time2 + `</span>
+                            <span class="tfour">` + data[i].time3 + `</span>
+                            <span class="tfive">` + data[i].time4 + `</span>
+                            <span class="tsix">` + data[i].time5 + `</span>
+                            <span class="tseven">` + data[i].day + `</span>
+                            <span class="teight">` + data[i].status + `</span>
+                        </li>
+                `
+            }
+            console.log(0.085*ac)
+            //    setInterval(function(){
+            $(".yytable").myScroll({
+                speed: 10, //数值越大，速度越慢
+                rowHeight: 0.084*ac, //li的高度
+            });
+            //    },3000)
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,354 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <title>Document</title>
+    <script>
+        var sqls = [
+            window.matchMedia('(max-width:620px)') //和CSS一样，也要注意顺序！
+        ]
+    
+        function mediaMatches() {
+            if(sqls[0].matches){ //do something...
+                window.location.href = "index.html"
+            }else{
+                // console.log('>1200');
+                // window.location.href = "indexPC.html"
+            }
+        }
+        mediaMatches(); //页面首次加载
+    
+        for(var i = 0; i < sqls.length; i++){
+            sqls[i].addListener(mediaMatches);
+        }
+        </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            color: white;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 176, 6, 1)), to(rgba(255, 222, 111, 1)));
+        }
+        .swiper-container{
+            width: 100%;
+            height: 100%;
+          }
+     .table{
+         position: absolute;
+         top:310px;
+         left:310px;
+         height:420px;
+         width:1010px;
+     }
+     .table1{
+         position: absolute;
+         top:212px;
+         left:377px;
+         height:416px;
+         width:972px;
+     }
+     .table td{
+         width:185px;
+         height: 56px;
+         text-align: center;
+         color: white;
+         font-family: "宋体";
+         line-height: 140px;
+         font-weight: 600;
+         font-size: 59px;
+         /* background: red; */
+         padding: 0;
+     }
+     tbody{
+        display: table-header-group;
+    vertical-align: unset;
+    border-color: inherit;
+     }
+     .table1 td{
+         width:185px;
+         height: 50px;
+         font-family: "Microsoft YaHei";
+         text-align: center;
+         font-size: 50px;
+         line-height: 106px;
+         color: white;
+         font-weight: 600;
+     }
+     /* #dowebok,#dowebok1,#dowebok2,#dowebok3,#dowebok5,#dowebok6,#dowebok7,#dowebok8{
+            animation-duration: 2s; 
+            animation-delay: 13s;
+            animation-direction:normal
+        } */
+        #dowebok4,#dowebok9{
+            text-align: center;
+            font-size: 250px;
+            line-height: 800px;
+            animation-duration: 2s; 
+            animation-delay: 13s;
+            animation-direction:normal;
+            overflow: hidden;
+        }
+        #dowebok,#dowebok1,#dowebok2,#dowebok3,#dowebok4,#dowebok5,#dowebok6,#dowebok7,#dowebok8,#dowebok9,#dowebok10,#dowebok11,#dowebok12,#dowebok13,#dowebok14,#dowebok15,#dowebok16,#dowebok17,#dowebok18,#dowebok19,#dowebok20,#dowebok21,#dowebok22,#dowebok23,#dowebok24,#dowebok25,#dowebok26,#dowebok27,#dowebok28,#dowebok29,#dowebok30{
+            /* text-align: center;
+            font-size: 140px;
+            line-height: 580px; */
+            animation-duration: 2s; 
+            animation-delay: 13s;
+            animation-direction:normal;
+            overflow: hidden;
+        }
+        @keyframes masked-animation {
+            0% {
+                background-position: 0 0;   /*background-position 属性设置背景图像的起始位置。*/
+            }
+            100% {
+                background-position: -100% 0;
+            }
+        }
+        .zhaop{
+            position: absolute;
+            width: 370px;
+            height: 370px;
+            top:230px;
+            left: 140px;
+            
+            border-radius: 50%;
+        }
+        #dowebok p,#dowebok1 p,#dowebok2 p,#dowebok5 p,#dowebok6 p,#dowebok7 p{
+            font-family: "楷体";
+            font-weight: 600;
+        }
+        .p1{
+            position:absolute;height:145px;line-height: 155px;right:0px;top:70px;font-size:175px;width:600px;text-align: center;
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                    #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text; 
+                    background-size: 200% 100%;      
+                    font-family :'宋体';
+                    animation: masked-animation 8s infinite linear;
+        }
+        .p3{
+            position:absolute;right:0px;top:250px;font-size:220px;width:900px;text-align: center;
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                    #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text; 
+                    background-size: 200% 100%;      
+                    font-family :'宋体';
+                    animation: masked-animation 8s infinite linear;
+        }
+        .p4{
+            position:absolute;right:0px;top:450px;font-size:220px;width:900px;text-align: center;
+            background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%,
+                    #ffd000fb 40%, #c7c6c2 50%, #a409ec 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text; 
+                    background-size: 200% 100%;      
+                    font-family :'宋体';
+                    animation: masked-animation 8s infinite linear;
+        }
+        #dowebok10 span{
+            position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 4.05rem;
+    color: white;
+    /* background: yellow; */
+    text-align: center;
+    font-size: .65rem;
+    font-weight: 600;
+    line-height: 1rem;
+    }
+    #dowebok span,#dowebok1 span{
+            /* position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 4.05rem;
+    color: white;
+    text-align: center;
+    font-size: .65rem;
+    font-weight: 600;
+    line-height: 1rem; */
+    }
+    </style>
+      <script src="js/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+        <script>
+                ! function (e) {
+                    function t() {
+                        var e = d.getBoundingClientRect().width;
+                        u = e / 10, d.style.fontSize = u + "px"
+                        console.log(u)
+                    }
+        
+                    function n() {
+                        o.body && (o.body.style.fontSize = 14 / (i / 10) + "rem")
+                    }
+                    var i = 375,
+                        o = e.document,
+                        d = o.documentElement,
+                        c = d.getBoundingClientRect().width,
+                        u = (window.devicePixelRatio || 1, c / 10),
+                        l = null;
+                    e.addEventListener("resize", function () {
+                        clearTimeout(l), l = setTimeout(t, 300)
+                    }, !1)
+                    , n(), "complete" === o.readyState ? n() : o.addEventListener("DOMContentLoaded", function () {
+                        n()
+                    }, !1)
+                    ,t()
+                }(window);
+                </script>
+      <div class="swiper-container">
+          <div class="swiper-wrapper" style="width:100%;height:100%">
+                <div class="swiper-slide" id="dowebok" style="width:100%;height:100%;background:url('images/index4.jpg') no-repeat;background-size:100% 100%;display: block">
+                   <div style="               height: .5rem;
+                   overflow: hidden;
+                   width: 5.77rem;
+                   position: absolute;
+                   line-height: .5rem;
+                   font-size: .4rem;
+                   top: 4.3rem;
+                   left: 2.16rem;
+                   text-align: center;
+                   z-index: 9;
+                   transform: rotate(6.5deg);
+                   -o-transform: rotate(6.5deg);
+                   -webkit-transform: rotate(-6.5deg);
+                   -moz-transform: rotate(6.5deg);
+                   ">
+                   倒计时:
+                    <span style="left:0.7rem;">1</span>天
+                    <span style="left:2.6rem;">2</span>时
+                    <span style="left:4.5rem;">33</span>分
+                    <span style="left:6.4rem;">4</span>秒
+                    <!-- <span style="left:8.3rem;">5</span>毫秒 -->
+                   </div>
+                    
+                </div>
+                <div class="swiper-slide" id="dowebok1" style="width:100%;height:100%;background:url('images/index3.jpg') no-repeat;background-size:100% 100%;display: none">
+                    <div style="           height: .5rem;
+                    overflow: hidden;
+                    width: 100%;
+                    position: absolute;
+                    text-align: center;
+                    line-height: .5rem;
+                    font-size: .45rem;
+                    top: 4.3rem;
+                    left: 0;
+                    text-align: center;
+                    z-index: 9;
+                   ">
+                   倒计时:
+                    <span style="left:0.7rem;">1</span>天
+                    <span style="left:2.6rem;">2</span>时
+                    <span style="left:4.5rem;">33</span>分
+                    <span style="left:6.4rem;">4</span>秒
+                    <!-- <span style="left:8.3rem;">5</span>毫秒 -->
+                   </div>
+                </div>
+          </div>
+      </div>
+      <script>
+       $(function(){
+           function hehe(){
+               $('#dowebok').addClass('animated zoomOutLeft');
+                setTimeout(function(){
+                    $('#dowebok').removeClass('zoomOutLeft');
+                    $('#dowebok').css('display','none');
+                    $('#dowebok1').css('display','block');
+                    $('#dowebok1').addClass('animated zoomOutLeft');
+                }, 15000);
+                setTimeout(function(){
+                    $('#dowebok1').removeClass('zoomOutLeft');
+                    $('#dowebok1').css('display','none');
+                    $('#dowebok').css('display','block');
+                    $('#dowebok').addClass('animated zoomOutLeft');
+                }, 30000);
+           }
+           hehe()
+            setInterval(hehe,30000)
+            // setInterval(function(){
+            //     table1();
+            //     table();
+            //     Allmoney();
+            //     Singlemoney();
+            // },300000)
+        });
+        // var timstr= '2019-9-1 00:00:00'; 
+var _timer; 
+  
+window.onload = function() 
+{ 
+ timerfunc();
+} 
+timerfunc = function(){ 
+ _timer = setInterval("tfunc($('#dowebok span'),'2019-8-21 00:00:00')",90);
+ _timer = setInterval("tfunc($('#dowebok1 span'),'2019-8-21 00:00:00')",90);
+} 
+  
+tfunc = function($s,timstr){ 
+ var ntim = new Date(); 
+ var _tm = timstr.replace(/-/g,'\/'); 
+ var ftim = new Date(_tm); 
+ var rs = timGap(ntim.getTime(),ftim.getTime()); 
+ $s[0].innerHTML = rs.d
+ $s[1].innerHTML = rs.h
+ $s[2].innerHTML = rs.m
+ $s[3].innerHTML = rs.s
+//  $s[4].innerHTML = rs.ms
+} 
+  
+timGap = function(ntim,ftim){ 
+ var date3 = ftim - ntim; 
+  
+ var days = Math.floor(date3/(24*3600*1000)); 
+ if(days >= 0 && days < 10){
+    days = '0'+days
+ }
+ var level1 = date3%(24*3600*1000);
+ var hours = Math.floor(level1/(3600*1000));
+ if(hours >= 0 && hours < 10){
+    hours = '0'+hours
+ }
+ var level2 = level1%(3600*1000);
+ var minutes = Math.floor(level2/(60*1000));
+ if(minutes >= 0 && minutes < 10){
+    minutes = '0'+minutes
+ }
+  
+ var level3 = level2%(60*1000);
+ var seconds = Math.floor(level3/1000); 
+ if(seconds >= 0 && seconds < 10){
+     seconds = '0'+seconds
+ }
+  var milliseconds = parseInt((level3/1000-seconds)*100)
+  if(milliseconds >= 0 && milliseconds < 10){
+    milliseconds = '0'+milliseconds
+ }
+ var tim = {}; 
+ tim['d'] = days; 
+ tim['h'] = hours; 
+ tim['m'] = minutes; 
+ tim['s'] = seconds; 
+ tim['ms'] = milliseconds;
+ return tim; 
+} 
+    </script>
+  </body>
+  </html>
+      
+  

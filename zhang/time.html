@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="css/animate.min.css">
+<!-- <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script> -->
+<title>Document</title>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+        background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 176, 6, 1)), to(rgba(255, 222, 111, 1)));
+    }
+    .swiper-container{
+        width: 100%;
+        height: 100%;
+        }
+
+    #dowebok1{
+        animation-duration: 2s; 
+        animation-delay: 13s;
+        animation-direction:normal
+    }
+    #dowebok{
+        text-align: center;
+        font-size: 250px;
+        line-height: 660px;
+        animation-duration: 2s; 
+        font-weight:600;
+        animation-delay: 13s;
+        animation-direction:normal;
+        overflow: hidden;
+    }
+    @keyframes masked-animation {
+        0% {
+            background-position: 0 0;   /*background-position 属性设置背景图像的起始位置。*/
+        }
+        100% {
+            background-position: -100% 0;
+        }
+    }
+    #dowebok span{
+        position: absolute;
+        width:162px;
+        height: 105px;
+        top:563px;
+        color: white;
+        /* background: yellow; */
+        font-size: 90px;
+        line-height: 105px;
+    }
+    #dowebok1 span{
+        position: absolute;
+        width:243px;
+        height: 200px;
+        top:330px;
+        color: white;
+        /* background: yellow; */
+        text-align: center;
+        font-size: 160px;
+        line-height: 200px;
+    }
+</style>
+    <script src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper" style="width:100%;height:100%">
+            <div class="swiper-slide" id="dowebok" style="width:100%;height:100%;background:url('images/daoone.jpg');display:block">
+                <p class="Allmoney" style="background-image: -webkit-linear-gradient(left, white,white);
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text; 
+                background-size: 200% 100%;      
+                font-family :'楷体';
+                animation: masked-animation 8s infinite linear;"></p>
+                <span style="left:262px;"></span>
+                <span style="left:490px;"></span>
+                <span style="left:717px;"></span>
+                <span style="left:943px;"></span>
+            </div>
+            <div class="swiper-slide" id="dowebok1" style="width:100%;height:100%;background:url('images/daotwo.jpg');display:none">
+                <span style="left:47px;"></span>
+                <span style="left:390px;"></span>
+                <span style="left:735px;"></span>
+                <span style="left:1078px;"></span>
+            </div>
+        </div>
+    </div>
+<script>
+ function Allmoney(){
+    $.ajax({
+        url:'ranking.php',
+        type:'get',
+        data:{type:'4'},
+        dataType:'json',
+        success:function(data){
+            if(data[0].money == null){
+                money = 0
+            }else{
+                money = data[0].money
+            }
+            $('.Allmoney')[0].innerText = money;
+        }
+        
+    })
+}
+Allmoney()
+$(function(){
+    
+    // function hehe(){
+    //     $('#dowebok').addClass('animated zoomOutLeft');
+    //     setTimeout(function(){
+    //         $('#dowebok').removeClass('zoomOutLeft');
+    //         $('#dowebok').css('display','none');
+    //         $('#dowebok1').css('display','block');
+    //         $('#dowebok1').addClass('animated zoomOutLeft');
+    //     }, 15000);
+    //     setTimeout(function(){
+    //         $('#dowebok1').removeClass('zoomOutLeft');
+    //         $('#dowebok1').css('display','none');
+    //         $('#dowebok').css('display','block');
+    //         $('#dowebok').addClass('animated zoomOutLeft');
+    //     }, 30000);
+    // }
+    // hehe()
+    // setInterval(hehe,30000)
+    // setInterval(function(){
+    //     Allmoney()
+    // },300000)
+});
+var timstr= '2019-11-12 00:00:00'; 
+var _timer; 
+  
+window.onload = function() 
+{ 
+ timerfunc();
+ 
+} 
+timerfunc = function(){ 
+ _timer = setInterval('tfunc()',90);
+} 
+  
+tfunc = function(){ 
+ var ntim = new Date(); 
+ var _tm = timstr.replace(/-/g,'\/'); 
+ var ftim = new Date(_tm); 
+ var rs = timGap(ntim.getTime(),ftim.getTime()); 
+$('#dowebok span')[0].innerHTML = rs.h
+$('#dowebok span')[1].innerHTML = rs.m
+$('#dowebok span')[2].innerHTML = rs.s
+$('#dowebok span')[3].innerHTML = rs.ms
+$('#dowebok1 span')[0].innerHTML = rs.h
+$('#dowebok1 span')[1].innerHTML = rs.m
+$('#dowebok1 span')[2].innerHTML = rs.s
+$('#dowebok1 span')[3].innerHTML = rs.ms
+} 
+  
+timGap = function(ntim,ftim){ 
+ var date3 = ftim - ntim; 
+  
+ var days = Math.floor(date3/(24*3600*1000)); 
+  
+ var level1 = date3%(24*3600*1000);
+ var hours = Math.floor(level1/(3600*1000))+days*24;
+ if(hours >= 0 && hours < 10){
+    hours = '0'+hours
+ }
+ var level2 = level1%(3600*1000);
+ var minutes = Math.floor(level2/(60*1000));
+ if(minutes >= 0 && minutes < 10){
+    minutes = '0'+minutes
+ }
+  
+ var level3 = level2%(60*1000);
+ var seconds = Math.floor(level3/1000); 
+ if(seconds >= 0 && seconds < 10){
+     seconds = '0'+seconds
+ }
+  var milliseconds = parseInt((level3/1000-seconds)*100)
+  if(milliseconds >= 0 && milliseconds < 10){
+    milliseconds = '0'+milliseconds
+ }
+ var tim = {}; 
+ tim['h'] = hours; 
+ tim['m'] = minutes; 
+ tim['s'] = seconds; 
+ tim['ms'] = milliseconds;
+ return tim; 
+} 
+</script> 
+</html>
