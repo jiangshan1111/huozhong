@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>已报名</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/Advisory.css">
+    <!-- <link rel="stylesheet" href="css/polling.css"> -->
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <style>
+        #alreadyallot{
+            width: 95.8%;
+        }
+        #alreadyallot1>div,#alreadyallot2>div{
+            height: 40px;
+            float: left;
+            width: 50%;
+            margin-top: 20px;
+        }
+        #alreadyallot1>div>span,#alreadyallot2>div>span{
+            width:17%;
+            display: inline-block;
+        }
+        #alreadyallot1>div>input,#alreadyallot2>div>input{
+            width:72%;
+        }
+        #alreadyallot1>div>select,#alreadyallot2>div>select{
+            width:75%;
+        }
+        .alreadyp1,.alreadyp2{
+            background-repeat: no-repeat;
+            background-position-x: 99%;
+            background-position-y: 50%;
+        }
+        .already-allot-button,.changebutton{
+            float: right;
+            background: #42b983;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            margin-top: 20px;
+        }
+        @media only screen and (max-width:1000px){
+            #alreadyallot1>div,#alreadyallot1>div{
+                width: 100%;
+            }
+        }
+        #alreadyRegisteredNew[disabled]{
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>  
+        <div class="modelchance" style="display:block">
+                <div class="modelchancer">
+                    <div class="modelchance-head">
+                        <p style="color:#42b983">已报名</p>
+                    </div>
+                    <div class="chancesearch" style="width:95.8%;border:1px solid rgb(239,239,239);background:-webkit-linear-gradient(top,white 0,rgb(239, 239, 239) 100%)">
+                            <p class="chancesearchp1" style="margin-left:20px;background-image: url('img/up.svg');">查询条件</p>
+                        </div>
+                    <form class="modelchance-body" name="setform" id ="setform" style="overflow:hidden;display:none">
+                        <div>
+                            <span>手机号：</span>
+                            <input type="text" name="already-phone" style="width:70%">
+                        </div>
+                        <div>
+                            <span>归属：</span>
+                            <select name="belong_to" id="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span>班主任：</span>
+                            <select name="class-teacher" id="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span>报名时间：</span>
+                            <input class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="application-time1" placeholder="日期">
+                            <span style="width:10%;text-align:center">至</span>
+                            <input class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="application-time2" placeholder="日期">
+                        </div>
+                        <div>
+                            <span>流水：</span>
+                            <input type="text" name="running-water" style="width:70%">
+                        </div>
+                        <div>
+                            <input type="button" class="chancebtn" id="chancere1" style="margin-right:30px" value="重置">
+                            <input type="button" class="chancebtn" id="submit_search1"  value="查询">
+                            <input type="button" class="chancebtn" id="alreadyRegisteredNew" style="width:80px"  value="新建工单" >
+                        </div>
+                    </form>
+                    <div style="width:96%;margin-left:2%">
+                        <table id="datagrid4" title="已报名" style="width:100%"  >
+                            <thead>
+                                <tr class="content">
+                                    <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                    <th data-options="field:'education',width:120,align:'center'">手机号</th>
+                                    <th data-options="field:'mobile',width:80,align:'center'">录入日期</th>
+                                    <th data-options="field:'years',width:80,align:'center'">归属</th>
+                                    <th data-options="field:'url',width:80,align:'center'">班主任</th>
+                                    <th data-options="field:'profession',width:80,align:'center'">工单</th>
+                                    <th data-options="field:'work_years',width:80,align:'center'">处理备注</th>
+                                    <th data-options="field:'create_time',width:80,align:'center'">学习状态</th>
+                                    <th data-options="field:'did',width:80,align:'center'">did</th>
+                                    <!-- ,hidden:true -->
+                                </tr>
+                                
+                            </thead>
+                        </table>
+                    </div>
+                    
+                </div>
+              </div>
+              <div class="model-work-order" style="overflow:auto">
+                <div class="modelorderr"style="top:10%" >
+                  <div class="modeldel-head">
+                      <p style="color:#42b983">新建工单<span style="font-size:12px"></span></p>
+                      <button class="work-orderx" style="">X</button>
+                  </div>
+                  <form class="modeldel-body"  id="workorderform" enctype="multipart/form-data">
+                        <ul class="Advi-foot-ul modelorderul" style="margin:0;overflow:hidden">
+                            <li><span>学员账号：</span><input type="text" name="account"></li>
+                            <li><span>咨询时间：</span><input type="text" name="consulting-time"></li>
+                            <li><span>班主任：</span><input type="text" name="classteacher"></li>
+                            <li><span>提交人：</span><input type="text" name="submitter"></li>
+                            <li><span>问题大类：</span><select name="bigproblem" id="">
+                                    <option value="">请选择问题大类</option>              
+                                    <option value="请选择问题大类1" data-fid="1">请选择问题大类1</option>              
+                                    <option value="请选择问题大类2" data-fid="2">请选择问题大类2</option>              
+                                    <option value="请选择问题大类3" data-fid="3">请选择问题大类3</option>              
+                            </select></li>
+                            <li><span>问题小类：</span><select name="smallproblem" id="">
+                                <option value="">请选择问题小类</option>              
+                            </select></li>
+                            <li><span>问题描述：</span><textarea name="problem-description" style="height:30px"></textarea></li>
+                            <li style="position:relative;height:70px"><span>附件：</span><input type="file" name="attachment" id="" value="111"><a class="already-a" style="position: absolute;left:45%;bottom:-10px" href="#">aaa.jpg</a></li>
+                        </ul>
+                        
+                      <div>
+                            <p class="work-orderp" style="color:#42b983;">msg</p>
+                            <input id="work-ordergo" style="padding:5px 30px;background:#42b983;color:white;border:none" type="button" value="确定">
+                    </div>
+                  </form>
+                </div>        
+            
+        </div>
+        <div class="modelprompta">
+                <div class="modelcuer">
+                    <div class="modelcuer-head">
+                        <p style="color:#42b983">提示</p>
+                        <button class="promptxa">X</button>
+                    </div>
+                    <div class="modeldel-body">
+                        <div class="monumber">
+                            <p class="promptpa" style="color:#42b983;"></p>
+                            <button class="promptxa" style="padding:0px 30px">确定</button>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+        
+</body>
+<script src="js/export.js"></script>
+<script type="text/javascript">    
+var params = "";
+$('select[name=bigproblem]').on('change',function(){
+    $.ajax({
+        url:'',
+        type:'post',
+        data:{dataId:$('select[name=bigproblem] :selected').attr('data-fid')},
+        success:function(data){
+            for(var i=0;i<data.length;i++){
+                $('select[name=smallproblem]')[0].innerHTML += `<option value="`+data[i]+`">`+data[i]+`</option>`
+            }
+        },
+        error:function(){
+
+        }
+    })
+})
+$('.promptxa').click(function(){
+            $('.modelprompta')[0].style.display = "none";
+        })
+$('.alreadyp1').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#alreadyallot1')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#alreadyallot1')[0].style.display = "block"
+        }
+    })
+    $('.alreadyp2').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#alreadyallot2')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#alreadyallot2')[0].style.display = "block"
+        }
+    })
+
+        $('.changebutton').click(function(){
+            var getbelong = $("#datagrid4").datagrid("getSelections");
+            console.log(getbelong)
+            if($('select[name=already-account1]').val()!=""){
+                $.ajax({
+                    url:'{{Url("admin/publicToMyData")}}',
+                    type:'post',
+                    data:{did:getbelong[0].did,
+                        application_time:getbelong[0].application_time,
+                    allotname:$('select[name=already-account1]').val(),_token:"{{csrf_token()}}"},
+                    dataType:'json',
+                    success:function(data){
+                    	console.log(data)
+							        if(data.success == true){
+							        	$('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "成功"+data.successNum+"条 "+ ' 失败'+data.failNum+'条';
+							        }else if(data.success == false){
+							            $('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "该时段不能分配";	            
+							        }else{
+							            $('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "未知错误";	            
+							        }
+							    },
+							    error:function(){
+							        $('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "服务器错误";	            
+							    	}
+                })
+            }else{
+                $('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "请选择要修改的姓名";	            
+							    	}
+            
+        })
+        $('.already-allot-button').click(function(){
+            var get3 = $("#datagrid4").datagrid("getSelections");
+                            var arr6 = []
+                            for(let i=0;i<get3.length;i++)
+
+                            {
+                                    arr6.push(get3[i].did) ;
+                            }
+                            console.log(arr6)
+            if($('select[name=already-account]').val()!=""&&$('select[name=already-project]').val()!=""){
+                $.ajax({
+                    url:'{{Url("admin/publicToMyData")}}',
+                    type:'post',
+                    data:{did:arr6,
+                    allotproject:$('select[name=already-project]').val(),
+                    allotname:$('select[name=already-account]').val(),_token:"{{csrf_token()}}"},
+                    dataType:'json',
+                    success:function(data){
+                    	console.log(data)
+							        if(data.success == true){
+							        	$('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "成功"+data.successNum+"条 "+ ' 失败'+data.failNum+'条';
+							        }else if(data.success == false){
+							            $('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "该时段不能分配";	            
+							        }else{
+							            $('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "未知错误";	            
+							        }
+							    },
+							    error:function(){
+							        $('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "服务器错误";	            
+							    	}
+                })
+            }else{
+                $('.modelprompta')[0].style.display="block";
+							            $('.promptpa')[0].innerHTML = "请选择姓名和项目";	            
+							    	}
+            
+        })
+    //新建工单
+    var phone;
+    
+    $('#alreadyRegisteredNew').click(function(){
+        $('.model-work-order')[0].style.display = "block";
+        // $('.already-a').attr("href",'aaa.html')
+        var data12 = $("#datagrid4").datagrid("getSelections"),datadid = data12[0].did ;
+        
+        console.log(data12)
+        $.ajax({
+                 url:"hetong.php",
+                 type:"post",
+                 data:{did:datadid},
+                 success:function(data){
+                    $('input[name=account]')[0].value = "b";
+                    $('input[name=consulting-time]')[0].value = "b";
+                    $('input[name=classteacher]')[0].value = "11";
+                    $('input[name=submitter]')[0].value = "b";
+                    $('select[name=bigproblem]')[0].value = "1";
+                    $('select[name=smallproblem]')[0].value = "1";
+                    $('textarea[name=problem-description]')[0].value = "1";
+                    $('.already-a').attr("href",'aaa.html')
+                    $('.already-a')[0].innerHTML = "aaa.html";
+                    phone = 1
+                 },
+                 error:function(){
+                    
+                 }
+        })
+    })
+    $('.work-orderx').click(function(){
+        $('.model-work-order')[0].style.display = "none";
+    })
+    $('#work-ordergo').click(function(){
+                var form = new FormData(document.getElementById("workorderform"));
+                // console.log(document.getElementById("simple"))
+                // console.log(form.get('simplehead'))
+                console.log(form.getAll,{form,data:1},phone)
+                var data12 = $("#datagrid4").datagrid("getSelections"),datadid = data12[0].did ;
+                $.ajax({
+                 url:"hetong.php",
+                 type:"post",
+                 data:{form,did:datadid,phone},
+                 processData:false,
+                 contentType:false,
+                 success:function(data){
+                     if(data == 1){
+                        $('.work-orderp')[0].innerHTML = "新建成功"; 
+                     }else{
+                        $('.work-orderp')[0].innerHTML = "新建失败";
+                     }
+                    },
+                error:function(){
+                    $('.work-orderp')[0].innerHTML = "服务器错误";
+                }
+             })
+            })
+
+
+
+    $('.chancesearchp1').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#setform')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#setform')[0].style.display = "block"
+        }
+    })
+    $('#chancere1').click(function(){
+        $("#setform").find('input[type=text],select,input[type=hidden]').each(function() {
+         $(this).val('');
+     });
+    })         
+    var thisApp = {
+        init: function () {
+            $("#datagrid4").datagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                //这是数据加载的地址,返回对应的json数据包就行,json包格式例子,见下4
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                checkOnSelect:false,
+                selectOnCheck:true,
+                url:'datagrid_data3.json',
+                method:'get',
+                queryParams: form2Json("setform"),　
+                toolbar: [
+                     {
+                        text: '导出',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            var jsondata = '';
+                                $.ajax({
+                                    url:'datagrid_data3.json',
+                                    type:'get',
+                                    data:params,
+                                    // dataType:'json',
+                                    success:function(data){
+                                     jsondata = data;
+                                     console.log(data)
+                                var arr1 = [];
+                                var json = []
+                                for(var i=0;i<jsondata.length;i++){
+                                    json[i]={};
+                                    json[i]['education']= ' '+jsondata[i].education;
+                                    json[i]['mobile']= jsondata[i].mobile;
+                                    json[i]['years']= jsondata[i].years;
+                                    json[i]['url']= jsondata[i].url.split('#')[0];
+                                    json[i]['profession']= jsondata[i].profession;
+                                    json[i]['work_years']= jsondata[i].work_years;
+                                    json[i]['create_time']= jsondata[i].create_time;
+                                }
+                                // json[0].visit = data[0].visit;
+                                
+                                var data = JSON.stringify(json);
+                                console.log(data)
+                                for (var i = 0; i < $('th').length; i++) {
+                                    arr1.push($('th')[i].innerHTML)
+                                }
+                                if (data == '')return;
+                                JSONToCSVConvertor(data, "Download", true,arr1);
+                                }})
+                                // })
+                        }
+                    }],
+                    onLoadSuccess: function(data,currentRowIndex){
+                        //页面刷新时重置新建按钮
+                        var data1 = $("#datagrid4").datagrid("getSelections");
+                        console.log(data1)
+                        if(data1 != ""){
+                            $('#alreadyRegisteredNew').attr('disabled',false)
+                            $('.already-allot-button').attr('disabled',false)
+                            $('.changebutton').attr('disabled',false)
+                        }else{
+                            $('#alreadyRegisteredNew').attr('disabled','disabled')
+                            $('.already-allot-button').attr('disabled','disabled')
+                            $('.changebutton').attr('disabled','disabled')
+                        }
+                    },
+                    onClickRow: function (rowIndex, field, value) {
+                        //点击时解开新建按钮
+                        var data1 = $("#datagrid4").datagrid("getSelections");
+                        if(data1 != ""){
+                            $('#alreadyRegisteredNew').attr('disabled',false)
+                            $('.already-allot-button').attr('disabled',false)
+                            $('.changebutton').attr('disabled',false)
+                        }else{
+                            $('#alreadyRegisteredNew').attr('disabled','disabled')
+                            $('.already-allot-button').attr('disabled','disabled')
+                            $('.changebutton').attr('disabled',false)
+                        }
+                        },
+                        
+                    onDblClickRow:function(rowIndex, field, value){
+                        var rows = $('#datagrid4').datagrid('getRows');
+                        
+                        var row = rows[rowIndex];
+                        var uid = row.uid;
+                        var did = row.did;
+                        window.location.href = "index.html?did="+did;
+                    }
+                })
+            }
+        }
+        $(function(){
+            thisApp.init();
+            var dg=$('#datagrid4').datagrid();
+            dg.datagrid('enableFilter', [{}]);
+            var p = $('#datagrid4').datagrid('getPager');
+            console.log($(p).pagination)
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            $("#submit_search1").linkbutton({ iconCls: 'icon-search', plain: true }).click(function () {
+            //     $('.chancesearchp')[0].style.backgroundImage = 'url("img/up.svg")';
+            //  $('#searchform')[0].style.display = "none";
+             var dg = $('#datagrid4').datagrid({queryParams: form2Json("setform")});
+             params=form2Json("setform");
+                dg.datagrid('enableFilter', [{
+                    field:'already-phone',
+                    type:'text'
+                },{
+                    field:'in_time',
+                    type:'text'
+                },{
+                    field:'belong_to',
+                    type:'text'
+                },{
+                    field:'class-teacher',
+                    type:'text'
+                },{
+                    field:'work-order',
+                    type:'text'
+                },{
+                    field:'processing-notes',
+                    type:'text'
+                },{
+                    field:'learn-state',
+                    type:'text'
+                },{
+                    field:'running-water',
+                    type:'text'
+                },{
+                    field:'uid',
+                    type:'text'
+                },{
+                    field:'application-time',
+                    type:'text'
+                },{
+                    field:'data-sources',
+                    type:'text'
+                },{
+                    field:'did',
+                    type:'text'
+                }]);
+                var p = $('#datagrid4').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            });
+            
+        // });
+        })
+        
+        function form2Json(id) {
+ 
+            var arr = $("#" + id).serializeArray()
+            var jsonStr = "";
+ 
+            jsonStr += '{';
+            for (var i = 0; i < arr.length; i++) {
+                jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+            }
+            jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+            jsonStr += '}'
+ 
+            var json = JSON.parse(jsonStr)
+            return json
+        }
+ 
+</script>
+</html>

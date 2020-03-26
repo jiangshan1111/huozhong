@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>公海</title>
+        <!-- Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen"> 
+        <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+        <link href="css/styles.css" rel="stylesheet" media="screen">
+           <link rel="stylesheet" href="css/index.css">
+           <link rel="stylesheet" href="css/polling.css">
+       <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+        <link rel="stylesheet" type="text/css" href="themes/icon.css">
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+        <link rel="stylesheet" href="css/table.css">
+        <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <!-- block -->
+                <div class="block">
+                    <div class="span12" id="polling-header">
+                        <div class=" span10 " id="polling-header-top">
+                            <p class="polling-headerp" style="background-image: url('img/down.svg');"><span></span>查询条件</p>
+                        </div>
+                        <div class=" span10 " id="polling-header-body" style="overflow:hidden">
+                            <form style="position:relative" name="seaform" id ="seaform">
+                                <div class="span6">
+                                    <span>提交时间：</span><input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="order_date1"  placeholder="日期">
+                                    <span style="width:10%;text-align:center">至</span>
+                                    <input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="order_date2" placeholder="日期">
+                                </div>
+                                <div class="span6">
+                                    <span>录入时间：</span><input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="check_date1"  placeholder="日期">
+                                    <span style="width:10%;text-align:center">至</span>
+                                    <input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="check_date2" placeholder="日期">
+                                </div>
+                                <div class="span6">
+                                    <span>最后跟访时间：</span><input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="pay_date1"  placeholder="日期">
+                                    <span style="width:10%;text-align:center">至</span>
+                                    <input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="pay_date2" placeholder="日期">
+                                </div>
+                                <div class="span6">
+                                    <span>录入时间：</span><input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="sign_date1"  placeholder="日期">
+                                    <span style="width:10%;text-align:center">至</span>
+                                    <input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="sign_date2" placeholder="日期">
+                                </div>
+                                <input type="button" class="reset" value="重置" style="margin-right:30px"></input>
+                                <input type="button" id="seasearch"  class="seasearch" value="查询"></input>
+                               
+                            </form>
+                        </div>
+                        
+                        <div class=" span10 " id="polling-header-footer">
+                                <div class="block-content collapse in" >
+                                        <div class="span12">
+                                              <div style="overflow:auto">
+                                                    <table id="datagrid5" title="数据统计ik列表" style="width:100%;height:500px"
+                                                    data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                                <thead>
+                                                    <tr class="content">
+                                                        <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                                        <th data-options="field:'did',width:120,align:'center'" >订单编号</th>
+                                                        <th data-options="field:'payment',width:120,align:'center'" >支付截图</th>
+                                                        <th data-options="field:'order_date',width:120,align:'center'" >提交时间</th>
+                                                        <th data-options="field:'check_date',width:130,align:'center'">审核时间</th>
+                                                        <th data-options="field:'check_name',width:80,align:'center'">审核人</th>
+                                                        <th data-options="field:'sign_date',width:120,align:'center'">报名时间</th>
+                                                        <th data-options="field:'company',width:100,align:'center'">公司</th>
+                                                        <th data-options="field:'pay_way',width:80,align:'center'">支付方式</th>
+                                                        <th data-options="field:'money',width:80,align:'center'">金额</th>
+                                                        <th data-options="field:'money_num',width:120,align:'center'">流水号</th>
+                                                        <th data-options="field:'pay_date',width:160,align:'center'">支付时间</th>
+                                                        <th data-options="field:'belong',width:80,align:'center'">归属</th>
+                                                    </tr>
+                                                    
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        </div>
+                                    </div>
+                        </div>
+                                
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modelprompt1">
+            <div class="modelcuer">
+                <div class="modelcuer-head">
+                    <p style="color:#42b983">提示</p>
+                    <button class="promptx1">X</button>
+                </div>
+                <div class="modeldel-body">
+                    <div class="monumber">
+                        <p class="promptp1" style="color:#42b983;"></p>
+                        <button class="promptx1" style="padding:0px 30px">确定</button>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <div class="hoverimg" style="display:none;position:absolute;top:0;left:0;background-color:black;width:100%;height:150%;z-index:999;padding-left:50%;">
+                <img src="img/banner_01.jpg" style="width:300px;margin-left:-150px;margin-top:30px" alt="">
+                <div class="hover-message" style="position:absolute;top:0;width:300px;text-align:center;margin-left:-150px;color:white;line-height:30px">
+                    
+                </div>
+            </div> 
+            <div id="hehe"></div>
+    </body>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    var suo = true;
+    // $(function(){
+    // 		$(function () {
+	//             var p = $('#datagrid5').datagrid('getPager');
+	//             $(p).pagination({
+	//                 beforePageText: '第',//页数文本框前显示的汉字  
+	//                 afterPageText: '页    共 {pages} 页',
+	//                 displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	//             });
+	//        });
+    // 	})
+    $('.promptx1').click(function(){
+            $('.modelprompt1')[0].style.display = "none";
+        })
+    $('.polling-headerp').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#polling-header-body')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#polling-header-body')[0].style.display = "block"
+        }
+    })
+    $('.reset').click(function(){
+        $("#seaform").find('input[type=text],select').each(function() {
+         $(this).val('');
+     });
+    })   
+       var thisApp = {
+        init: function () {
+            $("#datagrid5").datagrid({
+                collapsible:true,
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url:'datagrid_data1.json',
+                method:'get',
+                remoteSort: false,
+                checkOnSelect:false,
+                selectOnCheck:true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: form2Json("seaform"),
+                toolbar: [
+                     {
+                        text: '查看截图',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            var get =$('#datagrid5').datagrid('getSelections');
+                            console.log(get)
+                            if(get != ''){
+                                if(suo==true){
+                                    $('.hoverimg')[0].style.display = "block";
+                                    $('.hoverimg img').attr('src',get[0].payment);
+                                    $('.hover-message')[0].innerText = get[0].company+'-'+get[0].pay_way+'-'+get[0].money;
+                                    suo = false;
+                                    setTimeout(function(){
+                                        suo = true;
+                                        
+                                    },1000);
+                                    }
+                            }
+                                
+                                $('.hoverimg').click(function(){
+                                    $('.hoverimg')[0].style.display = "none";
+                                })
+                    }
+                    }],
+                    onSortColum: function (sort,order) {  //其中sort代表排序列字段名称；order:排序列的顺序（ASC或DESC）
+                    　　　$('#datagrid5').datagrid('reload', {
+                    　　　sort: sort,
+                    　　　order: order
+                    　　});
+                    },
+                    onLoadSuccess: function(data){//加载完毕后获取所有的checkbox遍历
+                    //    console.log(data)
+                    },
+                    onClickRow : function(rowIndex, rowData) {
+                            
+                    },
+                    onDblClickRow:function(rowIndex, rowData){
+                        console.log(1)
+                        window.location.href = 'pollingOfContract.html?data_id='+rowData.did
+                    }
+            })
+        }
+       }
+       $(function(){
+        thisApp.init();
+        
+        var dg=$('#datagrid5').datagrid({singleSelect:true});
+        dg.datagrid('enableFilter', [{}]);
+        var p = $('#datagrid5').datagrid('getPager');
+	        $(p).pagination({
+	            beforePageText: '第',//页数文本框前显示的汉字  
+	            afterPageText: '页    共 {pages} 页',
+	            displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	        });  
+        $(".seasearch").linkbutton({ iconCls: 'icon-search', plain: true }).click(function () {
+            // $('#polling-header-footer')[0].style.display = "block"
+            thisApp.init();
+        //     $('.polling-headerp')[0].style.backgroundImage = 'url("{{asset("img/up.svg")}}")';
+        //  $('#polling-header-body')[0].style.display = "none";
+         var dg = $('#datagrid5').datagrid({queryParams: form2Json("seaform"),singleSelect:true,url:'{{Url("admin/getPublicData")}}'});
+        dg.datagrid('enableFilter', [{
+                field:'did',
+                type:'text'
+            },{
+                field:'payment',
+                type:'text'
+            },{
+                field:'order_date',
+                type:'text'
+            },{
+                field:'check_date',
+                type:'text'
+            },{
+                field:'check_name',
+                type:'text'
+            },{
+                field:'sign_date',
+                type:'text'
+            },{
+                field:'company',
+                type:'text'
+            },{
+                field:'pay_way',
+                type:'text'
+            },{
+                field:'money',
+                type:'text'
+            },{
+                field:'money_num',
+                type:'text'
+            },{
+                field:'pay_date',
+                type:'text'
+            },{
+                field:'belong',
+                type:'text'
+            }]);
+         var p = $('#datagrid5').datagrid('getPager');
+	        $(p).pagination({
+	            beforePageText: '第',//页数文本框前显示的汉字  
+	            afterPageText: '页    共 {pages} 页',
+	            displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	        });            
+        });
+    // });
+    })
+    function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray()
+        var jsonStr = "";
+
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+
+        var json = JSON.parse(jsonStr)
+        return json
+    }
+    </script>
+</html>

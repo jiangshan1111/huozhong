@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            height: 100%;
+        }
+        .header{
+            height: 13%;
+            overflow: hidden;
+            position: relative;
+        }
+        .header>div{
+            float: left;
+        }
+        .body{
+            height:72%;
+            background-size: 100% 100%;
+            overflow: hidden;
+            border: 1px solid rgb(210,210,210)
+        }
+        .footer{
+            height: 15%;
+            font-size: 14px;
+            line-height: 341%;
+        }
+        .headlogo{
+            margin-left: 257px;
+        }
+        .heada{
+            position: absolute;
+            right: 257px;
+            top: 50%;
+            margin-top: -10px;
+        }
+        .heada p{
+            font-size: 18px;
+        }
+        .formhead{
+            width: 80%;
+            height: 23px;
+            margin: 10% 10% 6%;
+        }
+        .formhead>span{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+        .form{
+            width: 28%;
+            height: 100%;
+            background: white;
+            margin: 4% auto;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .form a{
+            font-size: 15px;
+            float: right;
+            margin-right: 10%;
+        }
+        .form input{
+            width: 76%;
+            height: 40px;
+            height: 9%;
+            margin: 6% 10%;
+            border: 1px solid rgb(210,210,210);
+        }
+        a{
+            text-decoration: none;
+            color: rgb(100,156,240);
+        }
+        .tishi{
+            text-align: center;
+            color: red;
+            font-size: 14px;
+        }
+        @media screen and (max-width:1000px){
+            .body {
+                /* background: url('img/bgg.jpg') 33% no-repeat; */
+                /* background-size: 280% 100%; */
+            }
+            .headlogo{
+                margin-left: 16px;
+            }
+            .heada{
+                right: 5px;
+            }
+            .form{
+                width: 100%;
+                height: 72%;
+                margin: 10% auto;
+                opacity: 0.8;
+            }
+            .heada p{
+                font-size: .3rem;
+            }
+            .formhead>span{
+                font-size: .3rem;
+            }
+            .form a{
+                font-size: .3rem;
+            }
+            .footer{
+                font-size: .25rem;
+            }
+            .tishi,.footer{
+                font-size: .25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="headlogo" style="height: 61%;width: 143px;margin-top: 11px; ">
+            <img src="img/logo1.png" alt="" style="height:100%;width:100%">
+        </div>
+        <div class="heada">
+                <p><a href="login.html">登录</a>/<a href="register.html">注册</a></p>
+        </div>
+    </div>
+    <div class="body">
+        <div class="form" style="height:100%">
+            <div class='formhead' style="margin: 5% 10% 2%;">
+                <span>设置密码</span>
+            </div>
+            <input type="" AUTOCOMPLETE="off" name="password" placeholder="请输入6-20位新密码" style="padding-left: 4%;">
+            <input type="" AUTOCOMPLETE="off" name="password1" placeholder="请确认新密码" style="padding-left: 4%;"> 
+            <input type="button" name="sure" value="确定" style="width:80%;border:1px solid rgb(100,156,240);background:rgb(100,156,240);color:white">
+            <p class="tishi"></p>
+        </div>
+    </div>
+    <div class="footer" style="text-align:center">
+        <p>了解详情请咨询：<a href="http://www.huozhongedu.com/">火种教育</a></p>
+        <p>Copyright@2017 北京创睿造智教育科技有限公司</p>
+    </div>
+</body>
+<script src="js/font.js"></script>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    console.log(localStorage.phonenumber);
+    $('input[name = sure]').click(function(){
+        if($('input[name = password]').val().length>5&&$('input[name = password]').val().length<21){
+            if($('input[name = password]').val() == $('input[name = password1]').val()){
+                $.ajax({
+                    url:'',
+                    type:"get",
+                    data:{phone:localStorage.phonenumber,
+                        password:$('input[name = password]').val()},
+                    success:function(data){
+                            message_code = data;
+                    },
+                    error:function(){
+                        $('.tishi')[0].innerHTML = "服务器错误"
+                        setTimeout(function(){
+                            $('.tishi')[0].innerHTML = ""
+                        },3000)
+                    }
+                })
+            }else{
+                $('.tishi')[0].innerHTML = "两次密码不一致"
+                setTimeout(function(){
+                    $('.tishi')[0].innerHTML = ""
+                },3000)
+            }
+        }else{
+            $('.tishi')[0].innerHTML = "请输入6-20位新密码"
+            setTimeout(function(){
+                $('.tishi')[0].innerHTML = ""
+            },3000)
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"> 
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/index.css">
+    
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="index.html" style="padding:0;margin-right:20px">
+                    <img src="img/logo1.png"  style="height:35px;width:60px;padding-bottom:5px" alt="">
+                </a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" id="drop" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i>jiangshan <i class="caret"></i>
+
+                            </a>
+                            <ul class="dropdown-menu" style="display:none">
+                                <li>
+                                    <a tabindex="-1" href="#">个人信息</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a tabindex="-1" class="revisenew" href="#">修改密码</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a tabindex="-1" href="sign.html">退出</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#">仪表板</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">报表查询<b class="caret"></b>
+
+                            </a>
+                            <ul class="dropdow-menu"  style="display:none" id="menu1">
+                                <li  class="newdate">
+                                    <a href="dataStatistics.html">数据统计(前端）</a>
+                                </li>
+                                <li>
+                                    <a href="studentAdministration.html">数据统计(后端）</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--<li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">数据管理<b class="caret"></b>
+
+                            </a>
+                            <ul class="dropdow-menu"  style="display:none" id="menu1">
+                                <li  class="newdate">
+                                    <a href="data.html">新建数据</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="allotnew">分配数据</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color:red">订单录入</a>
+                                </li>
+                                <li>
+                                    <a href="sea.html" style="color:red">公海领取</a>
+                                </li>
+                                <li>
+                                    <a href="sea.html" style="color:red">公海分配</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color:red">调配数据</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color:red">学员迁移</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">数据查询<i class="caret"></i>
+
+                            </a>
+                            <ul class="dropdow-menu"  style="display:none">
+                                <li>
+                                    <a tabindex="-1" href="#" class="circulnew">流转过程</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" style="color:red">已报名</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" style="color:red">已报名（班主任）</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" style="color:red">合同查询</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">属员管理 <i class="caret"></i>
+
+                            </a>
+                            <ul class="dropdow-menu"  style="display:none">
+                                <li>
+                                    <a tabindex="-1" href="#" class="bematenew">组员数据</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="targetnew">目标设定</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" style="color:red">组员统计</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#">组员数据（班主任）</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">个人设置 <i class="caret"></i>
+
+                            </a>
+                            <ul class="dropdow-menu"  style="display:none">
+                                <li>
+                                    <a href="#" class="new">新建账户</a>
+                                </li>
+                                <li>
+                                    <a  href="#" class="new3">新建项目</a>
+                                </li>
+                                <li>
+                                    <a  href="#" class="new2">新建部门</a>
+                                </li>
+                                <li>
+                                    <a  href="#" class="new1">新建小组</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="delnew">账户移除</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="resetnew">重置密码</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="simplenew">个人信息</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="new4">新建班型</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="previewOfContract.html" >合同预览</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="pollingOfContract.html" >合同查询</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="new5">新建大问题</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="new6">新建小问题</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="youhuinew">新建优惠码</a>
+                                </li>
+                            </ul>
+                        </li>
+                         <li style="position:relative">
+                            <input type="text" name="searchphone" placeholder="机会列表查询" style="margin-top:5px;margin-bottom:0px;margin-right:10px;"><span id="searchspan"></span>
+                        </li>
+                        <li >
+                            <select name="bematedata" id="" style="margin:5px 0px 0px 0px;width:100px;display:none">
+                                <option value="0">学员姓名</option>
+                            </select>
+                            <select name="begroupdata" id="" style="margin:5px 0px 0px 10px;width:100px;display:none">
+                                    <option value="">搜索小组</option>
+                                </select>
+                            <input type="text" name="bematename" placeholder="搜索学员姓名" style="margin:5px 0px 0px 10px;width:100px;display:none">
+                            <button class="searchmate" style="padding:0 10px;margin-top:5px;display:none">获取</button>
+                        </li> -->
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.easy-pie-chart.js"></script>
+<script src="js/scripts.js"></script>
+
+<script src="js/index.js"></script>
+
+
+<script>
+    $('#drop').click(function(){
+          if($('.dropdown-menu')[0].style.display == "none"){
+            $('.dropdown-menu')[0].style.display = "block"
+          }else{
+            $('.dropdown-menu')[0].style.display = "none"
+          }
+      })
+    for(var i=0;i<$('.retract').length;i++){
+            $('.retract')[i].innerText = "展开"
+        }
+        $('.retract').click(function(){
+            
+            if(this.parentNode.parentNode.children[1].style.display == "block"){
+                $(this)[0].innerText = "展开"
+                console.log(1)
+                this.parentNode.parentNode.children[1].style.display = "none";
+            }else{
+                this.parentNode.parentNode.children[1].style.display = "block";
+                $(this)[0].innerText = "收起"
+            }
+            
+        })
+</script>
+</html>

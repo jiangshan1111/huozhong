@@ -1,0 +1,284 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height:100%;
+}
+body{
+    width:100%;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    background-image: url('../img/huozhongjiaoyu.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.All{
+    position: relative;
+    overflow: hidden;
+}
+.box{
+    position: relative;
+    top:105px;
+    width: 754px;
+    height: 218px;
+    border: none;
+    /* margin: 115px auto 0; */
+}
+.box .slide-prev,.box .slide-next{
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 80px;
+    margin-top: -20px;
+    text-align: center;
+    cursor: pointer;
+}
+.box .slide-next{
+    right: -100px;
+}
+.box .slide-prev{
+    left: -60px;
+}
+.box ul{
+    position: relative;
+    width: 700px;
+    height: 200px;
+    list-style: none;
+}
+.box li{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 2px solid gray;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 99px;
+    text-align: center;
+}
+.box img{
+    width: 100%;
+    height: 100%;
+}
+@media only screen and (max-width:1000px){
+    .box{
+        top:4rem;    }
+}
+/* .swiper-slide{
+    height:200px;
+    display: inline-block;
+    position: absolute;
+} */
+.Cent{
+    width: 1080px;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-left: -540px;
+    margin-top: -300px;
+    height: auto;
+}
+.All{
+    width: 720px;
+    height: 600px;
+    background: url('../img/e1d549a4c28517546f9df487460aa464.png') center 0 no-repeat;
+    position: relative;
+    overflow: hidden;
+    float: left;
+}
+.top-title{
+    width: 270px;
+    height: 40px;
+    position: absolute;
+    left: 240px;
+    top: 26px;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+    color: #ffcc65;
+    font-family: PingFangSC-Medium
+}
+.top-time{
+width: 180px;
+height: 20px;
+position: absolute;
+left: 286px;
+top: 77px;
+font-size: 17px;
+line-height: 20px;
+text-align: center;
+color: #220d35;
+font-family: PingFangSC-Medium;
+} 
+
+.logind{
+    width:300px;
+    height:350px;
+    float: right;
+    margin-top: 150px;
+    position: relative;
+}
+.logined-bac{
+    width: 300px;
+    height:112px;
+    background: url('../img/welcome.png') center 0 no-repeat;
+    margin-bottom: 20px;
+}
+.gogo,.pad,.usename{
+    display: inline-block;
+    height: 40px;
+    width: 88%;
+    outline: none;
+    font-size: 18px;
+    line-height: 40px;
+    border-style: none;
+    padding-left:12%; 
+    background: url('../img/112.png') 1% no-repeat;
+    background-color: white;
+    border-radius: 2px;
+}
+.pad{
+    background: url('../img/113.png') 1% no-repeat;
+    margin-top: 20px;
+    background-color: white;
+    
+}
+#yuedu{
+    display: inline-block;
+    margin-top: 20px;
+    position: relative;
+    left: 0;
+}
+#yuedu::after{
+    content: "登录呼叫中心";
+    position: absolute;
+    width:200px;
+    left:20px;
+    top:-3px;
+    color: #4b95bc;
+}
+.gogo{
+    width: 100%;
+    background: -webkit-radial-gradient(top center, ellipse, #4fc1f1, #50ccf1);
+    padding: 0;
+    margin-top: 20px;
+    color: white;
+}
+@media only screen and (max-width: 800px){
+    .swiper-slide>div{
+    width: 100%;
+    height: 200px;
+    display: inline-block;
+}
+    .Cent{
+        width: 70%;
+        margin-left: -15rem;
+        margin-top: -28rem;
+    }
+    .All{
+        width: 20rem;
+        height: 16.6rem;
+        overflow: hidden;
+        margin-left: 5rem;
+        background: url('../img/e1d549a4c28517546f9df487460aa464.png') center 0 no-repeat;      
+        background-size: cover;       
+    }
+    .top-title{
+        width: 7.5rem;
+        height: 1.11rem;
+        position: absolute;
+        left: 6.67rem;
+        top: 0.72rem;
+        font-size: 0.83rem;
+        line-height: 1.11rem;
+        text-align: center;
+        color: #ffcc65;
+        font-family: PingFangSC-Medium;
+    }
+    .top-time{
+        width: 6rem;
+        height: 0.55rem;
+        position: absolute;
+        left: 7.94rem;
+        top: 2.3rem;
+        font-size: 0.4rem;
+        line-height: 0.55rem;
+        text-align: center;
+        color: #220d35;
+        font-family: PingFangSC-Medium;
+    }   
+    .logind{
+        width:18rem;
+        height:9.7rem;
+        float: left;
+        margin-top: 1rem;
+        position: relative;
+        margin-left: 6.5rem;
+    }
+    .logined-bac{
+        width: 17rem;
+        height:6rem;
+        background: url('../img/welcome.png') center 0 no-repeat;
+        background-size:80% 80%; 
+        margin-bottom: 0.5rem;
+    }
+    .gogo,.pad,.usename{
+        display: inline-block;
+        height: 3rem;
+        width: 83%;
+        outline: none;
+        font-size: 1rem;
+        line-height: 2.5rem;
+        border-style: none;
+        padding-left:12%; 
+        background: url('../img/112.png') 1% no-repeat;
+        background-color: white;
+        border-radius: 2px;
+    }
+    .pad{
+        background: url('../img/113.png') 1% no-repeat;
+        margin-top: 1rem;
+        background-color: white;
+        
+    }
+    #yuedu{
+        display: inline-block;
+        margin-top: 1rem;
+        position: relative;
+        left: 0;
+    }
+    #yuedu::after{
+        content: "登录呼叫中心";
+        position: absolute;
+        width:5.56rem;
+        left:1rem;
+        top:-0.08rem;
+        color: #4b95bc;
+    }
+    .gogo{
+        width: 95%;
+        background: -webkit-radial-gradient(top center, ellipse, #4fc1f1, #50ccf1);
+        padding: 0;
+        margin-top: 20px;
+        color: white;
+    }
+    img{
+        width:100%;
+        height:100%;
+    }
+}
+@media only screen and (max-width:330px){
+    .gogo,.pad,.usename{
+        height:2rem;
+    }
+}
+@media only screen and (max-width: 700px){
+    .Cent{
+        width: 70%;
+        margin-left: -15rem;
+        margin-top: -90%;
+    }
+}    

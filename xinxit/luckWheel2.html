@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>抽奖</title>
+    <!-- <link rel="stylesheet" href="css/animate.min.css"> -->
+    <style>
+    html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+[hidden],
+template {
+    display: none
+}
+
+a {
+    background: transparent;
+    text-decoration: none;
+}
+
+a:active,
+a:hover {
+    outline: 0
+}
+
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+b,
+strong {
+    font-weight: bold
+}
+
+dfn {
+    font-style: italic
+}
+
+mark {
+    background: #ff0;
+    color: #000
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sup {
+    top: -0.5em
+}
+
+sub {
+    bottom: -0.25em
+}
+
+img {
+    border: 0
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+figure {
+    margin: 1em 40px
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0
+}
+
+pre {
+    overflow: auto
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0
+}
+
+button {
+    overflow: visible;
+    outline: none;
+    border: none;
+    background: none;
+    list-style-type: none;
+}
+
+input:focus,
+button:focus {
+    outline: 0;
+}
+
+input:active,
+button:active {
+    outline: 0;
+}
+
+input:visited,
+button:visited {
+    outline: 0
+}
+
+
+textarea {
+    overflow: auto
+}
+
+
+
+
+ul,
+li,
+dl,
+dt,
+dd {
+    list-style: none;
+}
+
+
+
+.float-left {
+    float: left
+}
+
+.float-right {
+    float: right
+}
+
+.float-clear:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-width: 320px;
+    font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+    font-size: 16px;
+    /* height: 100%;
+    overflow: hidden; */
+    background: #fff;
+}
+
+div {
+    box-sizing: border-box
+}
+html{font-size:14px}
+@media screen and (min-width:321px) and (max-width:375px){html{font-size:16px}}
+@media screen and (min-width:376px) and (max-width:414px){html{font-size:18px}}
+@media screen and (min-width:415px) and (max-width:639px){html{font-size:20px}}
+@media screen and (min-width:640px) and (max-width:719px){html{font-size:24px}}
+@media screen and (min-width:720px) and (max-width:749px){html{font-size:28px}}
+@media screen and (min-width:750px) and (max-width:799px){html{font-size:30px}}
+@media screen and (min-width:800px){html{font-size:32px}}
+    .container {
+  width: 100%;
+}
+.lucky-wheel {
+  width: 100%;
+  height: 31.5625rem;
+  background: rgb(252, 207, 133) url("img/color_pillar.png") no-repeat
+    center bottom;
+  background-size: 100%;
+  padding-top: 1.5625rem;
+}
+.lucky-title {
+  width: 80%;
+  height: 8.125rem;
+  margin:  0 auto;
+  background: url("img/lucky_title.png") no-repeat center top;
+  background-size: 100%;
+}
+@media (max-width: 500px){
+    .lucky-title { width: 100%;}
+}
+.wheel-main {
+    overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.wheel-bg {
+  width: 18.4375rem;
+  height: 18.4375rem;
+  background: url("img/draw_wheel.png") no-repeat center top;
+  background-size: 100%;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  transition: transform 3s ease;
+}
+.wheel-pointer-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -60%);
+  width: 5.3125rem;
+  height: 5.3125rem;
+  cursor: pointer;
+}
+.wheel-pointer {
+    text-align: center;
+    font-size: .8rem;
+    color: rgb(255,225,40);
+    /* margin: auto; */
+    padding: 68% 0;
+  width: 5.3125rem;
+  height: 5.3125rem;
+  background: url("img/draw_btn.png") no-repeat center top;
+  background-size: 100%;
+  transform-origin: center 60%;
+}
+.wheel-bg div {
+  text-align: center;
+}
+.prize-list {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.prize-list .prize-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.prize-list .prize-item:first-child {
+  top: 0;
+  left: 8.3125rem;
+  transform: rotate(20deg);
+}
+.prize-list .prize-item:nth-child(2) {
+  top: 2.8rem;
+  left: 10.8rem;
+  transform: rotate(67deg);
+}
+.prize-list .prize-item:nth-child(3) {
+  top: 6.4rem;
+  left: 10.6rem;
+  transform: rotate(-250deg);
+}
+.prize-list .prize-item:nth-child(4) {
+  top: 9rem;
+  left: 8.2125rem;
+  transform: rotate(-210deg);
+}
+.prize-list .prize-item:nth-child(5) {
+  top: 9.2125rem;
+  left: 4.4rem;
+  transform: rotate(-160deg);
+}
+.prize-list .prize-item:nth-child(6) {
+  top: 6.3875rem;
+  left: 1.9rem;
+  transform: rotate(-111deg);
+}
+.prize-list .prize-item:nth-child(7) {
+  top: 2.8rem;
+  left: 1.8125rem;
+  transform: rotate(-69deg);
+}
+.prize-list .prize-item:nth-child(8) {
+  top: 0;
+  left: 4.5rem;
+  transform: rotate(-20deg);
+}
+.prize-item {
+  width: 5.875rem;
+  height: 9rem;
+}
+
+.prize-pic img {
+  width: 4.0625rem;
+  height: 2rem;
+  margin-top: 1.5625rem;
+}
+.prize-count {
+  font-size: 0.875rem;
+}
+.prize-type {
+  font-size: 0.75rem;
+  margin-top:2.5rem;
+}
+.main {
+  position: relative;
+  width: 100%;
+  min-height: 5rem;
+  background: rgb(243, 109, 86);
+  padding-bottom: 1.6875rem;
+}
+.main-bg {
+  width: 100%;
+  height: 6.5625rem;
+  position: absolute;
+  top: -3.4375rem;
+  left: 0;
+  background: url("img/luck_bg.png") no-repeat center top;
+  background-size: 100%;
+}
+.bg-p {
+  width: 100%;
+  height: 2.95rem;
+  background: rgb(252, 207, 133);
+}
+.content {
+  position: absolute;
+  top: 0.175rem;
+  left: 0;
+  background: rgb(243, 109, 86);
+  width: 100%;
+  /* height: 5.1875rem; */
+  font-size: .9rem;
+  color: #ffeb39;
+}
+.content div {
+  text-align: left;
+}
+.content table{
+    border-collapse: collapse;
+  /* border: 0.1rem solid #fbc27f; */
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    /* height: 175px; */
+    /* height: 35px; */
+}
+.all{
+    height: 15.7rem;
+}
+@media (max-width: 500px){
+    .all{
+        height: 16.2rem;
+    }
+    .content table{
+        width: 100%;
+        font-size: .8rem;
+    }
+}
+.content td{
+  /* border: 0.1rem solid #fbc27f; */
+    /* padding: 5px; */
+    text-align: center;
+    width: 33%;
+    height: 2rem;
+}
+.tip {
+  position: relative;
+  margin: 2.5rem auto 0;
+  width: 17.5rem;
+  border: 1px solid #fbc27f;
+}
+.tip-title {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 1rem;
+  color: #fccc6e;
+  background: rgb(243, 109, 86);
+  padding: 0.3125rem 0.625rem;
+}
+.tip-content {
+  padding: 1.5625rem 0.625rem;
+  font-size: 0.875rem;
+  color: #fff8c5;
+  line-height: 1.5;
+}
+.toast-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+}
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 20000;
+  transform: translate(-50%, -50%);
+  width: 15.4375rem;
+  background: #fff;
+  border-radius: 0.3125rem;
+  padding: 0.3125rem;
+  background-color: rgb(252, 244, 224);
+}
+.tast{
+    position: fixed;
+    text-align: center;
+  top: 45%;
+  left: 50%;
+  z-index: 20000;
+  transform: translate(-50%, -50%);
+  width: 11rem;
+  height: 12rem;
+  padding-top:8.3rem;
+  background: #fff;
+  border-radius: 0.3125rem;
+  /* padding: 0.3125rem; */
+  background-color: white;
+  color: #fc7939;
+}
+input::-ms-input-placeholder {
+            text-align: center;
+        }
+ 
+        input::-webkit-input-placeholder {
+            text-align: center;
+        }
+.test,.self{
+    position: fixed;
+    text-align: center;
+  top: 50%;
+  left: 50%;
+  z-index: 20000;
+  transform: translate(-50%, -50%);
+  width: 10rem;
+  height: 5rem;
+  background: #fff;
+  border-radius: 0.3125rem;
+  padding: 0.3125rem;
+  background-color: white;
+  color: #fc7939;
+}
+.test p,.self p{
+    margin: 8px;
+}
+.tast>div:nth-child(1),.self>div:nth-child(1){
+    overflow: hidden;
+    padding-bottom: .3rem;
+    text-align: left;
+    line-height: 0.8rem;
+    /* font-size: .4rem; */
+    /* border-bottom:1px dashed #fc7939 ;  */
+}
+.tast>div:nth-child(2){
+    /* border-top:1px solid #fc7939 ; */
+    /* height: 1.5rem; */
+    margin: 0 0 .5rem 0;
+    padding-top: .5rem;
+    font-size:.5rem;
+    line-height: .8rem;
+}
+
+.tast input{
+    height: 1rem;
+    width:60%;
+    border-radius: 6px;
+    border: 1px solid rgb(210,210,210);
+    line-height: normal;
+    /* margin: 1rem 0; */
+}
+.main_con span{
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    cursor: pointer;
+}
+.main_con span:nth-child(1){
+    border-right:2px solid #ffeb39; 
+}
+.tastx{
+    position: absolute;
+            cursor: pointer;
+            top: 20%;
+            right: 0;
+            width: 2rem;
+            height: 2rem;
+}
+@media (max-width: 500px){
+    .tast{
+        width: 90%;
+        height: 21rem;
+        padding-top: 15.6rem;
+    }
+    .tastx{
+            width: 4rem;
+            height: 3rem;
+}
+    .test,.self{
+        width: 90%;
+        height: auto;
+    }
+    .tast input{
+        height: 2rem;
+    }
+    .tast>div:nth-child(2){
+        margin: 0 0 .5rem 0;
+    }
+    .tast>div:nth-child(1),.self>div:nth-child(1){
+        line-height:1.6rem;
+    }
+}
+.toast-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px dotted #fccc6e;
+}
+.toast-picture {
+  position: absolute;
+  top: -6.5rem;
+  left: -1.5rem;
+  width: 18.75rem;
+  height: 8.5625rem;
+}
+.toast-pictrue-change {
+  position: absolute;
+  top: -1.5rem;
+  left: -1.375rem;
+  width: 17.5rem;
+  height: 3.125rem;
+}
+.toast-title {
+  padding: 2.8125rem 0;
+  font-size: 18px;
+  color: #fc7939;
+  text-align: center;
+}
+.toast-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.9375rem;
+}
+.toast-btn div {
+  background-image: -moz-linear-gradient(
+    -18deg,
+    rgb(242, 148, 85) 0%,
+    rgb(252, 124, 88) 51%,
+    rgb(252, 124, 88) 99%
+  );
+
+  background-image: -ms-linear-gradient(
+    -18deg,
+    rgb(242, 148, 85) 0%,
+    rgb(252, 124, 88) 51%,
+    rgb(252, 124, 88) 99%
+  );
+  background-image: -webkit-linear-gradient(
+    -18deg,
+    rgb(242, 148, 85) 0%,
+    rgb(252, 124, 88) 51%,
+    rgb(252, 124, 88) 99%
+  );
+  box-shadow: 0px 4px 0px 0px rgba(174, 34, 5, 0.7);
+  width: 4.6875rem;
+  height: 1.875rem;
+  border-radius: 1.875rem;
+  text-align: center;
+  line-height: 1.875rem;
+  color: #fff;
+}
+.close {
+  position: absolute;
+  top: -0.9375rem;
+  right: -0.9375rem;
+  width: 2rem;
+  height: 2rem;
+  background: url("img/close_store.png") no-repeat center top;
+  background-size: 100%;
+}
+.moveM{
+    position: absolute;
+    /* background: green; */
+    width: 80%;
+    height:10.8rem;
+    margin: 0 10%;
+    top: 6.75rem;
+    overflow: hidden;
+}
+
+.move p{
+    height: 2.0rem;
+    line-height: 2.0rem;
+    font-size:.8rem; 
+}
+@media (max-width: 500px){
+    .moveM{
+        width: 100%;
+        margin: 0;
+    }
+    .move p{
+        height: 2.1rem;
+        line-height: 2.1rem;
+        font-size:.8rem; 
+    }
+}
+.move p span{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+}
+.move{
+    position: absolute;
+    width: 100%;
+    height:20rem;
+    animation: myfirst 60s;
+-moz-animation: myfirst 60s;
+-webkit-animation: myfirst 60s;	
+-o-animation: myfirst 60s;
+animation-iteration-count: infinite;
+/* animation-fill-mode:forwards; */
+}
+@keyframes myfirst
+{
+0%   {top: 0;}
+/* 25%  {background: yellow;}
+50%  {background: blue;} */
+100% {top: -94.1rem;}
+}
+.ooooo{
+    /* animation-duration: 2s; 
+    animation-delay: 2s;
+    animation-direction:normal; */
+
+}
+.close,.toast-cancel{
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lucky-wheel">
+            <div class="lucky-title"></div>
+            <div class="wheel-main">
+                <div class="wheel-pointer-box">
+                     <div class="wheel-pointer" ></div>
+                </div>               
+                <div class="wheel-bg">                   
+                    <div class="prize-list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-bg"></div>
+            <div class="bg-p"></div>
+            <div class="content">
+                <!-- <div class="main_con"><span class="self_record">中奖纪录》</span><span class="testgo">查看规则》</span></div> -->
+                <div class="all" style="text-align:center;
+                overflow: hidden;margin-bottom: 1rem;">
+                    <!-- <p style="height:3rem;line-height:3rem">中奖用户</p> -->
+                    <div class="moveM">
+                        <div class="move">
+                            <!-- <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p> -->
+                        </div>
+                    </div>
+                    <!-- <table style="position:relative">
+                        <tr>
+                            <td>手机号</td>
+                            <td>奖品</td>
+                            <td>时间</td>
+                        </tr>
+                        <tr class="ooooo" style="">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="ooooo" style="">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="ooooo" style="">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="ooooo" style="">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="ooooo" style="">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="ooooo" style="">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table> -->
+                </div>
+            </div>
+        </div>
+        <div class="toast" style="display:none">
+            <div class="toast-container">
+                <img src="img/congratulation.png" class="toast-picture">
+                <div class="close"></div>
+                <div class="toast-title">
+                </div>
+                <div class="toast-btn">
+                    <div class="toast-cancel">关闭</div>
+                </div>
+            </div>
+        </div>
+        <div class="self" style="display:none">
+            <div>
+                提示
+                    <button class="selfx" style="cursor:pointer;background:#fc7939;color:white;padding:.2rem .4rem;float:right">x</button>
+            </div>
+             <p class="selfP">奖品为：yucdhsdjd</p>   
+        
+            <button class="selfx" style="background:#fc7939;color:white;padding:.2rem .4rem">确定</button>
+        </div>
+        <div class="tast" style="background:url(./img/back.png);background-size:100%;display:none">
+            
+            <span style="" class="tastx"></span>
+            <div>
+               <input type="text" name="phone" placeholder="请输入手机号">
+            </div>
+            <button class="tastgo" style="background:rgb(255,174,17);color:white;padding:.25rem 1rem">确定</button>
+        </div>
+        <div class="test" style="height: auto;display:none">
+            <h1 style="font-size:.8rem">大转盘规则 <button class="testx" style="cursor:pointer;background:#fc7939;color:white;padding:.2rem .4rem;position:absolute;right:.2rem;top:.2rem">x</button></h1>
+            <div style="text-align:left">
+                <p>1、活动期间，报名签约特招班，VIP一次取证班两科及以上，可获得1次抽奖机会，每人只限1次；兑换码有效期内找班主任进行兑换</p>
+            <p>2、如获得现金奖励，兑换码提交对应班主任，现金奖励则以红包/转账形式发送至您的微信账户中；</p>
+            <p>3，如获得实物礼品，兑换码提交对应班主任，班主任会主动与您联系并索取快递信息，由于实物礼品涉及采购时间，礼品兑换完成结束后2个工作日内寄出</p>
+            <p style="text-align:center">本活动解释权由北京智汇火种教育科技有限公司所有</p>
+            <p style="text-align:center">活动时间：2019年3月18日-3月31日</p>
+            </div>
+            
+        </div>
+        <div class="toast-mask" style="display: none"></div>
+    </div>
+</body>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/luckWheel2.js"></script>
+<script>
+    var obj={str0 : `<span>153****2479</span><span>800元红包</span><span>3分钟前</span>`,
+        str1 : `<span>185****7120</span><span>iPhone</span><span>6分钟前</span>`,
+        str2: `<span>136****1221</span><span>1000元红包</span><span>13分钟前</span>`,
+        str3 :`<span>154****1423</span><span>500元红包</span><span>15分钟前</span>`,
+        str4 :`<span>187****6053</span><span>ipad</span><span>23分钟前</span>`,
+        str5 : `<span>134****9574</span><span>1000元红包</span><span>33分钟前</span>`,
+        str6 : `<span>132****5081</span><span>1000元红包</span><span>46分钟前</span>`,
+        str7 : `<span>135****4376</span><span>800元红包</span><span>51分钟前</span>`,
+        str8 : `<span>162****1347</span><span>macbook</span><span>1小时前</span>`,
+        str9 : `<span>166****9528</span><span>800元红包</span><span>3小时前</span>`,
+        str10 : `<span>153****2479</span><span>800元红包</span><span>3分钟前</span>`,
+        str11 : `<span>185****7120</span><span>iPhone</span><span>6分钟前</span>`,
+        str12: `<span>136****1221</span><span>1000元红包</span><span>13分钟前</span>`,
+        str13 :`<span>154****1423</span><span>500元红包</span><span>15分钟前</span>`,
+        str14 :`<span>187****6053</span><span>ipad</span><span>23分钟前</span>`,
+        str15 : `<span>134****9574</span><span>1000元红包</span><span>33分钟前</span>`,
+        str16 : `<span>132****5081</span><span>1000元红包</span><span>46分钟前</span>`,
+        str17 : `<span>135****4376</span><span>800元红包</span><span>51分钟前</span>`,
+        str18 : `<span>162****1347</span><span>macbook</span><span>1小时前</span>`,
+        str19 : `<span>166****9528</span><span>800元红包</span><span>3小时前</span>`,
+        str20 : `<span>153****2479</span><span>800元红包</span><span>3分钟前</span>`,
+        str21 : `<span>185****7120</span><span>iPhone</span><span>6分钟前</span>`,
+        str22: `<span>136****1221</span><span>1000元红包</span><span>13分钟前</span>`,
+        str23 :`<span>154****1423</span><span>500元红包</span><span>15分钟前</span>`,
+        str24 :`<span>187****6053</span><span>ipad</span><span>23分钟前</span>`,
+        str25 : `<span>134****9574</span><span>1000元红包</span><span>33分钟前</span>`,
+        str26 : `<span>132****5081</span><span>1000元红包</span><span>46分钟前</span>`,
+        str27 : `<span>135****4376</span><span>800元红包</span><span>51分钟前</span>`,
+        str28 : `<span>162****1347</span><span>macbook</span><span>1小时前</span>`,
+        str29 : `<span>166****9528</span><span>800元红包</span><span>3小时前</span>`,
+        str30 : `<span>153****2479</span><span>800元红包</span><span>3分钟前</span>`,
+        str31 : `<span>185****7120</span><span>iPhone</span><span>6分钟前</span>`,
+        str32: `<span>136****1221</span><span>1000元红包</span><span>13分钟前</span>`,
+        str33 :`<span>154****1423</span><span>500元红包</span><span>15分钟前</span>`,
+        str34 :`<span>187****6053</span><span>ipad</span><span>23分钟前</span>`,
+        str35 : `<span>134****9574</span><span>1000元红包</span><span>33分钟前</span>`,
+        str36 : `<span>132****5081</span><span>1000元红包</span><span>46分钟前</span>`,
+        str37 : `<span>135****4376</span><span>800元红包</span><span>51分钟前</span>`,
+        str38 : `<span>162****1347</span><span>macbook</span><span>1小时前</span>`,
+        str39 : `<span>166****9528</span><span>800元红包</span><span>3小时前</span>`,
+        str40 : `<span>153****2479</span><span>800元红包</span><span>3分钟前</span>`,
+        str41 : `<span>185****7120</span><span>iPhone</span><span>6分钟前</span>`,
+        str42: `<span>136****1221</span><span>1000元红包</span><span>13分钟前</span>`,
+        str43 :`<span>154****1423</span><span>500元红包</span><span>15分钟前</span>`,
+        str44 :`<span>187****6053</span><span>ipad</span><span>23分钟前</span>`,
+        str45 : `<span>134****9574</span><span>1000元红包</span><span>33分钟前</span>`,
+        str46 : `<span>132****5081</span><span>1000元红包</span><span>46分钟前</span>`,
+        str47 : `<span>135****4376</span><span>800元红包</span><span>51分钟前</span>`,
+        str48 : `<span>162****1347</span><span>macbook</span><span>1小时前</span>`,
+        str49 : `<span>166****9528</span><span>800元红包</span><span>3小时前</span>`,
+        },
+        bindex = 0;
+        var dd = 0;
+        $('.move p').each(function(index,el){
+            // console.log(index,"str"+(index+dd)%10,obj["str"+(index+dd)%10])
+            $(el)[0].innerHTML = obj["str"+(index+dd)%10]
+        })
+        setInterval(function(){
+        dd += 45;
+        $('.move p').each(function(index,el){
+            
+            $(el)[0].innerHTML = obj["str"+(index+dd)%10]
+        })
+        
+        // bindex = dd%10;
+        // console.log(bindex)
+    },60000)
+    function gundong(){
+        // setTimeout(function(){
+        // $('.ooooo').removeClass('animated slideInUp');
+        // $('.ooooo').each(function(index,el){
+        //     var str="";
+        //     var dd = index;
+        //     if(dd<=1){
+        //         dd = 9;
+        //     }
+        //     str = "str" + (dd - bindex);
+        //     console.log(str,index)
+        //     $('.ooooo')[index].innerHTML=obj[str];
+            
+            // if(bindex == 0){
+            //     str = "str" + (2*index + bindex);
+            //     console.log(str)
+            //     $('.ooooo')[index].innerHTML=obj[str];
+            //     bindex = 1
+            // }else{
+            //     str = "str" + (2*index + bindex);
+            //     console.log(str)
+            //     $('.ooooo')[index].innerHTML=obj[str];
+            //     bindex = 0
+            // }
+        // })
+        // bindex += 1;
+        //         }, 4000);
+    }
+    gundong();
+    
+    
+    
+</script>
+</html>

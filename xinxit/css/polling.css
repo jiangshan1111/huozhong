@@ -1,0 +1,112 @@
+#polling-header-top{
+    height: 30px;
+    background: rgb(248,248,248);
+    margin-left: 8%;
+}
+.polling-allotp,.polling-headerp{
+    background-repeat:no-repeat; 
+    background-position-x: 99%;
+    background-position-y: 50%;
+}
+#polling-allot-body,#polling-header-body{
+    background: white;
+    margin-left: 8%;
+}
+#polling-header-footer{
+    background: white;
+    margin-left: 8%;
+}
+#polling-header{
+    margin-top: 1rem;
+    overflow: hidden;
+}
+#polling-header-top>p{
+    line-height: 30px;
+    position: relative;
+    padding-left: 30px
+}
+#polling-header-top>p span{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    left: 10px;
+    background: url('../img/search.svg') no-repeat;
+    background-size: 100% 100%;
+}
+.Wdate{
+    width: 30.5%;
+}
+#polling-header-body,#polling-allot-body{
+    padding-top:20px; 
+}
+
+#polling-header-body span,#polling-allot-body span{
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+}
+.block-content{
+        margin: 0;
+    }
+    .tble{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 50%;
+        margin-top: -8px;
+        left: 10px;
+        background: url('../img/table.svg') no-repeat;
+        background-size: 100% 100%;
+    }
+    .table td,.table th{
+        width:30px;
+    }
+    #polling-header-body button,#polling-allot-body button{
+        width: 50px;
+        height: 30px;
+        position: absolute;
+        bottom:0;
+        right:7%;
+    }
+    #seaform>div,#seaform1>div{
+        margin: 0
+    }
+    #seaform>div>span,#seaform1>div>span{
+        display: inline-block;
+        width:30%;
+    }
+    #seaform>div>input,#seaform1>div>input{
+        width:50%;
+        height: 20px;
+    }
+    #seaform>div>select,#seaform1>div>select{
+        width:52%;
+        height: 30px;
+    }
+@media only screen and (max-width : 780px){
+    #polling-header-top,#polling-allot-body{
+        margin-left: 0;
+    }
+    #seaform>div>select,#seaform1>div>select{
+        width:64%;
+        height: 30px;
+    }
+    .Wdate{
+        width: 95.5%;
+    }
+    #polling-header-body{
+        margin-left: 0;
+    }
+    #polling-header-footer{
+        margin-left: 0;
+    }
+    #polling-header-body span{
+        display: inline-block;
+        width: 100%;
+    }
+    
+}

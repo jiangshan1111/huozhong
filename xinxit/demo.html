@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <ul id="test">
+                <li>这是第一条</li>
+                <li>这是第二条</li>
+                <li>这是第三条</li>
+            </ul>
+     <script>
+    //    arr = [{'name':'1','type':'2'},{'name':'1','type':'3'},{'name':'1','type':'2'},{'name':'1','type':'4'}]
+    //     var set = new Set(arr); 
+
+        // function A() {
+            var ul = document.getElementById("test");
+            for (var i = 0, l = ul.childNodes.length; i < l; i++) {
+                if (ul.childNodes[i].nodeName.toLowerCase() == "li") {
+                    var li = ul.childNodes[i];
+                        (function(i){
+                        li.onclick = function() {
+                            alert(i);
+                        }
+                    })(i)
+                }
+            }
+        // };
+        // A()
+    </script>
+</body>
+</html>

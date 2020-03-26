@@ -1,0 +1,92 @@
+/*
+ * @file: 公有布局, 功能性布局, 面向属性
+ */
+
+/*----- 面向属性 CSS -----*/
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+
+.pos-r {
+  position: relative;
+}
+
+
+.dis-inlineBlock {
+  display: inline-block;
+}
+.dis-none {
+  display: none;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+.mt15 {
+  margin-top: 15px;
+}
+.mt35 {
+  margin-top: 35px;
+}
+.mt40 {
+  margin-top: 40px;
+}
+.mt50 {
+  margin-top: 50px;
+}
+.mr0 {
+  margin-right: 0;
+}
+.mr30 {
+  margin-right: 30px;
+}
+.mb15 {
+  margin-bottom: 15px;
+}
+.mb30 {
+  margin-bottom: 30px;
+}
+.mb40 {
+  margin-bottom: 40px;
+}
+
+.fs12 {
+  font-size: 12px;
+}
+.fs14 {
+  font-size: 14px;
+}
+.fs18 {
+  font-size: 18px;
+}
+.fs28 {
+  font-size: 28px;
+}
+
+.fc-grey {
+  color: #797C7F;
+}
+
+.fw200 {
+  font-weight: 200;
+}
+
+.lh22 {
+  line-height: 22px;
+}
+
+/*----- 功能性布局 -----*/
+/* 清除浮动 */
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}

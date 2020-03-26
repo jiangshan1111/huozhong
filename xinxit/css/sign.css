@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height:100%;
+}
+
+body{
+    width:100%;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    background-image: url('../img/login-bgnew.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.hed{
+    height: 10%;
+    background-image: url('../img/logo.png');
+    background-size:contain;
+    background-repeat: no-repeat;        
+    background-position: 2rem 1rem;
+}
+.Box{
+    width: 50rem;
+    position: absolute;
+    top:50%;
+    left:50%;
+    height: 20rem;
+    margin-top: -10rem;
+    margin-left: -25rem;
+    text-align: center;
+}
+.Boximg{
+    width:100%;
+    height: 60%;
+    background-image: url('../img/eagle-eye-logo.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    overflow: hidden;
+    position: relative;
+}
+.nam,.pas{
+    width:13rem;
+    height: 2.5rem;
+    border-radius:0.3rem;
+    font-size: 1rem; 
+    margin-right: 0.5rem;
+}
+.but{
+    width:4rem;
+    height: 2.5rem;
+    border: 0.1rem solid #2e6da4;
+    border-radius:0.3rem;
+    background: #3C4061;
+    color: white;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    
+}
+@media only screen and (max-width:700px){
+    .hed{
+    height: 8%;
+    background-image: url('../img/logo.png');
+    background-size:contain;
+    background-repeat: no-repeat;            
+    }
+    .nam,.pas{
+        width: 50%;
+        margin-bottom: 1rem;
+    }
+    .but{
+        width:50%;
+        display: block;
+        left:24%;
+        position: absolute;
+    }
+    .Box{
+        width: auto;
+        position: absolute;
+        top:50%;
+        left:5%;
+        height: 20rem;
+        margin-left: 0rem;
+        text-align: center;
+    }
+}
+@media only screen and (max-width:330px){
+    .Boximg{
+        background-size: 90%;
+    }
+}

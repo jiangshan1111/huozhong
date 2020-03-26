@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>挂靠表</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    
+</head>
+<body>  
+        <div class="modelchance" style="display:block">
+                <div class="modelchancer" style="width:90%">
+                    <div class="modelchance-head">
+                        <p style="color:#42b983">挂靠表</p>
+                    </div>
+                    <div class="chancesearch" style="width:95.8%;border:1px solid rgb(239,239,239);background:-webkit-linear-gradient(top,white 0,rgb(239, 239, 239) 100%)">
+                            <p class="chancesearchp" style="margin-left:20px;background-image: url('img/down.svg');">查询条件</p>
+                        </div>
+                    <form class="modelchance-body" name="searchform" id ="searchform">
+                        <div>
+                            <span>合作商：</span>
+                            <input type="text" name="name" style="width:70%">
+                        </div>
+                        <div>
+                            <span>项目：</span>
+                            <select name="type" id="">
+                                <option value="基金项目">基金项目</option>
+                                <option value="消防项目">消防项目</option>
+                            </select>
+                        </div>
+                        <div></div>
+                        <div >
+                            <input type="button" class="chancebtn" id="chancere" style="margin-right:30px" value="重置">
+                            <input type="button" class="chancebtn" id="submit_search"  value="查询">
+                        </div>
+                    </form>
+                    <div style="width:96%;margin-left:2%">
+                        <table id="datagrid1" title="挂靠表" style="width:100%"  
+                               >
+                            <thead>
+                                <tr class="content">
+                                    <!-- <th data-options="field:'ck',checkbox:true,hidden:true" class="8777"></th> -->
+                                    <th data-options="field:'date',width:160,align:'center',editor:'textbox'">填入日期</th>
+                                    
+                                    <th data-options="field:'partners',width:160,align:'center',editor:'textbox'">合作商.</th>
+                                    <th data-options="field:'dock_name',width:80,align:'center',editor:'textbox'">对接人</th>
+                                    <th data-options="field:'contact',width:120,align:'center',editor:'textbox'">联系方式</th>
+                                    <th data-options="field:'need',width:80,align:'center',editor:'textbox'">具体需求及条件</th>
+                                    <th data-options="field:'need_num',width:80,align:'center',editor:'textbox'">需求人数</th>
+                                    <th data-options="field:'price',width:120,align:'center',editor:'textbox'">费用</th>
+                                    <th data-options="field:'end_time',width:160,align:'center',editor:'textbox'">截止日期</th> 
+                                    <th data-options="field:'note',width:80,align:'center',editor:'textbox'">备注</th> 
+                                    <th data-options="field:'is_status',width:80,align:'center',editor:'textbox'">状态</th> 
+                                    <th data-options="field:'type',width:80,align:'center',editor:'textbox'">项目</th> 
+                                     
+                                    <!-- <th data-options="field:'did',width:80,align:'center'">did</th> -->
+                                </tr>
+                                
+                            </thead>
+                        </table>
+                    </div>
+                    
+                </div>
+              </div>
+</body>
+<script src="js/export.js"></script>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+<script type="text/javascript">    
+var params = "";
+    $('.chancesearchp').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#searchform')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#searchform')[0].style.display = "block"
+        }
+    })
+    $('#chancere').click(function(){
+        $("#searchform").find('input[type=text],select').each(function() {
+         $(this).val('');
+     });
+    })         
+    var thisApp = {
+        init: function () {
+            // var Url;
+            // console.log(location.href.split('?')[1])
+            // if(location.href.split('?')[1]==undefined){
+            //     Url = 'www.baidu.com'
+            // }else{
+            //     Url = 'datagrid_data1.json?'+location.href.split('?')[1]
+            // }
+            $("#datagrid1").edatagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                //这是数据加载的地址,返回对应的json数据包就行,json包格式例子,见下4
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                checkOnSelect:false,
+                selectOnCheck:true,
+                url:'datagrid_data3.json',
+                saveUrl: 'http://www.baidu.com',        //新建,都是eadatagrid封装好的,把链接填好就行,点击之后会自动发送json数据包
+                     updateUrl: 'http://www.baidu.com',      //保存
+                    destroyUrl: '@Url.Action("DeleteEdatagrid")',      //删除
+                method:'get',
+                queryParams: form2Json("searchform"),　
+                toolbar: [
+                    {
+                        text: '导出',
+                            iconCls: 'icon-save',
+                            handler: function () {
+                                $(this).click(function(){
+                                    var jsondata = '';
+                                    $.ajax({
+                                        url:'datagrid_data3.json',
+                                        type:'get',
+                                        data:params,
+                                        // dataType:'json',
+                                        success:function(data){
+                                        jsondata = data;
+                                        console.log(data)
+                                    var arr1 = [];
+                                    var json = []
+                                    for(var i=0;i<jsondata.length;i++){
+                                        json[i]={};
+                                        json[i]['date']= ' '+jsondata[i].date;
+                                        json[i]['partners']= jsondata[i].partners;
+                                        json[i]['dock_name']= jsondata[i].dock_name;
+                                        json[i]['contact']= jsondata[i].contact;
+                                        json[i]['need']= jsondata[i].need;
+                                        json[i]['need_num']= jsondata[i].need_num;
+                                        json[i]['price']= jsondata[i].price;
+                                        json[i]['end_time']= jsondata[i].end_time;
+                                        json[i]['note']= jsondata[i].note;
+                                        json[i]['is_status']= jsondata[i].is_status;
+                                        json[i]['type']= jsondata[i].type;
+                                    }
+                                    // json[0].visit = data[0].visit;
+                                    
+                                    var data = JSON.stringify(json);
+                                    console.log(data)
+                                    for (var i = 0; i < $('th').length; i++) {
+                                        arr1.push($('th')[i].innerHTML)
+                                    }
+                                    if (data == '')return;
+                                    JSONToCSVConvertor(data, "Download", true,arr1);
+                                    }})
+                                    })
+                            }
+                        },
+                    {
+                            text: '保存',
+                            iconCls: 'icon-save',
+                            handler: function () {
+                                $('#datagrid1').data('isSave', true).edatagrid('saveRow');
+                            }
+                    },
+                    {
+                        text: '增加',
+                        iconCls: 'icon-add',
+                        handler: function () {
+                            $('#datagrid1').edatagrid('addRow');
+                        }
+                    }],
+                    onLoadSuccess: function(data,currentRowIndex){//加载完毕后获取所有的checkbox遍历
+                        
+                        
+                    },
+                    onClickRow: function (rowIndex, field, value) {
+                       
+                        },
+                    onDblClickRow:function(rowIndex, field, value){
+                        
+                    }
+                })
+            }
+        }
+        $(function(){
+            thisApp.init();
+            var dg=$('#datagrid1').datagrid({});
+            dg.datagrid('enableFilter', [{}]);
+            var p = $('#datagrid1').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            $("#submit_search").linkbutton({ iconCls: 'icon-search', plain: true }).click(function () {
+            //     $('.chancesearchp')[0].style.backgroundImage = 'url("img/up.svg")';
+            //  $('#searchform')[0].style.display = "none";
+             var dg = $('#datagrid1').datagrid({queryParams: form2Json("searchform"),url:'datagrid_data3.json',singleSelect:true});
+             params=form2Json("searchform");
+             dg.datagrid('enableFilter',[{
+                field:'date',
+                type:'text'
+            },{
+                field:'partners',
+                type:'text'
+            },{
+                field:'dock_name',
+                type:'text'
+            },{
+                field:'contact',
+                type:'text'
+            },{
+                field:'need',
+                type:'text'
+            },{
+                field:'need_num',
+                type:'text'
+            },{
+                field:'price',
+                type:'text'
+            },{
+                field:'end_time',
+                type:'text'
+            },{
+                field:'note',
+                type:'text'
+            },{
+                field:'is_status',
+                type:'text'
+            },{
+                field:'type',
+                type:'text'
+            }]);
+                var p = $('#datagrid1').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            });
+            
+        // });
+        })
+        function form2Json(id) {
+ 
+            var arr = $("#" + id).serializeArray()
+            console.log(arr)
+            var jsonStr = "";
+ 
+            jsonStr += '{';
+            for (var i = 0; i < arr.length; i++) {
+                jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+            }
+            jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+            jsonStr += '}'
+ 
+            var json = JSON.parse(jsonStr)
+            return json
+        }
+ 
+</script>
+</html>

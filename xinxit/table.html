@@ -1,0 +1,1072 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>DataGrid Filter Row - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="../jiaoben1563/css/pikaday.css">
+    <link rel="stylesheet" href="../jiaoben1563/css/site.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+    
+    <script src="js/moment.js"></script>
+    <script src="../jiaoben1563/js/pikaday.js"></script>
+    <style>
+        .textbox{
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+                    <table id="datagrid"  class="wrapper-scroll"title="数据表" style="width:100%;height:550px"
+                    data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30],url:'datagrid_data1.json',method:'get'">
+                <thead>
+                    <tr class="content">
+                        <th data-options="field:'sign_up_date',width:160,align:'center'">分配日期</th>
+                        <th data-options="field:'year',width:80,align:'center'">年</th>
+                        <th data-options="field:'month',width:80,align:'center'">月</th>
+                        <th data-options="field:'week',width:80,align:'center'">周</th>
+                         <th data-options="field:'back_pack_date',width:160,align:'center',editor:'textbox'">协议回执日期</th> 
+                        <th data-options="field:'account',width:80,align:'center',editor:'textbox'">账号</th>
+                        <th data-options="field:'pwd',width:80,align:'center',editor:'textbox'">密码</th>
+                        <th data-options="field:'main_num',width:80,align:'center',editor:'textbox'">快递单号</th>
+                        <th data-options="field:'consult_mobile',width:80,align:'center'">咨询号码</th>
+                        <th data-options="field:'class_mobile',width:80,align:'center',editor:'textbox'">课程号码</th>
+                        <th data-options="field:'full_name',width:80,align:'center',editor:'textbox'">姓名</th>
+                        <th data-options="field:'id_num',width:80,align:'center',editor:'textbox'">身份证号</th>
+                        <th data-options="field:'wx_num',width:80,align:'center',editor:'textbox'">微信号</th>
+                        <th data-options="field:'email',width:80,align:'center',editor:'textbox'">邮箱</th>
+                        <th data-options="field:'address',width:80,align:'center',editor:'textbox'">地址</th>
+                        <th data-options="field:'province',width:80,align:'center',editor:'textbox'">省份</th>
+                        <th data-options="field:'city',width:80,align:'center',editor:'textbox'">报考城市</th> 
+                        <th data-options="field:'exam_date',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'exam_date',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','exam_date':'201803'},{'text':'201804','exam_date':'201804'},
+                                {'text':'201805','exam_date':'201805'},{'text':'201806','exam_date':'201806'},
+                                {'text':'201807','exam_date':'201807'},
+                                {'text':'201809','exam_date':'201809'},{'text':'201810','exam_date':'201810'},
+                                {'text':'201811','exam_date':'201811'},{'text':'201911','exam_date':'201911'},{'text':'2019考期','exam_date':'2019考期'}]
+                            }
+                        }">考期</th>
+                        <th data-options="field:'total_money',width:80,align:'center'">总金额</th>
+                        <th data-options="field:'train_money',width:80,align:'center',editor:'textbox'">培训费用</th>
+                        <th data-options="field:'xf_sign_money',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                            valueField:'xf_sign_money',
+                            textField:'text',
+                            panelHeight:'auto',
+                            data:[{'text':'500','xf_sign_money':'500'},{'text':'800','xf_sign_money':'800'},{'text':'1000','xf_sign_money':'1000'}],
+                            }
+                        }">消防代报名费</th>
+                        <th data-options=  "field:'jj_section_money',width:80,align:'center',editor:'textbox'">基金换科目补费</th>
+                        <th data-options="field:'project',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'project',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'基金','project':'基金'},{'text':'消防','project':'消防'}]
+                            }
+                        }">项目</th>
+                        <th data-options="field:'class_type',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'class_type',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[]
+                            }
+                        }">班型</th>
+                        <th data-options="field:'sign_type',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'sign_type',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[]
+                            }
+                        }">报名类型</th>
+                        <th data-options="field:'belong_to',width:80,align:'center'">咨询师</th>
+                        <th data-options="field:'group',width:80,align:'center'">分组</th>
+                        <th data-options="field:'section_one',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_one',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'1','section_one':'1'},{'text':'0','section_one':'0'}]
+                            }
+                        }">科一</th>
+                        <th data-options="field:'section_two',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_two',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'1','section_two':'1'},{'text':'0','section_two':'0'}]
+                            }
+                        }">科二</th>
+                        <th data-options="field:'section_three',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_three',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'1','section_three':'1'},{'text':'0','section_three':'0'}]
+                            }
+                        }">科三</th>
+                        <th data-options="field:'education',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'education',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'高中(中专或同等学历)','education':'高中(中专或同等学历)'},
+                                    {'text':'大专、(高职或同等学历)','education':'大专、(高职或同等学历)'},
+                                    {'text':'本科','education':'本科'},
+                                    {'text':'博士及以上学历','education':'博士及以上学历'}]
+                            }
+                        }">学历</th>
+                        <th data-options="field:'section_one_first',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_one_first',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','section_one_first':'201803'},{'text':'201804','section_one_first':'201804'},
+                                {'text':'201805','section_one_first':'201805'},{'text':'201806','section_one_first':'201806'},
+                                {'text':'201807','section_one_first':'201807'},{'text':'201809','section_one_first':'201809'},
+                                {'text':'201810','section_one_first':'201810'},{'text':'201811','section_one_first':'201811'},
+                                {'text':'2019考期','section_one_first':'2019考期'}]
+                            }
+                        }">科一第一次</th>
+                        <th data-options="field:'section_two_first',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_two_first',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','section_two_first':'201803'},{'text':'201804','section_two_first':'201804'},
+                                {'text':'201805','section_two_first':'201805'},{'text':'201806','section_two_first':'201806'},
+                                {'text':'201807','section_two_first':'201807'},{'text':'201809','section_two_first':'201809'},
+                                {'text':'201810','section_two_first':'201810'},{'text':'201811','section_two_first':'201811'},
+                                {'text':'2019考期','section_two_first':'2019考期'}]
+                            }
+                        }">科二第一次</th>
+                        <th data-options="field:'section_three_first',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_three_first',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','section_three_first':'201803'},{'text':'201804','section_three_first':'201804'},
+                                {'text':'201805','section_three_first':'201805'},{'text':'201806','section_three_first':'201806'},
+                                {'text':'201807','section_three_first':'201807'},{'text':'201809','section_three_first':'201809'},
+                                {'text':'201810','section_three_first':'201810'},{'text':'201811','section_three_first':'201811'},
+                                {'text':'2019考期','section_three_first':'2019考期'}]
+                            }
+                        }">科三第一次</th>
+                        <th data-options="field:'first_money',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'first_money',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'195','first_money':'195'},{'text':'130','first_money':'130'},{'text':'65','first_money':'65'}]
+                            }
+                        }">费用</th>
+                        <th data-options="field:'section_one_second',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_one_second',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','section_one_second':'201803'},{'text':'201804','section_one_second':'201804'},
+                                {'text':'201805','section_one_second':'201805'},{'text':'201806','section_one_second':'201806'},
+                                {'text':'201807','section_one_second':'201807'},{'text':'201809','section_one_second':'201809'},
+                                {'text':'201810','section_one_second':'201810'},{'text':'201811','section_one_second':'201811'},
+                                {'text':'2019考期','section_one_second':'2019考期'}]
+                            }
+                        }">科一第二次</th>
+                        <th data-options="field:'section_two_second',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_two_second',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','section_two_second':'201803'},{'text':'201804','section_two_second':'201804'},
+                                {'text':'201805','section_two_second':'201805'},{'text':'201806','section_two_second':'201806'},
+                                {'text':'201807','section_two_second':'201807'},{'text':'201809','section_two_second':'201809'},
+                                {'text':'201810','section_two_second':'201810'},{'text':'201811','section_two_second':'201811'},
+                                {'text':'2019考期','section_two_second':'2019考期'}]
+                            }
+                        }">科二第二次</th>
+                        <th data-options="field:'section_three_second',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_three_second',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','section_three_second':'201803'},{'text':'201804','section_three_second':'201804'},
+                                {'text':'201805','section_three_second':'201805'},{'text':'201806','section_three_second':'201806'},
+                                {'text':'201807','section_three_second':'201807'},{'text':'201809','section_three_second':'201809'},
+                                {'text':'201810','section_three_second':'201810'},{'text':'201811','section_three_second':'201811'},
+                                {'text':'2019考期','section_three_second':'2019考期'}]
+                            }
+                        }">科三第二次</th>
+                        <th data-options="field:'second_money',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'second_money',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'195','second_money':'195'},{'text':'130','second_money':'130'},{'text':'65','second_money':'65'}]
+                            }
+                        }">费用</th>
+                        <th data-options="field:'section_one_third',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_one_third',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','section_one_third':'201803'},{'text':'201804','section_one_third':'201804'},
+                                {'text':'201805','section_one_third':'201805'},{'text':'201806','section_one_third':'201806'},
+                                {'text':'201807','section_one_third':'201807'},{'text':'201809','section_one_third':'201809'},
+                                {'text':'201810','section_one_third':'201810'},{'text':'201811','section_one_third':'201811'},
+                                {'text':'2019考期','section_one_third':'2019考期'}]
+                            }
+                        }">科一第三次</th>
+                        <th data-options="field:'section_two_third',width:100,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_two_third',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','section_two_third':'201803'},{'text':'201804','section_two_third':'201804'},
+                                {'text':'201805','section_two_third':'201805'},{'text':'201806','section_two_third':'201806'},
+                                {'text':'201807','section_two_third':'201807'},{'text':'201809','section_two_third':'201809'},
+                                {'text':'201810','section_two_third':'201810'},{'text':'201811','section_two_third':'201811'},
+                                {'text':'2019考期','section_two_third':'2019考期'}]
+                            }
+                        }">科二第三次</th>
+                        <th data-options="field:'section_three_third',width:80,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'section_three_third',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'201803','section_three_third':'201803'},{'text':'201804','section_three_third':'201804'},
+                                {'text':'201805','section_three_third':'201805'},{'text':'201806','section_three_third':'201806'},
+                                {'text':'201807','section_three_third':'201807'},{'text':'201809','section_three_third':'201809'},
+                                {'text':'201810','section_three_third':'201810'},{'text':'201811','section_three_third':'201811'},
+                                {'text':'2019考期','section_three_third':'2019考期'}]
+                            }
+                        }">科三第三次</th>
+                        <!-- formatter:function(value,row){
+                            return row.Gender;
+                        }, -->
+                        <th data-options="field:'third_money',width:80,align:'center',
+                        editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'third_money',
+                                textField:'text',
+                                panelHeight:'auto',
+                                data:[{'text':'195','third_money':'195'},{'text':'130','third_money':'130'},{'text':'65','third_money':'65'}]
+                            }
+                        }" >费用</th>
+                        <!-- formatter:function(value,row){
+                            return row.TimesheetHours + 'H';
+                        } -->
+                        <th data-options="field:'tea_name',width:80,align:'center'">班主任</th>
+                        <th data-options="field:'note',width:80,align:'center',editor:'textbox'">备注</th>
+                    </tr>
+                    
+                </thead>
+            </table>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+        <script type="text/javascript">             
+        var thisApp = {
+            init: function () {
+                $("#datagrid").edatagrid({
+                    fit:true,
+                    rownumbers: true,
+                    singleSelect: true,
+                    pagination: true,
+                    url:'datagrid_data3.json',
+                    method:'get',
+                    //这是数据加载的地址,返回对应的json数据包就行,json包格式例子,见下4
+                    pageSize: 10,
+                    pageList: [10, 50, 100],
+                    saveUrl: 'http://www.baidu.com',        //新建,都是eadatagrid封装好的,把链接填好就行,点击之后会自动发送json数据包
+                     updateUrl: 'http://www.baidu.com',      //保存
+                    destroyUrl: '@Url.Action("DeleteEdatagrid")',      //删除
+                    onSave: function (index, row) {
+                        var $datagrid = $('#datagrid');
+                        if ($datagrid.data('isSave')) {
+                            //如果需要刷新，保存完后刷新
+                            $datagrid.edatagrid('reload');
+                            $datagrid.removeData('isSave');
+                        }
+                    },
+                    onChecked:function(index,row){
+                        var $datagrid = $('#datagrid');
+                        if ($datagrid.data('isCheced')) {
+                            //如果需要刷新，保存完后刷新
+                            $datagrid.edatagrid('reload');
+                            $datagrid.removeData('isCheced');
+                        }
+                    },
+                    toolbar: [
+                     {
+                        text: '保存',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            $('#datagrid').data('isSave', true).edatagrid('saveRow');
+                        }
+                    }
+                    ,{
+                        text: '导出',
+                        iconCls: 'icon-cut',
+                        handler: function () {
+                            //标记需要刷新
+                            $(this).click(function(){
+                                var arr1 = [];
+                                var data = JSON.stringify($('#datagrid').datagrid('getData').rows);
+                                for (var i = 0; i < $('th').length; i++) {
+                                    arr1.push($('th')[i].innerHTML)
+                                    
+                                }
+                                console.log(arr1)
+                                alert(data);
+                                if (data == '')
+                                    return;
+                    
+                                JSONToCSVConvertor(data, "Download", true,arr1);
+                            })
+                        }
+                    }
+                ],
+                onBeginEdit:function(rowIndex, rowData){
+                    var ed = $('#datagrid').datagrid('getEditors', rowIndex);
+                        console.log(ed[16])
+                        for (var i = 0; i < ed.length; i++){  
+                            var e = ed[i];    
+                            
+                            if(e.field == "back_pack_date") {  
+                                console.log(e.target[0].nextSibling.childNodes[0])
+                                $(e.target[0].nextSibling.childNodes[0]).attr('id','datepicker')
+                                e.target[0].nextSibling.childNodes[0].onfocus = function(){
+                                    var i18n = { // 本地化
+                                        previousMonth: '上个月',
+                                        nextMonth: '下个月',
+                                        months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                                        weekdays: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+                                        weekdaysShort: ['日', '一', '二', '三', '四', '五', '六']
+                                    }
+                                    var datepicker = new Pikaday({
+                                        field: jQuery('#datepicker')[0],
+                                        minDate: new Date('2000-01-01'),
+                                        maxDate: new Date('2020-12-31'),
+                                        yearRange: [2000, 2020],
+                                        i18n: i18n,
+                                        onSelect: function() {
+                                            var date = document.createTextNode(this.getMoment().format('YYYY-MM-DD') + ' '); //生成的时间格式化成 2013-09-25
+                                            $('#datepicker').appendChild(date);
+                                        }
+                                    });
+                                                    
+                            } 
+                        } 
+                            if(e.field == "project") {  
+                               console.log( e.target[0].nextSibling.childNodes[1])
+                               e.target[0].nextSibling.childNodes[1].onblur = function(){
+                                if($(this).val() == "基金"){
+                                        var goEditor = $('#datagrid').datagrid('getEditor', {
+                                            index:rowIndex,  
+                                            field : 'class_type'  
+                                        });
+                                        $(goEditor.target).combobox({
+                                        // onLoadSuccess: function () {
+                                        //     $(goEditor.target).combobox('setValue', rowData.class_type);
+                                        // },
+                                        onShowPanel: function(){
+                                            var data = [];
+                                            data.push({'text':'直播密训班','class_type':'直播密训班'},
+                                                    {'text':'一次取证班','class_type':'一次取证班'},
+                                                    {'text':'VIP不过退费班','class_type':'VIP不过退费班'},
+                                                    {'text':'高校取证班','class_type':'高校取证班'},
+                                                    {'text':'推荐挂靠班','class_type':'推荐挂靠班'})
+                                            $(goEditor.target).combobox("loadData", data);                
+                                            $(goEditor.target).combobox('setValue', rowData.class_type);                    
+                                        }
+                                        });
+
+
+                                        var gotEditor = $('#datagrid').datagrid('getEditor', {
+                                            index:rowIndex,  
+                                            field : 'sign_type'  
+                                        });
+                                        $(gotEditor.target).combobox({
+                                        // onLoadSuccess: function () {
+                                        //     $(gotEditor.target).combobox('setValue', rowData.sign_type);
+                                        // },
+                                        onShowPanel: function(){
+                                            var data1 = [];
+                                                data1.push({'text':'首次','sign_type':'首次'},
+                                                    {'text':'转介绍','sign_type':'转介绍'},
+                                                    {'text':'续报','sign_type':'续报'},
+                                                    {'text':'升班','sign_type':'升班'})
+                                            $(gotEditor.target).combobox("loadData", data1);                
+                                            $(gotEditor.target).combobox('setValue', rowData.sign_type);                    
+                                        }
+                                        });
+                                    }else if($(this).val() == "消防"){
+                                        var goEditor = $('#datagrid').datagrid('getEditor', {
+                                            index:rowIndex,  
+                                            field : 'class_type'  
+                                        });
+                                        console.log(goEditor)
+                                        $(goEditor.target).combobox({
+                                        onLoadSuccess: function () {
+                                            $(goEditor.target).combobox('setValue', rowData.class_type);
+                                        },
+                                        onShowPanel: function(){
+                                            var data = [];
+                                            data.push({'text':'基础通关班','class_type':'基础通关班'},
+                                                    {'text':'名师密训班','class_type':'名师密训班'},
+                                                    {'text':'VIP零基础保障班','class_type':'VIP零基础保障班'},
+                                                    {'text':'一次取证班','class_type':'一次取证班'},
+                                                    {'text':'皇家内训班班','class_type':'皇家内训班班'},
+                                                    {'text':'私教冲刺班','class_type':'私教冲刺班'})
+                                            $(goEditor.target).combobox("loadData", data);                
+                                            $(goEditor.target).combobox('setValue', rowData.class_type);                    
+                                        }
+                                        });
+
+
+                                        var gotEditor = $('#datagrid').datagrid('getEditor', {
+                                            index:rowIndex,  
+                                            field : 'sign_type'  
+                                        });
+                                        console.log(gotEditor)
+                                        $(gotEditor.target).combobox({
+                                        onLoadSuccess: function () {
+                                            $(gotEditor.target).combobox('setValue', rowData.sign_type);
+                                        },
+                                        onShowPanel: function(){
+                                            var data = [];
+                                                    data.push({'text':'首次','sign_type':'首次'},
+                                                    {'text':'定金','sign_type':'定金'},
+                                                    {'text':'定金补费','sign_type':'定金补费'},
+                                                    {'text':'转介绍','sign_type':'转介绍'},
+                                                    {'text':'升班','sign_type':'升班'},
+                                                    {'text':'代报名补费','sign_type':'代报名补费'},)
+                                            $(gotEditor.target).combobox("loadData", data);                
+                                            $(gotEditor.target).combobox('setValue', rowData.sign_type);                    
+                                        }
+                                        });
+                                    }
+                                }
+                            }  
+                    }  
+                }
+                });
+            }
+        }
+        $(function(){
+            thisApp.init();
+            var dg = $('#datagrid').datagrid()
+            dg.datagrid('enableFilter', [{
+                field:'exam_date',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'},{value:'201804',text:'201804'},
+                                {value:'201805',text:'201805'},{value:'201806',text:'201806'},
+                                {value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'201911',text:'201911'},{value:'2019',text:'2019'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'exam_date');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'exam_date',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'xf_sign_money',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'500',text:'500'},{value:'800',text:'800'},
+                                {value:'1000',text:'1000'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'xf_sign_money');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'xf_sign_money',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'project',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'基金',text:'基金'},{value:'消防',text:'消防'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'project');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'project',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    },
+                }
+            },{
+                field:'class_type',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    // data:[{value:'',text:'All'},{value:'500',text:'500'},{value:'800',text:'800'},
+                    //             {value:'1000',text:'1000'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'class_type');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'class_type',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'sign_type',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    // data:[{value:'',text:'All'},{value:'500',text:'500'},{value:'800',text:'800'},
+                    //             {value:'1000',text:'1000'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'sign_type');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'sign_type',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_one',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'1',text:'1'},{value:'0',text:'0'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_one');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_one',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    },
+                    onLoadSuccess:function(rowData){
+                        var component = dg.datagrid('getFilterComponent', 'project');
+                        var componento = dg.datagrid('getFilterComponent', 'class_type');
+                        var component1 = dg.datagrid('getFilterComponent', 'sign_type');
+                        // console.log(component1.combobox())
+                        component[0].nextElementSibling.parentElement.childNodes[1].childNodes[1].onblur = function(){
+                            console.log(component[0].nextElementSibling.parentElement.childNodes[1].childNodes[2].defaultValue)
+                            var valuee = component[0].nextElementSibling.parentElement.childNodes[1].childNodes[2].defaultValue
+                         if(valuee == "基金"){
+                            var data = [];
+                            data.push({value:'',text:'all'},{value:'直播密训班',text:'直播密训班'},
+                                                    {value:'一次取证班',text:'一次取证班'},
+                                                    {value:'VIP不过退费班',text:'VIP不过退费班'},
+                                                    {value:'高校取证班',text:'高校取证班'},
+                                                    {value:'推荐挂靠班',text:'推荐挂靠班'})
+                                                    componento.combobox("loadData", data);                
+                                                    componento.combobox('setValue', rowData.class_type);
+                            var data1 = [];
+                                        data1.push({value:'',text:'all'},{value:'首次',text:'首次'},
+                                                        {value:'转介绍',text:'转介绍'},
+                                                        {value:'续报',text:'续报'},
+                                                        {value:'升班',text:'升班'});
+                                                        component1.combobox("loadData", data1);                
+                                                    componento.combobox('setValue', rowData.sign_type);
+                         }else if(valuee == "消防"){
+                            var data = [];
+                            data.push({value:'',text:'all'},{value:'基础通关班',text:'基础通关班'},
+                                    {value:'名师密训班',text:'名师密训班'},
+                                    {value:'VIP零基础保障班',text:'VIP零基础保障班'},
+                                    {value:'一次取证班',text:'一次取证班'},
+                                    {value:'皇家内训班班',text:'皇家内训班班'},
+                                    {value:'私教冲刺班',text:'私教冲刺班'})
+                                                    componento.combobox("loadData", data);                
+                                                    componento.combobox('setValue', rowData.class_type);
+                            var data1 = [];
+                            data1.push({value:'',text:'all'},{value:'首次',text:'首次'},
+                                                    {value:'定金',text:'定金'},
+                                                    {value:'定金补费',text:'定金补费'},
+                                                    {value:'转介绍',text:'转介绍'},
+                                                    {value:'升班',text:'升班'},
+                                                    {value:'代报名补费',text:'代报名补费'},)
+                                                        component1.combobox("loadData", data1);                
+                                                    componento.combobox('setValue', rowData.sign_type);
+                         }else{
+                            var data = [];
+                            componento.combobox("loadData", data);                
+                            componento.combobox('setValue', rowData.class_type);
+                            var data1 = [];
+                            component1.combobox("loadData", data1);                
+                            component1.combobox('setValue', rowData.sign_type);
+                         }
+                       }
+                    }
+                }
+            },{
+                field:'section_two',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'1',text:'1'},{value:'0',text:'0'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_two');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_two',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_three',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'1',text:'1'},{value:'0',text:'0'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_three');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_three',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'education',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'高中（中专或同等学历）',text:'高中（中专或同等学历）'}
+                                ,{value:'大专、高职（或同等学历）',text:'大专、高职（或同等学历）'},{value:'本科',text:'本科'}
+                                ,{value:'硕士',text:'硕士'},{value:'博士及以上学历',text:'博士及以上学历'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'education');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'education',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_one_first',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'}
+                                ,{value:'201804',text:'201804'},{value:'201805',text:'201805'}
+                                ,{value:'201806',text:'201806'},{value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'2019考期',text:'2019考期'},],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_one_first');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_one_first',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_one_second',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'}
+                                ,{value:'201804',text:'201804'},{value:'201805',text:'201805'}
+                                ,{value:'201806',text:'201806'},{value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'2019考期',text:'2019考期'},],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_one_second');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_one_second',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_one_third',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'}
+                                ,{value:'201804',text:'201804'},{value:'201805',text:'201805'}
+                                ,{value:'201806',text:'201806'},{value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'2019考期',text:'2019考期'},],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_one_third');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_one_third',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'first_money',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'195',text:'195'}
+                                ,{value:'130',text:'130'},{value:'65',text:'65'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'first_money');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'first_money',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_two_first',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'}
+                                ,{value:'201804',text:'201804'},{value:'201805',text:'201805'}
+                                ,{value:'201806',text:'201806'},{value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'2019考期',text:'2019考期'},],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_two_first');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_two_first',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_two_second',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'}
+                                ,{value:'201804',text:'201804'},{value:'201805',text:'201805'}
+                                ,{value:'201806',text:'201806'},{value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'2019考期',text:'2019考期'},],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_two_second');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_two_second',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_two_third',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'}
+                                ,{value:'201804',text:'201804'},{value:'201805',text:'201805'}
+                                ,{value:'201806',text:'201806'},{value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'2019考期',text:'2019考期'},],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_two_third');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_two_third',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'second_money',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'195',text:'195'}
+                                ,{value:'130',text:'130'},{value:'65',text:'65'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'second_money');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'second_money',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_three_first',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'}
+                                ,{value:'201804',text:'201804'},{value:'201805',text:'201805'}
+                                ,{value:'201806',text:'201806'},{value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'2019考期',text:'2019考期'},],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_three_first');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_three_first',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_three_second',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'}
+                                ,{value:'201804',text:'201804'},{value:'201805',text:'201805'}
+                                ,{value:'201806',text:'201806'},{value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'2019考期',text:'2019考期'},],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_three_second');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_three_second',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'section_three_third',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'201803',text:'201803'}
+                                ,{value:'201804',text:'201804'},{value:'201805',text:'201805'}
+                                ,{value:'201806',text:'201806'},{value:'201807',text:'201807'},
+                                {value:'201809',text:'201809'},{value:'201810',text:'201810'},
+                                {value:'201811',text:'201811'},{value:'2019考期',text:'2019考期'},],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'section_three_third');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'section_three_third',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            },{
+                field:'third_money',
+                type:'combobox',
+                options:{
+                    panelHeight:'auto',
+                    data:[{value:'',text:'All'},{value:'195',text:'195'}
+                                ,{value:'130',text:'130'},{value:'65',text:'65'}],
+                    onChange:function(value){
+                        if (value == ''){
+                           dg.datagrid('removeFilterRule', 'third_money');
+                        } else {
+                            dg.datagrid('addFilterRule', {
+                                field: 'third_money',
+                                op: 'equal',
+                                value: value
+                            });
+                        }
+                        dg.datagrid('doFilter');
+                    }
+                }
+            }
+            ]);
+        });
+        function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel,Arr) {
+            var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData)
+					: JSONData;
+ 
+			var CSV = '';
+			if (ShowLabel) {
+				var row = "";
+				for ( var item in Arr) {
+            console.log(Arr[item])
+					row +=Arr[item] + ',';
+				}
+                row = row.slice(0, -1);
+				CSV += row + '\r\n';
+			}
+            console.log(CSV)
+			//1st loop is to extract each row
+			for (var i = 0; i < arrData.length; i++) {
+                var row = "";
+                for ( var index in arrData[i]) {
+					row += '"' + arrData[i][index] + '",';
+				}
+ 
+				row.slice(0, row.length - 1);
+                CSV += row + '\r\n';
+                
+			}
+            console.log(arrData)
+			if (CSV == '') {
+				return;
+			}
+            var fileName = "MyReport_";
+            fileName += ReportTitle.replace(/ /g, "_");
+			var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(CSV);
+			var link = document.createElement("a");
+			link.href = uri;
+			link.style = "visibility:hidden";
+			link.download = fileName + ".xlsx";
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		}
+
+    </script>
+    <script>
+        
+var scrollDiv = document.getElementById("scrollDiv");
+ 
+    var element =  document.getElementById('data');
+ 
+    document.addEventListener('DOMMouseScroll',handler,false)
+    document.addEventListener('mousewheel',handler,false)
+    function handler(event){
+		var detail = event.wheelDelta || event.detail;
+		var moveForwardStep = 1;
+		var moveBackStep = -1;
+		var step = 0;	
+		if(detail > 0){
+				step = moveForwardStep*100;
+		}else{
+			step = moveBackStep * 100;
+		}
+			
+        element.scrollLeft += step;	
+        console.log(element.scrollLeft)
+ 
+	}  
+    </script>
+    <script>
+        $(window).mousewheel(function(event, delta) { 
+            var left=$('.datagrid-body')[1]. scrollLeft; 
+            event.preventDefault();
+            $('.datagrid-body')[1]. scrollLeft -= delta * 100
+            }) 
+    </script>
+    
+    </body>
+    </html>

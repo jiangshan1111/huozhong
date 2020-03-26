@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/studentcontract.css">
+       <style>
+     input[type = button] {
+    width: auto;
+    /* position: absolute; */
+    bottom: 20px;
+    right: 2%;
+    color: white;
+    background: #e16b47;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 10px;
+}
+.unusualTable{
+    border-collapse: collapse;
+    width: 1211px;
+    overflow:hidden;
+}
+.unusualTable span{
+    float: left;
+    border:1px solid rgb(200,200,200);
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.unusualTable span:nth-of-type(2n){
+    color: red;
+    border-left: none;
+    border-right: none;
+    word-wrap:break-word;
+    overflow: auto;
+}
+.unusualTable span:nth-of-type(10n),.unusualTable span:last-of-type{
+    border-right:1px solid rgb(200,200,200);
+}
+           /* input[name = poll-content]{
+                float: left;
+                width:50%;
+                height:36px;
+                margin-top:4px;
+                margin-left:3px;
+                padding: 0;
+           }
+           .stu-font{
+               font-size: 16px;
+           }
+           .payimg{
+               width:30%;
+           }
+           .contract{
+                margin-top:50px;
+                border: 1px solid rgb(200,200,200);
+                box-shadow: 0px 6px 6px rgb(200,200,200);
+                padding:20px 5%;
+           }
+           @media screen and (max-width:1000px){
+                h1{
+                    font-size: 25px;
+                }
+                input[name = poll-content]{
+                    width:30%;
+                }
+                .stu-font{
+                    font-size: 12px;
+                }
+                .payimg{
+                    width:62%;
+                }
+                .contract{
+                    margin-top:0px;
+                    border: none;
+                    box-shadow: none;
+                    padding:0;
+                   }
+           }
+           .contract input,.modelstur input{
+               padding: 0 !important;
+           }
+           input[type = button]{
+               padding: 10px 20px !important;
+           }
+           .cachet>div{
+               position:relative;
+           }
+           .cachet>div img{
+               position: absolute;
+               right:30px;
+           }
+           body,html{
+               width:auto;
+           }
+           .modelstu-body a{
+                float: left;
+                width: 90%;
+                border: 1px solid rgb(210,210,210);
+                line-height: 40px;
+                border-bottom: none;
+                margin: auto 5%;
+           }
+           .modelstu-body a:last-of-type{
+                border-bottom: 1px solid rgb(210,210,210);
+                margin-bottom: 20px;
+           } */
+           input[name = poll-content]{
+                float: left;
+                width:50%;
+                height:36px;
+                margin-top:4px;
+                margin-left:3px
+           }
+           input[type = text]{
+               padding: 0
+           }
+           .stu-font{
+               font-size: 16px;
+           }
+           .contract{
+                margin-top:50px;
+                border: 1px solid rgb(200,200,200);
+                box-shadow: 0px 6px 6px rgb(200,200,200);
+                padding:20px 5%;
+           }
+           .modelstu-body a{
+                float: left;
+                width: 30%;
+                border: 1px solid rgb(210,210,210);
+                line-height: 40px;
+                /* border-bottom: none; */
+                margin-left:2% ;
+           }
+           .modelstu-body a:last-of-type{
+            border-bottom: 1px solid rgb(210,210,210);
+            margin-bottom: 20px;
+           }
+           @media screen and (max-width:1000px){
+           		h1{
+                    font-size: 25px;
+                }
+                input[name = poll-content]{
+                    width:30%;
+                }
+                .contract{
+		           	margin-top: 0px;
+		           }
+                .stu-font{
+                    font-size: 12px;
+                }
+                .modelstu-body a{
+	            float: left;
+	            width: 30%;
+	            border: 1px solid rgb(210,210,210);
+	            line-height: 40px;
+	            margin-left: 2%;
+	           }
+	           .contract{
+                    margin-top:0px;
+                    border: none;
+                    box-shadow: none;
+                    padding:0;
+                   }
+           }
+           /* .contract input,.aaa input{
+               padding: 0 !important;
+               height: 40px;
+               width: 30%;
+               margin-left: 2%;
+           } */
+           .cachet>div{
+               position:relative;
+           }
+           .cachet>div img{
+               position: absolute;
+               right:30px;
+           }
+           body,html{
+               width:auto;
+           }
+           .aaa table{
+            border-collapse: collapse;
+            border: 1px solid rgb(204,204,204);
+            width: 90%;
+            margin: 0 auto;
+           }
+           .aaa td{
+            border: 1px solid rgb(204,204,204);
+            text-align: center;
+            width: 33.3%;
+            height: 40px;
+           }
+           .contract p{
+               margin-top: 10px;
+           }
+           input[name = poll-content]{
+                float: left;
+                width:50%;
+                height:36px;
+                margin-top:4px;
+                margin-left:3px
+           }
+           input[type = text]{
+               padding: 0
+           }
+           .stu-font{
+               font-size: 16px;
+           }
+           .contract{
+                margin-top:50px;
+                border: 1px solid rgb(200,200,200);
+                box-shadow: 0px 6px 6px rgb(200,200,200);
+                padding:20px 5%;
+           }
+           .modelstu-body a{
+                float: left;
+                width: 30%;
+                border: 1px solid rgb(210,210,210);
+                line-height: 40px;
+                /* border-bottom: none; */
+                margin-left:2% ;
+           }
+           .modelstu-body a:last-of-type{
+            border-bottom: 1px solid rgb(210,210,210);
+            margin-bottom: 20px;
+           }
+           @media screen and (max-width:1000px){
+           		h1{
+                    font-size: 25px;
+                }
+                input[name = poll-content]{
+                    width:30%;
+                }
+                .contract{
+		           	margin-top: 0px;
+		           }
+                .stu-font{
+                    font-size: 12px;
+                }
+                .modelstu-body a{
+	            float: left;
+	            width: 30%;
+	            border: 1px solid rgb(210,210,210);
+	            line-height: 40px;
+	            margin-left: 2%;
+	           }
+	           .contract{
+                    margin-top:0px;
+                    border: none;
+                    box-shadow: none;
+                    padding:0;
+                   }
+           }
+           .modelstur .contract input,.aaa input{
+               padding: 0 !important;
+               height: 40px;
+               width: 30%;
+               margin-left: 2%;
+           }
+           .modelstur  input[type = button]{
+               padding: 10px 20px !important;
+           }
+           .cachet>div{
+               position:relative;
+           }
+           .cachet>div img{
+               position: absolute;
+               right:30px;
+           }
+           body,html{
+               width:auto;
+           }
+           .aaa table{
+            border-collapse: collapse;
+            border: 1px solid rgb(204,204,204);
+            width: 90%;
+            margin: 0 auto;
+           }
+           .aaa td{
+            border: 1px solid rgb(204,204,204);
+            text-align: center;
+            width: 33.3%;
+            height: 40px;
+           }
+       </style>
+</head>
+<body>
+    <msg>
+        <img aeskey="e2a55ed6bbd76d7e966e0c0e2be6eb12" encryver="0" cdnthumbaeskey="e2a55ed6bbd76d7e966e0c0e2be6eb12" cdnthumburl="3053020100044c304a0201000204b43d81ea02032f4f5602046c7ac2dc02045ce95bc50425617570696d675f343635303235326436393236643637375f313535383739373235323839310204010438010201000400" cdnthumblength="3886" cdnthumbheight="120" cdnthumbwidth="68" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="3053020100044c304a0201000204b43d81ea02032f4f5602046c7ac2dc02045ce95bc50425617570696d675f343635303235326436393236643637375f313535383739373235323839310204010438010201000400" length="27284" cdnbigimgurl="3053020100044c304a0201000204b43d81ea02032f4f5602046c7ac2dc02045ce95bc50425617570696d675f343635303235326436393236643637375f313535383739373235323839310204010438010201000400" hdlength="318518" md5="cb70fd509edba7a4b1ace0e59dad4111" />
+       </msg>
+    <div class="contract"style="width:80%;margin:20px auto">
+        <span class="stu-font" style="width:22%;margin-top:4px;float:left;height:40px;line-height:40px">合同编号：</span>
+        <input  style="" type="text" name="poll-content">
+        <button class="poll-button" style="padding:5px 15px;margin-top:4px;height:40px;background: #42b983;
+        border: none;
+        margin-left:30px;
+        color: white;cursor:pointer">查询</button>
+        <img aeskey="e2a55ed6bbd76d7e966e0c0e2be6eb12" encryver="0" cdnthumbaeskey="e2a55ed6bbd76d7e966e0c0e2be6eb12" cdnthumburl="3053020100044c304a0201000204b43d81ea02032f4f5602046c7ac2dc02045ce95bc50425617570696d675f343635303235326436393236643637375f313535383739373235323839310204010438010201000400" cdnthumblength="3886" cdnthumbheight="120" cdnthumbwidth="68" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="3053020100044c304a0201000204b43d81ea02032f4f5602046c7ac2dc02045ce95bc50425617570696d675f343635303235326436393236643637375f313535383739373235323839310204010438010201000400" length="27284" cdnbigimgurl="3053020100044c304a0201000204b43d81ea02032f4f5602046c7ac2dc02045ce95bc50425617570696d675f343635303235326436393236643637375f313535383739373235323839310204010438010201000400" hdlength="318518" md5="cb70fd509edba7a4b1ace0e59dad4111" />
+    </div>
+        
+    <div id="unusual_info" class="contract container-fluid" style="border:none;box-shadow:none;width:1211px;position:relative;margin:0 auto;text-align:left;padding: 20px">
+        <!-- <div>
+            <p>换科</p>
+            <a href="javascript:void(0)" class="plcnew">aaaaa</a>
+            <a href="javascript:void(0)" class="plcnew">aaaaa</a>
+        </div>
+        <div>
+            <p>升班</p>
+            <a href="javascript:void(0)" class="plcnew">aaaaa</a>
+            <a href="javascript:void(0)" class="plcnew">aaaaa</a>
+        </div>
+        <div>
+            <p>续保</p>
+            <a href="javascript:void(0)" class="plcnew">aaaaa</a>
+            <a href="javascript:void(0)" class="plcnew">aaaaa</a>
+        </div> -->
+    </div>
+    <div class="modelplc">
+
+            <form class="modelstur" id="contractleft" action="" enctype="multipart/form-data" onsubmit="return false;">
+                <!-- <input type="text" name="hehe"> -->
+                <div class="modelstur-head">
+                  <p style="color:#42b983">分配</p>
+                  <button class="plcx">X</button>
+              </div>
+              <div class="modelstu-body">
+                  <div class="monumber"><span>班主任：</span>
+                    <select name="contract_teacher" id="">
+                        <option value=" ">请选择</option>
+                        <option value="wed">wed</option>
+                        <option value="wedq">wedq</option>
+                        <option value="wede">wede</option>
+                        <option value="wedr">wedr</option>
+                        <option value="wedt">wedt</option>
+                        <option value="w">w</option>
+                        <option value="q">q</option>
+                        <option value="e">e</option>
+                        <option value="r">r</option>
+                        <option value="t">t</option>
+                    </select>
+                    </div>
+                    <div class="monumber">
+                        <span>搜索小组：</span>
+                        <select name="contract_group" id="">
+                            <option value="">请选择</option>
+                            <option value="wed">wed</option>
+                            <option value="wedq">wedq</option>
+                            <option value="wede">wede</option>
+                            <option value="wedr">wedr</option>
+                            <option value="wedt">wedt</option>
+                        </select>
+                        </div>
+                    <div class="monumber">
+                        <span>搜索：</span>
+                        <input type="text" name="contract_name">
+                        </div>
+                    <input type="button" class="Audit" value="确定" style="margin-top:30px;padding:5px 15px;height:40px;background: #42b983;
+                    border: none;
+                    color: white;cursor:pointer">
+              </div>
+            </form>
+          
+        </div>
+    <div class="modelplc">
+            <div class="modelstur">
+                <div class="modelstur-head">
+                    <p style="color:#42b983">支付信息</p>
+                    <button class="payx">X</button>
+                </div>
+                <div class="modelstu-body aaa">
+                    <table style="">
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <div class="modelgiveup">
+        <div class="modelstur">
+          <div class="modeltable-head">
+              <p style="color:#42b983">审核</p>
+              <button class="Audix">X</button>
+          </div>
+          <div class="modeldel-body">
+            <div class="monumber">
+                <span>审核状态：</span>
+                <select name="Audit_status" id="">
+                    <option value="通过">通过</option>
+                    <option value="不通过">不通过</option>
+                </select>
+            </div>
+            <div class="monumber back_reason" style="display:none">
+                <span>不通过原因：</span>
+                <select name="back_reason" id="">
+                    <option value="支付时间不对">支付时间不对</option>
+                    <option value="公司名称不对">公司名称不对</option>
+                    <option value="支付方式不对">支付方式不对</option>
+                    <option value="金额不对">金额不对</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+            <div class="monumber back_reason_note" style="display:none">
+                <span>其他原因：</span>
+                <input style="padding:0;height:36px" name="back_reason_note" type="text">
+            </div>
+            <div class="monumber">
+                    <p class="Auditp" style="color:#42b983;">hehe</p>
+                  <button id="Audit" class="Audit" style="padding:0px 30px">确定</button>
+            </div>
+          </div>
+        </div>
+        
+        
+    </div>
+    <div class="modelplc" style="">
+        <div class="modelstur">
+            <div class="modelstur-head">
+                <p style="color:#42b983">支付截图</p>
+                <button class="payx">X</button>
+            </div>
+            <div class="modelstu-body aaa">
+                
+            </div>
+            
+        </div>
+        <div class="hoverimg" style="display:none;position:absolute;top:0%;left:-50%;background-color:black;width:150%;height:200%;z-index:999;padding-left:100%;">
+                <img src="img/banner_01.jpg" style="width:300px;margin-left:-150px;margin-top:30px" alt="">
+                <div class="hover-message" style="position:absolute;top:0;width:300px;text-align:center;margin-left:-150px;color:white;line-height:30px">
+                    
+                </div>
+            </div>  
+    </div>
+</body> 
+<script src="js/jquery-3.3.1.js"></script>
+<script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    $('.payx').click(function(){
+            $('.modelplc')[2].style.display = "none"
+    })
+    var data = {"\u9000\u8d39":{"bp_reason":"\u524d\u7aef\u539f\u56e0","bp_desc":"123","did":2,"bp_price":"-123.00","type":"\u9000\u8d39","bp_account":"\u6263\u6d41\u6c34","pay_way":"\u94f6\u884c\u5361","bank_num":"123","back_name":"12322222222222222222222222222222222222222222222","bank_khh":"123","apaly_num":null,"bcak_time":"2019-01-28 17:20:40","is_status":0,"stu_name":"\u9ad8\u6587\u4fca","mobile":"13780309641","payment":"[\"\\\/uploads\\\/2019-01-29\\\/20190129101057260.jpg\"]","tea_name":"\u6f58\u660e\u5cf0","belong_to":"\u5f20\u534e\u9896"},"\u51bb\u7ed3":{"frozen_time":"\u4e09\u4e2a\u6708","did":2,"do_time":"2019-04-08 16:54:24","payment":"[\"\\\/uploads\\\/2019-01-29\\\/20190129101057260.jpg\"]","is_status":0,"type":"\u51bb\u7ed3"},"\u91cd\u4fee":{"cx_province":"\u91cd\u5e86","did":2,"cx_city":"\u5927\u6e21\u53e3\u533a","payment":"[\"\\\/uploads\\\/2019-01-29\\\/20190129101057260.jpg\"]","cx_date":"201909","is_status":0,"type":"\u91cd\u4fee","section":""},"\u5956\u5b66\u91d1\u7533\u8bf7":{"sc_oneScore":1,"did":2,"sc_twoScore":1,"sc_threeScore":1,"type":"\u5956\u5b66\u91d1\u7533\u8bf7","sc_oneAttend":"1","sc_twoAttend":"1","sc_threeAttend":"1","price":"0.00","apaly_num":null,"back_name":"123","bank_num":"123","payment":"[\"\\\/uploads\\\/2019-01-29\\\/20190129101057260.jpg\"]","bank_khh":"123","sc_time":"2019-04-08 16:57:39","is_status":0},"\u57fa\u91d1\u6362\u79d1\u8865\u8d39":{"tran_id":69,"did":2,"mobile":"15203498360","data_type":"\u57fa\u91d1\u6362\u79d1\u8865\u8d39","stu_name":"\u6768\u6885","workyear":"","order_time":"2019-01-29 11:09:59","price":3242,"sex":null,"weixin":"","email":"","education":"","exam_province":"","exam_city":"","mail_num":"","proof_type":"","id_num":"","class_mobile":"","ergent_people":"","ergent_mobile":"","sign_type":"\u57fa\u91d1\u6362\u79d1\u8865\u8d39","instead_sign":null,"section":"\u79d1\u4e00","mail_address":"","payment":"[\"\\\/uploads\\\/2019-01-28\\\/20190128235840591.jpg\"]","is_status":0,"classType":"","belong_to":"\u6f58\u660e\u5cf0","tea_name":"\u6f58\u660e\u5cf0","order_status":"\u672a\u901a\u8fc7","check_name":222,"back_reason":"\u5185\u5bb9\u4e0d\u7b26","company":"","pay_way":"","pay_price":"0","exam_date":""},"\u7eed\u62a5":{"tran_id":70,"did":2,"mobile":"15203498360","data_type":"\u7eed\u62a5","stu_name":"\u6768\u6885","workyear":"","order_time":"2019-01-29 11:09:59","price":3242,"sex":"","weixin":"","email":"","education":"","exam_province":"","exam_city":"","mail_num":"","proof_type":"","id_num":"","class_mobile":"","ergent_people":"","ergent_mobile":"","sign_type":"\u7eed\u62a5","instead_sign":"","section":"\u79d1\u4e00","mail_address":"","payment":"[\"\\\/uploads\\\/2019-01-28\\\/20190128235840591.jpg\"]","is_status":0,"classType":"","belong_to":"\u6f58\u660e\u5cf0","tea_name":"\u6f58\u660e\u5cf0","order_status":"\u672a\u901a\u8fc7","check_name":222,"back_reason":"\u5185\u5bb9\u4e0d\u7b26","company":"","pay_way":"","pay_price":"0","exam_date":""},"\u5347\u73ed":{"tran_id":71,"did":2,"mobile":"15203498360","data_type":"\u5347\u73ed","stu_name":"\u6768\u6885","workyear":"","order_time":"2019-01-29 11:09:59","price":3242,"sex":"","weixin":"","email":"","education":"","exam_province":"","exam_city":"","mail_num":"","proof_type":"","id_num":"","class_mobile":"","ergent_people":"","ergent_mobile":"","sign_type":"\u5347\u73ed","instead_sign":"","section":"\u79d1\u4e00","mail_address":"","payment":"[\"\\\/uploads\\\/2019-01-28\\\/20190128235840591.jpg\"]","is_status":0,"classType":"","belong_to":"\u6f58\u660e\u5cf0","tea_name":"\u6f58\u660e\u5cf0","order_status":"\u672a\u901a\u8fc7","check_name":222,"back_reason":"\u5185\u5bb9\u4e0d\u7b26","company":"","pay_way":"","pay_price":"0","exam_date":""},"\u8f6c\u4ecb\u7ecd":{"tran_id":72,"did":2,"mobile":"15203498360","data_type":"\u8f6c\u4ecb\u7ecd","stu_name":"\u6768\u6885","workyear":"","order_time":"2019-01-29 11:09:59","price":3242,"sex":"","weixin":"","email":"","education":"","exam_province":"","exam_city":"","mail_num":"","proof_type":"","id_num":"","class_mobile":"","ergent_people":"","ergent_mobile":"","sign_type":"\u8f6c\u4ecb\u7ecd","instead_sign":"","section":"\u79d1\u4e00","mail_address":"","payment":"[\"\\\/uploads\\\/2019-01-28\\\/20190128235840591.jpg\"]","is_status":0,"classType":"","belong_to":"\u6f58\u660e\u5cf0","tea_name":"\u6f58\u660e\u5cf0","order_status":"\u672a\u901a\u8fc7","check_name":222,"back_reason":"\u5185\u5bb9\u4e0d\u7b26","company":"","pay_way":"","pay_price":"0","exam_date":""}}
+    var datacon =
+        {"退费":
+            {"退费原因":"bp_reason",
+            "退费描述":"bp_desc",
+            "退费金额":"bp_price",
+            "退费追责":"bp_account",
+            "收款方式":"pay_way",
+            "收款账号":"apaly_time",
+            "开户姓名":"back_name",
+            "银行卡号":"bank_num",
+            "开户行":"bank_khh",
+            "退费时间":"bcak_time",
+            "截图":"",
+            "did":"did"}
+        ,"重修":
+            {"报考省份":"cx_provice",
+            "报考城市":"cx_city",
+            "考期":"cx_date",
+            "科目":"",
+            "重修时间":"bcak_time",
+            "截图":"cx_score_payment",
+            "did":"did"}
+        
+        ,"基金换科补费":
+            {"换科补费":"cx_score_payment",
+            "科目":"cx_score_payment",
+            "公司":"",
+            "支付方式":"",
+            "支付金额":"",
+            "did":"did"},
+        "奖学金":
+            {"科一成绩":"sc_oneScore",
+            "科二成绩":"sc_twoScore",
+            "科三成绩":"sc_threeScore",
+            "科一出勤率":"sc_oneAttend",
+            "科二出勤率":"sc_twoAttend",
+            "科三出勤率":"sc_threeAttend",
+            "奖学金金额":"price",
+            "收款账号":"apaly_num",
+            "开户姓名":"back_name",
+            "银行卡号":"bank_num",
+            "开户行":"bank_khh",
+            "申请":"sc_time",
+            "did":"did"},
+        "冻结":
+            {"冻结时长":"frozen_time",
+            "截图":"payment",
+            "操作时间":"do_time",
+            "did":"did"},
+        "else":{
+            "学员姓名":"stu_name",
+            "工作年限":"workyear",
+            "学员性别":"sex",
+            "微信":"weixin",
+            "邮箱":"email",
+            "学历":"education",
+            "邮寄地址":"mail_address",
+            "考试省份":"exam_province",
+            "考试省份":"exam_city",
+            "邮编":"mail_num",
+            "证件类型":"proof_type",
+            "证件号码":"id_num",
+            "课程号码":"class_mobile",
+            "紧急联系人":"ergent_people",
+            "紧急联系手机":"ergent_mobile",
+            "班型":"",
+            "科目":"section",
+            "报名类型":"sign_type",
+            "考期":"",
+            "班型价格":"",
+            "代报名":"instead_sign",
+            "截图":"payment",
+            "支付公司":"",
+            "支付方式":"",
+            "支付金额":"",
+            "did":"did"
+        }
+        };
+    var obj ={};
+    
+    for (var k in data) {
+        console.log(k)
+        obj[k]={};
+        for(var j in data[k]){
+            for(var p in datacon[k]){
+                if(j == datacon[k][p]){
+                    obj[k][p] = data[k][j];
+                }
+            }
+            for(var z in datacon['else']){
+                    if(j == datacon['else'][z]){
+                        obj[k][z] = data[k][j];
+                    }
+                }
+        }
+        if( k == "升班"){
+            for(var o in data[k]){
+                for(var z in datacon['else']){
+                    if(o == datacon['else'][z]){
+                        obj[k][z] = data[k][o];
+                    }
+                }
+            }
+        }
+    }
+    console.log(obj)
+    for(var k in obj){
+        
+        did = obj[k]['did'];console.log(did)
+    $('#unusual_info')[0].innerHTML +=`
+                      <div style="position:relative" style="">
+                        <p style = "color:red;font-weight:600">`+k+`<a href="#" style="margin-left:20px" class="paynew" data-type="`+k+`" data-tranid="`+did+`">支付截图</a><input type="button" class="plcnew" data-type="`+k+`" data-tranid="`+did+`" dclass="`+did+`" style="float:right" value="审核"  ></p>
+                        
+                        <div class="unusualTable" style="margin-bottom:30px" dclass="`+did+`">
+                             
+                        </div>
+                       
+                        </div>
+    ` ;
+    for(var j in obj[k]){
+        console.log(j,obj[k][j])
+        if(j == '截图' || obj[k][j] == ""){
+            // $("input[dclass =" +did+"]").before(`<a href="javascript:void(0)" class="paynew">`+obj[k][j]+`</a>`)
+        }else{
+            $("div[dclass =" +did+"]").append(`<span>`+j+`：</span><span>`+obj[k][j]+`</span>`)
+        }
+    }
+    var datacon = ""
+    $('.paynew').click(function(){
+        _this = $(this)
+        $.ajax({
+            url:'',
+            type:'get',
+            data:{tran_id:'2'},
+            // data_type:'json',
+            success:function(data){
+                // console.log(data)
+                $('.aaa')[1].innerHTML = ''
+                data = [{"image":"\/uploads\/2019-03-19\/201903191723572140.jpg","company":"\u5317\u4eac\u667a\u6c47\u706b\u79cd\u6559\u80b2\u79d1\u6280\u6709\u9650\u516c\u53f8","pay_way":"\u5fae\u4fe1","money":100},{"image":"\/uploads\/2019-03-19\/201903191723573345.jpg","company":"\u5317\u4eac\u521b\u777f\u9020\u667a\u6559\u80b2\u79d1\u6280\u6709\u9650\u516c\u53f8","pay_way":"\u5fae\u4fe1","money":100}];
+                
+                datacon = data;
+                console.log(datacon)
+                console.log(_this.attr('data-type'),$('.aaa')[0].innerHTML)
+                if(_this.attr('data-type') == "转介绍"){
+                    for (let i = 0; i < data.length; i++) {
+                        $('.aaa')[1].innerHTML+=`<a href="javascript:void(0)" data-message="`+data[i].company+'-'+data[i].pay_way+'-'+data[i].money+`" ref="`+data[i].image+`" data-img='1941625杨志坤定金.jpg'>`+data[i].image.split("/")[data[i].image.split("/").length -1]+`</a><input placeholder="请填写流水号" class="moneyNumber" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,'');}).call(this)" type="text"><input type="text" placeholder="请填写日期" onClick="" class="ggg">`
+                    }
+                }else{
+                    for (let i = 0; i < data.length; i++) {
+                        $('.aaa')[1].innerHTML+=`<a href="javascript:void(0)" style="    display:block;float: none;margin: 10px auto;" data-message="`+data[i].company+'-'+data[i].pay_way+'-'+data[i].money+`" ref="`+data[i].image+`" data-img='1941625杨志坤定金.jpg'>`+data[i].image.split("/")[data[i].image.split("/").length -1]+`</a>`
+                    }
+                    // $('.aaa')[1].innerHTML = `
+                    //     <a href="javascript:void(0)"id="f31d171260d9cab8bfe90f9edf9e9f3d" data-message="北京智汇火种教育科技有限公司-微信-3880" ref="http://new.huozhongedu.com/img/payment/6363410杨志坤补费.jpg" data-img='6363410杨志坤补费.jpg'>d729</a>`
+                }
+                
+                $('.aaa a').click(function(e){
+                    console.log($(this).attr('ref'))
+                    if(suo==true){
+                        $('.hoverimg')[0].style.display = "block";
+                        $('.hoverimg img').attr('src',$(this).attr('ref'));
+                        $('.hover-message')[0].innerText = $(this).attr('data-message');
+                        suo = false;
+                        setTimeout(function(){
+                            suo = true;
+                            
+                        },1500);
+                    }
+                })
+                $('.ggg').on('click',function(){
+                    if($(this).prev().val() == ""){
+                        $(this).prev().focus();
+                    }else{
+                        WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})
+                    }
+                })
+            },
+            error:function(){
+
+            }
+        })
+        $('.modelplc')[2].style.display = "block"
+        $('.modelplc input[type = text]').val('')
+        locka = 0;
+        
+    })
+    console.log($(".re_info"+k))
+    
+  }
+  $(".plcnew").click(function(){
+        console.log($(this).attr('dclass'));
+        localStorage.adid = $(this).attr('dclass')
+        localStorage.type = $(this).attr('data-type')
+        localStorage.tran_id = $(this).attr('data-tranid');
+    })
+    console.log(data,obj)
+   
+    $('.moneyNumber').on('blur',function(){
+        var moneyNumber = $(this).val();
+        $.ajax({
+                url:'moneyNumber',
+                type:'post',
+                data:{moneyNumber:moneyNumber},
+                success:function(data){
+                    $('.moneyNumberp').text(`此流水号已存在`)
+                },
+                error:function(){
+                    $('.moneyNumberp').text(`服务器错误`)
+                }
+            })
+    })   
+        $('.payx').click(function(){
+            $('.modelplc')[1].style.display = "none"
+            })
+    
+    var suo = true;
+    
+    $('.hoverimg').click(function(){
+        $('.hoverimg')[0].style.display = "none";
+    })
+    //
+    var in_time;
+    $('.Audix').click(function(){
+        $('.modelgiveup')[0].style.display = 'none';
+    })
+    $('select[name = Audit_status]').on('change',function(){
+        if($(this).val() == "不通过"){
+            $('.back_reason')[0].style.display = "block"
+        }else{
+            $('.back_reason')[0].style.display = "none"
+            $('.back_reason_note')[0].style.display = "none"
+        }
+    })
+    $('select[name = back_reason]').on('change',function(){
+        if($(this).val() == "其他"){
+            $('.back_reason_note')[0].style.display = "block"
+        }else{
+            $('.back_reason_note')[0].style.display = "none"
+        }
+    })
+    //提交支付截图信息
+    $('.paysubmit').click(function(){
+        $('.modelplc')[1].style.display = "none"
+    })
+
+    function optnme(q){
+        var arr1 = [];
+        var arr2 = [];
+        var objopt = {}
+        for (let i = 0; i < q[0].length; i++) {
+            arr1.push( q[0][i].value);
+            arr2.push(q[0][i].innerHTML);
+                
+        }
+        for (var j = 0; j < arr1.length; j++) {
+            objopt[arr1[j]] = arr2[j]
+               
+        }
+        return objopt
+    }
+    var objoptw = optnme($('select[name=contract_teacher]'))
+    
+    function heheh(){
+    $('select[name=contract_teacher]')[0].innerHTML = ""
+    for(var k in objoptw){
+        console.log(k)
+        if(objoptw[k].indexOf ($('select[name=contract_group]').val())> -1 &&objoptw[k].indexOf($('input[name=contract_name]').val())> -1){
+            $('select[name=contract_teacher]')[0].innerHTML += "<select name='contract_teacher'>"
+                +"<option value="+k+">"+objoptw[k]+"</option>"+"</select>"
+            }
+        }
+    }
+    $('input[name=contract_name]').on('keyup',function(){
+        heheh()
+    });
+    $('select[name=contract_group]').on('change',function(){
+        heheh()
+    });
+    $('.plcnew').click(function(){
+        $('.modelgiveup')[0].style.display = "block"
+    })
+    $('.plcx').click(function(){
+        $('.modelplc')[0].style.display = "none"
+    })
+
+    //查看支付截图
+
+    
+    var Href = location.href.split('?')[1];
+    console.log(Href)
+    if(Href == undefined){
+        $('input[name = poll-content]').val('')
+    }else{
+        $('input[name = poll-content]').val(Href.split('=')[1])
+    }
+    $('.poll-button').click(function(){
+        window.location.href = "pollingOfContract.html?content="+$('input[name = poll-content]').val();
+        localStorage.did = $('input[name = poll-content]').val();
+    })
+    $('.Audit').click(function(){
+        
+        console.log(localStorage.type)
+        if($('select[name = Audit_status]').val() == '通过'){
+            console.log(datacon)
+        var unique_key=[],payment = [],obj = {};
+        var Href =localStorage.did;
+        $('.aaa a').each(function(index,el){
+            unique_key.push($(el).attr('id'))
+            payment.push($(el).attr('ref'))
+        })
+        if(localStorage.type == "转介绍"){
+            if($('.aaa input')[0] == undefined || $('.aaa input')[0].value == ""){
+                $('.Auditp')[0].innerHTML = "请填写支付截图信息"
+                return;
+            }
+            var Max_time =new Date($('.aaa input')[0].value).getTime();
+            console.log(Max_time)
+            for (let i = 0; i < datacon.length; i++) {
+                datacon[i].money_num = $('input[class = moneyNumber]').val()
+                datacon[i].pay_date = $('input[class = ggg]').val()
+            }
+            $('.aaa input').each(function(index,el){
+                if($(el).attr('class') == "moneyNumber"){
+
+                }else if($(el).attr('class') == "ggg"){
+                    Max_time = Math.max(Max_time,new Date(el.value).getTime())
+                }
+                if(el.value == ""){
+                    Audit_go = false
+                }
+            })
+            var d = new Date(Max_time)
+            console.log(d)
+            in_time=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+            obj.tran_id = localStorage.tran_id
+            obj.unique_key = unique_key
+            obj.payment = datacon
+            obj.sign_time = in_time
+            obj.status = $('select[name = Audit_status]').val()
+            }else{
+                obj.tran_id = localStorage.tran_id
+                obj.status = $('select[name = Audit_status]').val()
+            }
+                $.ajax({
+                url:'',
+                type:'post',
+                data:obj,
+                success:function(data){
+                    if(data == 1){
+                        $('.Auditp')[0].innerHTML = "审核成功"
+                        $('.schoolcachet')[0].src = "img/offical111.jpg"
+                        $('.schoolcachet')[1].src = "img/offical111.jpg"
+                        setTimeout(function(){
+                        $('.Auditp')[0].innerHTML = ""
+                        },3000)
+                    }else{
+                        $('.Auditp')[0].innerHTML = "审核失败"
+                        setTimeout(function(){
+                        $('.Auditp')[0].innerHTML = ""
+                        },3000)
+                    }
+                },
+                error:function(){
+                    console.log($('.schoolcachet'))
+                    
+                    $('.Auditp')[0].innerHTML = "服务器错误"
+                    setTimeout(function(){
+                        $('.Auditp')[0].innerHTML = ""
+                    },3000)
+                }
+                })
+        }else{
+            $.ajax({
+                url:'',
+                type:'get',
+                data:{status : $('select[name = Audit_status]').val(),back_reason:$('select[name = back_reason]').val(),
+                      back_reason_note:$('input[name = back_reason_note]').val(),tran_id:localStorage.adid  },
+                success:function(){
+
+                },
+                error:function(){
+
+                }
+            })
+        }
+        
+        
+    })
+</script>
+</html>

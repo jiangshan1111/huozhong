@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>数据统计</title>
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <!-- <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen"> -->
+    <link href="css/styles.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/polling.css">
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <style>
+        @media (min-width: 1200px) {
+            .row-fluid .span4 {
+                width: 33.3%;
+            }
+        }
+
+        .hidd>div,
+        .hidd1>div,
+        .hidd2>div,
+        .hidd3>div,
+        .hidd4>div,
+        .hidd5>div,
+        .hidd6>div,
+        .hidd7>div,
+        .hidd8>div,
+        .hidd9>div,
+        .hidd10>div,
+        .hidd11>div,
+        .hidd13>div,
+        .hidd14>div,
+        .hidd15>div,
+        .hidd16>div,
+        .hidd17>div,
+        .hidd18>div,
+        .hidd19>div,
+        .hidd12>div {
+            float: left;
+            width: 50%;
+            text-align: center
+        }
+
+        #seaform>div>input,
+        #seaform1>div>input {
+            width: 49%;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body style="padding:0">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <!-- block -->
+            <div class="block">
+                <div class="span12" id="polling-header">
+                    <div class=" span12 " id="polling-header-top" style="overflow:hidden;margin-left: 0%;">
+                        <p class="polling-headerp" style="background-image: url('img/down.svg');"><span></span>查询条件</p>
+                    </div>
+                    <div class=" span12 " id="polling-header-body" style="overflow:hidden;margin-left: 0%;">
+                        <form style="position:relative" name="seaform" id="seaform">
+                            <p class="span12" style="    min-height: 20px;
+                                text-align: center">-- 时间 --</p>
+                            <div class="span4">
+                                <span>起始时间：</span><input class="Wdate" type="text"
+                                    onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="start_time"
+                                    placeholder="日期">
+                            </div>
+                            <div class="span4">
+                                <span>结束时间：</span><input class="Wdate" type="text"
+                                    onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="end_time"
+                                    placeholder="日期">
+                            </div>
+                            <div class="span4"><span>搜索条件：</span><select name="time_type" id="">
+                                    <option value="">自定义</option>
+                                    <option value="today">今天</option>
+                                    <option value="yesterday">昨天</option>
+                                    <option value="thisWeek">本周</option>
+                                    <option value="lastWeek">上周</option>
+                                    <option value="thisMonth">本月</option>
+                                    <option value="lastMonth">上月</option>
+                                </select></div>
+                            <p class="span12" style="    min-height: 20px;
+                                    text-align: center;margin-left: 0">-- 归属 --</p>
+                            <div class="span4" style="position:relative;" data-ig="project"><span>项目：</span><input
+                                    type="text" autocomplete="off" name="project">
+                                <div class="hidd2" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;消防</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;基金</span>
+                                    </div>
+                                </div>
+                                <!-- <select name="project" onchange="search_belong_army()" id="">
+                                    <option value="">请选择</option>
+                                    <option value="基金项目">基金项目</option>
+                                    <option value="消防项目">消防项目</option>
+                                </select> -->
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="belong_army"><span>前端军团：</span><input
+                                    type="text" autocomplete="off" name="belong_army">
+                                <div class="hidd3" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;消防</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;基金</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="belong_sector">
+                                <span>前端部门：</span><input type="text" autocomplete="off" name="belong_sector">
+                                <div class="hidd4" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;消防</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;基金</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="belong_group">
+                                <span>前端小组：</span><input type="text" autocomplete="off" name="belong_group">
+                                <div class="hidd5" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;消防</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;基金</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="belong_to"><span>前端属员：</span><input
+                                    type="text" autocomplete="off" name="belong_to" style="display: none"><input
+                                    type="text" autocomplete="off" class="belong_to">
+                                <div class="hidd6" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;消防</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;基金</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="teaname_army">
+                                <span>后端学院：</span><input type="text" autocomplete="off" name="teaname_army">
+                                <div class="hidd7" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;消防</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;基金</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="teaname_sector">
+                                <span>后端部门：</span><input type="text" autocomplete="off" name="teaname_sector">
+                                <div class="hidd14" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;投诉</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;建议</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;退费申请</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="tea_name_group">
+                                <span>后端小组：</span><input type="text" autocomplete="off" name="tea_name_group">
+                                <div class="hidd8" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;消防</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;基金</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="tea_name"><span>后端属员：</span><input
+                                    type="text" autocomplete="off" name="tea_name" style="display:none"><input
+                                    type="text" autocomplete="off" class="tea_name">
+                                <div class="hidd9" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;消防</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;基金</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4"><span>搜索条件：</span>
+                                <select name="data_condition" id="">
+                                    <option value="">自定义</option>
+                                    <option value="按项目">按项目</option>
+                                    <option value="按学院">按学院</option>
+                                    <option value="按后端小组">按后端小组</option>
+                                    <option value="按军团">按军团</option>
+                                    <option value="按部门">按部门</option>
+                                    <option value="按小组">按小组</option>
+                                    <option value="按属员">按属员</option>
+                                </select>
+                            </div>
+                            <p class="span12" style="    min-height: 20px;
+                                text-align: center;margin-left: 0">-- 客服归属 --</p>
+                            <div class="span4" style="position:relative;" data-ig="service_group"><span>小组：</span><input
+                                    type="text" autocomplete="off" name="service_group">
+                                <div class="hidd10" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;坐席(投诉建议)组</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;退挽组</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;退费组</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="service_uidstr">
+                                <span>属员：</span><input type="text" autocomplete="off" class="service_uidstr"><input
+                                    type="text" autocomplete="off" name="service_uidstr" style="display:none">
+                                <div class="hidd11" style="    display: none;
+                                width: 49%;
+                                position: absolute;
+                                top: 30px;
+                                z-index: 999;
+                                left: 30%;
+                                background: white;
+                                border: 1px solid rgb(219, 219, 219);
+                                border-radius: 5px;
+                                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;坐席(投诉建议)组</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;退挽组</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;退费组</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4"><span>搜索条件：</span><select name="service_condition" id="">
+                                    <option value="">自定义</option>
+                                    <option value="按部门">按部门</option>
+                                    <option value="按小组">按小组</option>
+                                    <option value="按属员">按属员</option>
+                                </select></div>
+                            <p class="span12" style="    min-height: 20px;
+                                    text-align: center;margin-left: 0">-- 数据 --</p>
+                            <div class="span4" style="position:relative;" data-ig="source"><span>来源：</span><input
+                                    type="text" autocomplete="off" name="source">
+                                <div class="hidd12" style="    display: none;
+                                        width: 49%;
+                                        position: absolute;
+                                        top: 30px;
+                                        z-index: 999;
+                                        left: 30%;
+                                        background: white;
+                                        border: 1px solid rgb(219, 219, 219);
+                                        border-radius: 5px;
+                                        padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;系统</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;投诉</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;面访</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;淘宝</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="type"><span>分类：</span><input
+                                    type="text" autocomplete="off" name="type">
+                                <div class="hidd13" style="    display: none;
+                                    width: 49%;
+                                    position: absolute;
+                                    top: 30px;
+                                    z-index: 999;
+                                    left: 30%;
+                                    background: white;
+                                    border: 1px solid rgb(219, 219, 219);
+                                    border-radius: 5px;
+                                    padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;投诉</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;建议</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;退费申请</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="com_target"><span>投诉对象：</span><input
+                                    type="text" autocomplete="off" name="com_target">
+                                <div class="hidd15" style="    display: none;
+                            width: 49%;
+                            position: absolute;
+                            top: 30px;
+                            z-index: 999;
+                            left: 30%;
+                            background: white;
+                            border: 1px solid rgb(219, 219, 219);
+                            border-radius: 5px;
+                            padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;招生老师</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;班主任</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;客服</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;授课老师</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="reason_big"><span>原因大类：</span><input
+                                    type="text" autocomplete="off" name="reason_big">
+                                <div class="hidd16" style="    display: none;
+                        width: 49%;
+                        position: absolute;
+                        top: 30px;
+                        z-index: 999;
+                        left: 30%;
+                        background: white;
+                        border: 1px solid rgb(219, 219, 219);
+                        border-radius: 5px;
+                        padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;自身原因</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;售前原因</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;售后原因</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;履行协议</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="reason_mid"><span>原因中类：</span><input
+                                    type="text" autocomplete="off" name="reason_mid">
+                                <div class="hidd17" style="    display: none;
+                    width: 49%;
+                    position: absolute;
+                    top: 30px;
+                    z-index: 999;
+                    left: 30%;
+                    background: white;
+                    border: 1px solid rgb(219, 219, 219);
+                    border-radius: 5px;
+                    padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;投诉</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;建议</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;退费申请</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="reason_sma"><span>原因小类：</span><input
+                                    type="text" autocomplete="off" name="reason_sma">
+                                <div class="hidd18" style="    display: none;
+                width: 49%;
+                position: absolute;
+                top: 30px;
+                z-index: 999;
+                left: 30%;
+                background: white;
+                border: 1px solid rgb(219, 219, 219);
+                border-radius: 5px;
+                padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;招生老师</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;班主任</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;客服</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;授课老师</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4" style="position:relative;" data-ig="classType"><span>班型：</span><input
+                                    type="text" autocomplete="off" name="classType">
+                                <div class="hidd19" style="    display: none;
+            width: 49%;
+            position: absolute;
+            top: 30px;
+            z-index: 999;
+            left: 30%;
+            background: white;
+            border: 1px solid rgb(219, 219, 219);
+            border-radius: 5px;
+            padding: 4px 6px;">
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;班级1</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;班级1</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;班级2</span>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                            style="display: inline;">&nbsp;班级3</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4"><span>去重：</span><select name="de-weight" id="">
+                                    <option value="">请选择</option>
+                                    <option value="是">是</option>
+                                    <option value="否">否</option>
+                                </select></div>
+                            <div class="span4"><span>搜索条件：</span><select name="data_condition" id="">
+                                    <option value="">请选择</option>
+                                    <option value="按来源">按来源</option>
+                                    <option value="按分类">按分类</option>
+                                    <option value="按投诉对象">按投诉对象</option>
+                                    <option value="按班型">按班型</option>
+                                    <option value="按原因大类">按原因大类</option>
+                                    <option value="按原因中类">按原因中类</option>
+                                    <option value="按原因小类">按原因小类</option>
+                                </select></div>
+                            <p class="span12" style="    min-height: 20px;
+                                        text-align: center;margin-left: 0">-- 周期 --</p>
+                            <div class="span4"><span>展示周期：</span><select name="cycle" id="">
+                                    <option value="">自定义</option>
+                                    <option value="按天">按天</option>
+                                    <option value="按周">按周</option>
+                                    <option value="按月">按月</option>
+                                    <option value="按年">按年</option>
+                                </select></div>
+                            <input type="button" class="reset" value="重置" style="margin-right:30px"></input>
+                            <input type="button" id="seasearch" class="seasearch" value="查询"></input>
+
+                        </form>
+                    </div>
+                    <div class=" span12 " id="polling-header-footer" style="margin:0;display:none">
+                        <div class="block-content collapse in">
+                            <div class="span12">
+                                <div style="overflow:auto">
+                                    <table id="datagrid5" title="数据统计列表" style="overflow:auto;"
+                                        data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                        <thead>
+                                            <tr class="content">
+                                                <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                                <th data-options="field:'counselor',width:80,align:'center'">咨询师</th>
+                                                <th data-options="field:'business_card',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">周期</th>
+                                                <th data-options="field:'chance',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">时间</th>
+                                                <th data-options="field:'return_visit',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">归属</th>
+                                                <th data-options="field:'return_visit_ratio',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">客服归属</th>
+                                                <th data-options="field:'visit_week',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">数据</th>
+                                                <th data-options="field:'visit_week_ratio',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">名片</th>
+                                                <th data-options="field:'sign_up',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">已联系</th>
+                                                <th data-options="field:'running_water',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">已联系已结案</th>
+                                                <th data-options="field:'sign_up_week',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">已联系已撤销</th>
+                                                <th data-options="field:'weekly_pin_turns',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">0级结案</th>
+                                                <th data-options="field:'pin_turns',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">初级结案</th>
+                                                <th data-options="field:'per_ticket_sales',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">中级结案</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">高级结案</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">特级结案</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">已联系未结案</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">已联系未撤销</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">0级未结案</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">初级未结案</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">中级未结案</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">高级未结案</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">特级未结案</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">联系率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">结案率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">0级结案率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">初级结案率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">中级结案率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">高级结案率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">特级结案率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">已联系未结案率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">投诉撤销率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">建议撤销率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">退挽成功率</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">申请金额</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">0级金额</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">初级金额</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">中级金额</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">高级金额</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">特级金额</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">总退费金额</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">申请arpu</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">0级arpu</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">初级arpu</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">中级arpu</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">高级arpu</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">特级arpu</th>
+                                                <th data-options="field:'marketing_efficiency',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">总退费arpu</th>
+                                                <!-- 
+                                                <th data-options="field:'did',width:90,align:'center',hidden:true">did
+                                                </th> -->
+
+                                            </tr>
+
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- </div> -->
+</body>
+<!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
+<script src="js/export.js"></script>
+<script type="text/javascript">
+    var jiagou = {"学员自身原因": {
+              "报名" : ["自己报名未成功","不符合报名条件","放弃报名/考试","未及时提供报名资料","提供了错误的报名资料","担心报名不合规","其他原因"],
+              "课程问题" : ["课程质量不满意","课程安排不满意","对授课老师不满意","太难学不会","没时间学习","其他原因"],
+              "定金问题" : ["交了定金之后不想学了","家人反对","其他原因"],
+              "身体原因" : ["自己身体不好","家人身体不好","其他原因"],
+              "挂靠/兼职问题" : ["单位不让挂靠/兼职","担心无法兼职/挂靠","其他原因"],
+              "申请证书问题" : ["担心无法注册申请证书","其他原因"],
+              "资金原因" : ["资金短缺","其他原因"],
+              "家庭原因" : ["家庭矛盾","其他原因"],
+              "负面新闻" : ["网上有看到负面新闻/差评","其他原因"],
+              "有其他学习渠道" : ["打算自学","在其他机构报名","其他原因"],
+              "促销活动" : ["促销活动班型降价","其他原因"],
+              "协议" : ["学员不愿提供电子签字","学校未能提供纸质版协议","其他原因"],
+              "邮寄资料问题" : ["旧版资料","盗版资料","未收到邮寄的资料","其他原因"],
+              "发票" : ["不开发票","发票类型不符合","其他原因"],
+              "联系不上" : ["长期无法被联系上"],
+            },
+            "售前原因": {
+              "服务态度" : ["招生老师骂人","招生老师态度差","其他原因"],
+              "过度承诺" : ["承诺有面授课","承诺挂靠/兼职具体合作单位名称","承诺奖学金与协议不符","承诺退费与协议不符","承诺服务期限与协议不符","承诺授课老师一对一","报名条件不符，但承诺可以报名","所选省份不能报名，但承诺可以报名","承诺新班型新开课","承诺上课时间与实际不符合","承诺补录学籍就是报名成功","承诺签挂靠/兼职合约","承诺开工作证明","承诺有电子版教材（新）","承诺纸质版教材（新）","承诺一次通过（新）","承诺一年拿证（新）","承诺不符合报名条件报不上可退费（新）","承诺有代报名服务（新）","其他原因"],
+              "夸大宣传" : ["承诺有真题/原题/答案","承诺不用学习可以考过","承诺保过/包过","使用官方、政府名义","承诺具体挂靠费金额（新）","其他原因"],
+              "私收费用" : ["私自收取学员费用","其他原因"],
+            },
+            "售后原因": {
+              "服务": ["班主任未及时开课","班主任在班当天未回复消息","班主任骂人","班主任服务态度差","客服态度差","客服骂人","长期无人联系","客服电话长期无人接听","其他原因"],
+              "报名": ["报名未缴费","报名报错城市","报名报错科目","报名照片上传错误","报名漏报","报名审核未通过","注册信息错误","其他原因"]
+            },
+             "履行协议": {
+              "符合协议条款": ["符合协议“一般退费”条款","符合协议“不过退费”条款","符合协议“挂靠退费”条款","符合协议“考过全额奖励”条款","其他原因"],
+            }};
+    $('.polling-headerp').click(function () {
+        if ($(this)[0].style.backgroundImage == 'url("img/down.svg")') {
+            console.log(1)
+            $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            $('#polling-header-body')[0].style.display = "none"
+        } else {
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#polling-header-body')[0].style.display = "block"
+        }
+    })
+    $('.reset').click(function () {
+        $("#seaform").find('input[type=text],select').each(function () {
+            $(this).val('');
+        });
+    })
+    //项目
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "project" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "project" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "project") {
+            $('.hidd2')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = project]')[0].value;
+            $('.hidd2')[0].style.display = "none";
+            $('input[name = project]').val('');
+            $('.hidd2 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = project]')[0].value += ',' + el.nextElementSibling.innerHTML.split(
+                        ';')[1]
+                }
+            })
+            $('input[name = project]')[0].value = $('input[name = project]')[0].value.substring(1);
+            var arr = $('input[name = project]')[0].value.split(',');
+            if (hhh != $('input[name = project]')[0].value) {
+                $.ajax({
+                    url: 'aa.php',
+                    type: 'get',
+                    data: {
+                        project: arr
+                    },
+                    success: function () {
+
+                    },
+                    error: function () {
+                        $('.hidd3')[0].innerHTML = ""
+                        var data = ['第一军团', '第二军团', '第三军团'];
+                        for (var k in data) {
+                            $('.hidd3')[0].innerHTML +=
+                                `<div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                                data[k] + `</span>
+                                            </div>`
+                        }
+                    }
+                })
+            }
+
+        }
+    })
+    //前端军团
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "belong_army" || $(e.target.parentElement
+                .parentElement)
+            .attr('data-ig') == "belong_army" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "belong_army") {
+            $('.hidd3')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = belong_army]')[0].value;
+            $('.hidd3')[0].style.display = "none";
+            $('input[name = belong_army]').val('');
+            $('.hidd3 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = belong_army]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = belong_army]')[0].value = $('input[name = belong_army]')[0].value.substring(1);
+            var arr = $('input[name = belong_army]')[0].value.split(',');
+            if (hhh != $('input[name = belong_army]')[0].value) {
+                $.ajax({
+                    url: 'aa.php',
+                    type: 'get',
+                    data: {
+                        belong_army: arr
+                    },
+                    success: function () {
+
+                    },
+                    error: function () {
+                        $('.hidd4')[0].innerHTML = ""
+                        var data = ['第一部门', '第二部门', '第三部门'];
+                        for (var k in data) {
+                            $('.hidd4')[0].innerHTML +=
+                                `<div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                                data[k] + `</span>
+                                            </div>`
+                        }
+                    }
+                })
+            }
+
+        }
+    })
+    //前端部门
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "belong_sector" || $(e.target.parentElement
+                .parentElement)
+            .attr('data-ig') == "belong_sector" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "belong_sector") {
+            $('.hidd4')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = belong_sector]')[0].value;
+            $('.hidd4')[0].style.display = "none";
+            $('input[name = belong_sector]').val('');
+            $('.hidd4 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = belong_sector]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = belong_sector]')[0].value = $('input[name = belong_sector]')[0].value.substring(1);
+            var arr = $('input[name = belong_sector]')[0].value.split(',');
+            if (hhh != $('input[name = belong_sector]')[0].value) {
+                $.ajax({
+                    url: 'aa.php',
+                    type: 'get',
+                    data: {
+                        belong_sector: arr
+                    },
+                    success: function () {
+
+                    },
+                    error: function () {
+                        $('.hidd5')[0].innerHTML = ""
+                        var data = ['第一小组', '第二小组', '第三小组'];
+                        for (var k in data) {
+                            $('.hidd5')[0].innerHTML +=
+                                `<div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                                data[k] + `</span>
+                                            </div>`
+                        }
+                    }
+                })
+            }
+
+        }
+    })
+    //前端小组
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "belong_group" || $(e.target.parentElement
+                .parentElement)
+            .attr('data-ig') == "belong_group" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "belong_group") {
+            $('.hidd5')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = belong_group]')[0].value;
+            $('.hidd5')[0].style.display = "none";
+            $('input[name = belong_group]').val('');
+            $('.hidd5 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = belong_group]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = belong_group]')[0].value = $('input[name = belong_group]')[0].value.substring(1);
+            var arr = $('input[name = belong_group]')[0].value.split(',');
+            if (hhh != $('input[name = belong_group]')[0].value) {
+                $.ajax({
+                    url: 'aa.php',
+                    type: 'get',
+                    data: {
+                        belong_group: arr
+                    },
+                    success: function () {
+
+                    },
+                    error: function () {
+                        $('.hidd6')[0].innerHTML = ""
+                        var data = [{
+                            user_name: '江山',
+                            uid: 1,
+                        }, {
+                            user_name: '江山1',
+                            uid: 2,
+                        }, {
+                            user_name: '江山2',
+                            uid: 3,
+                        }];
+                        for (var k in data) {
+                            $('.hidd6')[0].innerHTML +=
+                                `<div style="text-align:center">
+                                    <input type="checkbox" name="" id="" style="vertical-align: top;"><span data-uid="` +
+                                data[k].uid + `" style="display: inline;">&nbsp;` + data[k]
+                                .user_name + `</span></div>`
+                        }
+                    }
+                })
+            }
+
+        }
+    })
+    //前端属员
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "belong_to" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "belong_to" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "belong_to") {
+            $('.hidd6')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = belong_to]')[0].value;
+            $('.hidd6')[0].style.display = "none";
+            $('input[name = belong_to]').val('');
+            $('input[class = belong_to]').val('');
+            $('.hidd6 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[class = belong_to]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                    $('input[name = belong_to]')[0].value += ',' + $(el.nextElementSibling).attr(
+                        'data-uid')
+                }
+            })
+            $('input[class = belong_to]')[0].value = $('input[class = belong_to]')[0].value.substring(1);
+            $('input[name = belong_to]')[0].value = $('input[name = belong_to]')[0].value.substring(1);
+
+        }
+    })
+    //后端学院
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "teaname_army" || $(e.target.parentElement
+                .parentElement)
+            .attr('data-ig') == "teaname_army" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "teaname_army") {
+            $('.hidd7')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = teaname_army]')[0].value;
+            $('.hidd7')[0].style.display = "none";
+            $('input[name = teaname_army]').val('');
+            $('.hidd7 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = teaname_army]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = teaname_army]')[0].value = $('input[name = teaname_army]')[0].value.substring(1);
+            var arr = $('input[name = teaname_army]')[0].value.split(',');
+            if (hhh != $('input[name = teaname_army]')[0].value) {
+                $.ajax({
+                    url: 'aa.php',
+                    type: 'get',
+                    data: {
+                        teaname_army: arr
+                    },
+                    success: function () {
+
+                    },
+                    error: function () {
+                        $('.hidd14')[0].innerHTML = ""
+                        var data = [{
+                            name: '后端部门',
+                            uid: 1,
+                        }, {
+                            name: '后端部门1',
+                            uid: 2,
+                        }, {
+                            name: '后端部门2',
+                            uid: 3,
+                        }];
+                        for (var k in data) {
+                            $('.hidd14')[0].innerHTML +=
+                                `<div style="text-align:center">
+                                    <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                                data[k].name + `</span></div>`
+                        }
+                    }
+                })
+            }
+
+        }
+    })
+    //后端部门
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "teaname_sector" || $(e.target.parentElement
+                .parentElement)
+            .attr('data-ig') == "teaname_sector" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "teaname_sector") {
+            $('.hidd14')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = teaname_sector]')[0].value;
+            $('.hidd14')[0].style.display = "none";
+            $('input[name = teaname_sector]').val('');
+            $('.hidd14 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = teaname_sector]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = teaname_sector]')[0].value = $('input[name = teaname_sector]')[0].value.substring(
+                1);
+            var arr = $('input[name = teaname_sector]')[0].value.split(',');
+            if (hhh != $('input[name = teaname_sector]')[0].value) {
+                $.ajax({
+                    url: 'aa.php',
+                    type: 'get',
+                    data: {
+                        teaname_sector: arr
+                    },
+                    success: function () {
+
+                    },
+                    error: function () {
+                        $('.hidd8')[0].innerHTML = ""
+                        var data = [{
+                            name: '后端小组',
+                            uid: 1,
+                        }, {
+                            name: '后端小组1',
+                            uid: 2,
+                        }, {
+                            name: '后端小组2',
+                            uid: 3,
+                        }];
+                        for (var k in data) {
+                            $('.hidd8')[0].innerHTML +=
+                                `<div style="text-align:center">
+                                    <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                                data[k].name + `</span></div>`
+                        }
+                    }
+                })
+            }
+
+        }
+    })
+    //后端小组
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "tea_name_group" || $(e.target.parentElement
+                .parentElement)
+            .attr('data-ig') == "tea_name_group" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "tea_name_group") {
+            $('.hidd8')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = tea_name_group]')[0].value;
+            $('.hidd8')[0].style.display = "none";
+            $('input[name = tea_name_group]').val('');
+            $('.hidd8 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = tea_name_group]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = tea_name_group]')[0].value = $('input[name = tea_name_group]')[0].value.substring(
+                1);
+            var arr = $('input[name = tea_name_group]')[0].value.split(',');
+            if (hhh != $('input[name = tea_name_group]')[0].value) {
+                $.ajax({
+                    url: 'aa.php',
+                    type: 'get',
+                    data: {
+                        tea_name_group: arr
+                    },
+                    success: function () {
+
+                    },
+                    error: function () {
+                        $('.hidd9')[0].innerHTML = ""
+                        var data = [{
+                            name: '后端学员',
+                            uid: 1,
+                        }, {
+                            name: '后端学员1',
+                            uid: 2,
+                        }, {
+                            name: '后端学员2',
+                            uid: 3,
+                        }];
+                        for (var k in data) {
+                            $('.hidd9')[0].innerHTML +=
+                                `<div style="text-align:center">
+                                    <input type="checkbox" name="" id="" style="vertical-align: top;"><span data-id="` +
+                                data[k].uid + `" style="display: inline;">&nbsp;` + data[k].name +
+                                `</span></div>`
+                        }
+                    }
+                })
+            }
+
+        }
+    })
+    //前端属员
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "tea_name" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "tea_name" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "tea_name") {
+            $('.hidd9')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = tea_name]')[0].value;
+            $('.hidd9')[0].style.display = "none";
+            $('input[name = tea_name]').val('');
+            $('input[class = tea_name]').val('');
+            $('.hidd9 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[class = tea_name]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                    $('input[name = tea_name]')[0].value += ',' + $(el.nextElementSibling).attr(
+                        'data-uid')
+                }
+            })
+            $('input[class = tea_name]')[0].value = $('input[class = tea_name]')[0].value.substring(1);
+            $('input[name = tea_name]')[0].value = $('input[name = tea_name]')[0].value.substring(1);
+
+        }
+    })
+
+    //客服小组
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "service_group" || $(e.target.parentElement
+                .parentElement)
+            .attr('data-ig') == "service_group" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "service_group") {
+            $('.hidd10')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = service_group]')[0].value;
+            $('.hidd10')[0].style.display = "none";
+            $('input[name = service_group]').val('');
+            $('.hidd10 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = service_group]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = service_group]')[0].value = $('input[name = service_group]')[0].value.substring(1);
+            var arr = $('input[name = service_group]')[0].value.split(',');
+            if (hhh != $('input[name = service_group]')[0].value) {
+                $.ajax({
+                    url: 'aa.php',
+                    type: 'get',
+                    data: {
+                        service_group: arr
+                    },
+                    success: function () {
+
+                    },
+                    error: function () {
+                        $('.hidd11')[0].innerHTML = ""
+                        var data = [{
+                            name: '客服学员',
+                            uid: 1,
+                        }, {
+                            name: '客服学员1',
+                            uid: 2,
+                        }, {
+                            name: '客服学员2',
+                            uid: 3,
+                        }];
+                        for (var k in data) {
+                            $('.hidd11')[0].innerHTML +=
+                                `<div style="text-align:center">
+                                    <input type="checkbox" name="" id="" style="vertical-align: top;"><span data-uid="` +
+                                data[k].uid + `" style="display: inline;">&nbsp;` + data[k].name +
+                                `</span></div>`
+                        }
+                    }
+                })
+            }
+
+        }
+    })
+
+    //客服属员
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "service_uidstr" || $(e.target.parentElement
+                .parentElement)
+            .attr('data-ig') == "service_uidstr" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "service_uidstr") {
+            $('.hidd11')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = service_uidstr]')[0].value;
+            $('.hidd11')[0].style.display = "none";
+            $('input[name = service_uidstr]').val('');
+            $('input[class = service_uidstr]').val('');
+            $('.hidd11 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[class = service_uidstr]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                    $('input[name = service_uidstr]')[0].value += ',' + $(el.nextElementSibling).attr(
+                        'data-uid')
+                }
+            })
+            $('input[class = service_uidstr]')[0].value = $('input[class = service_uidstr]')[0].value.substring(
+                1);
+            $('input[name = service_uidstr]')[0].value = $('input[name = service_uidstr]')[0].value.substring(
+                1);
+
+        }
+    })
+
+    //数据来源
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "source" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "source" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "source") {
+            $('.hidd12')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = source]')[0].value;
+            $('.hidd12')[0].style.display = "none";
+            $('input[name = source]').val('');
+            $('.hidd12 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = source]')[0].value += ',' + el.nextElementSibling.innerHTML.split(
+                        ';')[1]
+                }
+            })
+            $('input[name = source]')[0].value = $('input[name = source]')[0].value.substring(1);
+
+        }
+    })
+    //数据分类
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "type" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "type" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "type") {
+            $('.hidd13')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = type]')[0].value;
+            $('.hidd13')[0].style.display = "none";
+            $('input[name = type]').val('');
+            $('.hidd13 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = type]')[0].value += ',' + el.nextElementSibling.innerHTML.split(
+                        ';')[1]
+                }
+            })
+            $('input[name = type]')[0].value = $('input[name = type]')[0].value.substring(1);
+
+        }
+    })
+
+    //投诉对象
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "com_target" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "com_target" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "com_target") {
+            $('.hidd15')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = com_target]')[0].value;
+            $('.hidd15')[0].style.display = "none";
+            $('input[name = com_target]').val('');
+            $('.hidd15 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = com_target]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = com_target]')[0].value = $('input[name = com_target]')[0].value.substring(1);
+
+        }
+    })
+
+    //原因大类
+    $('.hidd16')[0].innerHTML = ''
+    for (var k in jiagou) {
+        $('.hidd16')[0].innerHTML +=
+            `<div style="text-align:center">
+                                    <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+            k +
+            `</span></div>`
+    }
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "reason_big" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "reason_big" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "reason_big") {
+            $('.hidd16')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = reason_big]')[0].value;
+            $('.hidd16')[0].style.display = "none";
+            $('input[name = reason_big]').val('');
+            $('.hidd16 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = reason_big]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = reason_big]')[0].value = $('input[name = reason_big]')[0].value.substring(1);
+            str = $('input[name = reason_big]')[0].value
+            if (hhh != $('input[name = reason_big]')[0].value) {
+                $('.hidd17')[0].innerHTML = ''
+                arr = []
+                for (var k in jiagou) {
+                    console.log(str, k, str.indexOf(k))
+                    if (str.indexOf(k) > -1) {
+                        for(var i in jiagou[k])
+                        $('.hidd17')[0].innerHTML +=
+                            `<div style="text-align:center">
+                                                    <input type="checkbox" data-fid="`+k+`" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                            i +
+                            `</span></div>`
+                    }
+                }
+            }
+
+        }
+    })
+
+    //原因中类
+    var arr_jiagou=[]
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "reason_mid" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "reason_mid" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "reason_mid") {
+            $('.hidd17')[0].style.display = "block"
+        } else {
+            arr_jiagou = []
+            var hhh = $('input[name = reason_mid]')[0].value;
+            $('.hidd17')[0].style.display = "none";
+            $('input[name = reason_mid]').val('');
+            $('.hidd17 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = reason_mid]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                    obj = {
+                        big_reason:$(el).attr('data-fid'),
+                        mid_reason:el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                    }
+                            arr_jiagou.push(obj)
+                }
+            })
+            console.log(arr_jiagou)
+            $('input[name = reason_mid]')[0].value = $('input[name = reason_mid]')[0].value.substring(1);
+            str = $('input[name = reason_mid]')[0].value
+            if (hhh != $('input[name = reason_mid]')[0].value) {
+                $('.hidd18')[0].innerHTML = ''
+                for (let i = 0; i < arr_jiagou.length; i++) {
+                    for (let k = 0; k < jiagou[arr_jiagou[i].big_reason][arr_jiagou[i].mid_reason].length; k++) {
+                        $('.hidd18')[0].innerHTML +=
+                            `<div style="text-align:center">
+                                                    <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                                                        jiagou[arr_jiagou[i].big_reason][arr_jiagou[i].mid_reason][k] +
+                            `</span></div>`
+                    }
+                }
+            }
+
+        }
+    })
+
+    //原因小类
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "reason_sma" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "reason_sma" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "reason_sma") {
+            $('.hidd18')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = reason_sma]')[0].value;
+            $('.hidd18')[0].style.display = "none";
+            $('input[name = reason_sma]').val('');
+            $('.hidd18 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = reason_sma]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = reason_sma]')[0].value = $('input[name = reason_sma]')[0].value.substring(1);
+
+        }
+    })
+
+    //班型
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "classType" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "classType" || $(e.target.parentElement.parentElement.parentElement).attr(
+                'data-ig') == "classType") {
+            $('.hidd19')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = classType]')[0].value;
+            $('.hidd19')[0].style.display = "none";
+            $('input[name = classType]').val('');
+            $('.hidd19 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = classType]')[0].value += ',' + el.nextElementSibling.innerHTML
+                        .split(
+                            ';')[1]
+                }
+            })
+            $('input[name = classType]')[0].value = $('input[name = classType]')[0].value.substring(1);
+
+        }
+    })
+
+    function getNowFormatDate(date) {
+        var seperator1 = "-";
+        var seperator2 = ":";
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        if (hour >= 0 && hour <= 9) {
+            hour = "0" + hour;
+        }
+        if (minute >= 0 && minute <= 9) {
+            minute = "0" + minute;
+        }
+        if (second >= 0 && second <= 9) {
+            second = "0" + second;
+        }
+        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+            " " + hour + seperator2 + minute +
+            seperator2 + second;
+        return currentdate;
+    }
+
+    function chanw() {
+        var oneday = 1000 * 60 * 60 * 24,
+            today = new Date();
+        getday = today.getDay() == 0 ? 7 : today.getDay();
+        switch ($('select[name=time_type]').val()) {
+            case "today":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime())));
+                $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+            case "yesterday":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday)));
+                $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - 1)))
+                break;
+            case "thisWeek":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (getday - 1))));
+                $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+            case "lastWeek":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (getday + 6))));
+                $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (getday - 1) - 1)));
+                break;
+            case "thisMonth":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (today.getDate() - 1))));
+                $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+            case "lastMonth":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date(new Date()
+                    .toLocaleDateString()).getTime() - oneday * today.getDate()) - oneday * (new Date(
+                    today - oneday * today.getDate()).getDate() - 1))));
+                $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (today.getDate() - 1) - 1)))
+                break;
+            default:
+                break;
+        }
+    }
+    $('select[name=time_type]').on('change', function () {
+        chanw();
+    })
+    var thisApp = {
+        init: function () {
+            $("#datagrid5").datagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url: 'datagrid_data1.json',
+                method: 'get',
+                remoteSort: false,
+                checkOnSelect: false,
+                selectOnCheck: true,
+                showFooter: true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: form2Json("seaform"),
+                toolbar: [{
+                    text: '导出',
+                    iconCls: 'icon-save',
+                    handler: function () {
+                        $(this).click(function () {
+                            var arr1 = [];
+                            console.log($('#datagrid5').datagrid('getData').rows)
+                            var json = $('#datagrid5').datagrid('getData').rows
+                            var data = JSON.stringify(json);
+                            for (var i = 0; i < $('th').length; i++) {
+                                arr1.push($('th')[i].innerHTML)
+                            }
+                            if (data == '') return;
+                            console.log(arr1, data)
+                            JSONToCSVConvertor(data, "Download", true, arr1);
+                        })
+                    }
+                }],
+                onSortColum: function (sort, order) { //其中sort代表排序列字段名称；order:排序列的顺序（ASC或DESC）
+                    $('#datagrid5').datagrid('reload', {
+                        sort: uid
+                    });
+                },
+                onLoadSuccess: function (data) { //加载完毕后获取所有的checkbox遍历
+                    $('.datagrid-header-check').html("<input type='checkbox' id='selectAll'>");
+                    console.log($('#selectAll'))
+                    $('#selectAll').change(function () {
+                        var status = $(this).is(':checked');
+                        var data3 = $("#datagrid5").datagrid("getSelections");
+                        if (data3 != "") {
+                            $('.polling-allot').attr('disabled', false)
+                        } else {
+                            $('.polling-allot').attr('disabled', 'disabled')
+                        }
+                        $("input:checkbox[name = 'ck']").each(function (rowIndex, el) {
+                            $('#datagrid5').datagrid('unselectRow', rowIndex);
+                            $("input:checkbox[name = 'ck']")[rowIndex].checked =
+                                false
+                            if (!$(this).is(":disabled")) {
+                                if (status) {
+                                    $('#datagrid5').datagrid('checkRow', rowIndex);
+                                }
+                            }
+                        })
+                    })
+                    var data3 = $("#datagrid5").datagrid("getSelections");
+                    if (data3 != "") {
+                        $('.polling-allot').attr('disabled', false)
+                    } else {
+                        $('.polling-allot').attr('disabled', 'disabled')
+                    }
+                    var rows = $('#datagrid5').datagrid('getFooterRows');
+                    console.log(rows)
+                },
+                //                     onSortColum: function (sort,order) {  //其中sort代表排序列字段名称；order:排序列的顺序（ASC或DESC）
+                // 　　　$('#dg').datagrid('reload', {
+                // 　　　sortName: 'uid',
+                // 　　　sortOrder:'desc',
+                // 　　});
+                // },
+                onClickRow: function (rowIndex, rowData) {
+                    if ($("input:checkbox[name = 'ck']")[rowIndex].disabled == true) {
+                        $("input:checkbox[name = 'ck']")[rowIndex].checked = false;
+                    } else {
+
+                        if ($("input:checkbox[name = 'ck']")[rowIndex].checked == true) {
+                            $("input:checkbox[name = 'ck']")[rowIndex].checked = false
+                        } else {
+                            $("input:checkbox[name = 'ck']")[rowIndex].checked = true
+                        }
+                    }
+                    var a = 0;
+                    $("input:checkbox[name = 'ck']").each(function (rowIndex, el) {
+
+                        if (el.disabled == true) {
+                            $('#datagrid5').datagrid('unselectRow', rowIndex);
+                            a++;
+                        }
+                    })
+                    var b = 0;
+                    for (var i = 0; i < $("input:checkbox[name = 'ck']").length; i++) {
+                        if ($("input:checkbox[name = 'ck']")[i].checked == true) {
+                            b++
+                        }
+                    }
+                    if (a == b) {
+                        $('#selectAll')[0].checked = true;
+                    } else {
+                        $('#selectAll')[0].checked = false;
+                    }
+                    var data3 = $("#datagrid5").datagrid("getSelections");
+                    if (data3 != "") {
+                        $('.polling-allot').attr('disabled', false)
+                    } else {
+                        $('.polling-allot').attr('disabled', 'disabled')
+                    }
+                },
+                onDblClickRow: function () {
+                    console.log(1)
+                }
+            })
+        }
+    }
+    $(function () {
+        thisApp.init();
+        var dg = $('#datagrid5').datagrid({
+            singleSelect: false
+        });
+        dg.datagrid('enableFilter', [{}]);
+        var p = $('#datagrid5').datagrid('getPager');
+        $(p).pagination({
+            beforePageText: '第', //页数文本框前显示的汉字  
+            afterPageText: '页    共 {pages} 页',
+            displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+        });
+        $(".seasearch").linkbutton({
+            iconCls: 'icon-search',
+            plain: true
+        }).click(function () {
+            params = form2Json("seaform")
+            params.time_arr = []
+            params.time_arr.push(params.start_time)
+            params.time_arr.push(params.end_time)
+            delete params.start_time
+            delete params.end_time
+            delete params.time_type
+            console.log(params)
+            $('.polling-headerp')[0].style.backgroundImage = 'url("img/up.svg")';
+            $('#polling-header-body')[0].style.display = "none"
+            $('#polling-header-footer').css('display', 'block')
+            //     $('.polling-headerp')[0].style.backgroundImage = 'url("img/up.svg")';
+            //  $('#polling-header-body')[0].style.display = "none";
+            var dg = $('#datagrid5').datagrid({
+                queryParams: params,
+                singleSelect: false,
+                url: '',
+                onLoadSuccess: function () {}
+            });
+            dg.datagrid('enableFilter', [{
+                field: 'counselor',
+                type: 'text'
+            }, {
+                field: 'business_card',
+                type: 'text'
+            }, {
+                field: 'chance',
+                type: 'text'
+            }, {
+                field: 'return_visit',
+                type: 'text'
+            }, {
+                field: 'return_visit_ratio',
+                type: 'text'
+            }, {
+                field: 'visit_week',
+                type: 'text'
+            }, {
+                field: 'visit_week_ratio',
+                type: 'text'
+            }, {
+                field: 'sign_up',
+                type: 'text'
+            }, {
+                field: 'running_water',
+                type: 'text'
+            }, {
+                field: 'sign_up_week',
+                type: 'text'
+            }, {
+                field: 'weekly_pin_turns',
+                type: 'text'
+            }, {
+                field: 'pin_turns',
+                type: 'text'
+            }, {
+                field: 'per_ticket_sales',
+                type: 'text'
+            }, {
+                field: 'marketing_efficiency',
+                type: 'text'
+            }]);
+            var p = $('#datagrid5').datagrid('getPager');
+            $(p).pagination({
+                beforePageText: '第', //页数文本框前显示的汉字  
+                afterPageText: '页    共 {pages} 页',
+                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+            });
+        });
+        // });
+    })
+    //     function compute() {//计算函数
+    //             var rows = $('#datagrid5').datagrid('getRows')//获取当前的数据行
+    //             var ptotal = 0//计算listprice的总和
+    //             ,utotal=0;//统计unitcost的总和
+    //             for (var i = 0; i < rows.length; i++) {
+    //                 ptotal += Number(rows[i]['uid']);
+    //             }
+    //             console.log(rows,ptotal)
+    //             //新增一行显示统计信息
+    //             $('#datagrid5').datagrid('appendRow', { uid: ptotal });
+    //         }
+    function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray()
+        var jsonStr = "";
+
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+
+        var json = JSON.parse(jsonStr)
+        return json
+    }
+</script>
+
+</html>

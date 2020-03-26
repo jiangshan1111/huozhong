@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            height: 100%;
+        }
+        .header{
+            height: 13%;
+            overflow: hidden;
+            position: relative;
+        }
+        .header>div{
+            float: left;
+        }
+        .body{
+            background: url('img/bgg.jpg') no-repeat;
+            height:72%;
+            background-size: 100% 100%;
+            overflow: hidden;
+        }
+        .footer{
+            height: 15%;
+            font-size: 14px;
+            line-height: 341%;
+        }
+        .headlogo{
+            margin-left: 257px;
+        }
+        .heada{
+            position: absolute;
+            right: 257px;
+            top: 50%;
+            margin-top: -10px;
+        }
+        .heada p{
+            font-size: 18px;
+        }
+        .formhead{
+            width: 80%;
+            height: 23px;
+            margin: 10% 10% 6%;
+        }
+        .formhead>span{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+        .form{
+            /* width: 28%;
+            height: 100%;
+            background: white;
+            margin: 0 auto;
+            border-radius: 5px;
+            overflow: hidden; */
+            width: 28%;
+            height: 88%;
+            background: white;
+            margin: 2% 0 0 63%;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .form a{
+            font-size: 15px;
+            float: right;
+            margin-right: 10%;
+        }
+        .form input{
+            width: 76%;
+            height: 40px;
+            height: 9%;
+            margin: 4% 10%;
+            border: 1px solid rgb(210,210,210);
+        }
+        a{
+            text-decoration: none;
+            color: rgb(100,156,240);
+        }
+        .tishi{
+            text-align: center;
+            color: red;
+            font-size: 14px;
+        }
+        @media screen and (max-width:1000px){
+            .body {
+                background: url('img/bgg.jpg') 30% no-repeat;
+                background-size: 280% 100%;
+            }
+            .headlogo{
+                margin-left: 16px;
+            }
+            .heada{
+                right: 5px;
+            }
+            .form{
+                width: 85%;
+                height: 86%;
+                margin: 9% 0 0 7.5%;
+                opacity: 0.8;
+            }
+            .heada p{
+                font-size: .3rem;
+            }
+            .formhead>span{
+                font-size: .3rem;
+            }
+            .form a{
+                font-size: .3rem;
+            }
+            .tishi,.footer{
+                font-size: .25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="headlogo" style="height: 61%;width: 143px;margin-top: 11px; ">
+            <img src="img/logo1.png" alt="" style="height:100%;width:100%">
+        </div>
+        <div class="heada">
+            <p>已有账号？<a href="login.html">立即登录></a></p>
+        </div>
+    </div>
+    <div class="body">
+        <div class="form" style="">
+            <div class='formhead' style="margin: 5% 10% 2%;">
+                <span>注册账号</span>
+            </div>
+            <input type="" name="phone" AUTOCOMPLETE="off" placeholder="请输入手机号码" style="padding-left: 4%;">
+            <input type="" name="password" AUTOCOMPLETE="off" placeholder="请设置6-20位登录密码" style="padding-left: 4%;">
+            <input type="" name="identify_code" AUTOCOMPLETE="off" placeholder="请输入右图验证码" style="padding-left: 4%;width:38%;margin-right:0">
+            <span class="yanzheng" style="float: right;height:9%;width:30%;margin-right: 10%;margin-top: 4%;">
+                <img src="img/yanzheng.png" onclick="this.src='captcha.php?'+new Date().getTime();" title="点击更换" style="width:100%;height:100%;border:1px solid rgb(210,210,210)" alt="">
+            </span>
+            <input type="" name="message_code" AUTOCOMPLETE="off" placeholder="请输入短信验证码" style="padding-left: 4%;width:38%;margin-right:0">
+            <button class="mes_yanzheng" style="float: right;height:9%;width:30%;margin-right: 10%;margin-top: 4%;border:none;border:1px solid rgb(100,156,240);background:rgb(100,156,240);color:white">获取短信验证码</button>
+            <input type="button" name="meslogin" value="注册" style="cursor:pointer;width:80%;border:1px solid rgb(100,156,240);background:rgb(100,156,240);color:white">
+            <p class="tishi"></p>
+        </div>
+    </div>
+    <div class="footer" style="text-align:center">
+        <p>了解详情请咨询：<a href="http://www.huozhongedu.com/">火种教育</a></p>
+        <p>Copyright@2017 北京创睿造智教育科技有限公司</p>
+    </div>
+</body>
+<script src="js/font.js"></script>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    var reg = /^[1-9]{11}$/;
+    var regpwd=/^[1-9a-zA-Z]{6,20}$/;
+    $('.mes_yanzheng').click(function(){
+        if(reg.test($('input[name = phone').val())){
+            $.ajax({
+                url:'',
+                type:"get",
+                data:{phone:$('input[name = phone').val()},
+                success:function(data){
+                },
+                error:function(){
+
+                }
+            })
+            var time = 90
+            var timer=setInterval(function(){
+                time-=1
+                $('.mes_yanzheng')[0].innerHTML = time+'s';
+                $('.mes_yanzheng').attr('disabled','disabled')
+                if(time<1){
+                    clearInterval(timer);
+                    $('.mes_yanzheng')[0].innerHTML = "获取短信验证码";
+                    $('.mes_yanzheng').attr('disabled',false)
+                }
+            },1000)
+        }else{
+            $('.tishi')[0].innerHTML = "请输入正确手机号"
+            setTimeout(function(){
+                $('.tishi')[0].innerHTML = ""
+            },3000)
+        }
+    })
+    $('input[name = meslogin]').click(function(){
+            if(reg.test($('input[name = phone').val())&&regpwd.test($('input[name = password').val())&&$('input[name = message_code').val()!=""&&$('input[name = identify_code').val()!=""){
+                $.ajax({
+                    url:'',
+                    type:"get",
+                    data:{account:$('input[name = phone').val(),
+                        password:$('input[name = phone').val(),
+                        message_code:$('input[name = message_code').val(),
+                        identify_code:$('input[name = identify_code').val()},
+                    success:function(data){
+                        if(data == 1){
+                            window.location.href = "login.html"
+                        }
+                    },
+                    error:function(){
+                        $('.tishi')[0].innerHTML = "服务器错误"
+                        setTimeout(function(){
+                            $('.tishi')[0].innerHTML = ""
+                        },3000)
+                    }
+                })
+            }else{
+                $('.tishi')[0].innerHTML = "请正确输入内容"
+                setTimeout(function(){
+                    $('.tishi')[0].innerHTML = ""
+                },3000)
+            }
+    })
+</script>
+</html>

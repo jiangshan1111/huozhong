@@ -1,0 +1,27 @@
+.panel-header, .panel-body{
+    border: 1px solid rgb(239, 239, 239)
+}
+.panel-header{
+   background:  -webkit-linear-gradient(top,white 0,rgb(239, 239, 239) 100%);
+   background: -webkit-linear-gradient(to bottom,white 0,rgb(239, 239, 239) 100%);
+}
+.datagrid-filter-row input{
+    border: none;
+}
+.datagrid-view .datagrid-editable-input{
+    border: none;
+}
+.textbox{
+    border: none
+}
+
+.combo-arrow{
+    background:url(../img/arrow-down.svg) no-repeat center center;
+    background-size:50% 50%; 
+}
+.combo-arrow{
+    background-color: rgb(239, 239, 239)
+}
+.combo-panel{
+    background: rgb(252, 252, 252)
+}

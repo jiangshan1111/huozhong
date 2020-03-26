@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>数据统计</title>
+        <!-- Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen"> 
+        <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+        <link href="css/styles.css" rel="stylesheet" media="screen">
+           <link rel="stylesheet" href="css/index.css">
+           <link rel="stylesheet" href="css/polling.css">
+           <link rel="stylesheet" href="css/element-ui.css">
+       <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+        <link rel="stylesheet" type="text/css" href="themes/icon.css">
+        <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+        <link rel="stylesheet" href="css/table.css">
+        <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+        <style>
+            .l-btn,.l-btn-icon-left{
+                overflow: inherit;
+            }
+            .el-table td, .el-table th {
+    padding: 5px 0;
+}
+            .hidd>div,.hidd1>div,.hidd2>div,.hidd3>div,.hidd4>div,.hidd5>div,.hidd6>div,.hidd7>div,.hidd8>div,.hidd9>div,.hidd10>div,.hidd11>div,.hidd12>div{
+                float: left;
+                width: 25%;
+                text-align: center
+            }
+            .hidd3>div,.hidd4>div,.hidd6>div,.hidd7>div,.hidd8>div,.hidd9>div,.hidd10>div,.hidd11>div,.hidd12>div{
+                width: 33%;
+            }
+            .ant-tooltip {
+                position: absolute;
+                z-index: 1060;
+                display: block;
+                visibility: visible;
+                font-size: 12px;
+                line-height: 1.5;
+                height: 300px;
+                overflow: auto;
+            }
+            /* .el-table__body, .el-table__footer, .el-table__header {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.el-table--border td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
+    border: 1px solid #ebeef5;
+} */
+.el-pagination {
+    white-space: nowrap;
+    padding: 2px 5px;
+    color: #303133;
+    font-weight: 700;
+    text-align: right;
+}
+            .ant-tooltip-inner {
+                min-width: 600px;
+            }
+            .ant-tooltip-inner {
+                max-width: 250px;
+                padding: 8px 10px;
+                color: #fff;
+                text-align: left;
+                text-decoration: none;
+                background-color: rgba(0,0,0,.75);
+                border-radius: 4px;
+                box-shadow: 0 1px 6px rgba(0,0,0,.2);
+                min-height: 34px;
+            }
+            /* .el-input--mini .el-input__icon {
+    line-height: 50px;
+} */
+.el-pagination .el-input__suffix {
+    right: 0;
+    top: -6px;
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+}
+            .ant-tooltip-placement-lefttop {
+                padding: 0 8px 0 5px;
+            }
+            .hidd5>div{
+                width: 50%;
+            }
+            #seaform>div>div>input{
+                width: 60%;
+                height: 30px;
+            }
+            #seaform>div>div{
+                margin: 0;
+            }
+            #seaform>div>div>select {
+                width: 62%;
+                height: 40px;
+            }
+            #seaform>div>div>span{
+                display: inline-block;
+                width: 30%;
+            }
+            #polling-header-body{
+                padding: 0;
+            }
+            .seaformp1,.seaformp2,.seaformp3{
+                background-repeat: no-repeat;
+                background-position-x: 99%;
+                background-position-y: 50%;
+            }
+            .datagrid-header td.datagrid-header-over {
+                background: #eaf2ff;
+                cursor: pointer;
+                position: relative;
+                /* overflow: auto; */
+            }
+            .datagrid-view2 .datagrid-header td span:hover::after{
+                content: "";  
+                font-size:12px;  
+                display: inline-block;
+                /* padding: 2px 5px; */
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                position: absolute;
+                top: 30px;
+                right: 0;
+                z-index: 99999;
+            } 
+            .row-fluid .span1{
+                width:12%;
+                text-align: center;
+                line-height: 30px;
+            }
+            #seaform>div .span1>span{
+                border:1px solid #ccc;
+                margin-top: 5px;
+                margin-right: 5px;
+                width:30px;
+                height:30px;
+            }
+            .row-fluid .span1>span:first-of-type,.row-fluid .span1>span:nth-of-type(3){
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            #seaform>div .span1>span:nth-of-type(2){
+                width:50px;
+            }
+            .row-fluid .span1>span:nth-of-type(2) select{
+                width:100%;
+                margin: 0;
+                height: 100%;
+                margin-bottom: 2px;
+                border: none;
+            }
+            @media only screen and (max-width:760px){
+                .row-fluid .span1{
+                    width:100%;
+                } 
+            }
+            /* .datagrid-view2 .datagrid-header td:nth-of-type(1) span:hover::after{
+                left: 0;
+            }  */
+            #datagrid11 table{
+                border-collapse: collapse;
+                white-space:nowrap;
+            }
+            #datagrid11 td{
+                border:1px solid rgb(219,219,219);
+                height: 30px;
+                width: 500px;
+                white-space:nowrap;
+                text-align: center;
+            }
+            .eleui_table tr td:first-of-type,.eleui_table tr th:first-of-type{
+                border-left: 1px solid #ebeef5;
+            }
+        </style>
+        <script>
+       
+        </script>
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <!-- block -->
+                <div class="block">
+                    <div class="span12" id="polling-header">
+                        <div class=" span10 " id="polling-header-top">
+                            <p class="polling-headerp" style="background-image: url('img/down.svg');"><span></span>查询条件</p>
+                        </div>
+                        <div class=" span10 " id="polling-header-body">
+                            <form style="position:relative" name="seaform" id ="seaform">
+                                <div style="width:100%;height:30px;position:relative;background:rgb(248,248,248);border-top:1px solid rgb(219,219,219)">
+                                    <span style="display: inline-block;width: 16px;height: 16px;position: absolute;top: 50%;margin-top: -8px;left: 10px;background: url(img/search.svg) no-repeat;background-size: 100% 100%;"></span>
+                                    <p class="seaformp1" style="background-image: url('img/down.svg');    line-height: 30px;position: relative;padding-left: 30px;">时间</p>
+                                </div>
+                                <div class="didi1" style="margin-top:10px">
+                                    <div class="span4" style="position:relative;" data-ig="time_start">
+								        <span>起始时间：</span><input class="" type="text"  name="start_time"  onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 00:00:00'})"  placeholder="日期" autocomplete="off">
+								        
+								    </div>
+								    <div class="span4" style="position:relative;" data-ig="time_end">
+								        <span>截止时间：</span><input class="" type="text"  name="end_time"  onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 23:59:59'})" placeholder="日期" autocomplete="off">
+								    </div>
+								    <div class="span3" style="position:relative;" data-ig="time_type">
+								        <span>快捷搜索：</span><select name="time_type" class="mwd" id="">
+								            <option value="">自定义</option>    
+								            <option value="today">今天</option>    
+								            <option value="yesterday">昨天</option>    
+								            <option value="thisWeek">本周</option>    
+								            <option value="lastWeek">上周</option>    
+								            <option value="thisMonth">本月</option>    
+								            <option value="lastMonth">上月</option>    
+								        </select>
+                                    </div>
+                                    <div class="span1">
+                                        <span class="timeIncrease" data-increase="false">-</span>
+                                        <span class="timecon">
+                                            <select name="" id="">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                        </span>
+                                        <span class="timeAdd" data-add="false">+</span>
+                                    </div>
+                                    <div class="span4" style="position:relative;" data-ig="time_start">
+								        <span>起始时间(对比)：</span><input class="" type="text"  name="start_time1"  onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 00:00:00'})"  placeholder="日期" autocomplete="off">
+								        
+								    </div>
+								    <div class="span4" style="position:relative;" data-ig="time_end">
+								        <span>截止时间(对比)：</span><input class="" type="text"  name="end_time1"  onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 23:59:59'})" placeholder="日期" autocomplete="off">
+								    </div>
+                                    <div style="clear:both"></div>
+
+                                </div>
+                                <div style="width:100%;height:30px;position:relative;background:rgb(248,248,248);border-top:1px solid rgb(219,219,219)">
+                                    <span style="display: inline-block;width: 16px;height: 16px;position: absolute;top: 50%;margin-top: -8px;left: 10px;background: url(img/search.svg) no-repeat;background-size: 100% 100%;"></span>
+                                    <p class="seaformp2" style="background-image: url('img/down.svg');    line-height: 30px;position: relative;padding-left: 30px;">归属</p>
+                                </div>
+                                <div class="didi2" style="margin-top:10px;display:none">
+                                    <div class="span6" style="position:relative;" data-ig="project">
+                                    <span>项目：</span><input class="" type="text"  name="project"  placeholder="项目">
+                                    <div class="hidd2" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;消防</span>
+                                        </div>
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;基金</span>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="span6" style="position:relative;" data-ig="section">
+                                        <span>部门：</span><input class="" type="text"  name="sector"  placeholder="部门">
+                                        <div class="hidd3" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="span6" style="position:relative;" data-ig="group">
+                                        <span>小组：</span><input class="" type="text"  name="group"  placeholder="小组">
+                                        <div class="hidd4" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="span6" style="position:relative;" data-ig="name">
+                                        <span>属员：</span><input class="people" type="text"    placeholder="属员"><input class="" type="text"  name="people"  placeholder="属员" style="display:none">
+                                        <div class="hidd5" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="span6"><span>搜索条件：</span><select name="search_by" id="">
+                                        <option value="1">按属员</option>
+                                        <option value="2">按小组</option>   
+                                        <option value="3">按部门</option>   
+                                        <option value="4">按项目</option>   
+                                    </select></div>
+                                    <div style="clear:both"></div>
+                                </div>
+                                <div style="width:100%;height:30px;position:relative;background:rgb(248,248,248);border-top:1px solid rgb(219,219,219)">
+                                    <span style="display: inline-block;width: 16px;height: 16px;position: absolute;top: 50%;margin-top: -8px;left: 10px;background: url(img/search.svg) no-repeat;background-size: 100% 100%;"></span>
+                                    <p class="seaformp3" style="background-image: url('img/down.svg');    line-height: 30px;position: relative;padding-left: 30px;">数据</p>
+                                </div>
+                                <div class="didi3" style="margin-top:10px;display:none">
+                                    <div class="span6" style="position:relative;" data-ig="ditch">
+                                    <span>渠道：</span><input class="" type="text"  name="channel"  placeholder="渠道">
+                                    <div class="hidd6" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;SEM</span>
+                                        </div>
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;信息流</span>
+                                        </div>
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;SEO</span>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="span6" style="position:relative;" data-ig="classify">
+                                        <span>分类：</span><input class="" type="text"  name="classify"  placeholder="分类">
+                                        <div class="hidd7" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;在线</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;留言</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;注册</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;抓取</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span6" style="position:relative;" data-ig="advertiser">
+                                        <span>广告商：</span><input class="" type="text"  name="advertiser"  placeholder="广告商">
+                                        <div class="hidd8" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;百度</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;搜狗</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;360</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;神马</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;知乎</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;今日头条</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;抖音</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span6" style="position:relative;" data-ig="set_station">
+                                        <span>套站：</span><input class="" type="text"  name="station"  placeholder="套站">
+                                        <div class="hidd9" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;一套站</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;二套站</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;三套站</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span6" style="position:relative;" data-ig="carrier">
+                                        <span>载体：</span><input class="" type="text"  name="carrier"  placeholder="载体">
+                                        <div class="hidd10" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;PC</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;MB</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span6" style="position:relative;" data-ig="matching">
+                                        <span>匹配方式：</span><input class="" type="text"  name="matching"  placeholder="匹配方式">
+                                        <div class="hidd11" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;精确匹配</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;短语匹配</span>
+                                            </div>
+                                            <div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;广泛匹配</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span6" style="position:relative;" data-ig="region">
+                                        <span>地域：</span><input class="" type="text"  name="province"  placeholder="地域">
+                                        <div class="hidd12" style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 6px">
+                                            
+                                        </div>
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                                
+                                <div style="clear:both"></div>
+                            </form>
+                        </div>
+                        <div id="app">
+                                <div class=" span10 " style="    margin-left: 8%;line-height:30px;margin-top: 10px   ; position: relative;">
+                                        <input type="button" id="seasearch" @click="init" style=""  class="seasearch" value="查询"></input>
+                                        <input type="button" class="reset" @click = "reset" value="重置" style=""></input>
+                                        <input type="button" id="seasearch" @click="exporttt" style=""  class="seasearch" value="导出"></input>
+                                    <button style="    padding: 0 10px;" @click="increaseActive">上一个</button>
+                                    <!-- &nbsp;&nbsp;总表&nbsp;&nbsp; -->
+                                    <select name="" id="" v-model="activeIndex" @change="activeindex" style="    margin: 0;">
+                                        <option value="0">总表</option>
+                                        <option value="1">拨打时长分析</option>
+                                        <option value="2">拨打个数分析</option>
+                                        <option value="3">报名人数分析</option>
+                                        <option value="4">报名流水分析</option>
+                                        <option value="5">报名人数分析</option>
+                                        <option value="6">流水</option>
+                                        <option value="7">流水/销转</option>
+                                    </select>
+                                    <button style="    padding: 0 10px;" @click="addActive">下一个</button>
+                                </div>
+                                <div class=" span10 " id="polling-header-footer" style="margin-top: 10px;;display:none" v-show="activeIndex == 0">
+                                        <div class="block-content collapse in" >
+                                                <div class="span12">
+                                                        <div style="overflow:auto">
+                                                            <table id="datagrid5" title="总表" style="width:100%;height:400px"
+                                                            data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                                        
+                                                                <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                                                <thead data-options="frozen:true">
+                                                                    <tr>
+                                                                        <th data-options="field:'belong',width:80,align:'center'" >归属</th>
+                                                                        <th data-options="field:'card',width:80,align:'center'" >名片</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                    <thead>
+                                                            <tr class="content">
+                                                                <th data-options="field:'chance',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">机会</th>
+                                                                <th data-options="field:'card_rate',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">首咨有效率</th>
+                                                                <th data-options="field:'visits',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">回访数</th>
+                                                                <th data-options="field:'visits_rate',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:100,align:'center'">回访比</th>
+                                                                <th data-options="field:'week_visits',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">当周回访数</th>
+                                                                <th data-options="field:'week_visits_rate',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:100,align:'center'">当周回访比</th>
+                                                                <th data-options="field:'duration',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">时长</th>
+                                                                <th data-options="field:'callouts',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">呼出个数</th>
+                                                                <th data-options="field:'callouts_rate',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">总接通率</th>
+                                                                <th data-options="field:'signs',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">报名人数</th>
+                                                                <th data-options="field:'signs_BF',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">补费人数</th>
+                                                                <th data-options="field:'money',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">总流水</th>
+                                                                <th data-options="field:'reverse',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">总销转</th>
+                                                                <th data-options="field:'deal_rate',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">总销售效率</th>
+                                                                <th data-options="field:'sign_rate',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">代报名率</th>
+                                                                <th data-options="field:'last_time',sortable:true,
+                                                                sorter:function (a,b) {
+                                                                    return(Number(a)>Number(b))?1:-1
+                                                                },width:80,align:'center'">上一次出单距离今天日期</th>
+        
+                                                                <!-- <th data-options="field:'did',width:90,align:'center',hidden:true">did</th> -->
+                                                                
+                                                                
+                                                            </tr>
+                                                            
+                                                        </thead>
+                                                    </table>
+                                                    <div id="tb" style="padding:5px;height:auto">
+                                                            <div style="margin-bottom:5px">
+                                                                <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="exportt('#datagrid5')">导出</a>
+                                                                <a href="#" class="easyui-linkbutton" iconCls="icon-help" plain="true" aclass="Hidden" style="float:right;width:30px;position: relative">
+                                                                    <div aclass = 'hidden' class="ant-tooltip ant-tooltip-placement-lefttop"
+                                                                    style="display:none;right: 30px; position: absolute;">
+                                                                    <div class="ant-tooltip-content">
+                                                                        <div class="ant-tooltip-arrow"></div>
+                                                                        <div class="ant-tooltip-inner"><span>
+                                                                            <p style="font-size: 16px;">字段说明</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">机会</span>:本人打通且标记的名片</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">首咨有效率</span>:机会/名片</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">回访数</span>:除去首咨记录的回访记录</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">回访比</span>:回访数/名片数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周回访数</span>:分配时间和跟访时间在同一周的回访个数 </p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周回访比</span>:当周回访除以名片数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">时长</span>:手机+软电话呼出时长</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">呼出个数</span>:手机+软电话呼出个数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">总接通率</span>:呼出接通个数/总呼出个数 </p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">报名人数</span>:报名咨询号码个数(去重的) </p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">补费人数</span>:报名类型为定金不费的订单个数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">总销转</span>:报名人数/名片 </p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">总销售效率</span>:总流水/名片</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">代报名率</span>:含代报名订单数/(补费+全款订单数)</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">上一次出单距离今天日期</span>:最近一次出单日期距今天几天</p>
+                                                                        </span></div>
+                                                                    </div>
+                                                                    
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                </div>
+                                <div class=" span10 " id="polling-header-footer" style="margin-top: 10px;;display:none" v-show="activeIndex == 1">
+                                    <div class="block-content collapse in" >
+                                            <div class="span12">
+                                                    <div style="overflow:auto">
+                                                        <table id="datagrid6" title="拨打时长分析" style="width:100%;height:400px"
+                                                        data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                                    
+                                                            <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                                            <thead data-options="frozen:true">
+                                                                <tr>
+                                                                    <th data-options="field:'time',width:80,align:'center'" >日期</th>
+                                                                    <th data-options="field:'belong',width:80,align:'center'" >归属</th>
+                                                                </tr>
+                                                            </thead>
+                                                                <thead>
+                                                        <tr class="content">
+                                                            <th data-options="field:'duration',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">总时长</th>
+                                                            <th data-options="field:'duration_aver',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">平均时长</th>
+                                                            <th data-options="field:'duration_card',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">首咨总时长</th>
+                                                            <th data-options="field:'duration_card_aver',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">首咨平均时长</th>
+                                                            <th data-options="field:'duration_week',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">当周总时长</th>
+                                                            <th data-options="field:'duration_week_aver',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">当周平均时长</th>
+                                                            <th data-options="field:'duration_out',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">跨期总时长</th>
+                                                            <th data-options="field:'duration_out_aver',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">跨期平均时长</th>
+                                                            <th data-options="field:'visits',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">回访数</th>
+                                                            <th data-options="field:'visits_rate',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">回访比</th>
+                                                            <th data-options="field:'week_visits',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">当周回访数</th>
+                                                            <th data-options="field:'week_visits_rate',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">当周回访比</th>
+        
+                                                            <!-- <th data-options="field:'did',width:90,align:'center',hidden:true">did</th> -->
+                                                            
+                                                            
+                                                        </tr>
+                                                        
+                                                    </thead>
+                                                </table>
+                                                <div id="tb1" style="padding:5px;height:auto">
+                                                        <div style="margin-bottom:5px">
+                                                            <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="exportt('#datagrid6')">导出</a>
+                                                            <a href="#" class="easyui-linkbutton" iconCls="icon-help" aclass = "Hidden1" plain="true" style="float:right;width:30px;position: relative">
+                                                                <div aclass = 'hidden1' class="ant-tooltip ant-tooltip-placement-lefttop"
+                                                                style="display:none;right: 30px; position: absolute;">
+                                                                <div class="ant-tooltip-content">
+                                                                    <div class="ant-tooltip-arrow"></div>
+                                                                    <div class="ant-tooltip-inner"><span>
+                                                                        <p style="font-size: 16px;">字段说明</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">总时长</span>:手机+软电话呼出总时长</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">平均时长</span>:总时长/(手机+软电话总呼出接通个数)</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">首咨总时长</span>:名片首次拨打总时长</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">首咨平均时长</span>:首咨总时长/名片</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周总时长</span>:当周数据总时长</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周平均时长</span>:所有当周所有拨打记录的总时长/接通的当周拨打个数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">跨期总时长</span>:跨期数据总时长</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">跨期平均时长</span>:所有跨期拨打记录的总时长/跨期接通个数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">回访数</span>:除去首咨记录的回访记录</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">回访比</span>:回访数/名片</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周回访数</span>:分配时间和回访时间在同一周的回访数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周回访比</span>:当周回访数/名片</p>
+                                                                    </span></div>
+                                                                </div>
+                                                                
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>     
+                                <div class=" span10 " id="polling-header-footer" style="margin-top: 10px;;display:none" v-show="activeIndex == 2">
+                                    <div class="block-content collapse in" >
+                                            <div class="span12">
+                                                    <div style="overflow:auto">
+                                                        <table id="datagrid7" title="拨打个数分析" style="width:100%;height:400px"
+                                                        data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                                    
+                                                            <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                                            <thead data-options="frozen:true">
+                                                                <tr>
+                                                                    <th data-options="field:'time',width:80,align:'center'" >日期</th>
+                                                                    <th data-options="field:'belong',width:80,align:'center'" >归属</th>
+                                                                </tr>
+                                                            </thead>
+                                                                <thead>
+                                                        <tr class="content">
+                                                            <th data-options="field:'callouts',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">总呼出个数</th>
+                                                            <th data-options="field:'callouts_card',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">首咨呼出个数</th>
+                                                            <th data-options="field:'card_rate1',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:140,align:'center'">呼出1次成功率</th>
+                                                            <th data-options="field:'card_rate2',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:140,align:'center'">呼出2次成功率</th>
+                                                            <th data-options="field:'card_rate3',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:140,align:'center'">呼出3次成功率</th>
+                                                            <th data-options="field:'card_out_aver',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:140,align:'center'">未成功的平均呼出几次</th>
+                                                            <th data-options="field:'callouts_week',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">当周呼出次数</th>
+                                                            <th data-options="field:'callouts_week_aver',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:160,align:'center'">当周呼出平均次数</th>
+                                                            <th data-options="field:'callouts_effect',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">有效呼出个数</th>
+                                                            <th data-options="field:'callouts_week_effect',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:140,align:'center'">当周有效呼出个数</th>
+                                                            <th data-options="field:'callouts_week_rate',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">当周接通率</th>
+                                                            <th data-options="field:'callouts_rate',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">总接通率</th>
+        
+                                                            <!-- <th data-options="field:'did',width:90,align:'center',hidden:true">did</th> -->
+                                                            
+                                                            
+                                                        </tr>
+                                                        
+                                                    </thead>
+                                                </table>
+                                                <div id="tb2" style="padding:5px;height:auto">
+                                                        <div style="margin-bottom:5px">
+                                                            <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="exportt('#datagrid7')">导出</a>
+                                                            <a href="#" class="easyui-linkbutton" iconCls="icon-help" aclass = "Hidden2" plain="true" style="float:right;width:30px;position: relative">
+                                                                <div aclass = 'hidden2' class="ant-tooltip ant-tooltip-placement-lefttop"
+                                                                style="display:none;right: 30px; position: absolute;">
+                                                                <div class="ant-tooltip-content">
+                                                                    <div class="ant-tooltip-arrow"></div>
+                                                                    <div class="ant-tooltip-inner"><span>
+                                                                        <p style="font-size: 16px;">字段说明</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">呼出1次成功率</span>:首咨1次成功数/名片</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">呼出2次成功率</span>:首咨2次成功数/名片</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">呼出3次成功率</span>:首咨3次成功数/名片</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">未成功的平均呼出几次</span>:总未呼通首咨呼出个数/首咨去重个数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周呼出次数</span>:当周数据呼出次数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周呼出平均次数</span>:当周呼出次数/当周号码数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">有效呼出个数</span>:呼出接通个数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周有效呼出个数</span>:当周数据呼出接通个数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周接通率</span>:当周数据接通个数/当周数据</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">总接通率</span>:呼出接通个数/呼出个数</p>
+                                                                    </span></div>
+                                                                </div>
+                                                                
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>  
+                                <div class=" span10 " id="polling-header-footer" style="margin-top: 10px;;display:none" v-show="activeIndex == 3">
+                                    <div class="block-content collapse in" >
+                                            <div class="span12">
+                                                    <div style="overflow:auto">
+                                                        <table id="datagrid8" title="报名人数分析" style="width:100%;height:400px"
+                                                        data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                                    
+                                                            <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                                            <thead data-options="frozen:true">
+                                                                <tr>
+                                                                    <th data-options="field:'time',width:80,align:'center'" >日期</th>
+                                                                    <th data-options="field:'belong',width:80,align:'center'" >归属</th>
+                                                                </tr>
+                                                            </thead>
+                                                                <thead>
+                                                        <tr class="content">
+                                                            <th data-options="field:'signs',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">报名人数</th>
+                                                            <th data-options="field:'signs_DJ',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">定金人数</th>
+                                                            <th data-options="field:'signs_QK',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">全款人数</th>
+                                                            <th data-options="field:'signs_BF',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">补费人数</th>
+                                                            <th data-options="field:'rate_BF',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">定金续费率</th>
+                                                            <th data-options="field:'signs_week',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">当周报名人数</th>
+                                                            <th data-options="field:'signs_week_DJ',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">当周定金人数</th>
+                                                            <th data-options="field:'signs_week_QK',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">当周全款人数</th>
+                                                            <th data-options="field:'signs_out',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">跨期报名人数</th>
+                                                            <th data-options="field:'signs_out_DJ',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">跨期定金人数</th>
+                                                            <th data-options="field:'signs_out_QK',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">跨期全款人数</th>
+                                                            <th data-options="field:'BF3',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">3天补费人数</th>
+                                                            <th data-options="field:'BF45',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:140,align:'center'">4-5天补费人数</th>
+                                                            <th data-options="field:'BF67',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:140,align:'center'">6-7天补费人数</th>
+                                                            <th data-options="field:'BF7',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:140,align:'center'">7天以上补费人数</th>
+        
+                                                            <!-- <th data-options="field:'did',width:90,align:'center',hidden:true">did</th> -->
+                                                            
+                                                            
+                                                        </tr>
+                                                        
+                                                    </thead>
+                                                </table>
+                                                <div id="tb3" style="padding:5px;height:auto">
+                                                        <div style="margin-bottom:5px">
+                                                            <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="exportt('#datagrid8')">导出</a>
+                                                            <a href="#" class="easyui-linkbutton" iconCls="icon-help" aclass = "Hidden3" plain="true" style="float:right;width:30px;position: relative">
+                                                                <div aclass = 'hidden3' class="ant-tooltip ant-tooltip-placement-lefttop"
+                                                                style="display:none;right: 30px; position: absolute;">
+                                                                <div class="ant-tooltip-content">
+                                                                    <div class="ant-tooltip-arrow"></div>
+                                                                    <div class="ant-tooltip-inner"><span>
+                                                                        <p style="font-size: 16px;">字段说明</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">报名人数</span>:报单咨询号码数(去重的)</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">定金人数</span>:订单类型的定金数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">全款人数</span>:订单类型是全款数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">补费人数</span>:订单类型的补费数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">定金续费率</span>:补费数/定金数</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周报名人数</span>:报名时间和分配时间在同一周</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周定金人数</span>:报名时间和分配时间在同一周且是定金的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周全款人数</span>:报名时间和分配时间在同一周且是全款的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">跨期报名人数</span>:报名时间和分配时间不在同一周</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">跨期定金人数</span>:报名时间和分配时间不在同一周且是定金的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">跨期全款人数</span>:报名时间和分配时间不在同一周且是全款的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">3天补费人数</span>:定金和补费时间差在3天内的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">4-5天补费人数</span>:定金和补费时间差在4-5天内的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">6-7天补费人数</span>:定金和补费时间差在6-7天内的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">7天以上补费人数</span>:定金和补费时间差大于7天的</p>
+                                                                    </span></div>
+                                                                </div>
+                                                                
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>  
+                                <div class=" span10 " id="polling-header-footer" style="margin-top: 10px;;display:none" v-show="activeIndex == 4">
+                                    <div class="block-content collapse in" >
+                                            <div class="span12">
+                                                    <div style="overflow:auto">
+                                                        <table id="datagrid9" title="报名流水分析" style="width:100%;height:400px"
+                                                        data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                                    
+                                                            <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                                            <thead data-options="frozen:true">
+                                                                <tr>
+                                                                    <th data-options="field:'time',width:80,align:'center'" >日期</th>
+                                                                    <th data-options="field:'belong',width:80,align:'center'" >归属</th>
+                                                                </tr>
+                                                            </thead>
+                                                                <thead>
+                                                        <tr class="content">
+                                                            <th data-options="field:'money',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:100,align:'center'">总流水</th>
+                                                            <th data-options="field:'money_week',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">当周流水</th>
+                                                            <th data-options="field:'money_week_DJ',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">当周定金流水</th>
+                                                            <th data-options="field:'money_week_QK',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">当周全款流水</th>
+                                                            <th data-options="field:'money_out',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:80,align:'center'">跨期流水</th>
+                                                            <th data-options="field:'money_out_DJ',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">跨期定金流水</th>
+                                                            <th data-options="field:'money_out_QK',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">跨期全款流水</th>
+                                                            <th data-options="field:'money3_BF',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:120,align:'center'">3天补费流水</th>
+                                                            <th data-options="field:'money45_BF',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:160,align:'center'">4-5天补费流水</th>
+                                                            <th data-options="field:'money67_BF',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:160,align:'center'">6-7天补费流水</th>
+                                                            <th data-options="field:'money7_BF',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:160,align:'center'">7天以上补费流水</th>
+        
+                                                            <!-- <th data-options="field:'did',width:90,align:'center',hidden:true">did</th> -->
+                                                            
+                                                            
+                                                        </tr>
+                                                        
+                                                    </thead>
+                                                </table>
+                                                <div id="tb4" style="padding:5px;height:auto">
+                                                        <div style="margin-bottom:5px">
+                                                            <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="exportt('#datagrid9')">导出</a>
+                                                            <a href="#" class="easyui-linkbutton" iconCls="icon-help" aclass = "Hidden4" plain="true" style="float:right;width:30px;position: relative">
+                                                                <div aclass = 'hidden4' class="ant-tooltip ant-tooltip-placement-lefttop"
+                                                                style="display:none;right: 30px; position: absolute;">
+                                                                <div class="ant-tooltip-content">
+                                                                    <div class="ant-tooltip-arrow"></div>
+                                                                    <div class="ant-tooltip-inner"><span>
+                                                                        <p style="font-size: 16px;">字段说明</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周流水</span>:当周数据的流水</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周定金流水</span>:当周数据定金类型的流水</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">当周全款流水</span>:当周数据全款类型的流水</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">跨期流水</span>:跨期数据的流水</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">跨期定金流水</span>:跨期数据定金类型的流水</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">跨期全款流水</span>:跨期数据全款类型的流水</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">3天补费流水</span>:定金和补费时间差在3天内的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">4-5天补费流水</span>:定金和补费时间差在4-5天内的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">6-7天补费流水</span>:定金和补费时间差在6-7天内的</p>
+                                                                        <p style="line-height: 24px;"><span style="color:#ff8100">7天以上补费流水</span>:定金和补费时间差大于7天的</p>
+                                                                    </span></div>
+                                                                </div>
+                                                                
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>  
+                                <div class=" span10 " id="polling-header-footer" style="margin-top: 10px;;display:none" v-show="activeIndex == 5">
+                                <div class="block-content collapse in" >
+                                        <div class="span12">
+                                                <div style="overflow:auto">
+                                                    <table id="datagrid10" title="报名人数分析" style="width:100%;height:400px"
+                                                    data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                                
+                                                        <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                                        <thead data-options="frozen:true">
+                                                            <tr>
+                                                                <th data-options="field:'time',width:80,align:'center'" >日期</th>
+                                                                <th data-options="field:'belong',width:80,align:'center'" >归属</th>
+                                                            </tr>
+                                                        </thead>
+                                                            <thead>
+                                                    <tr class="content">
+                                                        <th data-options="field:'reverse_DJ',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">定金销转</th>
+                                                        <th data-options="field:'reverse_QK',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">全款销转</th>
+                                                        <th data-options="field:'reverse',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">总销转</th>
+                                                        <th data-options="field:'reverse_week',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">当周销转</th>
+                                                        <th data-options="field:'reverse_KQ',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:80,align:'center'">跨期销转</th>
+                                                        <th data-options="field:'rate_DJ_QK',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:120,align:'center'">定金全款比例</th>
+                                                        <th data-options="field:'arpu_QK',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">全款ARPU</th>
+                                                        <th data-options="field:'arpu_BF',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">续费arpu</th>
+                                                        <th data-options="field:'arpu_week',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">当周arpu</th>
+                                                        <th data-options="field:'arpu_out',sortable:true,
+                                                        sorter:function (a,b) {
+                                                            return(Number(a)>Number(b))?1:-1
+                                                        },width:100,align:'center'">跨期arpu</th>
+        
+                                                        <!-- <th data-options="field:'did',width:90,align:'center',hidden:true">did</th> -->
+                                                        
+                                                        
+                                                    </tr>
+                                                    
+                                                </thead>
+                                            </table>
+                                            <div id="tb5" style="padding:5px;height:auto">
+                                                    <div style="margin-bottom:5px">
+                                                        <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="exportt('#datagrid10')">导出</a>
+                                                        <a href="#" class="easyui-linkbutton" iconCls="icon-help" aclass = "Hidden5" plain="true" style="float:right;width:30px;position: relative">
+                                                            <div aclass = 'hidden5' class="ant-tooltip ant-tooltip-placement-lefttop"
+                                                            style="display:none;right: 30px; position: absolute;">
+                                                            <div class="ant-tooltip-content">
+                                                                <div class="ant-tooltip-arrow"></div>
+                                                                <div class="ant-tooltip-inner"><span>
+                                                                    <p style="font-size: 16px;">字段说明</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">定金销转</span>:定金数/名片数</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">全款销转</span>:全款数/名片数</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">总销转</span>:报名人数/名片数</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">当周销转</span>:当周报名人数/名片</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">跨期销转</span>:跨期报名人数/名片</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">定金全款比例</span>:定金数/全款数</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">全款ARPU</span>:(全款流水-代报名数*1000)/全款个数</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">续费arpu</span>:(补费流水-代报名数*1000)/补费个数</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">当周arpu</span>:(当周全款流水+当周补费流水-代报名数*1000)/(当周全款个数+当周补费个数)</p>
+                                                                    <p style="line-height: 24px;"><span style="color:#ff8100">跨期arpu</span>:(跨期全款流水+跨期补费流水-代报名数*1000)/(跨期全款个数+跨期补费个数)</p>
+                                                                </span></div>
+                                                            </div>
+                                                            
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class=" span10 " id="polling-header-footer" style="margin-top: 10px;;display:none" v-show="activeIndex == 6">
+                                    <div class="block-content collapse in" >
+                                        <div class="span12"   v-loading="Loading1">
+                                            <div class="eleui_table" style="width:100%;height:400px;overflow:auto">
+                                                <template>
+                                                    <el-table :data="data_.slice((currentPage-1)*pageSize,currentPage*pageSize)" height="360" border style="width: 100%;white-space:nowrap;" align='center'>
+                                                    <el-table-column label="日期" sortable prop="time"  style="white-space:nowrap;" width="120" align='center'></el-table-column>
+                                                    <el-table-column
+                                                    align='center'
+                                                    sortable
+                                                    v-for="(item, index) in thead"
+                                                    :key="index" :label="item"
+                                                    :prop="item"    style="white-space:nowrap;" width="120">
+                                                    </el-table-column>
+                                                    </el-table>
+                                                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                                    :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pageSize"
+                                                    layout="total, sizes, prev, pager, next, jumper" :total="data_.length">
+                                                    </el-pagination>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class=" span10 " id="polling-header-footer" style="margin-top: 10px;;display:none" v-show="activeIndex == 7">
+                                    <div class="block-content collapse in" >
+                                        <div class="span12"   v-loading="Loading2">
+                                            <div class="eleui_table" style="width:100%;height:auto">
+                                                <template>
+                                                    <el-table :data="data_.slice((currentPage-1)*pageSize,currentPage*pageSize)" height="360" border style="width: 100%;white-space:nowrap;" align='center'>
+                                                    <el-table-column label="日期" sortable prop="time"  style="white-space:nowrap;" width="120" align='center'></el-table-column>
+                                                    <el-table-column
+                                                    align='center'
+                                                    sortable
+                                                    v-for="(item, index) in thead"
+                                                    :key="index" :label="item"
+                                                    :prop="item"    style="white-space:nowrap;" width="120">
+                                                    </el-table-column>
+                                                    </el-table>
+                                                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                                    :current-page="currentPage" :page-sizes="[7, 14, 21, 30]" :page-size="pageSize"
+                                                    layout="total, sizes, prev, pager, next, jumper" :total="data_.length">
+                                                    </el-pagination>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                        </div>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+    </body>
+    <!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
+    <script src="js/export.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/element-ui.js"></script>
+    <script type="text/javascript">
+    var params = "";
+    function chang(){
+        params=form2Json("seaform");
+            var time1 = params.start_time, time2 = params.end_time,timeType = params.time_type, timeCon = $('.timecon select').val(),type="汇总";
+            if($('.timeIncrease').attr('data-increase') == "true"||$('.timeAdd').attr('data-add') == "true"){
+                if($('.timeAdd').attr('data-add') == "true"){
+                    timeCon = "-"+timeCon
+                }
+                if(timeType == "thisWeek" || timeType == "lastWeek"){
+                    $('input[name = start_time1]').val(getNowFormatDate(new Date(new Date(time1).getTime()-timeCon*7*24*60*60*1000)))
+                    $('input[name = end_time1]').val(getNowFormatDate(new Date(new Date(time2).getTime()-timeCon*7*24*60*60*1000))) 
+                    
+                }else if(timeType == "thisMonth" || timeType == "lastMonth"|| timeType == ""){
+                    if(time1 == "" || time2 == ""){
+                        return
+                    }else{
+                        $('input[name = start_time1]').val(getLastMonthMaxDay(time1,timeCon))
+                        $('input[name = end_time1]').val(getLastMonthMaxDay(time2,timeCon))
+                    }
+                }else{
+                    $('input[name = start_time1]').val('')
+                    $('input[name = end_time1]').val('')
+                }
+            }
+    }
+    $('input[name = start_time]').blur(function(){
+        chang()
+    })
+    $('input[name = end_time]').blur(function(){
+        chang()
+    })
+    $('.timeAdd').click(function(){
+        if($(this).css('background-color') == "rgb(240, 240, 240)"){
+            $(this).css('background-color','white')
+            $(this).attr('data-add',"false")
+        }else{
+            $(this).css('background-color','rgb(240,240,240)')
+            $('.timeIncrease').css('background-color','white')
+            $(this).attr('data-add',"true")
+            $('.timeIncrease').attr('data-increase',"false")
+            chang()
+        }
+    })
+    $('.timeIncrease').click(function(){
+        if($(this).css('background-color') == "rgb(240, 240, 240)"){
+            $(this).css('background-color','white')
+            $(this).attr('data-increase',"false")
+        }else{
+            $(this).css('background-color','rgb(240,240,240)')
+            $('.timeAdd').css('background-color','white')
+            $(this).attr('data-increase',"true")
+            $('.timeAdd').attr('data-add',"false")
+            chang()
+        }
+    })
+    $('.timecon select').change(function(){
+        chang()
+    })
+    $('.datagrid-header span:nth-of-type(1)').attr('data-title','jiangshan')
+    $('.polling-headerp').click(function(){
+        if($(this)[0].style.backgroundImage != 'url("img/up.svg")'){
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#polling-header-body')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#polling-header-body')[0].style.display = "block"
+        }
+    })
+
+    //伸开展开
+    $('.seaformp2').click(function(){
+        if($(this)[0].style.backgroundImage != 'url("img/up.svg")'){
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('.didi2')[0].style.display = "block"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('.didi2')[0].style.display = "none"
+        }
+    })
+    $('.seaformp3').click(function(){
+        if($(this)[0].style.backgroundImage != 'url("img/up.svg")'){
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('.didi3')[0].style.display = "block"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('.didi3')[0].style.display = "none"
+        }
+    })
+    $('.seaformp1').click(function(){
+        if($(this)[0].style.backgroundImage != 'url("img/up.svg")'){
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('.didi1')[0].style.display = "block"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('.didi1')[0].style.display = "none"
+        }
+    })
+
+    //重置
+    $('.reset').click(function(){
+        $("#seaform").find('input[type=text],select').each(function() {
+     });
+     $('input[type=checkbox]').each(function(){
+        $(this)[0].checked = false
+     })
+    })   
+
+    //表
+       var thisApp = {
+        init: function () {
+            $("#datagrid5").datagrid({
+                collapsible:true,
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url:'datagrid_data3.json',
+                method:'get',
+                remoteSort: false,
+                checkOnSelect:false,
+                selectOnCheck:true,
+                showFooter:true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: params,
+                toolbar: '#tb',
+                    onSortColum: function (sort,order) { 
+                    },
+                    onLoadSuccess: function(data){
+                        
+                    },
+//                     onSortColum: function (sort,order) {  //其中sort代表排序列字段名称；order:排序列的顺序（ASC或DESC）
+// 　　　$('#dg').datagrid('reload', {
+// 　　　sortName: 'uid',
+// 　　　sortOrder:'desc',
+// 　　});
+// },
+                    onClickRow : function(rowIndex, rowData) {
+                    },
+                    onDblClickRow:function(){
+                    }
+            })
+        },
+        init1: function () {
+            $("#datagrid6").datagrid({
+                collapsible:true,
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url:'datagrid_data3.json',
+                method:'get',
+                remoteSort: false,
+                checkOnSelect:false,
+                selectOnCheck:true,
+                showFooter:true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: params,
+                toolbar: '#tb1',
+                onSortColum: function (sort,order) { 
+                },
+                onLoadSuccess: function(data){
+                    console.log(2)
+                },
+//                     onSortColum: function (sort,order) {  //其中sort代表排序列字段名称；order:排序列的顺序（ASC或DESC）
+// 　　　$('#dg').datagrid('reload', {
+// 　　　sortName: 'uid',
+// 　　　sortOrder:'desc',
+// 　　});
+// },
+                onClickRow : function(rowIndex, rowData) {
+                },
+                onDblClickRow:function(){
+                }
+            })
+        },
+        init2: function () {
+            $("#datagrid7").datagrid({
+                collapsible:true,
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url:'datagrid_data3.json',
+                method:'get',
+                remoteSort: false,
+                checkOnSelect:false,
+                selectOnCheck:true,
+                showFooter:true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: params,
+                toolbar: '#tb2',
+                    onSortColum: function (sort,order) { 
+                    },
+                    onLoadSuccess: function(data){
+                        
+                    },
+//                     onSortColum: function (sort,order) {  //其中sort代表排序列字段名称；order:排序列的顺序（ASC或DESC）
+// 　　　$('#dg').datagrid('reload', {
+// 　　　sortName: 'uid',
+// 　　　sortOrder:'desc',
+// 　　});
+// },
+                    onClickRow : function(rowIndex, rowData) {
+                    },
+                    onDblClickRow:function(){
+                    }
+            })
+        },
+        init3: function () {
+            $("#datagrid8").datagrid({
+                collapsible:true,
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url:'datagrid_data3.json',
+                method:'get',
+                remoteSort: false,
+                checkOnSelect:false,
+                selectOnCheck:true,
+                showFooter:true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: params,
+                toolbar: '#tb3',
+                    onSortColum: function (sort,order) { 
+                    },
+                    onLoadSuccess: function(data){
+                        
+                    },
+                    onClickRow : function(rowIndex, rowData) {
+                    },
+                    onDblClickRow:function(){
+                    }
+            })
+        },
+        init4: function () {
+            $("#datagrid9").datagrid({
+                collapsible:true,
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url:'datagrid_data3.json',
+                method:'get',
+                remoteSort: false,
+                checkOnSelect:false,
+                selectOnCheck:true,
+                showFooter:true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: params,
+                toolbar: '#tb4',
+                    onSortColum: function (sort,order) { 
+                    },
+                    onLoadSuccess: function(data){
+                        
+                    },
+                    onClickRow : function(rowIndex, rowData) {
+                    },
+                    onDblClickRow:function(){
+                    }
+            })
+        },
+        init5: function () {
+            $("#datagrid10").datagrid({
+                collapsible:true,
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url:'datagrid_data3.json',
+                method:'get',
+                remoteSort: false,
+                checkOnSelect:false,
+                selectOnCheck:true,
+                showFooter:true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: params,
+                toolbar: '#tb5',
+                    onSortColum: function (sort,order) { 
+                    },
+                    onLoadSuccess: function(data){
+                        
+                    },
+                    onClickRow : function(rowIndex, rowData) {
+                    },
+                    onDblClickRow:function(){
+                    }
+            })
+        }
+       }
+       
+    function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray()
+        var jsonStr = "";
+
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+
+        var json = JSON.parse(jsonStr)
+        return json
+    }
+    //总表导出
+    function exportt(con){
+        var arr1 = [];
+        var json = [];
+        var jsondata = $(con).datagrid('getData').rows;
+        switch (con) {
+            case '#datagrid5':
+            
+                for(var i=0;i<jsondata.length;i++){
+                    json[i]={};
+                    json[i]['belong']= ' '+jsondata[i].belong;
+                    json[i]['card']= jsondata[i].card;
+                    json[i]['chance']= jsondata[i].chance;
+                    json[i]['card_rate']= jsondata[i].card_rate;
+                    json[i]['visits']= jsondata[i].visits;
+                    json[i]['visits_rate']= jsondata[i].visits_rate;
+                    json[i]['week_visits']= jsondata[i].week_visits;
+                    json[i]['week_visits_rate']= jsondata[i].week_visits_rate;
+                    json[i]['duration']= jsondata[i].duration;
+                    json[i]['callouts']= jsondata[i].callouts;
+                    json[i]['callouts_rate']= jsondata[i].callouts_rate;
+                    json[i]['signs']= jsondata[i].signs;
+                    json[i]['signs_BF']= jsondata[i].signs_BF;
+                    json[i]['money']= jsondata[i].money;
+                    json[i]['reverse']= jsondata[i].reverse;
+                    json[i]['deal_rate']= jsondata[i].deal_rate;
+                    json[i]['sign_rate']= jsondata[i].sign_rate;
+                    json[i]['last_time']= jsondata[i].last_time;
+                }
+                break;
+            case '#datagrid6':
+            for(var i=0;i<jsondata.length;i++){
+                    json[i]={};
+                    json[i]['time']= ' '+jsondata[i].time;
+                    json[i]['belong']= jsondata[i].belong;
+                    json[i]['duration']= jsondata[i].duration;
+                    json[i]['duration_aver']= jsondata[i].duration_aver;
+                    json[i]['duration_card']= jsondata[i].duration_card;
+                    json[i]['duration_card_aver']= jsondata[i].duration_card_aver;
+                    json[i]['duration_week']= jsondata[i].duration_week;
+                    json[i]['duration_week_aver']= jsondata[i].duration_week_aver;
+                    json[i]['duration_out']= jsondata[i].duration_out;
+                    json[i]['duration_out_aver']= jsondata[i].duration_out_aver;
+                    json[i]['visits']= jsondata[i].visits;
+                    json[i]['visits_rate']= jsondata[i].visits_rate;
+                    json[i]['week_visits']= jsondata[i].week_visits;
+                    json[i]['week_visits_rate']= jsondata[i].week_visits_rate;
+                }
+                break;
+            case '#datagrid7':
+            for(var i=0;i<jsondata.length;i++){
+                    json[i]={};
+                    json[i]['time']= ' '+jsondata[i].time;
+                    json[i]['belong']= jsondata[i].belong;
+                    json[i]['callouts']= jsondata[i].callouts;
+                    json[i]['callouts_card']= jsondata[i].callouts_card;
+                    json[i]['card_rate1']= jsondata[i].card_rate1;
+                    json[i]['card_rate2']= jsondata[i].card_rate2;
+                    json[i]['card_rate3']= jsondata[i].card_rate3;
+                    json[i]['card_out_aver']= jsondata[i].card_out_aver;
+                    json[i]['callouts_week']= jsondata[i].callouts_week;
+                    json[i]['callouts_week_aver']= jsondata[i].callouts_week_aver;
+                    json[i]['callouts_effect']= jsondata[i].callouts_effect;
+                    json[i]['callouts_week_effect']= jsondata[i].callouts_week_effect;
+                    json[i]['callouts_week_rate']= jsondata[i].callouts_week_rate;
+                    json[i]['callouts_rate']= jsondata[i].callouts_rate;
+                }    
+                break;
+            case '#datagrid8':
+            for(var i=0;i<jsondata.length;i++){
+                    json[i]={};
+                    json[i]['time']= ' '+jsondata[i].time;
+                    json[i]['belong']= jsondata[i].belong;
+                    json[i]['signs']= ' '+jsondata[i].signs;
+                    json[i]['signs_DJ']= jsondata[i].signs_DJ;
+                    json[i]['signs_QK']= jsondata[i].signs_QK;
+                    json[i]['signs_BF']= jsondata[i].signs_BF;
+                    json[i]['rate_BF']= jsondata[i].rate_BF;
+                    json[i]['signs_week']= jsondata[i].signs_week;
+                    json[i]['signs_week_DJ']= jsondata[i].signs_week_DJ;
+                    json[i]['signs_week_QK']= jsondata[i].signs_week_QK;
+                    json[i]['signs_out']= jsondata[i].signs_out;
+                    json[i]['signs_out_DJ']= jsondata[i].signs_out_DJ;
+                    json[i]['signs_out_QK']= jsondata[i].signs_out_QK;
+                    json[i]['BF3']= jsondata[i].BF3;
+                    json[i]['BF45']= jsondata[i].BF45;
+                    json[i]['BF67']= jsondata[i].BF67;
+                    json[i]['BF7']= jsondata[i].BF7;
+                }        
+                break;
+            case '#datagrid9':
+            for(var i=0;i<jsondata.length;i++){
+                    json[i]={};
+                    json[i]['time']= ' '+jsondata[i].time;
+                    json[i]['belong']= jsondata[i].belong;
+                    json[i]['money']= ' '+jsondata[i].money;
+                    json[i]['money_week']= jsondata[i].money_week;
+                    json[i]['money_week_DJ']= ' '+jsondata[i].money_week_DJ;
+                    json[i]['money_week_QK']= jsondata[i].money_week_QK;
+                    json[i]['money_out']= jsondata[i].money_out;
+                    json[i]['money_out_DJ']= jsondata[i].money_out_DJ;
+                    json[i]['money_out_QK']= jsondata[i].money_out_QK;
+                    json[i]['money3_BF']= jsondata[i].money3_BF;
+                    json[i]['money45_BF']= jsondata[i].money45_BF;
+                    json[i]['money67_BF']= jsondata[i].money67_BF;
+                    json[i]['money7_BF']= jsondata[i].money7_BF;
+                }          
+                break;
+            case '#datagrid10':
+            for(var i=0;i<jsondata.length;i++){
+                    json[i]={};
+                    json[i]['time']= ' '+jsondata[i].time;
+                    json[i]['belong']= jsondata[i].belong;
+                    json[i]['reverse_DJ']= ' '+jsondata[i].reverse_DJ;
+                    json[i]['reverse_QK']= jsondata[i].reverse_QK;
+                    json[i]['reverse']= ' '+jsondata[i].reverse;
+                    json[i]['reverse_week']= jsondata[i].reverse_week;
+                    json[i]['reverse_KQ']= jsondata[i].reverse_KQ;
+                    json[i]['rate_DJ_QK']=  jsondata[i].rate_DJ_QK;
+                    json[i]['arpu_QK']= jsondata[i].arpu_QK;
+                    json[i]['arpu_BF']= jsondata[i].arpu_BF;
+                    json[i]['arpu_week']= jsondata[i].arpu_week;
+                    json[i]['arpu_out']= jsondata[i].arpu_out;
+                }              
+                break;
+            default:
+                break;
+        }
+        var data = JSON.stringify(json);
+        data = data.replace(/null/g,'0');
+        // console.log($(con+`th`))
+        for (var i = 0; i < $(con+` th`).length; i++) {
+            arr1.push($(con+` th`)[i].innerHTML)
+        }
+        if (data == '')return;
+        // console.log(data,arr1)
+        JSONToCSVConvertor(data, "Download", true,arr1);
+    }
+    $('a[aclass = Hidden]').hover(function(){
+        
+        $('div[aclass = hidden]').css('display','block')
+    },function(){
+        $('div[aclass = hidden]').css('display','none')
+    })      
+    $('a[aclass = Hidden1]').hover(function(){
+        
+        $('div[aclass = hidden1]').css('display','block')
+    },function(){
+        $('div[aclass = hidden1]').css('display','none')
+    })     
+    $('a[aclass = Hidden2]').hover(function(){
+        
+        $('div[aclass = hidden2]').css('display','block')
+    },function(){
+        $('div[aclass = hidden2]').css('display','none')
+    }) 
+    $('a[aclass = Hidden3]').hover(function(){
+        
+        $('div[aclass = hidden3]').css('display','block')
+    },function(){
+        $('div[aclass = hidden3]').css('display','none')
+    })         
+    $('a[aclass = Hidden4]').hover(function(){
+        
+        $('div[aclass = hidden4]').css('display','block')
+    },function(){
+        $('div[aclass = hidden4]').css('display','none')
+    })         
+    $('a[aclass = Hidden5]').hover(function(){
+        
+        $('div[aclass = hidden5]').css('display','block')
+    },function(){
+        $('div[aclass = hidden5]').css('display','none')
+    })                      	
+
+    //区间
+    function hhh(){
+        $('.hidd1')[0].innerHTML+=`<div style="text-align:center;width:100%">区间：<input type='text' class="text1" style="width:40px;margin:0">-<input type='text' class="text2" style="width:40px;margin:0"></div>`;
+            $($('input[class=text2]')).on('keyup',function(){
+                if($('input[class=text2]').val()>$('input[class=text1]').val()){
+                    $('.hidd1 input[type=checkbox]').each(function(index,el){
+                        var text1 ;
+                        if($('input[class=text1]').val() == ""){
+                            text1 = 0
+                        }else{
+                            text1 = $('input[class=text1]').val();
+                        }
+                        if(index>text1-2 && index<$('input[class=text2]').val()){
+                            el.checked = true
+                        }else{
+                            el.checked = false
+                        }
+                    })
+                }else{
+                    $('.hidd1 input[type=checkbox]').each(function(index,el){
+                            el.checked = false
+                    })
+                }
+            })
+    }
+
+    //选择月/周/日 显示内容不同
+    function chan(){
+        if($('select[class=mwd]').val() == "month"){
+            $('div[data-ig = Year]').css('display','block')
+            $('div[data-ig = m_w_d]').css('display','block')
+            $('div[data-ig = time_start]').css('display','none')
+            $('div[data-ig = time_end]').css('display','none')
+            $('div[data-ig = time_type]').css('display','none')
+            $('.hidd1')[0].innerHTML = ""
+            for(var i=1;i<13;i++){
+                if(i<10){
+                    i='0'+i
+                }
+                $('.hidd1')[0].innerHTML+=`<div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;`+i+`</span>
+                                        </div>`
+            }
+            hhh()
+        }else if($('select[class=mwd]').val() == "week"){
+            $('div[data-ig = Year]').css('display','block')
+            $('div[data-ig = m_w_d]').css('display','block')
+            $('div[data-ig = time_start]').css('display','none')
+            $('div[data-ig = time_end]').css('display','none')
+            $('div[data-ig = time_type]').css('display','none')
+            $('.hidd1')[0].innerHTML = ""
+            for(var i=1;i<54;i++){
+                $('.hidd1')[0].innerHTML+=`<div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;`+i+`</span>
+                                        </div>`
+            }
+            hhh()
+        }else if($('select[class=mwd]').val() == "day"){
+            $('div[data-ig = Year]').css('display','block')
+            $('div[data-ig = m_w_d]').css('display','block')
+            $('div[data-ig = time_start]').css('display','none')
+            $('div[data-ig = time_end]').css('display','none')
+            $('div[data-ig = time_type]').css('display','none')
+            $('.hidd1')[0].innerHTML='<p>月：</p>'
+            for(var i=1;i<13;i++){
+                if(i<10){
+                    i='0'+i
+                }
+                $('.hidd1')[0].innerHTML+=`<div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;`+i+`</span>
+                                        </div>`
+                                        
+            }
+            $('.hidd1')[0].innerHTML+=`<div style="text-align:center;width:100%">区间：<input type='text' class="text1" style="width:40px;margin:0">-<input type='text' class="text2" style="width:40px;margin:0"></div>`;
+            $('.hidd1')[0].innerHTML+='<p>日：</p>'
+            for(var j=1;j<32;j++){
+                if(j<10){
+                    j='0'+j
+                }
+                $('.hidd1')[0].innerHTML+=`<div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;`+j+`</span>
+                                        </div>`
+            }
+            $('.hidd1')[0].innerHTML+=`<div style="text-align:center;width:100%">区间：<input type='text' class="text3" style="width:40px;margin:0">-<input type='text' class="text4" style="width:40px;margin:0"></div>`;
+            $($('input[class=text2]')).on('keyup',function(){
+                if($('input[class=text2]').val()>$('input[class=text1]').val()){
+                    $('.hidd1 input[type=checkbox]').each(function(index,el){
+                        if(index >= 0 && index<12){
+                            var text1 ;
+                            if($('input[class=text1]').val() == ""){
+                                text1 = 0
+                            }else{
+                                text1 = $('input[class=text1]').val();
+                            }
+                            if(index>text1-2 && index<$('input[class=text2]').val()){
+                                el.checked = true
+                            }else{
+                                el.checked = false
+                            }
+                        }
+                    })
+                }else{
+                    $('.hidd1 input[type=checkbox]').each(function(index,el){
+                        if(index >= 0 && index<12){
+                            el.checked = false
+                        }
+                            
+                    })
+                }
+            })
+            $($('input[class=text4]')).on('keyup',function(){
+                if($('input[class=text4]').val()>$('input[class=text3]').val()){
+                        $('.hidd1 input[type=checkbox]').each(function(index,el){
+                            if(index>=12){
+                                var text1 ;
+                                if($('input[class=text3]').val() == ""){
+                                    text1 = 0
+                                }else{
+                                    text1 = $('input[class=text3]').val();
+                                }
+                                if(index>parseInt(text1)+10 && index<parseInt($('input[class=text4]').val())+12){
+                                    el.checked = true
+                                }else{
+                                    el.checked = false
+                                } 
+                            }
+                        })  
+                }else{
+                    $('.hidd1 input[type=checkbox]').each(
+                        function(index,el){if(index>=12){
+                            el.checked = false
+                        }
+                    })
+                }
+            })
+        }else{
+            $('div[data-ig = Year]').css('display','none')
+            $('div[data-ig = m_w_d]').css('display','none')
+            $('div[data-ig = time_start]').css('display','block')
+            $('div[data-ig = time_end]').css('display','block')
+            $('div[data-ig = time_type]').css('display','block')
+        }
+        chang()
+    }
+    // chan();
+    // $('select[class=mwd]').on('change',function(){
+    //     chan();
+        
+    // })
+    function getNowFormatDate(date) {
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    if (hour >= 0 && hour <= 9) {
+        hour = "0" + hour;
+    }
+    if (minute >= 0 && minute <= 9) {
+        minute = "0" + minute;
+    }
+    if (second >= 0 && second <= 9) {
+        second = "0" + second;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + hour + seperator2 + minute
+            + seperator2 + second;
+    return currentdate;
+    }
+    function chanw(){
+        var oneday = 1000 * 60 * 60 * 24,today=new Date();
+        getday = today.getDay() == 0?7: today.getDay();
+        switch ($('select[name=time_type]').val()) {
+            case "today":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime())));
+            $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+                case "yesterday":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()-oneday)));
+            $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()-1)))
+                break;
+                case "thisWeek":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()- oneday * (getday -1))));
+            $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+                case "lastWeek":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()- oneday * (getday+6))));
+            $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()- oneday * (getday-1)-1)));
+             break;
+                case "thisMonth":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()- oneday * (today.getDate()-1))));
+            $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+                case "lastMonth":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date(new Date().toLocaleDateString()).getTime() - oneday * today.getDate()) - oneday * (new Date(today - oneday * today.getDate()).getDate() - 1))));
+            $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()- oneday * (today.getDate()-1)-1)))
+                break;
+            default:
+                break;
+        }
+    }
+    $('select[name=time_type]').on('change',function(){
+        chanw();
+        chang();
+    })
+    
+
+    //项目
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "project" || $(e.target.parentElement.parentElement).attr('data-ig') == "project" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "project"){
+            $('.hidd2')[0].style.display = "block"
+        }else{
+            var hhh = $('input[name = project]')[0].value;
+            $('.hidd2')[0].style.display = "none";
+            $('input[name = project]').val('');
+            $('.hidd2 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = project]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = project]')[0].value = $('input[name = project]')[0].value.substring(1);
+            var arr = $('input[name = project]')[0].value.split(',');
+            if( hhh != $('input[name = project]')[0].value){
+                $.ajax({
+                    url:'aa.php',
+                    type:'get',
+                    data:{gArr:arr,gType:'4'},
+                    success:function(data){
+                        $('.hidd3')[0].innerHTML = "";
+                        for(var k in data){
+                            $('.hidd3')[0].innerHTML+=`<div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;`+data[k]+`</span>
+                                            </div>`
+                        }
+                    },
+                    error:function(){
+                    }
+                })
+            }
+            
+        }
+    })
+
+    //部门
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "section" || $(e.target.parentElement.parentElement).attr('data-ig') == "section" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "section"){
+            
+            $('.hidd3')[0].style.display = "block";
+        }else{
+            var hhh = $('input[name = sector]')[0].value;
+            $('.hidd3')[0].style.display = "none";
+            $('input[name = sector]').val('');
+            $('.hidd3 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = sector]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = sector]')[0].value = $('input[name = sector]')[0].value.substring(1)
+            var arr = $('input[name = sector]')[0].value.split(',');
+            if( hhh != $('input[name = sector]')[0].value){
+                $.ajax({
+                    url:'aa.php',
+                    type:'get',
+                    data:{gArr:arr,gType:'3'},
+                    success:function(data){
+                        for(var k in data){
+                            $('.hidd4')[0].innerHTML+=`<div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;`+data[k]+`</span>
+                                            </div>`
+                        }
+                    },
+                    error:function(){
+                    }
+                })
+            }
+        }
+    })
+
+    //小组
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "group" || $(e.target.parentElement.parentElement).attr('data-ig') == "group" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "group"){
+            $('.hidd4')[0].style.display = "block"
+        }else{
+            var hhh = $('input[name = group]')[0].value;
+            $('.hidd4')[0].style.display = "none";
+            $('input[name = group]').val('');
+            $('.hidd4 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = group]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = group]')[0].value = $('input[name = group]')[0].value.substring(1);
+            var arr = $('input[name = group]')[0].value.split(',');
+            if( hhh != $('input[name = group]')[0].value){
+                $.ajax({
+                    url:'aa.php',
+                    type:'get',
+                    data:{gArr:arr,gType:'2'},
+                    success:function(data){
+                        for(var k in data){
+                            $('.hidd5')[0].innerHTML+=`<div style="text-align:center">
+                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span data-uid="`+data[k].uid+`" style="display: inline;">&nbsp;`+data[k].user_name+data[k].group+`</span>
+                            </div>`
+                        }
+                    },
+                    error:function(){
+                    }
+                })
+            }
+        }
+    })
+
+    //属员
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "name" || $(e.target.parentElement.parentElement).attr('data-ig') == "name" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "name"){
+            $('.hidd5')[0].style.display = "block"
+        }else{
+            $('.hidd5')[0].style.display = "none";
+            $('input[class = people]').val('');
+            $('input[name = people]').val('');
+            $('.hidd5 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[class = people]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1];
+                        $('input[name = people]')[0].value +=','+$(el.nextElementSibling).attr('data-uid')
+                    }
+            })
+            $('input[class = people]')[0].value = $('input[class = people]')[0].value.substring(1)
+            $('input[name = people]')[0].value = $('input[name = people]')[0].value.substring(1)
+        }
+    })
+
+    //渠道
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "ditch" || $(e.target.parentElement.parentElement).attr('data-ig') == "ditch" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "ditch"){
+            $('.hidd6')[0].style.display = "block"
+        }else{
+            $('.hidd6')[0].style.display = "none";
+            $('input[name = channel]').val('');
+            $('.hidd6 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = channel]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = channel]')[0].value = $('input[name = channel]')[0].value.substring(1)
+        }
+    })
+
+    //分类
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "classify" || $(e.target.parentElement.parentElement).attr('data-ig') == "classify" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "classify"){
+            $('.hidd7')[0].style.display = "block"
+        }else{
+            $('.hidd7')[0].style.display = "none";
+            $('input[name = classify]').val('');
+            $('.hidd7 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = classify]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = classify]')[0].value = $('input[name = classify]')[0].value.substring(1)
+        }
+    })
+
+    //广告商
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "advertiser" || $(e.target.parentElement.parentElement).attr('data-ig') == "advertiser" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "advertiser"){
+            $('.hidd8')[0].style.display = "block"
+        }else{
+            $('.hidd8')[0].style.display = "none";
+            $('input[name = advertiser]').val('');
+            $('.hidd8 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = advertiser]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = advertiser]')[0].value = $('input[name = advertiser]')[0].value.substring(1)
+        }
+    })
+
+    //套站
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "set_station" || $(e.target.parentElement.parentElement).attr('data-ig') == "set_station" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "set_station"){
+            $('.hidd9')[0].style.display = "block"
+        }else{
+            $('.hidd9')[0].style.display = "none";
+            $('input[name = station]').val('');
+            $('.hidd9 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = station]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = station]')[0].value = $('input[name = station]')[0].value.substring(1)
+        }
+    })
+
+    //载体
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "carrier" || $(e.target.parentElement.parentElement).attr('data-ig') == "carrier" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "carrier"){
+            $('.hidd10')[0].style.display = "block"
+        }else{
+            $('.hidd10')[0].style.display = "none";
+            $('input[name = carrier]').val('');
+            $('.hidd10 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = carrier]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = carrier]')[0].value = $('input[name = carrier]')[0].value.substring(1)
+        }
+    })
+
+    //匹配方式
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "matching" || $(e.target.parentElement.parentElement).attr('data-ig') == "matching" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "matching"){
+            $('.hidd11')[0].style.display = "block"
+        }else{
+            $('.hidd11')[0].style.display = "none";
+            $('input[name = matching]').val('');
+            $('.hidd11 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = matching]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = matching]')[0].value = $('input[name = matching]')[0].value.substring(1)
+        }
+    })
+
+    //地域
+    var City = ['北京','上海','广东','天津','江苏','浙江','山东','河南','河北','四川',
+            '安徽','福建','湖北','湖南','辽宁','山西','江西','陕西','重庆','广西',
+            '黑龙江','吉林','云南','贵州','内蒙古','甘肃','新疆','海南','宁夏','青岛',
+            '西藏',]
+    for(var k in City){
+        $('.hidd12')[0].innerHTML+=`<div style="text-align:center">
+                                    <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;`+City[k]+`</span>
+                                </div>`
+    }
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "region" || $(e.target.parentElement.parentElement).attr('data-ig') == "region" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "region"){
+            
+            $('.hidd12')[0].style.display = "block"
+        }else{
+            $('.hidd12')[0].style.display = "none";
+            $('input[name = province]').val('');
+            $('.hidd12 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = province]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = province]')[0].value = $('input[name = province]')[0].value.substring(1)
+        }
+    })
+    function getLastMonthMaxDay(date,n){
+        var year = date.substr(0, 4);
+        var month = date.substr(5, 2);
+        var day = date.substr(8, 2);
+        var thisDay = new Date(year,month,0);
+        var maxThisDay = thisDay.getDate();
+        if (month-n < 0 ) {
+            year = year - 1;
+            month = 12+parseInt(month-n);
+            if(month < 10){
+                month = '0' + month 
+            }
+        }else if(month-n > 12 ){
+            year = parseInt(year) + 1;
+            month = parseInt(month-n)-12;
+            if(month < 10){
+                month = '0' + month 
+            }
+        } else {
+            if (month-n < 10) {
+                month = '0' + (month - n);
+            } else {
+                month = (month - n);
+            }
+        }
+        var lastDay = new Date(year,month,0);
+        var maxLastDay = lastDay.getDate();
+        if(day>maxLastDay){
+            day = maxLastDay;
+        }else if(day==maxThisDay){
+            day = maxLastDay;
+        }
+        return year +'-'+ month +'-'+ day+' '+date.split(' ')[1];
+    }
+    
+    $(document).click(function(e){
+        
+        // if($(e.target).attr('id') == "seasearch"){
+        //         params=form2Json("seaform");
+                
+        //     if(params.start_time1 != "" && params.end_time1 != ""){
+        //       params.type = "环比";  
+        //     }else{
+        //         params.type = "汇总"; 
+        //     }
+        //     var dg = $('#datagrid5').datagrid({queryParams: params,singleSelect:false});
+    })
+    function init1(){
+
+    }
+    $(function(){
+        console.log(thisApp)
+        // thisApp.init()
+        init1()
+        var n = 0;
+        
+        $('.datagrid-header td span').each(function(index,el){
+            if(index > 3){
+                $(el).attr('data-title','jsn')
+            }
+        })
+        
+        $(".seasearch").linkbutton({ iconCls: 'icon-search', plain: true }).click(function () {
+        //     $('.polbling-headerp')[0].style.backgroundImage = 'url("img/up.svg")';
+        //  $('#polling-header-body')[0].style.display = "none";
+         
+        });
+    // });
+    })
+    new Vue({
+            el:'#app',
+            data:function(){
+                return {
+                    activeIndex: '0',
+                    thead: [],
+                    tableDatas: [],
+                    data_: [],
+                    total: 5,
+                    currentPage: 1,
+　　　　　　　　     pageSize: 7,
+
+Loading1:false,
+Loading2:false,
+                }
+            },
+            created(){
+                this.init()
+            },
+            mounted(){
+                $('a[aclass = Hidden]').hover(function(){
+                    
+                    $('div[aclass = hidden]').css('display','block')
+                },function(){
+                    $('div[aclass = hidden]').css('display','none')
+                })      
+                $('a[aclass = Hidden1]').hover(function(){
+                    
+                    $('div[aclass = hidden1]').css('display','block')
+                },function(){
+                    $('div[aclass = hidden1]').css('display','none')
+                })     
+                $('a[aclass = Hidden2]').hover(function(){
+                    
+                    $('div[aclass = hidden2]').css('display','block')
+                },function(){
+                    $('div[aclass = hidden2]').css('display','none')
+                }) 
+                $('a[aclass = Hidden3]').hover(function(){
+                    
+                    $('div[aclass = hidden3]').css('display','block')
+                },function(){
+                    $('div[aclass = hidden3]').css('display','none')
+                })         
+                $('a[aclass = Hidden4]').hover(function(){
+                    
+                    $('div[aclass = hidden4]').css('display','block')
+                },function(){
+                    $('div[aclass = hidden4]').css('display','none')
+                })         
+                $('a[aclass = Hidden5]').hover(function(){
+                    
+                    $('div[aclass = hidden5]').css('display','block')
+                },function(){
+                    $('div[aclass = hidden5]').css('display','none')
+                })       
+            },
+            methods:{
+                init(){
+                    this.currentPage = 1;
+                    this.pageSize = 5;
+                    this.total = 5;
+                    _this = this;
+                    // _this.Loading1 = true;
+                    // _this.Loading2 = true;
+                    console.log(_this.activeIndex)
+                    setTimeout(function(){
+
+                        params=form2Json("seaform");
+            
+                        if(params.start_time1 != "" && params.end_time1 != ""){
+                            params.type = "环比";  
+                        }else{
+                            params.type = "汇总"; 
+                        }
+                        // console.log(new Date().getHours() == '9'&&new Date().getMinutes()>0&&new Date().getMinutes()<40)
+                        // return
+                        if(new Date().getHours() == '9'&&new Date().getMinutes()>=0&&new Date().getMinutes()<=40){
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '9:00-9:40不能查询鹰眼',
+                                    position: 'bottom-left',
+                                    duration:'2000'
+                                });
+                                return
+                            }
+                        if(_this.activeIndex == 6 || _this.activeIndex == 7){
+                            console.log(params)
+                            if(params.people.split(',').length>2&&(new Date(params.end_time).getTime()-new Date(params.start_time).getTime())>7*24*3600*1000){
+                                _this.$notify.error({
+                                title: '错误',
+                                message: '当属员个数超过2时，时间段不能大于7天',
+                                    position: 'bottom-left',
+                                    duration:'2000'
+                                });
+                                return
+                            }
+                            if(params.people.split(',').length==1&&(new Date(params.end_time).getTime()-new Date(params.start_time).getTime())>30*24*3600*1000){
+                                _this.$notify.error({
+                                title: '错误',
+                                message: '当属员个数等于1时，时间段不能大于30天',
+                                    position: 'bottom-left',
+                                    duration:'2000'
+                                });
+                                return
+                            }
+                        }
+                        switch (_this.activeIndex) {
+                            case '0':
+                            //总表
+                            thisApp.init()
+                            var dg=$('#datagrid5');
+                            dg.datagrid('enableFilter', [{
+                                field:'belong',
+                                type:'text'
+                            },{
+                                field:'card',
+                                type:'text'
+                            },{
+                                field:'chance',
+                                type:'text'
+                            },{
+                                field:'card_rate',
+                                type:'text'
+                            },{
+                                field:'visits',
+                                type:'text'
+                            },{
+                                field:'visits_rate',
+                                type:'text'
+                            },{
+                                field:'week_visits',
+                                type:'text'
+                            },{
+                                field:'week_visits_rate',
+                                type:'text'
+                            },{
+                                field:'duration',
+                                type:'text'
+                            },{
+                                field:'callouts',
+                                type:'text'
+                            },{
+                                field:'callouts_rate',
+                                type:'text'
+                            },{
+                                field:'signs',
+                                type:'text'
+                            },{
+                                field:'signs_BF',
+                                type:'text'
+                            },{
+                                field:'money',
+                                type:'text'
+                            },{
+                                field:'reverse',
+                                type:'text'
+                            },{
+                                field:'deal_rate',
+                                type:'text'
+                            },{
+                                field:'sign_rate',
+                                type:'text'
+                            },{
+                                field:'last_time',
+                                type:'text'
+                            }]);
+                            p = $('#datagrid5').datagrid('getPager');
+                            $(p).pagination({
+                                beforePageText: '第',//页数文本框前显示的汉字  
+                                afterPageText: '页    共 {pages} 页',
+                                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+                            });
+                                break;
+                            case '1':
+                            //拨打时长分析
+                            thisApp.init1()
+                            var dg1=$('#datagrid6');
+                            dg1.datagrid('enableFilter', [{
+                                field:'time',
+                                type:'text'
+                            },{
+                                field:'belong',
+                                type:'text'
+                            },{
+                                field:'duration',
+                                type:'text'
+                            },{
+                                field:'duration_aver',
+                                type:'text'
+                            },{
+                                field:'duration_card',
+                                type:'text'
+                            },{
+                                field:'duration_card_aver',
+                                type:'text'
+                            },{
+                                field:'duration_week',
+                                type:'text'
+                            },{
+                                field:'duration_week_aver',
+                                type:'text'
+                            },{
+                                field:'duration_out',
+                                type:'text'
+                            },{
+                                field:'duration_out_aver',
+                                type:'text'
+                            },{
+                                field:'visits',
+                                type:'text'
+                            },{
+                                field:'visits_rate',
+                                type:'text'
+                            },{
+                                field:'week_visits',
+                                type:'text'
+                            },{
+                                field:'week_visits_rate',
+                                type:'text'
+                            }]);
+                            p1 = $('#datagrid6').datagrid('getPager');
+                            $(p1).pagination({
+                                beforePageText: '第',//页数文本框前显示的汉字  
+                                afterPageText: '页    共 {pages} 页',
+                                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+                            });
+                                break;
+                            case '2':
+                            //拨打个数分析
+                            thisApp.init2()
+                            var dg2=$('#datagrid7');
+                            dg2.datagrid('enableFilter', [{
+                                field:'time',
+                                type:'text'
+                            },{
+                                field:'belong',
+                                type:'text'
+                            },{
+                                field:'callouts',
+                                type:'text'
+                            },{
+                                field:'callouts_card',
+                                type:'text'
+                            },{
+                                field:'card_rate1',
+                                type:'text'
+                            },{
+                                field:'card_rate2',
+                                type:'text'
+                            },{
+                                field:'card_rate3',
+                                type:'text'
+                            },{
+                                field:'card_out_aver',
+                                type:'text'
+                            },{
+                                field:'callouts_week',
+                                type:'text'
+                            },{
+                                field:'callouts_week_aver',
+                                type:'text'
+                            },{
+                                field:'callouts_effect',
+                                type:'text'
+                            },{
+                                field:'callouts_week_effect',
+                                type:'text'
+                            },{
+                                field:'callouts_week_rate',
+                                type:'text'
+                            },{
+                                field:'callouts_rate',
+                                type:'text'
+                            }]);
+                            p2 = $('#datagrid7').datagrid('getPager');
+                            $(p2).pagination({
+                                beforePageText: '第',//页数文本框前显示的汉字  
+                                afterPageText: '页    共 {pages} 页',
+                                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+                            });
+                                break;   
+                                case '3':
+                            //报名人数分析
+                            thisApp.init3()
+                            var dg3=$('#datagrid8');
+                            dg3.datagrid('enableFilter', [{
+                                field:'time',
+                                type:'text'
+                            },{
+                                field:'belong',
+                                type:'text'
+                            },{
+                                field:'signs',
+                                type:'text'
+                            },{
+                                field:'signs_DJ',
+                                type:'text'
+                            },{
+                                field:'signs_QK',
+                                type:'text'
+                            },{
+                                field:'signs_BF',
+                                type:'text'
+                            },{
+                                field:'rate_BF',
+                                type:'text'
+                            },{
+                                field:'signs_week',
+                                type:'text'
+                            },{
+                                field:'signs_week_DJ',
+                                type:'text'
+                            },{
+                                field:'signs_week_QK',
+                                type:'text'
+                            },{
+                                field:'signs_out',
+                                type:'text'
+                            },{
+                                field:'signs_out_DJ',
+                                type:'text'
+                            },{
+                                field:'signs_out_QK',
+                                type:'text'
+                            },{
+                                field:'BF3',
+                                type:'text'
+                            },{
+                                field:'BF45',
+                                type:'text'
+                            },{
+                                field:'BF67',
+                                type:'text'
+                            },{
+                                field:'BF7',
+                                type:'text'
+                            }]);
+                            p3 = $('#datagrid8').datagrid('getPager');
+                            $(p3).pagination({
+                                beforePageText: '第',//页数文本框前显示的汉字  
+                                afterPageText: '页    共 {pages} 页',
+                                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+                            });
+                                break;
+                                case '4':
+                            //报名流水分析
+                            thisApp.init4()
+                            var dg4=$('#datagrid9');
+                            dg4.datagrid('enableFilter', [{
+                                field:'time',
+                                type:'text'
+                            },{
+                                field:'belong',
+                                type:'text'
+                            },{
+                                field:'money',
+                                type:'text'
+                            },{
+                                field:'money_week',
+                                type:'text'
+                            },{
+                                field:'money_week_DJ',
+                                type:'text'
+                            },{
+                                field:'money_week_QK',
+                                type:'text'
+                            },{
+                                field:'money_out',
+                                type:'text'
+                            },{
+                                field:'money_out_DJ',
+                                type:'text'
+                            },{
+                                field:'money_out_QK',
+                                type:'text'
+                            },{
+                                field:'money3_BF',
+                                type:'text'
+                            },{
+                                field:'money45_BF',
+                                type:'text'
+                            },{
+                                field:'money67_BF',
+                                type:'text'
+                            },{
+                                field:'money7_BF',
+                                type:'text'
+                            }]);
+                            p4 = $('#datagrid9').datagrid('getPager');
+                            $(p4).pagination({
+                                beforePageText: '第',//页数文本框前显示的汉字  
+                                afterPageText: '页    共 {pages} 页',
+                                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+                            });
+                                break;
+                                case '5':
+                            //报名人数分析
+                            thisApp.init5()
+                            var dg5=$('#datagrid10');
+                            dg5.datagrid('enableFilter', [{
+                                field:'time',
+                                type:'text'
+                            },{
+                                field:'belong',
+                                type:'text'
+                            },{
+                                field:'reverse_DJ',
+                                type:'text'
+                            },{
+                                field:'reverse_QK',
+                                type:'text'
+                            },{
+                                field:'reverse',
+                                type:'text'
+                            },{
+                                field:'reverse_week',
+                                type:'text'
+                            },{
+                                field:'reverse_KQ',
+                                type:'text'
+                            },{
+                                field:'rate_DJ_QK',
+                                type:'text'
+                            },{
+                                field:'arpu_QK',
+                                type:'text'
+                            },{
+                                field:'arpu_BF',
+                                type:'text'
+                            },{
+                                field:'arpu_week',
+                                type:'text'
+                            },{
+                                field:'arpu_out',
+                                type:'text'
+                            }]);
+                            p5 = $('#datagrid10').datagrid('getPager');
+                            $(p5).pagination({
+                                beforePageText: '第',//页数文本框前显示的汉字  
+                                afterPageText: '页    共 {pages} 页',
+                                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+                            });
+                                break;
+                                case '6':
+                                 //流水
+                                $.ajax({
+                                    url:'',
+                                    typ:'get',
+                                    data:{},
+                                    success:function(data){
+                                        data = [{"time":"2019-08-01","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":4,"\u674e\u5fd7\u9e4f":5,"\u4fa3\u51ef\u5e73":3,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":2,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":4,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":0,"\u5f20\u5efa\u7434":0,"\u82d7\u4e91\u98de":0,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-02","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":4,"\u674e\u5fd7\u9e4f":2,"\u4fa3\u51ef\u5e73":3,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":1,"\u90ed\u6668\u8f89":4,"\u6c64\u6dfc\u6dfc":4,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":0,"\u5f20\u5efa\u7434":0,"\u82d7\u4e91\u98de":0,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-03","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":0,"\u5f20\u5efa\u7434":0,"\u82d7\u4e91\u98de":0,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-04","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":0,"\u5f20\u5efa\u7434":0,"\u82d7\u4e91\u98de":0,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-05","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":8,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":4,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":3,"\u4e01\u96e8\u6674":3,"\u80e1\u5fd7\u4e39":3,"\u5218\u65ed\u7131":3,"\u5f20\u5efa\u7434":3,"\u82d7\u4e91\u98de":7,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-06","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":8,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":10,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":3,"\u4e01\u96e8\u6674":3,"\u80e1\u5fd7\u4e39":4,"\u5218\u65ed\u7131":4,"\u5f20\u5efa\u7434":1,"\u82d7\u4e91\u98de":3,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-07","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":12,"\u674e\u5fd7\u9e4f":12,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":14,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":4,"\u4e01\u96e8\u6674":4,"\u80e1\u5fd7\u4e39":5,"\u5218\u65ed\u7131":5,"\u5f20\u5efa\u7434":1,"\u82d7\u4e91\u98de":5,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-08","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":9,"\u674e\u5fd7\u9e4f":9,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":9,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":5,"\u4e01\u96e8\u6674":5,"\u80e1\u5fd7\u4e39":9,"\u5218\u65ed\u7131":5,"\u5f20\u5efa\u7434":0,"\u82d7\u4e91\u98de":9,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-09","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":7,"\u674e\u5fd7\u9e4f":7,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":7,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":7,"\u4e01\u96e8\u6674":6,"\u80e1\u5fd7\u4e39":5,"\u5218\u65ed\u7131":5,"\u5f20\u5efa\u7434":13,"\u82d7\u4e91\u98de":14,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-10","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":4,"\u674e\u5fd7\u9e4f":4,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":4,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":5,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":1,"\u4e01\u96e8\u6674":10,"\u80e1\u5fd7\u4e39":8,"\u5218\u65ed\u7131":0,"\u5f20\u5efa\u7434":6,"\u82d7\u4e91\u98de":9,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-11","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":4,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":0,"\u5f20\u5efa\u7434":4,"\u82d7\u4e91\u98de":0,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-12","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":6,"\u674e\u5fd7\u9e4f":6,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":6,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":6,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":10,"\u80e1\u5fd7\u4e39":6,"\u5218\u65ed\u7131":6,"\u5f20\u5efa\u7434":7,"\u82d7\u4e91\u98de":8,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-13","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":3,"\u674e\u5fd7\u9e4f":2,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":2,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":5,"\u80e1\u5fd7\u4e39":8,"\u5218\u65ed\u7131":5,"\u5f20\u5efa\u7434":4,"\u82d7\u4e91\u98de":6,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-14","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":3,"\u80e1\u5fd7\u4e39":10,"\u5218\u65ed\u7131":8,"\u5f20\u5efa\u7434":12,"\u82d7\u4e91\u98de":7,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-15","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":1,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":3,"\u5218\u65ed\u7131":6,"\u5f20\u5efa\u7434":5,"\u82d7\u4e91\u98de":4,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-16","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":0,"\u5f20\u5efa\u7434":0,"\u82d7\u4e91\u98de":0,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-17","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":6,"\u5f20\u5efa\u7434":7,"\u82d7\u4e91\u98de":8,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-18","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":4,"\u5218\u65ed\u7131":5,"\u5f20\u5efa\u7434":5,"\u82d7\u4e91\u98de":5,"\u5f20\u5c11\u5eb7":3,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-19","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":7,"\u5f20\u5efa\u7434":6,"\u82d7\u4e91\u98de":8,"\u5f20\u5c11\u5eb7":1,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-20","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":7,"\u5f20\u5efa\u7434":5,"\u82d7\u4e91\u98de":4,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-21","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":7,"\u5f20\u5efa\u7434":14,"\u82d7\u4e91\u98de":1,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-22","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":0,"\u5f20\u5efa\u7434":0,"\u82d7\u4e91\u98de":0,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-23","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":5,"\u5f20\u5efa\u7434":5,"\u82d7\u4e91\u98de":5,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-24","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":8,"\u5f20\u5efa\u7434":7,"\u82d7\u4e91\u98de":8,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":2,"\u5415\u6653\u7ea2":0,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-25","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":10,"\u5f20\u5efa\u7434":14,"\u82d7\u4e91\u98de":6,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":0,"\u5415\u6653\u7ea2":1,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-26","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":14,"\u5f20\u5efa\u7434":9,"\u82d7\u4e91\u98de":10,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":7,"\u5415\u6653\u7ea2":6,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-27","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":11,"\u5f20\u5efa\u7434":10,"\u82d7\u4e91\u98de":13,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":5,"\u5415\u6653\u7ea2":6,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-28","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":0,"\u5f20\u5efa\u7434":0,"\u82d7\u4e91\u98de":0,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":4,"\u5415\u6653\u7ea2":4,"\u9ec4\u535a\u5143":0,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-29","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":11,"\u5f20\u5efa\u7434":11,"\u82d7\u4e91\u98de":7,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":5,"\u5415\u6653\u7ea2":7,"\u9ec4\u535a\u5143":4,"\u5b8b\u670b":4,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-30","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":9,"\u5f20\u5efa\u7434":9,"\u82d7\u4e91\u98de":3,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":5,"\u5415\u6653\u7ea2":7,"\u9ec4\u535a\u5143":6,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":0,"\u80e1\u5065":0},{"time":"2019-08-31","\u5f20\u670b":0,"\u6768\u4e1c\u65ed":0,"\u674e\u5fd7\u9e4f":0,"\u4fa3\u51ef\u5e73":0,"\u6881\u96ea\u901a":0,"\u5f20\u96e8":0,"\u90ed\u6668\u8f89":0,"\u6c64\u6dfc\u6dfc":0,"\u674e\u609f\u7136":0,"\u82cf\u4e9a\u5a1f":0,"\u4e01\u96e8\u6674":0,"\u80e1\u5fd7\u4e39":0,"\u5218\u65ed\u7131":8,"\u5f20\u5efa\u7434":12,"\u82d7\u4e91\u98de":7,"\u5f20\u5c11\u5eb7":0,"\u67f4\u6653\u4f1f":5,"\u5415\u6653\u7ea2":8,"\u9ec4\u535a\u5143":8,"\u5b8b\u670b":0,"\u6768\u9e4f\u8d85":2,"\u80e1\u5065":0}]
+                                            _this.tableDatas = data
+                                            var arr = []
+                                            console.log(_this.tableDatas[0])
+                                            if(_this.tableDatas.length>0){
+                                                for (let k in _this.tableDatas[0]) {
+                                                    if(k != 'time'){
+                                                        arr.push(k)
+                                                    }
+                                                }
+                                            }
+                                            console.log(arr)
+                                            _this.thead = arr;
+                                            _this.data_ = _this.tableDatas;
+                                    },
+                                    error:function(){
+
+                                    }
+                                })
+                                break;
+                                case '7':
+                                //流水/销转
+                                $.ajax({
+                                    url:'',
+                                    typ:'get',
+                                    data:{},
+                                    success:function(){
+                                        data = [{"time":"2019-08-01","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-02","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":10,"\u9500\u8f6c":"0%"},{"time":"2019-08-03","\u540d\u7247":10,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-04","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-05","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-06","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-07","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-08","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-09","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-10","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"10%"},{"time":"2019-08-11","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-12","\u540d\u7247":0,"\u673a\u4f1a":10,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-13","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-14","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-15","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-16","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-17","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-18","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-19","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-20","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-21","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-22","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-23","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-24","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-25","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-26","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-27","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-28","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-29","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-30","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"},{"time":"2019-08-31","\u540d\u7247":0,"\u673a\u4f1a":0,"\u603b\u6d41\u6c34":0,"\u9500\u8f6c":"0%"}]
+                                            _this.tableDatas = data
+                                            var arr = []
+                                            console.log(_this.tableDatas[0])
+                                            if(_this.tableDatas.length>0){
+                                                for (let k in _this.tableDatas[0]) {
+                                                    if(k != 'time'){
+                                                        arr.push(k)
+                                                    }
+                                                }
+                                            }
+                                            console.log(arr)
+                                            _this.thead = arr;
+                                            _this.data_ = _this.tableDatas;
+                                    },
+                                    error:function(){
+                                        
+                                    }
+                                })
+                                break;                                                                                                                                                                                     
+                            default:
+                                break;
+                        }
+        
+                    },20)
+                },
+                exporttt(){
+                    att=[];
+                    // arr = []
+                    console.log($('.el-table table')[0],this.activeIndex,this.activeIndex == '6')
+                    if(this.activeIndex == '6'){
+                        att.push($('.el-table table')[0])
+                        att.push($('.el-table table')[1])
+                        // arr=
+                    }else if(this.activeIndex == '7'){
+                        att.push($('.el-table table')[2])
+                        att.push($('.el-table table')[3])
+                    }
+                    this.export (att)
+                },
+                export (att,arr) {
+                    str = "";
+                    strArr=[];
+                    console.log(att[0],att[1],att[1].querySelectorAll('tr').length,att[0].querySelectorAll('tr').length)
+                    for (let k = 0; k < att[0].querySelectorAll('tr').length; k++) {
+                        stra = ""
+                        $(att[0].querySelectorAll('tr')[k].querySelectorAll('th')).each(function (
+                        index, el) {
+                        if ($(el).attr('class') != "gutter") {
+                            stra += $(el)[0].querySelectorAll('div')[0].innerText
+                            stra += ','
+                        }
+                        })
+                        str += stra + '\r\n';
+                        console.log(stra, stra.slice(0,stra.length-1).split(','))
+                        strArr = stra.slice(0,stra.length-1).split(',')
+                        strArr[0]="time"
+                    } 
+                    console.log(strArr)
+                    for(let i=0;i<this.tableDatas.length;i++){
+                            stra = ""
+                        for(let j=0;j<strArr.length;j++){
+                            stra += this.tableDatas[i][strArr[j]]
+                            stra += ','
+                        }
+                        str += stra + '\r\n';
+                    }
+                    // for (let k = 0; k < att[1].querySelectorAll('tr').length; k++) {
+                    //     stra = ""
+                    //     $(att[1].querySelectorAll('tr')[k].querySelectorAll('td')).each(function (
+                    //     index, el) {
+                    //     if ($(el).attr('class') != "gutter") {
+                    //         stra += $(el)[0].querySelectorAll('div')[0].innerText
+                    //         stra += ','
+                    //     }
+                    //     })
+                    //     str += stra + '\r\n';
+                    // } 
+                    console.log(this.tableDatas,str)
+                    var fileName = "MyReport_";
+                    fileName += "Download".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  },
+                activeindex(){
+                    this.init()
+                },
+                reset(){
+                    setTimeout(function(){
+                        console.log($("#seaform").find('input[type=text],select'))
+                        $("#seaform").find('input[type=text],select').each(function(index,el) {
+                            console.log($(el))
+                            $(el).val('')
+                        });
+                        $('input[type=checkbox]').each(function(){
+                            $(this)[0].checked = false
+                        })
+                    },20)
+                },
+                addActive(){
+                    this.activeIndex = parseInt(this.activeIndex) + 1+''
+                    console.log(this.activeIndex)
+                    if(this.activeIndex > 7){
+                        this.activeIndex = 0
+                    }
+                    console.log(thisApp)
+                    this.init()
+                },
+                 increaseActive(){
+                    this.activeIndex = parseInt(this.activeIndex) - 1+''
+                    if(this.activeIndex < 0){
+                        this.activeIndex = 7
+                    }
+                    console.log(this.activeIndex)
+                    this.init()
+                },
+                handleSizeChange: function (size) {
+                    this.pageSize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                }
+            }
+            
+        })
+    </script>
+    <script>
+        
+    </script>
+</html>

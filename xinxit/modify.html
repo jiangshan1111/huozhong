@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script src="js/xlcx.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
+    </head>
+
+    <body>
+        <input type="file"onchange="importf(this)" />
+        <button>didid</button>
+        <div id="demo"></div>
+        <script>
+            /*
+            FileReader共有4种读取方法：
+            1.readAsArrayBuffer(file)：将文件读取为ArrayBuffer。
+            2.readAsBinaryString(file)：将文件读取为二进制字符串
+            3.readAsDataURL(file)：将文件读取为Data URL
+            4.readAsText(file, [encoding])：将文件读取为文本，encoding缺省值为'UTF-8'
+                         */
+            var wb;//读取完成的数据
+            var rABS = false; //是否将文件读取为二进制字符串
+            var js ;
+            function importf(obj) {//导入
+                if(!obj.files) {
+                    return;
+                }
+                var f = obj.files[0];
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var data = e.target.result;
+                    if(rABS) {
+                        wb = XLSX.read(btoa(fixdata(data)), {//手动转化
+                            type: 'base64'
+                        });
+                    } else {
+                        wb = XLSX.read(data, {
+                            type: 'binary'
+                        });
+                    }
+                    //wb.SheetNames[0]是获取Sheets中第一个Sheet的名字
+                    //wb.Sheets[Sheet名]获取第一个Sheet的数据
+                    wb.Sheets[wb.SheetNames[0]].A1.w = "name";
+                    wb.Sheets[wb.SheetNames[0]].B1.w = "group";
+                    wb.Sheets[wb.SheetNames[0]].C1.w = "class";
+                    wb.Sheets[wb.SheetNames[0]].D1.w = "time";
+                    console.log(wb.Sheets[wb.SheetNames[0]]);
+                    js =  XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
+                };
+                if(rABS) {
+                    reader.readAsArrayBuffer(f);
+                } else {
+                    reader.readAsBinaryString(f);
+                }
+            }
+            var a = {'a':'1','b':'2'};
+            delete a.a;
+            console.log(a)
+            var obj=[];
+            $('button').click(function(){
+                console.log(js)
+                data = [{"uid":'1','group':'一组','name':'江山'},{"uid":'2','group':'二组','name':'华洲'},{"uid":'3','group':'三组','name':'梦雨'},{"uid":'4','group':'二组','name':'梦雨'}];
+                for (let i = 0; i < js.length; i++) {
+                    obj[i]={}
+                    obj[i].name = js[i].name;
+                    obj[i].group = js[i].group;
+                    obj[i].class = js[i].class;
+                    obj[i].time = js[i].time;
+                    // delete js[i]['__rowNum__'];
+                    console.log(js[i])
+                    for (let j = 0; j < data.length; j++) {
+                        if(js[i].name == data[j].name && js[i].group == data[j].group){
+                            console.log(data[j].uid)
+                            obj[i].uid = data[j].uid
+                        }
+                    }
+                }
+                console.log(obj)
+            })
+            function fixdata(data) { //文件流转BinaryString
+                var o = "",
+                    l = 0,
+                    w = 10240;
+                for(; l < data.byteLength / w; ++l) o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
+                o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+                return o;
+            }
+
+        </script>
+    </body>
+
+</html>

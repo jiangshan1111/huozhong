@@ -1,0 +1,55 @@
+[{
+    "caller": "60000000061022",
+    "user_name": "\u6f58\u660e\u5cf0",
+    "called": "13954396023",
+    "duration": 88,
+    "createTime": "2019-08-05 20:45:07",
+    "releaseTime": "2019-08-05 16:00:00",
+    "dataType": "\u9ed8\u8ba4",
+    "callout": "\u547c\u51fa"
+}, {
+    "caller": "60000000061022",
+    "user_name": "\u6f58\u660e\u5cf0",
+    "called": "13954396023",
+    "duration": 307,
+    "createTime": "2019-07-19 12:37:29",
+    "releaseTime": "2019-07-19 12:42:46",
+    "dataType": "\u9ed8\u8ba4",
+    "callout": "\u547c\u51fa"
+}, {
+    "caller": "sip",
+    "user_name": null,
+    "called": "17600788084",
+    "duration": 6,
+    "createTime": "2019-07-23 01:47:01",
+    "releaseTime": "2019-07-23 01:47:24",
+    "dataType": "\u8de8\u671f",
+    "callout": "\u547c\u51fa"
+}, {
+    "caller": "9999",
+    "user_name": null,
+    "called": "17600788084",
+    "duration": 12,
+    "createTime": "2019-08-07 09:54:33",
+    "releaseTime": "2019-08-07 09:54:45",
+    "dataType": "\u8de8\u671f",
+    "callout": "\u547c\u51fa"
+}, {
+    "caller": "60000000061022",
+    "user_name": "\u6f58\u660e\u5cf0",
+    "called": "13232323231",
+    "duration": 0,
+    "createTime": "2019-08-07 10:18:50",
+    "releaseTime": "2019-08-07 16:43:04",
+    "dataType": "\u8de8\u671f",
+    "callout": "\u547c\u51fa"
+}, {
+    "caller": "60000000061022",
+    "user_name": "\u6f58\u660e\u5cf0",
+    "called": "13232323231",
+    "duration": 0,
+    "createTime": "2019-08-07 16:35:03",
+    "releaseTime": "2019-08-08 11:10:03",
+    "dataType": "\u8de8\u671f",
+    "callout": "\u547c\u51fa"
+}]

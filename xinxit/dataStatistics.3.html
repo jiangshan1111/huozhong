@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>数据统计</title>
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+    <link href="css/styles.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/polling.css">
+    <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <style>
+        @media (min-width: 1200px) {
+            .row-fluid .span4 {
+                width: 33.3%;
+            }
+        }
+        #seaform>div>select, #seaform1>div>select {
+    width: 52%;
+    padding: 0;
+    height: 30px;
+}
+#seaform>div>input, #seaform1>div>input {
+    width: 51.5%;
+    padding: 0;
+    height: 29px;
+}
+    </style>
+</head>
+
+<body style="padding:0">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <!-- block -->
+            <div class="block">
+                <div class="span12" id="polling-header">
+                    <div class=" span12 " id="polling-header-top" style="overflow:hidden;margin-left: 0%;">
+                        <p class="polling-headerp" style="background-image: url('img/down.svg');"><span></span>查询条件</p>
+                    </div>
+                    <div class=" span12 " id="polling-header-body" style="overflow:hidden;margin-left: 0%;">
+                        <form style="position:relative" name="seaform" id="seaform">
+                                <div class="span4"><span>处理方式：</span><select name="way" id="">
+                                        <option value="">请选择</option>
+                                        <option value="无">无</option>
+                                        <option value="升班">升班</option>
+                                        <option value="邮寄密卷">邮寄密卷</option>
+                                        <option value="2020代报名 ">2020代报名 </option>
+                                        <option value="升班+2020代报名">升班+2020代报名</option>
+                                        <option value="邮寄密卷+2020代报名">邮寄密卷+2020代报名</option>
+                                        <option value="延期一年">延期一年</option>
+                                    </select></div>
+                                    <div class="span4">
+                                            <span>手机号：</span><input type="text" name="mobile"
+                                                placeholder="手机号">
+                                        </div>
+                                        <div class="span4">
+                                                <span>起始时间：</span><input class="Wdate" type="text"
+                                                    onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="starttime"
+                                                    placeholder="日期">
+                                            </div>
+                                            <div class="span4">
+                                                <span>结束时间：</span><input class="Wdate" type="text"
+                                                    onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="endtime"
+                                                    placeholder="日期">
+                                            </div>
+                            <input type="button" class="reset" value="重置" style="margin-right:30px"></input>
+                            <input type="button" id="seasearch" class="seasearch" value="查询"></input>
+
+                        </form>
+                    </div>
+                    <div class=" span12 " id="polling-header-footer" style="margin:0">
+                        <div class="block-content collapse in">
+                            <div class="span12">
+                                <div style="overflow:auto">
+                                    <table id="datagrid5" title="数据统计列表" style="overflow:auto;"
+                                        data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                        <thead>
+                                            <tr class="content">
+                                                    <th data-options="field:'stu_name',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:300,align:'center'">姓名</th>
+                                                    <th data-options="field:'mobile',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:300,align:'center'">手机号</th>
+                                                    <th data-options="field:'way',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:300,align:'center'">处理方式</th>
+                                                    <th data-options="field:'complain_time',sortable:true,
+                                                            sorter:function (a,b) {
+                                                                return(Number(a)>Number(b))?1:-1
+                                                            },width:300,align:'center'">时间</th>
+                                                </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- </div> -->
+</body>
+<!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
+<script src="js/export.js"></script>
+<script type="text/javascript">
+var params = ''
+function getNowFormatDate(date) {
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    if (hour >= 0 && hour <= 9) {
+        hour = "0" + hour;
+    }
+    if (minute >= 0 && minute <= 9) {
+        minute = "0" + minute;
+    }
+    if (second >= 0 && second <= 9) {
+        second = "0" + second;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + hour + seperator2 + minute
+            + seperator2 + second;
+    return currentdate;
+    }
+    $('.polling-headerp').click(function () {
+        if ($(this)[0].style.backgroundImage == 'url("img/down.svg")') {
+            console.log(1)
+            $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            $('#polling-header-body')[0].style.display = "none"
+        } else {
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#polling-header-body')[0].style.display = "block"
+        }
+    })
+    $('.reset').click(function () {
+        $("#seaform").find('input[type=text],select,input[type=hidden]').each(function () {
+            $(this).val('');
+        });
+    })
+    function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel, Arr) {
+    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) :
+        JSONData;
+    for (var k = 0; k < arrData.length; k++) {
+        delete arrData[k].did;
+        delete arrData[k].did2;
+    }
+    var CSV = '';
+    if (ShowLabel) {
+        var row = "";
+        for (var item in Arr) {
+            console.log(Arr[item])
+            row += Arr[item] + ',';
+        }
+        row = row.slice(0, -1);
+        CSV += row + '\r\n';
+    }
+    console.log(CSV)
+    //1st loop is to extract each row
+    for (var i = 0; i < arrData.length; i++) {
+        var row = "";
+        for (var index in arrData[i]) {
+            row += '"' + arrData[i][index] + '",';
+        }
+
+        row.slice(0, row.length - 1);
+        CSV += row + '\r\n';
+
+    }
+
+    if (CSV == '') {
+        alert("Invalid data");
+        return;
+    }
+    console.log(CSV)
+    var fileName = "MyReport_";
+    fileName += ReportTitle.replace(/ /g, "_");
+    var uri = 'data:text/xlsx;charset=utf-8,\uFEFF' + encodeURI(CSV);
+    var link = document.createElement("a");
+    link.href = uri;
+    link.style = "visibility:hidden";
+    link.download = fileName + ".xlsx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+    var thisApp = {
+        init: function () {
+            $("#datagrid5").datagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url: 'datagrid_data1.json',
+                method: 'get',
+                remoteSort: false,
+                checkOnSelect: false,
+                selectOnCheck: true,
+                showFooter: true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: form2Json("seaform"),
+                toolbar: [{
+                    text: '导出',
+                    iconCls: 'icon-save',
+                    handler: function () {
+                        console.log($('tr:nth-of-type(2) th'))
+                        // $(this).click(function () {
+                            $.ajax({
+                                    url:'http://new.huozhongedu.com/admin/getSignUpData',
+                                    type:'post',
+                                    data:params,
+                                    dataType:'json',
+                                    success:function(data){
+                                    	jsondata = data;
+                                    	console.log(jsondata.length)
+                                var arr1 = [];
+                                var json = [];
+                                
+                                for(var i=0;i<jsondata.length;i++){
+                                    json[i]={};
+                                    json[i]['stu_name']= ' '+jsondata[i].stu_name;
+                                    json[i]['mobile']= jsondata[i].mobile;
+                                    json[i]['way']= jsondata[i].way;
+                                    json[i]['complain_time']= jsondata[i].complain_time;
+                                }
+                                var data = JSON.stringify(json);
+                            var arr1 = [];
+                            var data = JSON.stringify(json);
+                            for (var i = 0; i < $('th').length; i++) {
+                                arr1.push($('th')[i].innerHTML)
+                            }
+                            if (data == '') return;
+                            JSONToCSVConvertor(data, "Download", true, arr1);
+                        }
+                    })
+                        // })
+                    }
+                }],
+                onSortColum: function (sort, order) { //其中sort代表排序列字段名称；order:排序列的顺序（ASC或DESC）
+                    $('#datagrid5').datagrid('reload', {
+                        sort: uid
+                    });
+                },
+                onLoadSuccess: function (data) { //加载完毕后获取所有的checkbox遍历
+                   
+                },
+                onClickRow: function (rowIndex, rowData) {
+
+                },
+                onDblClickRow: function () {
+                    console.log(1)
+                }
+            })
+        }
+    }
+    $(function () {
+        thisApp.init();
+        var dg = $('#datagrid5').datagrid({
+            singleSelect: false
+        });
+        dg.datagrid('enableFilter', [{}]);
+        var p = $('#datagrid5').datagrid('getPager');
+        $(p).pagination({
+            beforePageText: '第', //页数文本框前显示的汉字  
+            afterPageText: '页    共 {pages} 页',
+            displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+        });
+        $(".seasearch").linkbutton({
+            iconCls: 'icon-search',
+            plain: true
+        }).click(function () {
+            params = form2Json("seaform")
+            //     $('.polling-headerp')[0].style.backgroundImage = 'url("img/up.svg")';
+            //  $('#polling-header-body')[0].style.display = "none";
+            var dg = $('#datagrid5').datagrid({
+                queryParams: params,
+                singleSelect: false
+            });
+            dg.datagrid('enableFilter', [{
+                field: 'stu_name',
+                type: 'text'
+            }, {
+                field: 'mobile',
+                type: 'text'
+            }, {
+                field: 'way',
+                type: 'text'
+            }, {
+                field: 'complain_time',
+                type: 'text'
+            }]);
+            var p = $('#datagrid5').datagrid('getPager');
+            $(p).pagination({
+                beforePageText: '第', //页数文本框前显示的汉字  
+                afterPageText: '页    共 {pages} 页',
+                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+            });
+        });
+        // });
+    })
+    //     function compute() {//计算函数
+    //             var rows = $('#datagrid5').datagrid('getRows')//获取当前的数据行
+    //             var ptotal = 0//计算listprice的总和
+    //             ,utotal=0;//统计unitcost的总和
+    //             for (var i = 0; i < rows.length; i++) {
+    //                 ptotal += Number(rows[i]['uid']);
+    //             }
+    //             console.log(rows,ptotal)
+    //             //新增一行显示统计信息
+    //             $('#datagrid5').datagrid('appendRow', { uid: ptotal });
+    //         }
+    function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray()
+        var jsonStr = "";
+
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+
+        var json = JSON.parse(jsonStr)
+        return json
+    }
+</script>
+
+</html>

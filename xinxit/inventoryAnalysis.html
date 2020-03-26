@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>库存分析表</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <style>
+        .modelchance-body>div{
+            margin-top: 10px;
+        }
+        select{
+            margin-bottom: 0;
+        }
+        .add_table,.Iatable{
+            width: 100%
+        }
+        .Iatable td,.add_table td{
+            width: 12.5%;
+            text-align: center;
+            min-width: 100px;
+            line-height: 40px;
+        }
+        .modeltable .add_table td{
+            width: 10%;
+            min-width: 80px;
+            line-height: 20px;
+        }
+        .modeltable .add_table td div{
+            width: 100%;
+            line-height: 20px;
+        }
+        .span6{
+            width: 45%;
+            margin: 0;
+            padding-right: 5%;
+        }
+        .modelchance-body>div {
+            float: left;
+            width: 33%;
+            margin-top: 20px;
+        }
+        .span4{
+            margin: 0;
+        }
+        .span4 span{
+            display:inline-block;
+            width:30%
+        }
+        .span4 input,.span4 select{
+            width:60%
+        }
+        .span6 span,.span12 span{
+            display: inline-block;
+            width: 30%;
+        }
+        .span12 span{
+            width:15%;
+        }
+        .span6 input,.span12 input{
+            width: 65%;
+            margin-bottom: 10px;
+            vertical-align: initial;
+        }
+        .span12 input{
+            width: 80%;
+        }
+        .span12{
+            width: 95%;
+            margin: 0;
+            padding-right: 5%;
+        }
+        @media screen and (max-width:1000px){
+            .span6{
+                width: 100%;
+                margin: 0
+            }
+        }
+    </style>
+</head>
+<body>  
+        <div class="modelchance" style="display:block">
+                <div class="modelchancer" style="width:90%">
+                    <div class="modelchance-head" style="height:auto;overflow: auto;width: 90%;">
+                        <p class="todayp" style="color:#42b983"></p>
+                        <table class="Iatable">
+                           
+                        </table>
+                    </div>
+                    <div class="chancesearch" style="width:95.8%;border:1px solid rgb(239,239,239);background:-webkit-linear-gradient(top,white 0,rgb(239, 239, 239) 100%)">
+                            <p class="chancesearchp" style="margin-left:20px;background-image: url('img/down.svg');">查询条件</p>
+                        </div>
+                    <form class="modelchance-body" name="searchform" id ="searchform">
+                        <div class="span4" style="position:relative;" data-ig="time_start">
+                            <span>起始时间：</span><input class="" type="text"  name="start_time"  onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 00:00:00'})"  placeholder="日期" autocomplete="off">
+                            
+                        </div>
+                        <div class="span4" style="position:relative;" data-ig="time_end">
+                            <span>截止时间：</span><input class="" type="text"  name="end_time"  onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 23:59:59'})" placeholder="日期" autocomplete="off">
+                        </div>
+                        <div class="span4" style="position:relative;" data-ig="time_type">
+                            <span>快捷搜索：</span><select class="mwd" id="">
+                                <option value="">自定义</option>    
+                                <option value="today">今天</option>    
+                                <option value="yesterday">昨天</option>    
+                                <option value="thisWeek">本周</option>    
+                                <option value="lastWeek">上周</option>    
+                                <option value="thisMonth">本月</option>    
+                                <option value="lastMonth">上月</option>    
+                            </select>
+                        </div>
+                        <div style="clear:both"></div>
+                        <input type="button" class="chancebtn" id="chancere" style="margin-right:30px" value="重置">
+                        <input type="button" class="chancebtn" id="submit_search"  value="查询">
+                    </form>
+                    <div style="width:96%;margin-left:2%">
+                        <table id="datagrid1" title="库存分析表" style="width:100%"  
+                               >
+                            <thead>
+                                <tr class="content">
+                                    <!-- <th data-options="field:'ck',checkbox:true,hidden:true" class="8777"></th> -->
+                                    <th data-options="field:'create_date',width:160,align:'center',editor:'textbox'">日期</th>
+                                    <th data-options="field:'bible1',width:100,align:'center',editor:'textbox'">基通1</th>
+                                    
+                                    <th data-options="field:'bible2',width:100,align:'center',editor:'textbox'">基通2</th>
+                                    <th data-options="field:'bible3',width:100,align:'center',editor:'textbox'">基通3</th>
+                                    <th data-options="field:'textbook1',width:100,align:'center',editor:'textbox'">基教1</th>
+                                    <th data-options="field:'textbook2',width:100,align:'center',editor:'textbox'">基教2</th>
+                                    <th data-options="field:'textbook3',width:100,align:'center',editor:'textbox'">基教3</th>
+                                    <th data-options="field:'fire_bible',width:100,align:'center',editor:'textbox'">消通</th>
+                                    <th data-options="field:'fire_textbook',width:100,align:'center',editor:'textbox'">消教</th> 
+                                    <th data-options="field:'note',width:170,align:'center',editor:'textbox'">备注</th> 
+                                     
+                                    <!-- <th data-options="field:'did',width:80,align:'center'">did</th> -->
+                                </tr>
+                                
+                            </thead>
+                        </table>
+                    </div>
+                    
+                </div>
+              </div>
+              <div class="modeltable" style="">
+                    <div class="modeltabler">
+                      <div class="modeltable-head">
+                          <p style="color:#42b983">新增库存</p>
+                          <button class="tablex">X</button>
+                      </div>
+                      <div class="modeldel-body" style = "overflow:hidden;">
+                        <form id="adtable_form">
+                            <div class="monumber" style="">
+                                <span>时间：</span>
+                                <!-- <input type="text" name="stuContract" > -->
+                                <span style="width:60%" name="create_date">2018-09-10 09:09:09 </span>
+                            </div>
+                            <div class="span6">
+                                <span>基教1：</span>
+                                <input type="text" name="textbook1" placeholder="请填写数量">
+                            </div>
+                            <div class="span6">
+                                <span>基通1：</span>
+                                <input type="text" name="bible1" placeholder="请填写数量">
+                            </div>
+                            <div class="span6">
+                                <span>基教2：</span>
+                                <input type="text" name="textbook2" placeholder="请填写数量">
+                            </div>
+                            <div class="span6">
+                                <span>基通2：</span>
+                                <input type="text" name="bible2" placeholder="请填写数量">
+                            </div>
+                            <div class="span6">
+                                <span>基教3：</span>
+                                <input type="text" name="textbook3" placeholder="请填写数量">
+                            </div>
+                            <div class="span6">
+                                <span>基通3：</span>
+                                <input type="text" name="bible3" placeholder="请填写数量">
+                            </div>
+                            <div class="span6">
+                                <span>消教：</span>
+                                <input type="text" name="fire_textbook" placeholder="请填写数量">
+                            </div>
+                            <div class="span6">
+                                <span>消通：</span>
+                                <input type="text" name="fire_bible" placeholder="请填写数量">
+                            </div>
+                            <div class="span12">
+                                    <span>备注：</span>
+                                    <input type="text" name="note" placeholder="请填写备注">
+                                </div>
+                        </form>
+                        <div style="padding-top: 20px;">  
+                            <p class="feedbackp" style="color:#42b983;"></p>
+                            <button id="adtable_go" style="padding:0px 30px">确定</button></div>
+                         
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modeltable" style=""> -->
+                        <!-- <div class="modeltabler">
+                          <div class="modeltable-head">
+                              <p style="color:#42b983">库存记录</p>
+                              <button class="tablexx">X</button>
+                          </div>
+                          <div class="modeldel-body" style = "overflow:auto;max-height:420px ">
+                            <table class="add_table">
+                                <tr>
+                                    <td>操作时间</td>
+                                    <td>基教1</td>
+                                    <td>基教2</td>
+                                    <td>基教3</td>
+                                    <td>基通1</td>
+                                    <td>基通2</td>
+                                    <td>基通3</td>
+                                    <td>消教</td>
+                                    <td>消通</td>
+                                    <td>备注</td>
+                                </tr>
+                                <tr>
+                                        <td>2019-09-12 09:09:09</td>
+                                        <td>基教1</td>
+                                        <td>基教2</td>
+                                        <td>基教3</td>
+                                        <td>基通1</td>
+                                        <td>基通2</td>
+                                        <td>基通3</td>
+                                        <td>消教</td>
+                                        <td>消通</td>
+                                        <td><div class="beizhu">江山江山江山江山江山江山江山江山</div></td>
+                                    </tr>
+                               
+                            </table>
+                        </div>
+                    </div>
+                </div> -->
+</body>
+<script src="js/export.js"></script>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+<script type="text/javascript">
+$.ajax({
+        url:'',
+        type:'get',
+        data:{},
+        dataType:'json',
+        success:function(data){
+            $('.Iatable').html(`<tr>
+                                <td style="border:1px solid rgb(210,210,210)">基通1</td>
+                                <td style="border:1px solid rgb(210,210,210)">基通2</td>
+                                <td style="border:1px solid rgb(210,210,210)">基通3</td>
+                                <td style="border:1px solid rgb(210,210,210)">基教1</td>
+                                <td style="border:1px solid rgb(210,210,210)">基教2</td>
+                                <td style="border:1px solid rgb(210,210,210)">基教3</td>
+                                <td style="border:1px solid rgb(210,210,210)">消通</td>
+                                <td style="border:1px solid rgb(210,210,210)">消教</td>
+                            </tr>`)
+$('.Iatable')[0].innerHTML += `
+<tr>
+                                    <td style="border:1px solid rgb(210,210,210)">`+data[0].bible1+`</td>
+                                    <td style="border:1px solid rgb(210,210,210)">`+data[0].bible2+`</td>
+                                    <td style="border:1px solid rgb(210,210,210)">`+data[0].bible3+`</td>
+                                    <td style="border:1px solid rgb(210,210,210)">`+data[0].textbook1+`</td>
+                                    <td style="border:1px solid rgb(210,210,210)">`+data[0].textbook2+`</td>
+                                    <td style="border:1px solid rgb(210,210,210)">`+data[0].textbook3+`</td>
+                                    <td style="border:1px solid rgb(210,210,210)">`+data[0].fire_bible+`</td>
+                                    <td style="border:1px solid rgb(210,210,210)">`+data[0].fire_textbook+`</td>
+                                </tr>
+`
+        },
+        error:function(){
+        }
+    })
+
+function getNowFormatDate(date) {
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    if (hour >= 0 && hour <= 9) {
+        hour = "0" + hour;
+    }
+    if (minute >= 0 && minute <= 9) {
+        minute = "0" + minute;
+    }
+    if (second >= 0 && second <= 9) {
+        second = "0" + second;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + hour + seperator2 + minute
+            + seperator2 + second;
+    return currentdate;
+    }
+    $('.todayp').text(`库存剩余(截止时间：`+getNowFormatDate(new Date())+`)`);
+    $('span[name = create_date]').text(getNowFormatDate(new Date()))
+    function chanw(){
+        var oneday = 1000 * 60 * 60 * 24,today=new Date();
+        getday = today.getDay() == 0?7: today.getDay();
+        switch ($('.mwd').val()) {
+            case "today":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime())));
+            $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+                case "yesterday":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()-oneday)));
+            $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()-1)))
+                break;
+                case "thisWeek":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date().getTime()- oneday * (getday -1))));
+            $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+                case "lastWeek":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()- oneday * (getday+6))));
+            $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()- oneday * (getday-1)-1)));
+             break;
+                case "thisMonth":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()- oneday * (today.getDate()-1))));
+            $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+                case "lastMonth":
+            $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date(new Date().toLocaleDateString()).getTime() - oneday * today.getDate()) - oneday * (new Date(today - oneday * today.getDate()).getDate() - 1))));
+            $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString()).getTime()- oneday * (today.getDate()-1)-1)))
+                break;
+            default:
+                break;
+        }
+    }
+    $('.mwd').on('change',function(){
+        chanw();
+    })
+$('#adtable_go').click(function(){
+    $.ajax({
+        url:'',
+        type:'get',
+        data:form2Json('adtable_form'),
+        success:function(data){
+            $('.feedbackp').text('提交成功')
+        },
+        error:function(){
+            $('.feedbackp').text('服务器错误')
+        }
+    })
+}) 
+$('.tablex').click(function(){
+    $('.modeltable')[0].style.display = "none"
+})
+// $('.tablexx').click(function(){
+//     $('.modeltable')[1].style.display = "none"
+// })   
+var params = "";
+    $('.chancesearchp').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#searchform')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#searchform')[0].style.display = "block"
+        }
+    })
+    $('#chancere').click(function(){
+        $("#searchform").find('input[type=text],select').each(function() {
+         $(this).val('');
+     });
+    })         
+    var thisApp = {
+        init: function () {
+            // var Url;
+            // console.log(location.href.split('?')[1])
+            // if(location.href.split('?')[1]==undefined){
+            //     Url = 'www.baidu.com'
+            // }else{
+            //     Url = 'datagrid_data1.json?'+location.href.split('?')[1]
+            // }
+            $("#datagrid1").datagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                //这是数据加载的地址,返回对应的json数据包就行,json包格式例子,见下4
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                checkOnSelect:false,
+                selectOnCheck:true,
+                url:'datagrid_data3.json',
+                method:'get',
+                queryParams: form2Json("searchform"),　
+                toolbar: [
+                    {
+                        text: '导出',
+                            iconCls: 'icon-save',
+                            handler: function () {
+                                // $(this).click(function(){
+                                    var jsondata = '';
+                                    $.ajax({
+                                        url:'datagrid_data3.json',
+                                        type:'get',
+                                        data:params,
+                                        // dataType:'json',
+                                        success:function(data){
+                                        jsondata = data;
+                                        console.log(data)
+                                    var arr1 = [];
+                                    var json = []
+                                    for(var i=0;i<jsondata.length;i++){
+                                        json[i]={};
+                                        json[i]['date']= ' '+jsondata[i].date;
+                                        json[i]['partners']= jsondata[i].partners;
+                                        json[i]['dock_name']= jsondata[i].dock_name;
+                                        json[i]['contact']= jsondata[i].contact;
+                                        json[i]['need']= jsondata[i].need;
+                                        json[i]['need_num']= jsondata[i].need_num;
+                                        json[i]['price']= jsondata[i].price;
+                                        json[i]['end_time']= jsondata[i].end_time;
+                                        json[i]['note']= jsondata[i].note;
+                                        json[i]['is_status']= jsondata[i].is_status;
+                                        json[i]['type']= jsondata[i].type;
+                                    }
+                                    // json[0].visit = data[0].visit;
+                                    
+                                    var data = JSON.stringify(json);
+                                    console.log(data)
+                                    for (var i = 0; i < $('th').length; i++) {
+                                        arr1.push($('th')[i].innerHTML)
+                                    }
+                                    if (data == '')return;
+                                    JSONToCSVConvertor(data, "Download", true,arr1);
+                                    }})
+                                    // })
+                            }
+                        },{
+                            text: '新增库存',
+                            iconCls: 'icon-add',
+                            handler: function () {
+                               $('.modeltable')[0].style.display = "block"
+                            }
+                        }
+                        ],
+                    onLoadSuccess: function(data,currentRowIndex){//加载完毕后获取所有的checkbox遍历
+                        
+                        
+                    },
+                    onClickRow: function (rowIndex, field, value) {
+                       
+                        },
+                    onDblClickRow:function(rowIndex, field, value){
+                        
+                    }
+                })
+            }
+        }
+        $(function(){
+            thisApp.init();
+            var dg=$('#datagrid1').datagrid({});
+            dg.datagrid('enableFilter', [{}]);
+            var p = $('#datagrid1').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            $("#submit_search").linkbutton({ iconCls: 'icon-search', plain: true }).click(function () {
+            //     $('.chancesearchp')[0].style.backgroundImage = 'url("img/up.svg")';
+            //  $('#searchform')[0].style.display = "none";
+             var dg = $('#datagrid1').datagrid({queryParams: form2Json("searchform"),url:'datagrid_data3.json',singleSelect:true});
+             params=form2Json("searchform");
+             dg.datagrid('enableFilter',[{
+                field:'fire_textbook',
+                type:'text'
+            },{
+                field:'bible1',
+                type:'text'
+            },{
+                field:'bible2',
+                type:'text'
+            },{
+                field:'bible3',
+                type:'text'
+            },{
+                field:'textbook1',
+                type:'text'
+            },{
+                field:'textbook2',
+                type:'text'
+            },{
+                field:'textbook3',
+                type:'text'
+            },{
+                field:'fire_bible',
+                type:'text'
+            },{
+                field:'fire_textbook',
+                type:'text'
+            },{
+                field:'note',
+                type:'text'
+            }]);
+                var p = $('#datagrid1').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            });
+            
+        // });
+        })
+        function form2Json(id) {
+ 
+            var arr = $("#" + id).serializeArray()
+            console.log(arr)
+            var jsonStr = "";
+ 
+            jsonStr += '{';
+            for (var i = 0; i < arr.length; i++) {
+                jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+            }
+            jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+            jsonStr += '}'
+ 
+            var json = JSON.parse(jsonStr)
+            return json
+        }
+ 
+</script>
+</html>

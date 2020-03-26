@@ -1,0 +1,3184 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/model.css">
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.4.css">
+<link rel="stylesheet" href="css/Advisory.css">
+<style type="text/css">
+a:hover, a:focus { text-decoration: none; outline: none; }
+#accordion { padding-right: 24px; padding-left: 24px; z-index: 1; }
+.panel { border: none; box-shadow: none; }
+.panel-heading { padding: 0; border-radius: 0; border: none;}
+.panel-title1 { padding: 0;margin-bottom: 0 }
+.panel-title1 a { display: block; font-size: 16px; font-weight: bold; background: #e16b47; color: #f7c59f; padding: 15px 25px; position: relative; margin-left: -24px; transition: all 0.3s ease 0s; }
+.panel-title1 a.collapsed { background: #f7c59f; color: #e16b47; margin-left: 0; transition: all 0.3s ease 0s; }
+.panel-title1 a:before { content: ""; border-left: 24px solid #e16b47; border-top: 24px solid transparent; border-bottom: 24px solid transparent; position: absolute; top: 0; right: -24px; transition: all 0.3s ease 0s; }
+.panel-title1 a.collapsed:before { border-left-color: #f7c59f; }
+.panel-title1 a:after { content: "\f106"; font-family: 'FontAwesome'; position: absolute; top: 30%; right: 15px; font-size: 18px; color: #f7c59f; }
+.panel-title1 a.collapsed:after { content: "\f107"; color: #e16b47; }
+.panel-collapse { position: relative; }
+.panel-collapse.in:before { content: ""; border-right: 24px solid #f7c59f; border-bottom: 18px solid transparent; position: absolute; top: 0; left: -24px; }
+.panel-body { font-size: 14px; color: #333; background: white; border-top: none; z-index: 1;border: 1px solid rgb(200,201,201)}
+.jq22-header h1{ text-align:center}
+/* body{ background-color:#323232} */
+input,select{
+    border-radius: 3px;
+    border: 1px solid rgb(200,201,201);
+    height: 30px;
+    width: 70%;
+    vertical-align: top;
+}
+input[type = checkbox]{
+  height: 20px;
+  margin-top: 7px;
+  margin-left: 4%;
+  margin-right: 4%;
+    width: auto;
+}
+.modeldel-body input[type = checkbox]{
+  height: 20px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+    width: auto;
+}
+.span3,.span2,.span4,.span12,.span6{
+    width: 24%;
+    height: 32px;
+    margin-right: 1%;
+    float: left;
+    margin: 5px;
+    text-align: center;
+    line-height: 32px;
+}
+.span2{
+  width: 19%;
+}
+.span4{
+  width: 36%;
+}
+.span6{
+  width: 49%;
+}
+.span12{
+  width: 100%;
+  overflow: hidden;
+}
+.span13{
+  width: 100%;
+  overflow: hidden;
+}
+.span3 span,.span2 span,.span4 span,.span12 span{
+    display: inline-block;
+    width: 30%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    /* background: red; */
+}
+.span6 span{
+  width: 15%;
+}
+.span12 span{
+  width: 6%
+}
+.span12 input{
+  width:91%
+}
+/* .ded{
+  margin-left: 15%;
+} */
+@media screen and (max-width: 1000px){
+  .container {
+    width: 100%;
+  }
+  .span3,.span2,.span4{
+    width: 100%
+    }
+    .span12 span{
+      width: 30%
+    }
+    .span12 input{
+      width:70%
+    }
+}
+@media (min-width: 768px){
+  .container {
+    width: 100%;
+  }
+}
+.check input[type=checkbox]{
+  vertical-align: middle
+}
+.container {
+    width: 100%;
+  }
+  @media (min-width: 992px){
+    .col-md-offset-3 {
+        margin-left: 0;
+    }
+  }
+  @media (min-width: 992px){
+    .col-md-6 {
+        width: 100%;
+    }
+  }
+  #accordion input[type = button]{
+    width: auto;
+    position: absolute;
+    bottom:20px;
+    right: 2%;
+    color: white;
+    background: #e16b47;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 10px;
+  }
+  input[class = stu_info],input[class = add_order],input[class = congradute],.button{
+    width: auto;
+    float: right;
+    margin-right: 2%;
+    color: white;
+    background: #e16b47;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 10px;
+  }
+  .fff{
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 0 0.1rem;
+    margin-bottom: -.2rem;
+    overflow: -moz-scrollbars-none;
+    overflow: -moz-scrollbars-none;
+  }
+  .monumber span{
+    line-height: 30px;
+  }
+  .fff::-webkit-scrollbar{
+    display: none;
+}
+.pretable{
+        overflow: auto;
+        max-height: 200px;
+    }
+    .table td{
+        border: 1px solid rgb(210,210,210);
+        text-align: center;
+        vertical-align: middle;
+    }
+    .paytable{
+        border-bottom: 1px solid rgb(210,210,210);
+        overflow: auto;
+        max-height: 103px;
+    }
+    .paytable a{
+        float: left;
+        width: 49.5%;
+        border: 1px solid rgb(210,210,210);
+        line-height: 40px;
+        border-bottom: none;
+    }
+    .paytable a:nth-of-type(2n+1){
+        border-right: none;
+    }
+    @media only screen and (max-width:1000px){
+        .paytable a{
+            float: left;
+            width: 100%;
+            border-bottom: none;
+        }
+        .paytable a:nth-of-type(2n+1){
+            border-right: 1px solid rgb(210,210,210);
+        }
+        .form-group{
+            margin-left: -30px;
+        }
+        .paytable{
+            overflow: auto;
+            max-height: 206px;
+        }
+    }
+    @media only screen and (max-width: 1000px){
+      .form-group {
+          margin-left: 0
+      }
+    }
+    .addrediv>select {
+    height: 30px;
+}
+.Advi-foot-ul li>select {
+    height: 30px;
+}
+.Advi-foot-ul li {
+    list-style: none;
+    float: left;
+    width: 33%;
+    height: 40px;
+    line-height: 40px;
+}
+@media screen and (max-width: 1100px){
+  .Advi-foot-ul li {
+    width: 100%;
+  }
+}
+
+.Advi-foot-ul li>input {
+    width: 50%;
+    height: 30px;
+}
+.addrediv {
+    width: 85.5%;
+}
+#percent20 {
+    float: right;
+    width: 13%;
+}
+.monumber {
+    width: 60%;
+    height: 40px;
+    margin-left: 20%;
+    padding-top: 0;
+}
+.span12 .record{
+  width:91%
+}
+@media screen and (max-width: 1100px){
+  #jiujiu {
+    height: 77px;
+  }
+  .span12 .record{
+    width:70%
+  }
+  #adviaddress {
+      width: 43%;
+      margin-right: 4%;
+      margin-left: 1%;
+  }
+  .addrediv {
+    width: 56.5%;
+  }
+  #percent20 {
+    width: 37%;
+  }
+  .modelorderul li select {
+      width: 50%;
+  }
+  .monumber {
+      width: 100%;
+      margin-left: 0;
+  }
+}
+.monumber select {
+    width: 60%;
+}
+.mail{
+  text-align: left;
+  height: auto;
+}
+.mail span{
+  float: left;
+  width: 80px;
+  cursor: pointer;
+  margin:2px  10px;
+  border: 1px solid rgb(210,210,210);
+  border-radius: 3px;
+  background-color: white;
+}
+</style>
+</head>
+<body>
+  <div class="panel panel-default" style="position:fixed;top:10px;z-index:999;padding-right: 24px;
+  padding-left: 24px;">
+      <div class="panel-heading" role="tab" id="">
+        <h4 class="panel-title1"> <a data-case = "0" role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse" aria-expanded="true" aria-controls="collapse"> 学员基本信息 </a>
+        <input type="button" class="button" data-did="12" data-type="基金" value="返回主页" style="color:white;position:fixed;bottom:-7px;    top: 30px;
+        right: 1%;padding:5px;background:#f39c86;font-size:15px" >
+       </h4>
+      </div>
+      <div class="fff"  style="height:230px">
+        <div class="panel-body" style="    padding: 7px;">
+          <form id="stu_info" enctype="multipart/form-data">
+            <div class="span2"><span>姓名:</span><input type="text" name="stu_name"></div>
+            <div class="span2"><span style="float:left">咨询号码:</span><span class="phone Adviphone" style="float:left;display:inline-block;width:20px;height:20px;margin-top:4px"></span><input type="text"  name="mobile"></input><div style="clear:both"></div></div>
+            <div class="span2"><span>课程号码:</span><input type="text" name="class_mobile"></div>
+            <div class="span2"><span>身份证:</span><input type="text" name="id_num"></div>
+            <div class="span2"><span>微信号:</span><input type="text" name="weixin"></div>
+            <div class="span2"><span>邮箱:</span><input type="text" name="email"></div>
+            <div class="span2"><span>邮寄地址:</span><input type="text" name="mail_address"></div>
+            <div class="span2"><span>报考省份:</span><select id="province1" name="exam_province" onchange="chooseProvince1(this)" style="">
+                    <option value="">请选择省</option>
+                </select></div>
+            <div class="span2"><span>报考城市:</span><select id="city1" onChange="" name="exam_city" style="margin-right:0%">
+                    <option value="">请选择市</option></select></div>
+            <div class="span2"><span>总金额:</span><span style="display:inline-block;width:70%;" name="price"></span></div>
+            <div class="span2"><span>培训费用:</span><span style="display:inline-block;width:70%;" name="pxfei"></span></div>
+            <div class="span2"><span>消防代报名费:</span><span style="display:inline-block;width:70%;" name="instead_sign"></span></div>
+            <div class="span2"><span>基金换科补费:</span><span style="display:inline-block;width:70%;" name="jjhk">0</span></div>
+            <div class="span2"><span>项目:</span><span style="display:inline-block;width:70%;" name="project"></span></div>
+            <div class="span2"><span>班型:</span><select name="classType" id="">
+                    <option value="" data-price="0">请选择班型</option>
+                    <option value="11" data-price="0">jiansgah</option>
+                    <!-- <option value="{{$v->classType}}" data-price="500"></option> -->
+                </select></div>
+            <div class="span2"><span>报名类型:</span><select name="sign_type" id="">
+                    <option value="">请选择类型</option>
+                    <option value="定金">定金</option>
+                    <option value="定金补费">定金补费</option>
+                    <option value="全款报名">全款报名</option>
+                    <!--<option value="团报">团报</option>
+                    <option value="转介绍">转介绍</option>-->
+                    <option value="升班">升班</option>
+                    <option value="代报名补费">代报名补费</option>
+                    <option value="续报">续报</option>
+                    <option value="基金换科补费">基金换科补费</option>
+                </select></div>
+            <div class="span2"><span>支付方式:</span><select style="margin:2px 10px 2px 0" name="pay_way"><option value="">请选择</option><option value="支付宝">支付宝</option><option value="微信">微信</option><option value="淘宝">淘宝</option><option value="现金">现金</option><option value="银行公户">银行公户</option></select></div>
+            <div class="span2"><span>学历:</span><select name="education" id="">
+                    <option value="无">无</option>
+                    <option value="高中（中专或同等学历）">高中（中专或同等学历）</option>
+                    <option value="大专、高职（或同等学历）">大专、高职（或同等学历）</option>
+                    <option value="本科">本科</option>
+                    <option value="硕士">硕士</option>
+                    <option value="博士及以上学历">博士及以上学历</option>
+                </select></div>
+            <div class="span2"><span>行业:</span><select name="trade" id="">
+                    <option value="无">无</option>
+                    <option value="IT服务/系统集成">IT服务/系统集成</option>
+                    <option value="财务/审计">财务/审计</option>
+                    <option value="教育/科研/培训">教育/科研/培训</option>
+                    <option value="政府/非营利机构">政府/非营利机构</option>
+                    <option value="互联网/电子商务">互联网/电子商务</option>
+                    <option value="通信/电信">通信/电信</option>
+                    <option value="金融/银行">金融/银行</option>
+                    <option value="中介/专业服务">中介/专业服务</option>
+                    <option value="旅游/酒店">旅游/酒店</option>
+                    <option value="其他行业">其他行业</option>
+                </select></div>
+            <div class="span2"><span>工作年限:</span><select name="work_year" id="">
+                    <option value="无">无</option>
+                    <option value="应届生">应届生</option>
+                    <option value="1-3年">1-3年</option>
+                    <option value="3-5年">3-5年</option>
+                    <option value="5-10年">5-10年</option>
+                    <option value="10年以上">10年以上</option>
+                </select></div>
+            <div class="span2"><span>职位:</span><input type="text" name="zhiwei"></div>
+            <div class="span2"><span>单位:</span><input type="text" name="danwei"></div>
+            <div class="span2">科一:<input type="checkbox" name="ke1" id="">科二:<input type="checkbox" name="ke2" id="">科三:<input type="checkbox" name="ke3" id=""></div>
+            <div class="span2"><span>考期:</span><select name="exam_date" id=""><option value="0">请选择考期</option>
+                </select></div>
+            <!-- <div class="span3" ></div> --><input type="button" class="congradute" value="毕业">
+            <!-- <div class="span3" ></div> --><input type="button" class="stu_info" value="提交">
+            <!-- <div class="span3" ></div> --><input type="button" class="add_order" value="新建订单">
+        </form>
+        </div>
+    </div>
+
+    </div>
+  <div class="jq22-container fff" style="margin-top:275px;height:600px" >
+  <div class="demo" style="padding: 1em 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6" style="padding:0">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTen">
+                <h4 class="panel-title1"> <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="true" aria-controls="collapseTen"> 学员异动信息 </a> </h4>
+              </div>
+              <div id="collapseTen" class="panel-collapse in" role="tabpanel" aria-labelledby="headingTen">
+                <div class="panel-body">
+                    <form id="unusual_info" enctype="multipart/form-data">
+                      <!-- <div class="span13">
+                        <div style="position:relative">
+                          <p>退费：</p>
+                        <div class="span3"><span>退费申请日期:</span><span style="display:inline-block;width:70%;" name="mobile">2123321</span></div>
+                        <div class="span3"><span>退费理由:</span><span style="display:inline-block;width:70%;" name="mobile">2123321</span></div>
+                        <div class="span3"><input type="button" class="re_info" style="line-height:0;" value="开课"></div>
+                        <div style="clear:both"></div>
+                        </div>
+                        
+                        <div style="position:relative">
+                            <p>退费：</p>
+                          <div class="span3"><span>退费申请日期:</span><span style="display:inline-block;width:70%;" name="mobile">2123321</span></div>
+                          <div class="span3"><span>退费理由:</span><span style="display:inline-block;width:70%;" name="mobile">2123321</span></div>
+                          <div class="span3"><input type="button" class="re_info" style="line-height:0;" value="开课"></div>
+                          <div style="clear:both"></div>
+                          </div>
+                      </div> -->
+                    </form>
+                  </div>
+            </div>
+          </div>
+            <!-- <div style="overflow:auto"> -->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title1"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> 考试成绩信息 </a> </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <form id="examc_info" enctype="multipart/form-data">
+                    <div class="span12" style="height:auto">历史成绩：<br>科1——201808考期——95分<br>科1——201808考期——95分<br>科1——201808考期——95分</div>
+                    <div class="span3 koaqi"></div>
+                    <input type="hidden" name="exam_date">
+                    <div class="span3"><span>科1:</span><input type="text" name="exam_one"></div>
+                    <div class="span3"><span>科2:</span><input type="text" name="exam_two"></div>
+                    <div class="span3"><span>科3:</span><input type="text" name="exam_three"></div>
+                    <div class="span3" ></div>
+                    <input type="button" class="examc_info" value="提交">
+                </form>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title1"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> 考试账号信息 </a> </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                      <form id="exam_info" enctype="multipart/form-data">
+                      <p>统考</p> 
+                      <div class="span3"><span>账号:</span><input type="text" name="" v-model="examaccount.s_name"></div>
+                      <div class="span3"><span>密码:</span><input type="text" v-model="examaccount.s_pwd" name=""></div>
+                      <div class="span3"><span>密保问题:</span><select name="2" id=""  v-model="examaccount.s_question">
+                        <option value="您第一次坐飞机是去哪里">您第一次坐飞机是去哪里</option>
+                        <option value="您高中（中专）院校名称">您高中（中专）院校名称</option>
+                        <option value="您最喜欢哪只球队">您最喜欢哪只球队</option>
+                        <option value="您最喜欢的游戏">您最喜欢的游戏</option>
+                        <option value="您最喜欢的电视剧名叫什么">您最喜欢的电视剧名叫什么</option>
+                         <option value="您童年的绰号是什么">您童年的绰号是什么</option>
+                         <option value="我就读的第一所学校的名称？">我就读的第一所学校的名称？</option>
+                         <option value="我最喜欢的运动是什么？">我最喜欢的运动是什么？</option>
+                         <option value="我最喜欢的运动员是谁？">我最喜欢的运动员是谁？</option>
+                         <option value="我最喜欢的物品名称？">我最喜欢的物品名称？</option>
+                         <option value="我最喜欢的歌曲？">我最喜欢的歌曲？</option>
+                         <option value="妈妈的生日是？">妈妈的生日是？</option>
+                         <option value="我最喜欢的食物是？">我最喜欢的食物是？</option>
+                         <option value="我最爱的人的名字？">我最爱的人的名字？</option>
+                         <option value="我最爱的电影？">我最爱的电影？</option>
+                      </select></div>
+                      <div class="span3"><span>密保答案:</span><input  v-model="examaccount.s_answer" type="text" name=""></div>
+                      <!-- <div class="span3" style="clear:both"></div> -->
+                      <p style="display:table">预约</p>
+                      <div class="span3"><span>账号:</span><input type="text"  v-model="examaccount.s_name1" name=""></div>
+                      <div class="span3"><span>密码:</span><input type="text"  v-model="examaccount.s_pwd1" name=""></div>
+                      <div class="span3"><span>密保问题:</span><select name="2" id=""  v-model="examaccount.s_question1">
+                        <option value="您第一次坐飞机是去哪里">您第一次坐飞机是去哪里</option>
+                        <option value="您高中（中专）院校名称">您高中（中专）院校名称</option>
+                        <option value="您最喜欢哪只球队">您最喜欢哪只球队</option>
+                        <option value="您最喜欢的游戏">您最喜欢的游戏</option>
+                        <option value="您最喜欢的电视剧名叫什么">您最喜欢的电视剧名叫什么</option>
+                         <option value="您童年的绰号是什么">您童年的绰号是什么</option>
+                         <option value="我就读的第一所学校的名称？">我就读的第一所学校的名称？</option>
+                         <option value="我最喜欢的运动是什么？">我最喜欢的运动是什么？</option>
+                         <option value="我最喜欢的运动员是谁？">我最喜欢的运动员是谁？</option>
+                         <option value="我最喜欢的物品名称？">我最喜欢的物品名称？</option>
+                         <option value="我最喜欢的歌曲？">我最喜欢的歌曲？</option>
+                         <option value="妈妈的生日是？">妈妈的生日是？</option>
+                         <option value="我最喜欢的食物是？">我最喜欢的食物是？</option>
+                         <option value="我最爱的人的名字？">我最爱的人的名字？</option>
+                         <option value="我最爱的电影？">我最爱的电影？</option>
+                      </select></div>
+                      <div class="span3"><span>密保答案:</span><input type="text"  v-model="examaccount.s_answer1" name=""></div>
+                      <div class="span3" ></div>
+                      <input type="button" class="exam_info" value="提交">
+                  </form>
+                  </div>
+                </div>
+              </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title1"> <a  data-case = "3" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> 发票基本信息 </a> </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  <form id="bill_info" enctype="multipart/form-data">
+                    <div class="span3"><span>发票类型:</span><select name="in_type" id="">
+                      <option value="普票">普票</option>
+                      <option value="专票">专票</option>
+                    </select></div>
+                    <div class="span3"><span>发票抬头:</span><input type="text" name="in_header"></div>
+                    <div class="span3"><span>纳税人识别号:</span><input type="text" name="in_ns_num"></div>
+                    <div class="span3"><span>地址:</span><input type="text" name="in_address"></div>
+                    <div class="span3"><span>电话:</span><input type="text" name="in_phone"></div>
+                    <div class="span3"><span>账号:</span><input type="text" name="in_bank_num"></div>
+                    <div class="span3"><span>开户行:</span><input type="text" name="in_bank"></div>
+                    <div class="span3" ></div>
+                    <input type="button" class="bill_info" value="提交">
+                </form>
+                    </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title1"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> 基金代报名</a> </h4>
+              </div>
+              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                  <form id="kaoqi_info" enctype="multipart/form-data">
+                    <div class="span3"><span>科1第1次:</span>
+                        <select name="keyi_once" id=""><option value="0">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                        </select></div>
+                    <div class="span3"><span>费用:</span><input type="text" name="keyi_once_money"></div>
+                    <div class="span3"><span>科2第1次:</span><select name="keer_once" id=""><option value="0">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                        </select></div>
+                    <div class="span3"><span>费用:</span><input type="text" name="keer_once_money"></div>
+                    <div class="span3"><span>科3第1次:</span><select name="kesan_once" id=""><option value="0">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                        </select></div>
+                    <div class="span3"><span>费用:</span><input type="text" name="kesan_once_money"></div>
+                    <div class="span3"><span>科1第2次:</span><select name="keyi_second" id=""><option value="0">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                        </select></div>
+                    <div class="span3"><span>费用:</span><input type="text" name="keyi_second_money"></div>
+                    <div class="span3"><span>科2第2次:</span><select name="keer_second" id=""><option value="0">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                        </select></div>
+                    <div class="span3"><span>费用:</span><input type="text" name="keer_second_money"></div>
+                    <div class="span3"><span>科3第2次:</span><select name="kesan_second" id=""><option value="0">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                        </select></div>
+                    <div class="span3"><span>费用:</span><input type="text" name="kesan_second_money"></div>
+                    <div class="span3"><span>科1第3次:</span><select name="keyi_third" id=""><option value="0">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                        </select></div>
+                    <div class="span3"><span>费用:</span><input type="text" name="keyi_third_money"></div>
+                    <div class="span3"><span>科2第3次:</span><select name="keer_third" id=""><option value="0">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                        </select></div>
+                    <div class="span3"><span>费用:</span><input type="text" name="keer_third_money"></div>
+                    <div class="span3"><span>科3第3次:</span><select name="kesan_third" id=""><option value="0">请选择考期</option>
+                            <option value="201903">201903</option>
+                            <option value="201904">201904</option>
+                            <option value="201905">201905</option>
+                            <option value="201906">201906</option>
+                            <option value="201909">201909</option>
+                            <option value="201910">201910</option>
+                            <option value="201911">201911</option>
+                            <option value="201912">201912</option>
+                        </select></div>
+                    <div class="span3"><span>费用:</span><input type="text" name="kesan_third_money"></div>
+                    <div class="span3" ></div>
+                    <input type="button" class="kaoqi_info" value="提交">
+                </form>
+                    </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingFive">
+                <h4 class="panel-title1"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"> 回访记录 </a> </h4>
+              </div>
+              <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                <div class="panel-body">
+                    <form id="Next_info" enctype="multipart/form-data">
+                      
+                      <div class="span3 addadd" ></div>
+                      <input type="button" class="Next_info" value="提交">
+                      <input type="button" class="add_next" value="增加回访" style="right:90px">
+                    </form>
+                    </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingSix">
+                <h4 class="panel-title1"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix"> 消防代报名 </a> </h4>
+              </div>
+              <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                <div class="panel-body">
+                  <form id="xf_info" enctype="multipart/form-data">
+                    <div class="span3"><span>资料齐全:</span><select type="text" name="xf_con_all">
+                            <option value="是">是</option><option value="否">否</option></select></div>
+                    <div class="span3"><span>递交日期:</span><input type="text" name="xf_sub_date" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})"></div>
+                    <div class="span3"><span>首次状态:</span><select type="text" name="xf_first_status">
+                            <option value="1">成功</option><option value="0">失败</option></select></div>
+                    <div class="span3"><span>首次处理方式:</span><input type="text" name="xf_first_do"></div>
+                    <div class="span3"><span>补助:</span><input type="text" name="xf_first_subsidy"></div>
+                    <div class="span3"><span>二次状态:</span><select type="text" name="xf_second_status">
+                            <option value="1">成功</option><option value="0">失败</option></select></div>
+                    <div class="span3"><span>二次处理方式:</span><input type="text" name="xf_second_do"></div>
+                    <div class="span3"><span>补助:</span><input type="text" name="xf_second_subsidy"></div>
+                    <div class="span3"><span>三次状态:</span><select type="text" name="xf_third_status">
+                            <option value="1">成功</option><option value="0">失败</option></select></div>
+                    <div class="span3"><span>三次处理方式:</span><input type="text" name="xf_third_do"></div>
+                    <div class="span3"><span>补助:</span><input type="text" name="xf_third_subsidy"></div>
+                    <div class="span3"><span>最终状态:</span><select type="text" name="finall_status">
+                            <option value="1">成功</option><option value="0">失败</option></select></div>
+                    <div class="span3"><span>最终补助:</span><input type="text" name="finall_subsidy"></div>
+                    <div class="span3"><span>最终退费金额:</span><input type="text" name="finall_back_money"></div>
+                    <div class="span3" ></div>
+                    <input type="button" class="xf_info" value="提交">
+                </form>
+                    </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingSeven">
+                <h4 class="panel-title1"> <a data-case = "7" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven"> 归属信息 </a> </h4>
+              </div>
+              <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                <div class="panel-body">
+                    <form id="belong_info" enctype="multipart/form-data">
+                        <div class="span3"><span>年:</span><input type="text" name=""></div>
+                        <div class="span3"><span>月:</span><input type="text" name=""></div>
+                        <div class="span3"><span>班主任:</span><input type="text" name=""></div>
+                        <div class="span3"><span>分组:</span><input type="text" name=""></div>
+                        <div class="span3"><span>咨询师:</span><input type="text" name=""></div>
+                        <div class="span3"><span>前端主管:</span><input type="text" name=""></div>
+                        <div class="span3"><span>前端经理:</span><input type="text" name=""></div>
+                        <div class="span3" ></div>
+                        <input type="button" class="belong_info" value="提交">
+                      </form>
+                      </div>
+                    </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingEight">
+                <h4 class="panel-title1"> <a data-case = "8" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight"> 邮寄基本信息 </a> </h4>
+              </div>
+              <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                <div class="panel-body">
+                    <div id="add_info" enctype="multipart/form-data">
+                      <div class="add_history"></div>
+                      <form id="add_form0" action=""><p style="display:table">基础：</p>
+                        <input type="hidden" name="sm_id" value="0">
+                        <div class="span3"><span>协议回执日期:</span><input type="text" name="agr_back" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" disabled></div>
+                        <div class="span3"><span>邮寄内容:</span><select name="sm_con" id="">
+                                <option value="">选择邮寄内容</option>
+                                <option value="教材">教材</option>
+                                <option value="宝典">宝典</option>
+                                <option value="协议">协议</option>
+                                <option value="教材,宝典">教材+宝典</option>
+                                <option value="宝典,协议">宝典+协议</option>
+                                <option value="教材,协议">教材+协议</option>
+                                <option value="教材,宝典,协议">教材+宝典+协议</option>
+                            </select></div>
+                    <div class="span3"><span>实际邮寄地址:</span><input type="text" name="sm_address"></div>
+                    
+                    <div class="span3"><span>邮寄日期:</span><input type="text" name="sm_date"onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})"></div>
+                    <div class="span3"><span>邮寄备注:</span><input type="text" name="sm_remaks"></div>
+                   
+                    <div class="span3"><span>快递单号:</span><input type="text" name="sm_courier_number"></div>
+                    <div class="span3"><span>运费:</span><input type="text" name="sm_free"></div>
+                    <div class="span3"><span>渠道:</span><select name="sm_qudao" id="">
+                        <option value="">选择渠道</option>  
+                        <option value="中通">中通</option>  
+                        <option value="顺丰">顺丰</option>  
+                        <option value="EMS">EMS</option>  
+                    </select></div>
+                          <div class="span12 mail"><span name="jt1">基通1</span><span name="jt2">基通2</span><span name="jt3">基通3</span><span name="jj1">基教1</span><span name="jj2">基教2</span><span name="jj3">基教3</span><span name="xt">消通</span><span name="xj">消教</span><span name="xy">协议</span></div>
+                         </form> <!-- <div class="span3" ></div> -->
+                          <div class="add_add" style="    overflow: hidden;
+                          position: relative;
+                          width: 100%;
+                          height: 50px;">
+                           <input type="button" class="add_info" value="提交">
+                          <input type="button" class="add_mail" value="增加邮寄信息" style="right:90px">
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingNine">
+                <h4 class="panel-title1"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine"> 退挽基本信息 </a> </h4>
+              </div>
+              <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
+                <div class="panel-body">
+                    <form id="re_info" enctype="multipart/form-data">
+                      <div class="span13">
+                        <div class="span3"><span>退费申请日期:</span><input type="text" name=""></div>
+                        <div class="span3"><span>退费理由:</span><input type="text" name=""></div>
+                      </div>
+                      <div class="span13">
+                        <div class="span3"><span>一挽时间:</span><input type="text" name=""></div>
+                        <div class="span3"><span>一挽记录:</span><input type="text" name=""></div>
+                        <div class="span3"><span>一挽状态:</span><select name="" id="">
+                            <option value="成功">成功</option>
+                            <option value="失败">失败</option>
+                        </select></div>
+                      </div>  
+                      <div>
+                        <div class="span3"><span>二挽时间:</span><input type="text" name=""></div>
+                        <div class="span3"><span>二挽记录:</span><input type="text" name=""></div>
+                        <div class="span3"><span>二挽状态:</span><select name="" id="">
+                            <option value="成功">成功</option>
+                            <option value="失败">失败</option>
+                        </select></div>
+                        <div class="span3"></div>
+                      </div>  
+                        <input type="button" class="re_info" value="提交">
+                      </form>
+                    </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modelphonein" style="z-index:9999">
+    <div class="modelgiveupr">
+      <div class="modeltable-head" style="width: 100%;">
+          <p style="color:#faab73;width:auto;">提示</p>
+          <button class="phoneinx" style="background:#faab73;color:white">X</button>
+      </div>
+      <div class="modeldel-body">
+                
+          <div class="monumber" style="height:auto;width: 100%;margin-left: 0">
+                <p class="phoneinp" style="color:#faab73;"></p>
+              <button class="phoneinx" style="padding:0px 30px;background:#faab73;color:white">确定</button>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="modelphone1">
+  <div class="modelgiveupr">
+    <div class="modeltable-head" style="width: 100%;">
+        <p style="color:#faab73;width:auto;">是否拨出？</p>
+        <button class="phonex" style="background:#faab73;color:white">X</button>
+    </div>
+    <div class="modeldel-body" style="    margin: 0;">
+              
+        <div class="monumber" style="height:70px">
+              <p class="phonep" style="color:#faab73;"></p>
+            <button id="phonego" style="padding:0px 30px;background:#faab73;color:white">确定</button>
+            <button class="phonex" style="padding:0px 30px;background:#faab73;color:white">取消</button>
+      </div>
+      </div>
+  </div>
+</div>
+
+<div class="modelorder" style="overflow:auto">
+    <div class="modelorderr" style="top:0">
+      <div class="modeldel-head" style="width: 100%;">
+          <p style="color:#e16b47">新建订单</p>
+          <button class="orderx" style="color:white;background:#e16b47;">X</button>
+      </div>
+      <div style="text-align:center">
+        <div class="monumber" style="margin-bottom:10px"><span>订单类型：</span><select name="ded" class="ded" id="" style="color:black;font-size:14px;width:60%">
+          <option value="">请选择</option>
+          <option value="基金换科补费">基金换科补费</option>
+          <option value="转介绍">转介绍</option>
+          <option value="升班">升班</option>
+          <option value="续报">续报</option>
+          <option value="重修">重修</option>
+          <option value="奖学金申请">奖学金申请</option>
+          <option value="冻结">冻结</option>
+          <option value="退费">退费</option></select></div>
+      </div>
+      <div class="modeldel-body orderOne" style="overflow:hidden;display:none">
+        <div style="display:none" class="hidd"  data-hidden="基金换科补费">
+        <div class="monumber"><span>基金换科补费：</span>
+            <input type="text" name="jijinhuanke">
+        </div>
+        <div class="monumber"><span>换科：</span>
+            <span class="check" style="display:inline-block;width:60%">科一:<input type="checkbox" name="ke1" id="">科二:<input type="checkbox" name="ke2" id="">科三:<input type="checkbox" name="ke3" id=""></span>
+        </div>
+        </div>
+        <div style="" class="hidd" data-hidden="奖学金">
+        <div class="monumber"><span>科一成绩：</span>
+            <input name="sc_oneScore" id="">
+        </div>
+        <div class="monumber"><span>科二成绩：</span>
+            <input name="sc_twoScore" id="">
+        </div>
+        <div class="monumber"><span>科三成绩：</span>
+            <input name="sc_threeScore" id="">
+        </div>
+        <div class="monumber"><span>科一出勤率：</span>
+            <input name="sc_oneAttend" id="">
+        </div>
+        <div class="monumber"><span>科二出勤率：</span>
+            <input name="sc_twoAttend" id="">
+        </div>
+        <div class="monumber"><span>科三出勤率：</span>
+            <input name="sc_threeAttend" id="">
+        </div>
+        <div class="monumber"><span>收款金额（元）：</span>
+            <input name="apaly_price" id="">
+        </div>
+        <div class="monumber"><span>收款方式：</span>
+            <select name="pay_wayjj" id=""><option value="">请选择</option>
+                <option value="支付宝">支付宝</option>
+                <option value="银行卡">银行卡</option>
+            </select>
+        </div>
+        
+        <div class="monumber Alipaya" style="display:none"><span>收款账号：</span>
+            <input name="apaly_numa" id="">
+        </div>
+        
+        <div class="blanka" style="display:none">
+            <div class="monumber back_name"><span>姓名：</span>
+                <input name="back_namea" id="">
+            </div>
+            <div class="monumber bank_num"><span>卡号：</span>
+                <input name="bank_numa" id="">
+            </div>
+            <div class="monumber bank_khh"><span>开户行：</span>
+                <input name="bank_khha" id="">
+            </div>
+        </div>
+        </div>
+        <div style="display:none" class="hidd" data-hidden="冻结">
+        <div class="monumber"><span>冻结时长：</span>
+            <select name="djtime" id=""><option value="0">请选择时长</option>
+                <option value="一个月">一个月</option>
+                <option value="二个月">二个月</option>
+                <option value="三个月">三个月</option>
+            </select>
+        </div>
+        </div>
+        <div style="display:none" class="hidd" data-hidden="退费">
+        <div class="monumber"><span>退费原因：</span>
+            <select name="bp_reason" id=""><option value="">请选择原因</option>
+                <option value="前端原因">前端原因</option>
+                <option value="后端原因">后端原因</option>
+                <option value="自身原因">自身原因</option>
+            </select>
+        </div>
+        <div class="monumber"><span>退费描述：</span>
+            <input name="bp_desc" id="">
+        </div>
+        <div class="monumber"><span>退费金额（元）：</span>
+            <input name="bp_price" id="">
+        </div>
+        <div class="monumber"><span>退费追责：</span>
+            <select name="bp_account" id=""><option value="">请选择</option>
+                <option value="扣流水">扣流水</option>
+                <option value="扣工资">扣工资</option>
+                <option value="无扣款">无扣款</option>
+                <option value="扣绩效分">扣绩效分</option>
+            </select>
+        </div>
+        <div class="monumber"><span>收款方式：</span>
+            <select name="pay_wayb" id=""><option value="">请选择</option>
+                <option value="支付宝">支付宝</option>
+                <option value="银行卡">银行卡</option>
+            </select>
+        </div>
+        <div class="monumber Alipay" style="display:none"><span>收款账号：</span>
+            <input name="apaly_num" id="">
+        </div>
+        <div class="blank" style="display:none">
+            <div class="monumber"><span>姓名：</span>
+                <input name="back_name" id="">
+            </div>
+            <div class="monumber"><span>卡号：</span>
+                <input name="bank_num" id="">
+            </div>
+            <div class="monumber"><span>开户行：</span>
+                <input name="bank_khh" id="">
+            </div>
+        </div>
+        </div>
+        <div  style="display:none" class="hidd" data-hidden="重修">
+        <div class="monumber"><span>报考省份:</span>
+            <select id="province2"onchange="chooseProvince2(this)"   name="exam_province2" style="">
+                <option value="">请选择省</option>
+            </select>
+        </div>
+        <div class="monumber"><span>报考城市:</span>
+            <select id="city2" onChange=""style=""  name="exam_city2">
+                <option value="">请选择市</option>
+            </select>
+        </div>
+        <div class="monumber"><span>考期：</span>
+            <select name="cxkq" id=""><option value="0">请选择考期</option>
+                <option value="201903">201903</option>
+                <option value="201904">201904</option>
+                <option value="201905">201905</option>
+                <option value="201906">201906</option>
+                <option value="201909">201909</option>
+                <option value="201910">201910</option>
+                <option value="201911">201911</option>
+                <option value="201912">201912</option>
+            </select>
+        </div>
+        </div>
+        <form id="uploadForm" enctype="multipart/form-data">
+        <div class="row" style="margin-top: 0px;">
+            <div class="form-group col-md-12" id="file"style="margin-bottom: 0;margin-top:20px">
+                <div class="form-group field-uploadform-excelfiles" style="margin-bottom: 0">
+                    <label class="control-label btn"
+                           for="uploadform-excelfiles" style="    border: 1px solid rgb(200,200,200);">上传截图</label><input type="file" id="uploadform-excelfiles" name="UploadForm[excelFiles][]"
+                                                                                                                          multiple class="attachment-upload" style="left:-9999px;position:absolute;">
+                    <div class="help-block"></div>
+        
+                    <div id="fileName2"></div>
+                </div>
+        
+            </div>
+        </div>
+        <div class="pretable">
+            <table role="presentation" class="table"><tbody id="files"></tbody></table>
+        </div>
+        <p class="payp"></p>
+        </form>
+        <div>
+        <p class="orderp" style="color:#e16b47;"></p>
+        <button id="ordergo" style="padding:0px 15px;margin:10px;color:white;background:#e16b47">提交</button>
+        </div>
+        </div>
+        
+        <div class="modeldel-body orderTwo"  style="overflow:hidden;display:none" data-hidden="换科">
+        <form id="order_form">
+        <ul  class="Advi-foot-ul modelorderul" style="margin:0;overflow:hidden">
+            <li><span>学员姓名：</span><input type="text" name="stu_name" value="jinag"></li>
+            <li style="display:none"><span>创建时间：</span><input type="text" name="order_time" value="1" style="display:none"></li>
+            <li style="display:none"><span>归属：</span><input type="text" name="belong_to" value="1" style="display:none"></li>
+            <li style="display:none"><span>班主任：</span><input type="text" name="tea_name" value="1" style="display:none"></li>
+            <li style="display:none"><span>地址：</span><input type="text" name="aa" value="1" style="display:none"></li>
+            <li style="display:none"><span>重修省份：</span><input type="text" name="cx_province" value="1" style="display:none"></li>
+            <li style="display:none"><span>重修城市：</span><input type="text" name="cx_city" value="1" style="display:none"></li>
+            <li style="display:none"><span>重修时间：</span><select name="cx_date" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>冻结时长：</span><input type="text" name="frozen_time" value="1" style="display:none"></li>
+            <li style="display:none"><span>冻结时间：</span><select name="do_time" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>科一成绩：</span><select name="sc_oneScore" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>科二成绩：</span><select name="sc_twoScore" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>科三成绩：</span><select name="sc_threeScore" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>科一出勤率：</span><select name="sc_oneAttend" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>科二出勤率：</span><select name="sc_twoAttend" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>退费原因：</span><select name="bp_reason" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>退费描述：</span><select name="bp_desc" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>退费金额：</span><select name="bp_price" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>退费追责：</span><select name="bp_account" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>退费时间：</span><select name="bcak_time" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>科三出勤率：</span><select name="sc_threeAttend" id="">
+              <option value="1"></option>
+            </select></li>
+            <li style="display:none"><span>did:</span><select name="did" id="">
+              <option value="1"></option>
+            </select></li>
+            <li><span>工作年限:</span><select name="workyear">
+                    <option value="">请选择工作年限</option>
+                    <option value="应届生">应届生</option>
+                    <option value="1-3年">1-3年</option>
+                    <option value="3-5年">3-5年</option>
+                    <option value="5-10年">5-10年</option>
+                    <option value="10年以上">10年以上</option>
+                </select></li>
+            <li><span>学员性别:</span><select name="sex">
+                    <!-- <option value="">请选择性别</option> -->
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select></li>
+            <li><span>微信：</span><input type="text" name="weixin"></li>
+            <li><span>手机号：</span><input type="text" name="mobile"></li>
+            <li><span>项目：</span>
+                <select name="project" id="">
+                    <option value="">请选择项目</option>
+                    <option value="基金项目">基金项目</option>
+                    <option value="消防项目">消防项目</option>
+                </select>
+            </li>
+            <li><span>邮箱：</span><input type="text" name="email" value="135@qq.com"></li>
+            <li><span>学历:</span><select name="education" id="">
+                    <option value="">请选择学历</option>
+                    <option value="高中（中专或同等学历）">高中（中专或同等学历）</option>
+                    <option value="大专、高职（或同等学历）">大专、高职（或同等学历）</option>
+                    <option value="本科">本科</option>
+                    <option value="硕士">硕士</option>
+                    <option value="博士及以上学历">博士及以上学历</option>
+                </select></li>
+            <li id="jiujiu" style="width:100%;overflow:hidden;    white-space: normal;"><div class="addrediv" style="float:right">
+                    <select id="provincea" onchange="chooseProvincea(this)" name="adviaddress_province" style="margin-right:5%">
+                        <option value="0">请选择省</option>
+                    </select><select id="citya" onChange="chooseCitya(this)" name="adviaddress_city" style="margin-right:5%">
+                        <option value="0">请选择市</option>
+                    </select><select id="areaa" name="adviaddress_area" style="margin-right:5%">
+                        <option value="0">请选择县</option>
+                    </select><input type="text" id="adviaddress"  name="adviaddress" style="margin-right:5%;height:30px">
+                </div><span id="percent20">*邮寄地址：</span></li>
+            <li><span>*考试地址：</span><select id="provincea1" name="exam_province" onchange="chooseProvincea1(this)" style="width:21%;">
+                    <option value="">请选择省</option>
+                </select><select id="citya1" onChange="" name="exam_city" style="width:21%;margin-right:0%">
+                    <option value="">请选择市</option></select>
+            </li>
+            <li><span>邮编：</span><input type="text" name="mail_num"></li>
+            <li><span>*证件类型：</span><select name="proof_type" id="">
+                    <option value="">请选择证件</option>
+                    <option value="身份证">身份证</option>
+                    <option value="护照">护照</option>
+                    <option value="港澳居民来往内地通行证">港澳居民来往内地通行证</option>
+                    <option value="台湾居民来往内地通行证">台湾居民来往内地通行证</option>
+                    <option value="港澳居民居住证">港澳居民居住证</option>
+                    <option value="台湾居民居住证">台湾居民居住证</option>
+                </select></li>
+            <li><span>*证件号码：</span><input type="text" name="id_num"></li>
+            <li><span>课程号码：</span><input type="text" name="class_mobile"></li>
+        
+            <li><span style="line-height:16px">*紧急联系人：</span><input type="text" name="ergent_people"></li>
+            <li><span style="line-height:16px">*紧急联系手机：</span><input type="text" name="ergent_mobile"></li>
+            <!-- <li><span>推荐项目：</span><select name="pro1" id="">
+                    <option value="">请选择项目</option>
+                    <option value="基金项目">基金项目</option>
+                    <option value="消防项目">消防项目</option>
+            </select></li> -->
+            <li><span>*推荐班型：</span><select name="classType" id="">
+                    <option value="">请选择班型</option>
+                    <option value="直播密训班">直播密训班</option>
+                    <option value="一次取证班">一次取证班</option>
+                    <option value="VIP不过退费班">VIP不过退费班</option>
+                    <option value="高校取证班">高校取证班</option>
+                    <option value="推荐挂靠班">推荐挂靠班</option>
+                    <option value="基础通关班">基础通关班</option>
+                    <option value="名师密训班">名师密训班</option>
+                    <option value="VIP零基础保障班">VIP零基础保障班</option>
+                    <option value="一次取证班">一次取证班</option>
+                    <option value="皇家内训班">皇家内训班</option>
+                    <option value="私教冲刺班">私教冲刺班</option>
+                    <option value="VIP一次取证班">VIP一次取证班</option>
+                    <option value="签约特招班">签约特招班</option>
+                </select></li>
+            <li><span>推荐科目：</span>
+                <span style="display:inline-block;    width: 47%;
+            height: 30px;">
+                <input type="checkbox" name="ke1" id="" style="width:15px;vertical-align: sub;">
+            科一
+            <input type="checkbox" name="ke2" id=""style="width:15px;vertical-align: sub;">
+            科二
+            <input type="checkbox" name="ke3" id=""style="width:15px;vertical-align: sub;">
+            科三
+            </span>
+            </li>
+            <li><span>报名类型：</span><select name="sign_type" id="">
+                    <option value="">请选择类型</option>
+                    <option value="定金">定金</option>
+                    <option value="定金补费">定金补费</option>
+                    <option value="全款报名">全款报名</option>
+                    <option value="团报">团报</option>
+                    <option value="转介绍">转介绍</option>
+                    <option value="升班">升班</option>
+                    <option value="代报名补费">代报名补费</option>
+                    <option value="续报">续报</option>
+                </select></li>
+            <li><span>考期：</span><select name="exam_date" id="" >
+                    <option value="">请选择考期</option>
+                    <option value="201903">201903</option>
+                    <option value="201904">201904</option>
+                    <option value="201905">201905</option>
+                    <option value="201906">201906</option>
+                    <option value="201909">201909</option>
+                    <option value="201910">201910</option>
+                    <option value="201911">201911</option>
+                    <option value="201912">201912</option>
+                </select>
+                <!-- <li><span>预约时间：</span><input class="Wdate" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" type="text" name="yuyuetime"></li> -->
+            <li><span>班型价格：</span>
+                <input type="text" name="price">
+                <!-- <span id="price" style=" display:inline-block;width:50.5%;text-align:left"></span> -->
+            </li>
+        
+            <li><span>代报名：</span><select name="instead_sign" id="">
+                    <option value="是">是</option>
+                    <option value="否">否</option>
+                </select></li>
+            <!-- <li><span style="line-height:16px">*支付截图：</span><form id="orderform" enctype="multipart/form-data" style='display:inline'><inputtype="file" name="yy"><input type="text" style="display: none" name="did" value="1"></form></li> -->
+            <li><span style="line-height:16px">*支付截图：</span><form id="orderform" enctype="multipart/form-data" style='display:inline'>
+        <span style="display:inline-block;width:50%;position:relative">
+            <label id="realBtn" class="lab" style="width:100%;text-align:left">
+                    <span style="padding:5px 10px;margin-left:0px;border:1px solid rgb(50,50,50);color:rgb(50,50,50);width:auto;">选择图片</span>
+                <!-- <input type="file" id="fileInput1" name="payment" class="mFileInput" style="left:-9999px;position:absolute;"><span style="padding:5px 10px;margin-left:-24px;border:1px solid rgb(50,50,50);color:rgb(50,50,50);width:auto">选择图片</span> -->
+                <!-- <a href="#" style="position:absolute;right:0">3333.jpg</a> -->
+            </label>
+        </span>
+        
+                    <input type="text" style="display: none" name="did" value="1"></form></li>
+        </ul>
+        </form>
+        <div>
+        <!-- <p class="orderp" style="color:#e16b47;">msg</p>
+        <p class="orderp" style="color:#e16b47;">msg</p> -->
+        <button id="ordergoo" style="padding:0px 15px;margin:10px;background:#e16b47;color:white">确定</button>
+                <!-- <button class="youhuinew" style="padding:0px 30px;margin:10px;background:#e16b47;color:white">优惠码</button> -->
+              
+        </div>
+        </div>
+    </div>        
+
+</div>
+<div class="modelpay" style="">
+  <div class="modelorderr">
+          <div class="modelorder-head" style=" width: 100%; ">
+              <p style="color:#e16b47">上传截图</p>
+              <button class="payx" style="background:#e16b47;color:white">X</button>
+          </div>
+          <div class="modeldel-body">
+                  <form id="uploadForm1" enctype="multipart/form-data">
+                      <div class="row" style="margin-top: 20px;">
+                       <div class="form-group col-md-12" id="file"> 
+                        <div class="form-group field-uploadform-excelfile" style="margin-left: 30px;">
+                          <label class="control-label btn"
+                           for="uploadform-excelfile" style="    border: 1px solid rgb(200,200,200);">选择文件</label><input type="file" id="uploadform-excelfile" name="UploadForm1[excelFiles][]"
+                           multiple class="attachment-upload" style="left:-9999px;position:absolute;">
+                         
+                         <div class="help-block"></div>
+                         <div style="text-align:center" class="paytable">
+                         </div>
+                         
+                         <div id="fileName"></div>
+                        </div>
+                      
+                       </div>
+                      </div>
+                      <div class="pretable">
+                          <table role="presentation" class="table"><tbody id="files2"></tbody></table> 
+                      </div>
+                      <p class="payp"></p>
+                     </form>
+            </div>
+        </div> 
+        <div class="hoverimg" style="display:none;position:absolute;top:0;left:0;background-color:black;width:100%;height:100%;z-index:999;padding-left:50%;">
+              <img src="img/banner_01.jpg" style="width:300px;margin-left:-150px;" alt="">
+          </div>       
+</div>
+<script src="js/jquery-1.11.3.min.js"></script> 
+<script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+<script src="js/bootstrap-3.3.4.js"></script>
+<script src="js/city1.js"></script>
+<script src="js/citya.js"></script>
+<script src="js/afterdata.js"></script>
+<!-- <script src="js/scripts.js"></script> -->
+<script>
+  $('.congradute').click(function(){
+    $.ajax({
+      url:'',
+      type:'get',
+      data:{},
+      success:function(){
+
+      },
+      error:function(){
+        
+      }
+    })
+  })
+  var exam_dates = [
+              {
+                exam_date:'201901',
+                exam_start:'2019-01-01',
+                exam_end:'2019-01-01',
+              },
+              {
+                exam_date:'201903',
+                exam_start:'2019-03-30',
+                exam_end:'2019-03-30',
+              },
+              {
+                exam_date:'201904',
+                exam_start:'2019-04-20',
+                exam_end:'2019-04-21',
+              },
+              {
+                exam_date:'201905',
+                exam_start:'2019-05-25',
+                exam_end:'2019-05-25',
+              },
+              {
+                exam_date:'201906',
+                exam_start:'2019-06-22',
+                exam_end:'2019-06-22',
+              },
+              {
+                exam_date:'201909',
+                exam_start:'2019-09-21',
+                exam_end:'2019-09-22',
+              },
+              {
+                exam_date:'201910',
+                exam_start:'2019-10-19',
+                exam_end:'2019-10-19',
+              },
+              {
+                exam_date:'201911',
+                exam_start:'2019-11-23',
+                exam_end:'2019-11-24',
+              }
+            ];
+            
+  console.log()
+  $('select[name = pay_wayb]').change(function(){
+if($(this).val() == "支付宝"){
+$('.Alipay').css('display','block')
+$('.blank').css('display','none')
+$('.blank input').each(function(index,el){
+$(el).val('')
+})
+}else if($(this).val() == "银行卡"){
+$('.Alipay').css('display','none')
+$('.blank').css('display','block')
+$('.Alipay input').each(function(index,el){
+$(el).val('')
+})
+}else{
+$('.Alipay').css('display','none')
+$('.blank').css('display','none')
+$('.Alipay input').each(function(index,el){
+$(el).val('')
+})
+$('.blank input').each(function(index,el){
+$(el).val('')
+})
+}
+})
+$('select[name = pay_wayjj]').change(function(){
+if($(this).val() == "支付宝"){
+$('.Alipaya').css('display','block')
+$('.blanka').css('display','none')
+$('.blanka input').each(function(index,el){
+$(el).val('')
+})
+}else if($(this).val() == "银行卡"){
+$('.Alipaya').css('display','none')
+$('.blanka').css('display','block')
+$('.Alipaya input').each(function(index,el){
+$(el).val('')
+})
+}else{
+$('.Alipaya').css('display','none')
+$('.blanka').css('display','none')
+$('.Alipaya input').each(function(index,el){
+$(el).val('')
+})
+$('.blanka input').each(function(index,el){
+$(el).val('')
+})
+}
+})
+  $('.mail span').click(function(){
+    console.log($(this).css('background-color'))
+    if($(this).css('background-color')=='rgb(255, 255, 255)'){
+      $(this).css('background-color','rgb(255,192,0)')
+    }else{
+      $(this).css('background-color','rgb(255, 255, 255)')
+    }
+  })
+  var str = "a[data-case = "+window.location.href.split('=')[1]+"]";
+  console.log(str);
+  index=window.location.href.split('=')[1];
+  console.log(index)
+  switch (index) {
+        case "0":
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            
+            // console.log(new Date().getMonth())
+            // if(new Date().getMonth()+1 <10){
+            //   month = '0'+(new Date().getMonth()+1)
+            // }else{
+            //   month = new Date().getMonth()+1
+            // }
+            // $('.koaqi')[0].innerText = (new Date().getFullYear())+''+month+'考期：'
+            $('#examc_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#examc_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case "1":
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            $('#exam_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#exam_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case "2":
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            $('#bill_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#bill_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case "3":
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            $('#kaoqi_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#kaoqi_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case "4":
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            console.log(1)
+            data = [{"bv_date":"2019-29-99 09:10:11","bv_dosome":"2019-29-99 09:10:11","bv_tax":"2019-29-99 09:10:11","bv_record":"2019-29-99 09:10:11"},
+{"bv_date":"2019-29-99 09:10:12","bv_dosome":"2019-29-99 09:10:13","bv_tax":"2019-29-99 09:10:14","bv_record":"2019-29-99 09:10:15"}]
+num = ['one','two','three','four','five','six','seven','eight','nine','ten']
+$('#Next_info').html(`<div class="span3 addadd" ></div>
+          <input type="button" class="Next_info" value="提交">
+          <input type="button" class="add_next" value="增加回访" style="right:90px">`);
+for(var i=0;i<data.length;i++){
+  $('.addadd').before(`<div class="span3"><span>回访`+(i+1)+`:</span><span style="display:inline-block;width:70%">`+data[i]["bv_date"]+`</span></div>
+<div class="span4"><span>做题记录:</span><span style="display:inline-block;width:70%">`+data[i]["bv_dosome"]+`</span></div>
+<div class="span4"><span>听课记录:</span><span style="display:inline-block;width:70%">`+data[i]["bv_tax"]+`</span></div>
+<div class="span12"><span>回访记录:</span><span class="record" style="display:inline-block">`+data[i]["bv_record"]+`</span></div>`);
+}
+lock = true;
+$('.add_next').click(function(){
+  console.log(1)
+  if(lock == true){
+    console.log($('#Next_info input[type = text]'),$('.addadd'))
+    var length = $('#Next_info .span12').length;
+    console.log(length)
+    $('.addadd').before(`<div class="span3"><span>回访`+(length+1)+`:</span><input name="bv_date" type="text"style="display:none"><span style="display:inline-block;width:70%">&nbsp;</span></div>
+    <div class="span4"><span>做题记录:</span><input type="text" name="bv_dosome"></div>
+    <div class="span4"><span>听课记录:</span><input type="text" name="bv_tax"></div>
+    <div class="span12"><span>回访记录:</span><input type="text" name="bv_record"></div>`)
+    lock = false
+  }
+  
+})
+$('.Next_info').click(function(){
+  console.log(form2Json('Next_info'))
+  var car = form2Json('Next_info');
+  for(var i in car) {
+      if(i.indexOf('date')>-1){
+        var text = i
+      }
+  }
+  delete text;
+  time=getNowFormatDate()
+  car[text] = time
+  console.log(car)
+  
+  $.ajax({
+    url:'',
+    type:'get',
+    data:car,
+    dataType:'json',
+    success:function(data){
+      $('.modelphonein').css('display','block')
+    },
+    error:function(){
+      
+    }
+  })
+})
+          }
+        })
+        break;
+        case "5":
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+                        $('#xf_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#xf_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case "6":
+          $.ajax({
+            url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            $('#belong_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#belong_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case "7":
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+             
+            var data=[{'jt1':'1','jt2':'1','sm_id':'222'}];
+console.log($('#re_info input[type = hidden]'),data[0]['sm_id'])
+
+$('.mail span').each(function(index,el){
+  
+              if(data[0][$(el).attr('name')] == 1){
+                $(el).css('background-color',"rgb(255, 192, 0)")
+              }else{
+                $(el).css('background-color',"rgb(255, 255, 255)")
+              }
+            })
+            $('#add_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#add_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+            $('#add_info input[type=hidden]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            
+          }
+        })
+        break;
+        case "8":
+        console.log('www')
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            data = [{"sm_id":0,"did":7,"agr_back":"0000-00-00 00:00:00","sm_con":"\u6559\u6750,\u5b9d\u5178","sm_date":"2019-03-12 19:14:37","sm_free":"0","sm_qudao":"\u987a\u4e30","sm_remaks":"test","sm_address":"\u5730\u5740","sm_courier_number":"danhao","jt_one":0,"jt_two":0,"jt_three":0,"jj_one":1,"jj_two":1,"jj_three":0,"fire_xt":0,"fire_xj":0,"xieyi":0}];
+console.log(1)
+                for(var i=0;i<data.length;i++){
+                    var str ="";
+                    if(data[i].fire_xj == 1){
+                        str+="，消教"
+                    }
+                    if(data[i].fire_xt == 1){
+                        str+="，消通"
+                    }
+                    if(data[i].jj_one == 1){
+                        str+="，基教一"
+                    }
+                    if(data[i].jj_three == 1){
+                        str+="，基教三"
+                    }
+                    if(data[i].jj_two == 1){
+                        str+="，基教二"
+                    }
+                    if(data[i].jt_one == 1){
+                        str+="，基通一"
+                    }
+                    if(data[i].jt_three == 1){
+                        str+="，基通三"
+                    }
+                    if(data[i].jt_two == 1){
+                         str+="，基通二"
+                    }
+                    $('#add_form0').before(`<p style="display:table">历史`+(i+1)+`</p>
+<div class="span3"><span>协议回执日期:</span><span style="display:inline-block;width:70%">`+data[i]["agr_back"]+`</span></div>
+<div class="span3"><span>邮寄内容:</span><span style="display:inline-block;width:70%">`+data[i]["sm_con"]+`</span></div>
+<div class="span3"><span>实际邮寄地址:</span><span style="display:inline-block;width:70%">`+data[i]["sm_address"]+`</span></div>
+<div class="span3"><span>邮寄日期:</span><span style="display:inline-block;width:70%">`+data[i]["sm_date"]+`</span></div>
+<div class="span3"><span>邮寄备注:</span><span class="record" style="display:inline-block">`+data[i]["sm_remaks"]+`</span></div>
+
+<div class="span3"><span>快递单号:</span><span style="display:inline-block;width:70%">`+data[i]["sm_courier_number"]+`</span></div>
+<div class="span3"><span>运费:</span><span style="display:inline-block;width:70%">`+data[i]["sm_free"]+`</span></div>
+<div class="span3"><span>渠道:</span><span style="display:inline-block;width:70%">`+data[i]["sm_渠道"]+`</span></div>
+<div class="span6"><span>邮寄教材:</span><span style="display:inline-block;width:85%">`+str.substring(1)+`</span></div>
+<div class="span6"></div>
+`);
+                  }
+            $('#re_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            
+            $('#re_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        default:
+          break;
+      }
+  $(str).parent().parent().next().addClass('in');
+  $(str).removeClass('collapsed')
+  $(str)[0].scrollIntoView();
+  addlock = true;
+  var examDates = [];
+  $('.add_mail').click(function(){
+    if(addlock == true){
+      $('.add_add').before(`
+    <form id="add_form2">
+    <p style="    display: table;">基础：</p>
+    <input type="hidden" name="sm_id" value="0">
+    <div class="span3"><span>协议回执日期:</span><input type="text" name="agr_back" disabled></div>
+                        <div class="span3"><span>邮寄内容:</span><select name="yjnr4" id="">
+                         <option value="">选择邮寄内容</option>  
+                         <option value="教材">教材</option>  
+                         <option value="宝典">宝典</option>  
+                         <option value="协议">协议</option>  
+                         <option value="教材,宝典">教材+宝典</option>  
+                         <option value="宝典,协议">宝典+协议</option>  
+                         <option value="教材,协议">教材+协议</option>  
+                         <option value="教材,宝典,协议">教材+宝典+协议</option>  
+                        </select></div>
+                        <div class="span3"><span>实际邮寄地址:</span><input type="text" name="yjnrc"></div>
+                        <div class="span3"><span>邮寄日期:</span><input type="text" name="yjnrt"></div>
+                        <div class="span3"><span>邮寄备注:</span><input type="text" name="yjnra"></div>
+                        
+                        <div class="span3"><span>快递单号:</span><input type="text" name="yjnr"></div>
+                        <div class="span12 mail"><span name="jt1">基通1</span><span name="jt2">基通2</span><span name="jt3">基通3</span><span name="jj1">基教1</span><span name="jj2">基教2</span><span name="jj3">基教3</span><span name="xt">消通</span><span name="xj">消教</span><span name="xy">协议</span></div>
+
+   </form>
+                        
+    `)
+    }
+    $('.mail span').click(function(){
+    console.log($(this).css('background-color'))
+    if($(this).css('background-color')=='rgb(255, 255, 255)'){
+      $(this).css('background-color','rgb(255,192,0)')
+    }else{
+      $(this).css('background-color','rgb(255, 255, 255)')
+    }
+  })
+    addlock = false;
+    if($('#stu_info span[name = project]').text() == "消防项目"){
+      $('#add_form2 input[name = agr_back]').attr('disabled',false)
+    }
+    
+  })
+  var data = [{"tran_id":175,"did":2,"mobile":"1","data_type":"\u7eed\u62a5","stu_name":"1\u738b\u4f1f1","workyear":"\u5e94\u5c4a\u751f","order_time":"2019-03-21 18:11:14","sex":"\u7537","weixin":"1186917646651","email":"11517944398@qq.com1","exam_city":"\u9ec4\u6d66\u533a","mail_num":"618000","id_num":"161030219941024351","class_mobile":"118691764665","ergent_people":"\u738b\u4f1f","ergent_mobile":"13990292093","section":"\u79d1\u4e00,\u79d1\u4e8c","mail_address":"\u9655\u897f\u94dc\u5ddd\u5e02\u5e02\u8f96\u533a\u6c34\u6728\u6e05\u534e\u5317\u95e8\uff08\u6536\u4ef6\u4eba:\u674e\u5609\u8c6a \u7535\u8bdd:18691764665\uff09","is_status":0,"classType":"VIP\u4e00\u6b21\u53d6\u8bc1\u73ed","belong_to":"191","tea_name":"321","order_status":"\u901a\u8fc7","check_name":0,"back_reason":"","company":"","pay_way":"\u652f\u4ed8\u5b9d","pay_price":"111","project":"\u6d88\u9632\u9879\u76ee","back_reason_note":"","type":"\u7eed\u62a5"},{"frozen_time":"\u4e00\u4e2a\u6708","do_time":"2019-04-28 14:50:13","is_status":0,"type":"\u51bb\u7ed3","tran_id":182}]
+  for(var k in data){
+    $('#unusual_info')[0].innerHTML +=`
+    <div class="span13">
+                      <div style="position:relative">
+                        <p>`+data[k].type+`</p>
+                        
+                        <div style="clear:both"></div>
+                      </div>
+    ` ;
+    for(var j in data[k]){
+      if(data[k][j]!=""&&data[k][j]!=null){
+        console.log(j)
+        if(j == "section"){
+        $('#unusual_info')[0].innerHTML +=` <div class="span3"><span>科目：</span><span style="display:inline-block;width:70%;" name="mobile">`+data[k][j]+`</span>`
+      }
+      if(j == "mail_address"){
+        $('#unusual_info')[0].innerHTML +=` <div class="span6"><span>邮寄地址：</span><span style="display:inline-block;width:85%" name="mobile">`+data[k][j]+`</span>`
+      }
+      $('.modelorder input').each(function(index,el){
+        if($(el).attr('name') == j){
+          console.log($(el)[0].parentNode.childNodes[0].innerText)
+          $('#unusual_info')[0].innerHTML +=` <div class="span3"><span>`+$(el)[0].parentNode.childNodes[0].innerText+`</span><span style="display:inline-block;width:70%;" name="mobile">`+data[k][j]+`</span>`
+        }
+      })
+      $('.modelorder select').each(function(index,el){
+        if($(el).attr('name') == j){
+          $('#unusual_info')[0].innerHTML +=` <div class="span3"><span>`+$(el)[0].parentNode.childNodes[0].innerText+`</span><span style="display:inline-block;width:70%;" name="mobile">`+data[k][j]+`</span>`
+        }
+      })
+      }
+        
+      
+      
+    }
+    $('#unusual_info')[0].innerHTML +=`<div class="span3"><input type="button" class="re_info" style="line-height:0;bottom:auto" value="开课`+data[k].type+`"></div>`
+  }
+  // $('#unusual_info')[0].innerHTML = ` <div class="span13">
+  //                     <div style="position:relative">
+  //                       <p>退费：</p>
+  //                     <div class="span3"><span>退费申请日期:</span><span style="display:inline-block;width:70%;" name="mobile">2123321</span></div>
+  //                     <div class="span3"><span>退费理由:</span><span style="display:inline-block;width:70%;" name="mobile">2123321</span></div>
+  //                     <div class="span3"><input type="button" class="re_info" style="line-height:0;" value="开课"></div>
+  //                     <div style="clear:both"></div>
+  //                     </div>`
+  function address(a,b){
+    var str=a,str1='';
+    var provrin = '',provrinIndex = '',citys=[],area="",city="",cityIndex='',areas=[],areaIndex='';
+    console.log(provinceList[2].cityList);
+    if(str.substring(0,2)=="黑龙"){
+            provrin = "黑龙江";
+            provrinIndex = 29;
+            citys = provinceList[29].cityList;
+        }else if(str.substring(0,2)=="内蒙"){
+            provrinIndex = 20;
+            provrin = "内蒙古";
+            citys = provinceList[20].cityList;
+        }
+    for (var i = 0; i < provinceList.length; i++) {
+        if(provinceList[i].name == str.substring(0,2)){
+            provrinIndex = i;
+            provrin = provinceList[i].name;
+            citys = provinceList[i].cityList;
+        }
+    }
+    console.log(provrin,citys,provrinIndex)
+    str1 = str.split(provrin)[1];
+    if(provrin == "北京"||provrin == "天津"||provrin == "上海"){
+        for (var i = 0; i < provinceList[provrinIndex].cityList[0].areaList.length; i++) {
+            if(str.indexOf(provinceList[provrinIndex].cityList[0].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 0;
+                city = '市辖区';
+                area=provinceList[provrinIndex].cityList[0].areaList[i];
+                console.log(areaIndex,cityIndex,provinceList[provrinIndex].cityList[0])
+                // console.log(areaIndex,cityIndex)
+                str1 = str1.split(provinceList[provrinIndex].cityList[0].areaList[i])[1]
+            }
+        }
+        for (var i = 0; i < provinceList[provrinIndex].cityList[1].areaList.length; i++) {
+            if(str.indexOf(provinceList[provrinIndex].cityList[1].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 1;
+                city = '县';
+                area=provinceList[provrinIndex].cityList[1].areaList[i];
+                str1 = str1.split(provinceList[provrinIndex].cityList[1].areaList[i])[1]
+            }
+        }
+    }else if(provrin == "重庆"){
+        
+        for (var i = 0; i < provinceList[3].cityList[1].areaList.length; i++) {
+            if(str.indexOf(provinceList[3].cityList[1].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 1;
+                city = "县";
+                console.log(areaIndex,cityIndex,provinceList[3].cityList[1])
+                area=provinceList[3].cityList[1].areaList[i];
+                str1 = str1.split(provinceList[3].cityList[1].areaList[i])[1]
+            }
+        }
+        for (var i = 0; i < provinceList[3].cityList[2].areaList.length; i++) {
+            console.log(provinceList[3].cityList[2].areaList[i])
+            if(str.indexOf(provinceList[3].cityList[2].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 2;
+                city = "县";
+                area=provinceList[3].cityList[2].areaList[i];
+                console.log(areaIndex,cityIndex)
+                str1 = str1.split(provinceList[3].cityList[2].areaList[i])[1]
+            }
+        }
+        for (var i = 0; i < provinceList[3].cityList[0].areaList.length; i++) {
+           
+            if(str.indexOf(provinceList[3].cityList[0].areaList[i])>-1){
+                areaIndex = i;
+                cityIndex = 0;
+                city = "市辖区";
+                area=provinceList[3].cityList[0].areaList[i];
+                console.log(areaIndex,cityIndex,provinceList[3].cityList[2])
+                str1 = str1.split(provinceList[3].cityList[0].areaList[i])[1]
+            }
+        }
+    }else{
+        for (var i = 0; i < citys.length; i++) {
+            if(str.indexOf(citys[i].name)>-1){
+                cityIndex = i;
+                areas = citys[i].areaList
+                console.log(citys[i].name)
+                city = citys[i].name
+                str1 = str1.split(citys[i].name)[1];
+                console.log(str1)
+            }
+        }
+        for (var i = 0; i < areas.length; i++) {
+            if(str.indexOf(areas[i])>-1){
+                areaIndex = i;
+                area = areas[i]
+                console.log(areaIndex)
+                str1 = str1.split(areas[i])[1]
+            }
+        }
+
+    }
+    console.log(provrin,city,area)
+    $('select[name = adviaddress_province]').val(provrin);
+    chooseProvincea($('select[name = adviaddress_province]')[0]);
+    $('select[name = adviaddress_city]').val(city);
+    chooseCitya($('select[name = adviaddress_city]')[0]);
+    $('select[name = adviaddress_area]').val(area);
+    $('input[name=adviaddress]').val(str1)
+}
+address("重庆丰都县22号")
+var section = "科一,科三";
+for (var i = 0; i < section.split(',').length; i++) {
+  if(section.split(',')[i] == "科一"){
+    $('#order_form input[name = ke1]')[0].checked = true;
+  }
+  if(section.split(',')[i] == "科二"){
+    $('#order_form input[name = ke2]')[0].checked = true;
+  }
+  if(section.split(',')[i] == "科三"){
+    $('#order_form input[name = ke3]')[0].checked = true;
+  }
+}
+
+      $('#realBtn').click(function(){
+        $('.modelpay')[0].style.display = "block";
+    })
+    $('.payx').click(function(){
+        $('.modelpay')[0].style.display = "none";
+    })
+  $('select[name = payWay]').change(function(){
+    if($(this).val() == "支付宝"){
+      $('.Alipay').css('display','block')
+      $('.blank').css('display','none')
+      $('.blank input').each(function(index,el){
+        $(el).val('')
+      })
+    }else if($(this).val() == "银行卡"){
+      $('.Alipay').css('display','none')
+      $('.blank').css('display','block')
+      $('.Alipay input').each(function(index,el){
+        $(el).val('')
+      })
+    }else{
+      $('.Alipay').css('display','none')
+      $('.blank').css('display','none')
+      $('.Alipay input').each(function(index,el){
+        $(el).val('')
+      })
+      $('.blank input').each(function(index,el){
+        $(el).val('')
+      })
+    }
+  })
+  $('select[name = payWayjj]').change(function(){
+    if($(this).val() == "支付宝"){
+      $('.Alipaya').css('display','block')
+      $('.blanka').css('display','none')
+      $('.blanka input').each(function(index,el){
+        $(el).val('')
+      })
+    }else if($(this).val() == "银行卡"){
+      $('.Alipaya').css('display','none')
+      $('.blanka').css('display','block')
+      $('.Alipaya input').each(function(index,el){
+        $(el).val('')
+      })
+    }else{
+      $('.Alipaya').css('display','none')
+      $('.blanka').css('display','none')
+      $('.Alipaya input').each(function(index,el){
+        $(el).val('')
+      })
+      $('.blanka input').each(function(index,el){
+        $(el).val('')
+      })
+    }
+  })
+  $('.fff .panel-heading a').each(function(index,el){
+    $(el).click(function(){
+      console.log(index)
+      if($(el).attr('aria-expanded') == "false"){
+        switch (index) {
+        case 0:
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            
+          }
+        })
+        break;
+        case 1:
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            // console.log(new Date().getMonth())
+            // if(new Date().getMonth()+1 <10){
+            //   month = '0'+(new Date().getMonth()+1)
+            // }else{
+            //   month = new Date().getMonth()+1
+            // }
+            // $('.koaqi')[0].innerText = (new Date().getFullYear())+''+month+'考期：';
+            console.log($('#stu_info span[name=project]').text())
+            if($('#stu_info span[name=project]').text() == "基金项目"){
+              $('.koaqi')[0].innerText = '201911考期：';
+              $('#examc_info input[name=exam_date]').val('201911')
+            }else{
+              var date = new Date();
+            for (let i = 0; i < exam_dates.length; i++) {
+              if((date.getTime()>new Date(exam_dates[i].exam_end).getTime())&&(date.getTime()<new Date(exam_dates[i+1].exam_start).getTime())){
+                exam_date2 = exam_dates[i].exam_date;
+              }
+            }
+
+            console.log(exam_date2)
+            $('.koaqi')[0].innerText = exam_date2+'考期：'
+            $('#examc_info input[name=exam_date]').val(exam_date2)
+            }
+            
+            $('#examc_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#examc_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case 2:
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            $('#bill_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#bill_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case 3:
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            $('#kaoqi_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#kaoqi_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case 5:
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            console.log(1)
+            data = [{"bv_date":"2019-29-99 09:10:11","bv_dosome":"2019-29-99 09:10:11","bv_tax":"2019-29-99 09:10:11","bv_record":"2019-29-99 09:10:11"},
+{"bv_date":"2019-29-99 09:10:12","bv_dosome":"2019-29-99 09:10:13","bv_tax":"2019-29-99 09:10:14","bv_record":"2019-29-99 09:10:15"}]
+num = ['one','two','three','four','five','six','seven','eight','nine','ten']
+$('#Next_info').html(`<div class="span3 addadd" ></div>
+          <input type="button" class="Next_info" value="提交">
+          <input type="button" class="add_next" value="增加回访" style="right:90px">`);
+for(var i=0;i<data.length;i++){
+  $('.addadd').before(`<div class="span3"><span>回访`+(i+1)+`:</span><span style="display:inline-block;width:70%">`+data[i]["bv_date"]+`</span></div>
+<div class="span4"><span>做题记录:</span><span style="display:inline-block;width:70%">`+data[i]["bv_dosome"]+`</span></div>
+<div class="span4"><span>听课记录:</span><span style="display:inline-block;width:70%">`+data[i]["bv_tax"]+`</span></div>
+<div class="span12"><span>回访记录:</span><span class="record" style="display:inline-block">`+data[i]["bv_record"]+`</span></div>`);
+}
+lock = true;
+$('.add_next').click(function(){
+  console.log(1)
+  if(lock == true){
+    console.log($('#Next_info input[type = text]'),$('.addadd'))
+    var length = $('#Next_info .span12').length;
+    console.log(length)
+    $('.addadd').before(`<div class="span3"><span>回访`+(length+1)+`:</span><input name="bv_date" type="text"style="display:none"><span style="display:inline-block;width:70%">&nbsp;</span></div>
+    <div class="span4"><span>做题记录:</span><input type="text" name="bv_dosome"></div>
+    <div class="span4"><span>听课记录:</span><input type="text" name="bv_tax"></div>
+    <div class="span12"><span>回访记录:</span><input type="text" name="bv_record"></div>`)
+    lock = false
+  }
+  
+})
+$('.Next_info').click(function(){
+  console.log(form2Json('Next_info'))
+  var car = form2Json('Next_info');
+  for(var i in car) {
+      if(i.indexOf('date')>-1){
+        var text = i
+      }
+  }
+  delete text;
+  time=getNowFormatDate()
+  car[text] = time
+  console.log(car)
+  
+  $.ajax({
+    url:'',
+    type:'get',
+    data:car,
+    dataType:'json',
+    success:function(data){
+      $('.modelphonein').css('display','block')
+    },
+    error:function(){
+      
+    }
+  })
+})
+          }
+        })
+        break;
+        case 5:
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            $('#xf_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#xf_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case 6:
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            $('#belong_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#belong_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case 7:
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            
+            $('#add_info input[type = checkbox]').each(function(index,el){
+              
+              if(data[0][$(el).attr('name')] == 1){
+                $(el)[0].checked = true
+              }else{
+                $(el)[0].checked = false
+              }
+            })
+            $('#add_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#add_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        case 8:
+          console.log('jiang')
+          $.ajax({
+          url:'',
+          type:'get',
+          data:{type:index},
+          success:function(data){
+            $('.add_history')[0].innerHTML = "";
+            data = [{"bv_date":"2019-29-99 09:10:11","bv_dosome":"2019-29-99 09:10:11","bv_tax":"2019-29-99 09:10:11","bv_record":"2019-29-99 09:10:11"},
+{"bv_date":"2019-29-99 09:10:12","bv_dosome":"2019-29-99 09:10:13","bv_tax":"2019-29-99 09:10:14","bv_record":"2019-29-99 09:10:15"}];
+console.log(1)
+for(var i=0;i<data.length;i++){
+  $('.add_history')[0].innerHTML+=`<p style="display:table">yi</p>
+<div class="span3"><span>协议回执日期:</span><span style="display:inline-block;width:70%">`+data[i]["bv_date"]+`</span></div>
+<div class="span3"><span>邮寄内容:</span><span style="display:inline-block;width:70%">`+data[i]["bv_dosome"]+`</span></div>
+<div class="span3"><span>邮寄日期:</span><span style="display:inline-block;width:70%">`+data[i]["bv_tax"]+`</span></div>
+<div class="span3"><span>邮寄备注:</span><span class="record" style="display:inline-block">`+data[i]["bv_record"]+`</span></div>
+<div class="span3"><span>实际邮寄地址:</span><span style="display:inline-block;width:70%">`+data[i]["bv_date"]+`</span></div>
+<div class="span3"><span>快递单号:</span><span style="display:inline-block;width:70%">`+data[i]["bv_dosome"]+`</span></div>
+<div class="span6"><span>邮寄教材:</span><span style="display:inline-block;width:85%">`+data[i]["bv_tax"]+`</span></div>
+`
+}
+var data=[{'jt1':'1','jt2':'1'}]
+$('.mail span').each(function(index,el){
+  
+              if(data[0][$(el).attr('name')] == 1){
+                $(el).css('background-color',"rgb(255, 192, 0)")
+              }else{
+                $(el).css('background-color',"rgb(255, 255, 255)")
+              }
+            })
+            $('#re_info input[type = text]').each(function(index,el){
+              $(el).attr('value',data[0][$(el).attr('name')])
+            })
+            $('#re_info select').each(function(index,el){
+              if(data[0][$(el).attr('name')] == null){
+                data[0][$(el).attr('name')] = ""
+              }
+            })
+          }
+        })
+        break;
+        default:
+          break;
+      }
+      }
+    })
+  })
+  $('.orderx').click(function(){
+    $('.modelorder')[0].style.display = "none"
+  })
+  function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "/";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + date.getHours() + seperator2 + date.getMinutes()
+            + seperator2 + date.getSeconds();
+    return currentdate;
+}
+// var attributeCount = function(obj) {
+//         var count = 0;
+//         for(var i in obj) {
+//             if(obj.hasOwnProperty(i)) {  // 建议加上判断,如果没有扩展对象属性可以不加
+//                 count++;
+//             }
+//         }
+//         return count;
+//     }
+
+  $('.phoneinx').click(function(){
+    $('.modelphonein').css('display','none')
+  })
+  $('.add_order').click(function(){
+    $('.modelorder')[0].style.display = "block"
+  })
+  $('.stu_info').click(function(){
+    
+    console.log(!stu());
+    if(!stu()){
+      $('.phoneinp').text(`有内容填写格式错误`);
+      $('.modelphonein').css('display','block')
+        return;
+    }
+    if($('#stu_info span[name = project]').text() == "消防项目" && $('#stu_info select[name = classType]').val() == "定金"){
+      if($('#add_form0 input[name = agr_back]').val()=="" || $('#add_form0 input[name = sm_con]').val()=="" || $('#add_form0 input[name = sm_address]').val()==""){
+        $('.modelphonein').css('display','block')
+        $('.phoneinp').text(`请填写协议回执日期、邮寄内容和实际邮寄地址`);
+          return;
+      }
+    }else{
+      if($('#add_form0 input[name = sm_con]').val()=="" || $('#add_form0 input[name = sm_address]').val()==""){
+        $('.modelphonein').css('display','block')
+        $('.phoneinp').text(`请填写邮寄内容和实际邮寄地址`);
+          return;
+      }
+    }
+    var acc=[];
+    acc.stu = form2Json('stu_info'),acc.mail={sm_con:$('#add_form0 input[name = sm_con]').val(),sm_address:$('#add_form0 input[name = sm_address]').val()},
+    console.log(acc)
+    $.ajax({
+      url:'',
+      type:'get',
+      data:{sm_con:$('#add_form0 input[name = sm_con]').val(),sm_address:$('#add_form0 input[name = sm_address]').val()},
+      dataType:'json',
+      success:function(data){
+
+      },
+      error:function(){
+
+      }
+    })
+    stu_infod = form2Json('stu_info');
+    for(var k in stu_infod){
+      if(k!="zhiwei"&&k!="danwei"&&stu_infod[k] == ""){
+        $('.phoneinp').text(`有内容为空`);
+        $('.modelphonein').css('display','block')
+        return;
+      }
+    }
+    $.ajax({
+      url:'',
+      type:'get',
+      data:form2Json('stu_info'),
+      success:function(){
+
+      }
+    })
+  })
+  $('.exam_info').click(function(){
+    $('.modelphonein').css('display','block')
+    $.ajax({
+      url:'',
+      type:'get',
+      data:form2Json('exam_info'),
+      success:function(){
+
+      }
+    })
+  })
+  $('.examc_info').click(function(){
+    
+    console.log(!examc());
+    if(!examc()){
+      $('.phoneinp').text(`有内容填写格式错误`);
+      $('.modelphonein').css('display','block')
+        return;
+    }
+    $.ajax({
+      url:'',
+      type:'get',
+      data:form2Json('examc_info'),
+      success:function(){
+
+      }
+    })
+  })
+  var arr=['上海','北京'];
+  arr= arr.sort(
+				                 function compareFunction(param1,param2){
+				                     return param1.localeCompare(param2);
+				                 }
+                     );
+                     var param1="上海",param2 = "北京"
+                     console.log(param2.localeCompare(param1));
+  $('.bill_info').click(function(){
+    
+    if(!bill()){
+      $('.phoneinp').text(`有内容填写格式错误`);
+      $('.modelphonein').css('display','block')
+        return;
+    }
+    $.ajax({
+      url:'',
+      type:'get',
+      data:form2Json('bill_info'),
+      success:function(){
+
+      }
+    })
+  })
+  $('.kaoqi_info').click(function(){
+    
+    if(!kaoqi()){
+      $('.phoneinp').text(`有内容填写格式错误`);
+      $('.modelphonein').css('display','block')
+        return;
+    }
+    $.ajax({
+      url:'',
+      type:'get',
+      data:form2Json('kaoqi_info'),
+      success:function(){
+
+      }
+    })
+  })
+  
+  $('.xf_info').click(function(){
+    $('.modelphonein').css('display','block')
+    if(!xf()){
+      $('.phoneinp').text(`有内容填写格式错误`);
+        return;
+    }
+    $.ajax({
+      url:'',
+      type:'get',
+      data:form2Json('xf_info'),
+      success:function(){
+
+      }
+    })
+  })
+  $('.belong_info').click(function(){
+    $('.modelphonein').css('display','block')
+    $.ajax({
+      url:'',
+      type:'get',
+      data:form2Json('belong_info'),
+      success:function(){
+
+      }
+    })
+  })
+  $('.add_info').click(function(){
+    $('.modelphonein').css('display','block');
+    
+    if(!xadd()){
+      $('.phoneinp').text(`有内容填写格式错误`);
+        return;
+    }
+    var add_infod = form2Json('add_form0');
+    $('#add_form0 .mail span').each(function(index,el){
+      console.log($(el).css('background-color')=="rgb(255, 192, 0)")
+        if($(el).css('background-color')=="rgb(255, 192, 0)"){
+            add_infod[$(el).attr('name')] = 1
+        }else{
+            add_infod[$(el).attr('name')] = 0
+        }
+    })
+    
+    if(add_infod['agr_back'] == undefined){
+      add_infod['agr_back'] = $('#add_form0 input[name = agr_back]').val();
+    }
+    console.log(add_infod['agr_back'])
+    add_infod['type'] = "update";
+    
+if($('#add_form2').length > 0){
+    add_infod = form2Json('add_form2');
+    $('#add_form2 .mail span').each(function(index,el){
+      console.log($(el))
+        if($(el).css('background-color')=="rgb(255, 192, 0)"){
+            add_infod[$(el).attr('name')] = 1
+        }else{
+            add_infod[$(el).attr('name')] = 0
+        }
+    })
+    add_infod['type'] = "insert";
+}
+console.log(add_infod);
+$('.phoneinp').text(' ')
+if(add_infod['sm_courier_number']!=""){
+  var ke = add_infod['jj1']+add_infod['jj2']+add_infod['jj3']+
+  add_infod['jt1']+add_infod['jt2']+add_infod['jt3']+add_infod['xj']+add_infod['xt']+add_infod['xy']
+    console.log(ke)
+    for (var k in add_infod) {
+      if (((k!="sm_remaks"&&add_infod[k] === "")&&(k!="sm_free"&&add_infod[k] === ""))||ke == 0) {
+        console.log(k)
+        $('.phoneinp').text(`填完快递单号后，其余内容不能为空（邮寄备注，运费除外）`);
+        return;
+      }
+    }
+}
+
+console.log(getNowFormatDate())
+
+// add_infod['did'] = data_did;
+if(add_infod['sm_date'] != ""){
+add_infod['sm_date'] = getNowFormatDate();
+}
+
+
+    // if($('#add_form2').length== "1"){
+    //   console.log(form2Json('add_form2'))
+    // }else{
+    //   console.log(form2Json('add_form0'))
+    // }
+    
+    var str='';
+    $.ajax({
+      url:'',
+      type:'get',
+      data:add_infod,
+      success:function(){
+        console.log($('#add_info input[type = checkbox]'))
+        $('#add_info input[type = checkbox]').each(function(index,el){
+          if($(el)[0].checked == true){
+            str += ','+$(el)[0].name
+          }
+        })
+        str=str.substring(1)
+        console.log(str)
+      }
+    })
+  })
+  function disable(){
+    if($('#stu_info select[name = sign_type]').val() == "定金" && $('#stu_info span[name = project]').val() == "消防项目"){
+      $('#add_form0 input[name = agr_back]').attr('disabled',false);
+      $('#add_form2 input[name = agr_back]').attr('disabled',false)
+    }
+  }
+  disable();
+  $('#stu_info select[name = sign_type]').on('change',function(){
+    disable();
+  })
+  $('.re_info').click(function(){
+    $('.modelphonein').css('display','block')
+    $.ajax({
+      url:'',
+      type:'get',
+      data:form2Json('re_info'),
+      success:function(){
+
+      }
+    })
+  })
+  var did ;
+  if(location.href.split('=')[1] = undefined){
+    did = ""
+  }else{
+    did = location.href.split('=')[1];
+  }
+  var data=[{"mobile":"18736321079","class_mobile":"18736321079","stu_name":"\u9a6c\u65ed","id_num":"370827198909103156","weixin":"18736321079\t","email":"1075154024@qq.com","mail_address":"\u5c71\u4e1c\u4e1c\u8425\u5e02\u4e1c\u8425\u533a\u5c71\u4e1c\u7701\u4e1c\u8425\u5e02\u4e1c\u8425\u6e2f\u7ecf\u6d4e\u5f00\u53d1\u533a\u5927\u660e\u5de5\u4e1a\u56ed","exam_province":"\u5c71\u4e1c","exam_city":"\u4e34\u6c82\u5e02","price":500,"instead_sign":"\u5426","project":"\u6d88\u9632\u9879\u76ee","classType":"","sign_type":"\u5b9a\u91d1","pay_way":"\u652f\u4ed8\u5b9d","did":57663,"last_mark_time":"2019-03-07 15:51:11","education":"\u5927\u4e13\u3001\u9ad8\u804c\uff08\u6216\u540c\u7b49\u5b66\u5386\uff09","work_year":"1-3\u5e74","trade":"\u6559\u80b2\/\u79d1\u7814\/\u57f9\u8bad","section":"\u79d1\u4e00,\u79d1\u4e8c,\u79d1\u4e09","exam_date":"201911","zhiwei":"","danwei":"","pxfei":500}]
+      
+      var kemu=data[0]['section'].split(',');
+      for (var i = 0; i < kemu.length; i++) {
+        switch (kemu[i]) {
+          case "科一":
+            $('input[name = ke1]')[0].checked = true
+            break;
+          case "科二":
+            $('input[name = ke2]')[0].checked = true
+            break;
+          case "科三":
+            $('input[name = ke3]')[0].checked = true
+            break;
+          default:
+            break;
+        }
+        
+      }
+      if(data[0].project == "消防项目"){
+        console.log($('#add_form2 input[name = agr_back]'))
+        $('#add_form0 input[name = agr_back]').attr('disabled',false)
+      }
+      $('#stu_info input[type = text]').each(function(index,el){
+        $(el).attr('value',data[0][$(el).attr('name')])
+      })
+      $('#stu_info span').each(function(index,el){
+        $(el).text(data[0][$(el).attr('name')])
+      })
+      $('#stu_info select').each(function(index,el){
+        if(data[0][$(el).attr('name')] == null){
+        data[0][$(el).attr('name')] = ""
+      }
+        console.log(el)
+        $(el).val(data[0][$(el).attr('name')])
+      })
+
+      chooseProvince1($('select[name = exam_province]')[0])
+      $('select[id = exam_city]').val(data[0]["exam_city"])
+  $.ajax({
+    url:'',
+    type:'get',
+    data:{did},
+    success:function(data){
+      var data=[{"mobile":"18736321079","class_mobile":"18736321079","stu_name":"\u9a6c\u65ed","id_num":"370827198909103156","weixin":"18736321079","email":"1075154024@qq.com","mail_address":"\u5c71\u4e1c\u4e1c\u8425\u5e02\u4e1c\u8425\u533a\u5c71\u4e1c\u7701\u4e1c\u8425\u5e02\u4e1c\u8425\u6e2f\u7ecf\u6d4e\u5f00\u53d1\u533a\u5927\u660e\u5de5\u4e1a\u56ed","exam_province":"\u5c71\u4e1c","exam_city":"\u4e34\u6c82\u5e02","price":500,"instead_sign":"\u5426","project":"\u6d88\u9632\u9879\u76ee","classType":"","sign_type":"\u5b9a\u91d1","pay_way":"\u652f\u4ed8\u5b9d","did":57663,"last_mark_time":"2019-03-07 15:51:11","education":"\u5927\u4e13\u3001\u9ad8\u804c\uff08\u6216\u540c\u7b49\u5b66\u5386\uff09","work_year":"1-3\u5e74","trade":"\u6559\u80b2\/\u79d1\u7814\/\u57f9\u8bad","section":"\u79d1\u4e00,\u79d1\u4e8c,\u79d1\u4e09","exam_date":"201911","zhiwei":"","danwei":"","pxfei":500}]
+      var kemu=data[0]['section'].split(',');
+      var examDates = [];
+    Y=new Date().getFullYear();
+    // console.log($('#stu_info select[name = project]')[0].value)
+    switch (data[0].project) {
+        case'基金项目':
+        var mon = ['03','04','05','06','07','09','10','11']
+        for (var i = 0; i < mon.length; i++) {
+            examDates.push(Y + mon[i])
+        }
+        for (var i = 0; i < mon.length; i++) {
+            examDates.push(parseInt(Y+1)+ mon[i])
+        }
+        break;
+        case'消防项目':
+        
+        y1 = Y + '11';
+        y2 = parseInt(Y+1)+'考期'
+        examDates.push(y1)
+        examDates.push(y2);break;
+        default:
+        
+    }
+    console.log(examDates)
+    for (var i = 0; i < examDates.length; i++) {
+    $('#stu_info select[name = exam_date]')[0].innerHTML += `
+     <option value="`+examDates[i]+`">`+examDates[i]+`</option>
+    `
+}  
+      for (var i = 0; i < kemu.length; i++) {
+        switch (kemu[i]) {
+          case "科一":
+            $('input[name = ke1]')[0].checked = true
+            break;
+          case "科二":
+            $('input[name = ke2]')[0].checked = true
+            break;
+          case "科三":
+            $('input[name = ke3]')[0].checked = true
+            break;
+          default:
+            break;
+        }
+        
+      }
+      $('#stu_info input[type = text]').each(function(index,el){
+        $(el).attr('value',data[0][$(el).attr('name')])
+      })
+      $('#stu_info span').each(function(index,el){
+        $(el).text(data[0][$(el).attr('name')])
+      })
+      $('#stu_info select').each(function(index,el){
+        if(data[0][$(el).attr('name')] == null){
+        data[0][$(el).attr('name')] = ""
+      }
+        console.log(el)
+        $(el).val(data[0][$(el).attr('name')])
+      })
+      chooseProvince1($('select[id = province1]')[0])
+      $('select[id = city1]').val(data[0]["exam_city"])
+
+    }
+  })
+  
+  function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray();
+        var jsonStr = "";
+        // console.log(arr)
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+        // console.log(jsonStr)
+        var json = JSON.parse(jsonStr)
+        return json
+        // console.log(arr)
+    }
+  //上传截图
+  var fileList;
+  var allFile = [];
+  //FormData对象初始化
+  var form = document.getElementById("uploadForm");
+  var formData = new FormData(form);
+  formData.delete('UploadForm[excelFiles][]');
+  $('.ded').change(function(){
+    formData.delete('UploadForm[excelFiles][]');
+    $('#files').html(``)
+    $('#files2').html(``)
+    if($(this).val() == "续报"||$(this).val() == "转介绍"||$(this).val() == "升班"){
+      switch ($(this).val()) {
+        case '续报':
+        $('input[name = classnumber]').css('display','none');
+        $('#classnumber').css('display','inline-block');
+        $('input[name = classnumber]').val('12323123');
+        $('#classnumber').html($('input[name = classnumber]').val())
+          break;
+        case '转介绍':
+        console.log(1)
+        $('.orderOne').css('display','none')
+$('.orderTwo').css('display','block')
+$('.orderTwo input').each(function (index,el) {
+  $(el).val('')
+})
+$('.orderTwo select').each(function (index,el) {
+$(el).val('')
+})
+$('#order_form input[name = ke2]')[0].checked = false;
+$('#order_form input[name = ke1]')[0].checked = false;
+$('#order_form input[name = ke3]')[0].checked = false;
+$('#price')[0].innerHTML = ""
+          break;
+        case '升班':
+        console.log($('.hidd'))
+          break;
+        default:
+          break;
+      }
+      $('.orderOne').css('display','none')
+      $('.orderTwo').css('display','block')
+    }else if($(this).val() == "基金换科补费"||$(this).val() == "冻结"||$(this).val() == "退费"||$(this).val() == "重修"||$(this).val() == "奖学金申请"){
+      $('.orderOne').css('display','block')
+      $('.orderTwo').css('display','none')
+      switch ($(this).val()) {
+        case '基金换科补费':
+        console.log($('.hidd'))
+          $('.hidd').each(function(index,el){
+            $(el).css('display','none');
+          })
+          $('div[data-hidden = 基金换科补费]').css('display','block')
+          break;
+        case '冻结':
+        console.log($('.hidd'))
+          $('.hidd').each(function(index,el){
+            $(el).css('display','none');
+          })
+          $('div[data-hidden = 冻结]').css('display','block')
+          break;
+        case '退费':
+        console.log($('.hidd'))
+          $('.hidd').each(function(index,el){
+            $(el).css('display','none');
+          })
+          $('div[data-hidden = 退费]').css('display','block')
+          break;
+        case '重修':
+        console.log($('.hidd'))
+          $('.hidd').each(function(index,el){
+            $(el).css('display','none');
+          })
+          $('div[data-hidden = 重修]').css('display','block')
+          break;
+        case '奖学金申请':
+        console.log($('.hidd'))
+          $('.hidd').each(function(index,el){
+            $(el).css('display','none');
+          })
+          $('div[data-hidden = 奖学金]').css('display','block');
+          
+          break;
+        default:
+          break;
+      }
+    }else{
+      $('.orderOne').css('display','none')
+      $('.orderTwo').css('display','none')
+    }
+  })
+  $('#files').on('click','.delete',function (e) {
+  var saveFile = [];
+  var norm = $("#norm").val();
+  var major = $("#major").val();
+  var type = $("#type").val();
+  console.log(e.target.parentNode.previousElementSibling.previousElementSibling.textContent)
+  var deleteName = e.target.parentNode.previousElementSibling.previousElementSibling.textContent;
+  var deleteIndex;
+  //将不删除的放入数组中
+  $.each(allFile,function (index, item) {
+   if(item.name == deleteName){
+     deleteIndex = index;
+   }else {
+    saveFile.push(item);
+   }
+  });
+  allFile.splice(deleteIndex,1);
+  formData.set("norm",norm);
+  formData.set("major",major);
+  formData.set("type",type);
+  formData.delete('UploadForm[excelFiles][]');
+  //将不删除的数组追加的formData中
+  $.each(saveFile,function (index, item) {
+   formData.append('UploadForm[excelFiles][]',item);
+  });
+ 
+  e.target.parentNode.parentNode.remove();
+ 
+ });
+ $("#uploadform-excelfiles").on('change', function (e) {
+  console.log(this)
+    var company = [],payment = [];
+   var fileError = 0;
+   fileList = e.currentTarget.files;
+   $.each(fileList, function (index, item) {
+    
+	var fileName = item.name;
+	var fileEnd = fileName.substring(fileName.indexOf("."));
+    console.log(item.size)
+	//上传文件格式判断
+    type = item.type;
+    var maxsize = 2*1024*1024
+    if(type.indexOf("image/")<0){
+        console.log(1)
+        $('.payp')[0].innerHTML = `请选择图片上传`;
+        $('.payp')[0].style.color = `red`;
+    }else if(item.size > maxsize){
+        $('.payp')[0].innerHTML = `图片尺寸不能超过2MB`;
+        $('.payp')[0].style.color = `red`;
+    }else if (window.FileReader) {  
+	 allFile.push(item);
+   console.log($('.ded').val() == "奖学金申请")
+   if($('.ded').val() == "奖学金申请"){
+    $('#files').append( '<tr style="padding-top: 7px;">' +
+		  '<td style="    line-height: 30px;">'+fileName+'</td>' +
+		  '<td style="display:none"></td>' +
+		  '<td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete">删除</a></td>' +
+		  '</tr>');
+   }else if($('.ded').val() == "退费"||$('.ded').val() == "重修"||$('.ded').val() == "冻结"){
+    $('#files').append( '<tr style="padding-top: 7px;">' +
+        '<td style="    line-height: 30px;">'+fileName+'</td>' +
+        '<td style="display:none"></td>' +
+        '<td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete">删除</a></td>' +
+        '</tr>');
+   }else{
+     $('#files').append( '<tr style="padding-top: 7px;">' +
+		  '<td style="    line-height: 30px;">'+fileName+'</td>' +
+		  '<td><select style="margin:2px 10px 2px 0;width: 30%;" name="'+fileName.split('.')[0]+'-'+fileName.split('.')[1]+'-company'+'"><option value="">请选择</option><option value="北京创睿造智教育科技有限公司">北京创睿造智教育科技有限公司</option><option value="北京智汇火种教育科技有限公司">北京智汇火种教育科技有限公司</option></select><select style="margin:2px 10px 2px 0;    width: 30%;" name="'+fileName.split('.')[0]+'-'+fileName.split('.')[1]+'-payment'+'"><option value="">请选择</option><option value="支付宝">支付宝</option><option value="微信">微信</option><option value="淘宝">淘宝</option><option value="现金">现金</option><option value="银行公户">银行公户</option></select><input style="margin:2px 10px 2px 0;    width: 30%;" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,``);}).call(this)" placeholder="请输入支付金额" type="text" name="sign_money"></td>' +
+		  '<td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete">删除</a></td>' +
+		  '</tr>');
+   }
+	 
+	 //追加文件
+     formData.append('UploadForm[excelFiles][]',item);
+     console.log(formData.getAll('UploadForm[excelFiles][]'))
+    
+    }
+   });
+  });
+  $("#uploadform-excelfile").on('change', function (e) {
+    console.log(1)
+    var company = [],payment = [];
+   var fileError = 0;
+   fileList = e.currentTarget.files;
+   $.each(fileList, function (index, item) {
+    
+	var fileName = item.name;
+	var fileEnd = fileName.substring(fileName.indexOf("."));
+    console.log(item.size)
+	//上传文件格式判断
+    type = item.type;
+    var maxsize = 2*1024*1024
+    if(type.indexOf("image/")<0){
+        console.log(1)
+        $('.payp')[0].innerHTML = `请选择图片上传`;
+        $('.payp')[0].style.color = `red`;
+    }else if(item.size > maxsize){
+        $('.payp')[0].innerHTML = `图片尺寸不能超过2MB`;
+        $('.payp')[0].style.color = `red`;
+    }else if (window.FileReader) {  
+	 allFile.push(item);
+   console.log($('.ded').val() == "奖学金申请")
+   if($('.ded').val() == "奖学金申请"){
+    $('#files2').append( '<tr style="padding-top: 7px;">' +
+		  '<td style="    line-height: 30px;">'+fileName+'</td>' +
+		  '<td style="display:none"></td>' +
+		  '<td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete">删除</a></td>' +
+		  '</tr>');
+   }else{
+     $('#files2').append( '<tr style="padding-top: 7px;">' +
+		  '<td style="    line-height: 30px;">'+fileName+'</td>' +
+		  '<td><select style="margin:2px 10px 2px 0;width: 30%;" name="'+fileName.split('.')[0]+'-'+fileName.split('.')[1]+'-company'+'"><option value="">请选择</option><option value="北京创睿造智教育科技有限公司">北京创睿造智教育科技有限公司</option><option value="北京智汇火种教育科技有限公司">北京智汇火种教育科技有限公司</option></select><select style="margin:2px 10px 2px 0;    width: 30%;" name="'+fileName.split('.')[0]+'-'+fileName.split('.')[1]+'-payment'+'"><option value="">请选择</option><option value="支付宝">支付宝</option><option value="微信">微信</option><option value="淘宝">淘宝</option><option value="现金">现金</option><option value="银行公户">银行公户</option></select><input style="margin:2px 10px 2px 0;    width: 30%;" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,``);}).call(this)" placeholder="请输入支付金额" type="text" name="sign_money"></td>' +
+		  '<td style="    line-height: 30px;"><a href="javascript:void(0)" class="delete">删除</a></td>' +
+		  '</tr>');
+   }
+	 
+	 //追加文件
+     formData.append('UploadForm[excelFiles][]',item);
+     console.log(formData.getAll('UploadForm[excelFiles][]'))
+    
+    }
+   });
+  });
+  $('#files2').on('click','.delete',function (e) {
+  var saveFile = [];
+  var norm = $("#norm").val();
+  var major = $("#major").val();
+  var type = $("#type").val();
+  console.log(e.target.parentNode.previousElementSibling.previousElementSibling.textContent)
+  var deleteName = e.target.parentNode.previousElementSibling.previousElementSibling.textContent;
+  var deleteIndex;
+  //将不删除的放入数组中
+  $.each(allFile,function (index, item) {
+   if(item.name == deleteName){
+     deleteIndex = index;
+   }else {
+    saveFile.push(item);
+   }
+  });
+  allFile.splice(deleteIndex,1);
+  formData.set("norm",norm);
+  formData.set("major",major);
+  formData.set("type",type);
+  formData.delete('UploadForm[excelFiles][]');
+  //将不删除的数组追加的formData中
+  $.each(saveFile,function (index, item) {
+   formData.append('UploadForm[excelFiles][]',item);
+  });
+ 
+  e.target.parentNode.parentNode.remove();
+ 
+ });
+ $("#fileUpload").on('click',function () {console.log(formData)
+  var len = formData.getAll('UploadForm[excelFiles][]').length;
+  $("#overlay").show();
+    var deleteBtn = $(".delete");
+   
+ 
+ });
+ //提交
+ $('#ordergo').click(function(){
+  console.log($('.modelorder input'))
+  for(var k in localStorage.orderForm){
+      formData.delete(localStorage.orderForm[k])
+    }
+    
+  formData.delete('order_type');
+  formData.append('order_type',$('.ded')[0].value);
+  var order_go = true;
+  var pay_way = [],pay_wayall = []
+  formData.delete('pay_way[]');
+formData.delete('company[]');
+formData.delete('sign_money[]');
+formData.delete('jijinhuanke');
+formData.delete('cxkq');
+formData.delete('exam_province2');
+formData.delete('exam_city2');
+formData.delete('ke');
+formData.delete('sc_twoScore');
+formData.delete('sc_oneScore');
+formData.delete('sc_oneAttend');
+formData.delete('sc_threeAttend');
+formData.delete('sc_twoAttend');
+formData.delete('sc_threeScore');
+formData.delete('apaly_price');
+formData.delete('djtime');
+formData.delete('bp_reason');
+formData.delete('bp_desc');
+formData.delete('bp_price');
+formData.delete('bp_account');
+formData.delete('pay_way');
+formData.delete('apaly_num');
+formData.delete('back_name');
+formData.delete('bank_num');
+formData.delete('bank_khh');
+for(var i=0;i<$('#uploadForm select').length;i++){
+if(i%2){
+formData.append('pay_way[]',$('#uploadForm select')[i].value)
+pay_way.push($('#uploadForm select')[i].value)
+}else{
+formData.append('company[]',$('#uploadForm select')[i].value);
+
+}
+if($('#uploadForm select')[i].value == ""){
+order_go = false
+}
+}
+for(var i=1;i<$('#uploadForm input').length;i++){
+formData.append('sign_money[]',$('#uploadForm input')[i].value);
+}
+for(var i=0;i<pay_way.length;i++){
+if(pay_wayall.indexOf(pay_way[i])== '-1'){
+pay_wayall.push(pay_way[i])
+}
+}
+var payment = pay_wayall[0];
+for(var i=1;i<pay_wayall.length;i++){
+payment=payment+'-'+pay_wayall[i]
+}
+    switch ($('.ded').val()) {
+      case "基金换科补费":
+        $('.modelphonein').css('display','block')
+      console.log(!huanke());
+      if(!huanke()){
+        $('.phoneinp').text(`有内容填写格式错误`);
+          return;
+      }
+        formData.append('jijinhuanke',$('.modelorder input')[0].value);
+        ke1 = $('.modelorder input')[1].checked == true ? ',科一':'';
+        ke2 = $('.modelorder input')[2].checked == true ? ',科二':'';
+        ke3 = $('.modelorder input')[3].checked == true ? ',科三':'';
+        ke = (ke1+ke2+ke3).substring(1)
+        formData.append('ke',ke);
+        break;
+      case "重修":
+      formData.append('exam_province2',$('select[name=exam_province2]')[0].value);
+formData.append('exam_city2',$('select[name=exam_city2]')[0].value);
+formData.append('cxkq',$('select[name=cxkq]')[0].value);
+        break;
+      case "奖学金申请":
+      $('.modelphonein').css('display','block')
+      if(!jiangxuejin()){
+        $('.phoneinp').text(`有内容填写格式错误`);
+          return;
+      }
+      formData.append('sc_oneScore',$('input[name=sc_oneScore]')[0].value);
+formData.append('sc_twoScore',$('input[name=sc_twoScore]')[0].value);
+formData.append('sc_threeScore',$('input[name=sc_threeScore]')[0].value);
+formData.append('sc_oneAttend',$('input[name=sc_oneAttend]')[0].value);
+formData.append('sc_twoAttend',$('input[name=sc_twoAttend]')[0].value);
+formData.append('sc_threeAttend',$('input[name=sc_threeAttend]')[0].value);
+formData.append('apaly_price',$('input[name=apaly_price]')[0].value);
+formData.append('pay_way',$('select[name=pay_wayjj]')[0].value);
+formData.append('apaly_num',$('input[name=apaly_numa]')[0].value);
+formData.append('back_name',$('input[name=back_namea]')[0].value);
+formData.append('bank_num',$('input[name=bank_numa]')[0].value);
+formData.append('bank_khh',$('input[name=bank_khha]')[0].value);
+        break;      
+      case "冻结":
+        formData.append('djtime',$('select[name=djtime]')[0].value);
+        break;
+      case "退费":
+      $('.modelphonein').css('display','block')
+      if(!tuifei()){
+        $('.phoneinp').text(`有内容填写格式错误`);
+          return;
+      }
+      formData.append('bp_reason',$('select[name=bp_reason]')[0].value);
+formData.append('bp_desc',$('input[name=bp_desc]')[0].value);
+formData.append('bp_price',$('input[name=bp_price]')[0].value);
+formData.append('bp_account',$('select[name=bp_account]')[0].value);
+formData.append('pay_way',$('select[name=pay_wayb]')[0].value);
+formData.append('apaly_num',$('input[name=apaly_num]')[0].value);
+formData.append('back_name',$('input[name=back_name]')[0].value);
+formData.append('bank_num',$('input[name=bank_num]')[0].value);
+formData.append('bank_khh',$('input[name=bank_khh]')[0].value);
+        break;          
+      default:
+        break;
+    }
+    // for(var i=1;i<$('#uploadForm input').length;i++){
+    //     formData.append('sign_money[]',$('#uploadForm input')[i].value);
+    //     if($('#uploadForm input')[i].value == ""){
+    //         order_go = false
+    //     }
+    // }
+    console.log(formData.get('order_type'))
+if(formData.get('order_type') == "退费"||formData.get('order_type') == "奖学金"){
+  if(formData.get('pay_way')=="支付宝"){
+    for (var [a, b] of formData.entries()) {
+    console.log(a,b,a!="back_name");
+    if ((a!="bank_num"&&b == "")&&(a!="back_name"&&b == "")&&(a!="bank_khh"&&b == "")) {
+      $('.phoneinp').text(`有内容为空，无法提交`);
+      $('.modelphonein').css('display','block')
+      return;
+      }
+  }
+  }else if(formData.get('pay_way')=="银行卡"){
+    for (var [a, b] of formData.entries()) {
+    console.log(a,b);
+    if (a!="apaly_num"&&b == "") {
+      $('.phoneinp').text(`有内容为空，无法提交`);
+      $('.modelphonein').css('display','block')
+      return;
+      }
+  }
+  }else{
+    $('.phoneinp').text(`有内容为空，无法提交`);
+      $('.modelphonein').css('display','block')
+      return;
+  }
+}else{
+  console.log(1)
+  for (var [a, b] of formData.entries()) {
+    console.log(a,b);
+    if (b == "") {
+      $('.phoneinp').text(`有内容为空，无法提交`);
+      $('.modelphonein').css('display','block')
+      return;
+    }
+ }
+}
+  
+    // if(order_go){
+      $.ajax({
+      url:'',
+      type:'post',
+      data:formData,
+      processData: false,
+      contentType: false,
+      success:function(){
+
+      },
+      error:function(){
+        
+      }
+    })
+    // }
+    
+  })
+  
+  $('#ordergoo').click(function(){
+    $('.modelphonein').css('display','block')
+    if(!ordero()){
+        $('.phoneinp').text(`有内容填写格式错误`);
+          return;
+      }
+    formData.delete('pay_way[]');
+    formData.delete('company[]');
+    formData.delete('sign_money[]');
+    var pay_way = [],pay_wayall = [],sign_money=[];
+    for(var i=0;i<$('#uploadForm1 select').length;i++){
+        if(i%2){
+            formData.append('pay_way[]',$('#uploadForm1 select')[i].value)
+            pay_way.push($('#uploadForm1 select')[i].value)
+        }else{
+            formData.append('company[]',$('#uploadForm1 select')[i].value);
+            
+        }
+        if($('#uploadForm1 select')[i].value == ""){
+            order_go = false
+        }
+    }
+    for(var i=1;i<$('#uploadForm1 input').length;i++){
+      formData.append('sign_money[]',$('#uploadForm1 input')[i].value);
+    }
+    
+    for(var i=0;i<pay_way.length;i++){
+        if(pay_wayall.indexOf(pay_way[i])== '-1'){
+            pay_wayall.push(pay_way[i])
+        }
+    }
+    var payment = pay_wayall[0];
+    for(var i=1;i<pay_wayall.length;i++){
+        payment=payment+'-'+pay_wayall[i]
+    }
+    orderForm = form2Json('order_form');
+    
+    section = "";
+    if(orderForm.ke1=="on"){
+      section = ",科一"
+    }
+    if(orderForm.ke2=="on"){
+      section += ",科二"
+    }
+    if(orderForm.ke3=="on"){
+      section += ",科三"
+    }
+    orderForm.section=section.substring(1);
+    var addCity;
+    if($('select[name = adviaddress_province] :selected').text() == "北京"||
+    $('select[name = adviaddress_province] :selected').text() == "上海"||
+    $('select[name = adviaddress_province] :selected').text() == "天津"||
+    $('select[name = adviaddress_province] :selected').text() == "重庆"){
+        addCity = ""
+    }else{
+        addCity = $('select[name = adviaddress_city]').val()
+    }
+    adddress = $('select[name = adviaddress_province]').val()+addCity+$('select[name = adviaddress_area]').val()+$('input[name = adviaddress]').val()
+    orderForm.adddress =  adddress;
+    delete orderForm.ke1;
+    delete orderForm.ke2;
+    delete orderForm.ke3;
+    delete orderForm.adviaddress_province;
+    delete orderForm.adviaddress_city;
+    delete orderForm.adviaddress_area;
+    delete orderForm.adviaddress;
+    delete orderForm.order_time;
+    delete orderForm.belong_to;
+    delete orderForm.tea_name;
+    delete orderForm.cx_province;
+    delete orderForm.cx_city;
+    delete orderForm.cx_date;
+    delete orderForm.frozen_time;
+    delete orderForm.do_time;
+    delete orderForm.sc_oneScore;
+    delete orderForm.sc_twoScore;
+    delete orderForm.sc_threeScore;
+    delete orderForm.sc_oneAttend;
+    delete orderForm.sc_twoAttend;
+    delete orderForm.bp_reason;
+    delete orderForm.bp_desc;
+    delete orderForm.bp_price;
+    delete orderForm.bp_account;
+    delete orderForm.bcak_time;
+    delete orderForm.sc_threeAttend;
+    // console.log(orderForm);
+    for(var k in orderForm){
+      formData.append(k,orderForm[k])
+    }
+    localStorage.orderForm = orderForm
+    for (var [a, b] of formData.entries()) {
+    
+    console.log(a,b);
+  }
+    for (var [a, b] of formData.entries()) {
+    
+    
+      console.log(a,b);
+      if (b.length == 0) {
+        for(var k in orderForm){
+        formData.delete(k)
+      }
+        console.log(a,b);
+        // $('.phoneinp').text(`有内容为空，无法提交`);
+        // $('.modelphonein').css('display','block')
+        return;
+      }
+    }
+
+    $.ajax({
+      url:'',
+      type:'post',
+      data:formData,
+      processData: false,
+      contentType: false,
+      success:function(){
+        for(var k in orderForm){
+      formData.delete(k)
+    }
+      },
+      error:function(){
+        for(var k in orderForm){
+      formData.delete(k)
+    }
+      }
+    })
+  })
+  // tfyy
+  $('select[name = tfyy]').change(function(){
+    if($(this).val() == "前端原因"){
+      $('select[name = tfzz]').html(`
+       <option value="扣工资">扣工资</option>
+       <option value="扣流水">扣流水</option>
+      `)
+    }else if($(this).val() == "后端原因"){
+      $('select[name = tfzz]').html(`
+       <option value="扣绩效分">扣绩效分</option>
+      `)
+    }else if($(this).val() == "自身原因"){
+      $('select[name = tfzz]').html(`
+       <option value="无扣款">无扣款</option>
+      `)
+    }else{
+      $('select[name = tfzz]').html(`
+       <option value="">请选择退费追责</option>
+      `)
+    }
+  })
+  $('.button').click(function(){
+    window.location.href = "afterindex.html?did="+$(this).attr('data-did')+"&type="+$(this).attr('data-type') 
+    
+  })
+
+  //dianhua
+  var phone = '';
+	$('.Adviphone').click(function(){
+	    var str = '';
+      console.log($(this).next())
+	    phone = $(this).next().val();
+	    $('.modelphone1')[0].style.display='block';
+	    $('#phonego')[0].style.display='inline';
+        $('.phonex')[1].style.display='inline';
+	})
+    $('.phonex').click(function(){
+        $('.modelphone1')[0].style.display='none';
+        $('.phonep')[0].innerHTML = '';
+    })
+    $('#phonego').click(function(){
+        console.log(phone)
+        $.ajax({
+            url:'http://new.huozhongedu.com/admin/clickCallXW',
+            type:'post',
+            data:{called:phone},
+            success:function(data){
+                $('.phonep')[0].innerHTML = data
+                $('#phonego')[0].style.display='none';
+                $('.phonex')[1].style.display='none';
+            },
+            error:function(){
+                $('.phonep')[0].innerHTML = '服务器错误'
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+//姓名按中文首字母排序
+sortable:true,
+sorter:function (a,b) {
+    return a.localeCompare(b);
+}
+
+//导出
+
+var params = ""; //放在js首行
+params=form2Json("seaform");//放在点击查询后
+{
+    text: '导出',
+        iconCls: 'icon-save',
+        handler: function () {
+            $(this).click(function(){
+                var jsondata = '';
+                $.ajax({
+                    url:'datagrid_data3.json',
+                    type:'get',
+                    data:params,
+                    // dataType:'json',
+                    success:function(data){
+                     jsondata = data;
+                     console.log(data)
+                var arr1 = [];
+                var json = []
+                for(var i=0;i<jsondata.length;i++){
+                    json[i]={};
+                    json[i]['date_time']= ' '+jsondata[i].date_time;
+                    json[i]['user_name']= jsondata[i].user_name;
+                    json[i]['group']= jsondata[i].group;
+                    json[i]['grade']= jsondata[i].grade;
+                    json[i]['max_num']= jsondata[i].max_num;
+                    json[i]['rate']= jsondata[i].rate;
+                    json[i]['alloc_num']= jsondata[i].alloc_num;
+                    json[i]['work_type']= jsondata[i].work_type;
+                }
+                // json[0].visit = data[0].visit;
+                
+                var data = JSON.stringify(json);
+                console.log(data)
+                for (var i = 0; i < $('th').length; i++) {
+                    arr1.push($('th')[i].innerHTML)
+                }
+                if (data == '')return;
+                // JSONToCSVConvertor(data, "Download", true,arr1);
+                }})
+                })
+        }
+    },
+
+//每天所需总数
+$.ajax({
+    url:'',
+    type:'get',
+    data:{},
+    success:function(data){
+        data=243
+        console.log(data);
+        $('.panel-title').append(`
+            <span style="margin-left:2rem;color:red">基金：112</span>
+            <span style="margin-left:2rem;color:red">消防：112</span>
+        `)
+    },
+    error:function(){
+
+    }
+})
+
+//换表格上传方式
+wb.Sheets[wb.SheetNames[0]].A1.w = "user_name";
+                wb.Sheets[wb.SheetNames[0]].B1.w = "project";
+                wb.Sheets[wb.SheetNames[0]].C1.w = "group";
+                console.log(wb.Sheets[wb.SheetNames[0]]);
+                js =  XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
+                console.log(js);
+                var ob = [];
+                for (let i = 0; i < js.length; i++) {
+                  for (var k in js[i]) {
+                      if(k != 'user_name' && k != 'project' && k != 'group'){
+                          var jsonc = {};
+                          jsonc.name = js[i].name;
+                          jsonc.project = js[i].project;
+                          jsonc.group = js[i].group;
+                          jsonc.time = k;
+                          jsonc.class = js[i][k];
+                            ob.push(jsonc)
+                      }
+                  }
+                }
+                // return;
+                js = ob;

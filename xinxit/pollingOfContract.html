@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/contract.css">
+    <link rel="stylesheet" href="css/studentcontract.css">
+    <style>
+        /* input[name = poll-content]{
+                float: left;
+                width:50%;
+                height:36px;
+                margin-top:4px;
+                margin-left:3px;
+                padding: 0;
+           }
+           .stu-font{
+               font-size: 16px;
+           }
+           .payimg{
+               width:30%;
+           }
+           .contract{
+                margin-top:50px;
+                border: 1px solid rgb(200,200,200);
+                box-shadow: 0px 6px 6px rgb(200,200,200);
+                padding:20px 5%;
+           }
+           @media screen and (max-width:1000px){
+                h1{
+                    font-size: 25px;
+                }
+                input[name = poll-content]{
+                    width:30%;
+                }
+                .stu-font{
+                    font-size: 12px;
+                }
+                .payimg{
+                    width:62%;
+                }
+                .contract{
+                    margin-top:0px;
+                    border: none;
+                    box-shadow: none;
+                    padding:0;
+                   }
+           }
+           .contract input,.modelstur input{
+               padding: 0 !important;
+           }
+           input[type = button]{
+               padding: 10px 20px !important;
+           }
+           .cachet>div{
+               position:relative;
+           }
+           .cachet>div img{
+               position: absolute;
+               right:30px;
+           }
+           body,html{
+               width:auto;
+           }
+           .modelstu-body a{
+                float: left;
+                width: 90%;
+                border: 1px solid rgb(210,210,210);
+                line-height: 40px;
+                border-bottom: none;
+                margin: auto 5%;
+           }
+           .modelstu-body a:last-of-type{
+                border-bottom: 1px solid rgb(210,210,210);
+                margin-bottom: 20px;
+           } */
+        input[name=poll-content] {
+            float: left;
+            width: 50%;
+            height: 36px;
+            margin-top: 4px;
+            margin-left: 3px
+        }
+
+        input[type=text] {
+            padding: 0
+        }
+
+        .stu-font {
+            font-size: 16px;
+        }
+
+        .seletedd td {
+            word-wrap: break-word;
+            border: 1px solid black;
+            height: 32px;
+            width: 25%;
+        }
+
+        .seleted::before {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background: url(./img/seleted.svg) no-repeat;
+            vertical-align: middle;
+            background-size: 100% 100%;
+            margin-right: 3px;
+        }
+
+        .unseleted::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: url(./img/unseleted.svg) no-repeat;
+            vertical-align: middle;
+            background-size: 100% 100%;
+            margin-right: 3px;
+        }
+
+        .contract {
+            margin-top: 50px;
+            border: 1px solid rgb(200, 200, 200);
+            box-shadow: 0px 6px 6px rgb(200, 200, 200);
+            padding: 20px 5%;
+        }
+
+        .modelstu-body a {
+            float: left;
+            width: 30%;
+            border: 1px solid rgb(210, 210, 210);
+            line-height: 40px;
+            /* border-bottom: none; */
+            margin-left: 2%;
+        }
+
+        .modelstu-body a:last-of-type {
+            border-bottom: 1px solid rgb(210, 210, 210);
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width:1000px) {
+            h1 {
+                font-size: 25px;
+            }
+
+            input[name=poll-content] {
+                width: 30%;
+            }
+
+            .contract {
+                margin-top: 0px;
+            }
+
+            .stu-font {
+                font-size: 12px;
+            }
+
+            .modelstu-body a {
+                float: left;
+                width: 30%;
+                border: 1px solid rgb(210, 210, 210);
+                line-height: 40px;
+                margin-left: 2%;
+            }
+
+            .contract {
+                margin-top: 0px;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+
+        .contract input,
+        .aaa input {
+            padding: 0 !important;
+            height: 40px;
+            width: 30%;
+            margin-left: 2%;
+        }
+
+        input[type=button] {
+            padding: 10px 20px !important;
+        }
+
+        .cachet>div {
+            position: relative;
+        }
+
+        .cachet>div img {
+            position: absolute;
+            right: 30px;
+        }
+
+        body,
+        html {
+            width: auto;
+        }
+
+        .aaa table {
+            border-collapse: collapse;
+            border: 1px solid rgb(204, 204, 204);
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .aaa td {
+            border: 1px solid rgb(204, 204, 204);
+            text-align: center;
+            width: 33.3%;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span
+                        class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="index.html" style="padding:0;margin-right:20px">
+                    <img src="img/logo1.png" style="height:35px;width:60px;padding-bottom:5px" alt="">
+                </a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" id="drop" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i
+                                    class="icon-user"></i> <i class="caret"></i>
+
+                            </a>
+                            <ul class="dropdown-menu" style="display:none">
+                                <li>
+                                    <a tabindex="-1" href="#">个人信息</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a tabindex="-1" class="revisenew" href="#">修改密码</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a tabindex="-1" href="gignty.html">退出</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#">仪表板</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">数据管理<b class="caret"></b>
+
+                            </a>
+                            <ul class="dropdow-menu" style="display:none" id="menu1">
+                                <li class="newdate">
+                                    <a href="data.html">新建数据</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="allotnew">分配数据</a>
+                                </li>
+                                <!-- <li class="divider"></li> -->
+                                <li>
+                                    <a href="#" style="color:red">订单录入</a>
+                                </li>
+                                <li>
+                                    <a href="sea.html" style="color:red">公海领取</a>
+                                </li>
+                                <li>
+                                    <a href="sea.html" style="color:red">公海分配</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color:red">调配数据</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color:red">学员迁移</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">数据查询<i
+                                    class="caret"></i>
+
+                            </a>
+                            <ul class="dropdow-menu" style="display:none">
+                                <li>
+                                    <a tabindex="-1" href="#" class="circulnew">流转过程</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" style="color:red">已报名</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" style="color:red">已报名（班主任）</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" style="color:red">合同查询</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">属员管理 <i
+                                    class="caret"></i>
+
+                            </a>
+                            <ul class="dropdow-menu" style="display:none">
+                                <li>
+                                    <a tabindex="-1" href="#" class="bematenew">组员数据</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="targetnew">目标设定</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" style="color:red">组员统计</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#">组员数据（班主任）</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">个人设置 <i
+                                    class="caret"></i>
+
+                            </a>
+                            <ul class="dropdow-menu" style="display:none">
+                                <li>
+                                    <a href="#" class="new">新建账户</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="new3">新建项目</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="new2">新建部门</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="new1">新建小组</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="delnew">账户移除</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="resetnew">重置密码</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="simplenew">个人信息</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="new4">新建班型</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="previewOfContract.html">合同预览</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="pollingOfContract.html">合同查询</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="new5">新建大问题</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="new6">新建小问题</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="#" class="youhuinew">新建优惠码</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li style="position:relative">
+                            <input type="text" name="searchphone" placeholder="机会列表查询"
+                                style="margin-top:5px;margin-bottom:0px;margin-right:10px;"><span
+                                id="searchspan"></span>
+                        </li>
+                        <li>
+                            <select name="bematedata" id="" style="margin:5px 0px 0px 0px;width:100px;display:none">
+                                <option value="0">学员姓名</option>
+                            </select>
+                            <select name="begroupdata" id="" style="margin:5px 0px 0px 10px;width:100px;display:none">
+                                <option value="">搜索小组</option>
+                            </select>
+                            <input type="text" name="bematename" placeholder="搜索学员姓名"
+                                style="margin:5px 0px 0px 10px;width:100px;display:none">
+                            <button class="searchmate" style="padding:0 10px;margin-top:5px;display:none">获取</button>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <div class="contract container-fluid" style="margin-top:50px">
+        <div class="contract-header"
+            style="height:50px;background:url('img/logo1.png') no-repeat;background-size:contain">
+
+        </div>
+        <div style="width:100%;margin:20px 0;height:40px">
+            <span class="stu-font" style="width:22%;margin-top:4px;float:left;height:40px;line-height:40px">合同编号：</span>
+            <input style="" type="text" name="poll-content">
+            <button class="poll-button" style="padding:5px 15px;margin-top:4px;height:40px;background: #42b983;
+            border: none;
+            color: white;cursor:pointer">查询</button>
+            <button style="padding:5px 15px;height:40px;margin-top:4px;background: #42b983;
+            border: none;
+            color: white;cursor:pointer" class="plcnew">审核</button>
+            <!--  -->
+        </div>
+        <h1 style="position:relative">基金从业资格考试学员报名表 <a href="javascript:void(0)" class="paynew"
+                style="display:block;font-size:16px;font-weight:100;text-align:right;text-decoration:underline;margin-bottom: -20px;">支付截图</a>
+        </h1>
+        <div class="contract-title" style="margin-top:20px">
+            <!-- <p>提示：*号为必填部分</p>
+            <div>填写日期：<span class="Year"></span>年&nbsp;<span class="Month"></span>&nbsp;月&nbsp;<span class="Day"></span>&nbsp;日</div> -->
+        </div>
+        <table class="contract-body" style="border-collapse:collapse;border:1px solid black">
+            <tr>
+                <td>*姓名：</td>
+                <td>
+                    <div>秦始皇（前259年农历十二月初三—前210年）</div>
+                    <!-- <input type="text"  name="name"> -->
+                </td>
+                <td>*性别：</td>
+                <td>
+                    12312322223322222
+                    <!-- <input type="text"  name="sex"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*邮寄地址：</td>
+                <td>
+                    <!-- <input type="text"  name="address"> -->
+                </td>
+                <td>邮编：</td>
+                <td>
+                    <!-- <input type="text"  name="zip_code"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*身份证号码：</td>
+                <td>
+                    <!-- <input type="text"  name="id_card">  -->
+                </td>
+                <td>考期：</td>
+                <td>
+                    <!-- <input type="text"  name="exam_date"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*手机号码：</td>
+                <td>
+                    <!-- <input type="text"  name="phonenumber"> -->
+                </td>
+                <td>微信号：</td>
+                <td>
+                    <!-- <input type="text"  name="wxnumber"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*Email：</td>
+                <td>
+                    <!-- <input type="text"  name="email"> -->
+                </td>
+                <td>QQ号码：</td>
+                <td>
+                    <!-- <input type="text"  name="qqnumber"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*紧急联系人姓名：</td>
+                <td>
+                    <!-- <input type="text"  name="jinjiname"> -->
+                </td>
+                <td>*紧急联系人手机：</td>
+                <td>
+                    <!-- <input type="text"  name="jinjiphone"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*报名课程：</td>
+                <td>
+                    <!-- <input type="text"  name="class"> -->
+                </td>
+                <td>*报名科目：</td>
+                <td>
+                    <!-- <input type="text"  name="subject"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*培训费用：</td>
+                <td>
+                    <!-- <input type="text"  name="money"> -->
+                </td>
+                <td>*支付方式：</td>
+                <td>
+                    <!-- <input type="text"  name="payment"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>备注：</td>
+                <td colspan="3" style="text-align:left">
+                    秦始皇（前259年农历十二月初三—前210年），嬴姓，赵氏，名政，又名赵正（政）、秦政，或称祖龙 [1-2] ，秦庄襄王之子。 </br>[3]
+                    中国历史上著名的政治家、战略家、改革家，完成华夏大一统的铁腕政治人物，也是中国第一个称皇帝的君主。 </br>[4]
+                    秦始皇是出生于赵国都城邯郸（今邯郸），并在此度过了少年时期。前247年，13岁时即王位。 </br>[5]
+                    前238年，22岁时，在故都雍城举行了国君成人加冕仪式，开始“亲理朝政”，除掉吕不韦、嫪毐等人， </br>[6]
+                    重用李斯、尉缭，自前230年至前221年，先后灭韩、赵、魏、楚、燕、齐六国，39岁时完成了统一中国大业，建立起一个以汉族为主体统一的中央集权的强大国家——秦朝，并奠定中国本土的疆域。 [4]
+                    秦始皇认为自己的功劳胜过之前的三皇五帝，采用三皇之“皇”、五帝之“帝”构成“皇帝”的称号， </br>[7]
+                    是中国历史上第一个使用“皇帝”称号的君主，所以自称“始皇帝”。同时在中央实行三公九卿，管理国家大事。地方上废除分封制，代以郡县制，同时书同文，车同轨，统一度量衡。对外北击匈奴，南征百越，修筑万里长城，修筑灵渠，沟通水系。
+                    但是到了后期，求仙梦想长生，苛政虐民，扼杀民智，动摇了秦朝统治的根基，前210年，秦始皇东巡途中驾崩于邢台沙丘。 [8]
+                </td>
+            </tr>
+        </table>
+        <div class="cachet">
+            <div>
+                <span style="line-height:150px">学校盖章：</span>
+                <img src="img/official.jpg" class="schoolcachet" alt="" width="150px" height="150px"
+                    style="margin-left:120px;vertical-align:middle;">
+            </div>
+            <div style="overflow: hidden;position:relative">
+                <span style="line-height:150px">学员签字：</span>
+                <img src="img/official1.jpg" alt="" width="150px" height="75px"
+                    style="position:absolute;margin-left:120px;margin-top:37.5px">
+            </div>
+        </div>
+        <div class="contract-header"
+            style="height:50px;background:url('img/logo1.png') no-repeat;background-size:contain">
+
+        </div>
+        <h1>基金从业资格考试报名协议</h1>
+        <div style="overflow:hidden">
+            <p style="float:right">——帮助您在火种教育更好地完成学业和收获能力</p>
+        </div>
+
+        <div class="xieyi">
+            <p>亲爱的学员，您好！</p>
+            <p style="margin-left:2em">火种教育全体同仁欢迎您选择在这里完成学业并考取证书。</p>
+            <p style="margin-left:2em">在您享受课程的过程中，以下守则遵守和共识的达成，对我们的服务是否及时和有效至关重要。</p>
+            <p style="margin-left:2em">请您仔细阅读并签字确认，感谢您的理解和配合。</p>
+            <div>
+                <p style="font-size:18px"><b>一、班级化管理准则</b></p>
+                关于校区：学校以网络直播的授课方式为主，可以随时听课，请大家自我约束并主动学习，请勿自误。直播课堂的学习需要在学员的电脑里安装专用软件，由校方教学运营专员协助学员安装。当您完成报名、培训学习费用缴纳后、学校将向学员发放直播课的会员权限。该权限只允许学员一人使用，不得转借或转让他人。一经发现，学校有权取消该学员听课资格，不承担任何违约责任。
+            </div>
+            <p style="font-size:18px"><b>校方联系方式：</b></p>
+            <p>咨询服务微信：huozhongbanzhuren</p>
+            <p>咨询服务邮箱：huozhongedu@126.com</p>
+            <p>联系电话：010-60703671</p>
+            <p style="font-size:18px"><b>二、学校提供的产品和服务</b></p>
+            <p>1、在线直播主课程：全年滚动上课</p>
+            <p>2、网课：直播结束后上传，可供随时观看</p>
+            <p>3、考点练习：全年持续的课上练题</p>
+            <p>4、模拟考试：题库系统模考答题及解析</p>
+            <p>5、纸质教材：全套考试纸质版教材</p>
+            <p>6、考前答疑：考试前夕名师直播解答学员疑问</p>
+            <p>7、学校为学员提供上课培训的期限在学校盖章后计起，服务期为一年。</p>
+            <p style="font-size:18px"><b>三、课程管理准则</b></p>
+            <p><b
+                    style="margin-left:2em">1、开课：</b>学校为学员所报专业安排的第一次上课时间即为开课日期，插班学员款到日期即为开课日期，插班学员自行去网站观看开课前的课程；在无特殊情况下我们会严格依照原定开课计划履行课程服务。由于各种意外情况或不可抗力导致的无法按时开课的情况，我校将以QQ等方式通知学员，后期会安排补课，具体开课时间另行通知。
+            </p>
+            <p><b
+                    style="margin-left:2em">2、确认课程安排：</b>学员应及时主动接收微信并查看班主任通知的课表，上课时间及地点，按通知的信息上课。学员因事、病等自身原因不能前来上课，需至少提前6小时请假，请假的学员自行从学校网站观看课程。每个学员在培训期间请假的次数不能超过当期课程的30%。
+            </p>
+            <p><b
+                    style="margin-left:2em">3、上课纪律：</b>上课时请遵守课堂纪律。如有疑问，可课下咨询班主任或老师。如学员严重干扰课堂纪律，影响他人上课，班主任有权终止该学员继续听课。该情形达到3次，学校有权取消学员听课资格，学校不承担任何违约责任。
+            </p>
+            <p><b
+                    style="margin-left:2em">4、课程有效性：</b>学员在报名时选择相应的考期，考期结束后，学校会关停学员学习账号。若学员通过报名表中报名科目，则本协议终止。若学员未通过此次考试，则学员需向学校申请重修。
+            </p>
+            <p style="font-size:18px"><b>四、缴费标准及方式</b></p>
+            <p style="margin-left:2em">学员应在本协议签订前将报名费一次性付清。缴费方式包括微信支付、公户汇款、支付宝支付等。</p>
+            <p style="font-size:18px"><b>五、关于重修与退费</b></p>
+            <p><span
+                    style="margin-left:2em">免费重修：</span>学员报名时所选考期为第一次考试，第一次考试不过，第二次免费重修（教材费学校另行收取），第二次如果还没通过，第三次还可以免费重修（教材费学校另行收取）。免费重修是学校赠予的服务，如果学员因自身原因或不可抗力导致不能重修的，学校不承担任何违约责任，也不予退还任何费用。学员办理重修至少提前两周将上次考试成绩发给学校办理重修手续。两次重修的考试考期均须在1年服务期之内。
+            </p>
+            <p><span
+                    style="margin-left:2em">注意：</span>学员在选择重修时，需要选择当次重修时要参加的考期，且学员所选考期的考试时间必须是学员所选考试地点的最近一次考试，第一次报名不限定此条件。例如：2018年统考学员4月21日或4月22日在长沙参加第一次考试，4月27日查询成绩后未通过此次考试，当天向学校申请重修。学校在核实信息后，在4月27日重新给学员开课，则学员需选择9月15日考期或9月16日考期在长沙考试。不得选择11月24日考期或11月25日考期在长沙考试。若学员执意选择11月24日考期在长沙考试，则学校将在9月15日给学员开课。
+            </p>
+            <p><span
+                    style="margin-left:2em">不过退费：</span>学员在1年服务期内三次考试成绩中，所报科目中有一科没有通过退还单科课程费用，有两科没有通过退还两科课程费用，三科没有通过退还三科课程费用。
+            </p>
+            <p><span
+                    style="margin-left:2em">不过退费</span>不的学员须满足每一次的上课总出勤率必须达到95%以上，且1年服务期内至少参加3次基金从业资格考试（即有3次考试成绩大于0分），若不满足条件，则不予退费。
+            </p>
+            <p><span
+                    style="margin-left:2em">退费协议</span>将于1年服务期结束后生效，学员将三次考试成绩发送给班主任向学校申请退费。经学校审核学员满足退费条件的，学校按退费约定退还学员费用。
+            </p>
+            <p style="font-size:18px"><b>六、关于转班</b></p>
+            <p><span
+                    style="margin-left:2em">学员开课</span>后7天内（含第七天），可以免费换为同等价格的其他课程；超过7天到不超过30天的，需要缴纳新课程的费用的10%作为手续费；超过30天但不超过60天的，需要缴纳新课程的费用的20%作为手续费；超过60天但不超过90天的，需要缴纳新课程的费用的30%作为手续费；超过90天但不超过120天的，需要缴纳新课程的费用的40%作为手续费；超过120天后学员不可以更换课程。更换课程不影响课程的有效期，即更换新课程后服务期仍从初始班名班型开始计算服务期。
+            </p>
+            <p style="font-size:18px"><b>七、关于冻结课程</b></p>
+            <p><span
+                    style="margin-left:2em">学员</span>每次选定考期后，所选当期考期考试第一天（算作第一天）向前推30天（含第30天）之内不允许冻结课程。31天向前可以冻结，不会占用学习次数。
+            </p>
+            <p style="font-size:18px"><b>八、关于升班</b></p>
+            <p><span
+                    style="margin-left:2em">学员</span>报名后随时可以进行班型升级，升级时需要补齐新班型与老班型之前的差价，服务期从新班型差价补齐开始计算；升级班型后将签订新的协议，本协议自动作废。
+            </p>
+            <p style="font-size:18px"><b>九、信息变更准则</b></p>
+            <p><span
+                    style="margin-left:2em">如有</span>任何授课信息的变动，校方会以QQ/微信等形式通知各位学员，重要通知我们也会通过电话等方式提前6小时告知学员。请学员保证预留的联系方式准确无误。如学员的联系方式变更，请及时致电班主任进行修改确认。否则由该学员承担未及时通知的后果。
+            </p>
+            <p style="font-size:18px"><b>十、注意事项</b></p>
+            <p><span
+                    style="margin-left:2em">1、为</span>防止内部讲课视频流出和押题密卷泄露，严禁学员私下建立QQ群和微信群，一经发现取消听课资格，有任何事情随时联系学员的班主任，班主任会一对一为学员解答。
+            </p>
+            <p><span style="margin-left:2em">2、学</span>校向学员发出的任何通知均可通过学员预留的任一联系方式发出，学员应及时收悉并回复确认，未及时确认的，通知发出后3小时视为送达。
+            </p>
+            <p><span
+                    style="margin-left:2em">3、学</span>员应对学校的商业信息（包括但不限于内部视频讲课、押题密卷、上课内容、教材等）负有保密义务。未经学校书面同意，学员不得泄露或用于其他用途，否则学校有权要求学员支付违约金10000元。
+            </p>
+            <p><span style="margin-left:2em">4、因</span>学员自身原因被取消听课资格或学员自己提出终止听课的，学校不退还学员任何费用。</p>
+            <p><span
+                    style="margin-left:2em">5、因</span>不可抗拒（如自然灾害、政府行为、征收、征用、罢工、骚乱等）等特殊情形导致无法完成课程，出现学员退费情形的，学校按学员剩余课时退还学员报名费用。
+            </p>
+            <p><span
+                    style="margin-left:2em">6、</span>学员不得私自与班主任达成协议，以金钱或其他方式要求班主任为其上课或私自提供课程资料。一经发现，学校有权取消该学员听课资格并不予退还报名费。
+            </p>
+            <p><span style="margin-left:2em">7、任</span>何一方对本协议的内容或履行有争议的，应协商解决。协商不成任何一方均可向学校所在地法院起诉。</p>
+            <p><span style="margin-left:2em">8、本</span>协议自学校盖章、学员签字后生效。本协议一式两份，学校、学员各持一份。</p>
+        </div>
+        <div class="cachet">
+            <div>
+                <span style="line-height:150px">学校盖章：</span>
+                <img src="" class="schoolcachet" alt="" width="150px" height="150px"
+                    style="margin-left:120px;vertical-align:middle;">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+            <div style="overflow: hidden;position:relative">
+                <span style="line-height:150px">学员签字：</span>
+                <img src="img/official1.jpg" alt="" width="150px" height="75px"
+                    style="position:absolute;margin-left:120px;margin-top:37.5px">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+        </div>
+        <div class="xieyidate" style="margin-bottom:40px">
+            <!-- <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div> -->
+        </div>
+        <h1>调解协议</h1>
+        <div style="overflow:hidden">
+            <!-- <p style="float:right">——帮助您在火种教育更好地完成学业和收获能力</p> -->
+        </div>
+
+        <div class="xieyi">
+            <p style="margin-left:2em">甲方：<span style="color:red">北京智汇火种教育科技有限公司</span></p>
+            <p style="margin-left:2em">乙方：<span style="color:red">江山</span></p>
+            <p style="margin-left:2em">今甲乙双方就协商退费一事达成协议，由甲方退给乙方<span style="color:red">课程</span>费人民币<span
+                    style="color:red">5000</span>元（大写：<span style="color:red">五千</span>），其中已扣除<span
+                    style="color:red">课程</span>费人民币<span style="color:red">5000</span>元（大写：<span
+                    style="color:red">五千</span>）。</p>
+            <p style="margin-left:2em">乙方身份证号：<span style="color:red">江山</span></p>
+            <p style="margin-left:2em">乙方收款账号：<span style="color:red">江山</span></p>
+            <p style="margin-left:2em">乙方开户银行：<span style="color:red">江山</span>（需提供本人账号）</p>
+
+            <p style="margin-left:2em">自乙方足额收到退费且签字确认后，双方不再有任何纠纷。乙方如果反悔，须加倍赔偿甲方。此协议一式二份，甲乙双方各执一份，具有同等效力。</p>
+        </div>
+        <div class="cachet">
+            <div>
+                <span style="line-height:150px">学校盖章：</span>
+                <img src="" class="schoolcachet" alt="" width="150px" height="150px"
+                    style="margin-left:120px;vertical-align:middle;">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+            <div style="overflow: hidden;position:relative">
+                <span style="line-height:150px">学员签字：</span>
+                <img src="img/official1.jpg" alt="" width="150px" height="75px"
+                    style="position:absolute;margin-left:120px;margin-top:37.5px">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+        </div>
+        <div class="xieyidate" style="margin-bottom:40px">
+            <!-- <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+                 <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div> -->
+        </div>
+
+
+        <h1>调解协议</h1>
+        <div style="overflow:hidden">
+            <!-- <p style="float:right">——帮助您在火种教育更好地完成学业和收获能力</p> -->
+        </div>
+
+        <div class="xieyi">
+            <p style="margin-left:2em">甲方：<span style="color:red">北京智汇火种教育科技有限公司</span></p>
+            <p style="margin-left:2em">乙方：<span style="color:red">江山</span></p>
+            <p style="margin-left:2em">今甲乙双方就协商退费一事达成协议，由甲方退给乙方<span style="color:red">课程</span>费人民币<span
+                    style="color:red">5000</span>元（大写：<span style="color:red">五千</span>），其中已扣除<span
+                    style="color:red">课程</span>费人民币<span style="color:red">5000</span>元（大写：<span
+                    style="color:red">五千</span>）。</p>
+            <p style="margin-left:2em">乙方身份证号：<span style="color:red">江山</span></p>
+            <p style="margin-left:2em">乙方收款账号：<span style="color:red">江山</span></p>
+            <p style="margin-left:2em">账号对应开户行：<span style="color:red">江山</span>（需提供本人账号）</p>
+
+            <p style="margin-left:2em">
+                自乙方足额收到退费且签字确认后，双方不再有退费差额的经济纠纷，双方同意继续履行原合同（原班型名称）约定的服务。乙方如果反悔，须加倍赔偿甲方退款金额。此协议一式二份，甲乙双方各执一份，具有同等效力。</p>
+            <p style="margin-left:2em">
+                自乙方足额收到退费且签字确认后，双方不再有任何纠纷，且自此甲方终止对乙方合同约定的所有服务。乙方如果反悔，须加倍赔偿甲方。此协议一式二份，甲乙双方各执一份，具有同等效力。</p>
+            <p style="margin-left:2em">
+                自乙方足额收到退费且签字确认后，双方不再有代报名退费差额的经济纠纷，双方同意继续履行课程合同约定的服务。乙方如果反悔，须加倍赔偿甲方退款金额。此协议一式二份，甲乙双方各执一份，具有同等效力。</p>
+        </div>
+        <div class="cachet">
+            <div>
+                <span style="line-height:150px">学校盖章：</span>
+                <img src="" class="schoolcachet" alt="" width="150px" height="150px"
+                    style="margin-left:120px;vertical-align:middle;">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+            <div style="overflow: hidden;position:relative">
+                <span style="line-height:150px">学员签字：</span>
+                <img src="img/official1.jpg" alt="" width="150px" height="75px"
+                    style="position:absolute;margin-left:120px;margin-top:37.5px">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+        </div>
+        <div class="xieyidate" style="margin-bottom:40px">
+            <!-- <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+                 <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div> -->
+        </div>
+        <h1 style="position:relative">一级注册消防工程师助考服务学员登记表 <a href="javascript:void(0)" class="paynew"
+                style="display:block;font-size:16px;font-weight:100;text-align:right;text-decoration:underline;margin-bottom: -20px;">支付截图</a>
+        </h1>
+        <div class="contract-title" style="margin-top:20px">
+            <!-- <p>提示：*号为必填部分</p>
+              <div>填写日期：<span class="Year"></span>年&nbsp;<span class="Month"></span>&nbsp;月&nbsp;<span class="Day"></span>&nbsp;日</div> -->
+        </div>
+        <table class="contract-body" style="border-collapse:collapse;border:1px solid black">
+            <tr>
+                <td>*姓名：</td>
+                <td>
+                    <div>秦始皇（前259年农历十二月初三—前210年）</div>
+                    <!-- <input type="text"  name="name"> -->
+                </td>
+                <td>*性别：</td>
+                <td>
+                    12312322223322222
+                    <!-- <input type="text"  name="sex"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*证件类型：</td>
+                <td>
+                    <!-- <input type="text"  name="address"> -->
+                </td>
+                <td>*证件号码：</td>
+                <td>
+                    <!-- <input type="text"  name="zip_code"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*邮寄地址：</td>
+                <td>
+                    <!-- <input type="text"  name="id_card">  -->
+                </td>
+                <td>*微信号：</td>
+                <td>
+                    <!-- <input type="text"  name="exam_date"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*紧急联系人：</td>
+                <td>
+                    <!-- <input type="text"  name="phonenumber"> -->
+                </td>
+                <td>*紧急联系手机：</td>
+                <td>
+                    <!-- <input type="text"  name="wxnumber"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*报考省份：</td>
+                <td>
+                    <!-- <input type="text"  name="email"> -->
+                </td>
+                <td>*报考城市：</td>
+                <td>
+                    <!-- <input type="text"  name="qqnumber"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*课程号码：</td>
+                <td>
+                    <!-- <input type="text"  name="jinjiname"> -->
+                </td>
+                <td>*服务项目：</td>
+                <td>
+                    一级注册消防工程师考试签约取证班
+                    <!-- <input type="text"  name="jinjiphone"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*考期：</td>
+                <td>
+                    <!-- <input type="text"  name="class"> -->
+                </td>
+                <td>*科目：</td>
+                <td>
+                    消防安全技术实务、
+                    消防安全技术综合能力、消防安全案例分析
+                    <!-- <input type="text"  name="subject"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*金额：</td>
+                <td>
+                    <!-- <input type="text"  name="money"> -->
+                </td>
+                <td>*支付方式：</td>
+                <td>
+                    <span class="seleted">jiansghan</span>
+                    <span class="unseleted">jiansghan</span>
+                    <!-- <input type="text"  name="payment"> -->
+                </td>
+            </tr>
+        </table>
+        <table class="contract-body seletedd" style="border-collapse:collapse;border:1px solid black;border-top: none">
+
+            <tr>
+                <td colspan="3" style="color:red;border-top: none;">
+                    课程模块
+                </td>
+            </tr>
+            <tr style="    font-weight: 700;">
+                <td>精讲课</td>
+                <td>模块课</td>
+                <td>
+                    独家特色课
+                </td>
+            </tr>
+            <tr>
+                <td><span class="seleted">各课程模块体验课</span></td>
+                <td><span class="seleted">消防规范独家专题</span></td>
+                <td>
+                    <span class="seleted">开学典礼</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="seleted">第一轮（基础精讲课）</span></td>
+                <td><span class="seleted">三合一串讲提分课</span></td>
+                <td>
+                    <span class="seleted">3D导学课</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="seleted">第二轮（3D精讲课）</span></td>
+                <td><span class="seleted">案例满分速成课</span></td>
+                <td>
+                    <span class="seleted">月度规划课</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="seleted">第三轮（3D精讲课）</span></td>
+                <td><span class="seleted">绝密押题课</span></td>
+                <td>
+                    <span class="seleted">AI+大师陪练课</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span>——</span></td>
+                <td><span>——</span></td>
+                <td>
+                    <span class="seleted">3D全景实操系统</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="color:red;border-top: none;">
+                    服务模块
+                </td>
+            </tr>
+            <tr style="    font-weight: 700;">
+                <td>基础服务</td>
+                <td>高端服务</td>
+                <td>
+                    个性化服务
+                </td>
+            </tr>
+            <tr>
+                <td><span class="seleted">服务期限/延时重修</span></td>
+                <td><span class="seleted">1对1私人助教（学习类问题）</span></td>
+                <td rowspan="5">
+                    <span class="seleted">入门课程规划报告</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="seleted">在线答疑（客服类问题）</span></td>
+                <td><span class="seleted">推荐兼职</span></td>
+            </tr>
+            <tr>
+                <td><span class="seleted">报考指导</span></td>
+                <td><span class="seleted">不过全额退费</span></td>
+            </tr>
+            <tr>
+                <td><span class="seleted">跟踪管理</span></td>
+                <td><span class="seleted">考过学费全退</span></td>
+            </tr>
+            <tr>
+                <td><span>——</span></td>
+                <td><span class="seleted">推荐就业保障</span></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="color:red;border-top: none;">
+                    教辅资料
+                </td>
+            </tr>
+            <tr style="    font-weight: 700;">
+                <td>基础教辅</td>
+                <td>进阶教辅</td>
+                <td>
+                    高阶教辅
+                </td>
+            </tr>
+            <tr>
+                <td><span class="seleted">课程讲义（电子版）</span></td>
+                <td><span class="seleted">通关宝典（纸质版）</span></td>
+                <td>
+                    <span class="seleted">消防考试红宝书（纸质版）</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="seleted">消防规范（电子版）</span></td>
+                <td><span class="seleted">高频消防规范口袋书（纸质版）</span></td>
+                <td><span class="seleted">密训卷（纸质版）</span></td>
+            </tr>
+            <tr>
+                <td><span class="seleted">思维导图（电子版）</span></td>
+                <td><span>——</span></td>
+                <td><span>——</span></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="color:red;border-top: none;">
+                    题库模块
+                </td>
+            </tr>
+            <tr style="    font-weight: 700;">
+                <td>基础题库</td>
+                <td>进阶题库</td>
+                <td rowspan="3">
+                    ——
+                </td>
+            </tr>
+            <tr>
+                <td><span class="seleted">模拟考试系统</span></td>
+                <td><span class="seleted">历年真题</span></td>
+            </tr>
+            <tr>
+                <td><span class="seleted">章节练习题</span></td>
+                <td><span class="seleted">篇章测评</span></td>
+            </tr>
+        </table>
+        <div class="cachet">
+            <div>
+                <span style="line-height:150px">学校盖章：</span>
+                <img src="img/official.jpg" class="schoolcachet" alt="" width="150px" height="150px"
+                    style="margin-left:120px;vertical-align:middle;">
+            </div>
+            <div style="overflow: hidden;position:relative">
+                <span style="line-height:150px">学员签字：</span>
+                <img src="img/official1.jpg" alt="" width="150px" height="75px"
+                    style="position:absolute;margin-left:120px;margin-top:37.5px">
+            </div>
+        </div>
+        <h1>一级注册消防工程师助考学习服务协议</h1>
+        <div style="overflow:hidden">
+            <!-- <p style="float:right">——帮助您在火种教育更好地完成学业和收获能力</p> -->
+        </div>
+
+        <div class="xieyi">
+            <p>亲爱的学员，您好！</p>
+            <p style="margin-left:2em">火种教育全体同仁欢迎您选择在这里完成学业并考取证书。</p>
+            <p style="margin-left:2em">在您享受课程的过程中，以下守则的遵守和共识的达成，对我们的服务质量保障和您的课程直观体验至关重要。</p>
+            <p style="margin-left:2em">请您仔细阅读并签字确认，感谢您的理解和配合。</p>
+            <p>特别提示：请根据页面提示正确如实提供您的个人信息（详见登记表），这是本协议成立并生效的前提。如您未能准确提供您的个人信息，将面临自行承担因此产生的不利后果的局面（包括但不限于不能正常接入课程或享有火种教育提供的各项服务），尤其是在为您提供退费、奖励、延时重修、冻结课程等服务时带来诸多不便。
+            </p>
+            <p>甲方姓名：<span style="color:red">江山</span></p>
+            <p>听课证号：<span style="color:red">江山</span></p>
+            <p>身份证号：<span style="color:red">江山</span></p>
+            <p>乙方名称：<span style="color:red">北京智行火种教育科技有限公司</span></p>
+            <p>乙方客服：<span>010-60703671、010-81705189</span></p>
+            <p>您（以下称“甲方”）购买的课程及其包含的各项服务的提供者均为本协议乙方及相关合作方（以下简称“火种教育”或“乙方”）。根据相关部门的监管要求，火种教育提供的所有课程，只向 18
+                周岁以上的人员提供，请确保您满足上述年龄条件。如您不满足上述年龄条件，请及时联系客服010-60703671、010-81705189办理退费。如您为了准备考试而购买火种教育的课程产品，请先行确认您符合该考试的报名条件，这是您个人单方义务。具体报名条件请以考试主办单位发布的文件和官方网站告知为准。鉴于火种教育并非考试主办机构，火种教育工作人员关于考试报名、证书领取等有关问题提供的信息咨询，均依照国家考试主管部门公布的最新政策文件做出的解读，免费提供给甲方进行参考和判断，无法对甲方是否满足报名条件作出承诺或最终判断。
+                您理解并同意，由于历年考试报名条件变化等原因，您此前满足该考试的报名条件，不代表您一定满足本次考试的报名条件。对此风险，火种教育与您均无法预见。您无权因考试报名条件变动导致您无法报考为由，要求火种教育退费。
+            </p>
+            <p>
+                一级注册消防工程师助考学习服务协议（以下简称“本协议”）是甲乙双方就甲方购买的服务项目名称：<span
+                    style="color:red">一级注册消防工程师考试签约取证班</span>课程及其包含的各项服务所订立的相关权利义务规范。甲乙双方已通过数据电文形式订立本协议。如甲方确认本协议内容并开始观看课程，乙方将依据本协议为甲方提供服务，双方根据本协议的约定履行各项义务。如甲方不理解本协议的任何条款或存在异议，请及时联系客服010-60703671、010-81705189，乙方的客服人员会为您解释或处理。
+            </p>
+            <p style="font-weight: 600">
+                一、服务项目内容及金额
+            </p>
+            <p>
+                1.1 乙方为甲方提供 2020 年考试名称： <span style="color:red">一级注册消防工程师</span> 考试（以下简称“本次考试”）服务项目（商品） <span
+                    style="color:red">签约取证班</span>
+                课程（以下简称“本课程”）。本课程包含的课程内容，包括但不限于授课内容、授课教师、课程时长、授课时间、授课方式等，以甲方个人中心展示内容及乙方听课证的另行通知为准。
+            </p>
+            <p>
+                1.2 本服务项目服务费用人民币（小写） <span style="color:red">4880</span>
+                元，具体金额以实际缴费为准。甲方应在本协议签订前将全部费用一次性付清。缴费方式包括对公账户汇款、支付宝专用端口支付、微信专用端口支付等。
+            </p>
+            <p>
+                1.3
+                乙方以网络直播的授课方式为主，甲方可以随时听课，并自我约束，主动学习，请勿自误。直播课堂的学习需要在甲方的电脑里安装专用软件，由乙方班主任协助甲方安装。当甲方完成服务费用缴纳后，乙方将向甲方发放所购服务项目的听课证。该听课证只允许甲方本人使用，不得转借或转让他人。一经发现，乙方有权取消甲方听课资格，且不承担任何违约责任。
+            </p>
+            <p style="font-weight: 600">
+                联系方式:
+            </p>
+            <p>
+                咨询服务微信：<span style="color:red">[huozhongbanzhuren ]</span>
+            </p>
+            <p>
+                联系电话：010-60703671，服务时间：9:00-12:00，13:00-18:00
+            </p>
+            <p>
+                联系电话：010-81705189，服务时间：13:00-18:00，19:00-22:00
+            </p>
+            <p style="font-weight: 600">
+                二、甲方的声明与保证
+            </p>
+            <p>
+                2.1 甲方必须具备参加本次考试的资格，并且自行完成本次考试的报考，不得无故缺考。如甲方未能参加本次考试（甲乙双方另有协议约定的除外），本协议自动终止，甲方无权因此要求乙方提供退费或延时重修服务。
+            </p>
+            <p>
+                2.2 甲方在注册火种教育听课证时，已经提供了的移动电话号码，甲方应确保该移动电话号码准确、畅通。甲方在开始课程学习前，须依页面提示提供完整的个人信息，包括但不限于：真实姓名、身份证号以及邮箱地址等。
+            </p>
+            <p>
+                特别提示：上述个人信息用于乙方确认甲方的有效学员身份，是甲乙双方顺利有效沟通的前提和保障。如因甲方的个人资料不实非法无效导致无法正常上课，或甲方提供任何乙方认为不适合的资料，经乙方提出，要求甲方作出说明并更正但甲方拒不配合的，乙方有权暂停或终止甲方的听课证，因此产生的责任由甲方自行承担，甲方不得以此为由向乙方主张包括但不限于退费、延时重修等任何服务。
+            </p>
+            <p>
+                甲方充分知悉上述内容，认可该个人资料的重要性及由此延伸的法律意义，同意确保提交的个人资料真实合法有效，如有变更应及时书面告知乙方。乙方在收到甲方申请后15个工作日内进行审核，经确认无误后，乙方在15个工作日内确认变更；如初次审核后，发现有遗漏、讹误、重复、行政区划变更等情形的，另需15个工作日重新审核；经乙方两次审核后仍不符合的，不再予以变更，因此产生的不良后果由甲方承担。
+            </p>
+            <p>
+                2.3
+                如甲方在向乙方支付服务费用时使用了第三方提供的消费金融或消费信贷服务，甲方应当履行其对该第三方的各项义务，包括但不限于按时还款义务等。如甲方出现逾期还款等违约行为，乙方有权依据为甲方提供消费金融或消费信贷服务的第三方的合理指示，或根据需要自行暂停甲方的听课证，直至甲方向该第三方支付全部应付款项。上述行为不视为乙方违约，甲方无权因此解除本协议或要求乙方退费。
+            </p>
+            <p>
+                2.4 甲方对乙方提供的授课视频、各类资料、笔记及类似课程信息负有保密义务。未经乙方书面允许，不得复制、在网络上传播、提供给其它学员或非学员或以其它方式向任何第三方披露或公开。该资料及信息包括但不限于：
+            </p>
+            <p>
+                2.4.1乙方对甲方的辅导计划、课程安排；
+            </p>
+            <p>
+                2.4.2乙方的授课视频、授课资料（包括但不限于教案、教材、讲义）；
+            </p>
+            <p>
+                2.4.3甲方根据授课资料或辅导课程制作的笔记；
+            </p>
+            <p>
+                2.4.4乙方提供的各类模拟试题；
+            </p>
+            <p>
+                2.4.5乙方提供的考试信息；
+            </p>
+            <p>
+                2.4.6任何经由乙方提供的服务而发布、上传的文字、图片或其它资料；
+            </p>
+
+            <p>
+                2.4.7甲方在履行本协议过程中了解或知悉的乙方其他相关信息。
+            </p>
+            <p>
+                2.5
+                甲方需自备上网所需要的设备，并自行承担上网产生的各项费用，使电脑或移动设备能够顺利接入国际互联网，并能够正常访问www.huozhongedu.com.cn或能够正常运行乙方用于提供课程服务的应用软件。如甲方不能自备上网所需要的设备或甲方无法顺利接入国际互联网、或不能够正常访问或不能够正常运行乙方用于提供课程服务的应用软件，由此造成甲方无法正常接受授课服务的后果，由甲方自行承担，甲方不得要求乙方为其退费或提供延时重修等服务。
+            </p>
+            <p>
+                2.6 为了能正常使用乙方的网站，甲方应确保其注册的用于接受课程服务的听课证的安全性，并同意以下事项：
+            </p>
+            <p>
+                2.6.1甲方的听课证遭到未获授权的使用（如被盗用后无法登陆等），或者发生其它任何安全问题时，甲方应立即通知乙方；
+            </p>
+            <p>
+                2.6.2如果甲方未保管好自己的听课证，因此而产生的对甲方、乙方或任何第三方造成损失的，甲方将负全部责任；
+            </p>
+            <p>
+                2.6.3如果甲方的听课证丢失，乙方同意配合甲方找回，乙方在收到甲方申请后15个工作日内找回，因此造成的损失由甲方自行承担；
+            </p>
+            <p>
+                2.6.4甲方对其听课证包含的所有行为和事件负全责，无论是否由甲方亲自完成或知情后授权他人。
+            </p>
+            <p>
+                2.7 任何经由乙方提供的服务而发布、上传的文字、图片或其它资料（以下简称"内容”），最终版权均属于乙方，乙方可对内容进行编辑整理以及后续的出版行为，而无需要通知甲方。
+            </p>
+            <p>
+                2.8 甲方明确了解并同意，基于以下原因而造成的，包括但不限于利润、信誉、应用、数据损失或其它无形损失，乙方不承担任何直接、间接、附带、特别、衍生性或惩罚性赔偿责任：
+            </p>
+            <p>
+                2.8.1乙方服务因甲方原因而无法使用；
+            </p>
+            <p>
+                2.8.2为替换从乙方购买的服务或取得之任何商品、数据、信息、服务，收到的讯息，或重新缔结交易而发生的成本；
+            </p>
+            <p>
+                2.8.3甲方的传输或数据遭到未获授权的存取或变造；
+            </p>
+            <p>
+                2.8.4任何第三方在乙方网站中所作之声明或行为；
+            </p>
+            <p>
+                2.8.5第三方以任何方式发布或投递欺诈性信息，或诱导甲方受到经济损失，乙方不承担任何责任。
+            </p>
+            <p>
+                2.9 甲方同意将不会利用乙方提供的网站进行任何违法或不正当的活动，包括但不限于下列行为：
+            </p>
+            <p>
+                2.9.1发布或以其它方式传送含有下列内容之一的信息：
+            </p>
+            <p>
+                2.9.1.2危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；
+            </p>
+            <p>
+                2.9.1.3损害国家荣誉和利益的；
+            </p>
+            <p>
+                2.9.1.4煽动民族仇恨、民族歧视、破坏民族团结的；
+            </p>
+            <p>
+                2.9.1.5破坏国家宗教政策，宣扬邪教和封建迷信的；
+            </p>
+            <p>
+                2.9.1.6散布谣言，扰乱社会秩序破坏社会稳定的，扰乱乙方课程管理秩序和工作秩序的；
+            </p>
+            <p>
+                2.9.1.7散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；
+            </p>
+            <p>
+                2.9.1.8侮辱或者诽谤他人，侵害他人合法权利的；
+            </p>
+            <p>
+                2.9.1.9含有虚假、诈骗、有害、胁迫、侵害他人隐私、骚扰、侵害、中伤、粗俗、猥亵或其它违反公序良俗的内容；
+            </p>
+            <p>
+                2.9.1.10含有中国法律、法规、规章、条例以及任何具有法律效力之规范所限制或禁止的其它内容的；
+            </p>
+            <p>
+                2.9.1.11含有乙方认为不适合在乙方展示的内容。
+            </p>
+            <p>
+                2.9.2以任何方式危害他人的合法权益；
+            </p>
+            <p>
+                2.9.3冒充其他任何人或机构，或以虚伪不实的方式陈述或谎称与任何人或机构有关；
+            </p>
+            <p>
+                2.9.4将依据任何法律或合约或法定关系（例如由于雇佣关系和依据保密合约所得知或披露之内部资料、专属及机密资料）知悉但无权传送之任何内容加以发布、发送电子邮件或以其它方式传送；
+            </p>
+            <p>
+                2.9.5将侵害他人著作权、专利权、商标权、商业秘密、或其它专属权利（以下简称“专属权利”）之内容加以发布或以其它方式传送；
+            </p>
+            <p>
+                2.9.6将任何广告信函、促销资料、“垃圾邮件”、“滥发信件”、“连锁信件”、“直销”或其它任何形式的劝诱资料加以发布、发送或以其它方式传送；
+            </p>
+            <p>
+                2.9.7将设计目的在于干扰、破坏或限制任何计算机软件、硬件或通讯设备功能之计算机病毒 ，包括但不限于木马程序（Trojan
+                horses）、蠕虫（worms）、定时炸弹、删除蝇（cancelbots）（以下简称“病毒”）或其它计算机代码、档案和程序之任何资料，加以发布、发送或以其它方式传送；
+            </p>
+            <p>
+                2.9.8干扰或破坏乙方网站服务或与乙方网站相连接之服务器和网络，或违反任何关于乙方网站连线网络之规定、程序、政策或规范；
+            </p>
+            <p>
+                2.9.9跟踪、人肉搜索或以其它方式骚扰他人；
+            </p>
+            <p>
+                2.9.10故意或非故意地违反任何适用的当地、国家法律，以及任何具有法律效力的规则；
+            </p>
+            <p>
+                2.9.11未经合法授权而截获、篡改、收集、储存或删除他人个人信息、站内邮件或其它数据资料，或将获知的此类资料用于任何非法或不正当目的。
+            </p>
+            <p>
+                2.10
+                甲方认可乙方未对甲方的使用行为进行全面控制，甲方使用任何内容时，包括依赖前述内容之正确性、完整性或实用性时，甲方同意将自行加以判断并承担所有风险，而不依赖于乙方。但乙方依其自行之考虑，拒绝和删除可经由乙方网站提供之违反本条款的或其它引起乙方认为不适合的任何内容,且乙方有权暂停或终止甲方的听课证，因此而产生的任何法律责任由甲方自行承担，甲方不得以此为由要求甲方为其退费、办理延时重修等服务。
+            </p>
+            <p>
+                2.11 甲方了解并同意，乙方依据法律法规的要求，或基于诚信为了以下目的或在合理必要范围内，认定必须将甲方的个人信息加以保存或披露时，得加以保存或披露：
+            </p>
+            <p>
+                2.11.1遵守法律程序；
+            </p>
+            <p>
+                2.11.2执行本协议；
+            </p>
+            <p>
+                2.11.3回应第三人提出的权利主张；
+            </p>
+            <p>
+                2.11.4保护乙方、甲方及公众之权利、财产或个人安全；
+            </p>
+            <p>
+                2.11.5其它乙方认为有必要的情况。
+            </p>
+            <p>
+                2.12
+                甲方应当遵守乙方的听课证规则（包括直播课堂弹窗内的《直播课堂守则》及其他课程辅导管理制度），不得无故缺席听课，不得以任何方式干扰或破坏直播课堂的秩序，不得在直播课堂、应用软件等载体上为任何第三方辅导机构进行宣传或发布任何第三方辅导机构提供的学习资料，不得违反，否则乙方有权解除本协议且甲方不得主张退费、延时重修等服务，造成严重后果时乙方可以追究甲方的相应法律责任。
+            </p>
+            <p>
+                2.13 甲方同意乙方可随时行使本协议第3.5条约定的变更权，并接受乙方变更后所提供的服务。
+            </p>
+            <p>
+                2.14 甲方同意并确认因以下原因引起的任何责任由甲方自行承担：
+            </p>
+            <p>
+                2.14.1甲方选择的第三方支付方式，在支付过程中因甲方自身原因或第三方支付平台原因造成的异常，使甲方账户无法正常使用或遭受损失，乙方对此概不负责，一切损失由甲方自行承担；
+            </p>
+            <p>
+                2.14.2非乙方的原因造成的异常状况下无法观看视频，或无法登陆网站，乙方对此状况免责，包括但不限于：
+            </p>
+            <p>
+                2.14.2.3因甲方个人未能记住听课证账号或者密码，而导致无法观看甲方已经购买的课程；
+            </p>
+            <p>
+                2.14.2.4因甲方更换服务商，或者电脑硬件问题引起的视频观看技术故障；
+            </p>
+            <p>
+                2.14.2.5因甲方所在地区的网络服务商或者其它代理商擅自更换甲方的网络服务而造成的意外问题；
+            </p>
+            <p>
+                2.14.2.6因甲方提出的高于协议要求或者网站正常要求而引起的服务问题。
+            </p>
+            <p>
+                2.15
+                甲方同意参加直播课程的过程中，不得出现以下行为，如有违反，乙方有权终止甲方的听课证，甲方还应当负责赔偿给乙方或第三方造成的全部损失，且不得因为火种教育终止甲方听课证向火种教育主张延时重修或退费等服务。直播课堂禁止行为包括但不限于：
+            </p>
+            <p>
+                2.15.1对授课老师、班主任或火种教育工作人员进行辱骂、诋毁、人身攻击或提出本协议约定以外的其他要求；
+            </p>
+            <p>
+                2.15.2学员之间进行互相争辩、辱骂等影响正常授课的行为；
+            </p>
+            <p>
+                2.15.3私自建立QQ群、微信群等交流群，对其他学员的个人信息或本课程的正常运转构成潜在风险。
+            </p>
+            <p>
+                2.15.4复制、发行、出租、出借、出售、散布资料之任何部分或全部火种教育直播课堂提供的全部学习资料，侵犯乙方的知识产权；
+            </p>
+            <p>
+                2.15.5诽谤火种教育工作人员、诋毁火种教育直播课堂；
+            </p>
+            <p>
+                2.15.6直播课堂中不断妨碍学员间正常交流的行为、发布与本课程无关的内容等。
+            </p>
+            <p>
+                三、乙方的声明与保证
+            </p>
+            <p>
+                3.1 乙方在收到甲方根据本协议第1.2条支付的全部服务费用后的3个工作日内，为甲方开通本课程听课证。
+            </p>
+            <p>
+                3.2 乙方对甲方提供的本协议第2.2条所列个人资料负有保密义务。未经甲方书面许可，不得向任何第三方非法披露或公开，本协议第2.11条的约定除外。
+            </p>
+            <p>
+                3.3 乙方应当根据本协议的约定完成项目服务。如因不可归咎于乙方的原因，导致乙方无法根据本协议的约定完成项目服务，乙方不负任何责任，甲方不得要求乙方为其退费或提供延时重修等服务。
+            </p>
+            <p>
+                3.4 乙方不绝对保证以下事项：
+            </p>
+            <p>
+                3.4.1乙方网站服务将不受干扰、及时提供、绝对安全可靠或不会出错；
+            </p>
+            <p>
+                3.4.2甲方经由乙方网站购买或取得之任何产品、服务、资讯或其它信息将完全符合甲方的期望；
+            </p>
+            <p>
+                3.4.3是否使用乙方网站下载或取得任何资料应由甲方自行考虑且自负风险，因任何资料之下载而导致甲方的电脑系统之任何损坏或数据流失等后果，由甲方自行承担；
+            </p>
+            <p>
+                3.4.4甲方自乙方或经由乙方网站取得的任何建议或信息，无论是书面或口头形式，除非本协议有明确规定，将不构成本协议以外之任何保证，除非甲方可以证明此种建议或信息是双方沟通协商一致确认的结果且效力及于所有同等地位的签约方。
+            </p>
+            <p>
+                3.5 乙方对提供本课程服务享有变更权，包括但不限于：
+            </p>
+            <p>
+                3.5.1乙方有由于历年教材变更、师资更换等原因，调整每年视频内容长短的权利；
+            </p>
+            <p>
+                3.5.2乙方有设置或者变更课程授课时间、授课教师、变更直播平台服务提供商或在遇到非常情形下将协议约定的乙方服务部分或全部转交第三人代为履行的权利，在甲方利益受到保障的前提下甲方不得以任何方式表示拒绝。
+            </p>
+            <p>
+                四、课程管理准则
+            </p>
+            <p>
+                4.1开课：乙方为甲方开通听课证的日期即为开课日期，在无特殊情况下，乙方会严格依照3.1条原定开课计划履行课程服务。由于各种意外情况或不可抗力导致的无法按时开课的情况，乙方将以微信等方式通知甲方，具体开课时间另行通知。
+            </p>
+            <p>
+                4.2确认课程安排：甲方应及时主动接收微信并查看班主任通知的课表，上课时间及地点，按通知的信息上课。甲方因事、病等自身原因不能前来上课，需至少提前6小时请假，请假的学员自行从乙方网站观看课程。每个学员在培训期间请假的次数不能超过当期课程的30%，如有超过将被终止听课证。
+            </p>
+            <p>
+                4.3上课纪律：上课时请遵守课堂纪律。如有疑问，可课下咨询班主任或老师。如甲方严重干扰课堂纪律，影响他人上课，班主任有权终止甲方继续听课。该情形达到3次及以上的，乙方有权取消甲方听课资格，乙方不承担任何违约责任。
+            </p>
+            <p>
+                4.4课程有效期：在2020年一级注册消防工程师考试结束当日24时起，乙方会终止甲方听课证。若甲方通过服务登记表中报名科目，则本协议自行终止。若甲方未通过本次考试（各科成绩均大于0分且均低于考试合格标准），则甲方可以向乙方申请延时重修。
+            </p>
+            <p>
+                五、关于退费与延时重修、考过奖励
+            </p>
+            <p>
+                退费原则：甲方自完成缴费并开通课程后，向乙方申请解除服务协议的，非乙方原因，如甲方个人原因、考试政策原因、报考资格不符或不可抗力因素等，由于服务课程以网络形式提供并展示的特殊性，课程一旦开通，成本已经产生且无法消除，乙方不接受退费申请。已修满服务期（服务期开始于甲方课程开通日，截止于2020年一级注册消防工程师考试结束当日24时）课程后，因为乙方已经履行完服务协议规定的课程，所以无论何种原因申请解除服务协议，乙方有权拒绝退还甲方任何费用。退费均不计利息。
+            </p>
+            <p>
+                出于人文关怀，满足以下条件的甲方可以申请退费，退费时如已经开具发票，甲方必须退回完整发票，乙方按照对应税率在退费款中予以扣除；办理退费时，乙方根据甲方缴纳费用的方式退还费用，根据银行规定需扣除手续费的，乙方直接从应退还甲方金额中扣除；退费流程规则以本协议约定为准，未尽事宜应由双方协商解决。
+            </p>
+            <p>
+                5.1一般退费：办理一般退费时，乙方扣除已进行课时的课时费、服务管理费（服务费用总额的30%）和其他相关费用（包括但不限于已使用且无法完整退还的教材教辅的费用等）。
+            </p>
+            <p>
+                5.1.1一般退费标准：课程开始后，如出现以下情形之一，甲方可以申请一般退费，乙方仅对甲方出现的以下三种情形方受理一般退费申请：
+            </p>
+            <p>
+                5.1.1.1甲方在课程期间出现重大疾病（参照《重大疾病保险的疾病定义使用规范》）或意外伤残不能继续学习的，持相关证明办理退费申请，重大疾病或伤残甲方需出具二级甲等以上医院(含)出具的诊断证明；
+            </p>
+            <p>
+                5.1.1.2死亡的由甲方近亲属持二级甲等以上医院(含)出具的死亡医学证明，或居（村）委会或卫生站（所）出具的死亡证明并加盖公安部门公章，或公安部门出具的死亡证明。
+            </p>
+            <p>
+                5.1.1.3甲方家庭发生特殊困难不能继续学习的，持贫困证明办理退费申请；贫困证明由甲方所在地的居（村）委会开具并加盖县级民政部门公章。
+            </p>
+            <p>
+                5.1.2一般退费流程
+            </p>
+            <p>
+                5.1.2.1出现5.1.1所列的情形之一，甲方须向乙方客服中心（010-60703671，服务时间：9:00-12:00，13:00-18:00；010-81705189，服务时间：13:00-18:00，19:00-22:00）申请一般退费，甲方须在申请之日起30日（含当天）内向班主任提供以下资料，包括但不限于5.1.1所列的各项证明、听课证、身份证号码等，逾期不予受理。
+            </p>
+            <p>
+                5.1.2.2乙方依据甲方所提交的资料在15个工作日内进行审核，经审核满足5.1.1条一般退费条件的，乙方在15个工作日内为甲方提供退费处理方案，甲方考虑是否接受。
+            </p>
+            <p>
+                5.1.2.3甲方对乙方处理方案认可并接受的，须与乙方签订一般退费协议后，，相关款项将会在30个工作日内原路径退还。
+            </p>
+            <p>
+                5.2. 不过退费
+            </p>
+            <p>
+                5.2.1不过退费标准：本协议生效后，甲方经过服务期内一次考试及延时重修期间两次考试，共计三次考试均未缺考一级注册消防工程师考试，每次考试各科成绩均大于0分且均低于考试合格标准，则服务费用无息全额退还。
+            </p>
+            <p>
+                5.2.2不过退费流程
+            </p>
+            <p>
+                5.2.2.1甲方须向乙方客服中心（010-60703671，服务时间：9:00-12:00，13:00-18:00；010-81705189，服务时间：13:00-18:00，19:00-22:00）申请不过退费，需在2022年考试合格标准公布后的30日（含当天）内向班主任提供以下资料，包括但不限于三次考试的成绩截图、听课证、考试账号密码、身份证号码等。
+            </p>
+            <p>
+                5.2.2.2乙方依据甲方所提交的资料在15个工作日内在国家考试主办部门网站进行核实，经乙方审核满足5.2.1条情形下不过退费条件的，乙方在15个工作日内为甲方提供不过退费处理方案，并通知甲方。
+            </p>
+            <p>
+                5.2.2.3甲方按照乙方的处理方案与乙方签订不过全额退费协议后，相关款项将会在30个工作日内原路径退还。
+            </p>
+            <p>
+                5.3延时重修标准
+            </p>
+            <p>
+                5.3.1甲方可免费享受两次延时重修的机会，即甲方2020年参加考试未通过（各科成绩均大于0分且均低于考试合格标准），2021年延时重修（在线课程、网上题库免费），2021年参加考试仍未通过（各科成绩均大于0分且均低于考试合格标准），2022年还可以延时重修（在线课程、网上题库免费）。若2022年考试仍未通过（各科成绩均大于0分且均低于考试合格标准），甲方想继续学习的，则应重新缴纳足额的服务费用方可继续学习。
+            </p>
+            <p>
+                5.3.2延时重修是乙方赠予的课程服务，如果甲方因自身原因或不可抗力导致不能重修的，乙方不承担任何违约责任，也不予退还任何费用。若甲方在重修期间通过考试的，甲方不得要求乙方继续提供相关的课程服务。因延时重修不等同于重新报名，故延时重修期间不计入前述的服务期限。
+            </p>
+            <p>
+                5.4延时重修流程
+            </p>
+            <p>
+                5.4.1甲方须主动向班主任申请延时重修服务，在本次考试合格标准公布后的30日（含当天）内向班主任提供以下资料，包括但不限于本次考试的成绩截图、听课证、考试账号密码、身份证号码等。
+            </p>
+            <p>
+                5.4.2乙方依据甲方所提交的资料在15个工作日内在国家考试主办部门网站进行审核，经乙方审核满足5.3.1条延时重修条件的，乙方在15个工作日内为甲方提供延时重修服务。。
+            </p>
+            <p>
+                5.4.3延时重修流程规则以本协议约定为准（细节以听课证通知为准），未尽事宜应由双方协商解决
+            </p>
+            <p>
+                5.5考过服务费用全额奖励标准
+            </p>
+            <p>
+                5.5.1甲方依据本协议可享受考过服务费用全额奖励，即甲方参加2020年一级注册消防工程师考试，当年各科成绩均高于本次考试合格标准。
+            </p>
+            <p>
+                5.6考过服务费用全额奖励流程
+            </p>
+            <p>
+                5.6.1甲方须主动向班主任申请考过服务费用全额奖励，在本次考试合格标准公布后的30日（含当天）内向班主任提供以下资料，包括但不限于本次考试的成绩截图、听课证、考试账号密码、身份证号码等。
+            </p>
+            <p>
+                5.6.2乙方依据甲方所提交的资料在30个工作日内在国家考试主办部门网站进行审核，经乙方审核满足5.5.1条考过服务费用全额奖励条件的，该奖励款（无息）将在30个工作日内划拨到甲方账户。个人所得税由甲方自理。
+            </p>
+            <p>
+                5.6.3考过全额奖励流程规则以本协议约定为准，未尽事宜应由双方协商解决。
+            </p>
+            <p>
+                六、关于冻结课程与升班
+            </p>
+            <p>
+                6.1在2020年一级注册消防工程师考试第一天（算作第一天）向前推30天（含第30天）之内不允许冻结课程，甲方仅拥有一次冻结机会，31天向前可以冻结，冻结期限时长为1---90天（无论冻结何时开始，至考前30天自行停止冻结），根据实际冻结的天数，服务期相应顺延。
+            </p>
+            <p>
+                6.2如出现以下情形之一，甲方方可申请冻结课程：
+            </p>
+            <p>
+                6.2.1甲方出现重大疾病或伤残（参照《重大疾病保险的疾病定义使用规范》）。需出具二级甲等以上医院(含)出具的诊断证明；
+            </p>
+            <p>
+                6.2.2甲方因为自身原因无法使用网络的，包括但不限于出国（境）旅行、出国（境）短期逗留等情况。
+            </p>
+            <p>
+                6.3冻结课程流程
+            </p>
+            <p>
+                6.3.1甲方应主动向班主任申请冻结课程服务，提供6.2条情形约定的对应资料，包括但不限于二级甲等以上医院出具的诊断证明、签证、机票等。
+            </p>
+            <p>
+                6.3.2乙方依据甲方所提交的资料在15个工作日内进行审核，经乙方审核满足6.2条申请冻结课程条件的，乙方按本协议约定在15个工作日内提供冻结课程服务；经审核不符合条件的可以补正后再次申请，合计以二次为限，仍不符合的不予冻结课程。
+            </p>
+            <p>
+                6.3.3冻结期限结束后，甲方听课证效力自动恢复，并不再另行通知甲方。
+            </p>
+            <p>
+                6.4甲方报名后随时可以进行班型升级，升级时需要补齐新班型与老班型之间的差价；升级班型后将签订新的协议，所有服务以新协议为准，本协议自动终止。
+            </p>
+            <p>
+                七、协议终止和解除
+            </p>
+            <p>
+                7.1 如出现以下情形之一，本协议自动终止：
+            </p>
+            <p>
+                7.1.1甲方参加本次考试，且考试分数达到合格标准；
+            </p>
+            <p>
+                7.1.2乙方为甲方提供了退费服务或为甲方连续二年办理延时重修；
+            </p>
+            <p>
+                7.1.3本次考试合格标准公布30日后，甲方未联系乙方申请退费、考过服务费用全额奖励或延时重修；
+            </p>
+            <p>
+                7.1.4甲方提供的信息或资料不真实；
+            </p>
+            <p>
+                7.1.5甲方不满足本次考试的报考条件、或未进行本次考试的报考、或缺考本次考试；
+            </p>
+            <p>
+                7.1.6双方存在其他违反本协议约定并导致本协议无法继续履行或导致本协议继续履行存在困难的情形；
+            </p>
+            <p>
+                7.1.7在签署本协议的过程及协议履行或变更、协商解除时，甲方试图或已经与乙方工作人员或对其构成影响力的人员达成私下交易，无论甲方已经事前或允诺事后给予上述特定人员某种特殊利益，一经发现均视为甲方以实际行为明示不再履约，乙方有权单方解除协议并不退还任何费用，并保留必要时追究甲方法律责任的权利。
+            </p>
+            <p>
+                7.2 除本协议另有约定，任何一方不得提前终止或解除本协议。
+            </p>
+            <p>
+                八、不可抗力
+            </p>
+            <p>
+                8.1
+                不可抗力指超出双方控制范围，无法预见、无法避免或无法克服的事件。此类事件包括但不限于意外事件（如战争等、暴动等）、自然灾害（如地震、火灾、水灾等）、网络中断、黑客攻击、政府行为或其他任何甲乙双方均无法预见、控制或避免的事件。
+            </p>
+            <p>
+                8.2 一方由于不可抗力事件，在履行本协议项下的义务过程中遇到障碍或延误，不能按协议约定全部或部分履行其义务的，遇到不可抗力事件的一方不视为违约。
+            </p>
+            <p>
+                8.3 不可抗力事件发生后，若有可能，受不可抗力影响的一方应在10个工作日内将有关情况及时通知对方（乙方可通过网站公告方式通知甲方）。
+            </p>
+            <p>
+                8.4 在不可抗力影响消除后，遭受不可抗力影响的一方应尽最大努力恢复履行其在本协议项下的义务。
+            </p>
+            <p>
+                九、法律适用及争议解决
+            </p>
+            <p>
+                9.1 本协议的成立、有效性、解释及争议的解决均应适用中华人民共和国法律。
+            </p>
+            <p>
+                9.2
+                双方在履行本协议过程中，如发生任何争议，首先应通过友好协商解决。协商未能解决的，双方同意通过服务提供方所在地或合同实际履行地法院诉讼解决（特别约定：对于因合同争议引起的纠纷，司法机关可以在传统方式无法送达后通过包括但不限于手机短信或电子邮件等现代通讯方式送达法律文书，但不包括判决书在内）。
+            </p>
+            <p>
+                十、知识产权保护
+            </p>
+            <p>
+                10.1
+                乙方网站及乙方网站所使用之相关软件（以下简称“软件”）含有受到相关知识产权及其它法律保护之专有保密资料。甲方了解并同意，经由乙方网站或广告商向甲方呈现之赞助广告或信息所包含之内容，亦受到著作权、商标权、服务商标、专利权或其它专属权利之法律保护。未经乙方或广告商明示授权，甲方不得修改、出租、出借、出售、散布本服务或软件之任何部分或全部，或据以制作衍生著作，或使用擅自修改后的软件，包括但不限于为了未经授权而使用本服务之目的。
+            </p>
+            <p>
+                10.2
+                乙方仅授予甲方个人、不可移转及非专属之使用权，使甲方得于单机计算机使用其软件之目的，但不得（并不得允许任何第三人）复制、修改、创作衍生著作、进行还原工程、反向组译，或以其它方式发现原始码，或出售、转让、再授权或提供软件设定担保，或以其它方式移转软件之任何权利。甲方同意将通过由火种教育所提供的界面而非任何其它途径使用乙方网站。
+            </p>
+            <p>
+                10.3 乙方网页注册商标、标志及字号、产品、服务名称，均为乙方之商标（以下简称“标记”）。甲方同意不将标记以任何方式展示或使用或作其它处理，或表示甲方有权展示、使用或另行处理该等标记。
+            </p>
+            <p>
+                10.4
+                乙方就本课程向甲方提供的所有资料（以下简称“资料”）包括但不限于：辅导计划、课程安排、授课资料（包括但不限于教案、教材、讲解）、各类模拟试题、考试信息均属于乙方知识产权，受到著作权、商标权、或其它专属权利之法律保护。未经乙方明示授权，甲方不得（并不得允许任何第三人）复制、修改、出租、出借、出售、散布资料之任何部分或全部，或据以制作衍生著作，包括但不限于为了未经授权而使用本服务之目的。
+            </p>
+            <p>
+                10.5 甲方如违反本协议第十条相关规定，应当赔偿乙方全部经济损失。
+            </p>
+            <p>
+                十一、附则
+            </p>
+            <p>
+                11.1
+                本协议自甲方通过网页确认协议内容之时成立，自甲方全额支付本课程的服务费用之时生效，如乙方提供预开课服务，则本协议生效时间提前至甲方确认协议内容并激活课程时。如甲方通过课程置换的方式获得本课程，即甲方购买其他课程后，经与乙方客服协商将原课程更换为本课程，则本协议自甲方通过网页确认协议内容并激活课程时生效，甲方购买原课程已支付的款项自动转为本课程服务费的全部并补足差额部分后，原协议自动终止。本协议生效后，甲方可以访问火种教育官网www.huozhongedu.com.cn随时查看本协议内容。
+            </p>
+            <p>
+                11.2 本协议生效后，甲方可以对协议内容进行公证，乙方配合，公证费用由甲方自行承担。
+            </p>
+            <p>
+                11.3
+                本协议是双方关于本课程辅导服务、退费或延时重修条件等相关事宜的完整协议，并取代双方先前的或现在的所有陈述、建议、讨论和通讯，无论是口头的还是书面的。如双方关于本课程辅导服务以及退费或延时重修条件等相关事宜的沟通或陈述与本协议不一致，以本协议约定为准。
+            </p>
+            <p>
+                11.4 如果本协议部分条款被裁定无效不影响其他部分效力。
+            </p>
+            <p>
+                11.5 本协议之标题仅为方便阅读而设，不做为实质性的法律契约条款。
+            </p>
+
+            <p>
+                六、关于推荐就业
+            </p>
+            <p>
+                6.1乙方保证在甲方2020年通过一级注册消防工程师考试并取得证书后，为甲方寻找对应消防单位推荐就业，确保甲方能够就业成功。
+            </p>
+            <p>
+                6.2乙方为甲方推荐就业单位，2021年就业收入若低于6万，乙方承诺全额退款；若就业收入高于10万，甲方需向乙方支付第一年推荐就业收入的10%。
+            </p>
+            <p>
+                6.3甲方在延时重修期间取得一级注册消防工程师证书的，乙方仍为甲方提供推荐就业服务，就业收益视当年市场行情变动，乙方优先为甲方推荐收入高的单位进行就业。
+            </p>
+            <p>
+                6.4乙方为甲方推荐就业的具体单位视市场情况和单位情况而定，无法指定具体单位，但可以根据甲方意愿尽量安排，甲方可拒绝乙方推荐就业的单位，拒绝后乙方可为甲方继续推荐其他就业单位，但将不再提供推荐就业保障服务，就业费用也无法保证。
+            </p>
+            <p>
+                6.5乙方为甲方寻找对应消防单位就业时，甲方需全程配合乙方，提供相应的资料文件。若因甲方未及时提供资料或提供虚假资料而造成推荐就业失败，乙方概不承担任何责任。
+            </p>
+            <p>
+                七、关于冻结课程与升班
+            </p>
+            <p>
+                7.1在2020年一级注册消防工程师考试第一天（算作第一天）向前推30天（含第30天）之内不允许冻结课程，甲方仅拥有一次冻结机会，31天向前可以冻结，冻结期限时长为1-90天（无论冻结何时开始，至考前30天自行停止冻结），根据实际冻结的天数，服务期相应顺延。
+            </p>
+            <p>
+                7.2如出现以下情形之一，甲方方可申请冻结课程：
+            </p>
+            <p>
+                7.2.1甲方出现重大疾病或伤残（参照《重大疾病保险的疾病定义使用规范》）。需出具二级甲等以上医院(含)出具的诊断证明；
+            </p>
+            <p>
+                7.2.2甲方因为自身原因无法使用网络的，包括但不限于出国（境）旅行、出国（境）短期逗留等情况。
+            </p>
+            <p>
+                7.3冻结课程流程
+            </p>
+            <p>
+                7.3.1甲方应主动向班主任申请冻结课程服务，提供6.2条情形约定的对应资料，包括但不限于二级甲等以上医院出具的诊断证明、签证、机票等。
+            </p>
+            <p>
+                7.3.2乙方依据甲方所提交的资料在15个工作日内进行审核，经乙方审核满足6.2条申请冻结课程条件的，乙方按本协议约定在15个工作日内提供冻结课程服务；经审核不符合条件的可以补正后再次申请，合计以二次为限，仍不符合的不予冻结课程。
+            </p>
+            <p>
+                7.3.3冻结期限结束后，甲方听课证效力自动恢复，并不再另行通知甲方。
+            </p>
+            <p>
+                7.4甲方报名后随时可以进行班型升级，升级时需要补齐新班型与老班型之间的差价；升级班型后将签订新的协议，所有服务以新协议为准，本协议自动终止。
+            </p>
+            <p>
+                八、协议终止和解除
+            </p>
+            <p>
+                8.1	如出现以下情形之一，本协议自动终止：
+            </p>
+
+            <p>
+                8.1.1甲方参加本次考试，且考试分数达到合格标准；
+            </p>
+            <p>
+                8.1.2乙方为甲方提供了退费服务或为甲方连续二年办理延时重修；
+            </p>
+            <p>
+                8.1.3本次考试合格标准公布30日后，甲方未联系乙方申请退费、考过服务费用全额奖励或延时重修；
+            </p>
+            <p>
+                8.1.4甲方提供的信息或资料不真实；
+            </p>
+
+            <p>
+                8.1.5甲方不满足本次考试的报考条件、或未进行本次考试的报考、或缺考本次考试；
+            </p>
+            <p>
+                8.1.6双方存在其他违反本协议约定并导致本协议无法继续履行或导致本协议继续履行存在困难的情形；
+            </p>
+            <p>
+                8.1.7在签署本协议的过程及协议履行或变更、协商解除时，甲方试图或已经与乙方工作人员或对其构成影响力的人员达成私下交易，无论甲方已经事前或允诺事后给予上述特定人员某种特殊利益，一经发现均视为甲方以实际行为明示不再履约，乙方有权单方解除协议并不退还任何费用，并保留必要时追究甲方法律责任的权利。
+            </p>
+            <p>
+                8.2	除本协议另有约定，任何一方不得提前终止或解除本协议。
+            </p>
+            <p>
+                九、不可抗力
+            </p>
+            <p>
+                9.1	不可抗力指超出双方控制范围，无法预见、无法避免或无法克服的事件。此类事件包括但不限于意外事件（如战争等、暴动等）、自然灾害（如地震、火灾、水灾等）、网络中断、黑客攻击、政府行为或其他任何甲乙双方均无法预见、控制或避免的事件。
+            </p>
+
+            <p>
+                9.2	一方由于不可抗力事件，在履行本协议项下的义务过程中遇到障碍或延误，不能按协议约定全部或部分履行其义务的，遇到不可抗力事件的一方不视为违约。
+            </p>
+            <p>
+                9.3	不可抗力事件发生后，若有可能，受不可抗力影响的一方应在10个工作日内将有关情况及时通知对方（乙方可通过网站公告方式通知甲方）。
+            </p>
+            <p>
+                9.4	在不可抗力影响消除后，遭受不可抗力影响的一方应尽最大努力恢复履行其在本协议项下的义务。
+            </p>
+            <p>
+                十、法律适用及争议解决
+            </p>
+            <p>
+                10.1 本协议的成立、有效性、解释及争议的解决均应适用中华人民共和国法律。
+            </p>
+            <p>
+                10.2 双方在履行本协议过程中，如发生任何争议，首先应通过友好协商解决。协商未能解决的，双方同意通过服务提供方所在地或合同实际履行地法院诉讼解决（特别约定：对于因合同争议引起的纠纷，司法机关可以在传统方式无法送达后通过包括但不限于手机短信或电子邮件等现代通讯方式送达法律文书，但不包括判决书在内）。
+            </p>
+            <p>
+                十一、知识产权保护
+            </p>
+            <p>
+                11.1 乙方网站及乙方网站所使用之相关软件（以下简称“软件”）含有受到相关知识产权及其它法律保护之专有保密资料。甲方了解并同意，经由乙方网站或广告商向甲方呈现之赞助广告或信息所包含之内容，亦受到著作权、商标权、服务商标、专利权或其它专属权利之法律保护。未经乙方或广告商明示授权，甲方不得修改、出租、出借、出售、散布本服务或软件之任何部分或全部，或据以制作衍生著作，或使用擅自修改后的软件，包括但不限于为了未经授权而使用本服务之目的。
+            </p>
+            <p>
+                11.2 乙方仅授予甲方个人、不可移转及非专属之使用权，使甲方得于单机计算机使用其软件之目的，但不得（并不得允许任何第三人）复制、修改、创作衍生著作、进行还原工程、反向组译，或以其它方式发现原始码，或出售、转让、再授权或提供软件设定担保，或以其它方式移转软件之任何权利。甲方同意将通过由火种教育所提供的界面而非任何其它途径使用乙方网站。
+            </p>
+            <p>
+                11.3 乙方网页注册商标、标志及字号、产品、服务名称，均为乙方之商标（以下简称“标记”）。甲方同意不将标记以任何方式展示或使用或作其它处理，或表示甲方有权展示、使用或另行处理该等标记。
+            </p>
+            <p>
+                11.4 乙方就本课程向甲方提供的所有资料（以下简称“资料”）包括但不限于：辅导计划、课程安排、授课资料（包括但不限于教案、教材、讲解）、各类模拟试题、考试信息均属于乙方知识产权，受到著作权、商标权、或其它专属权利之法律保护。未经乙方明示授权，甲方不得（并不得允许任何第三人）复制、修改、出租、出借、出售、散布资料之任何部分或全部，或据以制作衍生著作，包括但不限于为了未经授权而使用本服务之目的。
+            </p>
+            <p>
+                11.5 甲方如违反本协议第十条相关规定，应当赔偿乙方全部经济损失。
+            </p>
+            <p>
+                十二、附则
+            </p>
+            <p>
+                12.1	本协议自甲方通过网页确认协议内容之时成立，自甲方全额支付本课程的服务费用之时生效。如您为了准备考试而购买火种教育的课程产品，请先行确认您符合该考试的报名条件，这是您个人单方义务。具体报名条件请以考试主办单位发布的文件和官方网站告知为准。鉴于火种教育并非考试主办机构，火种教育工作人员关于考试报名、证书领取等有关问题提供的信息咨询，均依照国家考试主管部门公布的最新政策文件做出的解读，免费提供给甲方进行参考和判断，无法对甲方是否满足报名条件作出承诺或最终判断。您理解并同意，由于历年考试报名条件变化等原因，您此前满足该考试的报名条件，不代表您一定满足本次考试的报名条件。对此风险，火种教育与您均无法预见。您无权因考试报名条件变动导致您无法报考为由，要求火种教育退费。如乙方提供预开课服务，则本协议生效时间提前至甲方确认协议内容并激活课程时。如甲方通过课程置换的方式获得本课程，即甲方购买其他课程后，经与乙方客服协商将原课程更换为本课程，则本协议自甲方通过网页确认协议内容并激活课程时生效，甲方购买原课程已支付的款项自动转为本课程服务费的全部并补足差额部分后，原协议自动终止。本协议生效后，甲方可以访问火种教育官网www.huozhongedu.com.cn随时查看本协议内容。
+            </p>
+            <p>
+                12.2	本协议生效后，甲方可以对协议内容进行公证，乙方配合，公证费用由甲方自行承担。
+            </p>
+            <p>
+                12.3	本协议是双方关于本课程辅导服务、退费或延时重修条件等相关事宜的完整协议，并取代双方先前的或现在的所有陈述、建议、讨论和通讯，无论是口头的还是书面的。如双方关于本课程辅导服务以及退费或延时重修条件等相关事宜的沟通或陈述与本协议不一致，以本协议约定为准。
+            </p>
+            <p>
+                12.4如果本协议部分条款被裁定无效不影响其他部分效力。
+            </p>
+            <p>
+                12.5本协议之标题仅为方便阅读而设，不做为实质性的法律契约条款。
+            </p>
+            
+        </div>
+        <div class="cachet">
+            <div>
+                <span style="line-height:150px">学校盖章：</span>
+                <img src="" class="schoolcachet" alt="" width="150px" height="150px"
+                    style="margin-left:120px;vertical-align:middle;">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+            <div style="overflow: hidden;position:relative">
+                <span style="line-height:150px">学员签字：</span>
+                <img src="img/official1.jpg" alt="" width="150px" height="75px"
+                    style="position:absolute;margin-left:120px;margin-top:37.5px">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+        </div>
+        <div class="xieyidate" style="margin-bottom:40px">
+            <!-- <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+                 <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div> -->
+        </div>
+    </div>
+    <div class="modelplc">
+        <form class="modelstur" id="contractleft" action="" enctype="multipart/form-data" onsubmit="return false;">
+            <!-- <input type="text" name="hehe"> -->
+            <div class="modelstur-head">
+                <p style="color:#42b983">分配</p>
+                <button class="plcx">X</button>
+            </div>
+            <div class="modelstu-body">
+                <div class="monumber"><span>班主任：</span>
+                    <select name="contract_teacher" id="">
+                        <option value=" ">请选择</option>
+                        <option value="wed">wed</option>
+                        <option value="wedq">wedq</option>
+                        <option value="wede">wede</option>
+                        <option value="wedr">wedr</option>
+                        <option value="wedt">wedt</option>
+                        <option value="w">w</option>
+                        <option value="q">q</option>
+                        <option value="e">e</option>
+                        <option value="r">r</option>
+                        <option value="t">t</option>
+                    </select>
+                </div>
+                <div class="monumber">
+                    <span>搜索小组：</span>
+                    <select name="contract_group" id="">
+                        <option value="">请选择</option>
+                        <option value="wed">wed</option>
+                        <option value="wedq">wedq</option>
+                        <option value="wede">wede</option>
+                        <option value="wedr">wedr</option>
+                        <option value="wedt">wedt</option>
+                    </select>
+                </div>
+                <div class="monumber">
+                    <span>搜索：</span>
+                    <input type="text" name="contract_name">
+                </div>
+                <p class="Auditp" style="color:#42b983"></p>
+                <input type="button" class="Audit" value="确定" style="margin-top:30px;padding:5px 15px;height:40px;background: #42b983;
+                    border: none;
+                    color: white;cursor:pointer">
+            </div>
+        </form>
+
+    </div>
+    <div class="modelplc">
+        <div class="modelstur">
+            <div class="modelstur-head">
+                <p style="color:#42b983">支付截图</p>
+                <button class="payx">X</button>
+            </div>
+            <div class="modelstu-body aaa">
+                <a href="javascript:void(0)" id="1" ref="img/pay.jpg">d729</a><input placeholder="请填写流水号"
+                    class="moneyNumber"
+                    onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,'');}).call(this)"
+                    type="text"><input type="text" placeholder="请填写日期" onClick="" class="ggg">
+                <a href="javascript:void(0)" id="2" ref="img/pay.jpg">d729</a><input placeholder="请填写流水号"
+                    class="moneyNumber"
+                    onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,'');}).call(this)"
+                    type="text"><input type="text" placeholder="请填写日期" onClick="" class="ggg">
+                <a href="javascript:void(0)" id="3" ref="img/pay.jpg">d729</a><input placeholder="请填写流水号"
+                    class="moneyNumber"
+                    onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,'');}).call(this)"
+                    type="text"><input type="text" placeholder="请填写日期" onClick="" class="ggg">
+                <!-- <a href="javascript:void(0)" id="4"ref="img/pay.jpg">d729</a><input type="text" placeholder="请填写日期" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})"><input placeholder="请填写流水号" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,'');}).call(this)" type="text">
+                <a href="javascript:void(0)" id="4"ref="img/pay.jpg">d729</a><input type="text" placeholder="请填写日期" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})"><input placeholder="请填写流水号" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,'');}).call(this)" type="text">
+                <a href="javascript:void(0)" id="4"ref="img/pay.jpg">d729</a><input type="text" placeholder="请填写日期" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})"><input placeholder="请填写流水号" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,'');}).call(this)" type="text">
+                <a href="javascript:void(0)" id="4"ref="img/pay.jpg">d729</a><input type="text" placeholder="请填写日期" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})"><input placeholder="请填写流水号" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,'');}).call(this)" type="text">
+                <a href="javascript:void(0)" id="4"ref="img/pay.jpg">d729</a><input type="text" placeholder="请填写日期" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})"><input placeholder="请填写流水号" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/g,'');}).call(this)" type="text"> -->
+
+                <div style="overflow:hidden;    margin-top: 20px;">
+                    <p class="moneyNumberp" style="color:#42b983"></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="hoverimg"
+            style="display:none;position:absolute;top:0%;left:-50%;background-color:black;width:150%;height:200%;z-index:999;padding-left:100%;">
+            <img src="img/banner_01.jpg" style="width:300px;margin-left:-150px;margin-top:30px" alt="">
+            <div class="hover-message"
+                style="position:absolute;top:0;width:300px;text-align:center;margin-left:-150px;color:white;line-height:30px">
+
+            </div>
+        </div>
+    </div>
+    <div class="modelplc">
+        <div class="modelstur">
+            <div class="modelstur-head">
+                <p style="color:#42b983">支付信息</p>
+                <button class="payx">X</button>
+            </div>
+            <div class="modelstu-body aaa">
+                <table style="">
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modelgiveup">
+        <div class="modelstur">
+            <div class="modeltable-head">
+                <p style="color:#42b983">审核</p>
+                <button class="Audix">X</button>
+            </div>
+            <div class="modeldel-body">
+                <div class="monumber">
+                    <span>审核状态：</span>
+                    <select name="Audit_status" id="">
+                        <option value="通过">通过</option>
+                        <option value="不通过">不通过</option>
+                    </select>
+                </div>
+                <div class="monumber back_reason" style="display:none">
+                    <span>不通过原因：</span>
+                    <select name="back_reason" id="">
+                        <option value="支付时间不对">支付时间不对</option>
+                        <option value="公司名称不对">公司名称不对</option>
+                        <option value="支付方式不对">支付方式不对</option>
+                        <option value="金额不对">金额不对</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+                <div class="monumber back_reason_note" style="display:none">
+                    <span>其他原因：</span>
+                    <input style="padding:0;height:36px" name="back_reason_note" type="text">
+                </div>
+                <div class="monumber">
+                    <p class="audip" style="color:#42b983;">hehe</p>
+                    <button id="audigo" style="padding:0px 30px">确定</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    window.onload = function () {
+        document.oncontextmenu = function (e) {
+            e.preventDefault();
+        };
+        $('html').on('mousedown', function (e) {
+            console.log(e.button)
+            if (e.button == 2) {
+
+                $('.stunew').css('display', 'none')
+                $('.navbar-fixed-top').css('display', 'none')
+                window.print()
+            }
+        })
+    }
+    $('.ggg').on('click', function () {
+        if ($(this).prev().val() == "") {
+            $(this).prev().focus();
+        } else {
+            WdatePicker({
+                el: this,
+                dateFmt: 'yyyy-MM-dd HH:mm:ss'
+            })
+        }
+    })
+    $('.moneyNumber').on('blur', function () {
+        var moneyNumber = $(this).val();
+        $.ajax({
+            url: 'moneyNumber',
+            type: 'post',
+            data: {
+                moneyNumber: moneyNumber
+            },
+            success: function (data) {
+                $('.moneyNumberp').text(`此流水号已存在`)
+            },
+            error: function () {
+                $('.moneyNumberp').text(`服务器错误`)
+            }
+        })
+    })
+    $('.payx').click(function () {
+        $('.modelplc')[1].style.display = "none"
+        //     var moneyNumber = '';
+        //     $('.moneyNumber').each(function(index,el){
+        //         if($(el).val() != ""){
+        //             console.log($(el).val())
+        //             moneyNumber += `,'`+$(el).val()+`'`
+        //         }
+        //     })
+        //     moneyNumber =`"`+ moneyNumber.substring(1)+`"`
+        //     console.log(moneyNumber)
+        //     $.ajax({
+        //         url:'moneyNumber',
+        //         type:'post',
+        //         data:{moneyNumber:moneyNumber},
+        //         success:function(data){
+        //             $('.moneyNumberp').text(`此流水号已存在`)
+        //         },
+        //         error:function(){
+        //             $('.moneyNumberp').text(`服务器错误`)
+        //         }
+    })
+
+
+    // $('.modelplc')[1].style.display = "none"
+    //     $(".modelstur").find('input[type=text],select').each(function() {
+    //     $(this).val('');
+    //     });
+    // })
+
+    var suo = true;
+    $('.aaa a').click(function (e) {
+        console.log($(this).attr('ref'))
+        if (suo == true) {
+            $('.hoverimg')[0].style.display = "block";
+            $('.hoverimg img').attr('src', $(this).attr('ref'));
+            $('.hover-message')[0].innerText = $(this).attr('data-message');
+            suo = false;
+            setTimeout(function () {
+                suo = true;
+
+            }, 1500);
+        }
+    })
+    $('.hoverimg').click(function () {
+        $('.hoverimg')[0].style.display = "none";
+    })
+    //
+    var in_time;
+    $('.Audix').click(function () {
+        $('.modelgiveup')[0].style.display = 'none';
+    })
+    $('select[name = Audit_status]').on('change', function () {
+        if ($(this).val() == "不通过") {
+            $('.back_reason')[0].style.display = "block"
+        } else {
+            $('.back_reason')[0].style.display = "none"
+            $('.back_reason_note')[0].style.display = "none"
+        }
+    })
+    $('select[name = back_reason]').on('change', function () {
+        if ($(this).val() == "其他") {
+            $('.back_reason_note')[0].style.display = "block"
+        } else {
+            $('.back_reason_note')[0].style.display = "none"
+        }
+    })
+    $('#audigo').click(function () {
+        if ($('select[name = Audit_status]').val() == '通过') {
+            $('.modelgiveup')[0].style.display = 'none';
+            $('.modelplc')[0].style.display = "block"
+
+        } else {
+            $.ajax({
+                url: '',
+                type: 'get',
+                data: {
+                    back_reason: $('select[name = back_reason]').val(),
+                    back_reason_note: $('input[name = back_reason_note]').val()
+                },
+                success: function () {
+
+                },
+                error: function () {
+
+                }
+            })
+        }
+    })
+    //提交支付截图信息
+    $('.paysubmit').click(function () {
+        $('.modelplc')[1].style.display = "none"
+    })
+
+    function optnme(q) {
+        var arr1 = [];
+        var arr2 = [];
+        var objopt = {}
+        for (let i = 0; i < q[0].length; i++) {
+            arr1.push(q[0][i].value);
+            arr2.push(q[0][i].innerHTML);
+
+        }
+        for (var j = 0; j < arr1.length; j++) {
+            objopt[arr1[j]] = arr2[j]
+
+        }
+        return objopt
+    }
+    var objoptw = optnme($('select[name=contract_teacher]'))
+
+    function heheh() {
+        $('select[name=contract_teacher]')[0].innerHTML = ""
+        for (var k in objoptw) {
+            console.log(k)
+            if (objoptw[k].indexOf($('select[name=contract_group]').val()) > -1 && objoptw[k].indexOf($(
+                    'input[name=contract_name]').val()) > -1) {
+                $('select[name=contract_teacher]')[0].innerHTML += "<select name='contract_teacher'>" +
+                    "<option value=" + k + ">" + objoptw[k] + "</option>" + "</select>"
+            }
+        }
+    }
+    $('input[name=contract_name]').on('keyup', function () {
+        heheh()
+    });
+    $('select[name=contract_group]').on('change', function () {
+        heheh()
+    });
+    $('.plcnew').click(function () {
+        $('.modelgiveup')[0].style.display = "block"
+    })
+    $('.plcx').click(function () {
+        $('.modelplc')[0].style.display = "none"
+    })
+
+    //查看支付截图
+    $('.paynew').click(function () {
+        $('.modelplc')[1].style.display = "block"
+        locka = 0;
+    })
+
+    var Href = location.href.split('?')[1];
+    console.log(Href)
+    if (Href == undefined) {
+        $('input[name = poll-content]').val('')
+    } else {
+        $('input[name = poll-content]').val(Href.split('=')[1])
+    }
+    $('.poll-button').click(function () {
+        window.location.href = "pollingOfContract.html?content=" + $('input[name = poll-content]').val()
+    })
+    $('.Audit').click(function () {
+        var unique_key = [],
+            payment = [];
+        $('.aaa a').each(function (index, el) {
+            console.log($(el).attr('id'))
+            unique_key.push($(el).attr('id'))
+            payment.push($(el).attr('ref'))
+        })
+        var pay_date = [],
+            money_num = [];
+        var Audit_go = true;
+        var Max_time = new Date($('.aaa input')[0].value).getTime();
+        console.log(Max_time)
+        $('.aaa input').each(function (index, el) {
+            console.log($(el).attr('class'))
+            if ($(el).attr('class') == "moneyNumber") {
+                money_num.push(el.value)
+            } else if ($(el).attr('class') == "ggg") {
+                pay_date.push(el.value)
+
+                Max_time = Math.max(Max_time, new Date(el.value).getTime())
+            }
+            if (el.value == "") {
+                Audit_go = false
+            }
+        })
+        console.log(Max_time)
+        var d = new Date(Max_time)
+        in_time = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d
+            .getMinutes() + ':' + d.getSeconds();
+        var Href = location.href.split('?')[1].split('=')[1];
+        console.log($('select[name = contract_teacher]').val() != 0)
+        if ($('select[name = contract_teacher]').val() != false) {
+            if (Audit_go == true) {
+                $.ajax({
+                    url: '',
+                    type: 'post',
+                    data: {
+                        Href,
+                        unique_key,
+                        payment,
+                        teacher: $('select[name = contract_teacher] :selected').text(),
+                        money_num,
+                        pay_date,
+                        sign_time: in_time
+                    },
+                    success: function (data) {
+                        if (data == 1) {
+                            $('.Auditp')[0].innerHTML = "审核成功"
+                            $('.schoolcachet')[0].src = "img/offical111.jpg"
+                            $('.schoolcachet')[1].src = "img/offical111.jpg"
+                            setTimeout(function () {
+                                $('.Auditp')[0].innerHTML = ""
+                            }, 3000)
+                        } else {
+                            $('.Auditp')[0].innerHTML = "审核失败"
+                            setTimeout(function () {
+                                $('.Auditp')[0].innerHTML = ""
+                            }, 3000)
+                        }
+                    },
+                    error: function () {
+                        console.log($('.schoolcachet'))
+
+                        $('.Auditp')[0].innerHTML = "服务器错误"
+                        setTimeout(function () {
+                            $('.Auditp')[0].innerHTML = ""
+                        }, 3000)
+                    }
+                })
+            } else {
+                $('.Auditp')[0].innerHTML = "请完整填写支付截图后的信息"
+                setTimeout(function () {
+                    $('.Auditp')[0].innerHTML = ""
+                }, 3000)
+            }
+        } else {
+            console.log(1)
+            $('.Auditp')[0].innerHTML = "请选择班主任"
+            setTimeout(function () {
+                $('.Auditp')[0].innerHTML = ""
+            }, 3000)
+        }
+
+    })
+</script>
+
+</html>

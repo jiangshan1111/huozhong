@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>统计</title>
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <!-- <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen"> -->
+    <link href="css/styles.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/polling.css">
+    <!-- <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <style>
+        body {
+            font-size: 16px;
+        }
+
+        .hidd>div,
+        .hidd1>div,
+        
+        .hidd3>div,
+        .hidd4>div,
+        .hidd5>div,
+        .hidd6>div,
+        .hidd7>div,
+        .hidd8>div,
+        .hidd9>div,
+        .hidd10>div,
+        .hidd11>div,
+        .hidd12>div {
+            float: left;
+            width: 25%;
+            text-align: center
+        }
+        .hidd2>div {
+            float: left;
+            width: 50%;
+            text-align: center
+        }
+        .hidd3>div,
+        .hidd4>div,
+        .hidd6>div,
+        .hidd7>div,
+        .hidd8>div,
+        .hidd9>div,
+        .hidd10>div,
+        .hidd11>div,
+        .hidd12>div {
+            width: 33%;
+        }
+
+        .hidd5>div,.hidd7>div {
+            width: 50%;
+        }
+
+        .span10>select,
+        #seaform>div>div>input[type=text] {
+            width: 60%;
+            height: 40px;
+            padding: 0;
+        }
+        #polling-header {
+            overflow: inherit
+        }
+        .span10>select {
+            margin: 10px 0;
+        }
+
+        #seaform>div>div {
+            margin: 0;
+        }
+
+        #seaform>div>div>select {
+            width: 60%;
+            height: 40px;
+            padding: 0;
+        }
+
+        .span10>span,
+        #seaform>div>div>span {
+            display: inline-block;
+            width: 30%;
+        }
+
+        #polling-header-body {
+            padding: 0;
+        }
+
+        .seaformp1,
+        .seaformp2,
+        .seaformp3 {
+            background-repeat: no-repeat;
+            background-position-x: 99%;
+            background-position-y: 50%;
+        }
+
+        #sta_table,
+        #search_sel {
+            margin-left: 8%;
+            background: white;
+        }
+
+        #search_sel span {
+            text-align: center;
+        }
+
+        @media (max-width: 767px) {
+
+            #sta_table,
+            #search_sel {
+                margin-left: 0;
+            }
+        }
+
+        #sta_table table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #sta_table>div {
+            max-height: 600px;
+            overflow: auto;
+            float: right;
+            width: 100%;
+            /* max-height: 200px;
+            overflow: auto;
+            background: #ddd;
+            margin: 20px 10px;
+            box-shadow: 0 0 1px 3px #ddd; */
+        }
+
+        #sta_table {
+            padding: 20px 3%;
+            overflow: auto;
+            /* color: ; */
+        }
+
+        #sta_table td {
+            /* width: 25%; */
+            min-width: 60px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 0;
+        }
+
+        .ctable td {
+            width: 33%;
+        }
+
+        .px {
+            cursor: pointer;
+            color: #42b983;
+            position: relative;
+        }
+
+        /* .px::after{
+            content:url('img/all.svg');
+            position: absolute
+        } */
+        .px>img {
+            margin-top: -3px;
+            margin-left: 5px;
+        }
+
+        .sx {
+            border: none
+        }
+
+        thead {
+            color: white;
+            background-color: #ddd;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <!-- block -->
+            <div class="block">
+                <div class="span12" id="polling-header">
+                    <!-- <div class=" span10 " id="search_sel" style="">
+                        <span>需求：</span><select name="demand" class="mwd" id="">
+                            <option value="">请选择</option>
+                            <option value="1">听课做题统计</option>
+                            <option value="2">成绩统计</option>
+                            <option value="3">学历行业工作年限统计</option>
+                            <option value="4">科目统计</option>
+                            <option value="5">报考省份统计</option>
+                            <option value="6">班型统计</option>
+                            <option value="7">报名类型支付方式统计</option>
+                        </select>
+                        <p class="polling-headerp" style="background-image: url('img/down.svg');"><span></span>查询条件</p> 
+                    </div> -->
+                    <div class=" span10 " id="polling-header-top">
+                        <p class="polling-headerp" style="background-image: url('img/down.svg');"><span></span>查询条件</p>
+                    </div>
+                    <div class=" span10 " id="polling-header-body">
+                        <form style="position:relative" name="seaform" id="seaform">
+                            <div class="didi1" style="margin-top:10px">
+                                <div class="span4" style="position:relative;" data-ig="time_start">
+                                    <span>需求：</span><select name="demand" class="mwd" id="">
+                                        <option value="">请选择</option>
+                                        <option value="1">听课做题统计</option>
+                                        <option value="2">成绩统计</option>
+                                        <option value="3">学历行业工作年限统计</option>
+                                        <option value="4">科目统计</option>
+                                        <option value="5">报考省份统计</option>
+                                        <option value="6">班型统计</option>
+                                        <option value="7">报名类型支付方式统计</option>
+                                    </select>
+                                </div>
+                                <div class="span4" style="position:relative;    height: 52px;" data-ig="time_type">
+                                    <span>快捷搜索：</span><select name="time_type" class="mwd" id="">
+                                        <option value="">自定义</option>
+                                        <option value="today">今天</option>
+                                        <option value="yesterday">昨天</option>
+                                        <option value="thisWeek">本周</option>
+                                        <option value="lastWeek">上周</option>
+                                        <option value="thisMonth">本月</option>
+                                        <option value="lastMonth">上月</option>
+                                    </select>
+                                </div>
+                                <div class="span4" style="position:relative;" data-ig="time_start">
+                                    <span>起始时间：</span><input class="" type="text" name="start_time"
+                                        onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 00:00:00'})" placeholder="日期"
+                                        autocomplete="off">
+
+                                </div>
+                                <div class="span4" style="position:relative;" data-ig="time_end">
+                                    <span>截止时间：</span><input class="" type="text" name="end_time"
+                                        onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 23:59:59'})" placeholder="日期"
+                                        autocomplete="off">
+                                </div>
+                                <div class="span4" style="position:relative;" data-ig="project">
+                                    <span>项目：</span><input class="" autocomplete="off" type="text" name="project"
+                                        placeholder="项目">
+                                    <div class="hidd2"
+                                        style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 0">
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                                style="display: inline;">&nbsp;消防项目</span>
+                                        </div>
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                                style="display: inline;">&nbsp;基金项目</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4" style="position:relative;" data-ig="ditch">
+                                    <span>班型：</span><input class="" autocomplete="off" type="text" name="class_type"
+                                        placeholder="班型">
+                                    <div class="hidd6"
+                                        style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 0">
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                                style="display: inline;">&nbsp;SEM</span>
+                                        </div>
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                                style="display: inline;">&nbsp;信息流</span>
+                                        </div>
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span
+                                                style="display: inline;">&nbsp;SEO</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4" style="position:relative;" data-ig="classify">
+                                    <span>考期：</span><input class="" autocomplete="off" type="text" name="exam_date"
+                                        placeholder="考期">
+                                    <div class="hidd7"
+                                        style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 0">
+                                        <div style="text-align:center"> <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201811</span></div>
+                         <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201911</span></div>
+                         <div style="text-align:center"> <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;2020考期</span></div>
+                                    </div>
+                                </div>
+                                <div class="span4" style="position:relative;" data-ig="people">
+                                    <span>属员：</span><input class="people" autocomplete="off" type="text"
+                                        placeholder="属员"><input class="" type="text" name="teach_id" placeholder="属员"
+                                        style="display:none">
+                                    <div class="hidd5"
+                                        style="display:none;width:60%;position:absolute;top:40px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 0">
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="button" class="reset" value="重置"
+                                        style="margin-right:40px;margin-top: 10px"></input>
+                                    <input type="button" id="seasearch" class="seasearch" style="margin-top: 10px"
+                                        value="查询"></input>
+                                </div>
+
+                                <div style="clear:both"></div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="span10" style="height:30px"></div>
+
+                    <div class="span10" id="sta_table">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</body>
+<!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
+<script src="js/export.js"></script>
+<script type="text/javascript">
+    var params = "";
+    $('.datagrid-header span:nth-of-type(1)').attr('data-title', 'jiangshan')
+    $('.polling-headerp').click(function () {
+        if ($(this)[0].style.backgroundImage != 'url("img/up.svg")') {
+            $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            $('#polling-header-body')[0].style.display = "none"
+        } else {
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#polling-header-body')[0].style.display = "block"
+        }
+    })
+
+    //伸开展开
+    $('.seaformp2').click(function () {
+        if ($(this)[0].style.backgroundImage != 'url("img/up.svg")') {
+            $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            $('.didi2')[0].style.display = "block"
+        } else {
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('.didi2')[0].style.display = "none"
+        }
+    })
+    $('.seaformp3').click(function () {
+        if ($(this)[0].style.backgroundImage != 'url("img/up.svg")') {
+            $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            $('.didi3')[0].style.display = "block"
+        } else {
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('.didi3')[0].style.display = "none"
+        }
+    })
+    $('.seaformp1').click(function () {
+        if ($(this)[0].style.backgroundImage != 'url("img/up.svg")') {
+            $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            $('.didi1')[0].style.display = "block"
+        } else {
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('.didi1')[0].style.display = "none"
+        }
+    })
+
+    //重置
+    $('.reset').click(function () {
+        $("#seaform").find('input[type=text],select').each(function () {});
+        $('input[type=checkbox]').each(function () {
+            $(this)[0].checked = false
+        })
+    })
+
+
+
+    function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray()
+        var jsonStr = "";
+
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+
+        var json = JSON.parse(jsonStr)
+        return json
+    }
+
+    //区间
+    function hhh() {
+        $('.hidd1')[0].innerHTML +=
+            `<div style="text-align:center;width:100%">区间：<input type='text' class="text1" style="width:40px;margin:0">-<input type='text' class="text2" style="width:40px;margin:0"></div>`;
+        $($('input[class=text2]')).on('keyup', function () {
+            if ($('input[class=text2]').val() > $('input[class=text1]').val()) {
+                $('.hidd1 input[type=checkbox]').each(function (index, el) {
+                    var text1;
+                    if ($('input[class=text1]').val() == "") {
+                        text1 = 0
+                    } else {
+                        text1 = $('input[class=text1]').val();
+                    }
+                    if (index > text1 - 2 && index < $('input[class=text2]').val()) {
+                        el.checked = true
+                    } else {
+                        el.checked = false
+                    }
+                })
+            } else {
+                $('.hidd1 input[type=checkbox]').each(function (index, el) {
+                    el.checked = false
+                })
+            }
+        })
+    }
+
+    //选择月/周/日 显示内容不同
+    function chan() {
+        if ($('select[class=mwd]').val() == "month") {
+            $('div[data-ig = Year]').css('display', 'block')
+            $('div[data-ig = m_w_d]').css('display', 'block')
+            $('div[data-ig = time_start]').css('display', 'none')
+            $('div[data-ig = time_end]').css('display', 'none')
+            $('div[data-ig = time_type]').css('display', 'none')
+            $('.hidd1')[0].innerHTML = ""
+            for (var i = 1; i < 13; i++) {
+                if (i < 10) {
+                    i = '0' + i
+                }
+                $('.hidd1')[0].innerHTML +=
+                    `<div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                    i + `</span>
+                                        </div>`
+            }
+            hhh()
+        } else if ($('select[class=mwd]').val() == "week") {
+            $('div[data-ig = Year]').css('display', 'block')
+            $('div[data-ig = m_w_d]').css('display', 'block')
+            $('div[data-ig = time_start]').css('display', 'none')
+            $('div[data-ig = time_end]').css('display', 'none')
+            $('div[data-ig = time_type]').css('display', 'none')
+            $('.hidd1')[0].innerHTML = ""
+            for (var i = 1; i < 54; i++) {
+                $('.hidd1')[0].innerHTML +=
+                    `<div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                    i + `</span>
+                                        </div>`
+            }
+            hhh()
+        } else if ($('select[class=mwd]').val() == "day") {
+            $('div[data-ig = Year]').css('display', 'block')
+            $('div[data-ig = m_w_d]').css('display', 'block')
+            $('div[data-ig = time_start]').css('display', 'none')
+            $('div[data-ig = time_end]').css('display', 'none')
+            $('div[data-ig = time_type]').css('display', 'none')
+            $('.hidd1')[0].innerHTML = '<p>月：</p>'
+            for (var i = 1; i < 13; i++) {
+                if (i < 10) {
+                    i = '0' + i
+                }
+                $('.hidd1')[0].innerHTML +=
+                    `<div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                    i + `</span>
+                                        </div>`
+
+            }
+            $('.hidd1')[0].innerHTML +=
+                `<div style="text-align:center;width:100%">区间：<input type='text' class="text1" style="width:40px;margin:0">-<input type='text' class="text2" style="width:40px;margin:0"></div>`;
+            $('.hidd1')[0].innerHTML += '<p>日：</p>'
+            for (var j = 1; j < 32; j++) {
+                if (j < 10) {
+                    j = '0' + j
+                }
+                $('.hidd1')[0].innerHTML +=
+                    `<div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                    j + `</span>
+                                        </div>`
+            }
+            $('.hidd1')[0].innerHTML +=
+                `<div style="text-align:center;width:100%">区间：<input type='text' class="text3" style="width:40px;margin:0">-<input type='text' class="text4" style="width:40px;margin:0"></div>`;
+            $($('input[class=text2]')).on('keyup', function () {
+                if ($('input[class=text2]').val() > $('input[class=text1]').val()) {
+                    $('.hidd1 input[type=checkbox]').each(function (index, el) {
+                        if (index >= 0 && index < 12) {
+                            var text1;
+                            if ($('input[class=text1]').val() == "") {
+                                text1 = 0
+                            } else {
+                                text1 = $('input[class=text1]').val();
+                            }
+                            if (index > text1 - 2 && index < $('input[class=text2]').val()) {
+                                el.checked = true
+                            } else {
+                                el.checked = false
+                            }
+                        }
+                    })
+                } else {
+                    $('.hidd1 input[type=checkbox]').each(function (index, el) {
+                        if (index >= 0 && index < 12) {
+                            el.checked = false
+                        }
+
+                    })
+                }
+            })
+            $($('input[class=text4]')).on('keyup', function () {
+                if ($('input[class=text4]').val() > $('input[class=text3]').val()) {
+                    $('.hidd1 input[type=checkbox]').each(function (index, el) {
+                        if (index >= 12) {
+                            var text1;
+                            if ($('input[class=text3]').val() == "") {
+                                text1 = 0
+                            } else {
+                                text1 = $('input[class=text3]').val();
+                            }
+                            if (index > parseInt(text1) + 10 && index < parseInt($('input[class=text4]')
+                                    .val()) + 12) {
+                                el.checked = true
+                            } else {
+                                el.checked = false
+                            }
+                        }
+                    })
+                } else {
+                    $('.hidd1 input[type=checkbox]').each(
+                        function (index, el) {
+                            if (index >= 12) {
+                                el.checked = false
+                            }
+                        })
+                }
+            })
+        } else {
+            $('div[data-ig = Year]').css('display', 'none')
+            $('div[data-ig = m_w_d]').css('display', 'none')
+            $('div[data-ig = time_start]').css('display', 'block')
+            $('div[data-ig = time_end]').css('display', 'block')
+            $('div[data-ig = time_type]').css('display', 'block')
+        }
+    }
+    chan();
+    $('select[class=mwd]').on('change', function () {
+        chan();
+    })
+
+    function getNowFormatDate(date) {
+        var seperator1 = "-";
+        var seperator2 = ":";
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        if (hour >= 0 && hour <= 9) {
+            hour = "0" + hour;
+        }
+        if (minute >= 0 && minute <= 9) {
+            minute = "0" + minute;
+        }
+        if (second >= 0 && second <= 9) {
+            second = "0" + second;
+        }
+        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+            " " + hour + seperator2 + minute +
+            seperator2 + second;
+        return currentdate;
+    }
+
+    function chanw() {
+        var oneday = 1000 * 60 * 60 * 24,
+            today = new Date();
+        getday = today.getDay() == 0 ? 7 : today.getDay();
+        switch ($('select[name=time_type]').val()) {
+            case "today":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime())));
+                $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+            case "yesterday":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday)));
+                $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - 1)))
+                break;
+            case "thisWeek":
+                console.log(1)
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (getday -
+                        1))));
+                $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+            case "lastWeek":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (getday + 6))));
+                $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (getday - 1) - 1)));
+                break;
+            case "thisMonth":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (today.getDate() - 1))));
+                $('input[name = end_time]').val(getNowFormatDate(new Date()))
+                break;
+            case "lastMonth":
+                $('input[name = start_time]').val(getNowFormatDate(new Date(new Date(new Date(new Date()
+                    .toLocaleDateString()).getTime() - oneday * today.getDate()) - oneday * (new Date(
+                    today - oneday * today.getDate()).getDate() - 1))));
+                $('input[name = end_time]').val(getNowFormatDate(new Date(new Date(new Date().toLocaleDateString())
+                    .getTime() - oneday * (today.getDate() - 1) - 1)))
+                break;
+            default:
+                break;
+        }
+    }
+    $('select[name=time_type]').on('change', function () {
+        chanw();
+    })
+
+
+
+    //部门
+
+    //小组
+
+
+    //属员
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "people" || $(e.target.parentElement.parentElement).attr(
+                'data-ig') == "people"|| $(e.target.parentElement.parentElement.parentElement)
+            .attr('data-ig') == "people") {
+            $('.hidd5')[0].style.display = "block";
+            console.log($('.hidd5')[0].innerHTML)
+        } else {
+            $('.hidd5')[0].style.display = "none";
+            $('input[class = people]').val('');
+            $('input[name = teach_id]').val('');
+            $('.hidd5 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[class = people]')[0].value += ',' + el.nextElementSibling.innerHTML.split(
+                        ';')[1];
+                    $('input[name = teach_id]')[0].value += ',' + $(el.nextElementSibling).attr(
+                        'data-uid')
+                }
+            })
+            $('input[class = people]')[0].value = $('input[class = people]')[0].value.substring(1)
+            $('input[name = teach_id]')[0].value = $('input[name = teach_id]')[0].value.substring(1)
+        }
+    })
+
+    //渠道
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "ditch" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "ditch"|| $(e.target.parentElement.parentElement.parentElement)
+            .attr('data-ig') == "ditch") {
+            $('.hidd6')[0].style.display = "block"
+        } else {
+            $('.hidd6')[0].style.display = "none";
+            $('input[name = class_type]').val('');
+            $('.hidd6 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = class_type]')[0].value += ',' + el.nextElementSibling.innerHTML.split(
+                        ';')[1]
+                }
+            })
+            $('input[name = class_type]')[0].value = $('input[name = class_type]')[0].value.substring(1)
+        }
+    })
+
+    
+    //项目
+    $(document).click(function (e) {
+        if ($(e.target.parentElement).attr('data-ig') == "project" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "project" || $(e.target.parentElement.parentElement.parentElement)
+            .attr('data-ig') == "project") {
+            $('.hidd2')[0].style.display = "block"
+        } else {
+            var hhh = $('input[name = project]')[0].value;
+            $('.hidd2')[0].style.display = "none";
+            $('input[name = project]').val('');
+            $('.hidd2 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = project]')[0].value += ',' + el.nextElementSibling.innerHTML.split(
+                        ';')[1]
+                }
+            })
+            $('input[name = project]')[0].value = $('input[name = project]')[0].value.substring(1);
+            var arr = $('input[name = project]')[0].value.split(',');
+            if (hhh != $('input[name = project]')[0].value) {
+                $.ajax({
+                    url: '',
+                    type: 'get',
+                    // data: {
+                    //     gArr: arr,
+                    //     gType: '4'
+                    // },
+                    success: function (data) {
+                        // $('.hidd3')[0].innerHTML = "";
+                        // for (var k in data) {
+                        //     $('.hidd3')[0].innerHTML +=
+                        //         `<div style="text-align:center">
+                        //                         <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;` +
+                        //         data[k] + `</span>
+                        //                     </div>`
+                        // }
+                       
+                    },
+                    error: function () {}
+                })
+                $('.hidd7')[0].innerHTML = "";
+                 for (let i = 0; i < arr.length; i++) {
+                if(arr[i] == '基金项目'){
+                    $('.hidd7')[0].innerHTML += `<div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201803</span></div>
+                                                <div style="text-align:center"> <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201804</span></div>
+                                                    <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201805</span></div>
+                                                        <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201806</span></div>
+                                                            <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201807</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201809</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201810</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201811</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201903</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201904</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201905</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201906</span></div>
+                                               <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201907</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201909</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201910</span></div>
+                                                <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201911</span>
+                                            </div>`;
+                }else if(arr[i] == '消防项目'){
+                    $('.hidd7')[0].innerHTML += `<div style="text-align:center"> <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201811</span></div>
+                        <div style="text-align:center"><input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;201911</span></div>
+                        <div style="text-align:center"> <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;2020考期</span></div>`;
+                }
+                
+            }
+            }
+            // 
+            
+
+            // $('.hidd5')[0].innerHTML += ``;
+            
+
+        }
+    })
+    //分类
+    $(document).click(function (e) {
+        console.log(e.target.parentElement.parentElement)
+        if ($(e.target.parentElement).attr('data-ig') == "classify" || $(e.target.parentElement.parentElement)
+            .attr('data-ig') == "classify"|| $(e.target.parentElement.parentElement.parentElement)
+            .attr('data-ig') == "classify") {
+            $('.hidd7')[0].style.display = "block"
+        } else {
+            $('.hidd7')[0].style.display = "none";
+            $('input[name = exam_date]').val('');
+            $('.hidd7 input[type=checkbox]').each(function (index, el) {
+                if (el.checked == true) {
+                    $('input[name = exam_date]')[0].value += ',' + el.nextElementSibling.innerHTML.split(
+                        ';')[1]
+                }
+            })
+            $('input[name = exam_date]')[0].value = $('input[name = exam_date]')[0].value.substring(1)
+        }
+    })
+    var px = [],
+        xs = [];
+    $(document).click(function (e) {
+        if ($(e.target).attr('id') == "seasearch") {
+            // var dg = $('#datagrid5').datagrid({queryParams: form2Json("seaform"),singleSelect:false});
+            params = form2Json("seaform");
+            // console.log($('select[name = demand]').val())
+            var data;
+
+            switch ($('select[name = demand]').val()) {
+                case '1':
+                    //   data =[[{'name':'0-40%','people':'a','rate':'10%'},{'name':'40%-60%','people':'a','rate':'15%'},{'name':'60%-80%','people':'a','rate':'12%'}],[{'name':'0-40%','people':'1','rate':'10%'},{'name':'40%-60%','people':'3','rate':'15%'},{'name':'60%-80%','people':'2','rate':'12%'}]] 
+                    init(data)
+                    $.ajax({
+                        url: "",
+                        type: 'get',
+                        data: params,
+                        success: function (data) {
+                            data = [
+                                [{
+                                    "name": "0-40%",
+                                    "num": 2,
+                                    "percent": "100%"
+                                }, {
+                                    "name": "40%-60%",
+                                    "num": 0,
+                                    "percent": "0%"
+                                }, {
+                                    "name": "60%-80%",
+                                    "num": 0,
+                                    "percent": "0%"
+                                }, {
+                                    "name": "80%\u4ee5\u4e0a",
+                                    "num": 0,
+                                    "percent": "0%"
+                                }, {
+                                    "name": "\u6c47\u603b",
+                                    "num": 2,
+                                    "percent": "100%"
+                                }],
+                                [{
+                                    "name": "0-40%",
+                                    "num": 1,
+                                    "percent": "100%"
+                                }, {
+                                    "name": "40%-60%",
+                                    "num": 0,
+                                    "percent": "0%"
+                                }, {
+                                    "name": "60%-80%",
+                                    "num": 0,
+                                    "percent": "0%"
+                                }, {
+                                    "name": "80%\u4ee5\u4e0a",
+                                    "num": 0,
+                                    "percent": "0%"
+                                }, {
+                                    "name": "\u6c47\u603b",
+                                    "num": 1,
+                                    "percent": "100%"
+                                }]
+                            ]
+                            px = [], xs = [];
+                            $('#sta_table').html(`<button style="float: right;
+                            margin: 20px 0;
+                            padding: 4px;">导出excel表格</button>
+                            <div>
+                                <table>
+                                <thead>
+                                    <tr>
+                                        <td>做题记录</td>
+                                        <td>人数</td>
+                                        <td class="px">占比<img src="img/all.svg"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                                        <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                        <td><input data_id="percent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <button style="float: right;
+                            margin: 20px 0;
+                            padding: 4px;">导出excel表格</button>
+                            <div>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <td>听课记录</td>
+                                        <td class="px">人数<img src="img/all.svg"></td>
+                                        <td class="px">占比<img src="img/all.svg"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                                        <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                        <td><input data_id="percent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            
+                            `)
+                            // console.log($('#sta_table table'))
+                            var sa = '',
+                                sb = '';
+                            for (let i = 0; i < data[0].length; i++) {
+                                sa += `
+                    <tr>
+                                    <td>` + data[0][i].name + `</td>
+                                    <td>` + data[0][i].num + `</td>
+                                    <td>` + data[0][i].percent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[0].innerHTML += sa;
+                            for (let i = 0; i < data[1].length; i++) {
+                                sb += `
+                    <tr>
+                        <td>` + data[1][i].name + `</td>
+                                    <td>` + data[1][i].num + `</td>
+                                    <td>` + data[1][i].percent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[1].innerHTML += sb;
+                            init(data);
+                        },
+                        error: function () {
+
+                        }
+                    })
+
+                    break;
+                case '2':
+                $.ajax({
+                        url: "",
+                        type: 'get',
+                        data: params,
+                        success: function (data) {
+                            data ={"\u79d13":{"n0":3,"n1":0,"n2":0,"n3":0,"n4":2,"n5":0,"n6":0,"n7":0,"n8":0,"n9":0,"all_num":5},"\u79d12":{"n0":3,"n1":0,"n2":0,"n3":0,"n4":2,"n5":0,"n6":0,"n7":0,"n8":0,"n9":0,"all_num":5},"\u79d11":{"n0":1,"n1":2,"n2":0,"n3":0,"n4":2,"n5":0,"n6":0,"n7":0,"n8":1,"n9":0,"all_num":6},"\u79d11\u79d12\u79d13\u90fd\u901a\u8fc7":1,"\u79d11\u79d12\u79d13\u90fd\u53c2\u8003":1,"\u79d12\u79d13\u90fd\u901a\u8fc7":1,"\u53ea\u8003\u79d12\u79d13":1,"\u79d11\u79d13\u90fd\u901a\u8fc7":1,"\u53ea\u8003\u79d11\u79d13":1,"\u79d11\u79d12\u90fd\u901a\u8fc7":1,"\u53ea\u8003\u79d11\u79d12":1,"\u79d11\u901a\u8fc7\u7387":"60%","\u79d12\u901a\u8fc7\u7387":"100%","\u79d13\u901a\u8fc7\u7387":"100%","\u79d11\u79d12\u901a\u8fc7\u7387":"100%","\u79d11\u79d13\u901a\u8fc7\u7387":"100%","\u79d12\u79d13\u901a\u8fc7\u7387":"100%","\u79d11\u79d12\u79d13\u901a\u8fc7\u7387":"100%"}
+                            $('#sta_table').html(`
+                            <button style="float: right;
+                            margin: 20px 0;
+                            padding: 4px;">导出excel表格</button>
+                            <div>
+                                <table>
+                                <thead><tr>
+                                    <td></td>
+                                    <td>0分</td>
+                                    <td>1-39分</td>
+                                    <td>40-49分</td>
+                                    <td>50-59分</td>
+                                    <td>60-71分</td>
+                                    <td>72-79分</td>
+                                    <td>80-89分</td>
+                                    <td>90-99分</td>
+                                    <td>100-109分</td>
+                                    <td>110-120分</td>
+                                    <td>汇总</td>
+                                </tr>
+                                </thead>
+                                
+                                
+                               
+                            </table>
+                            </div>
+                            `)
+                    var sc = '';
+                    for (var k in data) {
+                        if (k == "科1" || k == "科2" || k == "科3") {
+                            sc += `
+                                    <tr>
+                                        <td>` + k + `</td>
+                                                    <td>` + data[k].n0 + `</td>
+                                                    <td>` + data[k].n1 + `</td>
+                                                    <td>` + data[k].n2 + `</td>
+                                                    <td>` + data[k].n3 + `</td>
+                                                    <td>` + data[k].n4 + `</td>
+                                                    <td>` + data[k].n5 + `</td>
+                                                    <td>` + data[k].n6 + `</td>
+                                                    <td>` + data[k].n7 + `</td>
+                                                    <td>` + data[k].n8 + `</td>
+                                                    <td>` + data[k].n9 + `</td>
+                                                    <td>` + data[k].all_num + `</td>
+                                                </tr>
+                                    `
+                        } else {
+                            sc += `
+                                    <tr>
+                                                    <td>` + k + `</td>
+                                                    <td colspan="10">` + data[k] + `</td>
+                                                    <td></td>
+                                                </tr>
+                                    `
+                        }
+                    }
+                    $('#sta_table table')[0].innerHTML += sc
+                    init(data)
+                        },
+                        error:function(){
+
+                        }    
+                    })
+                    
+                    break;
+                case '3':
+                $.ajax({
+                        url: "",
+                        type: 'get',
+                        data: params,
+                        success: function (data) {
+                            var data = []
+                            data = [[{"name":"\u65e0","num":0,"percent":"0%"},{"name":"\u9ad8\u4e2d\uff08\u4e2d\u4e13\u6216\u540c\u7b49\u5b66\u5386\uff09","num":2,"percent":"40%"},{"name":"\u5927\u4e13\u3001\u9ad8\u804c\uff08\u6216\u540c\u7b49\u5b66\u5386\uff09","num":2,"percent":"40%"},{"name":"\u672c\u79d1","num":0,"percent":"0%"},{"name":"\u7855\u58eb","num":0,"percent":"0%"},{"name":"\u535a\u58eb\u53ca\u4ee5\u4e0a\u5b66\u5386","num":1,"percent":"20%"},{"name":"\u6c47\u603b","num":5,"percent":"100%"}],[{"name":"\u65e0","num":0,"percent":"0%"},{"name":"IT\u670d\u52a1\/\u7cfb\u7edf\u96c6\u6210","num":2,"percent":"40%"},{"name":"\u8d22\u52a1\/\u5ba1\u8ba1","num":1,"percent":"20%"},{"name":"\u6559\u80b2\/\u79d1\u7814\/\u57f9\u8bad","num":1,"percent":"20%"},{"name":"\u653f\u5e9c\/\u975e\u8425\u5229\u673a\u6784","num":0,"percent":"0%"},{"name":"\u4e92\u8054\u7f51\/\u7535\u5b50\u5546\u52a1","num":0,"percent":"0%"},{"name":"\u901a\u4fe1\/\u7535\u4fe1","num":0,"percent":"0%"},{"name":"\u91d1\u878d\/\u94f6\u884c","num":0,"percent":"0%"},{"name":"\u4e2d\u4ecb\/\u4e13\u4e1a\u670d\u52a1","num":0,"percent":"0%"},{"name":"\u65c5\u6e38\/\u9152\u5e97","num":0,"percent":"0%"},{"name":"\u5176\u4ed6\u884c\u4e1a","num":1,"percent":"20%"},{"name":"\u6c47\u603b","num":5,"percent":"100%"}],[{"name":"\u65e0","num":0,"percent":"0%"},{"name":"\u5e94\u5c4a\u751f","num":3,"percent":"60%"},{"name":"1-3\u5e74","num":0,"percent":"0%"},{"name":"3-5\u5e74","num":0,"percent":"0%"},{"name":"5-10\u5e74","num":1,"percent":"20%"},{"name":"10\u5e74\u4ee5\u4e0a","num":1,"percent":"20%"},{"name":"\u6c47\u603b","num":5,"percent":"100%"}]]
+                            $('#sta_table').html(`
+                            <button style="float: right;
+                            margin: 20px 0;
+                            padding: 4px;">导出excel表格</button>
+                            <table class="ctable">
+                            <thead>
+                                <tr>
+                                    <td>学历</td>
+                                    <td>人数</td>
+                                    <td class="px">占比<img src="img/all.svg"></td>
+                                </tr>
+                                <tr>
+                                    <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                                    <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                    <td><input data_id="percent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                </tr>
+                            </thead>
+                                
+                            </table>
+                            <button style="float: right;
+                            margin: 20px 0;
+                            padding: 4px;">导出excel表格</button>
+                            <table class="ctable">
+                            <thead>
+                                <tr>
+                                    <td>行业</td>
+                                    <td>人数</td>
+                                    <td class="px">占比<img src="img/all.svg"></td>
+                                </tr>
+                                <tr>
+                                    <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                                    <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                    <td><input data_id="percent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                </tr>
+                            </thead>
+                                
+                            </table>
+                            <button style="float: right;
+                            margin: 20px 0;
+                            padding: 4px;">导出excel表格</button>
+                            <table class="ctable">
+                            <thead>
+                                <tr>
+                                    <td>工作年限</td>
+                                    <td>人数</td>
+                                    <td class="px">占比<img src="img/all.svg"></td>
+                                </tr>
+                                <tr>
+                                    <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                                    <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                    <td><input data_id="percent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                </tr>
+                            </thead>
+                                
+                            </table>`)
+                            var sa = '',sb="",sc="";
+                            for (let i = 0; i < data[0].length; i++) {
+                                sa += `
+                    <tr>
+                                    <td>` + data[0][i].name + `</td>
+                                    <td>` + data[0][i].num + `</td>
+                                    <td>` + data[0][i].percent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[0].innerHTML += sa;
+                            for (let i = 0; i < data[1].length; i++) {
+                                sb += `
+                    <tr>
+                                    <td>` + data[1][i].name + `</td>
+                                    <td>` + data[1][i].num + `</td>
+                                    <td>` + data[1][i].percent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[1].innerHTML += sb;
+                            for (let i = 0; i < data[2].length; i++) {
+                                sc += `
+                    <tr>
+                                    <td>` + data[2][i].name + `</td>
+                                    <td>` + data[2][i].num + `</td>
+                                    <td>` + data[2][i].percent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[2].innerHTML += sc;
+                            init(data);
+
+                        },
+                        error:function(){
+
+                        }
+                })
+                    
+
+                    break;
+                case '4':
+                var data = [],sb=[];
+                data[0] = [{"name":"\u79d1\u4e00","is_sign":4,"sign":2,"not_sign":0,"is_reference":4},{"name":"\u79d1\u4e8c","is_sign":5,"sign":1,"not_sign":0,"is_reference":5},{"name":"\u79d1\u4e09","is_sign":3,"sign":0,"not_sign":0,"is_reference":3},{"name":"\u53c2\u8003\u603b\u4eba\u6570","num":5}];
+
+                    $('#sta_table').html(`
+                <button style="float: right;
+                            margin: 20px 0;
+                            padding: 4px;">导出excel表格</button>
+                 <table>
+                        <tr>
+                            <td></td>
+                            <td>需代报名数</td>
+                            <td>实际完成代报名数</td>
+                            <td>自报名数</td>
+                            <td>费用总计</td>
+                            <td>参考总人数</td>
+                        </tr>
+                    
+                </table>
+                 `)
+                 for (let i = 0; i < data[0].length-1; i++) {
+                                sb += `
+                    <tr>
+                        <td>` + data[0][i].name + `</td>
+                                    <td>` + data[0][i].is_sign + `</td>
+                                    <td>` + data[0][i].sign + `</td>
+                                    <td>` + data[0][i].not_sign + `</td>
+                                    <td>` + data[0][i].abc + `</td>
+                                    <td>` + data[0][i].is_reference + `</td>
+                                </tr>
+                    `
+
+                            }
+                    sb += `
+                    <tr>
+                        <td>` + data[0][data[0].length-1].name + `</td>
+                                    <td colspan="5">` + data[0][data[0].length-1].num + `</td>
+                                </tr>
+                    `
+                            $('#sta_table table')[0].innerHTML += sb;
+                            init(data);
+                    break;
+                case '5':
+                $.ajax({
+                        url: "",
+                        type: 'get',
+                        data: params,
+                        success: function (data) {
+                            data = [[{"name":"\u5317\u4eac","num":1,"percent":"20%"},{"name":"\u56db\u5ddd","num":1,"percent":"20%"},{"name":"\u5c71\u897f","num":1,"percent":"20%"},{"name":"\u6cb3\u5317","num":1,"percent":"20%"},{"name":"\u9655\u897f","num":1,"percent":"20%"},{"name":"\u6c47\u603b","num":5,"percent":"100%"}],[{"name":"\u4e1c\u57ce\u533a","num":1,"percent":"20%"},{"name":"\u592a\u539f\u5e02","num":1,"percent":"20%"},{"name":"\u6210\u90fd\u5e02","num":1,"percent":"20%"},{"name":"\u77f3\u5bb6\u5e84\u5e02","num":1,"percent":"20%"},{"name":"\u897f\u5b89\u5e02","num":1,"percent":"20%"},{"name":"\u6c47\u603b","num":5,"percent":"100%"}]]
+                            $('#sta_table').html(`
+                            <button style="float: right;
+                                        margin: 20px 0;
+                                        padding: 4px;">导出excel表格</button>
+                            <table class="ctable">
+                            <thead>
+                                <tr>
+                                    <td>省份</td>
+                                    <td>人数</td>
+                                    <td class="px">占比<img src="img/all.svg"></td>
+                                </tr>
+                                <tr>
+                                    <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                                    <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                    <td><input data_id="percent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                </tr>
+                            </thead>
+                                
+                            </table>
+                            <button style="float: right;
+                                        margin: 20px 0;
+                                        padding: 4px;">导出excel表格</button>
+                            <table class="ctable">
+                                <thead>
+                                    <tr>
+                                        <td>城市</td>
+                                        <td>人数</td>
+                                        <td class="px">占比<img src="img/all.svg"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                                        <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                        <td><input data_id="percent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                    </tr>
+                                </thead>
+                                
+                            </table>
+                            `)
+                            var sa = '',
+                                sb = '';
+                            for (let i = 0; i < data[0].length; i++) {
+                                sa += `
+                    <tr>
+                                    <td>` + data[0][i].name + `</td>
+                                    <td>` + data[0][i].num + `</td>
+                                    <td>` + data[0][i].percent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[0].innerHTML += sa;
+                            for (let i = 0; i < data[1].length; i++) {
+                                sb += `
+                    <tr>
+                        <td>` + data[1][i].name + `</td>
+                                    <td>` + data[1][i].num + `</td>
+                                    <td>` + data[1][i].percent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[1].innerHTML += sb;
+                            init(data);
+                        },
+                        error:function(){
+
+                        }
+                })
+                    
+                    break;
+                case '6':
+                $.ajax({
+                        url: "",
+                        type: 'get',
+                        data: params,
+                        success: function (data) {
+                            var data = []
+                            data[0] = [{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u5b9a\u91d1\u73ed","num":1,"precent":"20%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u57fa\u7840\u7cbe\u8bb2\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd54\u6708\u540d\u4f01\u7279\u62db\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u7b7e\u7ea6\u7279\u62db\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u7b7e\u7ea6\u53d6\u8bc1\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5VIP\u65e0\u5fe7\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u79c1\u6559\u62a4\u822a\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u79c1\u6559\u51b2\u523a\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u540d\u5e08\u5bc6\u8bad\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u7687\u5bb6\u5185\u8bad\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u57fa\u7840\u901a\u5173\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5VIP\u96f6\u57fa\u7840\u4fdd\u969c\u73ed","num":0,"precent":"0%"},{"name":"\u4e00\u7ea7\u6ce8\u518c\u6d88\u9632\u5de5\u7a0b\u5e08\u8003\u8bd5\u4e00\u6b21\u53d6\u8bc1\u73ed","num":0,"precent":"0%"},{"name":"\u57fa\u91d1\u4ece\u4e1a\u8d44\u683c\u8003\u8bd5\u5b9a\u91d1\u73ed","num":0,"precent":"0%"},{"name":"\u57fa\u91d1\u4ece\u4e1a\u8d44\u683c\u8003\u8bd5\u7b7e\u7ea6\u7279\u62db\u73ed","num":4,"precent":"80%"},{"name":"\u57fa\u91d1\u4ece\u4e1a\u8d44\u683c\u8003\u8bd5VIP\u4e00\u6b21\u53d6\u8bc1\u73ed","num":0,"precent":"0%"},{"name":"\u57fa\u91d1\u4ece\u4e1a\u8d44\u683c\u8003\u8bd5\u9ad8\u6548\u53d6\u8bc1\u73ed","num":0,"precent":"0%"},{"name":"\u57fa\u91d1\u4ece\u4e1a\u8d44\u683c\u8003\u8bd5\u4e00\u6b21\u53d6\u8bc1\u73ed","num":0,"precent":"0%"},{"name":"\u57fa\u91d1\u4ece\u4e1a\u8d44\u683c\u8003\u8bd5VIP\u4e0d\u8fc7\u9000\u8d39\u73ed","num":0,"precent":"0%"},{"name":"\u57fa\u91d1\u4ece\u4e1a\u8d44\u683c\u8003\u8bd5\u76f4\u64ad\u5bc6\u8bad\u73ed","num":0,"precent":"0%"},{"name":"\u57fa\u91d1\u4ece\u4e1a\u8d44\u683c\u8003\u8bd5\u76f4\u64ad\u7cbe\u8bb2\u73ed","num":0,"precent":"0%"},{"name":"\u6c47\u603b","num":5,"precent":"100%"}]
+                            $('#sta_table').html(`
+                            <button style="float: right;
+                                        margin: 20px 0;
+                                        padding: 4px;">导出excel表格</button>
+                                        <div>
+                                                    <table class="ctable">
+                                        <thead>
+                                            <tr>
+                                    <td>班型</td>
+                                    <td>人数</td>
+                                    <td class="px">占比<img src="img/all.svg"></td>
+                                </tr>
+                                            <tr>
+                                                <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                                                <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                                <td><input data_id="precent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                                            </tr>
+                                        </thead>
+                                            
+                                        </table>
+                                        </div>
+                            
+                            `)
+                            var sa = '';
+                            for (let i = 0; i < data[0].length; i++) {
+                                sa += `
+                    <tr>
+                                    <td>` + data[0][i].name + `</td>
+                                    <td>` + data[0][i].num + `</td>
+                                    <td>` + data[0][i].precent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[0].innerHTML += sa;
+                            init(data);
+
+                        },
+                        error:function(){
+
+                        }
+                })
+                    break;
+                case '7':
+                $.ajax({
+                        url: "",
+                        type: 'get',
+                        data: params,
+                        success: function (data) {
+                            data = [[{"name":"\u5b9a\u91d1","num":1,"percent":"20%"},{"name":"\u5b9a\u91d1\u8865\u8d39","num":1,"percent":"20%"},{"name":"\u5168\u6b3e\u62a5\u540d","num":1,"percent":"20%"},{"name":"\u5347\u73ed","num":1,"percent":"20%"},{"name":"\u8f6c\u4ecb\u7ecd","num":1,"percent":"20%"},{"name":"\u7eed\u62a5","num":0,"percent":"0%"},{"name":"\u4ee3\u62a5\u540d\u8865\u8d39","num":0,"percent":"0%"},{"name":"\u57fa\u91d1\u6362\u79d1\u8865\u8d39","num":0,"percent":"0%"},{"name":"\u6c47\u603b","num":5,"percent":"100%"}],[{"name":"\u652f\u4ed8\u5b9d","num":1,"percent":"20%"},{"name":"\u5fae\u4fe1","num":1,"percent":"20%"},{"name":"\u6dd8\u5b9d","num":1,"percent":"20%"},{"name":"\u73b0\u91d1","num":1,"percent":"20%"},{"name":"\u94f6\u884c\u516c\u6237","num":1,"percent":"20%"},{"name":"\u53d1\u7968\u4eba\u6570","num":0,"percent":"0%"},{"name":"\u9000\u8d39\u4eba\u6570","num":0,"percent":"0%"},{"name":"\u6c47\u603b","num":5,"percent":"100%"}]]
+                            px = [], xs = [];
+                            $('#sta_table').html(`
+                <button style="float: right;
+                            margin: 20px 0;
+                            padding: 4px;">导出excel表格</button>
+                 <table class="ctable">
+                 <thead>
+                        <tr>
+                        <td>报名类型</td>
+                        <td>人数</td>
+                        <td class="px">占比<img src="img/all.svg"></td>
+                    </tr>
+                    <tr>
+                        <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                        <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                        <td><input data_id="percent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                    </tr>
+                    </thead>
+                </table>
+                <button style="float: right;
+                            margin: 20px 0;
+                            padding: 4px;">导出excel表格</button>
+                <table class="ctable">
+                    <thead>
+                    <tr>
+                        <td>支付方式</td>
+                        <td>人数</td>
+                        <td class="px">占比<img src="img/all.svg"></td>
+                    </tr>
+                    <tr>
+                        <td><input data_id="name" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"></td>
+                        <td><input data_id="num" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                        <td><input data_id="percent" class="sx" type="text" style="width: 100%;padding: 0;border-radius: 0;height: 42px;margin: 0;border:none"</td>
+                    </tr>
+                    </thead>
+                </table>
+                 `)
+                            // console.log($('#sta_table table'))
+                            var sa = '',
+                                sb = '';
+                            for (let i = 0; i < data[0].length; i++) {
+                                sa += `
+                    <tr>
+                                    <td>` + data[0][i].name + `</td>
+                                    <td>` + data[0][i].num + `</td>
+                                    <td>` + data[0][i].percent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[0].innerHTML += sa;
+                            for (let i = 0; i < data[1].length; i++) {
+                                sb += `
+                    <tr>
+                        <td>` + data[1][i].name + `</td>
+                                    <td>` + data[1][i].num + `</td>
+                                    <td>` + data[1][i].percent + `</td>
+                                </tr>
+                    `
+
+                            }
+                            $('#sta_table table')[1].innerHTML += sb;
+                            init(data);
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+    })
+
+    function init(data) {
+        $('#sta_table button').click(function () {
+            // console.log(1)
+            // console.log($(this).prev()[0].querySelectorAll('td'))
+            var rtd = $(this).next()[0].querySelectorAll('tr')
+            str = ""
+            $(rtd).each(function (index, el) {
+                if (index != 1) {
+                    stra = ""
+                    // console.log($(el)[0].querySelectorAll('td'))
+                    $($(el)[0].querySelectorAll('td')).each(function (
+                        index, el) {
+                        stra += $(el).text()
+                        stra += ','
+                    })
+                    str += stra + '\r\n';
+                }
+
+                // JSONToCSVConvertor
+            })
+            // console.log(str)
+            var fileName = "MyReport_";
+            fileName += "Download".replace(/ /g, "_");
+            var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+            var link = document.createElement("a");
+            link.href = uri;
+            link.style = "visibility:hidden";
+            link.download = fileName + ".CSV";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
+        for (let i = 0; i < $('.px').length; i++) {
+            px[i] = true;
+        }
+        for (let i = 0; i < $('.sx').length; i++) {
+            xs[i] = "";
+        }
+        hehe(data)
+        sx(data)
+        $('#sta_table>div').each(function (index, el) {
+            $(el)[0].addEventListener('scroll', scrollHandle)
+
+        })
+    }
+
+    function scrollHandle(e) {
+        var scrollTop = this.scrollTop;
+        this.querySelector('thead').style.transform = 'translateY(' + scrollTop +
+            'px)';
+    }
+    function hehe(data) {
+        //如果有两个按钮 每个按钮单独控制正序，倒叙
+        $('.px').each(function (j, el) {
+            $(el).click(function () {
+                Zindex = j;
+                var table = $(this).parent().parent().parent();
+                var tr = table[0].querySelectorAll('tr');
+                var index = $($(this).parent()[0].querySelectorAll('td')).index(this);
+                var obj = [];
+                for (var i = 2; i < tr.length; i++) {
+                    var td = tr[i].querySelectorAll('td')
+                    obj.push(i + '-' + $(td[index]).text())
+                }
+                if (px[Zindex] == true) {
+                    $($(el)[0].querySelector('img'))[0].src = "img/top.svg"
+                    arr = obj.sort(function (a, b) {
+                        if (parseFloat(a.split('-')[1]) > parseFloat(b.split('-')[1])) {
+                            return 1;
+                        } else if (parseFloat(a.split('-')[1]) < parseFloat(b.split('-')[1])) {
+                            return -1;
+                        } else {
+                            return 0;
+                        }
+                    })
+                    px[Zindex] = false
+                } else {
+                    $($(el)[0].querySelector('img'))[0].src = "img/bottom.svg"
+                    arr = obj.sort(function (a, b) {
+                        if (parseFloat(a.split('-')[1]) > parseFloat(b.split('-')[1])) {
+                            return -1;
+                        } else if (parseFloat(a.split('-')[1]) < parseFloat(b.split('-')[1])) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    })
+                    px[Zindex] = true
+                }
+                ibj = `<thead><tr>` + tr[0].innerHTML + `</tr><tr>` + tr[1].innerHTML +
+                    `</tr></thead><tbody>`;
+                for (let i = 0; i < arr.length; i++) {
+
+                    ibj += `<tr>` + tr[arr[i].split('-')[0]].innerHTML + `</tr>`
+                }
+                ibj += `</tbody>`
+                // console.log(table[0])
+                table[0].innerHTML = ibj;   
+                console.log($('#sta_table')[0].querySelectorAll('.sx'),xs)
+                for (let j = 0; j < xs.length; j++) {
+                    $('#sta_table')[0].querySelectorAll('.sx')[j].value = xs[j]
+                }
+                // $('#sta_table table')[t_index].querySelectorAll('.sx')[aindex].value = val
+                hehe(data);
+                sx(data);
+            })
+        })
+    }
+    //筛选
+    function sx(data) {
+        $('.sx').each(function (index, el) {
+            xs[index] = $(el).val()
+            // that = index;
+            $(el).on('keyup', function () {
+                xs[index] = $(this).val()
+                val = $(this).val();
+                var table = $(this).parent().parent().parent();
+                //筛选框所在的表格下标
+                t_index = $(table.parent().parent().parent()[0].querySelectorAll('table')).index(table
+                    .parent());
+
+                vDate = data[t_index];
+                var tr = table[0].querySelectorAll('tr');
+                //筛选框所在的列
+                var aindex = $($(this).parent().parent()[0].querySelectorAll('td')).index($(this)
+                    .parent());
+                // var sxg = table.parent()[0].querySelectorAll('tr')[3].querySelectorAll('td')[aindex];
+                var tt = $('#sta_table table')[t_index].querySelectorAll('.sx');
+                //输入框下标在总下标xs的位置
+                var gg = []
+                for (let i = 0; i < tt.length; i++) {
+                    gg.push($($('#sta_table')[0].querySelectorAll('.sx')).index($($('#sta_table table')[
+                        t_index].querySelectorAll('.sx')[i])))
+                }
+                var sxg = $(this).attr('data_id');
+                var obj = [];
+                // console.log(vDate)
+                for (let i = 0; i < vDate.length; i++) {
+                    var b = 1;
+                    for (let k = 0; k < gg.length; k++) {
+                        var jj = vDate[i][$($('#sta_table')[0].querySelectorAll('.sx')[gg[k]]).attr(
+                            'data_id')] + "";
+                        if (jj.indexOf(xs[gg[k]]) > -1) {
+                            b = b * 1;
+                        } else {
+                            b = b * 0;
+                        }
+                    }
+                    if (b == 1) {
+                        obj.push(vDate[i])
+                    }
+                }
+                xbj = `<thead><tr>` + tr[0].innerHTML + `</tr><tr>` + tr[1].innerHTML +
+                    `</tr></thead><tbody>`;
+                for (let i = 0; i < obj.length; i++) {
+                    str = ''
+                    for (k in obj[i]) {
+                        str += `<td>` + obj[i][k] + `</td>`
+                    }
+
+                    xbj += `<tr>` + str + `</tr>`;
+                }
+
+                xbj += `</tbody>`
+                // console.log(xbj)
+                table.parent()[0].innerHTML = xbj
+                for (let j = 0; j < xs.length; j++) {
+                    $('#sta_table')[0].querySelectorAll('.sx')[j].value = xs[j]
+                }
+                $('#sta_table table')[t_index].querySelectorAll('.sx')[aindex].value = val
+                $($('#sta_table table')[t_index].querySelectorAll('.sx')[aindex]).focus()
+                sx(data);
+                hehe(data);
+            })
+        })
+    }
+
+    function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray()
+        var jsonStr = "";
+
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+
+        var json = JSON.parse(jsonStr)
+        return json
+    }
+</script>
+
+</html>

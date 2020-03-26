@@ -1,0 +1,4744 @@
+<?php
+namespace App\Http\Controllers\Admin;
+use App\Http\Model\Back_visit;
+use App\Http\Model\Backprice;
+use App\Http\Model\Called_info;
+use App\Http\Model\Exam_num_info;
+use App\Http\Model\Exam_score;
+use App\Http\Model\Payment_info;
+use App\Http\Model\Pullback_info;
+use App\Http\Model\Scholarship;
+use App\Http\Model\Sendmail_info;
+use App\Http\Model\Student_info;
+use App\Http\Model\Work_order_info;
+use function foo\func;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Mockery\Exception;
+use App\Http\Model\Data_info;
+use App\Http\Model\Order_info;
+use App\Http\Model\Stu_info;
+use App\Http\Model\Funds_sub;
+use Illuminate\Session;
+use PHPUnit\Util\RegularExpression;
+use Validator;
+class BackendController extends BaseController
+{
+		public function test($uid = '', $manager = '555', $project = '消防项目')
+		{
+			
+		}
+		/*获取消防非当期数据
+		 *@param exam_date考期
+		 *@param seven报名后七天时间
+		 *@param exam_start_seven考前七天
+		 *@param exam_start考试开始时间
+		 *@param result未回访数组
+		 *@param data_info_obj关联表对象
+		 */
+		protected function fire_not_current_period($exam_date,$seven,$exam_start,$result,$data_info_obj)
+		{
+			
+			//获取非当期学员数据
+            $not_current_period = $data_info_obj->where('d.project','=',session('project'))
+                                   ->where('is_valid', '!=', 5)
+                                   ->where('o.sign_type', '!=', '定金')
+                                   ->where('learn_status', '>=', 1)
+                                   ->where('last_mark_time', '<=',  $exam_start)
+                                   ->where('last_mark_time', '>=', $seven)
+                                   ->where('o.exam_date', '!=',$exam_date)
+                                   ->select('d.did','d.last_mark_time', 'd.stu_name', 'd.mobile')
+                                   ->get()->toArray();        
+            $not_current_did_arr = array_map(function($value) {
+				return $value->did;
+			}, $not_current_period);
+			if ($not_current_did_arr) {
+
+				$did_str = join(',', $not_current_did_arr);
+				$back_visit = DB::select("select data_info.did from data_info left join back_visit on data_info.did = back_visit.did where data_info.did in ({$did_str}) and bv_date < '{$exam_start}'");
+				$back_visit = empty($back_visit) ? $back_visit : array_map(function($value) {
+	              		return $value->did;
+	               	}, $back_visit);
+				$result_did = array_diff($not_current_did_arr, $back_visit);
+				foreach ($result_did as $key => $value) {
+					foreach ($not_current_period as $k => $v) {
+						if ($value == $v->did) {
+							$result[] = $v;
+							break 1;
+						}
+					}
+				}
+			}
+           
+            return $result;
+		}
+		/*获取消防当期未回访
+		 *@param exam_date考期
+		 *@param seven报名后七天时间
+		 *@param fourteen报名后十四天时间
+		 *@param next_month十四天之后36个月数组
+		 *@param result未回访数组
+		 *@param tm_data_info_obj关联表对象
+		 */
+		protected function fire_current_period($exam_date,$seven,$fourteen,$next_month,$result,$tm_data_info_obj)
+		{
+			//定义时间段did数组
+            $current_did_arr = [];
+            //获取学员数据
+            $current_period = $tm_data_info_obj->where('d.project',session('project'))
+                                   ->where('is_valid', '!=', 5)
+                                   ->where('o.sign_type', '!=', '定金')
+                                   ->where('learn_status', '>=', 1)
+                                   ->where('last_mark_time', '>=',  $next_month[35])
+                                   ->where('last_mark_time', '<=', $seven)
+                                   ->where('o.exam_date', $exam_date)
+                                   ->select('d.did','d.last_mark_time', 'd.stu_name', 'd.mobile')
+                                   ->get()->toArray();
+			foreach ($current_period as $key => $value) {
+                //处于报名后七天到报名后十四天
+
+                if ($value->last_mark_time < $seven && $value->last_mark_time >=$fourteen) {
+                        
+                    $current_did_arr['seven_did']['did'][] = $value->did;
+                        
+                      
+
+                }
+                foreach ($next_month as $k => $v) {
+                    	
+                    $tem_k = $k+1;
+                    $month_key = $tem_k.'_month';
+                    //第一次判断小于等于十四天大于第一次时间,最后一次不判断,其他判断小于等于本次时间大于下次时间
+                    if ($k == 0) {
+                        if ($value->last_mark_time < $fourteen && $value->last_mark_time >=$v) {
+                            $current_did_arr[$month_key]['did'][] = $value->did;
+                            if (!array_key_exists('months', $current_did_arr[$month_key])) {
+                                $current_did_arr[$month_key]['start_months'] = $k;
+                                $current_did_arr[$month_key]['end_months'] = $tem_k;
+                                   
+                            }
+
+                        }  
+                    } elseif ($k >= 35) {
+                        continue;
+                    } else {
+                       		 
+                        if ($value->last_mark_time < $next_month[$k-1] && $value->last_mark_time >= $v) {
+                            $current_did_arr[$month_key]['did'][] = $value->did;
+                            if (!array_key_exists('months', $current_did_arr[$month_key])) {
+                                $current_did_arr[$month_key]['start_months'] = $k;
+                                $current_did_arr[$month_key]['end_months'] = $tem_k;
+                                   
+                            }
+                        }
+                    }
+                    unset($tem_k);
+                    unset($month_key);
+                }
+            }
+                
+           	$result_did = [];     
+            //循环时间did数组判断是否应回访
+            foreach ($current_did_arr as $key => $value) {
+             	$did_str = join(',', $value['did']);
+              	if ($key == 'seven_did') {
+               		$back_visit = DB::select("select data_info.did from data_info left join back_visit on data_info.did = back_visit.did where data_info.did in ({$did_str}) and bv_date >= DATE_ADD(last_mark_time,INTERVAL 7 DAY) and bv_date < DATE_ADD(last_mark_time,INTERVAL 14 DAY)");
+
+                		
+
+               	} else {
+               		$back_visit = DB::select("select data_info.did from data_info left join back_visit on data_info.did = back_visit.did where data_info.did in ({$did_str}) and bv_date >= DATE_ADD(DATE_ADD(last_mark_time,INTERVAL 14 DAY),INTERVAL {$value['start_months']} MONTH) and bv_date < DATE_ADD(DATE_ADD(last_mark_time,INTERVAL 14 DAY),INTERVAL {$value['end_months']} MONTH)");
+                		
+               	}
+               	$back_visit = empty($back_visit) ? $back_visit : array_map(function($value) {
+              		return $value->did;
+               	}, $back_visit);
+               	$result_did = array_merge($result_did, array_diff($value['did'], $back_visit));
+            }
+            foreach ($result_did as $key => $value) {
+				foreach ($current_period as $k => $v) {
+					if ($value == $v->did) {
+						$result[] = $v;
+						break 1;
+					}
+				}
+			}
+            return $result;
+		}
+		public function leave_message_show()
+		{
+			$manager = session('manager');
+			$manager = 666;
+			if ($manager == 666 || $manager == 665 || $manager == 888) {
+				return view('admin/leave_msg');
+			} else {
+				return view('layout/error');
+			}
+		}
+		public function leave_message_index(Request $request)
+		{
+			$manager = session('manager');
+			$manager = 666;
+			$mobile = $request->get('mobile');
+			$start_time = $request->get('start_time');
+			$end_time = $request->get('end_time');
+			if ($manager == 666 || $manager == 665 || $manager == 888) {
+				$table = DB::table('leave_message_info');
+				if ($mobile) {
+					$table->where('mobile', $mobile);
+				}
+				if ($start_time) {
+					$table->where('create_time', '>=', $start_time);
+				}
+				if ($end_time) {
+					$table->where('create_time', '<=', $end_time);
+				}
+				if (empty($mobile) && empty($start_time) && empty($end_time)) {
+					$table->limit(50);
+				}
+				$result = $table->select('education', 'mobile', 'years', 'url', 'profession', 'work_years', 'create_time', 'province')->get()->toArray();
+				return json_encode($result);
+			} else {
+				return json_encode([]);
+			}
+		}
+		/*学员分析表索引条件
+		 *@param
+		 */
+		public function student_analyze_index(Request $request)
+		{
+
+		}
+		/*学员毕业
+		*/
+		public function graduate(Request $request)
+		{
+
+			$did = $request->get('did');
+			if (empty($did)) {
+				return json_encode(['code' => 400, 'message' => '参数错误']);
+			}
+			//查看该did是否可毕业
+			$is_check = DB::table('data_info')->where('learn_status', 4)->where('did', $did)->select('is_valid')->get()->toArray();
+			if (empty($is_check) || $is_check[0]->is_valid == 5) {
+				return json_encode(['code' => 400, 'message' => '该学员不具备毕业资格或已毕业']);
+			}
+			$result = DB::table('data_info')->where('did', $did)->update(['is_valid' => 5]);
+			if ($result) {
+				return json_encode(['code' => 200, 'message' => '毕业成功']);
+			} else {
+				return json_encode(['code' => 400, 'message' => '毕业失败,请刷新后重试']);
+			}
+		}
+		/*退费申请
+		*/
+		public function backprice_apply(Request $request)
+		{
+			
+		}
+		/*退费查询
+		*/
+		public function backprice_index(Request $request)
+		{
+			$manager = session('manager');
+			//
+			$manager_arr = ['552', '556'];
+			if (!in_array($manager, $manager_arr)) {
+				return json_encode([]);
+			}
+			if ($manager == 552) {
+				$result = DB::table('data_info')->leftJoin('pullback_info', 'pullback_info.did', '=', 'data_info.did')->where('learn_status', '>=', 1)->where('is_valid', '!=', 5)->where('pd_one_status', 0)->where('pd_one', '')->select('data_info.did', 'pullback_info.mobile', 'data_info.stu_name', 'pd_date')->get()->map(function ($value) {
+						$value->contract_id = ($value->did*2+1334809212);
+			            return $value;
+			        })->toArray();
+
+			}
+			if ($manager == 556) {
+				$result = DB::table('data_info')->leftJoin('pullback_info', 'pullback_info.did', '=', 'data_info.did')->where('learn_status', '>=', 1)->where('is_valid', '!=', 5)->where('pd_one', '!=', '')->where('pd_one_status', 0)->where('pd_two', '')->select('data_info.did', 'pullback_info.mobile', 'data_info.stu_name', 'pd_date')->get()->map(function ($value) {
+			           $value->contract_id = ($value->did*2+1334809212);
+			            return $value;
+			        })->toArray();
+			}
+			
+			//var_dump($result);
+			return json_encode($result);
+		}
+		/*库存表展示
+		 *
+		 */
+		public function inventory_show()
+		{
+			return view('admin/inventory');
+		}
+		/*库存操作
+		 *
+		 */
+		public function inventory_save(Request $request)
+		{
+			
+			//获取提价印刷商信息
+			$inventory_info = $request->all();
+			//获取当前印刷信息id
+			$id = array_key_exists('id', $inventory_info) ? $inventory_info['id'] : 0;
+			
+
+			$inventory_info['create_date'] = date('Y-m-d H:i:s', time());
+			//若传id则为修改操作
+			if ($id == 0) {
+				unset($inventory_info['isNewRecord']);
+				$result = DB::table('inventory')->insert($inventory_info);
+			} else {
+				unset($inventory_info['id']);
+				
+				$result = DB::table('inventory')->where('id', $id)->update($inventory_info);
+			}
+			
+			
+			return json_encode($result);
+		}
+		/*
+		 *所剩库存
+		 */
+		public function inventory_sum(Request $request)
+		{
+			//获取库存表总数
+			$result = DB::select("select sum(bible1) as bible1, sum(bible2) as bible2, sum(bible3) as bible3, sum(textbook1) as textbook1, sum(textbook2) as textbook2, sum(textbook3) as textbook3, sum(fire_bible) as fire_bible, sum(fire_textbook) as fire_textbook from inventory");
+			
+			/*//消耗基通1
+			$expend_bible1 = DB::select('select count(1) as count from sendmail_info where jt_one = 1');
+			//消耗基通2
+			$expend_bible2 = DB::select('select count(1) as count from sendmail_info where jt_two = 1');
+			//消耗基通3
+			$expend_bible3 = DB::select('select count(1) as count from sendmail_info where jt_three = 1');
+			//消耗基教1
+			$expend_textbook1 = DB::select('select count(1) as count from sendmail_info where jj_one = 1');
+			//消耗基教2
+			$expend_textbook2 = DB::select('select count(1) as count from sendmail_info where jj_two = 1');
+			//消耗基教3
+			$expend_textbook3 = DB::select('select count(1) as count from sendmail_info where jj_three = 1');
+			//消耗消通
+			$expend_fire_bible = DB::select('select count(1) as count from sendmail_info where fire_xt = 1');
+			//消耗消教
+			$expend_fire_textbook = DB::select('select count(1) as count from sendmail_info where fire_xj = 1');
+			$result[0]->bible1 = $result[0]->bible1 - $expend_bible1[0]->count;
+			$result[0]->bible2 = $result[0]->bible2 - $expend_bible2[0]->count;
+			$result[0]->bible3 = $result[0]->bible3 - $expend_bible3[0]->count;
+			$result[0]->textbook1 = $result[0]->textbook1 - $expend_textbook1[0]->count;
+			$result[0]->textbook2 = $result[0]->textbook2 - $expend_textbook2[0]->count;
+			$result[0]->textbook3 = $result[0]->textbook3 - $expend_textbook3[0]->count;
+			$result[0]->fire_bible = $result[0]->fire_bible - $expend_fire_bible[0]->count;
+			$result[0]->fire_textbook = $result[0]->fire_textbook - $expend_fire_textbook[0]->count;*/
+			$bible1 = $bible2 = $bible3 = $textbook1 = $textbook2 = $textbook3 = $fire_bible = $fire_textbook = 0;
+			$send_mail = DB::table('sendmail_info')->select('jt_one', 'jt_two', 'jt_three', 'jj_one', 'jj_two', 'jj_three', 'fire_xj', 'fire_xt')->get()->toArray();
+			foreach ($send_mail as $key => $value) {
+				if ($value->jt_one == 1) {
+					$bible1 += 1;
+				}
+				if ($value->jt_two == 1) {
+					$bible2 += 1;
+				}
+				if ($value->jt_three == 1) {
+					$bible3 += 1;
+				}
+
+				if ($value->jj_one == 1) {
+					$textbook1 += 1;
+				}
+				if ($value->jj_two == 1) {
+					$textbook2 += 1;
+				}
+				if ($value->jj_three == 1) {
+					$textbook3 += 1;
+				}
+				if ($value->fire_xj == 1) {
+					$fire_bible += 1;
+				}
+				if ($value->fire_xt == 1) {
+					$fire_textbook += 1;
+				}
+			}
+			$result[0]->bible1 = $result[0]->bible1 - $bible1;
+			$result[0]->bible2 = $result[0]->bible2 - $bible2;
+			$result[0]->bible3 = $result[0]->bible3 - $bible3;
+			$result[0]->textbook1 = $result[0]->textbook1 - $textbook1;
+			$result[0]->textbook2 = $result[0]->textbook2 - $textbook2;
+			$result[0]->textbook3 = $result[0]->textbook3 - $textbook3;
+			$result[0]->fire_bible = $result[0]->fire_bible - $fire_bible;
+			$result[0]->fire_textbook = $result[0]->fire_textbook - $fire_textbook;
+			return json_encode($result);
+		}
+		//库存查询
+		public function inventory_index(Request $request)
+		{
+			 //开始时间
+			$start_time = $request->get('start_time') ? $request->get('start_time') : '2019-01-01 00:00:00';
+			//结束结束时间
+			$end_time = $request->get('end_time') ? $request->get('end_time') : date('Y-m-d 23:59:59', time());
+			$result = DB::select("select bible1, bible2, bible3, textbook1, textbook2, textbook3, fire_bible,  fire_textbook, create_date, note from inventory where create_date between '{$start_time}' and '{$end_time}'");
+
+			return json_encode($result);
+		}
+		/*班主任每日应回访写入
+		 **/
+		public function today_back_save()
+		{
+			//获取后台班主任id
+			$user_data = DB::select('select uid from user_info where manager in (554,555)');
+			//var_dump($user_data);
+			foreach ($user_data as $key => $value) {
+				$should_back_visit = $this->today_back_num($value->uid);
+				$date = date('Y-m-d H:i:s', time());
+
+				if ($should_back_visit > 0) {
+
+					//写入数组
+					$arr = [
+						'uid' => $value->uid,
+						'num' => $should_back_visit,
+						'create_time' => $date
+					];
+					DB::table('should_back_visit')->insert($arr);
+				}
+			}
+			
+		}
+		/*班主任应回访查询
+		*/
+		protected function today_back_num($uid)
+		{
+
+
+			
+			$data = DB::select("select did, last_mark_time, project from data_info where tea_name = {$uid} and learn_status >= 1 and is_valid != 5");
+			$should_num = 0;
+			foreach ($data as $key => $value) {
+				if ($value->project == '消防项目') {
+
+					//判断数据是否应回访
+					$is_back_visit = $this->fire_back_visit($value->did, $value->last_mark_time);
+					
+					$should_num += $is_back_visit ? 1 : 0;
+					continue;
+				} else {
+					$is_back_visit = $this->fund_back_visit($value->did, $value->last_mark_time);
+					$should_num += $is_back_visit ? 1 : 0;
+					continue;
+				}
+			}
+			
+			return $should_num;
+		}
+		/*基金判断是否应回访数
+		*/
+		protected function fund_back_visit($did, $last_mark_time)
+		{
+			$exam_arr = $this->fund_today_exam_date($last_mark_time);
+			
+			//学员报名考期
+			$sign_up_date = $exam_arr['sign_up_date'];
+			
+
+			//当前时间所属考期数组
+			$exam_arr = $exam_arr['exam_arr'];
+			if (empty($exam_arr)) {
+				return false;
+			}
+			//获取今日日期
+			$today = date('Y-m-d', time());
+			//基金考期查询
+			$exam_date_info = DB::select("SELECT d.project,d.did ,d.last_mark_time,f.keyi_once,f.keer_once,f.kesan_once,
+				f.keyi_second,f.keer_second,f.kesan_second,f.keyi_third,f.keer_third,f.kesan_third FROM data_info AS d LEFT JOIN 
+				fund_substitution AS f ON d.did = f.did WHERE d.did = {$did}");
+			if (empty($exam_date_info)) {
+				return false;
+			}
+			//获取学员报名考期
+			foreach ($exam_arr as $key => $value) {
+				//学员报名时间有两个考期则判断今天是否大于上个考期结束时间
+				if (count($sign_up_date)  == 2) {
+					//判断是否第一个考期
+					$data_date = (in_array($value['exam_date'], $sign_up_date)) ? true : false;
+				} else {
+
+					$data_date = (!empty($sign_up_date) && $value['exam_date'] == $sign_up_date[0]) ? true : false;
+				}
+
+				//当期考试当期报名
+				if ($data_date && ($exam_date_info[0]->keyi_once == $value['exam_date'] || $exam_date_info[0]->keer_once == $value['exam_date'] ||
+					$exam_date_info[0]->kesan_once == $value['exam_date'] || $exam_date_info[0]->keyi_second == $value['exam_date'] ||
+					$exam_date_info[0]->keer_second == $value['exam_date'] || $exam_date_info[0]->kesan_second == $value['exam_date'] ||
+					$exam_date_info[0]->keyi_third == $value['exam_date'] || $exam_date_info[0]->keer_third == $value['exam_date'] ||
+					$exam_date_info[0]->kesan_third == $value['exam_date'])){
+
+					//获取考试开始前14天时间
+					$before_fourteen = date('Y-m-d', strtotime('- 14 days', strtotime($value['exam_start'])));
+					//获取考试开始前7天时间
+				$before_seven = date('Y-m-d H:i:s', strtotime('- 7 days', strtotime($value['exam_start'])));
+					//考试开始前13天
+				$before_thirteen = date('Y-m-d', strtotime('- 13 days', strtotime($value['exam_start'])));
+					//报名后7天
+				$sign_up_seven = date('Y-m-d', strtotime('+ 7 days', strtotime($last_mark_time)));
+					//报名后14天
+				$sign_up_fourteen = date('Y-m-d', strtotime('+ 14 days', strtotime($last_mark_time)));
+					//报名后2天
+				$sign_up_two = date('Y-m-d', strtotime('+ 2 days', strtotime($last_mark_time)));
+					//报名时间<=考前十四天三个回访(报名后7,14,考前13)
+
+				if ($last_mark_time <= $before_fourteen) {
+					
+					if ($today == $sign_up_seven || $today == $sign_up_fourteen || $today == $before_thirteen) {
+						return true;
+					}
+				}
+				
+					//报名时间<=考前7天    报名时间>考前十四天回访两次(报名后2,7)
+				if ($last_mark_time <= $before_seven && $last_mark_time > $before_fourteen) {
+
+					if ($today == $sign_up_seven || $today == $sign_up_two) {
+						return true;
+					}
+				}
+					//报名时间<考试开始时间   报名时间>考前7天回访(报名后2)
+				if ($last_mark_time < $value['exam_start'] && $last_mark_time > $before_seven) {
+					if ($today == $sign_up_two) {
+						return true;
+					}
+				}
+				return false;
+					//非当期报名当期考试
+			} elseif (!$data_date && ($exam_date_info[0]->keyi_once == $value['exam_date'] || $exam_date_info[0]->keer_once == $value['exam_date'] ||
+				$exam_date_info[0]->kesan_once == $value['exam_date'] || $exam_date_info[0]->keyi_second == $value['exam_date'] ||
+				$exam_date_info[0]->keer_second == $value['exam_date'] || $exam_date_info[0]->kesan_second == $value['exam_date'] ||
+				$exam_date_info[0]->keyi_third == $value['exam_date'] || $exam_date_info[0]->keer_third == $value['exam_date'] ||
+				$exam_date_info[0]->kesan_third == $value['exam_date'])) {
+
+					//考试开始前13天
+				$before_thirteen = date('Y-m-d', strtotime('- 13 days', strtotime($value['exam_start'])));
+					//考试报名开始后8天
+				$exam_sign_up_eight = date('Y-m-d', strtotime('+ 8 days', strtotime($value['sign_up_start'])));
+				if ($today == $exam_sign_up_eight || $today == $before_thirteen) {
+					
+					return true;
+				}
+				return false;
+					//当期不考试
+			} else {
+				
+					//考试报名结束后2天
+				$exam_sign_up_two = date('Y-m-d', strtotime('+ 2 days', strtotime($value['sign_up_start'])));
+				if ($today == $exam_sign_up_two) {
+					
+					return true;
+				}
+				return false;
+			}
+		}
+	}
+		/*基金获取今日考期数组
+		*/
+		protected function fund_today_exam_date($last_mark_time)
+		{
+			//今日时间
+			$date = date('Y-m-d', time());
+			//基金考期
+			$examDate = array(
+				array(
+					'exam_date'=>201902,
+					'startTime'=>'2018-12-28',
+					'endTime'=>'2019-01-01 23:59:59',
+					'examStart'=>'2019-01-05',
+					'examEnd'=>'2019-02-05'
+				),
+				array(
+					'exam_date'=>201903,
+					'startTime'=>'2019-01-28',
+					'endTime'=>'2019-03-12 23:59:59',
+					'examStart'=>'2019-03-30',
+					'examEnd'=>'2019-03-30'
+				),
+				array(
+					'exam_date'=>201904,
+					'startTime'=>'2019-02-18',
+					'endTime'=>'2019-03-22 23:59:59',
+					'examStart'=>'2019-04-20',
+					'examEnd'=>'2019-04-21'
+				),
+				array(
+					'exam_date'=>201905,
+					'startTime'=>'2019-04-08' ,
+					'endTime'=>'2019-05-07 23:59:59',
+					'examStart'=>'2019-05-25',
+					'examEnd'=>'2019-05-25'
+				),
+				array(
+					'exam_date'=>201906,
+					'startTime'=>'2019-05-15',
+					'endTime'=>'2019-06-04 23:59:59',
+					'examStart'=>'2019-06-22',
+					'examEnd'=>'2019-06-22'
+				),
+				array(
+					'exam_date'=>201909,
+					'startTime'=>'2019-07-22',
+					'endTime'=>'2019-08-23 23:59:59',
+					'examStart'=>'2019-09-21',
+					'examEnd'=>'2019-09-22'
+				),
+				array(
+					'exam_date'=>201910,
+					'startTime'=>'2019-08-26',
+					'endTime'=>'2019-09-24 23:59:59',
+					'examStart'=>'2019-10-19',
+					'examEnd'=>'2019-10-19'
+				),
+				array(
+					'exam_date'=>201911,
+					'startTime'=>'2019-09-23',
+					'endTime'=>'2019-10-25 23:59:59',
+					'examStart'=>'2019-11-23',
+					'examEnd'=>'2019-11-24'
+				),
+			);
+			//当前考期数组
+			$exam_arr = [];
+		 //报名时间所属考期
+			$sign_up_date = [];
+			for($i=0;$i<count($examDate)-1;$i++){
+				if($date > $examDate[$i]['endTime'] && $date< $examDate[$i+1]['endTime'] ){
+					$exam_arr[$i]['exam_date'] = $examDate[$i+1]['exam_date'];//获取考期
+					$exam_arr[$i]['exam_start'] = $examDate[$i+1]['examStart'];//考试开始时间
+					$exam_arr[$i]['sign_up_start'] = $examDate[$i+1]['startTime'];//报名开始时间
+					$exam_arr[$i]['sign_up_end'] = $examDate[$i+1]['endTime'];//报名结束时间
+				}
+				if($last_mark_time > $examDate[$i]['endTime'] && $last_mark_time < $examDate[$i+1]['endTime'] ){
+					$sign_up_date[] = $examDate[$i+1]['exam_date'];
+				}
+			}
+			return ['exam_arr' => $exam_arr, 'sign_up_date' => $sign_up_date];
+		}
+		/*消防判断是否应回访数
+		 */
+		protected function fire_back_visit($did, $last_mark_time)
+		{
+			//获取今日日期
+			$today = date('Y-m-d', time());
+			//获取考期信息数组
+			$exam_arr = $this->fire_today_exam_date();
+			//当前时间无考期则返回false
+			if (empty($exam_arr)) {
+				return false  ;
+			}
+			
+			//获取考期
+			$exam_date = DB::table('order_info')->where('did','=',$did)->select('did','exam_date')->orderBy('rid', 'desc')->limit(1)->get()->toArray();
+			//若无考期则返回false
+			if (empty($exam_date)) {
+				return false  ;
+			}
+			//报名后7天
+			$seven_day = date('Y-m-d', strtotime('+ 7 days', strtotime($last_mark_time)));
+			//当期考试
+			if ($exam_date[0]->exam_date == $exam_arr[0]['exam_date']) {
+				
+				//报名后14天
+				$fourteen_day = date('Y-m-d', strtotime('+ 14 days', strtotime($last_mark_time)));
+				if ($today == $seven_day || $today == $fourteen_day) {
+					return true;
+				}
+				//循环周期
+				for ($i=0; $i <= 13; $i++) {
+					$next_month = Date('Y-m-d',strtotime("+ $i month",strtotime($fourteen_day)));
+					if($next_month == $today) {
+						return true;
+					}
+					
+				}
+				return false;
+			} else {
+				//分配后7天    下一个考期课程正式开始前7天 
+				if ($today == $seven_day || $today == '2019-11-13') {
+					return true;
+				}
+				return false;
+			}
+		}
+		/*消防获取今日考期
+		*/
+		protected function fire_today_exam_date()
+		{
+			//消防考期数据
+			$fireDate = array(
+				array(
+					'exam_date'=>201811,
+					'startTime'=>'2018-10-01',
+					'endTime'=>'2018-10-30',
+					'examStart'=>'2018-11-10',
+					'examEnd'=>'2018-11-11'
+				),
+				array(
+					'exam_date'=>201911,
+					'startTime'=>'2019-10-01',
+					'endTime'=>'2019-10-30',
+					'examStart'=>'2019-11-09',
+					'examEnd'=>'2019-11-10'
+				),
+			);
+		 //当前考期
+			$date = date('Y-m-d',time());
+		 //当前考期数组
+			$exam_arr = [];
+
+			for($i=0;$i<count($fireDate)-1;$i++){
+				if($date > $fireDate[$i]['endTime'] && (!array_key_exists($i+1,  $fireDate) || $date< $fireDate[$i+1]['endTime']) ){
+					$exam_arr[$i]['exam_date'] = $fireDate[$i+1]['exam_date'];//获取考期
+					$exam_arr[$i]['exam_start'] = $fireDate[$i+1]['examStart'];//考试开始时间
+					$exam_arr[$i]['sign_up_start'] = $fireDate[$i+1]['startTime'];//报名开始时间
+					$exam_arr[$i]['sign_up_end'] = $fireDate[$i+1]['endTime'];//报名结束时间
+				}
+			}
+			return $exam_arr;
+		}
+		/*获取班型列表
+		 *@param 无
+		 *@return 班型列表json数据
+		 */
+		public function class_type_index()
+		{
+			$result = DB::table('contract_info')->select('class_type')->get()->toArray();
+			return json_encode($result);
+		}
+		/*进入数据分析表页面
+		 **/
+		public function data_analyze_show()
+		{
+			return view('admin/afterDA');
+		}
+		/*获取段时间内日期
+		 **/
+		protected function date_data($start_time, $end_time)
+		{
+
+			$days = (strtotime($end_time) - strtotime($start_time))/86400+1;
+			$date = array();
+
+			for($i=0; $i<$days; $i++){
+				$date[] = date('Y-m-d', strtotime($start_time)+(86400*$i));
+			}
+			return $date;
+		}
+		/*获取邮寄内容数量
+		 *
+		 */
+		protected function send_mail_num($start_time, $end_time, $sql, $allot_did)
+		{
+			$allot_did = explode(',', $allot_did);
+
+			$order_info = DB::select("select jt_one, jt_two, jt_three, jj_one, jj_two, jj_three, fire_xj, fire_xt, tea_name from data_info as d left join sendmail_info as o on o.did = d.did where last_mark_time between '{$start_time}' and '{$end_time}'{$sql}");
+
+			
+			$order_did_arr = [];
+			//数据对应tea_name
+			foreach ($allot_did as $key => $value) {
+				//初始化教材数量
+				$order_did_arr[$value]['should_send_jt1'] = 0;
+				$order_did_arr[$value]['should_send_jt2'] = 0;
+				$order_did_arr[$value]['should_send_jt3'] = 0;
+				$order_did_arr[$value]['should_send_jj1'] = 0;
+				$order_did_arr[$value]['should_send_jj2'] = 0;
+				$order_did_arr[$value]['should_send_jj3'] = 0;
+				$order_did_arr[$value]['should_send_xt'] = 0;
+				$order_did_arr[$value]['should_send_xj'] = 0;
+				//数据操作
+				foreach ($order_info as $k => $v) {
+					if ($v->tea_name == $value) {
+						if ($v->jt_one == 1) {
+							$order_did_arr[$value]['should_send_jt1'] += 1;
+						}
+						if ($v->jt_two == 1) {
+							$order_did_arr[$value]['should_send_jt2'] += 1;
+						}
+						if ($v->jt_three == 1) {
+							$order_did_arr[$value]['should_send_jt3'] += 1;
+						}
+
+						if ($v->jj_one == 1) {
+							$order_did_arr[$value]['should_send_jj1'] += 1;
+						}
+						if ($v->jj_two == 1) {
+							$order_did_arr[$value]['should_send_jj2'] += 1;
+						}
+						if ($v->jj_three == 1) {
+							$order_did_arr[$value]['should_send_jj3'] += 1;
+						}
+						if ($v->fire_xj == 1) {
+							$order_did_arr[$value]['should_send_xt'] += 1;
+						}
+						if ($v->fire_xt == 1) {
+							$order_did_arr[$value]['should_send_xj'] += 1;
+						}
+						
+					}
+				}
+			}
+
+			return $order_did_arr;
+		}
+		
+		/*获取段时间内应回访人数(删除)
+		 *
+		 */
+		public function back_visit_num($start_time, $end_time, $tea_name)
+		{
+			
+
+			//获取日期数组
+			$date = $this->date_data($start_time, $end_time);
+			$back_visit_num = 0;
+			foreach ($date as $key => $value) {
+				
+				
+				$num = DB::select("select count(1) as count from back_visit as b left join data_info as d on d.did = b.did where d.tea_name = {$tea_name} and substring_index(bv_date, ' ', 1) = '{$value}' group by d.did");
+				$back_visit_num += count($num);
+			}
+			
+			return $back_visit_num;
+		}
+		/*获取段时间内当日报名当日回执数量
+		 *
+		 */
+		protected function today_receipt($start_time, $end_time, $sql)
+		{
+			
+			$today_receipt = DB::select("select count(1) as count, tea_name from sendmail_info as s left join data_info as d on d.did = s.did where last_mark_time between '{$start_time}' and '{$end_time}' and is_valid != 5 and substring_index(agr_back, ' ', 1) = substring_index(last_mark_time, ' ', 1){$sql} group by tea_name");
+			
+			return $today_receipt;
+		}
+		/*获取教务id
+		*/
+		public function get_uid_teach(Request $request)
+		{
+			$project_arr = $request->get('gArr');
+			$user_data = [];
+			if (count($project_arr) == 2) {
+				$user_data = DB::select('select uid, user_name from user_info where manager in (554,555) and is_work = 1');
+			} elseif (count($project_arr) == 1) {
+				$project = $project_arr[0];
+				$user_data = DB::select("select uid, user_name from user_info where manager in (554,555) and project = '{$project}' and is_work = 1");
+			}
+			
+			return json_encode($user_data);
+		}
+		/*数据分析表索引设置
+		*/
+		public function data_analyze_info_index(Request $request)
+		{
+			$index_data = [];
+			//查询类型  按属员    按项目
+			$index_data['type'] = $request->get('search_by');
+			//无则返回
+			if (empty($index_data['type'])) {
+				return json_encode([]);
+			}
+			//根据查询类型判断查询形式
+			if ($index_data['type'] == 'project' || $index_data['type'] == 'belong_to') {
+				//项目字符串
+				$index_data['project'] = $request->get('project');
+				if (empty($index_data['project'])) {
+					return json_encode([]);
+				}
+			} else {
+				return json_encode([]);
+			}
+			
+			
+			//时间数组
+			$time_arr = $request->get('arr') ? $request->get('arr') : '';
+			//是否按周来查
+			$is_weeks = $request->get('search_for')  ? $request->get('search_for') : '';
+			//是否按属员查
+			$is_teach = $request->get('people') ? $request->get('people') : '';
+			//若条件不完全则返回空数据
+			if (empty($time_arr)) {
+				return json_encode([]);
+			}
+			//时间段数据拼接
+			$result = [];
+			$index_data['project'] = explode(',', $index_data['project']);
+			foreach ($time_arr as $key => $value) {
+				
+				//分割项目
+				
+				foreach ($index_data['project'] as $k => $v) {
+					$result_tem = json_decode($this->data_analyze_info($v, $value, $is_weeks, $is_teach, $index_data['type']),true);
+					if (!$result_tem) {
+						continue;
+					}
+					//var_dump($result_tem);
+					if ($index_data['type'] == 'project') {
+						$result_tem1[0] = end($result_tem);
+						$result = array_merge($result_tem1, $result);
+					} else {
+						$result = array_merge($result_tem, $result);
+					}
+				}
+					
+			}
+			return json_encode($result);
+		}
+		/*数据分析表
+		 *@param project项目  @param time_arr查询起止时间数组   @param weeks是否添加周元素
+		 *@param uid_arr教务id   @param  type查询类型  按属员按教务
+		 */
+		public function data_analyze_info($project, $time_arr, $weeks, $uid_str, $type)
+		{
+			$fund = new Funds_sub();
+			if ($project == '基金项目') {
+				//获取基金今日考期
+				$project_sql = "project = '基金项目'";
+				$exam = $this->get_exam_date();	
+			} else {
+				$exam = $this->fire_today_exam_date();
+				$project_sql = "project in ('消防项目','消防升级')";
+			}
+
+			
+			//开始时间
+			$start_time = $time_arr[0];
+			//结束结束时间
+			$end_time = $time_arr[1];
+			//获取周数
+			if (!empty($weeks)) {
+
+				if ($weeks == 'week') {
+					$weeks = $week = date('W', strtotime($start_time));
+					$weeks .= '周';
+				} else {
+					$weeks = $week = date('m', strtotime($start_time));
+					$weeks .= '月';
+				}
+				
+				
+			}
+			
+			//当日开始时间
+			$today_start = date('Y-m-d 00:00:00', time());
+			//当日结束时间
+			$today_end = date('Y-m-d 23:59:59', time());
+			
+			//判断若查询条件为按属员则添加sql条件
+			$sql = '';
+			if ($type == 'belong_to') {
+				if (empty($uid_str)) {
+					$sql = '';
+				} else {
+					
+					$sql = " and uid in ({$uid_str})";
+
+				}
+			}
+			//根据条件获取后端咨询师基本信息
+			$teacher_info = DB::select("select uid tea_name, project, user_name from user_info where is_work = 1 and {$project_sql}{$sql}");
+			if (empty($teacher_info)) {
+				return json_encode([]);
+			}
+			//获取后端教务uid
+			$teacher_did = [];
+			foreach ($teacher_info as $key => $value) {
+				$teacher_did[] = $value->tea_name;
+			}
+
+			$sql = '';
+			if (!empty($teacher_did)) {
+				$teacher_did = join(',', $teacher_did);
+				$sql = " and tea_name in ({$teacher_did})";
+			}
+			//分配人数
+			$allot = DB::select("select count(1) as count, tea_name, u.project, user_name from data_info left join user_info as u on u.uid = tea_name where last_mark_time between '{$start_time}' and '{$end_time}' and is_valid != 5 and u.project = '{$project}' and sign_up_status = 1{$sql} group by tea_name");
+			
+
+			
+			
+			//服务总数
+			$all_num = DB::select("select count(1) as count, tea_name from (select tea_name from data_info left join order_info on data_info.did = order_info.did where sign_up_status = 1  and is_valid != 5{$sql} group by data_info.mobile) as o group by tea_name");
+			
+			//定金人数
+			$deposit = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on d.did = o.did where last_mark_time between '{$start_time}' and '{$end_time}'  and is_valid != 5 and sign_type = '定金' and sign_up_status = 1{$sql} group by tea_name");
+			
+			//代报名补费人数
+			$repeat_repair_fee = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on d.did = o.did where last_mark_time between '{$start_time}' and '{$end_time}'  and is_valid != 5 and sign_type = '代报名补费' and sign_up_status = 1{$sql} group by tea_name");
+			//全款人数
+			$full = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on d.did = o.did where last_mark_time between '{$start_time}' and '{$end_time}'  and is_valid != 5 and sign_type = '全款报名' and sign_up_status = 1{$sql} group by tea_name");
+			//续报
+			$continue = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on d.did = o.did where last_mark_time between '{$start_time}' and '{$end_time}'  and is_valid != 5 and sign_type = '续报' and sign_up_status = 1{$sql} group by tea_name");
+			//定金补费
+			$fill_the_deposit_fee = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on d.did = o.did where last_mark_time between '{$start_time}' and '{$end_time}'  and is_valid != 5 and sign_type = '定金补费' and sign_up_status = 1{$sql} group by tea_name");
+			//升班
+			$go_up = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on d.did = o.did where last_mark_time between '{$start_time}' and '{$end_time}' and is_valid != 5 and sign_type = '升班' and sign_up_status = 1{$sql} group by tea_name");
+			//开课合格人数
+			if ($project == '基金项目') {
+				$is_class = DB::select("select count(1) as count, tea_name from data_info left join order_info on data_info.did = order_info.did where data_info.project = '基金项目' and is_valid != 5 and last_mark_time between '{$start_time}' and '{$end_time}'{$sql} and (learn_status = 4 or learn_status = 2 or learn_status = 10) group by tea_name");
+			} else {
+				$is_class = DB::select("select count(1) as count, tea_name from data_info left join order_info on data_info.did = order_info.did where (data_info.project = '消防项目' or data_info.project = '消防升级') and is_valid != 5 and (sign_type = '全款报名' or sign_type = '定金补费' or sign_type = '升班' or sign_type = '续报') and last_mark_time between '{$start_time}' and '{$end_time}'{$sql} and (learn_status = 4 or learn_status = 2 or learn_status = 10) group by tea_name");
+			}
+
+			//总回执数
+			$receipt = DB::select("select count(1) as count, tea_name from sendmail_info as s left join data_info as d on d.did = s.did where agr_back between '{$start_time}' and '{$end_time}' and is_valid != 5{$sql} group by tea_name");
+
+				//当日回执数
+			
+			$today_receipt = $this->today_receipt($start_time, $end_time, $sql);
+			
+
+			
+
+			//回访人数
+			$back_visit = DB::select("select count(1) as count, tea_name from back_visit as b left join data_info as d on d.did = b.did where bv_date between '{$start_time}' and '{$end_time}' and is_valid != 5{$sql} group by tea_name");
+			
+			//获取应回访数
+			$should_back_visit = DB::select("select sum(num) as sum, uid from should_back_visit where create_time between '{$start_time}' and '{$end_time}' and uid in ({$teacher_did}) group by uid");
+			//当日报名学员中含代报名服务数
+			$order_should_sign_up = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on d.did = o.did where last_mark_time between '{$start_time}' and '{$end_time}' and is_valid != 5 and o.instead_sign = '是'{$sql} group by tea_name");
+			
+
+			$all_should_sign_up = [];
+			$all_sign_up = [];
+			for ($i=0;$i<count($exam);$i++){
+				if ($project == '基金项目') {
+					//代报名服务
+					$should_sign_up = DB::select("select count(1) as count, tea_name from data_info as d left join fund_substitution as f on d.did = f.did where (
+					f.keyi_once = $exam[$i] OR f.keyi_second = $exam[$i]  OR f.keyi_third = $exam[$i] OR f.keer_once = $exam[$i]  OR f.keer_second = $exam[$i]  OR f.keer_third = $exam[$i]  OR f.kesan_once = $exam[$i]  OR f.kesan_second = $exam[$i]  OR f.kesan_third = $exam[$i] ) and is_valid != 5{$sql} group by tea_name");
+					$all_should_sign_up = array_merge($all_should_sign_up, $should_sign_up);
+				} else {
+					//消防代报名
+					$fire_sign_up = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on d.did = o.did left join exam_num_info as e on e.did = d.did where last_mark_time between '{$start_time}' and '{$end_time}' and (d.project = '消防项目' or d.project = '消防升级') and instead_sign = '是' and o.sign_type != '定金' and o.sign_type != '代报名补费' and exam_date = '{$exam[$i]['exam_date']}' and is_valid != 5  and s_name = ''{$sql} group by tea_name");
+					$all_should_sign_up = array_merge($all_should_sign_up, $fire_sign_up);
+				}
+				//待修改消防代报名
+
+				
+
+				
+				
+			}
+			
+			unset($should_sign_up);
+			for ($i=0;$i<count($exam);$i++){
+				
+				if ($project == '基金项目') {
+					//已代报名数
+					$sign_up = DB::select("select count(1) as count, tea_name from data_info as d left join fund_substitution as f on d.did = f.did where f.is_status=0
+						AND (
+						(f.keyi_once=$exam[$i] AND f.keyi_once_money = 65) OR
+						(f.keyi_second=$exam[$i] AND f.keyi_second_money = 65) OR
+						(f.keyi_third=$exam[$i] AND f.keyi_third_money = 65) OR
+						(f.keer_once=$exam[$i] AND f.keer_once_money = 65) OR
+						(f.keer_second=$exam[$i] AND f.keer_second_money = 65) OR
+						(f.keer_third=$exam[$i] AND f.keer_third_money = 65) OR
+						(f.kesan_once=$exam[$i] AND f.kesan_once_money = 65) OR
+						(f.kesan_second=$exam[$i] AND f.kesan_second_money = 65) OR
+						(f.kesan_third=$exam[$i] AND f.kesan_third_money = 65)) and is_valid != 5{$sql} group by tea_name");
+				} else {
+					$sign_up = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on d.did = o.did left join exam_num_info as e on e.did = d.did where last_mark_time between '{$start_time}' and '{$end_time}' and o.instead_sign = '是' and sign_type != '定金' and sign_type != '代报名补费' and exam_date = '{$exam[$i]['exam_date']}' and is_valid != 5 and s_name != ''{$sql} group by tea_name");
+				}
+
+				$all_sign_up = array_merge($all_sign_up, $sign_up);
+			}
+			unset($sign_up);
+			unset($exam);
+
+			//获取当日应邮寄
+			$send_mail_num = $this->send_mail_num($start_time, $end_time, $sql, $teacher_did);
+			
+			
+			$all_should_class = [];
+
+			$all_should_phone = [];
+			
+			//$all_should_back_visit = [];
+
+			foreach ($teacher_info as $key => $value) {
+				
+				
+				//应开课人数
+				if ($value->project == '基金项目') {
+					//基金应开课人数=分配人数
+					$should_class = DB::select("select count(1) as count, tea_name from data_info where last_mark_time between '{$start_time}' and '{$end_time}' and sign_up_status = 1 and is_valid != 5 and tea_name = {$value->tea_name}");
+					if ($should_class[0]->count == 0) {
+						$should_class[0]->tea_name = $value->tea_name;
+					}
+					$all_should_class = array_merge($all_should_class, $should_class);
+				} elseif ($value->project == '消防项目' || $value->project == '消防升级') {
+					//全款人数+定金补费人数+升班人数
+					$should_class = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on o.did = d.did where last_mark_time between '{$start_time}' and '{$end_time}' and sign_up_status = 1 and d.tea_name = {$value->tea_name} and o.sign_type != '定金' and o.sign_type != '代报名补费' and is_valid != 5");
+					if ($should_class[0]->count == 0) {
+						$should_class[0]->tea_name = $value->tea_name;
+					}
+					$all_should_class = array_merge($all_should_class, $should_class);
+				}
+				
+				
+				//$should_class = $should_class ? $should_class : ['count' => 0, 'tea_name' => $value->tea_name];
+				
+				/*//开课合格率
+				$class_percent = ($should_class == 0) ? 0 : $is_class/$should_class*100;*/
+				//开班电话数
+				if ($value->project == '基金项目') {
+					$should_phone = DB::select("select count(1) as count, tea_name from data_info where last_mark_time between '{$start_time}' and '{$end_time}' and is_valid != 5 and learn_status !=0 and tea_name = {$value->tea_name}");
+					if ($should_phone[0]->count == 0) {
+						$should_phone[0]->tea_name = $value->tea_name;
+					}
+					$all_should_phone = array_merge($all_should_phone, $should_phone);
+				} elseif ($value->project == '消防项目' || $value->project == '消防升级') {
+					$should_phone = DB::select("select count(1) as count, tea_name from data_info as d left join order_info as o on o.did = d.did where last_mark_time between '{$start_time}' and '{$end_time}' and is_valid != 5 and learn_status !=0 and (o.sign_type != '定金' && o.sign_type != '代报名补费') and d.tea_name = {$value->tea_name}");
+					if ($should_phone[0]->count == 0) {
+						$should_phone[0]->tea_name = $value->tea_name;
+					}
+					$all_should_phone = array_merge($all_should_phone, $should_phone);
+				}
+				//$should_phone = $should_phone ? $should_phone : ['count' => 0, 'tea_name' => $value->tea_name];
+				
+				
+
+				
+			 /* //今日应回访人数
+				$should_back_visit = count(json_decode($this->today_back($value->tea_name, 554, $value->project)));
+				//已回访人数
+				$back_visit_num = $this->back_visit_num($start_time, $end_time, $value->tea_name);
+				
+				$should_back_visit = [['count' => $should_back_visit + $back_visit_num, 'tea_name' => $value->tea_name]];
+				$all_should_back_visit = array_merge($all_should_back_visit, $should_back_visit);*/
+				
+				
+				
+
+			}
+			unset($should_class);
+			unset($should_phone);
+			//unset($should_back_visit);
+			//获取汇总下标
+			$all_index = count($teacher_info);
+			$teacher_info[$all_index] =  new class{
+				public $count = 0;
+				public $project = '';
+				public $user_name = '';
+				public $all_num = 0;
+				public $should_send_jt1 = 0;
+				public $should_send_jt2 = 0;
+				public $should_send_jt3 = 0;
+				public $should_send_jj1 = 0;
+				public $should_send_jj2 = 0;
+				public $should_send_jj3 = 0;
+				public $should_send_xj = 0;
+				public $should_send_xt = 0;
+				public $deposit = 0;
+				public $repeat_repair_fee = 0;
+				public $should_class = 0;
+				public $is_class = 0;
+				public $class_percent = 0;
+				public $class_percent_num = 0;
+				public $should_phone = 0;
+				public $phone_percent = 0;
+				public $phone_percent_num = 0;
+				public $receipt = 0;
+				public $receipt_percent = 0;
+				public $receipt_percent_num = 0; 
+				public $today_receipt = 0;
+				public $today_receipt_percent = 0;
+				public $today_receipt_percent_num = 0;
+				public $should_back_visit = 0;
+				public $back_visit = 0;
+				public $back_visit_percent = 0;
+				public $back_visit_percent_num = 0;
+				public $order_should_sign_up = 0;
+				public $should_sign_up = 0;
+				public $sign_up = 0;
+				public $sign_up_percent = 0;
+				public $sign_up_percent_num = 0;
+				public $weeks = '';
+				public $full = 0;
+				public $continue = 0;
+				public $fill_the_deposit_fee = 0;
+				public $go_up = 0;
+				public $performance = 0;
+			};
+			$teacher_info[$all_index]->project = $project;
+			$teacher_info[$all_index]->user_name = '汇总';
+			if (!empty($weeks)) {
+				$teacher_info[$all_index]->weeks = '第'.$weeks;
+			} else {
+				unset($teacher_info[$all_index]->weeks);
+			}
+
+			foreach ($teacher_info as $key => $value) {
+				if (!empty($weeks)) {
+					$teacher_info[$key]->weeks = '第'.$weeks;
+				}
+				if ($key === $all_index) {
+					continue;
+				}
+				//合并分配人数
+				foreach ($allot as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->count = $v->count;
+					}
+				}
+				//汇总
+				$teacher_info[$key]->count = isset($teacher_info[$key]->count) ? $teacher_info[$key]->count : 0;
+				$teacher_info[$all_index]->count += $teacher_info[$key]->count;
+				//合并服务总数
+				foreach ($all_num as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->all_num = $v->count;
+					}
+				}
+				//汇总
+				$teacher_info[$key]->all_num = isset($teacher_info[$key]->all_num) ? $teacher_info[$key]->all_num : 0;
+				//汇总
+				$teacher_info[$all_index]->all_num += $teacher_info[$key]->all_num;
+				//合并应邮寄
+				foreach ($send_mail_num as $k => $v) {
+					if ($value->tea_name == $k) {
+						$teacher_info[$key] = (object)array_merge((array)$teacher_info[$key], $v);
+					}
+				}
+				//汇总
+				$teacher_info[$all_index]->should_send_jt1 += $teacher_info[$key]->should_send_jt1;
+				$teacher_info[$all_index]->should_send_jt2 += $teacher_info[$key]->should_send_jt2;
+				$teacher_info[$all_index]->should_send_jt3 += $teacher_info[$key]->should_send_jt3;
+				$teacher_info[$all_index]->should_send_jj1 += $teacher_info[$key]->should_send_jj1;
+				$teacher_info[$all_index]->should_send_jj2 += $teacher_info[$key]->should_send_jj2;
+				$teacher_info[$all_index]->should_send_jj3 += $teacher_info[$key]->should_send_jj3;
+				$teacher_info[$all_index]->should_send_xt += $teacher_info[$key]->should_send_xt;
+				$teacher_info[$all_index]->should_send_xj += $teacher_info[$key]->should_send_xj;
+				
+
+				//合并定金
+				foreach ($deposit as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->deposit = $v->count;
+					}
+				}
+				$teacher_info[$key]->deposit = isset($teacher_info[$key]->deposit) ? $teacher_info[$key]->deposit : 0;
+				//汇总
+				$teacher_info[$all_index]->deposit += $teacher_info[$key]->deposit;
+				//合并全款
+				foreach ($full as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->full = $v->count;
+					}
+				}
+				$teacher_info[$key]->full = isset($teacher_info[$key]->full) ? $teacher_info[$key]->full : 0;
+				//汇总
+				$teacher_info[$all_index]->full += $teacher_info[$key]->full;
+				//合并续报
+				foreach ($continue as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->continue = $v->count;
+					}
+				}
+				$teacher_info[$key]->continue = isset($teacher_info[$key]->continue) ? $teacher_info[$key]->continue : 0;
+				//汇总
+				$teacher_info[$all_index]->continue += $teacher_info[$key]->continue;
+				//合并定金补费
+				foreach ($fill_the_deposit_fee as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->fill_the_deposit_fee = $v->count;
+					}
+				}
+				$teacher_info[$key]->fill_the_deposit_fee = isset($teacher_info[$key]->fill_the_deposit_fee) ? $teacher_info[$key]->fill_the_deposit_fee : 0;
+				//汇总
+				$teacher_info[$all_index]->fill_the_deposit_fee += $teacher_info[$key]->fill_the_deposit_fee;
+				//合并升班
+				foreach ($go_up as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->go_up = $v->count;
+					}
+				}
+				$teacher_info[$key]->go_up = isset($teacher_info[$key]->go_up) ? $teacher_info[$key]->go_up : 0;
+				//汇总
+				$teacher_info[$all_index]->go_up += $teacher_info[$key]->go_up;
+				//合并代报名补费
+				foreach ($repeat_repair_fee as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->repeat_repair_fee = $v->count;
+					}
+				}
+				$teacher_info[$key]->repeat_repair_fee = isset($teacher_info[$key]->repeat_repair_fee) ? $teacher_info[$key]->repeat_repair_fee : 0;
+				//汇总
+				$teacher_info[$all_index]->repeat_repair_fee += $teacher_info[$key]->repeat_repair_fee;
+				//合并绩效
+				$teacher_info[$key]->performance = $teacher_info[$key]->deposit*0.5 + $teacher_info[$key]->fill_the_deposit_fee*0.5 +  $teacher_info[$key]->continue +  $teacher_info[$key]->full + $teacher_info[$key]->go_up;
+				//汇总
+				$teacher_info[$all_index]->performance += $teacher_info[$key]->performance;
+				//合并应开课
+				foreach ($all_should_class as $k => $v) {
+					
+
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->should_class = $v->count;
+					}
+					
+				}
+				$teacher_info[$key]->should_class = isset($teacher_info[$key]->should_class) ? $teacher_info[$key]->should_class : 0;
+
+				//汇总
+				$teacher_info[$all_index]->should_class += $teacher_info[$key]->should_class;
+				//合并开课合格人数
+				foreach ($is_class as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->is_class = $v->count;
+					}
+				}
+				$teacher_info[$key]->is_class = isset($teacher_info[$key]->is_class) ? $teacher_info[$key]->is_class : 0;
+				//汇总
+				$teacher_info[$all_index]->is_class += $teacher_info[$key]->is_class;
+				//合并开课合格率
+				$teacher_info[$key]->class_percent = ($teacher_info[$key]->should_class == 0) ? 0 : round($teacher_info[$key]->is_class/$teacher_info[$key]->should_class, 2)*100;
+				//汇总
+				$teacher_info[$all_index]->class_percent += $teacher_info[$key]->class_percent;
+				$teacher_info[$all_index]->class_percent_num += 1;
+				$teacher_info[$key]->class_percent = $teacher_info[$key]->class_percent.'%';
+				//合并开班电话数
+				foreach ($all_should_phone as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->should_phone = $v->count;
+					}
+				}
+				$teacher_info[$key]->should_phone = isset($teacher_info[$key]->should_phone) ? $teacher_info[$key]->should_phone : 0;
+				//汇总
+				$teacher_info[$all_index]->should_phone += $teacher_info[$key]->should_phone;
+				//合并开班电话率
+				$teacher_info[$key]->phone_percent =  ($teacher_info[$key]->should_class == 0) ? 0 : round($teacher_info[$key]->should_phone/$teacher_info[$key]->should_class, 2)*100;
+				//汇总
+				$teacher_info[$all_index]->phone_percent += $teacher_info[$key]->phone_percent;
+				$teacher_info[$all_index]->phone_percent_num += 1;
+				$teacher_info[$key]->phone_percent = $teacher_info[$key]->phone_percent.'%';
+				//合并总回执人数
+				foreach ($receipt as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->receipt = $v->count;
+					}
+				}
+				$teacher_info[$key]->receipt = isset($teacher_info[$key]->receipt) ? $teacher_info[$key]->receipt : 0;
+				//汇总
+				$teacher_info[$all_index]->receipt += $teacher_info[$key]->receipt;
+				//合并总回执率
+				$teacher_info[$key]->receipt_percent = ($value->count == 0) ? 0 : round($teacher_info[$key]->receipt/$value->count, 2)*100;
+				//汇总
+				$teacher_info[$all_index]->receipt_percent += $teacher_info[$key]->receipt_percent;
+				$teacher_info[$all_index]->receipt_percent_num += 1;
+				$teacher_info[$key]->receipt_percent = $teacher_info[$key]->receipt_percent.'%';
+				//合并当日报名当日回执人数
+				$teacher_info[$key]->today_receipt = 0;
+				foreach ($today_receipt as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->today_receipt += $v->count;
+					}
+				}
+				$teacher_info[$key]->today_receipt = isset($teacher_info[$key]->today_receipt) ? $teacher_info[$key]->today_receipt : 0;
+				//汇总
+				$teacher_info[$all_index]->today_receipt += $teacher_info[$key]->today_receipt;
+				
+				//合并当日报名当日回执人数
+				$teacher_info[$key]->today_receipt_percent = ($value->count == 0) ? 0 : round($teacher_info[$key]->today_receipt/$value->count, 2)*100;
+				//汇总
+				$teacher_info[$all_index]->today_receipt_percent += $teacher_info[$key]->today_receipt_percent;
+				$teacher_info[$all_index]->today_receipt_percent_num += 1;
+				$teacher_info[$key]->today_receipt_percent = $teacher_info[$key]->today_receipt_percent.'%';
+				//合并应回访人数
+				foreach ($should_back_visit as $k => $v) {
+					if ($value->tea_name == $v->uid) {
+						$teacher_info[$key]->should_back_visit = $v->sum;
+					}
+				}
+				$teacher_info[$key]->should_back_visit = isset($teacher_info[$key]->should_back_visit) ? $teacher_info[$key]->should_back_visit : 0;
+				//汇总
+				$teacher_info[$all_index]->should_back_visit += $teacher_info[$key]->should_back_visit;
+
+				//合并今日回访人数
+				foreach ($back_visit as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->back_visit = $v->count;
+					}
+				}
+				$teacher_info[$key]->back_visit = isset($teacher_info[$key]->back_visit) ? $teacher_info[$key]->back_visit : 0;
+				$teacher_info[$all_index]->back_visit += $teacher_info[$key]->back_visit;
+
+				//合并今日回访完成率
+
+				$teacher_info[$key]->back_visit_percent = ($teacher_info[$key]->should_back_visit == 0) ? 0 : round($teacher_info[$key]->back_visit/$teacher_info[$key]->should_back_visit, 2)*100;
+				//汇总
+				$teacher_info[$all_index]->back_visit_percent += $teacher_info[$key]->back_visit_percent;
+				$teacher_info[$all_index]->back_visit_percent_num += 1;
+				$teacher_info[$key]->back_visit_percent = $teacher_info[$key]->back_visit_percent.'%';
+				
+				//合并当日报班学员中含代报名服务人数
+				foreach ($order_should_sign_up as $k => $v) {
+					if ($value->tea_name == $v->tea_name) {
+						$teacher_info[$key]->order_should_sign_up = $v->count;
+					}
+				}
+				$teacher_info[$key]->order_should_sign_up = isset($teacher_info[$key]->order_should_sign_up) ? $teacher_info[$key]->order_should_sign_up : 0;
+				//汇总
+				$teacher_info[$all_index]->order_should_sign_up += $teacher_info[$key]->order_should_sign_up;
+				$tmp_should_sign_up = 0;
+				$tmp_sign_up = 0;
+				
+
+				
+				//合并实际代报名人数
+				foreach ($all_sign_up as $k => $v) {
+					if ($v->tea_name == $value->tea_name) {
+						$tmp_sign_up += $v->count;
+					}
+				}
+				
+				$teacher_info[$key]->sign_up = $tmp_sign_up;
+				//汇总
+				$teacher_info[$all_index]->sign_up += $teacher_info[$key]->sign_up;
+
+
+				//合并需代报名人数
+				$teacher_info[$key]->should_sign_up = $teacher_info[$key]->order_should_sign_up - $teacher_info[$key]->sign_up;
+				//汇总
+				$teacher_info[$all_index]->should_sign_up = $teacher_info[$all_index]->order_should_sign_up - $teacher_info[$all_index]->sign_up;
+				//代报名完成率
+				$teacher_info[$key]->sign_up_percent = ($teacher_info[$key]->should_sign_up == 0) ? 0 : round($teacher_info[$key]->sign_up/$teacher_info[$key]->should_sign_up)*100;
+				//汇总
+				$teacher_info[$all_index]->sign_up_percent += $teacher_info[$key]->sign_up_percent;
+				$teacher_info[$all_index]->sign_up_percent_num += 1;
+
+				$teacher_info[$key]->sign_up_percent .= '%';
+				unset($teacher_info[$key]->tea_name);
+
+			}
+
+			$teacher_info[$all_index]->class_percent = ($teacher_info[$all_index]->class_percent_num == 0) ? 0 : round($teacher_info[$all_index]->class_percent/$teacher_info[$all_index]->class_percent_num, 2);
+			$teacher_info[$all_index]->class_percent = $teacher_info[$all_index]->class_percent.'%';
+
+			unset($teacher_info[$all_index]->class_percent_num);
+			$teacher_info[$all_index]->phone_percent = ($teacher_info[$all_index]->phone_percent_num == 0) ? 0 : round($teacher_info[$all_index]->phone_percent/$teacher_info[$all_index]->phone_percent_num, 2);
+			$teacher_info[$all_index]->phone_percent = $teacher_info[$all_index]->phone_percent.'%';
+
+			unset($teacher_info[$all_index]->phone_percent_num);
+			$teacher_info[$all_index]->receipt_percent = ($teacher_info[$all_index]->receipt_percent_num == 0) ? 0 : round($teacher_info[$all_index]->receipt_percent/$teacher_info[$all_index]->receipt_percent_num, 2);
+			$teacher_info[$all_index]->receipt_percent = $teacher_info[$all_index]->receipt_percent.'%';
+
+			unset($teacher_info[$all_index]->receipt_percent_num);
+			$teacher_info[$all_index]->today_receipt_percent = ($teacher_info[$all_index]->today_receipt_percent_num == 0) ? 0 : round($teacher_info[$all_index]->today_receipt_percent/$teacher_info[$all_index]->today_receipt_percent_num, 2);
+			$teacher_info[$all_index]->today_receipt_percent = $teacher_info[$all_index]->today_receipt_percent.'%';
+
+			unset($teacher_info[$all_index]->today_receipt_percent_num);
+			$teacher_info[$all_index]->back_visit_percent = ($teacher_info[$all_index]->back_visit_percent_num == 0) ? 0 : round($teacher_info[$all_index]->back_visit_percent/$teacher_info[$all_index]->back_visit_percent_num, 2);
+			$teacher_info[$all_index]->back_visit_percent = $teacher_info[$all_index]->back_visit_percent.'%';
+
+			unset($teacher_info[$all_index]->back_visit_percent_num);
+			
+			$teacher_info[$all_index]->sign_up_percent = ($teacher_info[$all_index]->sign_up_percent_num == 0) ? 0 : round($teacher_info[$all_index]->sign_up_percent/$teacher_info[$all_index]->sign_up_percent_num, 2);
+			$teacher_info[$all_index]->sign_up_percent = $teacher_info[$all_index]->sign_up_percent.'%';
+
+			unset($teacher_info[$all_index]->sign_up_percent_num);
+			
+			unset($all_num);
+			unset($deposit);
+			unset($repeat_repair_fee);
+			unset($is_class);
+			unset($receipt);
+			unset($today_receipt);
+			unset($send_mail_num);
+			unset($back_visit);
+			unset($order_should_sign_up);
+			unset($all_should_sign_up);
+			unset($all_sign_up);
+			
+			unset($all_should_class);
+			unset($all_should_phone);
+			unset($should_back_visit);
+			//unset($all_should_back_visit);
+
+			//var_dump($teacher_info);
+
+			return json_encode($teacher_info);
+			
+		}
+		/*进入挂靠添加页面
+		 *
+		 *
+		 */
+		public function affiliated_show()
+		{
+			return view('admin/affiliated');
+		}
+		
+		/*添加挂靠信息
+		 *
+		 *
+		 */
+		public function affiliated_save(Request $request)
+		{
+			$affiliated_info = $request->all();
+			$manager = session('manager');
+			if ($manager != '555' && $manager != '556') {
+				return 0;
+			}
+			$id = array_key_exists('id', $affiliated_info) ? $affiliated_info['id'] : 0;
+			//若传id则为修改操作
+			if ($id == 0) {
+				unset($affiliated_info['isNewRecord']);
+				$result = DB::table('affiliated_info')->insert($affiliated_info);
+			} else {
+				unset($affiliated_info['id']);
+				$result = DB::table('affiliated_info')->where('id', $id)->update($affiliated_info);
+			}
+			
+			return $result ? 1 : 0;
+			
+		}
+		/*挂靠信息查询
+		 *
+		 *
+		 */
+		public function affiliated_index(Request $request)
+		{
+			$manager = session('manager');
+			if ($manager != '555' && $manager != '556') {
+				return json_encode([]);
+			}
+			//获取检索索引数组
+			$partners = $request->get('name') ? $request->get('name') : false;
+			$type = $request->get('type') ? $request->get('type') : false;
+			//获取是否接口请求
+			//$json = array_key_exists('json', $index_arr) ? $index_arr['json'] : false;
+			//去除数组元素
+			//unset($index_arr['json']);
+			if (!$type) {
+				return json_encode([]);
+			}
+			$result = DB::table('affiliated_info');
+			//区分项目
+			$result->where('type', $type);
+			if ($partners) {
+				$result->where('partners', $partners);
+			}
+			
+
+			//获取数据
+			$result = $result->get()->toArray();
+			
+			//如果是ajax请求则返回json 数据
+			
+			return json_encode($result);
+		}
+		/*进入印刷商添加页面
+		 *
+		 *
+		 */
+		public function print_show()
+		{
+			return view('admin/print');
+		}
+		
+		/*添加印刷商
+		 *
+		 *
+		 */
+		public function print_save(Request $request)
+		{
+			$manager = session('manager');
+			if ($manager != '556') {
+				return 0;
+			}
+			//获取提价印刷商信息
+			$print_info = $request->all();
+			//获取当前印刷信息id
+			$id = array_key_exists('id', $print_info) ? $print_info['id'] : 0;
+			
+			//若传id则为修改操作
+			if ($id == 0) {
+				unset($print_info['isNewRecord']);
+				$result = DB::table('printers_info')->insert($print_info);
+			} else {
+				unset($print_info['id']);
+				
+				$result = DB::table('printers_info')->where('id', $id)->update($print_info);
+			}
+			
+			
+			return $result;
+			
+		}
+		/*
+		 */
+		/*印刷商列表
+		 *@param 检索数组
+		 *@return 检索出来的印刷商数据
+		 */
+		public function print_index(Request $request)
+		{
+			$manager = session('manager');
+			if ($manager != '556') {
+				return json_encode([]);
+			}
+			//获取检索索引数组
+			//供应商名称
+			$name = $request->get('name') ? $request->get('name') : false;
+			
+			//去除数组元素
+			//unset($index_arr['json']);
+
+			$result = DB::table('printers_info');
+			//添加索引条件
+			if ($name) {
+				$result->where('name', $name);
+			}
+			//获取总数据量
+			//$count_result = $result;
+			//$count = $count_result->count();
+			
+			//页数
+			//$page_num = ceil($count/$limit);
+			//获取数据
+			$result = $result->get()->toArray();
+			
+			
+			return json_encode($result);
+			
+		}
+
+		/*跳转异动审核
+		 *
+		 *
+		 */
+		public function transaction_index()
+		{
+			return view('admin/indexx');
+		}
+		/*协议待回执(删除)
+		 *@param 参数无
+		 *@return
+		 */
+		public function for_receipt()
+		{
+			
+				//获取当前用户uid
+			$uid = session('uid');
+				//获取当前用户权限
+				//554为班主任权限
+				//555主管权限
+				//556院长权限
+				//888为超管
+			$manager = session('manager');
+			$project = session('project');
+			switch ($manager) {
+				case '554':
+				$result = DB::table('order_info as o')->leftJoin('data_info as d', 'd.did', '=', 'o.did')
+				->leftJoin('user_info as u', 'u.uid', '=', 'd.tea_name')
+				->where('u.uid', $uid)
+				->where('signature',null)
+				->select('d.stu_name', 'd.did', 'd.mobile', 'd.last_mark_time')
+				->get()
+				->toArray();
+				break;
+				case '555':
+				$result = DB::table('order_info as o')->leftJoin('data_info as d', 'd.did', '=', 'o.did')
+				->leftJoin('user_info as u', 'u.uid', '=', 'd.tea_name')
+				->where('o.signature',null)
+				->where('d.project',$project)
+				->select('d.stu_name', 'd.did', 'd.mobile', 'd.last_mark_time')
+				->get()
+				->toArray();
+				break;
+				case '556':
+				$result = DB::table('order_info as o')->leftJoin('data_info as d', 'd.did', '=', 'o.did')
+				->leftJoin('user_info as u', 'u.uid', '=', 'd.tea_name')
+				->where('o.signature',null)
+				->select('d.stu_name', 'd.did', 'd.mobile', 'd.last_mark_time')
+				->get()
+				->toArray();
+				break;
+				case '888':
+				$result = DB::table('order_info as o')->leftJoin('data_info as d', 'd.did', '=', 'o.did')
+				->leftJoin('user_info as u', 'u.uid', '=', 'd.tea_name')
+				->where('o.signature',null)
+				->select('d.stu_name', 'd.did', 'd.mobile', 'd.last_mark_time')
+				->get()
+				->toArray();
+				break;
+			}
+			return json_encode($result);
+			
+		}
+		/*协议已回执待审核
+		 *@param
+		 *@return
+		 */
+		public function for_deal()
+		{
+			
+			 //获取当前用户uid
+			$uid = session('uid');
+				//获取当前用户权限
+				//554为班主任权限
+				//555主管权限
+				//556院长权限
+				//888为超管
+			$manager = session('manager');
+			$project = session('project');
+			switch ($manager) {
+				case '554':
+				$result = DB::table('data_info as d')->leftJoin('order_info as o', 'd.did', '=', 'o.did')
+				->where('d.tea_name', $uid)
+				->where('signature', '!=', null)
+				->where('o.sign_status', '!=', 2)
+				->where('is_valid', '!=', 5)
+				->where('learn_status', '>=', 1)
+				->select('d.stu_name', 'd.did', 'd.mobile', 'd.last_mark_time')
+				->get()
+				->toArray();
+				break;
+				case '555':
+				$result = DB::table('data_info as d')->leftJoin('order_info as o', 'd.did', '=', 'o.did')
+				->where('o.signature', '!=', null)
+				->where('d.project', $project)
+				->where('o.sign_status', '!=', 2)
+				->where('is_valid', '!=', 5)
+				->where('learn_status', '>=', 1)
+				->select('d.stu_name', 'd.did', 'd.mobile', 'd.last_mark_time')
+				->get()
+				->toArray();
+				break;
+				case '556':
+				$result = DB::table('data_info as d')->leftJoin('order_info as o', 'd.did', '=', 'o.did')
+				->where('o.signature', '!=', null)
+				->where('o.sign_status', '!=', 2)
+				->where('is_valid', '!=', 5)
+				->where('learn_status', '>=', 1)
+				->select('d.stu_name', 'd.did', 'd.mobile', 'd.last_mark_time')
+				->get()
+				->toArray();
+				break;
+				case '888':
+				$result = DB::table('data_info as d')->leftJoin('order_info as o', 'd.did', '=', 'o.did')
+				->where('o.signature', '!=', null)
+				->where('o.sign_status', '!=', 2)
+				->where('is_valid', '!=', 5)
+				->where('learn_status', '>=', 1)
+				->select('d.stu_name', 'd.did', 'd.mobile', 'd.last_mark_time')
+				->get()
+				->toArray();
+				break;
+			}
+			foreach ($result as $key => $value) {
+				$value->did = 'HuoZhongNO_'.($value->did*2+1334809212);
+			}
+			return json_encode($result);
+		}
+		/***********************************主页信息******************************************/
+		//显示主页模板
+		public function index_show(Request $request){
+			
+			return view('admin/bindex');
+		}
+		/*
+		 * @param 主页新分配学员
+		 * @retuen json
+		 * */
+		public function studentInfo()
+		{
+			$data = new Data_info();
+			$userName = session('user_name');
+			$manager = session('manager');
+			$uid = session('uid');
+			$result = $data::newStudent($manager,$userName,$uid);
+				//重复的did数组
+			$repeat_did_arr = [];
+				//新学员did数组
+			$new_stu_arr = [];
+			foreach ($result as $key => $value) {
+				
+					//判断是否是重复值
+				if (in_array($value->did, $new_stu_arr)) {
+					$repeat_did_arr[$key] = $value->did;
+				} else {
+					$new_stu_arr[$key] = $value->did;
+				}
+					//拼接合同编号
+				$result[$key]->contract_id = ($value->did*2+1334809212);
+
+			}
+				//去重
+			foreach ($repeat_did_arr as $key => $value) {
+				unset($result[$key]);
+			}
+			unset($repeat_did_arr);
+			unset($new_stu_arr);
+
+			return json_encode(array_values($result));
+		}
+		/*
+		 * @param主页信息微信待通过栏目
+		 * @return json
+		* */
+		public function wxStatus()
+		{
+			$data = new Data_info();
+			$userName = session('user_name');
+			$manager = session('manager');
+			$uid = session('uid');
+			$result = $data::wxStatus($manager,$userName,$uid);
+			foreach ($result as $key => $value) {
+				
+				
+					//拼接合同编号
+				$result[$key]->contract_id = ($value->did*2+1334809212);
+
+			}
+				//var_dump(json_encode($data::wxStatus($manager,$userName,$uid)));
+			return json_encode($result);
+		}
+		/*
+		 * @param 微信通过审核
+		 * @return json
+		 * */
+		public function checkWx(Request $request)
+		{
+			$did = $request->post('did');
+			$weixin = new Data_info();
+			return json_encode($weixin->weiXin($did));
+		}
+		/*
+		* @param 主页信息待邮寄学员
+		* @return json
+		* */
+		public function sendMail()
+		{
+			
+			$send = new Sendmail_info();
+				//$sends = $send->sendMail();
+			$userName = session('user_name');
+			$manager = session('manager');
+			$uid = session('uid');
+				//echo $manager;
+			 /* $sends = [1,2,2,34,56];
+				foreach($sends as $v){
+					$v = get_object_vars($v);*/
+					$result = $send::daiMail($manager, $userName,$uid);
+					foreach ($result as $key => $value) {
+						$result[$key]->contract_id = ($value->did*2+1334809212);
+					}
+					return json_encode($result);
+				//}
+
+				}
+		/*
+		 * @param主页显示信息已邮寄学员
+		 * @return json
+		 * */
+		public function sendMails()
+		{
+
+			$send = new Sendmail_info();
+			$section = $send->stuSection();
+			$userName = session('user_name');
+			$manager = session('manager');
+			$uid = \session('uid');
+			$result = $send::yiMail($manager, $userName,$uid);
+			foreach ($result as $key => $value) {
+				$result[$key]->contract_id = ($value->did*2+1334809212);
+			}
+			return json_encode($result);
+		}
+		/*
+		 * @今日应回访学员
+		 * @根据考期新生老生判断
+		 * */
+		public function today_back($uid = '', $manager = '554', $project = '消防项目', $belong_to = false)
+		{
+			//获取数据判断条件
+            $uid = empty($uid) ? session('uid') : $uid;
+            $manager = empty($manager) ? session('manager') : $manager;
+            $project = empty($project) ? session('project') : $project;
+
+            $result = array();//最后返回数组
+            $today = Date('Y-m-d 00:00:00');//今日时间
+            if ($project == '消防项目' || $project == '消防升级' || $manager == '556' || $manager == '888') {
+            	/*应回访逻辑
+                 *当期考试 1.处于报名后七天到报名后十四天
+                 *		  2.处于报名后十四天到下个月开始时间
+                 *        3.之后的36个月
+                 *非当期考试 1.处于报名后七天到考试开始前7天
+                 *          2.考试开始前7天到考试开始
+                 */
+            	//消防考期数组
+            	$fireDate = array(
+                    array(
+					'exam_date'=>201811,
+					'startTime'=>'2018-10-01',
+					'endTime'=>'2018-10-30',
+					'examStart'=>'2018-11-10',
+					'examEnd'=>'2018-11-11'
+					),
+					array(
+						'exam_date'=>201911,
+						'startTime'=>'2019-10-01',
+						'endTime'=>'2019-10-30',
+						'examStart'=>'2019-11-09',
+						'examEnd'=>'2019-11-10'
+					),
+                    
+                );
+                $date = Date('Y-m-d');
+            	//获取今日所属考期基本数据
+                for($i=0;$i<count($fireDate)-1;$i++){
+                    if($date > $fireDate[$i]['endTime'] && (!array_key_exists($i+1,  $fireDate) || $date<= $fireDate[$i+1]['endTime']) ){
+                        $exam_date = $fireDate[$i+1]['exam_date'];//获取考期
+                        $exam_start = $fireDate[$i+1]['examStart'];//考试开始时间
+                        $sign_up_start = $fireDate[$i+1]['startTime'];//报名开始时间
+                        $sign_up_end = $fireDate[$i+1]['endTime'];//报名结束时间
+                    }
+                }
+                
+                $seven = Date('Y-m-d H:i:s',strtotime("- 7 day",strtotime($today)));
+                //当期
+                $fourteen = Date('Y-m-d H:i:s',strtotime("- 14 day",strtotime($today)));
+                $next_month = [];
+                for ($i=1; $i <= 36; $i++) { 
+                	$next_month[] = Date('Y-m-d H:i:s',strtotime("- {$i} month",strtotime($fourteen)));
+                }
+                //非当期
+                $exam_start_seven = Date('Y-m-d H:i:s',strtotime("- 7 day",strtotime($exam_start)));
+                $exam_start = Date('Y-m-d H:i:s',strtotime($exam_start));
+                /*数据获取
+                 *当期 1.处于当期最大时间至最小事件的当期报名数据
+                 *非当期 1.处于非当期最大时间至最小事件的非当期报名数据
+                 */
+                $data_info_obj = DB::table('data_info as d')->leftJoin('order_info as o', 'o.did', '=', 'd.did');
+                //教师权限
+                if ($manager == '554') {
+                    if ($belong_to == false) {
+
+                        $data_info_obj = $data_info_obj->where('d.tea_name', $uid);
+                    } else {
+                        $data_info_obj = $data_info_obj->where('d.belong_to', $uid);
+                    }
+                }
+                $tm_data_info_obj = clone $data_info_obj;
+                //合并当期数据
+                $result = $this->fire_current_period($exam_date,$seven,$fourteen,$next_month,$result,$tm_data_info_obj);
+                //合并非当期数据
+                $result = $this->fire_not_current_period($exam_date,$seven,$exam_start,$result,$data_info_obj);
+                
+            } 
+			if ($project == '基金项目' || $manager == '556' || $manager == '888') {
+				//echo 123;
+				$examDate = array(
+					array(
+						'exam_date'=>201902,
+						'startTime'=>'2018-12-28',
+						'endTime'=>'2019-01-01',
+						'examStart'=>'2019-01-05',
+						'examEnd'=>'2019-02-05'
+					),
+					array(
+						'exam_date'=>201903,
+						'startTime'=>'2019-01-28',
+						'endTime'=>'2019-03-12',
+						'examStart'=>'2019-03-30',
+						'examEnd'=>'2019-03-30'
+					),
+					array(
+						'exam_date'=>201904,
+						'startTime'=>'2019-02-18',
+						'endTime'=>'2019-03-22',
+						'examStart'=>'2019-04-20',
+						'examEnd'=>'2019-04-21'
+					),
+					array(
+						'exam_date'=>201905,
+						'startTime'=>'2019-04-08' ,
+						'endTime'=>'2019-05-07',
+						'examStart'=>'2019-05-25',
+						'examEnd'=>'2019-05-25'
+					),
+					array(
+						'exam_date'=>201906,
+						'startTime'=>'2019-05-15',
+						'endTime'=>'2019-06-04',
+						'examStart'=>'2019-06-22',
+						'examEnd'=>'2019-06-22'
+					),
+					array(
+						'exam_date'=>201909,
+						'startTime'=>'2019-07-22',
+						'endTime'=>'2019-08-23',
+						'examStart'=>'2019-09-21',
+						'examEnd'=>'2019-09-22'
+					),
+					array(
+						'exam_date'=>201910,
+						'startTime'=>'2019-08-26',
+						'endTime'=>'2019-09-24',
+						'examStart'=>'2019-10-19',
+						'examEnd'=>'2019-10-19'
+					),
+					array(
+						'exam_date'=>201911,
+						'startTime'=>'2019-09-23',
+						'endTime'=>'2019-10-25',
+						'examStart'=>'2019-11-23',
+						'examEnd'=>'2019-11-24'
+					),
+				);
+				$f = '';
+				$t = '';
+				$n = '';
+				$nn = '';
+				$c = '';
+										//基金
+				$date = Date('Y-m-d');
+										//$date = '2019-04-17';
+										/*2019-03-16 00:00:00<br>2019-03-17 00:00:00<br>2019-04-22 00:00:00<br>2019-03-302019-03-16 00:00:00<br>
+										2019-03-17 00:00:00<br>2019-04-15 00:00:00<br>2019-03-302019-03-16 00:00:00<br>2019-03-17 00:00:00<br>2019-03-15 00:00:00<br>2019-03-301232019-03-16 00:00:00<br>2019-03-17 00:00:00<br>2018-04-15 00:00:00<br>2019-03-301232019-03-16 00:00:00<br>2019-03-17 00:00:00<br>2018-04-15 00:00:00<br>
+										2019-03-30
+										2019-03-16 00:00:00<br>2019-03-17 00:00:00<br>2019-03-15 00:00:00<br>2019-03-30*/
+				for($i=0;$i<count($examDate)-1;$i++){
+					if($date > $examDate[$i]['endTime'] && $date<= $examDate[$i+1]['endTime'] ){
+						$date = $examDate[$i+1]['exam_date'];//考期
+						$f = $examDate[$i+1]['examStart'];//考试开始时间
+						$t = $examDate[$i+1]['startTime'];//报名开始时间
+						$n = $examDate[$i+1]['endTime'];//报名结束时间
+					}
+				}
+				$sql = '';
+				if ($manager == '554') {
+					if ($belong_to == false) {
+
+						$sql = " and d.tea_name = $uid";
+					} else {
+						$sql = " and d.belong_to = $uid";
+					}
+				}
+				$a = DB::select("SELECT d.project,d.did ,d.last_mark_time,f.keyi_once,f.keer_once,f.kesan_once,
+					f.keyi_second,f.keer_second,f.kesan_second,f.keyi_third,f.keer_third,f.kesan_third FROM data_info AS d LEFT JOIN 
+					fund_substitution AS f ON d.did = f.did WHERE d.project = '基金项目' and is_valid != 5 and learn_status >= 1 $sql");
+				
+					for($i=0;$i<count($a);$i++){
+							$val = $a[$i];
+							$val ->last_mark_time = Date('Y-m-d',strtotime($val->last_mark_time));
+												//获取学员报名考期
+							for ($j=0;$j<count($examDate)-1;$j++){
+								if($val->last_mark_time > $examDate[$j]['endTime'] && $val->last_mark_time <= $examDate[$j+1]['endTime'] ){
+									$c = $examDate[$j+1]['exam_date'];
+								}
+							}
+												//基金当期报班当期考试首次回访
+							$seven = Date('Y-m-d 00:00:00',strtotime("+7 day",strtotime($val->last_mark_time)));
+							$signTwo = Date('Y-m-d 00:00:00',strtotime("+2 day",strtotime($val->last_mark_time)));
+							$exam_sign_up_two = Date('Y-m-d 00:00:00',strtotime("+2 day",strtotime($n)));
+							
+							
+												//报名后8天
+							$eight = Date('Y-m-d 00:00:00',strtotime("+8 day",strtotime($val->last_mark_time)));
+												//基金当期报班当期考试二次回访
+							$fortheen = Date('Y-m-d 00:00:00',strtotime("+ 14 day",strtotime($val->last_mark_time)));
+							$examA = Date('Y-m-d 00:00:00',strtotime($val->last_mark_time));
+												//当期考试（基金）-----当期报班（首次考试）考前回访：考试前第13天
+							$befoExam = Date('Y-m-d 00:00:00',strtotime("- 13 day",strtotime($f)));
+												//非当期报班（非首次考试）（基金）------当期首次回访：报名开始后第8天
+							$ol = Date('Y-m-d 00:00:00',strtotime("+ 8 day",strtotime($t)));
+												//当期不考试------当期考试报名结束后2天内
+							$not = Date('Y-m-d 00:00:00',strtotime("+ 2 day",strtotime($n)));
+							$nn = Date('Y-m-d 00:00:00',strtotime($n));
+												//正常的回访
+							$nomal = Date('Y-m-d 00:00:00',strtotime("- 27 day",strtotime($f)));
+												//20天的
+							$ershi = Date('Y-m-d 00:00:00',strtotime("- 20 day",strtotime($f)));
+							$shisi = Date('Y-m-d 00:00:00',strtotime("- 14 day",strtotime($f)));
+							$qitian = Date('Y-m-d 00:00:00',strtotime("- 7 day",strtotime($f)));
+												//考试时间
+							$res = Date('Y-m-d 00:00:00',strtotime($f));
+							$did = $val->did;
+												//echo $today.'<br>'.$befoExam.'<br>'.$fortheen.'<br>'.$f;
+												//当期考试当期报名
+
+							if($c == $date && ($val->keyi_once == $date || $val->keer_once == $date ||
+														$val->kesan_once == $date || $val->keyi_second == $date ||
+														$val->keer_second == $date || $val->kesan_second == $date ||
+														$val->keyi_third == $date || $val->keer_third == $date ||
+														$val->kesan_third == $date)){
+
+														//报名时间在考试时间前的13天 正常的 >27天
+														//最后回馈时间<考前27天
+														
+								if($examA <= $nomal){
+															//echo 123;
+																//今天处于 最后回馈时间后7天和最后回馈时间后14天之间
+									if($today >= $seven && $today <= $fortheen){
+										$res1 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$seven' AND '$fortheen' AND did =$did");
+										if($res1[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+											continue;
+										}
+									}
+																//今天超过最后回馈时间后14天 并且<= 考试开始前13天
+									if($today > $fortheen && $today <= $befoExam){
+																	//echo 123;
+
+										$res3 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$fortheen' AND '$befoExam' AND did =$did");
+										
+																		//判断是否有回访记录
+										if($res3[0]->a ==0){
+
+
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+											continue;
+										}
+
+									}
+
+																//今天>考试开始前13天  并且 今天<=考试时间
+																//echo $befoExam. '   '. $res. '   '. $today;
+									if($today > $befoExam && $today <= $res){
+																	//echo 123;
+										$res5 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$befoExam' AND '$res' AND did =$did");
+										if($res5[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+											continue;
+										}
+
+									}
+																//最后回馈时间处于  考前27天和考前20天之间
+								}elseif($examA>$nomal && $examA <= $ershi){//不正常的 20 天到27天
+															//echo 123;
+									if($today >$seven && $today<=$befoExam){
+										$res1 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$seven' AND '$befoExam' AND did =$did");
+										if($res1[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+											continue;
+										}
+									}
+									if($today > $befoExam && $today <= $fortheen){
+										$res3 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$befoExam' AND '$fortheen' AND did =$did order by bv_date desc");
+										if($res3[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+												  $result[] = $backInfo[0];
+												}
+											continue;
+										}
+
+									}
+																//echo $today. '    ' .$fortheen.'    '.$res;
+									if($today > $fortheen && $today <= $res){
+																	//echo 123;
+										$res5 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$fortheen' AND '$res' AND did =$did order by bv_date desc");
+										if($res5[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+											continue;
+										}
+
+									}
+																//最后回馈时间处于  考前20天和考前14天之间
+								}elseif($shisi>=$examA && $examA>$ershi){//不正常的 14 天到20天
+									if($today >$befoExam && $today<=$seven){
+										$res1 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$befoExam' AND '$seven' AND did =$did");
+										if($res1[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+													  $result[] = $backInfo[0];
+													}
+											continue;
+										}
+									}
+									if($today > $seven && $today <= $fortheen){
+										$res3 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$seven' AND '$fortheen' AND did =$did order by bv_date desc");
+										if($res3[0]->a == 0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+												  $result[] = $backInfo[0];
+												}
+											continue;
+										}
+
+									}
+									if($today > $fortheen && $today <= $res){
+										$res5 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$fortheen' AND '$res' AND did =$did order by bv_date desc");
+										if($res5[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+											continue;
+										}
+
+									}
+																 //最后回馈时间处于  考前14天和考前7天之间
+								}elseif($examA > $shisi && $examA <= $qitian){//不正常的 7天到14天
+									if($today >$signTwo && $today<=$seven){
+										$res1 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$signTwo' AND '$seven' AND did =$did");
+										if($res1[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+												  $result[] = $backInfo[0];
+												}
+											continue;
+										}
+									}
+									if($today > $seven && $today <= $res){
+										$res3 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$seven' AND '$res' AND did =$did order by bv_date desc");
+										if($res3[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+											continue;
+										}
+
+									}
+																 //最后回馈时间处于  考前7天和考前14天之间
+								}elseif($examA <= $res && $examA>$qitian){//不正常的 0天到7天
+															//echo 456;
+									if($today >$signTwo && $today<=$res){
+
+										$res1 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+											BETWEEN '$signTwo' AND '$res' AND did =$did");
+										if($res1[0]->a ==0){
+											$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+												WHERE o.did = $did");
+											if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+											continue;
+										}
+									}
+								}
+														//非当期报名 当期考试
+							}elseif($c != $date && ($val->keyi_once == $date || $val->keer_once == $date ||
+														$val->kesan_once == $date || $val->keyi_second == $date ||
+														$val->keer_second == $date || $val->kesan_second == $date ||
+														$val->keyi_third == $date || $val->keer_third == $date ||
+														$val->kesan_third == $date)){
+												  
+														//echo 1;
+														//考前回访
+														//报名后7天    考前13天
+								if($today>$ol && $today<=$befoExam){
+															/* if ($did == 4) {
+														
+														echo 123;
+													}*/
+									$res3 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+														BETWEEN '$ol' AND '$befoExam' AND did =$did");
+									if($res3[0]->a ==0){
+										$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+											WHERE o.did = $did");
+										if (!empty($backInfo)) {
+										  $result[] = $backInfo[0];
+										}
+										continue;
+									}
+																//考前13天    考试时间
+								}elseif($today > $befoExam && $today <= $res){
+									$res3 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date 
+										BETWEEN '$befoExam' AND '$res' AND did =$did");
+
+									if($res3[0]->a ==0){
+										$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+											WHERE o.did = $did");
+										if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+										continue;
+									}
+
+								}
+							} else {
+								//echo 456;
+								if($today >= $exam_sign_up_two){
+									$res3 = DB::select("SELECT count(1) AS a FROM back_visit where bv_date  BETWEEN '$exam_sign_up_two' AND '$res' AND did =$did");
+									if($res3[0]->a ==0){
+										$backInfo = DB::select("SELECT o.stu_name,o.did,o.mobile FROM data_info AS o 
+											WHERE o.did = $did");
+										if (!empty($backInfo)) {
+											  $result[] = $backInfo[0];
+											}
+									}
+								}
+							}
+						}
+					}
+									
+					$arr = array();
+					
+					foreach ($result as $k => $v){
+						
+							$v->contract_id = ($v->did*2+1334809212);
+
+							$arr[] = get_object_vars($v);
+						
+					}
+					return json_encode($arr);
+				}
+		public function get_exam_date()
+		{
+			$examDate = array(array(
+					'exam_date'=>201903,
+					'startTime'=>'2019-01-28',
+					'endTime'=>'2019-03-12',
+				),array(
+					'exam_date'=>201904,
+					'startTime'=>'2019-02-18',
+					'endTime'=>'2019-03-22',
+				),array(
+					'exam_date'=>201905,
+					'startTime'=>'2019-04-08',
+					'endTime'=>'2019-05-07',
+				),array(
+					'exam_date'=>201906,
+					'startTime'=>'2019-05-15',
+					'endTime'=>'2019-06-04',
+				),array(
+					'exam_date'=>201909,
+					'startTime'=>'2019-07-22',
+					'endTime'=>'2019-08-23',
+				),array(
+					'exam_date'=>201910,
+					'startTime'=>'2019-08-26',
+					'endTime'=>'2019-09-24',
+				),array(
+					'exam_date'=>201911,
+					'startTime'=>'2019-09-23',
+					'endTime'=>'2019-10-25',
+				),
+			);
+			$exam = array();
+			$date = Date('Y-m-d');
+					//$date = '2019-10-20';
+			
+			for($i=0;$i<count($examDate)-1;$i++){
+					
+					if($date > $examDate[$i]['endTime'] && $date< $examDate[$i+1]['endTime'] ){
+						$exam[] = $examDate[$i+1]['exam_date'];
+					}
+					
+				}
+			return $exam;
+		}
+		/*
+		* @param 代报名的展示
+		* @param 根据项目判断
+		* @return json
+		* */
+		public function showDaiSign(Request $request)
+		{
+			$exam = $this->get_exam_date();
+			$uid = session('uid');
+			$fund = new Funds_sub();
+			$manager = \session('manager');
+			$project = session('project');
+			$userName = \session('user_name');
+			$findAll = $fund->allFund($uid,$exam, $manager, $project);
+					//var_dump($findAll);
+			
+
+			return json_encode($findAll);
+		}
+		/*
+		 * @param 代报名未审核的展示
+		 * @param 根据项目判断
+		 * @return json
+		 * */
+		public function checkSign(Request $request)
+		{
+			
+			$exam = $this->get_exam_date();
+
+			$uid = session('uid');
+			$manager = session('manager');
+			$project = session('project');
+			$fund = new Funds_sub();
+				//获取已代报名未审核数据
+			$findAll = $fund->allFind1($exam,$uid, $manager, $project);
+
+			
+			
+				/*var_dump($findAll);
+				exit;*/
+				//定义考期数组
+				$exam_data = [];
+				for ($i=0;$i<count($findAll);$i++){
+
+					$did = $findAll[$i]->did;
+					
+					
+
+						
+										//判断科一一次是否已代报名 
+						if (in_array($findAll[$i]->keyi_once, $exam) && $findAll[$i]->keyi_once_money == 65) {
+											//判断是否是这个did的第一条数据
+							if (!array_key_exists($did, $exam_data)) {
+								$exam_data[$did] = [];
+							}
+							if (!in_array($findAll[$i]->keyi_once, $exam_data[$did])) {
+								$exam_data[$did][] = $findAll[$i]->keyi_once;
+								$findAll[$i]->exam_date = $findAll[$i]->keyi_once;
+								continue;
+							}
+						}
+
+										//判断科一二次是否已代报名 
+						if (in_array($findAll[$i]->keyi_second, $exam) && $findAll[$i]->keyi_second_money == 65) {
+											//判断是否是这个did的第一条数据
+							if (!array_key_exists($did, $exam_data)) {
+								$exam_data[$did] = [];
+							}
+							if (!in_array($findAll[$i]->keyi_second, $exam_data[$did])) {
+								$exam_data[$did][] = $findAll[$i]->keyi_second;
+								$findAll[$i]->exam_date = $findAll[$i]->keyi_second;
+								continue;
+							}
+						}
+										//判断科一三次是否已代报名 
+						if (in_array($findAll[$i]->keyi_third, $exam) && $findAll[$i]->keyi_third_money == 65) {
+										 //判断是否是这个did的第一条数据
+							if (!array_key_exists($did, $exam_data)) {
+								$exam_data[$did] = [];
+							}
+							if (!in_array($findAll[$i]->keyi_third, $exam_data[$did])) {
+								$exam_data[$did][] = $findAll[$i]->keyi_third;
+								$findAll[$i]->exam_date = $findAll[$i]->keyi_third;
+								continue;
+							}
+						}
+										//判断科二一次是否已代报名 
+						if (in_array($findAll[$i]->keer_once, $exam) && $findAll[$i]->keer_once_money == 65) {
+											//判断是否是这个did的第一条数据
+							if (!array_key_exists($did, $exam_data)) {
+								$exam_data[$did] = [];
+							}
+							if (!in_array($findAll[$i]->keer_once, $exam_data[$did])) {
+								$exam_data[$did][] = $findAll[$i]->keer_once;
+								$findAll[$i]->exam_date = $findAll[$i]->keer_once;
+								continue;
+							}
+						}
+										//判断科二二次是否已代报名 
+						if (in_array($findAll[$i]->keer_second, $exam) && $findAll[$i]->keer_second_money == 65) {
+										 //判断是否是这个did的第一条数据
+							if (!array_key_exists($did, $exam_data)) {
+								$exam_data[$did] = [];
+							}
+							if (!in_array($findAll[$i]->keer_second, $exam_data[$did])) {
+								$exam_data[$did][] = $findAll[$i]->keer_second;
+								$findAll[$i]->exam_date = $findAll[$i]->keer_second;
+								continue;
+							}
+						}
+										//判断科二三次是否已代报名 
+						if (in_array($findAll[$i]->keer_third, $exam) && $findAll[$i]->keer_third_money == 65) {
+										 //判断是否是这个did的第一条数据
+							if (!array_key_exists($did, $exam_data)) {
+								$exam_data[$did] = [];
+							}
+							if (!in_array($findAll[$i]->keer_third, $exam_data[$did])) {
+								$exam_data[$did][] = $findAll[$i]->keer_third;
+								$findAll[$i]->exam_date = $findAll[$i]->keer_third;
+								continue;
+							}
+						}
+										//判断科三一次是否已代报名 
+						if (in_array($findAll[$i]->kesan_once, $exam) && $findAll[$i]->kesan_once_money == 65) {
+											//判断是否是这个did的第一条数据
+							if (!array_key_exists($did, $exam_data)) {
+								$exam_data[$did] = [];
+							}
+							if (!in_array($findAll[$i]->kesan_once, $exam_data[$did])) {
+								$exam_data[$did][] = $findAll[$i]->kesan_once;
+								$findAll[$i]->exam_date =$findAll[$i]->kesan_once;
+								continue;
+							}
+						}
+										//判断科三二次是否已代报名 
+						if (in_array($findAll[$i]->kesan_second, $exam) && $findAll[$i]->kesan_second_money == 65) {
+											//判断是否是这个did的第一条数据
+							if (!array_key_exists($did, $exam_data)) {
+								$exam_data[$did] = [];
+							}
+							if (!in_array($findAll[$i]->kesan_second, $exam_data[$did])) {
+								$exam_data[$did][] = $findAll[$i]->kesan_second;
+								$findAll[$i]->exam_date = $findAll[$i]->kesan_second;
+								continue;
+							}
+						}
+										//判断科三三次是否已代报名 
+						if (in_array($findAll[$i]->kesan_third, $exam) && $findAll[$i]->kesan_third_money == 65) {
+										 //判断是否是这个did的第一条数据
+							if (!array_key_exists($did, $exam_data)) {
+								$exam_data[$did] = [];
+							}
+							if (!in_array($findAll[$i]->kesan_third, $exam_data[$did])) {
+								$exam_data[$did][] = $findAll[$i]->kesan_third;
+								$findAll[$i]->exam_date = $findAll[$i]->kesan_third;
+								continue;
+							}
+						}
+					
+					
+
+				}
+				return json_encode($findAll);
+			}
+		/*
+		 * @主页信息工单待处理
+		 * @返回格式json
+		 * */
+		public function workOrder()
+		{
+			$data = new Work_order_info();
+			$userName = session('user_name');
+			$manager = session('manager');
+			$uid = session('uid');
+			return json_encode($data::workOrder($manager,$userName,$uid));
+		}
+		/*
+		 * @param 主页显示退挽待处理(删除)
+		 * @return json
+		 * */
+		public function pullBack()
+		{
+			$data = new Pullback_info();
+			$manager = session('manager');
+
+				//$manager = 555;
+			$result = $data::backPull($manager);
+			foreach ($result as $key => $value) {
+				$result[$key]->contract_id = ($value->did*2+1334809212);
+			}
+			return json_encode($result);
+		}
+		/*
+		 * @param 考试账号待注册
+		 * @return json
+		 * */
+		public function examNum()
+		{
+				//exam_date:考期,startTime:报名开始时间,endTime:报名结束时间,type:0为预约|1为统考
+			$examDate = array(
+				array(
+					'exam_date'=>201903,
+					'startTime'=>'2019-01-28',
+					'endTime'=>'2019-03-12',
+					'examStart'=>'2019-03-30',
+					'examEnd'=>'2019-03-30',
+					'type'=>'0',
+				),
+				array(
+					'exam_date'=>201904,
+					'startTime'=>'2019-02-18',
+					'endTime'=>'2019-03-22',
+					'examStart'=>'2019-04-20',
+					'examEnd'=>'2019-04-21',
+					'type'=>'1',
+				),
+				array(
+					'exam_date'=>201905,
+					'startTime'=>'2019-04-08' ,
+					'endTime'=>'2019-05-07',
+					'examStart'=>'2019-05-25',
+					'examEnd'=>'2019-05-25',
+					'type'=>'0',
+				),
+				array(
+					'exam_date'=>201906,
+					'startTime'=>'2019-05-15',
+					'endTime'=>'2019-06-04',
+					'examStart'=>'2019-06-22',
+					'examEnd'=>'2019-06-22',
+					'type'=>'0',
+				),
+				array(
+					'exam_date'=>201909,
+					'startTime'=>'2019-07-22',
+					'endTime'=>'2019-08-23',
+					'examStart'=>'2019-09-21',
+					'examEnd'=>'2019-09-22',
+					'type'=>'1',
+				),
+				array(
+					'exam_date'=>201910,
+					'startTime'=>'2019-08-26',
+					'endTime'=>'2019-09-24',
+					'examStart'=>'2019-10-19',
+					'examEnd'=>'2019-10-19',
+					'type'=>'0',
+				),
+				array(
+					'exam_date'=>201911,
+					'startTime'=>'2019-09-23',
+					'endTime'=>'2019-10-25',
+					'examStart'=>'2019-11-23',
+					'examEnd'=>'2019-11-24',
+					'type'=>'1',
+				),
+			);
+
+			$data = new Exam_num_info();
+			$userName = session('user_name');
+			$manager = session('manager');
+			
+			$uid = session('uid');//d登录用户唯一标识
+			$project = session('project');//登录用户所属项目
+			
+				//基金项目
+				if ($project == '基金项目' || $manager == '556' || $manager == '888') {
+						//根据权限区分
+					
+						//班主任获取个人下数据
+					if ($manager == '554') {
+						
+						$result = DB::select("select did,keyi_once,keyi_second,keyi_third,keer_once,keer_second,keer_third,kesan_once,kesan_second,kesan_third from fund_substitution as f where uid = {$uid}");
+						
+					} else {
+						
+						$result = DB::select("select did,keyi_once,keyi_second,keyi_third,keer_once,keer_second,keer_third,kesan_once,kesan_second,kesan_third from fund_substitution as f");
+					}
+					
+					
+
+					$unify_did_arr = [];//统考学员did数组
+					$order_did_arr = [];//预考学员did数组
+					//根据学生考期判断是注册统考还是预考账号
+					foreach ($result as $key => $value) {
+						foreach ($examDate as $k => $v) {
+							if (in_array($v['exam_date'], get_object_vars($value))) {
+								if ($v['type'] == 1) {
+									$unify_did_arr[] = $value->did;
+								} else {
+									$order_did_arr[] = $value->did;
+								}
+							}
+						}
+					}
+
+					//exam表有的数据
+					$old_arr = [];
+					$result = [];
+					//应代报名统考账号
+					$replace_unify = DB::table('exam_num_info')->whereIn('did',$unify_did_arr)->select('did', 's_name')->get()->toArray();
+
+					foreach ($replace_unify as $key => $value) {
+						$old_arr[] = $value->did;
+						if ($value->s_name == '') {
+							$result[] = $value->did;
+						}
+					}
+					$result = array_merge($result, array_diff($unify_did_arr, $old_arr));
+
+					$old_arr = [];
+					//应代报名预考账号
+					$replace_order = DB::table('exam_num_info')->whereIn('did',$order_did_arr)->select('did', 's_name1')->get()->toArray();
+					
+
+					foreach ($replace_order as $key => $value) {
+						$old_arr[] = $value->did;
+						if ($value->s_name1 == '') {
+							$result[] = $value->did;
+						}
+					}
+					
+					$result = array_merge($result, array_diff($order_did_arr, $old_arr));
+					
+
+					//$replace_did_obj = array_merge($replace_unify, $replace_unify);
+					$replace_did_arr = [];
+					//二维数组转化
+					foreach ($result as $key => $value) {
+						//数组去重
+						if (!in_array($value, $replace_did_arr)) {
+							$replace_did_arr[] = $value;
+						}
+						
+					}
+					//var_dump($replace_did_arr);
+					//根据did获取前台数据
+					$data_result = DB::table('data_info')->whereIn('did', $replace_did_arr)->where('project', '基金项目')->where('is_valid', '!=', 5)->where('learn_status', '>=', 1)->select('stu_name', 'mobile', 'last_mark_time', 'did')->get()->toArray();
+					//var_dump($data_result);
+				}
+				//消防项目 
+				if ($project == '消防项目' || $project == '消防升级' || $manager == '556' || $manager == '888') {
+					//若登录人为院长和超管则获取之前获取的基金项目考试账号代注册数据
+					if ($manager == '556' || $manager == '888') {
+						$data_result1 = $data_result;
+					}
+					//班主任获取个人下数据
+					if ($manager == '554') {
+						//echo 123;
+						$data_result = DB::select("select d.did,d.mobile,d.last_mark_time,d.stu_name,e.s_name from data_info as d left join order_info as o on d.did = o.did left join exam_num_info as e on e.did = d.did where d.tea_name = $uid and instead_sign = '是' and is_valid != 5 and learn_status >= 1");
+							//主管及以上获取整个项目
+					} elseif ($manager == '555' || $manager == '556' || $manager == '888') {
+						
+						
+						$data_result = DB::select("select d.did,d.mobile,d.last_mark_time,d.stu_name,e.s_name from data_info as d left join order_info as o on d.did = o.did left join exam_num_info as e on e.did = d.did where d.project = '{$project}' and instead_sign = '是' and is_valid != 5 and learn_status >= 1");
+						
+					}
+					//新的消防数组
+					$new_arr = [];
+					foreach ($data_result as $key => $value) {
+						if ($value->s_name == '') {
+							$new_arr[] = $value;
+						}
+					}
+
+					//院长和超管合并两个项目
+					if ($manager == '556' || $manager == '888') {
+						$data_result = array_merge($data_result1, $new_arr);
+					} else {
+						$data_result = $new_arr;
+					}
+				}
+				foreach ($data_result as $key => $value) {
+					$data_result[$key]->contract_id = ($value->did*2+1334809212);
+
+				}
+				return json_encode($data_result);
+
+			}
+		/*
+		 * @param 主页信息学员协议待回执
+		 * @return json
+		 * */
+		public function agrBack()
+		{
+			
+			$data = new Sendmail_info();
+			$userName = session('user_name');
+			$manager = session('manager');
+			$uid = session('uid');
+			$project = session('project');
+			if ($manager == '554') {
+					//根据条件所有学习状态为1的did数组
+				$all_did_obj = DB::table('data_info as d')->leftJoin('order_info as o', 'o.did', '=', 'd.did')
+				->where('learn_status', '>=', '1')
+				->where('signature', null)
+				->where('last_mark_time', '>', '2019-02-01 00:00:00')
+				->where('tea_name', '=', "{$uid}")
+				->where('is_valid', '!=', 5)
+				->select('d.did')
+				->get()
+				->toArray();
+					//根据条件获取所有邮寄表下did
+				$mail_info_arr = DB::select("select s.did,s.agr_back,s.sm_con,s.sm_address from sendmail_info as s left join data_info as d on d.did = s.did where d.learn_status >= 1 and d.tea_name = $uid and last_mark_time > '2019-02-01 00:00:00' and is_valid != 5");
+
+			} elseif ($manager == '555') {
+				
+					//根据条件所有学习状态为1的did数组
+				$all_did_obj = DB::table('data_info as d')->leftJoin('order_info as o', 'o.did', '=', 'd.did')
+				->where('learn_status', '>=', '1')
+				->where('signature', null)
+				->where('last_mark_time', '>', '2019-02-01 00:00:00')
+				->where('project', '=', "{$project}")
+				->where('is_valid', '!=', 5)
+				->select('d.did')
+				->get()
+				->toArray();
+				
+					//根据条件获取所有邮寄表下did
+				$mail_info_arr = DB::select("select s.did,s.agr_back,s.sm_con,s.sm_address from sendmail_info as s left join data_info as d on d.did = s.did where d.learn_status >= 1 and d.project = '$project' and last_mark_time > '2019-02-01 00:00:00' and is_valid != 5");
+			} elseif ($manager == '556' || $manager == '888' || $manager == '553') {
+					//根据条件所有学习状态为1的did数组
+				$all_did_obj = DB::table('data_info as d')->leftJoin('order_info as o', 'o.did', '=', 'd.did')
+				->where('learn_status', '>=', '1')
+				->where('signature', null)
+				->where('last_mark_time', '>', '2019-02-01 00:00:00')
+				->where('is_valid', '!=', 5)
+				->select('d.did')
+				->get()
+				->toArray();
+					//根据条件获取所有邮寄表下did
+				$mail_info_arr = DB::select("select s.did,s.agr_back from sendmail_info as s left join data_info as d on d.did = s.did where d.learn_status >= 1 and last_mark_time > '2019-02-01 00:00:00' and is_valid != 5");
+			}
+
+				//邮寄表下三大基本项有一个为空did数组
+			$mail_did_arr = [];
+			$all_mail_did = [];
+			
+			foreach ($mail_info_arr as $key => $value) {
+				$signature = DB::select("select signature from order_info where did = {$value->did} order by rid desc limit 1");
+				if (empty($signature)) {
+					$all_mail_did[] = $value->did;
+					continue;
+				}
+				if ($value->agr_back == '1992-08-02 00:00:00' && empty($signature[0]->signature)) {
+					if (!in_array($value->did, $mail_did_arr)) {
+						$mail_did_arr[] = $value->did;
+
+					}
+					
+				}
+				
+				$all_mail_did[] = $value->did;
+			}
+				//did对象转换数组
+			$all_did_arr = [];
+			foreach ($all_did_obj as $key => $value) {
+				$all_did_arr[] = $value->did; 
+			}
+				//获取sendmail_info表无数据的did
+			$result_did = array_merge($mail_did_arr, array_diff($all_did_arr, $all_mail_did));
+			$result = DB::table('data_info')->whereIn('did', $result_did)
+			->select('did','stu_name','mobile','last_mark_time')
+			->get()
+			->toArray();
+			foreach ($result as $key => $value) {
+				
+				
+					//拼接合同编号
+				$result[$key]->contract_id = ($value->did*2+1334809212);
+
+			}
+			return json_encode($result);
+		}
+
+		/*
+		 * @param 开课待审核
+		 * @return json
+		 * */
+		public function classStart()
+		{
+			$manager = session('manager');
+			$data = new Data_info();
+			$result = $data::startClass($manager);
+			foreach ($result as $key => $value) {
+				
+				
+					//拼接合同编号
+				$result[$key]->contract_id = ($value->did*2+1334809212);
+
+			}
+			return json_encode($result);
+		}
+		/*
+		 * @主页订单未通过
+		 * */
+		public function notOrder(Request $request)
+		{
+			$manager = session('manager');
+			$userName = session('user_name');
+			$uid = session('uid');
+			$data = new Data_info();
+			$result = $data::orderNot($manager,$userName,$uid);
+			foreach ($result as $key => $value) {
+				$result[$key]->contract_id = ($value->did*2+1334809212);
+			}
+			return json_encode($result);
+		}
+		/*
+		 * @param 根据前端传来的did查询该did所需要展示的数据(删除)
+		 * @return json
+		 * */
+		public function orderSelect(Request $request)
+		{
+			$did = $request->get('did');
+			$orderInfo = DB::table('order_info as o')
+			->leftJoin('data_info as d','o.did','=','d.did')
+			->leftJoin('stu_info as s','d.mobile','=','s.mobile')
+			->where('d.did','=',$did)
+			->select('o.stu_name','s.work_year','s.sex','o.weixin','o.email','s.education','o.mail_address',
+				'o.exam_province','o.exam_city','o.mail_num','o.proof_type','o.id_num','o.class_mobile',
+				'o.ergent_people','o.ergent_mobile','o.classType','o.section','o.sign_type','o.exam_date',
+				'o.price','o.instead_sign','o.payment','d.mobile','o.classType','d.project','d.belong_to','d.tea_name')
+			->get()->toArray();
+			return json_encode($orderInfo);
+		}
+		/*查询该学员下是否有异动状态为不通过
+		 *
+		 */
+		public function not_pass_order(Request $request)
+		{
+			$did = $request->get('did');
+			$type = $request->get('type');
+			
+			$result = DB::table('student_info')->where('did', $did)
+			->where('data_type', $type)
+			->where('order_status', '不通过')
+			->orderBy('tran_id', 'desc')
+			->limit(1)
+			->get()
+			->toArray();
+			//如查不到数据则停止操作
+			if (!$result) {
+				//原始数据获取
+				$orderInfo = DB::table('order_info as o')
+				->leftJoin('data_info as d','o.did','=','d.did')
+				->leftJoin('stu_info as s','d.mobile','=','s.mobile')
+				->where('d.did','=',$did)
+				->select('o.stu_name','s.work_year','s.sex','o.weixin','o.email','s.education','o.mail_address',
+					'o.exam_province','o.exam_city','o.mail_num','o.proof_type','o.id_num','o.class_mobile',
+					'o.ergent_people','o.ergent_mobile','o.classType','o.section','o.sign_type','o.exam_date',
+					'o.price','o.instead_sign','o.payment','d.mobile','o.classType','d.project','d.belong_to','d.tea_name')
+				->orderBy('rid', 'desc')->limit(1)->get()->toArray()[0];
+				$orderInfo->old = 1;
+				return json_encode($orderInfo);
+			}
+			$result = $result[0];
+			switch ($type) {
+				case '重修':
+					//根据tran_id获取重修表数据
+				$reset_result = DB::table('cx_info')->where('tran_id', $result->tran_id)
+				->orderBy('cx_id', 'desc')
+				->limit(1)
+				->get()
+				->toArray();
+				$result->reset_info = $reset_result ? $reset_result[0] : '';
+
+				break;
+				case '退费':
+				$back_result = DB::table('backprice_info')->where('tran_id', $result->tran_id)
+				->orderBy('bp_id', 'desc')
+				->limit(1)
+				->get()
+				->toArray();
+				$result->back_info = $back_result ?  $back_result[0] : '';
+				break;
+				case '冻结':
+				$freeze_result = DB::table('frozen_info')->where('tran_id', $result->tran_id)
+				->orderBy('frozen_id', 'desc')
+				->limit(1)
+				->get()
+				->toArray();
+				$result->freeze_info = $freeze_result ? $freeze_result[0] : ''; 
+				break;
+				case '奖学金申请':
+				$scholarship_result = DB::table('scholarship')->where('tran_id', $result->tran_id)
+				->orderBy('sc_id', 'desc')
+				->limit(1)
+				->get()
+				->toArray();
+				$result->scholarship_info = $scholarship_result ? $scholarship_result[0] : '';
+				break;
+				
+			}
+			$result->old = 0;
+			return json_encode($result);
+		}
+		/*
+		 * @param 后端建立订单
+		 * @param 根据提交过来的订单类型操作
+		 * @return json
+		 * */
+		public function orderStu(Request $request)
+		{
+				//接收前台的数据
+			$data = $request->all();
+			 /* var_dump($data);
+			 exit;*/
+				//接收前台传来的did
+			 $did = $data['did'];
+			 //查看学员是否毕业
+			$is_graduate = DB::table('data_info')->where('did', $did)->select('is_valid')->get()->toArray();
+			if (empty($is_graduate)) {
+				return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+			}
+			if ($is_graduate[0]->is_valid == 5) {
+				return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+			}
+				//判断异动表有无数据id
+			 $tran_id = array_key_exists('tran_id', $data) ? $data['tran_id'] : '';
+			 $tranStudent = new \App\Http\Model\Student_info();
+				//取出订单类型
+				/*var_dump($data);
+				exit;*/
+				$type = $data['order_type'];
+				if (!empty($tran_id)) {  
+					$check_tran_id = DB::table('student_info')->where('tran_id', $tran_id)
+					->where('order_status', '不通过')
+					->select('tran_id')
+					->get()
+					->toArray();
+					if (!$check_tran_id) {
+
+						return json_encode(['code' => 400, 'message' => '请刷新页面后重新操作']);
+					}
+				} else {
+					
+			 /* $tran_id = 149;
+			 $type = '冻结';*/
+				//查看是否已添加
+			 
+			 $is_exist = $tranStudent->where('data_type', $type)
+			 
+			 ->where('did', $did)
+			 ->where('is_status',0)
+			 ->where('order_status', '!=', '不通过')
+			 ->select('tran_id')
+			 ->get();
+			 if (!empty($is_exist[0])) {
+			 	return json_encode(['code'=>400, 'message' => '已存在相同订单请先处理']);
+			 }
+			}
+			
+				//实例化data_info表
+			$data_info = new Data_info();
+				//实例化订单模型
+			$order = new Order_info();
+				//实例化考试成绩模型
+			$examScore = new Exam_score();
+				//实例化重修模型
+			$cx = new \App\Http\Model\Cx_info();
+				//实例化支付截图模型
+			$payment = new Payment_info();
+				//实例化退费模型
+			$backprice = new Backprice();
+				//实例化奖学金模型
+			$school = new Scholarship();
+				//实例化冻结模型
+			$frozen = new \App\Http\Model\Frozen_info();
+				//实例化学生信息模型
+			$stu = new Stu_info();
+				//实例化异动模型
+
+				//该学生data_info的原始数据
+				//$InfoData = $data_info->DataInfo($did);
+				//该学生order_info原始数据
+			
+			
+				/*var_dump($is_exist);
+				echo $type.'    '.$OrderInfo[0]->mobile.'       '.$did;
+				exit;*/
+				//根据手机,报名类型,和班主任id确定是否添加
+				/*var_dump($is_exist);
+				exit();*/
+				//获取图片数组
+				$image_arr = $request->file('UploadForm')['excelFiles'];
+
+				$image_name_arr = [];
+				//$image_num = count($image_arr);
+				DB::beginTransaction();
+				/*var_dump($data);
+				var_dump($image_arr);*/
+				if (!$image_arr) {
+					return json_encode(['code' => 400, 'message' => '请上传文件']);
+				}
+				$data['pay_price'] = 0;
+				//定点上传图片所存id数组
+				$order_image_id_arr = [];
+				foreach($image_arr as $key=>$val){
+					//文件后缀规格数组
+					$allowed_extensions = ["png", "jpg", "jpeg"];
+					//判断文件格式
+					if(!$val->isValid() || empty($val) || !$val->getClientOriginalExtension() || !in_array($val->getClientOriginalExtension(), $allowed_extensions)){
+						
+						//若是第一张图片则不需要事务回滚
+						if ($key != 0) {
+							for ($i=0; $i <$key ; $i++) { 
+								unlink(public_path().$image_name_arr[$i]);
+							}
+							DB::rollback();
+						}
+						return json_encode(['code'=>400, 'message' => '文件格式错误']);
+					}
+					
+					$destinationPath = '/uploads/'.date('Y-m-d'); // public文件夹下面uploads/xxxx-xx-xx 建文件夹
+					$extension = $val->getClientOriginalExtension();   // 上传文件后缀
+					$fileName = date('YmdHis').mt_rand(1000,9999).'.'.$extension; // 重命名
+					$val->move(public_path().$destinationPath, $fileName); // 保存图片
+					
+					$py = $payment->order_image($did,$data,$destinationPath.'/'.$fileName,$type,$key);
+					$order_image_id_arr[] = $py;
+					if ($type != '重修' && $type != '奖学金申请' && $type != '冻结' && $type != '退费') {
+						$data['pay_price'] += $data['sign_money'][$key];
+					}
+					$image_name_arr[] = $destinationPath.'/'.$fileName;//写入图片数组
+					
+				}
+				DB::commit();
+				//$old_data = $data_info->where('did', $did)->select('mobile', 'tea_name')->get()->toArray()[0];
+				/*$old_mobile = $old_data['mobile'];
+				$old_tea_name = $old_data['tea_name'];*/
+				//$OrderInfo = $data_info->infoOnly($did);
+				//上传图片的路径和名字
+
+				$imgPath = json_encode($image_name_arr);
+				
+				switch($type){
+
+								//$py = $payment->payMent($did,$data,$imgPath,$type);
+								//tran_id为空则添加操作
+
+
+
+					case '退费':
+					if (empty($tran_id)) {
+												//插入后返回主键id
+						$b =  $tranStudent->tranStudentAdd($did,$data,$imgPath,$type);
+						$backa = $backprice->backPrice($data, $b);
+						if($backa&&$b){
+							$data_info->learnStatus($did);
+						//修改订单图片表id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $b]);
+							return json_encode(['code'=>200]);
+						}else{
+							return json_encode(['code'=>400]);
+						}
+					} else {
+						 //订单修改
+						$tran = $tranStudent->tranStudentUpdate($tran_id, $data, $imgPath, $type);
+						$back_result = $backprice->backprice_update($tran_id, $data);
+						if ($tran && $back_result) {
+							//修改data表学习状态
+							$data_info->learnStatus($did);
+							//老图片tran_id|did修改为0
+							
+							$old_order_image = DB::table('order_image')->where('tran_id', $tran_id)->select('image')->get()->toArray();
+							foreach ($old_order_image as $key => $value) {
+								unlink(public_path().$value->image);
+							}DB::table('order_image')->where('tran_id', $tran_id)
+							->update(['tran_id' => 0, 'did' => 0]);
+							
+							//修改新传图片tran_id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $tran_id]);
+							return json_encode(['code'=>200]);
+						} else {
+							return json_encode(['code'=>400]);
+						}
+					}
+					break;
+					case '重修':
+								//开启事务
+					if (empty($tran_id)) {
+								//插入后返回主键id
+						$b =  $tranStudent->tranStudentAdd($did,$data,$imgPath,$type);
+						$a =  $cx->cxInfo($data,$type,$imgPath,$b);
+						if($a&&$b){
+							$data_info->learnStatus($did);
+						//修改订单图片表id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $b]);
+						//如果成功就提交并返回状态码200成功
+							return json_encode(['code'=>200]);
+						} else { 
+							return json_encode(['code'=>400]);
+						}
+					} else {
+						 //订单修改
+						$tran = $tranStudent->tranStudentUpdate($tran_id, $data, $imgPath, $type);
+						$reset_result = $cx->reset_update($tran_id, $data, $imgPath);
+						if ($tran && $reset_result) {
+							//修改data表学习状态
+							$data_info->learnStatus($did);
+							//老图片tran_id|did修改为0
+							
+							$old_order_image = DB::table('order_image')->where('tran_id', $tran_id)->select('image')->get()->toArray();
+							foreach ($old_order_image as $key => $value) {
+								unlink(public_path().$value->image);
+							}DB::table('order_image')->where('tran_id', $tran_id)
+							->update(['tran_id' => 0, 'did' => 0]);
+							//修改新传图片tran_id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $tran_id]);
+							return json_encode(['code'=>200]);
+						} else {
+							return json_encode(['code'=>400]);
+						}
+					}
+					break;
+					case '冻结':
+								//开启事务
+					if (empty($tran_id)) {
+									//插入后返回主键id
+						$b =  $tranStudent->tranStudentAdd($did,$data,$imgPath,$type);
+						$a =  $frozen->frozenStu($data,$imgPath,$type,$b);
+						if($a&&$b){
+							$data_info->learnStatus($did);
+						//修改订单图片表id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $b]);
+												//如果成功就提交并返回状态码200成功
+
+							return json_encode(['code'=>200]);
+						} else { 
+							return json_encode(['code'=>400]);
+						}
+					} else {
+						 //订单修改
+						$tran = $tranStudent->tranStudentUpdate($tran_id, $data, $imgPath, $type);
+						$freeze_result = $frozen->freeze_update($tran_id, $data, $imgPath);
+						if ($tran && $freeze_result) {
+							//修改data表学习状态
+							$data_info->learnStatus($did);
+							//老图片tran_id|did修改为0
+							
+							$old_order_image = DB::table('order_image')->where('tran_id', $tran_id)->select('image')->get()->toArray();
+							foreach ($old_order_image as $key => $value) {
+								unlink(public_path().$value->image);
+							}DB::table('order_image')->where('tran_id', $tran_id)
+							->update(['tran_id' => 0, 'did' => 0]);
+							//修改新传图片tran_id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $tran_id]);
+							return json_encode(['code'=>200]);
+						} else {
+							return json_encode(['code'=>400]);
+						}
+					}
+					break;
+					case '奖学金申请':
+
+					if (empty($tran_id)) {
+						$b =  $tranStudent->tranStudentAdd($did,$data,$imgPath,$type);
+						$a =  $school->scholarship($data,$b);
+						if($b == true){
+							$data_info->learnStatus($did);
+						//修改订单图片表id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $b]);
+							return json_encode(['code'=>200]);
+						}else{
+							return json_encode(['code'=>400]);
+						}
+					} else {
+						 //订单修改
+						$tran = $tranStudent->tranStudentUpdate($tran_id, $data, $imgPath, $type);
+						$scholarship_result = $school->scholarship_update($tran_id, $data);
+						if ($tran && $scholarship_result) {
+							//修改data表学习状态
+							$data_info->learnStatus($did);
+							//老图片tran_id|did修改为0
+							
+							$old_order_image = DB::table('order_image')->where('tran_id', $tran_id)->select('image')->get()->toArray();
+							foreach ($old_order_image as $key => $value) {
+								unlink(public_path().$value->image);
+							}DB::table('order_image')->where('tran_id', $tran_id)
+							->update(['tran_id' => 0, 'did' => 0]);
+							//修改新传图片tran_id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $tran_id]);
+							return json_encode(['code'=>200]);
+						} else {
+							return json_encode(['code'=>400]);
+						}
+					}
+					break;
+				}
+				if ($type == '基金换科补费' || $type == '续报' || $type == '升班' || $type == '转介绍') {
+					if (empty($tran_id)) {
+
+						$tran = $tranStudent->tranStudentAdd($did,$data,$imgPath,$type);
+						if($tran){
+							//修改data表学习状态
+							$data_info->learnStatus($did);
+							//修改订单图片表id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $tran]);
+							return json_encode(['code'=>200]);
+						}else{
+							return json_encode(['code'=>400]);
+						}
+					} else {
+						//订单修改
+						$tran = $tranStudent->tranStudentUpdate($tran_id, $data, $imgPath, $type);
+						if ($tran) {
+							//修改data表学习状态
+							$data_info->learnStatus($did);
+							//老图片tran_id|did修改为0
+							
+							$old_order_image = DB::table('order_image')->where('tran_id', $tran_id)->select('image')->get()->toArray();
+							foreach ($old_order_image as $key => $value) {
+								unlink(public_path().$value->image);
+							}DB::table('order_image')->where('tran_id', $tran_id)
+							->update(['tran_id' => 0, 'did' => 0]);
+							//修改新传图片tran_id
+							DB::table('order_image')->whereIn('id', $order_image_id_arr)
+							->update(['tran_id' => $tran_id]);
+							return json_encode(['code'=>200]);
+						} else {
+							return json_encode(['code'=>400]);
+						}
+					}
+				}
+			}
+		/*
+		 * @param 异动学生处理
+		 * @param 改变异动表的状态
+		 * */
+		public function yidongS(Request $request)
+		{
+			$did = $request->post('did');
+			$type = $request->post('data_type');
+				//异动表id
+			$tran_id = $request->post('tran_id');
+
+
+			//查看学员是否毕业
+			$is_graduate = DB::table('data_info')->where('did', $did)->select('is_valid')->get()->toArray();
+			if (empty($is_graduate)) {
+				return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+			}
+			if ($is_graduate[0]->is_valid == 5) {
+				return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+			}
+
+
+			//判断异动是否处理
+			$is_status = DB::table('student_info')->where('tran_id','=',$tran_id)->select('is_status', 'data_type', 'exam_date')->get()->toArray();
+			if (empty($is_status)) {
+				return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+			}
+			
+			if ($is_status[0]->is_status == 1) {
+				return json_encode(['code' => 200, 'message' => '已处理']);
+			}
+		
+
+			//若类型是 续报 或 升班  则修改学员考期
+			if ($is_status[0]->data_type == '续报' || $is_status[0]->data_type == '升班') {
+				
+				DB::table('order_info')->where('did', $did)->orderBy('rid', 'desc')->limit(1)->update(['exam_date' => $is_status[0]->exam_date]);
+			}
+
+			$state = DB::table('student_info')->where('tran_id','=',$tran_id)->update(['is_status'=>1]);
+			//查询是否还有未处理异动   有则不做操作   无则修改学员状态
+			$is_learn_status = DB::table('student_info')->where('did', $did)->where('is_status', 0)->select('tran_id')->get()->toArray();
+
+			if (empty($is_learn_status)) {
+				//更新数据表状态
+				DB::table('data_info')->where('did', $did)->update(['learn_status' => 4]);
+			}
+
+
+			
+			if ($state) {
+				return json_encode(['code' => 200]);
+			} else {
+				return json_encode(['code' => 400]);
+			}
+		}
+
+
+		//主页工单待处理修改工单表的状态
+		public function workOrder_stu(Request $request)
+		{
+			$did = $request->post('did');
+			$data = $request->all();
+			$work = new Work_order_info();
+			return json_encode($work->orderWork($data,$did));
+
+		}
+		//主页应代报名未审核的状态改变
+		public function signCheck(Request $request)
+		{
+			$did = $request->post('did');
+			//查看学员是否毕业
+			$is_graduate = DB::table('data_info')->where('did', $did)->select('is_valid')->get()->toArray();
+			if (empty($is_graduate)) {
+				return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+			}
+			if ($is_graduate[0]->is_valid == 5) {
+				return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+			}
+			$d = new Funds_sub();
+				//改变
+			
+			if ($d->statusA($did)) {
+				$result = ['code' => 200];
+			} else {
+				$result = ['code' => 400];
+			}
+			return json_encode($result);
+		}
+		//详情页异动学生
+		public function tranStatus(Request $request)
+		{
+			$did = $request->post('did');
+				//原始数据
+			$yuanshi = DB::table('order_info as o')
+			->leftJoin('stu_info as s','o.mobile','=','s.mobile')->where('o.did','=',$did)
+			->select('o.stu_name','s.work_year','s.sex','o.weixin','o.email','s.education','o.mail_address',
+				'o.exam_province','o.exam_city','o.mail_num','o.proof_type','o.id_num','o.class_mobile',
+				'o.ergent_people','o.ergent_mobile','o.classType','o.section','o.sign_type','o.exam_date',
+				'o.price','o.instead_sign','o.mobile','o.classType')
+			->orderBy('rid', 'desc')->limit(1)->get()->toArray();
+			if (empty($yuanshi)) {
+				return json_encode([]);
+			}
+			$yuanshi[0]->is_status = 2;
+			$aa = get_object_vars($yuanshi[0]);
+			
+
+				//退费
+			$tuifei = DB::table('backprice_info')->join('student_info','student_info.tran_id','=','backprice_info.tran_id')->where('order_status', '=', '通过')->where('data_type','退费')->where('student_info.did','=',$did)->select('backprice_info.bp_reason','backprice_info.bp_desc','backprice_info.bp_price','backprice_info.type','backprice_info.bp_account','backprice_info.pay_way','backprice_info.bank_num','backprice_info.back_name','backprice_info.bank_khh','backprice_info.apaly_num','backprice_info.bcak_time','student_info.is_status','student_info.tran_id')->get()->toArray();
+			
+				//冻结
+			$dongjie = DB::table('frozen_info')->leftJoin('student_info','student_info.tran_id','=','frozen_info.tran_id')->where('order_status', '=', '通过')->where('data_type','冻结')->where('student_info.did','=',$did)->select('frozen_info.frozen_time','frozen_info.do_time','student_info.is_status','frozen_info.type','student_info.tran_id')->get()->toArray();
+				//重修
+			$chongxiu = DB::table('cx_info')->leftJoin('student_info','student_info.tran_id','=','cx_info.tran_id')->where('order_status', '=', '通过')->where('data_type','重修')->where('student_info.did','=',$did)->select('cx_info.cx_province','cx_info.cx_city','cx_info.cx_date','student_info.is_status','cx_info.type','student_info.tran_id')->get()->toArray();
+				//奖学金
+			$jiangxuejin = DB::table('scholarship')->leftJoin('student_info','student_info.tran_id','=','scholarship.tran_id')->where('data_type','奖学金申请')->where('order_status', '=', '通过')->where('student_info.did','=',$did)->select('scholarship.sc_oneScore','scholarship.sc_twoScore','scholarship.sc_threeScore','scholarship.type','scholarship.sc_oneAttend','scholarship.sc_twoAttend','scholarship.sc_threeAttend','scholarship.price','scholarship.apaly_num','scholarship.back_name','scholarship.bank_num','scholarship.bank_khh','scholarship.sc_time','student_info.is_status','student_info.tran_id')->get()->toArray();
+				//异动表的基金换科
+			$yidongjijin = DB::table('student_info')->where('did','=',$did)->where('data_type','=','基金换科补费')->where('order_status', '=', '通过')->select('*')->get()->toArray();
+				//异动表的续报
+			$yidongxubao = DB::table('student_info')->where('did','=',$did)->where('data_type','=','续报')->where('order_status', '=', '通过')->select('*')->get()->toArray();
+				//异动表升班
+			$yidongshengban = DB::table('student_info')->where('did','=',$did)->where('data_type','=','升班')->where('order_status', '=','通过')->select('*')->get()->toArray();
+				//异动表转介绍
+			$yidongzhuanjieshao = DB::table('student_info')->where('did','=',$did)->where('data_type','=','转介绍')->where('order_status', '=', '通过')->select('*')->get()->toArray();
+			$m  = array_merge($tuifei,$dongjie,$chongxiu,$jiangxuejin);
+
+			$s = array_merge($yidongjijin,$yidongxubao,$yidongshengban,$yidongzhuanjieshao);
+			
+			foreach($s as $k=>$v){
+				unset($s[$k]->payment);
+				$s[$k] = array_diff_assoc(get_object_vars($v),$aa);
+				$s[$k]['type'] = 123;
+				
+				$s[$k]['type'] = $v->data_type;
+						//var_dump($arr);
+			}
+				/*var_dump($s);
+				exit;*/
+				
+				
+
+			return json_encode(array_merge($s,$m));
+				
+		}
+		//审核页面异动学生查询
+		public function OrderStatus(Request $request)
+		{
+			$did = $request->post('did');
+			$did =  ($did - 1334809212)/2;
+				
+			$cc = new Data_info();
+			$aa = array();
+			$belong = $cc->studentBelong($did);
+			if (empty($belong) || $belong[0]->is_valid == 5) {
+				return json_encode([]);
+			}
+			$zixunshi = $belong[0]->zixunshi;
+			$tea_name = $belong[0]->user_name;
+
+			$tuifei = DB::select("SELECT s.tran_id AS did,s.stu_name,s.workyear,s.sex,s.weixin,s.email,s.education,s.mail_address,s.exam_province,s.exam_city,s.mail_num,s.proof_type,s.id_num,s.class_mobile,s.ergent_people,s.ergent_mobile,s.classType,s.section,s.sign_type,s.exam_date,s.price,s.instead_sign,s.payment,s.data_type,s.company,s.pay_way,s.pay_price,b.type,b.bp_reason,b.bp_desc,b.bp_price,b.bp_account,b.pay_way,b.apaly_num,b.back_name,b.bank_num,b.bank_khh,b.bcak_time FROM student_info AS s LEFT JOIN backprice_info as b ON b.did = s.did	WHERE b.did = $did AND data_type = '退费' AND (s.order_status = '不通过' or s.order_status = '0') order by s.tran_id desc limit 1");
+		
+				//退费数组定义
+			$tf = [];
+			foreach($tuifei as $key => $val){
+				$val->tea_name = $tea_name;
+				$val->belong_to=$zixunshi;
+				$key = $val->data_type;
+
+				$tf[$key] = $val;
+			}
+
+				//冻结
+			$dongjie = DB::select("SELECT s.tran_id AS did,s.stu_name,s.workyear,s.sex,s.weixin,s.email,s.education,s.mail_address,s.exam_province,s.exam_city,s.mail_num,s.proof_type,s.id_num,s.class_mobile,s.ergent_people,s.ergent_mobile,s.classType,s.section,s.sign_type,s.exam_date,s.price,s.instead_sign,s.payment,s.data_type,s.company,s.pay_way,s.pay_price,f.frozen_time,f.do_time,f.type FROM student_info AS s LEFT JOIN frozen_info as f ON f.did = s.did WHERE f.did = $did AND s.data_type = '冻结' AND (s.order_status = '不通过' or s.order_status = '0') order by f.frozen_id desc limit 1");
+			//冻结数组定义
+			$dj = [];
+			foreach($dongjie as $key=> $val1){
+				$key = $val1->data_type;
+				$dj[$key] = $val1;
+			}
+			//重修
+			$chongxiu = DB::select("SELECT s.tran_id AS did,s.stu_name,s.workyear,s.sex,s.weixin,s.email,s.education,s.mail_address,s.exam_province,s.exam_city,s.mail_num,s.proof_type,s.id_num,s.class_mobile,s.ergent_people,s.ergent_mobile,s.classType,s.section,s.sign_type,s.exam_date,s.price,s.instead_sign,s.payment,s.data_type,s.company,s.pay_way,s.pay_price,c.cx_province,c.cx_city,c.cx_date,c.type	FROM student_info AS s LEFT JOIN cx_info as c ON c.did = s.did WHERE c.did = $did AND s.data_type = '重修' AND (s.order_status = '不通过' or s.order_status = '0') order by c.cx_id desc limit 1");
+			//重修数组定义
+			$cx = [];
+			foreach($chongxiu as $key=> $val2){
+				$key = $val2->data_type;
+				$cx[$key] = $val2;
+			}
+			//奖学金
+			$jiangxuejin = DB::select("SELECT s.tran_id AS did,s.stu_name,s.workyear,s.sex,s.weixin,s.email,s.education,s.mail_address,s.exam_province,s.exam_city,s.mail_num,s.proof_type,s.id_num,s.class_mobile,s.ergent_people,s.ergent_mobile,s.classType,s.section,s.sign_type,s.exam_date,s.price,s.instead_sign,s.payment,s.company,s.pay_way,s.pay_price,f.sc_oneScore,f.sc_twoScore,f.sc_threeScore,f.sc_oneAttend,f.sc_twoAttend,f.sc_threeAttend,f.price,f.apaly_num,f.apaly_num,f.back_name,f.bank_num,f.bank_khh,f.sc_time,s.data_type,f.type	FROM student_info AS s LEFT JOIN scholarship as f ON f.did = s.did WHERE f.did = $did AND s.data_type = '奖学金申请' AND (s.order_status = '不通过' or s.order_status = '0') order by f.sc_id desc limit 1");
+			//奖学金数组定义
+			$jxj = [];
+			foreach($jiangxuejin as $key=> $val3){
+				$key = $val3->data_type;
+				$jxj[$key] = $val3;
+			}
+			//异动表的基金换科
+			$yidongjijin = DB::select("SELECT s.tran_id AS did,s.stu_name,s.workyear,s.sex,s.weixin,s.email,s.education,s.mail_address,s.exam_province,s.exam_city,s.mail_num,s.proof_type,s.id_num,s.class_mobile,s.ergent_people,s.ergent_mobile,s.classType,s.section,s.sign_type,s.exam_date,s.price,s.instead_sign,s.payment,s.company,s.pay_way,s.pay_price,s.data_type FROM student_info AS s WHERE s.did = $did AND s.data_type = '基金换科补费' AND (s.order_status = '不通过' or s.order_status = '0') order by s.tran_id desc limit 1");
+			//基金换科数组定义
+				
+			$ccc = [];
+			foreach($yidongjijin as $key=> $val4){
+				$key = $val4->data_type;
+				$ccc[$key] = $val4;
+			}
+			//异动表的续报
+
+			$yidongxubao = DB::select("SELECT s.tran_id AS did,s.stu_name,s.workyear,s.sex,s.weixin,s.email,s.education,s.mail_address,s.exam_province,s.exam_city,s.mail_num,s.proof_type,s.id_num,s.class_mobile,s.ergent_people,s.ergent_mobile,s.classType,s.section,s.sign_type,s.exam_date,s.price,s.instead_sign,s.payment,s.company,s.pay_way,s.pay_price,s.data_type FROM student_info AS s WHERE s.did = $did AND s.data_type = '续报' AND (s.order_status = '不通过' or s.order_status = '0') order by s.tran_id desc limit 1");
+			//续报数组定义
+			$ddd = [];
+			foreach($yidongxubao as $key=> $val4){
+				$key = $val4->data_type;
+				$ddd[$key] = $val4;
+			}
+			//异动表升班
+			$yidongshengban = DB::select("SELECT s.tran_id AS did,s.stu_name,s.workyear,s.sex,s.weixin,s.email,s.education,s.mail_address,s.exam_province,s.exam_city,s.mail_num,s.proof_type,s.id_num,s.class_mobile,s.ergent_people,s.ergent_mobile,s.classType,s.section,s.sign_type,s.exam_date,s.price,s.instead_sign,s.payment,s.company,s.pay_way,s.pay_price,s.data_type FROM student_info AS s WHERE s.did = $did AND s.data_type = '升班' AND (s.order_status = '不通过' or s.order_status = '0') order by s.tran_id desc  limit 1");
+			//升班数组定义
+			$eee = [];
+			foreach($yidongshengban as $key=> $val4){
+				$key = $val4->data_type;
+				$eee[$key] = $val4;
+			}
+			//异动表转介绍
+			$yidongzhuanjieshao = DB::select("SELECT s.tran_id AS did,s.stu_name,s.workyear,s.sex,s.weixin,s.email,s.education,s.mail_address,s.exam_province,s.exam_city,s.mail_num,s.proof_type,s.id_num,s.class_mobile,s.ergent_people,s.ergent_mobile,s.classType,s.section,s.sign_type,s.exam_date,s.price,s.instead_sign,s.payment,s.company,s.pay_way,s.pay_price,s.data_type FROM student_info AS s WHERE s.did = $did AND s.data_type = '转介绍' AND (s.order_status = '不通过' or s.order_status = '0') order by s.tran_id desc  limit 1");
+			//转介绍数组定义
+			$fff = [];
+			foreach($yidongzhuanjieshao as $key=> $val4){
+				$key = $val4->data_type;
+				$fff[$key] = $val4;
+			}
+			$bb = array_merge($tf,$dj,$cx,$jxj);
+			$cc = array_merge($ccc,$ddd,$eee,$fff);
+			$yidongInfo = array_merge($bb,$cc);
+				
+			/*$yidongInfo = array_map(function($value) {
+					
+				return $value;
+			}, $yidongInfo);
+			var_dump($yidongInfo);
+			exit;*/
+			return json_encode($yidongInfo);
+		}
+		/*查询订单图片
+		 *@param tran_id  异动信息(student_info表)唯一id    
+		 */
+		public function get_transaction_img(Request $request)
+		{
+			$tran_id = $request->get('tran_id');
+			if (!is_numeric($tran_id) || $tran_id == 0) {
+				return json_encode(['code' => 400, 'message' => '参数错误']);
+			}
+			$result = DB::table('order_image')->where('tran_id', $tran_id)->select('image', 'company', 'pay_way', 'money')->get()->map(function ($value) {
+				$value->image = url($value->image);
+				return $value;
+			})->toArray();
+			return json_encode($result);
+		}
+		/*异动学生订单审核
+	 	 *@param status 审核状态  通过/不通过
+	 	 *不通过
+	 	 *@param back_reason  审核不过原因
+	 	 *@param back_reason_note  审核不通过其他备注
+	 	 *若数据类型为转介绍则添加参数
+	 	 *@param payment(arr)  支付基本信息 
+		 	[
+		 		'company' => 支付公司,
+		 		'image' => 图片路径,
+		 		'pay_date' => 支付时间,
+		 		'money' => 支付金额,
+		 		'money_num' => 流水号,
+		 		'pay_way' => 支付方式
+		 	]
+		 */
+		public function checkOrder(Request $request)
+		{
+
+			$request_data = $request->all();
+
+			$did = $request->post('tran_id');
+			$stu_data = DB::table('student_info')->where('tran_id', $did)->where('order_status', '!=', '通过')->select('did', 'data_type', 'order_status')->get()->toArray();
+				//若数据状态为通过则直接返回
+			if (empty($stu_data)) {
+				return json_encode(['code' => 400, 'message' => '审核已通过']);
+			}
+
+				//查看学员是否毕业
+			$is_graduate = DB::table('data_info')->where('did', $stu_data[0]->did)->select('is_valid')->get()->toArray();
+			if (empty($is_graduate)) {
+				return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+			}
+			if ($is_graduate[0]->is_valid == 5) {
+				return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+			}
+			//获取订单类型
+			$type = $stu_data[0]->data_type;
+			//$type = '转介绍';
+			//$sign_up_time = $request->post('sign_up_time');
+			//$sign_up_time = '2019-3-18';//?
+			$message = '提交成功';
+
+			//转介绍数据操作
+			if ($type == '转介绍' && $request_data['status'] == '通过') {
+				$payment_data = $request_data['payment'];
+				$pay_date_arr = array_column($payment_data, 'pay_date');
+				$sign_up_time = max($pay_date_arr);
+				$data_info = new Data_info;
+				$stu = new Stu_info;
+				$order = new Order_info;
+				$student_info = new Student_info;
+
+				//查询介绍人手机号
+				$old_arr = $data_info->where('did', $stu_data[0]->did)->select('mobile', 'tea_name')->get()->toArray()[0];
+				$old_mobile = $old_arr['mobile'];
+				$old_tea_name = $old_arr['tea_name'];
+
+				//查询订单表数据
+				$data = $student_info->where('tran_id', $did)->get()->toArray()[0];
+
+				//生成新订单
+				DB::beginTransaction();
+				$da = $data_info->dataStudent($data,$type, $sign_up_time, $old_tea_name);
+				$stu = $stu->zhuanStudent($data);
+				$or = $order->orderStudent($data,$old_mobile,$type,$da);
+				//payment_info表写入操作
+				$pay_arr = $this->money_num_operate($data, $payment_data, $da);
+				$pay = DB::table('payment_info')->insert($pay_arr);
+				$result = $student_info->statusCheck($did,$request_data, $da);
+
+				if (!$da || !$stu || !$or || !$pay || !$result) {
+
+					DB::rollback();
+					return json_encode(['code' => '400', 'message' => '操作失败']);
+				}
+				DB::commit();
+				return json_encode(['code' => 200, 'message' => $message]);
+			}
+			$datas = new Student_info();
+			$result = $datas->statusCheck($did,$request_data);
+			if ($result) {
+
+				return json_encode(['code' => 200, 'message' => $message]);
+			} else {
+				return json_encode(['code' => 400, 'message' => '审核失败']);
+			}
+
+		}
+		/*转介绍异动生成流水号
+		 *@param old_data  异动表(student_info)数据
+		 *@param payment_data(arr)  支付基本信息 
+		 	[
+		 		'company' => 支付公司,
+		 		'image' => 图片路径,
+		 		'pay_date' => 支付时间,
+		 		'money' => 支付金额,
+		 		'money_num' => 流水号,
+		 		'pay_way' => 支付方式
+		 	]
+		 *@param did  数据表(data_info)唯一标识
+		 */
+		public function money_num_operate($old_data, $payment_data, $did)
+		{
+			$data = [];
+			if (empty($payment_data) || !is_array($payment_data)) {
+				return false;
+			}
+			$check_date = date('Y-m-d H:i:s');
+			for ($i=0; $i < count($payment_data); $i++) { 
+				
+				$data[$i]['payment'] = $payment_data[$i]['image'];
+				$data[$i]['sign_date'] = $data[$i]['order_date'] = $data[$i]['pay_date'] = $payment_data[$i]['pay_date'];
+				$data[$i]['did'] = $did;
+				$data[$i]['company'] = $payment_data[$i]['company'];
+				$data[$i]['pay_way'] = $payment_data[$i]['pay_way'];
+				$data[$i]['money'] = $payment_data[$i]['money'];
+				$data[$i]['money_num'] = $payment_data[$i]['money_num'];
+				$data[$i]['check_date'] = $check_date;
+				$data[$i]['check_name'] = session('uid');
+				$data[$i]['unique_key'] = md5(uniqid());
+			}
+			return $data;
+		}
+		/*出纳查看审核后没处理列表(未用)
+		*/
+		public function teller_check()
+		{
+			$did_arr = DB::table('student_info')->where('is_status', 0)->where('order_status', '通过')->groupBy('did')->pluck('did')->toArray();
+				
+				
+			$result = DB::table('data_info')->whereIn('did', $did_arr)->where('is_valid', '!=', 5)->select('did')->get()->toArray();
+			var_dump($result);
+		}
+		/*********************************************详情页************************************************/
+			//(未用)
+		public function show()
+		{
+			return view('admin/indexx');
+		}
+		/*学员详情页
+		 *@param  did学员id   mobile学员手机号
+		 */
+		public function showIndex(Request $request)
+		{
+				//获取数据表对象
+			$datas = new Data_info();
+				//条件查询进入页面(未用)
+			if ($request->has('mobile')) {
+						//获取学员手机号
+				$moblie = $request->has('mobile') ? $request->get('mobile') : '';
+						//手机号为空则返回上级页面
+				if (empty($moblie)) {
+					return redirect()->back();
+				}
+						//获取当期教师id
+				$uid = session('uid');
+						//未查询到学员id则返回上级页面
+						//根据手机号和报名状态查询
+				$did = $datas->where('mobile', $moblie)->where('sign_up_status', '!=', 0)->where('tea_name', $uid)->select('did')->get()[0]['did'];
+				if (empty($did)) {
+					return redirect()->back();
+				}
+
+						//跳转url
+						//$url = url('admin/showIndex',['did'=>$did]);
+				return redirect('admin/showIndex?did='.$did);
+			} else {
+						//点击名片进入页面
+						 //($value->did*2+1334809212);
+				$did = $request->get('did');
+			}
+			
+			
+			$did = ($did-1334809212)/2;
+			
+			$data = $datas->where('did', $did)->select('project', 'learn_status', 'is_valid')->get();
+			if ($data[0]->project == '消防升级') {
+				$data[0]->project = '消防项目';
+			}
+			$class = DB::select("SELECT class_type AS classType FROM contract_info WHERE project = '{$data[0]->project}'");
+			$project = $data[0]->project;
+				//session(['project'=>$data[0]->project]);//错误?
+				//session(['classType'=>$data[0]->sign_type]);
+			 /* var_dump($class);
+			 exit;*/
+			 return view('admin/bdata',['class'=>$class, 'did' =>$did, 'project' => $project, 'data' => $data]);
+			}
+		/*
+		 * @param 学生基本信息详情页
+		 * @param $did 前端接收的did
+		 * @param $data实例化的data_info模型
+		 * @return json
+		* */
+		public function student_info(Request $request)
+		{
+			$did = $request->get('did');
+			$data = new Data_info();
+			$data = $data::stuInfo($did);
+			
+			foreach($data as $v){
+								//判断是否为消防代报名，如果是消防代报名用总费用减去消防代报名钱1500，如果不是就减去0
+				switch ($v->project){
+					case '消防项目':
+					if($v->instead_sign == '是'){
+						$v->pxfei = $v->price - 1500;
+					}elseif($v->instead_sign == '否') {
+						$v->pxfei = $v->price - 0;
+
+					}
+					break;
+					case '消防升级':
+					if($v->instead_sign == '是'){
+						$v->pxfei = $v->price - 1500;
+					}elseif($v->instead_sign == '否') {
+						$v->pxfei = $v->price - 0;
+					}
+					break;
+					case '基金项目':
+					$v->pxfei = $v->price - 0;
+					break;
+				}
+				$stu_data[] = $v;
+			}
+			if ($data[0]->classType == '一级注册消防工程师考试皇家内训班' && $data[0]->instead_sign == '否') {
+				$instead_sign = DB::table('order_info')->where('mobile', $data[0]->mobile)->where('instead_sign', '是')->count();
+				if ($instead_sign > 0) {
+					$data[0]->instead_sign = '是';
+				}
+			}
+			if ($data) {
+				$data[0]->contract_id = 'HuoZhongNO_'.($did*2+1334809212);
+				$pay_way = explode(',', $data[0]->pay_way);
+				$data[0]->pay_way = $pay_way[0];
+			}
+			//把一维数组转成二维数组
+			return json_encode($stu_data);
+		}
+		/*
+		 * @param 学生发票信息
+		 * @param $did
+		 * @return json
+		 * */
+		public function invoice_stu(Request $request)
+		{
+			$did = $request->get('did');
+			$data = new Data_info();
+			return json_encode($data->studentInvoice($did));
+		}
+		/*
+		 * @学生归属信息
+		 * @user_info,data_info 表
+		 * @return 格式为json
+		 * 2019/1/8
+		 * */
+		public function stu_belong(Request $request)
+		{
+			$did = $request->get('did');
+			$data = new Data_info();
+			return json_encode($data->studentBelong($did));
+		}
+		/*
+		 * @学生回访信息
+		 * @return 格式为json
+		 * 2019/1/8
+		 * */
+		public function backVisit(Request $request)
+		{
+			$did = $request->get('did');
+			$back = new Back_visit();
+			return json_encode($back->selectVisit($did));
+		}
+		
+		/*2
+		 * @学生账号信息
+		 *
+		 * */
+		public function student_num(Request $request)
+		{
+			$data = $request->all();
+			 /* var_dump($data);
+			 exit;*/
+			 $did = $request->post('did');
+			 $num = new Exam_num_info();
+			 $stuNum = $num->studentNum($did);
+				//判断数据是否有为空
+//        if(in_array('', $data)) {
+//            return json_encode(['code' => 400]);
+//            exit;
+//        }
+			 if($request->isMethod('post')){
+			 	//查看学员是否毕业
+				$is_graduate = DB::table('data_info')->where('did', $did)->select('is_valid')->get()->toArray();
+				if (empty($is_graduate)) {
+					return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+				}
+				if ($is_graduate[0]->is_valid == 5) {
+					return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+				}
+						//判断若统考和预考账号都没填则返回code:400
+			 	if (empty($data['s_name1']) && empty($data['s_name'])) {
+			 		return json_encode(['code'=>400, 'message' => '请填写账号']);
+			 	}
+						//若s_name不为''则其他统考信息不为空
+			 	if (!empty($data['s_name'])) {
+
+			 		if (empty($data['s_pwd']) || empty($data['s_question']) || empty($data['s_answer'])) {
+			 			return json_encode(['code'=>400, 'message' => '请完善统考信息']);
+			 		}
+			 	}
+						//若s_name1不为''则其他预考信息不为空
+			 	if (!empty($data['s_name1'])) {
+
+			 		if (empty($data['s_pwd2']) || empty($data['s_question1']) || empty($data['s_answer1'])) {
+			 			return json_encode(['code'=>400, 'message' => '请完善预考信息']);
+			 		}
+			 	}
+						//若s_name为''则其他统考信息以''存储
+			 	if (empty($data['s_name'])) {
+			 		$data['s_name'] = $data['s_pwd'] = $data['s_question'] = $data['s_answer'] = '';
+			 	}
+						//若s_name1为''则其他预考信息以''存储
+			 	if (empty($data['s_name1'])) {
+			 		$data['s_name1'] = $data['s_pwd2'] = $data['s_question1'] = $data['s_answer1'] = '';
+			 	}
+			 	
+			 	
+						//根据didi查询考试账号若无则添加有则修改
+			 	if(empty($stuNum)){
+			 		
+			 		$a = $num->numAdd($data);
+			 		if($a == true){
+			 			return json_encode(['code'=>200]);
+			 		}
+			 	}else{
+							 //对比获取数组差集
+			 		$up_arr = array_diff_assoc($data, (array)$stuNum[0]);
+			 		if (empty($up_arr)) {
+			 			return json_encode(['code'=>200]);
+			 		}
+			 		$b = $num->numUpd($did,$up_arr);
+			 		if($b == true){
+			 			return json_encode(['code'=>200]);
+			 		}else{
+			 			return json_encode(['code'=>400]);
+			 		}
+			 	}
+			 }else{
+			 	return json_encode($stuNum);
+			 	
+			 }
+			}
+			
+		/*
+		 * @param 主管开课审核
+		 * @param 需要根据前台传来的did
+		 * */
+		public function startLesson(Request $request)
+		{
+			$did = $request->post('did');
+			$kkStu = new Data_info();
+			if ($kkStu->kaike($did)) {
+				$result = ['code' => 200];
+			} else {
+				$result = ['code' => 400];
+			}
+			return json_encode($result);
+		}
+		/*判断数组数组中是否存在某些键
+		 *@param $keys(array)判断是否存在的键   $arr(array)进行判断的数组
+		 *@return boolean存在返回true  不存在返回false
+		 */
+		public function my_key_exist($keys, $array)
+		{
+
+		}
+		/*3
+		* @考试成绩，接收前台传过来的所有数据进行入库
+		* @exam_score表
+		* @返回json数据，带有状态码 200代表成功 400代表失败
+		* */
+		public function exam_info(Request $request)
+		{
+				//接收前台的数据
+			$scoreStu = $request->all();
+
+			$did = $scoreStu['did'];
+				//实例化成绩模型
+			$score = new Exam_score();
+				//var_dump($scoreStu);
+			
+				//判断是否为post请求方式
+			if($request->isMethod('post')){
+				if (!isset($scoreStu['exam_date'])) {
+					return json_encode(['code'=>400, 'message' => '请刷新页面后重新操作']);
+				}
+				//判断是否三科成绩都没传
+				$is_operate = 0;
+				//循环为数组重新赋值值为null则赋值为''
+
+				foreach ($scoreStu as $key => $value) {
+					
+								//除去考期
+					if ($key == 'exam_one' || $key == 'exam_two' || $key == 'exam_three') {
+						$scoreStu[$key] = isset($value) ? $value : '';
+						$is_operate = empty($scoreStu[$key]) ? $is_operate : $is_operate+1;
+						
+					}
+					
+				}
+				
+				if ($is_operate == 0) {
+					return json_encode(['code'=>400, 'message' => '请填写考试成绩']);
+				}
+				//查看学员是否毕业
+				$is_graduate = DB::table('data_info')->where('did', $did)->select('is_valid')->get()->toArray();
+				if (empty($is_graduate)) {
+					return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+				}
+				if ($is_graduate[0]->is_valid == 5) {
+					return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+				}
+						//查询数据
+				$stuScore = $score->scoreSelect($did,$scoreStu['exam_date']);
+				
+						//var_dump($scoreStu);
+						//如无考期则
+				
+				
+						//根据学员id和考期进行查询若无则添加有则修改
+				if(empty($stuScore)){
+					$a = $score->scoreAdd($scoreStu);
+					if($a == true){
+						
+						return json_encode(['code'=>200]);
+					}else{
+						
+						return json_encode(['code'=>400]);
+					}
+				}else{
+
+					$a = $score->scoreUpd($did,$scoreStu);
+					if($a == true){
+						
+						return json_encode(['code'=>200]);
+					}else{
+						
+						return json_encode(['code'=>400]);
+					}
+				}
+			}else{
+				return json_encode($score->stuSco($did));
+			}
+
+		}
+		/*4
+		* @发票补全，接收前台传过来的所有数据进行入库
+		* @invoice_info表
+		* @返回json数据，带有状态码 200代表成功 400代表失败
+		* */
+		public function fapiao_info(Request $request)
+		{
+				//接收前台传来的学生发票信息入库
+			$fp = $request->all();
+			
+				//数据验证规则
+			$rules = [
+				'in_type' => 'required',
+				'in_header' => 'required',
+				'in_ns_num' => 'required',
+				'in_address' => 'required',
+				'in_phone' => 'required',
+				'in_bank_num' => 'required',
+				'in_bank' => 'required',
+			];
+				//返回提示信息
+			$message = [
+				'in_type.required' => '请填写发票类型',
+				'in_header.required' => '请填写发票抬头',
+				'in_ns_num.required' => '请填写纳税人识别号',
+				'in_address.required' => '请填写地址',
+				'in_phone.required' => '请填写电话',
+				'in_bank_num.required' => '请填写账号',
+				'in_bank.required' => '请填写开户行',
+			];
+			$validate = Validator::make($request->all(), $rules, $message);
+				//若验证失败返回第一条错误信息
+			if ($validate->fails()) {
+				return json_encode(['code' => 400, 'message' => $validate->errors()->first()]);
+			}
+			$did = $fp['did'];
+			//查看学员是否毕业
+			$is_graduate = DB::table('data_info')->where('did', $did)->select('is_valid')->get()->toArray();
+			if (empty($is_graduate)) {
+				return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+			}
+			if ($is_graduate[0]->is_valid == 5) {
+				return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+			}
+				//实例化模型
+			$invoice = new \App\Http\Model\Invoice_info();
+				//查询出来的数据
+			$invoiceStu = $invoice->invoiceSelect($did);
+				//判断请求方式，如果是post进行添加操作
+			if ($request->isMethod('post')) {
+				if(empty($invoiceStu)){
+					$a = $invoice->invoiceAdd($fp);
+					if($a == true){
+						return json_encode(['code'=>200]);
+					}else{
+						return json_encode(['code'=>400]);
+					}
+				}
+				if($invoiceStu[0]->did = $fp['did']){
+					$a = $invoice->invoiceUpd($did,$fp);
+					if($a == true){
+						return json_encode(['code'=>200]);
+					}else{
+						return json_encode(['code'=>400]);
+					}
+				}
+			}
+		}
+		/*5
+		 * @param 基金代报名写入
+		 * @table fund_substitution
+		 * @return json
+		 * */
+		public function found_dai(Request $request)
+		{
+			$did = $request->post('did');
+			$signData = $request->all();
+				//var_dump($signData);
+			$signData['uid'] = \session('uid');
+			$signData['is_status'] = 0;
+			$funds = new Funds_sub();
+			$fundInfo = $funds->fundSelect($did);
+
+			if($request->isMethod('post')){
+
+				//查看学员是否毕业
+				$is_graduate = DB::table('data_info')->where('did', $did)->select('is_valid')->get()->toArray();
+				if (empty($is_graduate)) {
+					return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+				}
+				if ($is_graduate[0]->is_valid == 5) {
+					return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+				}
+
+				if(empty($fundInfo)){
+					$fund = $funds->fundInsert($signData);
+					if($fund==true){
+						return json_encode(['code'=>200,'msg'=>'success']);
+					}else{
+						return json_encode(['code'=>400,'msg'=>'faild']);
+					}
+				}elseif(!empty($fundInfo)){
+					$upd = $funds->fundUpd($signData,$did);
+					if($upd == true){
+						$funds->fundStatus($did);
+						return json_encode(['code'=>200,'msg'=>'success']);
+					}else{
+						return json_encode(['code'=>400,'msg'=>'faild']);
+					}
+				}
+
+			}else{
+				$data = DB::table('fund_substitution')->where('did','=',$did)->select('*')->get()->toArray();
+				return json_encode($data);
+			}
+		}
+
+		/*7
+		* @param  back_visit补全，接收前台传过来的所有数据进行入库
+		* @table  back_visit表
+		* @return 返回json数据，带有状态码 200代表成功 400代表失败
+		* */
+		public function back_visit_info(Request $request)
+		{
+				//接收前台要修改数据的主键ID
+			$did = $request->post('did');
+			//查看学员是否毕业
+			$is_graduate = DB::table('data_info')->where('did', $did)->select('is_valid', 'mobile')->get()->toArray();
+			if (empty($is_graduate)) {
+				return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+			}
+			if ($is_graduate[0]->is_valid == 5) {
+				return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+			}
+				//接收前台传来的学生回访信息入库
+			$back_visit_info = $request->all();
+			
+				//替换回访时间为后台时间 
+			$back_visit_info['bv_date'] = Date('Y-m-d H:i:s',time());
+				//数据验证
+			$rules = [
+				'bv_do' => 'required',
+				'bv_tax' => 'required',
+				'bv_record' => 'required',
+			];
+			$message = [
+				'bv_do.required' => '请填写做题记录',
+				'bv_tax.required' => '请填写听课记录',
+				'bv_record.required' => '请填写回访记录',
+			];
+			$validate = Validator::make($request->all(), $rules, $message);
+			if ($validate->fails()) {
+				return json_encode(['code' => 400, 'message' => $validate->errors()->first()]);
+			}
+			//实例化信息表
+			$data = new Data_info();
+				//实例化回访
+			$backV = new Back_visit();
+			$today_start = date('Y-m-d 00:00:00', time());
+			$today_end = date('Y-m-d 23:59:59', time());
+				//获取该学生的回访时间
+			$stuBack = DB::select("select count(1) as count from back_visit where did = {$did} and bv_date between '{$today_start}' and '{$today_end}'");
+				//$stuBack = $backV->backS($did);
+				//信息表的信息
+			$datas = $data->DataInfo($did);
+				//学员的电话
+			$mobile = $datas[0]->mobile;
+				//班主任编号
+			$caller = session('caller');
+				//查询学员电话的话单
+			$called = DB::select("select count(1) as count from called_info where called = {$mobile} and releaseTime between '{$today_start}' and '{$today_end}' and duration > 60 and called = {$is_graduate[0]->mobile} and caller= {$caller}");
+			
+			
+				//话单数大于回访数
+			if($called[0]->count > $stuBack[0]->count){
+				
+				$bv = $backV->back($back_visit_info);
+				if($bv){
+					return json_encode(['code' => 200, 'message' => '提交成功']);
+				}else{
+					return json_encode(['code' => 400, 'message' => '提交失败']);
+				}
+				
+			}else{ 
+
+				
+						//
+				return json_encode(['code' => 400, 'message' => '一个话单只可添加一个回访']);
+			}
+		}
+		/*(未用)
+		 * @param 工单待处理
+		 * @return json
+		 * */
+		public function workOrderStu(Request $request)
+		{
+			$did = $request->post('did');
+			$work = new Work_order_info();
+			return json_encode($work->workStu($did));
+		}
+
+		/*8(待查看)
+		* @xf_dai_sign补全，接收前台传过来的所有数据进行入库
+		* @exam_info表
+		* @返回json数据，带有状态码 200代表成功 400代表失败
+		* */
+		public function xf_dai_sign_info(Request $request)
+		{
+
+				//接收前台传来的学生消防代报名信息入库
+			$did = $request->post('did');
+			$xf_dai_sign_info = $request->all();
+			$xf_dai_sign_info['uid'] = session('uid');
+				//判断请求方式，如果是post进行添加操作
+			if ($request->isMethod('post')) {
+				$xf = DB::table('xf_signup')->where('did','=',$did)->select('did','xf_first_subsidy')->get()->toArray();
+				if(empty($xf)){
+					$data = DB::table('xf_signup')->insert($xf_dai_sign_info);
+					if ($data) {
+										//DB::table('data_info')->where('did','=',$did)->update(['learn_status'=>20]);
+						return json_encode(['code' => 200, 'message' => '提交成功', 'data' => $data]);
+					} else {
+						return json_encode(['code' => 400, 'message' => '提交失败']);
+					}
+				}else{
+					try{
+						$data = DB::table('xf_signup')->where('did','=',$did)->update($xf_dai_sign_info);
+						if ($data) {
+												//DB::table('data_info')->where('did','=',$did)->update(['learn_status'=>20]);
+							return json_encode(['code' => 200, 'message' => '提交成功']);
+						} else {
+							return json_encode(['code' => 400, 'message' => '提交失败']);
+						}
+					}catch(Exception $e){
+						echo $e->getMessage();
+					}
+				}
+
+			}else{
+				$did = $request->get('did');
+				$data = DB::table('xf_signup')->where('did','=',$did)->select('*')->get()->toArray();
+				return json_encode($data);
+			}
+		}
+		/*新学员提交时连带提交邮寄信息
+		*/
+		public function sub_mail_info($mail_info, $project, $did, $sign_type)
+		{
+			
+			
+			//(待删)未确认
+			$is_did = DB::table('data_info')->where('did', $did)->where('learn_status', 0)->select('did')->get()->toArray();
+			if (empty($is_did)) {
+				return json_encode(['code' => 400, 'message' => '数据错误']);
+			}
+			if (($project == '消防项目' || $project == '消防升级') && $sign_type == '定金' && empty($mail_info['agr_back'])) {
+				return json_encode(['code' => 400, 'message' => '消防定金班须填写回执日期']);
+			}
+			unset($mail_info['project']);
+			unset($mail_info['sign_type']);
+			
+			$mail_info['agr_back'] = empty($mail_info['agr_back']) ? '1992-08-02 00:00:00' : $mail_info['agr_back'];
+						//对数据进行null替换为''处理
+			$mail_info['sm_courier_number'] = empty($mail_info['sm_courier_number']) ? '' : $mail_info['sm_courier_number'];
+
+			$mail_info['sm_date'] = empty($mail_info['sm_date']) ? '' : $mail_info['sm_date'];
+			$mail_info['sm_remaks'] = empty($mail_info['sm_remaks']) ? '' : $mail_info['sm_remaks'];
+
+			$mail_info['sm_free'] = empty($mail_info['sm_free']) ? '' : $mail_info['sm_free'];
+			$mail_info['sm_qudao'] = empty($mail_info['sm_qudao']) ? '' : $mail_info['sm_qudao'];
+
+			
+			$send = DB::table('sendmail_info')->where('did','=',$did)->select('sm_id', 'sm_con', 'sm_courier_number')->orderBy('sm_id', 'desc')->limit(1)->get()->toArray();
+			$sendmail = true;
+			//权限
+			/*$uid = session('uid');
+			if ($uid == 973 || $uid == 328 || $uid == 837) {
+				$sendmail = false;
+			}*/
+			if(!empty($send) && $sendmail){
+					//判断上次邮寄是否成功
+				unset($sendmail);
+				return json_encode(['code' => 400, 'message' => '请前往学员异动信息处理该信息']);
+				
+			}
+			return json_encode(['code' => 200, 'mail_info' => $mail_info]);
+		}
+		/****************************************写入操作***************************************************/
+		/*1
+		* @学生信息补全，接收前台传过来的所有数据进行入库
+		* @student_info表
+		* @返回json数据，带有状态码 200代表成功 400代表失败
+		* */
+		public function stu_info(Request $request)
+		{
+			
+				//接收前台的数据
+			$student_info = $request->post('stu');
+				//接受邮寄信息
+			$mail_info = $request->post('mail');
+				//接收did
+			$did = $student_info['did'];
+				//实例化模型data_info
+			$dataInfo = new Data_info();
+				//实例化模型stu_info
+			$stu = new Stu_info();
+				//实例化模型ordr_info
+			$order = new Order_info();
+				//验证规则
+			$rules = [
+				'stu.stu_name' => 'required',
+				'stu.class_mobile' => 'required|numeric',
+				'stu.id_num' => 'required',
+				'stu.weixin' => 'required',
+				'stu.email' => 'required',
+				'stu.mail_address' => 'required',
+				'stu.exam_province' => 'required',
+				'stu.exam_city' => 'required',
+				'stu.classType' => 'required',
+				'stu.sign_type' => 'required',
+				'stu.pay_way' => 'required',
+				'stu.education' => 'required',
+				'stu.trade' => 'required',
+				'stu.work_year' => 'required',
+				
+				'stu.exam_date' => 'required',
+				'stu.did' => 'required|numeric',
+				'mail.sm_con' => 'required',
+				'mail.sm_address' => 'required',
+				'stu.ergent_people' => 'required',
+				'stu.ergent_mobile' => 'required',
+				'stu.sex' => 'required'
+			];
+
+				//验证规则
+			$message = [
+				'stu.stu_name.required' => '请填写学员姓名',
+				'stu.class_mobile.required' => '请填写课程号码',
+				'stu.class_mobile.numeric' => '课程号码必须是数字',
+				'stu.id_num.required' => '请填写身份证号',
+				'stu.weixin.required' => '请填写微信号',
+				'stu.email.required' => '请填写邮箱',
+				'stu.mail_address.required' => '请填写邮寄地址',
+				'stu.exam_province.required' => '请选择报考省份',
+				'stu.exam_city.required' => '请选择报考城市',
+				'stu.classType.required' => '请选择班型',
+				'stu.sign_type.required' => '请选择报名类型',
+				'stu.pay_way.required' => '请选择支付方式',
+				'stu.education.required' => '请选择学历',
+				'stu.trade.required' => '请选择行业',
+				'stu.work_year.required' => '请选择工作年限',
+				'stu.ergent_people.required' => '请填写紧急联系人',
+				'stu.ergent_mobile.required' => '请填写紧急联系电话',
+				'stu.exam_date.required' => '请选择考期',
+				'stu.did.required' => '请刷新页面后重试',
+				'stu.sex.required' => '请选择性别',
+				'mail.sm_con.required' => '请选择邮寄内容',
+				'mail.sm_address.required' => '请填写实际邮寄地址',
+			];
+			$validator = Validator::make($request->all(), $rules, $message);
+			if ($validator->fails()) {
+				return json_encode(['code'=>400, 'message' => $validator->errors()->first()]);
+			}
+			
+				//判断是否选择科目
+			if (!array_key_exists('ke3', $student_info) && !array_key_exists('ke2', $student_info) && !array_key_exists('ke1', $student_info)) {
+				return json_encode(['code'=>400, 'message' => '请选择科目']);
+			}
+			$student_info['section'] = '';
+			if (array_key_exists('ke1', $student_info)) {
+				$student_info['section'] .= '科一,';
+				unset($student_info['ke1']);
+			}
+			if (array_key_exists('ke2', $student_info)) {
+				$student_info['section'] .= '科二,';
+				unset($student_info['ke2']);
+			}
+			if (array_key_exists('ke3', $student_info)) {
+				$student_info['section'] .= '科三,';
+				unset($student_info['ke3']);
+			}
+			
+			$student_info['section'] = rtrim($student_info['section'], ',');
+				//查看学员学习状态是否不为0
+			$is_learn = $dataInfo->where('did', $did)->select('did', 'learn_status', 'project', 'stu_name', 'mobile', 'sign_up_status')->get()->toArray();
+			if (!$is_learn) {
+				return json_encode(['code'=>400, 'message' => '页面异常请刷新后重试']);
+				//var_dump($is_learn);
+			}
+			if ($is_learn[0]['learn_status'] != 0) {
+				return json_encode(['code'=>400, 'message' => '学员信息只可提交一次']);
+			}
+			if ($is_learn[0]['sign_up_status'] != 1) {
+				return json_encode(['code'=>400, 'message' => '学员未报名']);
+				
+			}
+			//邮寄信息验证
+			$is_mail = json_decode($this->sub_mail_info($mail_info, $is_learn[0]['project'], $did, $student_info['sign_type']), true);
+
+			if ($is_mail['code'] == 400) {
+				return json_encode($is_mail);
+			}
+			
+				//重新获取所传数组
+			$check_change = $student_info;
+				//去除不需要比对字段
+			unset($check_change['mobile']);
+			unset($check_change['project']);
+			unset($check_change['zhiwei']);
+			unset($check_change['danwei']);
+			unset($check_change['did']);
+			unset($check_change['email']);
+			unset($check_change['education']);
+			unset($check_change['work_year']);
+			unset($check_change['trade']);
+				//获取原始数据
+			$old_order = $order->where('did', $did)->select('class_mobile', 'id_num', 'weixin', 'email', 'mail_address', 'exam_province', 'exam_city', 'classType', 'sign_type', 'pay_way', 'section', 'exam_date')->get()->toArray()[0];
+			$old_stu = $stu->where('mobile', $is_learn[0]['mobile'])->select('education', 'work_year', 'trade')->get()->toArray()[0];
+			$old_data = array_merge($old_stu, $old_order);
+			$old_data['stu_name'] = $is_learn[0]['stu_name'];
+				//是否有不通字段
+			$is_check = array_diff_assoc($check_change, $old_data);
+			
+			
+			$student_info['is_check'] = empty($is_check) ? false : true;
+			
+			unset($is_check);
+			unset($old_data);
+			unset($old_order);
+			unset($old_stu);
+			unset($check_change);
+			
+				//实例化模型called_info
+			$call = new Called_info();
+				//传来数据的电话
+			$student_info['mobile'] = $is_learn[0]['mobile'];
+			$mobile = $student_info['mobile'];
+
+				//根据对比mobile是否存在
+			$called = $call->calledInfo($mobile);
+			
+				//该学生的信息
+				//$infoStudent = $dataInfo->stuInfo($did);
+			if(($is_learn[0]['project'] == '消防项目' || $is_learn[0]['project'] == '消防升级') && ($student_info['sign_type']=='定金' || $student_info['sign_type']=='代报名补费')){
+				
+				
+
+							//写入student_info表
+				$stu = $stu->stuInfo($did,$student_info);
+							//写入order_info表
+				$or = $order->orderInfo($did,$student_info);
+							//记录消防班定金
+				$learn_status = true; 
+							//写入data_info表 
+				$da = $dataInfo->studentInsert($did,$student_info, $is_learn[0]['project'], $learn_status);
+
+				
+
+			} else {
+
+				if(!isset($called[0]) || $called[0]->releaseTime < date('Y-m-d 00:00:00', time()) || $called[0]->duration<60){
+					return json_encode(['code'=>401]);//无话单
+				}else{
+
+									//写入student_info表
+					$stu = $stu->stuInfo($did,$student_info);
+									//写入order_info表
+					$or = $order->orderInfo($did,$student_info); 
+									//写入data_info表 
+					$da = $dataInfo->studentInsert($did,$student_info, $is_learn[0]['project']);
+
+				}
+							
+			}
+			unset($is_learn);
+			if($da==true){
+				//是否邮寄
+				$sendmail = true;
+				//权限
+				/*$uid = session('uid');
+							
+				if ($uid == 973 || $uid == 328 || $uid == 837) {
+				$sendmail = false;
+				}*/
+				if ($sendmail) {
+					unset($sendmail);
+					DB::table('sendmail_info')->insert($is_mail['mail_info']);
+				}
+							
+							
+				return json_encode(['code'=>200]);
+			}else{
+				return json_encode(['code'=>400]);
+			}
+		}
+		/*9
+		* @mail补全，接收前台传过来的所有数据进行入库
+		* @sendmail_info
+		* @返回json数据，带有状态码 200代表成功 400代表失败
+		* */
+		public function mail_info(Request $request)
+		{
+
+				//接收前台传来的学生邮寄信息入库
+			$mail_info = $request->all();
+			
+			$did = $request->post('did');
+			$type = $request->post('type');
+			
+
+				//判断请求方式，如果是post进行添加操作
+			if ($request->isMethod('post')) {
+				if (!$did) {
+					return json_decode(['code' => 400, 'message' => '页面错吗']);
+				}
+						//验证数据
+				$rules = [
+					'sm_con' => 'required',
+					'sm_address' => 'required',
+				];
+				$message = [
+					'sm_con.required' => '请选择邮寄内容',
+					'sm_address.required' => '请填写实际邮寄地址',
+				];
+						//验证数据
+				$validate = Validator::make($request->all(), $rules, $message);
+				if ($validate->fails()) {
+					return json_encode(['code' => '400', 'message' => $validate->errors()->first()]);
+				}
+				/*$is_did = DB::table('data_info')->where('did', $did)->select('did')->get()->toArray();
+				if (empty($is_did)) {
+					return json_encode(['code' => 400, 'message' => '数据错误']);
+				}*/
+				if (($mail_info['project'] == '消防项目' || $mail_info['project'] == '消防升级') && $mail_info['sign_type'] == '定金' && empty($mail_info['agr_back'])) {
+					return json_encode(['code' => 400, 'message' => '消防定金班须填写回执日期']);
+				}
+				unset($mail_info['project']);
+				unset($mail_info['sign_type']);
+						/* var_dump($mail_info);
+						exit;*/
+						
+						$mail_info['agr_back'] = empty($mail_info['agr_back']) ? '1992-08-02 00:00:00' : $mail_info['agr_back'];
+						//对数据进行null替换为''处理
+						$mail_info['sm_courier_number'] = empty($mail_info['sm_courier_number']) ? '' : $mail_info['sm_courier_number'];
+
+						$mail_info['sm_date'] = empty($mail_info['sm_date']) ? '' : $mail_info['sm_date'];
+						$mail_info['sm_remaks'] = empty($mail_info['sm_remaks']) ? '' : $mail_info['sm_remaks'];
+						
+						$mail_info['sm_free'] = empty($mail_info['sm_free']) ? '' : $mail_info['sm_free'];
+						$mail_info['sm_qudao'] = empty($mail_info['sm_qudao']) ? '' : $mail_info['sm_qudao'];
+						
+						
+						$send = DB::table('sendmail_info')->where('did','=',$did)->select('sm_id', 'sm_con', 'sm_courier_number')->orderBy('sm_id', 'desc')->limit(1)->get()->toArray();
+						
+						if(empty($send)){
+							unset($mail_info['type']);
+
+							$data =  DB::table('sendmail_info')->insert($mail_info);
+							if($data == true){
+								return json_encode(['code'=>200]);
+							}else{
+								return json_encode(['code'=>400, 'message' => '提交失败']);
+							}
+						} 
+						
+						
+						
+						switch ($type){
+							case 'insert':
+										//判断上次邮寄是否成功
+							if ($send[0]->sm_con != '协议' && empty($send[0]->sm_courier_number)) {
+								return json_encode(['code' => 200, 'message' => '已有邮寄信息']);
+							}
+							unset($mail_info['type']);
+							
+							$data =  DB::table('sendmail_info')->insert($mail_info);
+							if($data == true){
+								return json_encode(['code'=>200]);
+							}else{
+								return json_encode(['code'=>400, 'message' => '提交失败']);
+							}
+							break;
+							case 'update':
+							$sm_id = $mail_info['sm_id'];
+							unset($mail_info['type']);
+							unset($mail_info['sm_id']);
+							
+							$data =  DB::table('sendmail_info')->where('sm_id',$sm_id)->update($mail_info);
+							if($data == true){
+								return json_encode(['code'=>200]);
+							}else{
+								return json_encode(['code'=>400, 'message' => '提交失败']);
+							}
+							break;
+						}
+					}else{
+						$did = $request->get('did');
+						$data = DB::table('sendmail_info')->where('did','=',$did)->select('*')->get()->toArray();
+						return json_encode($data);
+					}
+
+				}
+
+		/*10
+		* @pullback补全，接收前台传过来的所有数据进行入库
+		* @pullback_info表
+		* @返回json数据，带有状态码 200代表成功 400代表失败
+		* */
+		public function pullback_info(Request $request)
+		{
+			
+				
+			if($request->isMethod('post')){
+						//接收前台传来的学生退挽信息入库
+				$did = $request->post('did');
+				//查看学员是否毕业
+				$is_graduate = DB::table('data_info')->where('did', $did)->select('is_valid', 'mobile')->get()->toArray();
+				if (empty($is_graduate)) {
+					return json_encode(['code' => 400, 'message' => '数据错误,请刷新页面后重新操作']);
+				}
+				if ($is_graduate[0]->is_valid == 5) {
+					return json_encode(['code' => 400, 'message' => '请勿对已毕业学员操作']);
+				}
+
+					//接值
+				$pullback_info = $request->all();
+					/*var_dump($pullback_info);
+					exit;*/
+					//实例化话单表
+				$call = new Called_info();
+					//实例化信息表
+					
+					//实例化退挽表
+				$pull = new Pullback_info();
+					
+				$mobile = $is_graduate[0]->mobile;
+				$called = $call->calledInfo($mobile);
+				$pullInfo = $pull->pullBack($did);
+				//话单的结束时间
+				$releaseTime = isset($called[0]->releaseTime)?$called[0]->releaseTime:'0000-00-00 00:00:00';
+				//00：00：00时间
+				$todayStart= date('Y-m-d 00:00:00', time());
+				//23：59：59时间
+				$todayEnd= date('Y-m-d 23:59:59', time());
+				/* var_dump($called);
+					exit;*/
+					/*var_dump($pullback_info);
+					exit;*/
+					//获取登录用户权限
+				$manager = session('manager');
+				if(!isset($called[0]) || $releaseTime<$todayStart || $called[0]->duration<60){
+					return json_encode(['Msg'=>'没有话单','code'=>400]);
+				}else{
+								//根据权限区分操作
+					if ($manager == '552') {
+											//班主任一挽操作(班主任只做一挽操作)
+						$pullback_info['pd_two_date'] = '';
+						$pullback_info['pd_two'] = '';
+						$pullback_info['pd_two_status'] = '';
+										//一挽消息不为空
+						if (empty($pullback_info['pd_one_date']) || empty($pullback_info['pd_one'])) {
+							return json_encode(['code' => 400, 'message' => '请完善信息']);
+						}
+					} elseif ($manager == '556') {
+											//主管二挽操作(主管只做二挽操作)
+						unset($pullback_info['pd_one_date']);
+						unset($pullback_info['pd_one']);
+						unset($pullback_info['pd_one_status']);
+											//无一挽记录主管不操作
+						if (empty($pullInfo)) {
+							return json_encode(['code' => 400, 'message' => '无需操作']);
+						}
+											//二挽消息不为空
+						if (empty($pullback_info['pd_two_date']) || empty($pullback_info['pd_two'])) {
+							return json_encode(['code' => 400, 'message' => '请完善信息']);
+						}
+					} else {
+						return json_encode(['code' => 400, 'message' => '确认操作权限']);
+					}
+									//判断当前did在数据库中是否存在，如果不存在就添加
+					if(empty($pullInfo)){
+								
+
+
+						$pb = $pull->pullInsert($pullback_info);
+						if($pb == true){
+							return json_encode(['code' => 200, 'message' => '一挽提交成功']);
+						}else{
+							return json_encode(['code' => 400, 'message' => '一挽提交失败']);
+						}
+					}else{
+						if($pullInfo[0]->pd_one_status == 0){
+							$pdUpd = $pull->pullUpd($did,$pullback_info);
+							if($pdUpd == true){
+								return json_encode(['code' => 200, 'message' => '二挽提交成功']);
+							}else{
+								return json_encode(['code' => 400, 'message' => '二挽提交失败']);
+							}
+						} elseif ($pullInfo[0]->pd_one_status == 1) {
+							return json_encode(['code' => 400, 'message' => '已一挽成功无需操作']);
+						}
+											/*elseif ($pullInfo[0]->pd_two_status == 0){
+													$Yz = $pull->pullYz($did);
+													if($Yz == true){
+															return json_encode(['code' => 200, 'message' => '修改退挽状态成功']);
+													}else{
+															$pull->finalFaild($did);
+													}
+												}*/
+					}
+				}
+			}else{
+				$dids = $request->get('did');
+				$data = DB::table('pullback_info')->where('did','=',$dids)->select('*')->get()->toArray();
+				return json_encode($data);
+			}
+		}
+
+
+							/****************************************后端创建订单**************************************************/
+
+
+			
+	/*(未用)
+	 * @查询幸运大转盘信息
+	 * */
+	public function getLuckyinfo(){
+		$mobile = $_POST['mobile'];
+		$code = $_POST['award_num'];
+		$info = Db::select('select prize_type  from prize where prize_mobile=? or prize_mark=? limit 1',[$mobile,$code]);
+		echo isset($info[0]) ? $info[0]->prize_type : '暂无奖品';
+	}
+
+}

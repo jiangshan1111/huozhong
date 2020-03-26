@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html class="no-js">
+    
+    <head>
+        <title>Admin Home Page</title>
+        <!-- Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"> 
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="css/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+        <link href="css/styles.css" rel="stylesheet" media="screen">
+           <link rel="stylesheet" href="css/index.css">
+           <link rel="stylesheet" href="css/model2.css">
+           <link rel="stylesheet" href="css/model.css">
+    
+          
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!-- <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script> -->
+        <style>
+            @keyframes didi{
+                0%{
+                    filter:alpha(opacity=0);  
+                    -moz-opacity:0;  
+                    -khtml-opacity: 0;  
+                    opacity: 0;  
+                }
+                50%{
+                    filter:alpha(opacity=100);  
+                    -moz-opacity:1;  
+                    -khtml-opacity: 1;  
+                    opacity: 1;
+                }
+            }
+            @media (min-width: 979px){
+                body {
+                    padding-top: 40px;
+                }
+            }
+            .blockP{
+                    color: #42b983;
+                    padding: 5px 2%;
+                    margin: 0;
+                    position: absolute;
+                    width: 20px;
+            }
+            .alread_sub{
+                padding:20px 0 35px 0;
+            }
+            .didi{
+                animation: didi 1s linear infinite;
+            }
+            /* @keyframes heeee{
+                0%{
+                    width:0;
+                    height:0;
+                    filter:alpha(opacity=0);  
+                    -moz-opacity:0;  
+                    -khtml-opacity: 0;  
+                    opacity: 0;  
+                }
+                50%{
+                    width:100px;
+                    height:100px;
+                    filter:alpha(opacity=100);  
+                    -moz-opacity:1;  
+                    -khtml-opacity: 1;  
+                    opacity: 1;
+                }
+            }
+            .heeee{
+                width:100px;
+                height:100px;
+                border-radius: 50%;
+                background:red;
+                animation: heeee 1s ease-in-out infinite;
+            } */
+            .createSip{
+                background: #42b983;
+            }
+            .beizhu{
+                height:40px;
+            }
+            .class_table{
+                border-collapse: collapse;
+    border: 1px solid rgb(204,204,204);
+    width: 90%;
+    margin: 0 auto;
+            }
+            .audit_group>span{
+                display: inline-block;
+            }
+            .audit_group>select{
+                display: inline-block;
+                width: 200px;
+            }
+            #id{
+                display: inline-block;
+            }
+            @media (max-width: 500px){
+                .class_table{
+                    width:500px;
+                }
+                .audit_group>span{
+                display: block;
+            }
+            #id{
+                display: block;
+            }
+                .alread_sub{
+                    padding:20px 0 40px 0;
+                }
+                .blockP{
+                    color: #42b983;
+                    padding: 0;
+                    margin: 0;
+                    position: absolute;
+                    top:0;
+                    width: auto;
+                }
+            }
+            .class_table td{
+                border: 1px solid rgb(204,204,204);
+    /* padding: 5px; */
+    text-align: center;
+    width: 10%;
+    height: 35px;
+            }
+            .class_table select{
+                width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: none;
+    margin:0;
+            }
+            .simple>div {
+                height: auto;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        <div>
+            <div class="heeee">
+
+            </div>
+        </div>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="index.html" style="padding:0;margin-right:20px">
+                        <img src="img/logo1.png"  style="height:35px;width:60px;padding-bottom:5px" alt="">
+                    </a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right">
+                            <li class="dropdown">
+                                <a href="#" id="drop" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i>  <i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdown-menu" style="display:none">
+                                    <li>
+                                        <a tabindex="-1" href="#">个人信息</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a tabindex="-1" class="revisenew" href="#">修改密码</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a tabindex="-1" href="gignty.html">退出</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="#">仪表板</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">数据管理<b class="caret"></b>
+
+                                </a>
+                                <ul class="dropdow-menu"  style="display:none" id="menu1">
+                                    <li  class="newdate">
+                                        <a href="data.html">新建数据</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="allotnew">分配数据</a>
+                                    </li>
+                                    <!-- <li class="divider"></li> -->
+                                    <li>
+                                        <a href="#" style="color:red">订单录入</a>
+                                    </li>
+                                    <li>
+                                        <a href="sea.html" style="color:red">公海领取</a>
+                                    </li>
+                                    <li>
+                                        <a href="sea.html" style="color:red">公海分配</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" style="color:red">调配数据</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" style="color:red">学员迁移</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">数据查询<i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdow-menu"  style="display:none">
+                                    <li>
+                                        <a tabindex="-1" href="#" class="circulnew">流转过程</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" style="color:red">已报名</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" style="color:red">已报名（班主任）</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" style="color:red">合同查询</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">属员管理 <i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdow-menu"  style="display:none">
+                                    <li>
+                                        <a tabindex="-1" href="#" class="bematenew">组员数据</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" class="targetnew">目标设定</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" style="color:red">组员统计</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#">组员数据（班主任）</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">个人设置 <i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdow-menu"  style="display:none">
+                                    <li>
+                                        <a href="#" class="new">新建账户</a>
+                                    </li>
+                                    <li>
+                                        <a  href="#" class="new3">新建项目</a>
+                                    </li>
+                                    <li>
+                                        <a  href="#" class="new2">新建部门</a>
+                                    </li>
+                                    <li>
+                                        <a  href="#" class="new1">新建小组</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" class="delnew">账户移除</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" class="resetnew">重置密码</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" class="simplenew">个人信息</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" class="new4">新建班型</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="previewOfContract.html" >合同预览</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="pollingOfContract.html" >合同查询</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" class="new5">新建大问题</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" class="new6">新建小问题</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" class="youhuinew">新建优惠码</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#" class="sipnew">查看坐席</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li style="position:relative">
+                                <input type="text" name="searchphone" placeholder="机会列表查询" style="margin-top:5px;margin-bottom:0px;margin-right:10px;"><span id="searchspan"></span>
+                            </li>
+                            <li >
+                                <select name="bematedata" id="" style="margin:5px 0px 0px 0px;width:100px;display:none">
+                                    <option value="0">学员姓名</option>
+                                </select>
+                                <select name="begroupdata" id="" style="margin:5px 0px 0px 10px;width:100px;display:none">
+                                        <option value="">搜索小组</option>
+                                    </select>
+                                <input type="text" name="bematename" placeholder="搜索学员姓名" style="margin:5px 0px 0px 10px;width:100px;display:none">
+                                <button class="searchmate" style="padding:0 10px;margin-top:5px;display:none">获取</button>
+                            </li>
+                            <li style="line-height: 40px;">
+                                <span class="untime" style="margin-right:20px">Time：09-11 11:22</span>
+                                <span class="untel" style="margin-right:20px">Tel：<b>13454545454</b></span>
+                                <span class="ungo" style="color:blue;cursor:pointer">详情</span >
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <!-- block -->
+                <div class="block" style="position:relative;overflow:hidden;text-align:center">
+                    <div style="margin:10px 0" class="audit_group">
+                            <span>待审核组别：</span><select style="margin:0" name="goClickGroup" id="">
+                                    <option value="消防一组">消防一组</option>
+                                    <option value="消防二组">消防二组</option>
+                                    <option value="消防三组">消防三组</option>
+                                </select>
+                                <button style="padding:0 15px" class="goClick">查看</button>
+                                <span id="diudiu" style="width:100px;"></span>
+                                <span>已审核组别：</span><select style="margin:0" name="goClickGroupToo" id="">
+                                        <option value="消防一组">消防一组</option>
+                                        <option value="消防二组">消防二组</option>
+                                        <option value="消防三组">消防三组</option>
+                                    </select>
+                                    <button style="padding:0 15px" class="goClickToo">查看</button>
+                    </div>
+                    
+                </div>
+                <div class="block alread_sub" style="position:relative">
+                    <p class="blockP" style="">待审核</p>
+                    <div class="block-content collapse in simple" style="margin:0;overflow: auto;">
+                        <form class="span12" id="class_table" style="margin:0">
+                                <table class="class_table">
+                                    <tr  class="class_table_tr">
+                                        <td>姓名</td>
+                                        <td>星期一</td>
+                                        <td>星期二</td>
+                                        <td>星期三</td>
+                                        <td>星期四</td>
+                                        <td>星期五</td>
+                                        <td>星期六</td>
+                                        <td>星期七</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td>江山</td>
+                                        <td><select name="" id="">
+                                            <option value="白班">白班</option>
+                                            <option value="白加">白加</option>
+                                            <option value="休息">休息</option>
+                                        </select></td>
+                                        <td><select name="" id="">
+                                            <option value="白班">白班</option>
+                                            <option value="白加">白加</option>
+                                            <option value="休息">休息</option>
+                                        </select></td>
+                                        <td><select name="" id="">
+                                            <option value="白班">白班</option>
+                                            <option value="白加">白加</option>
+                                            <option value="休息">休息</option>
+                                        </select></td>
+                                        <td><select name="" id="">
+                                            <option value="白班">白班</option>
+                                            <option value="白加">白加</option>
+                                            <option value="休息">休息</option>
+                                        </select></td>
+                                        <td><select name="" id="">
+                                            <option value="白班">白班</option>
+                                            <option value="白加">白加</option>
+                                            <option value="休息">休息</option>
+                                        </select></td>
+                                        <td><select name="" id="">
+                                            <option value="白班">白班</option>
+                                            <option value="白加">白加</option>
+                                            <option value="休息">休息</option>
+                                        </select></td>
+                                        <td><select name="" id="">
+                                            <option value="白班">白班</option>
+                                            <option value="白加">白加</option>
+                                            <option value="休息">休息</option>
+                                        </select></td>
+                                    </tr> -->
+                                </table>
+                                <!-- <button style="float:right;margin:10px 5%;    padding: 0 10px;">上传</button> -->
+                        </form>
+                        
+                        
+                    </div>
+                    <button class="block_sub" style="float:right;padding: 0 10px;position:absolute;bottom:0;right:0">审核</button>
+                </div>
+                <div class="block" style="padding:20px 0;position:relative">
+                    <p class="blockP"  style="">已审核</p>
+                    <div class="block-content collapse in simple" style="margin:0;overflow: auto;">
+                        <div class="span12">
+                                <table class="class_table">
+                                    <tr >
+                                        <td>姓名</td>
+                                        <td>星期一</td>
+                                        <td>星期二</td>
+                                        <td>星期三</td>
+                                        <td>星期四</td>
+                                        <td>星期五</td>
+                                        <td>星期六</td>
+                                        <td>星期七</td>
+                                        <td>审核状态</td>
+                                    </tr>
+                                    <tr>
+                                        <td>江山</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>休息</td>
+                                        <td>经理待审核</td>
+                                    </tr>
+                                    <tr>
+                                        <td>江山</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>休息</td>
+                                        <td>经理待审核</td>
+                                    </tr><tr>
+                                        <td>江山</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>休息</td>
+                                        <td>经理待审核</td>
+                                    </tr><tr>
+                                        <td>江山</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>休息</td>
+                                        <td>经理待审核</td>
+                                    </tr><tr>
+                                        <td>江山</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>休息</td>
+                                        <td>经理待审核</td>
+                                    </tr><tr>
+                                        <td>江山</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>休息</td>
+                                        <td>经理待审核</td>
+                                    </tr><tr>
+                                        <td>江山</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>休息</td>
+                                        <td>经理待审核</td>
+                                    </tr><tr>
+                                        <td>江山</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白班</td>
+                                        <td>白加</td>
+                                        <td>休息</td>
+                                        <td>经理待审核</td>
+                                    </tr>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /block -->
+            </div>
+        </div>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.easy-pie-chart.js"></script>
+        <script src="js/scripts.js"></script>
+        
+        <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+        <script src="js/model.js"></script>
+        <script src="js/model2.js"></script>
+        <script src="js/index.js"></script>
+        <script>
+            $('.goClick').click(function(){
+                console.log($('select[name = goClickGroup]').val())
+                $.ajax({
+                    url:'http://www.huohongedu.com',
+                    type:'post',
+                    data:{group:$('select[name = goClickGroup]').val()},
+                    success:function(data){
+
+                    },
+                    error:function(){
+
+                    }
+                })
+            })
+            $('.goClickToo').click(function(){
+                $.ajax({
+                    url:'http://www.huohongedu.com',
+                    type:'post',
+                    data:{group:$('select[name = goClickGroupToo]').val()},
+                    success:function(data){
+
+                    },
+                    error:function(){
+
+                    }
+                })
+            })
+                        // $.ajax({
+            //     url:'',
+            //     type:'get',
+            //     data:{},
+            //     success:function(data){
+                function getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+                    return currentdate;
+                    }
+                    var oneday = 1000 * 60 * 60 * 24,today=new Date();getday = today.getDay() == 0?7: today.getDay();
+                            console.log(new Date(),6-(new Date()).getDay()+1)
+                            // var heheh = getNowFormatDate(new Date())
+                            var obj = {},xingqi = ['星期天','星期六','星期五','星期四','星期三','星期二','星期一'];
+                            // obj.length = 6-(new Date()).getDay()+1;
+                            for (var d = 6-(new Date()).getDay(); d >= 0; d--) {
+                                obj[xingqi[d]] = getNowFormatDate(new Date(new Date().getTime()- oneday * getday+(7-d)*oneday))
+                            }
+                            var data =[{'江山':'233','降低':'243','jiansg':'5433'}];
+                            var td1 = "",td2 = "",td3 ="",td4=""
+                            for(var j in data[0]){
+                                console.log(data[j])
+                                td3+=","
+                                td3+=`<td>`+j+`</td>`
+                                td1 ="<td>日期</td>";
+                                td2 ="<td></td>";
+                                for (var k in obj) {
+                                    console.log(k)
+                                    
+                                    td1+="<td>"+k+"</td>";
+                                    td2+="<td>"+obj[k]+"</td>";
+                                    td3+=`<td><select name="`+obj[k]+`_`+data[0][j]+`" id="">
+                                                            <option value="白班">白班</option>
+                                                            <option value="白加">白加</option>
+                                                            <option value="休息">休息</option>
+                                                        </select></td>`
+                                }
+                                
+                            }
+                            $('.class_table_tr').html(td1)
+                            console.log(td1,td2,td3)
+                            
+                                $('.class_table')[0].innerHTML += `<tr class>
+                                                        `+td2+`
+                                                    </tr>`;
+                                console.log(td3.substring(1).split(','));
+                                var trr = td3.substring(1).split(',');
+                                for (var l = 0; l < trr.length; l++) {
+                                    // var element = array[l];
+                                    $('.class_table')[0].innerHTML += `<tr>`+trr[l]+`</tr>`
+                                }
+                            
+                        $('.block_sub').click(function(){
+                            $.ajax({
+                                url:'http://www.guge.com',
+                                type:'post',
+                                data:form2Json('class_table'),
+                                success:function(){
+                
+                                },
+                                error:function(){
+                
+                                }
+                            })
+                        })
+                
+                        function form2Json(id) {
+                
+                        var arr = $("#" + id).serializeArray();
+                        console.log(arr)
+                        var jsonStr = "";
+                
+                        jsonStr += '{';
+                        for (var i = 0; i < arr.length; i++) {
+                            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+                        }
+                        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+                        jsonStr += '}'
+                
+                        var json = JSON.parse(jsonStr)
+                        return json
+                    }
+        </script>
+
+    </body>
+
+</html>

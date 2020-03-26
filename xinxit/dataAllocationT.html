@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>迁移</title>
+        <!-- Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen"> 
+        <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+        <link href="css/styles.css" rel="stylesheet" media="screen">
+           <link rel="stylesheet" href="css/index.css">
+           <link rel="stylesheet" href="css/polling.css">
+       <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+        <link rel="stylesheet" type="text/css" href="themes/icon.css">
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+        <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+        <link rel="stylesheet" href="css/table.css">
+        <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <!-- block -->
+                <div class="block">
+                    <div class="span12" id="polling-header">
+                        <div class=" span10 " id="polling-header-top">
+                            <p class="polling-headerp" style="background-image: url('img/down.svg');"><span></span>查询条件</p>
+                        </div>
+                        <div class=" span10 " id="polling-header-body" style="overflow:hidden">
+                            <form style="position:relative" name="seaform" id ="seaform">
+                                <div class="span6"><span>手机号：</span><input type="text" placeholder=""name="mobile"></div>
+                                <div class="span6"><span>班主任：</span><select name="tea_name" id="">
+                                    <option value="">请选择</option>    
+                                </select></div>
+                                <div class="span6"><span>归属：</span><select name="belong_to" id="">
+                                    <option value="">请选择</option>    
+                                </select></div>
+                                <div class="span6">
+                                    <span>报名日期：</span><input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="sign_up_date1"  placeholder="日期">
+                                    <span style="width:10%;text-align:center">至</span>
+                                    <input class="Wdate" type="text" style="width:23%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="sign_up_date2" placeholder="日期">
+                                </div>
+                                <input type="button" class="reset" value="重置" style="margin-right:30px"></input>
+                                <input type="button" id="seasearch"  class="seasearch" value="查询"></input>
+                               
+                            </form>
+                        </div>
+                        <div class=" span10 " id="polling-header-top">
+                            <p class="polling-allotp" style="background-image: url('img/down.svg');"><span></span>迁移数据</p>
+                        </div>
+                        <div class=" span10 " id="polling-allot-body" style="overflow:hidden;">
+                            <div style="position:relative" id="seaform1">
+                                <div class="span6"><span>姓名：</span>
+                                    <select name="teacher-name" id="">
+                                    <option value="">请选择姓名</option>
+                                    <option value="1">jiangshan-1</option>
+                                    <option value="2">jiangshan-1</option>
+                                    <option value="7">jiangsha-1</option>
+                                    <option value="8">jiangsh-1</option>
+                                    <option value="9">jiangs-1</option>
+                                    <option value="3">jiangshan-2</option>
+                                    <option value="4">jiangshan-3</option>
+                                    <option value="5">jiangshan-4</option>
+                                    <option value="6">jiangshan-5</option>
+                                 </select></div>
+                                <div class="span6"><span>部门搜索：</span>
+                                    <select name="polling-pro1" id="">
+                                    <option value="">请选择</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                 </select></div>
+                                <div class="span6"><span>小组搜索：</span>
+                                    <select name="polling-group1" id="">
+                                    <option value="">请选择</option>
+                                    <option value="jiangs-1">jiangs-1</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                 </select></div>
+                                <div class="span6"><span>搜索：</span>
+                                    <input type="text" name="polling-name1" placeholder="请输入咨询师正确信息"></div>
+                               <span class="polling-allotspan1" style="float:right;color:#42b983">msg</span>
+                            </div>
+                        </div>
+                        <div class=" span10 " id="polling-header-footer">
+                                <div class="block-content collapse in" >
+                                        <div class="span12">
+                                              <div style="">
+                                                    <table id="datagrid5" title="调配数据列表" style="width:100%;overflow:auto"
+                                                    data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+                                                <thead>
+                                                    <tr class="content">
+                                                        <th data-options="field:'ck',checkbox:true"></th>
+                                                        <th data-options="field:'mobile',width:160,align:'center'" >手机号</th>
+                                                        <th data-options="field:'stu_name',width:160,align:'center'">姓名</th>
+                                                        <th data-options="field:'tea_name',width:240,align:'center'">班主任</th>
+                                                        <th data-options="field:'belong_to',width:160,align:'center' ">归属</th>
+                                                        <th data-options="field:'sign_up_date',width:240,align:'center',editor:'textbox'">报名日期</th> 
+                                                        <th data-options="field:'learn_status',width:240,align:'center',editor:'textbox'">学习状态</th>
+                                                        
+                                                    </tr>
+                                                    
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        </div>
+                                    </div>
+                        </div>
+                                
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+    </body>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    function optnme(q){
+            var arr1 = [];
+            var arr2 = [];
+            var objopt = {}
+            for (let i = 0; i < q[0].length; i++) {
+                arr1.push( q[0][i].value);
+                arr2.push(q[0][i].innerHTML);
+                
+            }
+           for (var j = 0; j < arr1.length; j++) {
+               objopt[arr1[j]] = arr2[j]
+               
+           }
+           return objopt
+        }
+        var objopt6 = optnme($('select[name=teacher-name]'))
+        function huhu(){
+            $('select[name=teacher-name]')[0].innerHTML = ""
+            for(var k in objopt6){
+                console.log(objopt6[k].indexOf($('select[name = polling-group1]').val()))
+                if(objopt6[k].indexOf ($('select[name=polling-pro1]').val())> -1 && objopt6[k].indexOf($('select[name = polling-group1]').val())> -1 &&objopt6[k].indexOf($('input[name=polling-name1]').val())> -1){
+                    $('select[name=teacher-name]')[0].innerHTML += "<select name='teacher-name'>"
+                    +"<option value="+k+">"+objopt6[k]+"</option>"+"</select>"
+                }
+            }
+        }
+        $('input[name=polling-name1]').on('keyup',function(){
+            huhu()
+        });
+        $('select[name=polling-group1]').on('change',function(){
+            huhu()
+        });
+        $('select[name=polling-pro1]').on('change',function(){
+            huhu()
+        });
+    $('.polling-headerp').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#polling-header-body')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#polling-header-body')[0].style.display = "block"
+        }
+    })
+    $('.polling-allotp').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#polling-allot-body')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#polling-allot-body')[0].style.display = "block"
+        }
+    })
+    $('.reset').click(function(){
+        $("#seaform").find('input[type=text]').each(function() {
+         $(this).val('');
+     });
+    })   
+       var thisApp = {
+        init: function () {
+            $("#datagrid5").datagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                url:'datagrid_data1.json',
+                method:'get',
+                remoteSort: false,
+                checkOnSelect:true,
+                selectOnCheck:true,
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                queryParams: form2Json("seaform"),
+                toolbar: [
+                     {
+                        text: '迁移',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            var get2 = $("#datagrid5").datagrid("getSelections");
+                            var arr5 = []
+                            for(let i=0;i<get2.length;i++)
+
+                            {
+                                    arr5.push(get2[i].uid) ;
+                            }
+                            console.log(arr5)
+                            if($('select[name=polling-account1]').val()!=""){
+                                $.ajax({
+                                    url:'',
+                                    type:'post',
+                                    data:{uid:arr5,
+                                    allotname:$('select[name=teacher-name]').val()},
+                                    success:function(data){
+                                        if(data == 1){
+                                            $('.polling-allotspan1')[0].innerHTML = "分配成功";
+                                            setTimeout(function(){
+                                                $('.polling-allotspan1')[0].innerHTML = "";
+                                            },3000)
+                                            thisApp.init();
+                                        }else{
+                                            $('.polling-allotspan1')[0].innerHTML = "分配错误";
+                                            setTimeout(function(){
+                                                $('.polling-allotspan1')[0].innerHTML = "";
+                                            },3000)
+                                        }
+                                    },
+                                    error:function(){
+                                        $('.polling-allotspan1')[0].innerHTML = "服务器错误";
+                                        setTimeout(function(){
+                                            $('.polling-allotspan1')[0].innerHTML = "";
+                                        },3000)
+                                        thisApp.init();
+                                        var dg=$('#datagrid5').datagrid({singleSelect:false});
+                                        dg.datagrid('enableFilter', [{
+                                            field:'mobile',
+                                            type:'text'
+                                        },{
+                                            field:'stu_name',
+                                            type:'text'
+                                        },{
+                                            field:'tea_name',
+                                            type:'text'
+                                        },{
+                                            field:'belong_to',
+                                            type:'text'
+                                        },{
+                                            field:'sign_up_date',
+                                            type:'text'
+                                        },{
+                                            field:'learn_status',
+                                            type:'text'
+                                        }]);
+                                    }
+                                })
+                            }else{
+                                $('.polling-allotspan1')[0].innerHTML = "请选择学员姓名";
+                                setTimeout(function(){
+                                    $('.polling-allotspan1')[0].innerHTML = "";
+                                },3000)
+                            }
+                        }
+                    }],
+                    onSortColum: function (sort,order) {  //其中sort代表排序列字段名称；order:排序列的顺序（ASC或DESC）
+                    　　　$('#datagrid5').datagrid('reload', {
+                    　　　sort: sort,
+                    　　　order: order
+                    　　});
+                    },
+                    onLoadSuccess: function(data){//加载完毕后获取所有的checkbox遍历
+                        var p = $('#datagrid5').datagrid('getPager');
+                        $(p).pagination({
+                            beforePageText: '第',//页数文本框前显示的汉字  
+                            afterPageText: '页    共 {pages} 页',
+                            displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+                        });
+                    },
+                    onClickRow : function(rowIndex, rowData) {
+                    
+                    },
+                    onDblClickRow:function(){
+                        console.log(1)
+                    }
+            })
+        }
+       }
+       $(function(){
+        thisApp.init();
+        
+        var dg=$('#datagrid5').datagrid({singleSelect:false});
+        dg.datagrid('enableFilter', [{}]);
+        $(".seasearch").linkbutton({ iconCls: 'icon-search', plain: true }).click(function () {
+        //     $('.polling-headerp')[0].style.backgroundImage = 'url("img/up.svg")';
+        //  $('#polling-header-body')[0].style.display = "none";
+        var dg = $('#datagrid5').datagrid({queryParams: form2Json("seaform"),singleSelect:false});
+        dg.datagrid('enableFilter', [{
+               field:'mobile',
+               type:'text'
+           },{
+               field:'stu_name',
+               type:'text'
+           },{
+               field:'tea_name',
+               type:'text'
+           },{
+               field:'belong_to',
+               type:'text'
+           },{
+               field:'sign_up_date',
+               type:'text'
+           },{
+               field:'learn_status',
+               type:'text'
+           }]);
+       var p = $('#datagrid5').datagrid('getPager');
+       $(p).pagination({
+           beforePageText: '第',//页数文本框前显示的汉字  
+           afterPageText: '页    共 {pages} 页',
+           displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+       });
+       });
+        $('.polling-allot').click(function(){
+            
+            
+        })
+    // });
+    })
+    function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray()
+        var jsonStr = "";
+
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+
+        var json = JSON.parse(jsonStr)
+        return json
+    }
+    </script>
+</html>

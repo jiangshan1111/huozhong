@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/contract.css">
+    <!-- <link rel="stylesheet" href="css/index.css"> -->
+    <link rel="stylesheet" href="css/studentcontract.css">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="css/jquery.easy-pie-chart.css" rel="stylesheet" media="screen"> -->
+    <!-- <link href="css/styles.css" rel="stylesheet" media="screen"> -->
+    <!-- <link rel="stylesheet" href="css/index.css">
+       <link rel="stylesheet" href="css/model2.css">
+       <link rel="stylesheet" href="css/model.css"> -->
+    <style>
+        body {
+            letter-spacing: 0.5px;
+            /* color:rgb(235,235,235); */
+            /* text-shadow: 0px 0px 1px rgb(189,253,215); */
+            /* background:url('img/banner_01.jpg'); */
+            background-size: 100% 100;
+        }
+
+        .contract-body td {
+            border: 1px solid rgb(200, 200, 200);
+            height: 40px;
+            width: 25%;
+        }
+
+        input[name=stu-poll-content] {
+            float: left;
+            width: 50%;
+            height: 36px;
+            margin-top: 4px;
+            margin-left: 3px
+        }
+
+        .stu-font {
+            font-size: 16px;
+        }
+
+        @media screen and (max-width:1000px) {
+            input[name=stu-poll-content] {
+                width: 30%;
+            }
+
+            .stu-font {
+                font-size: 13px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+        }
+
+        .modelsiptable,
+        .modelphonein,
+        .modelgiveuprr,
+        .modeldiscount,
+        .moab,
+        .modelprompta,
+        .modelyouhui,
+        .modelprompt,
+        .modelprompt2,
+        .modelprompt3,
+        .modelprompt1,
+        .model-work-order,
+        .modelcue,
+        .modelorder,
+        .modelphone1,
+        .modelphone2,
+        .modelphone3,
+        .modelgiveup,
+        .modeltable,
+        .modelhistory,
+        .modelallot,
+        .modelsimple,
+        .modelcircul,
+        .modeldel,
+        .modeltarget,
+        .modelreset,
+        .modelrevise {
+            position: fixed;
+            z-index: 9998;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+            display: none;
+            transition: opacity .3s ease;
+        }
+
+        .modeldisr,
+        .modelcuer,
+        .modelorderr,
+        .modelphone1r,
+        .modelphone2r,
+        .modelphone3r,
+        .modelgiveupr,
+        .modeltabler,
+        .modelhistoryr,
+        .modelcirculr,
+        .modeldelr,
+        .modeltargetr {
+            position: absolute;
+            background: white;
+            width: 50%;
+            left: 25%;
+            top: 50px;
+            border-radius: 10px;
+            text-shadow: none;
+        }
+
+        .modelcuer,
+        .modelphone1r,
+        .modelphone2r,
+        .modelphone3r,
+        .modelgiveupr {
+            width: 30%;
+            left: 35%;
+            top: 200px;
+        }
+
+        .modelcuer-head,
+        .modelorder-head,
+        .modelphone1-head,
+        .modelphone3-head,
+        .modelphone2-head,
+        .modelgiveup-head,
+        .modeltable-head,
+        .modelhistory-head,
+        .modelcircul-head,
+        .modeldel-head,
+        .modeltarget-head {
+            position: relative;
+            height: 50px;
+            width: 95%;
+            line-height: 50px;
+            font-size: 20px;
+            border-bottom: 1px dashed rgb(239, 239, 239);
+            padding-left: 5%;
+        }
+
+        button {
+            padding: 5px 15px;
+            height: 40px;
+            background: #42b983;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .modelcuer-head button,
+        .modelorder-head button,
+        .modelphone3-head button,
+        .modelphone2-head button,
+        .modelphone1-head button,
+        .modelgiveup-head button,
+        .modeltable-head button,
+        .modelhistory-head button,
+        .modelcircul-head button,
+        .modeldel-head button,
+        .modeltarget-head button {
+            background: #42b983;
+            border: none;
+            color: white;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+        }
+
+        .modelorde-body,
+        .modelcircul-body,
+        .modeldel-body,
+        .modeltarget-body {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .monumber {
+            width: 60%;
+            height: 30px;
+            margin-left: 20%;
+            padding-top: 10px;
+        }
+
+        .monumber span {
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+        }
+
+        .monumber input {
+            width: 60%;
+            height: 30px;
+            border: 1px solid rgb(210, 210, 210);
+            border-radius: 5px;
+        }
+
+        .monumber select {
+            width: 60%;
+            height: 34px;
+            border: 1px solid rgb(210, 210, 210);
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width:1000px) {
+
+            .modelcuer,
+            .modelorderr,
+            .modelphone1r,
+            .modelphone2r,
+            .modelphone3r,
+            .modelgiveupr,
+            .modeltabler,
+            .modelhistoryr,
+            .modelcirculr,
+            .modeldelr,
+            .modeltargetr {
+                width: 100%;
+                left: 0;
+            }
+
+            .monumber {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        a {
+            color: white;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body style="">
+    <div class="contract container-fluid" style="">
+
+        <div class="contract-header"
+            style="height:50px;background:url('img/logo.png') no-repeat;background-size:contain">
+
+        </div>
+        <div
+            style="margin:20px 0;background-color: rgba(255,255,255,0.3);box-shadow: 0 5px 20px rgba(0,0,0,0.2);width: 100%;border-radius: 5px;padding: 20px 200px 20px 20px;position: relative;box-sizing: border-box;">
+            <div
+                style="background-color: rgba(255,255,255,0.7);width: 100%;border-radius: 5px;position: relative;padding: 10px 10px 10px 30px;box-sizing: border-box;">
+                <span
+                    style="background-position: -151px 0;width: 16px;height: 16px;display: block;position: absolute;left: 10px;top: 15px;background: url(img/search.svg) no-repeat;"></span>
+                <input type="text" name="stu-poll-content" placeholder="请输入合同编号" id=""
+                    style="background:none;width: 100%;background: none;border: none;line-height: 18px;outline: none;float: none;height: auto; margin-top: 0;margin-left: 0;">
+            </div>
+            <a style="position: absolute;right: 124px;top: 20px;background: #fdd435;color: #000;border-radius: 2px;padding: 11px 20px !important;font-size: 14px;text-decoration: none;letter-spacing: 1px;box-sizing: border-box;border: 0;margin: 0;"
+                class="stu-poll-button">查询</a>
+            <a style="position: absolute;right: 20px;top: 20px;background: #fdd435;color: #000;border-radius: 2px;padding: 11px 20px !important;font-size: 14px;text-decoration: none;letter-spacing: 1px;box-sizing: border-box;border: 0;margin: 0;"
+                class="stunew">上传头像</a>
+        </div>
+
+        <!-- <div class="haha" style="width:100%;margin:20px 0;height:40px">
+            <span class="stu-font" style="width:22%;float:left;margin-top:4px;height:40px;line-height:40px">合同编号：</span>
+            <input  style="" type="text" name="stu-poll-content">
+            <button class="stu-poll-button" style="padding:5px 15px;height:40px;margin-top:4px;background: #42b983;
+            border: none;
+            color: white;cursor:pointer;">查询</button>
+            <button class="stunew" style="padding:5px 15px;height:40px;margin-top:4px;background: #42b983;
+            border: none;
+            color: white;cursor:pointer;">上传签名</button>
+        </div> -->
+        <h1 style="margin-bottom:10px;">基金从业资格考试学员报名表</h1>
+        <!-- <div class="contract-title" style="margin-top:20px">
+            <p>提示：*号为必填部分</p>
+            <div>填写日期：<span class="Year"></span>年&nbsp;<span class="Month"></span>&nbsp;月&nbsp;<span class="Day"></span>&nbsp;日</div>
+        </div> -->
+        <table class="contract-body" style="border-collapse:collapse;border:1px solid black">
+            <tr>
+                <td>*姓名：</td>
+                <td>
+                    秦始皇（前259年农历十二月初三—前210年）
+                    <!-- <input type="text"  name="name"> -->
+                </td>
+                <td>*性别：</td>
+                <td>
+                    12312322223322222
+                    <!-- <input type="text"  name="sex"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*邮寄地址：</td>
+                <td>
+                    <!-- <input type="text"  name="address"> -->
+                </td>
+                <td>邮编：</td>
+                <td>
+                    <!-- <input type="text"  name="zip_code"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*身份证号码：</td>
+                <td>
+                    <!-- <input type="text"  name="id_card">  -->
+                </td>
+                <td>考期：</td>
+                <td>
+                    <!-- <input type="text"  name="exam_date"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*手机号码：</td>
+                <td>
+                    <!-- <input type="text"  name="phonenumber"> -->
+                </td>
+                <td>微信号：</td>
+                <td>
+                    <!-- <input type="text"  name="wxnumber"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*Email：</td>
+                <td>
+                    <!-- <input type="text"  name="email"> -->
+                </td>
+                <td>QQ号码：</td>
+                <td>
+                    <!-- <input type="text"  name="qqnumber"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*紧急联系人姓名：</td>
+                <td>
+                    <!-- <input type="text"  name="jinjiname"> -->
+                </td>
+                <td>*紧急联系人手机：</td>
+                <td>
+                    <!-- <input type="text"  name="jinjiphone"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*报名课程：</td>
+                <td>
+                    <!-- <input type="text"  name="class"> -->
+                </td>
+                <td>*报名科目：</td>
+                <td>
+                    <!-- <input type="text"  name="subject"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>*培训费用：</td>
+                <td>
+                    <!-- <input type="text"  name="money"> -->
+                </td>
+                <td>*支付方式：</td>
+                <td>
+                    <!-- <input type="text"  name="payment"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>备注：</td>
+                <td colspan="3" style="text-align:left">
+                    秦始皇（前259年农历十二月初三—前210年），嬴姓，赵氏，名政，又名赵正（政）、秦政，或称祖龙 [1-2] ，秦庄襄王之子。 </br>[3]
+                    中国历史上著名的政治家、战略家、改革家，完成华夏大一统的铁腕政治人物，也是中国第一个称皇帝的君主。 </br>[4]
+                    秦始皇是出生于赵国都城邯郸（今邯郸），并在此度过了少年时期。前247年，13岁时即王位。 </br>[5]
+                    前238年，22岁时，在故都雍城举行了国君成人加冕仪式，开始“亲理朝政”，除掉吕不韦、嫪毐等人， </br>[6]
+                    重用李斯、尉缭，自前230年至前221年，先后灭韩、赵、魏、楚、燕、齐六国，39岁时完成了统一中国大业，建立起一个以汉族为主体统一的中央集权的强大国家——秦朝，并奠定中国本土的疆域。 [4]
+                    秦始皇认为自己的功劳胜过之前的三皇五帝，采用三皇之“皇”、五帝之“帝”构成“皇帝”的称号， </br>[7]
+                    是中国历史上第一个使用“皇帝”称号的君主，所以自称“始皇帝”。同时在中央实行三公九卿，管理国家大事。地方上废除分封制，代以郡县制，同时书同文，车同轨，统一度量衡。对外北击匈奴，南征百越，修筑万里长城，修筑灵渠，沟通水系。
+                    但是到了后期，求仙梦想长生，苛政虐民，扼杀民智，动摇了秦朝统治的根基，前210年，秦始皇东巡途中驾崩于邢台沙丘。 [8]
+                </td>
+            </tr>
+        </table>
+        <div class="cachet">
+            <div>
+                <span style="line-height:150px">学校盖章：</span>
+                <img src="" class="schoolcachet" alt="" width="150px" height="150px"
+                    style="margin-left:120px;vertical-align:middle;">
+            </div>
+            <div style="overflow: hidden;position:relative">
+                <span style="line-height:150px">学员签字：</span>
+                <img src="" class="stuCachet" alt="" width="150px" height="75px"
+                    style="position:absolute;margin-left:120px;margin-top:37.5px">
+            </div>
+        </div>
+        <div class="contract-header"
+            style="height:50px;background:url('img/logo.png') no-repeat;background-size:contain">
+
+        </div>
+        <h1>基金从业资格考试报名协议</h1>
+        <div style="overflow:hidden">
+            <p style="float:right">——帮助您在火种教育更好地完成学业和收获能力</p>
+        </div>
+
+        <div class="xieyi">
+            <p>亲爱的学员，您好！</p>
+            <p style="margin-left:2em">火种教育全体同仁欢迎您选择在这里完成学业并考取证书。</p>
+            <p style="margin-left:2em">在您享受课程的过程中，以下守则遵守和共识的达成，对我们的服务是否及时和有效至关重要。</p>
+            <p style="margin-left:2em">请您仔细阅读并签字确认，感谢您的理解和配合。</p>
+            <div>
+                <p style="font-size:18px"><b>一、班级化管理准则</b></p>
+                关于校区：学校以网络直播的授课方式为主，可以随时听课，请大家自我约束并主动学习，请勿自误。直播课堂的学习需要在学员的电脑里安装专用软件，由校方教学运营专员协助学员安装。当您完成报名、培训学习费用缴纳后、学校将向学员发放直播课的会员权限。该权限只允许学员一人使用，不得转借或转让他人。一经发现，学校有权取消该学员听课资格，不承担任何违约责任。
+            </div>
+            <p style="font-size:18px"><b>校方联系方式：</b></p>
+            <p>咨询服务微信：huozhongbanzhuren</p>
+            <p>咨询服务邮箱：huozhongedu@126.com</p>
+            <p>联系电话：010-60703671</p>
+            <p style="font-size:18px"><b>二、学校提供的产品和服务</b></p>
+            <p>1、在线直播主课程：全年滚动上课</p>
+            <p>2、网课：直播结束后上传，可供随时观看</p>
+            <p>3、考点练习：全年持续的课上练题</p>
+            <p>4、模拟考试：题库系统模考答题及解析</p>
+            <p>5、纸质教材：全套考试纸质版教材</p>
+            <p>6、考前答疑：考试前夕名师直播解答学员疑问</p>
+            <p>7、学校为学员提供上课培训的期限在学校盖章后计起，服务期为一年。</p>
+            <p style="font-size:18px"><b>三、课程管理准则</b></p>
+            <p><b
+                    style="margin-left:2em">1、开课：</b>学校为学员所报专业安排的第一次上课时间即为开课日期，插班学员款到日期即为开课日期，插班学员自行去网站观看开课前的课程；在无特殊情况下我们会严格依照原定开课计划履行课程服务。由于各种意外情况或不可抗力导致的无法按时开课的情况，我校将以QQ等方式通知学员，后期会安排补课，具体开课时间另行通知。
+            </p>
+            <p><b
+                    style="margin-left:2em">2、确认课程安排：</b>学员应及时主动接收微信并查看班主任通知的课表，上课时间及地点，按通知的信息上课。学员因事、病等自身原因不能前来上课，需至少提前6小时请假，请假的学员自行从学校网站观看课程。每个学员在培训期间请假的次数不能超过当期课程的30%。
+            </p>
+            <p><b
+                    style="margin-left:2em">3、上课纪律：</b>上课时请遵守课堂纪律。如有疑问，可课下咨询班主任或老师。如学员严重干扰课堂纪律，影响他人上课，班主任有权终止该学员继续听课。该情形达到3次，学校有权取消学员听课资格，学校不承担任何违约责任。
+            </p>
+            <p><b
+                    style="margin-left:2em">4、课程有效性：</b>学员在报名时选择相应的考期，考期结束后，学校会关停学员学习账号。若学员通过报名表中报名科目，则本协议终止。若学员未通过此次考试，则学员需向学校申请重修。
+            </p>
+            <p style="font-size:18px"><b>四、缴费标准及方式</b></p>
+            <p style="margin-left:2em">学员应在本协议签订前将报名费一次性付清。缴费方式包括微信支付、公户汇款、支付宝支付等。</p>
+            <p style="font-size:18px"><b>五、关于重修与退费</b></p>
+            <p><span
+                    style="margin-left:2em">免费重修：</span>学员报名时所选考期为第一次考试，第一次考试不过，第二次免费重修（教材费学校另行收取），第二次如果还没通过，第三次还可以免费重修（教材费学校另行收取）。免费重修是学校赠予的服务，如果学员因自身原因或不可抗力导致不能重修的，学校不承担任何违约责任，也不予退还任何费用。学员办理重修至少提前两周将上次考试成绩发给学校办理重修手续。两次重修的考试考期均须在1年服务期之内。
+            </p>
+            <p><span
+                    style="margin-left:2em">注意：</span>学员在选择重修时，需要选择当次重修时要参加的考期，且学员所选考期的考试时间必须是学员所选考试地点的最近一次考试，第一次报名不限定此条件。例如：2018年统考学员4月21日或4月22日在长沙参加第一次考试，4月27日查询成绩后未通过此次考试，当天向学校申请重修。学校在核实信息后，在4月27日重新给学员开课，则学员需选择9月15日考期或9月16日考期在长沙考试。不得选择11月24日考期或11月25日考期在长沙考试。若学员执意选择11月24日考期在长沙考试，则学校将在9月15日给学员开课。
+            </p>
+            <p><span
+                    style="margin-left:2em">不过退费：</span>学员在1年服务期内三次考试成绩中，所报科目中有一科没有通过退还单科课程费用，有两科没有通过退还两科课程费用，三科没有通过退还三科课程费用。
+            </p>
+            <p><span
+                    style="margin-left:2em">不过退费</span>不的学员须满足每一次的上课总出勤率必须达到95%以上，且1年服务期内至少参加3次基金从业资格考试（即有3次考试成绩大于0分），若不满足条件，则不予退费。
+            </p>
+            <p><span
+                    style="margin-left:2em">退费协议</span>将于1年服务期结束后生效，学员将三次考试成绩发送给班主任向学校申请退费。经学校审核学员满足退费条件的，学校按退费约定退还学员费用。
+            </p>
+            <p style="font-size:18px"><b>六、关于转班</b></p>
+            <p><span
+                    style="margin-left:2em">学员开课</span>后7天内（含第七天），可以免费换为同等价格的其他课程；超过7天到不超过30天的，需要缴纳新课程的费用的10%作为手续费；超过30天但不超过60天的，需要缴纳新课程的费用的20%作为手续费；超过60天但不超过90天的，需要缴纳新课程的费用的30%作为手续费；超过90天但不超过120天的，需要缴纳新课程的费用的40%作为手续费；超过120天后学员不可以更换课程。更换课程不影响课程的有效期，即更换新课程后服务期仍从初始班名班型开始计算服务期。
+            </p>
+            <p style="font-size:18px"><b>七、关于冻结课程</b></p>
+            <p><span
+                    style="margin-left:2em">学员</span>每次选定考期后，所选当期考期考试第一天（算作第一天）向前推30天（含第30天）之内不允许冻结课程。31天向前可以冻结，不会占用学习次数。
+            </p>
+            <p style="font-size:18px"><b>八、关于升班</b></p>
+            <p><span
+                    style="margin-left:2em">学员</span>报名后随时可以进行班型升级，升级时需要补齐新班型与老班型之前的差价，服务期从新班型差价补齐开始计算；升级班型后将签订新的协议，本协议自动作废。
+            </p>
+            <p style="font-size:18px"><b>九、信息变更准则</b></p>
+            <p><span
+                    style="margin-left:2em">如有</span>任何授课信息的变动，校方会以QQ/微信等形式通知各位学员，重要通知我们也会通过电话等方式提前6小时告知学员。请学员保证预留的联系方式准确无误。如学员的联系方式变更，请及时致电班主任进行修改确认。否则由该学员承担未及时通知的后果。
+            </p>
+            <p style="font-size:18px"><b>十、注意事项</b></p>
+            <p><span
+                    style="margin-left:2em">1、为</span>防止内部讲课视频流出和押题密卷泄露，严禁学员私下建立QQ群和微信群，一经发现取消听课资格，有任何事情随时联系学员的班主任，班主任会一对一为学员解答。
+            </p>
+            <p><span style="margin-left:2em">2、学</span>校向学员发出的任何通知均可通过学员预留的任一联系方式发出，学员应及时收悉并回复确认，未及时确认的，通知发出后3小时视为送达。
+            </p>
+            <p><span
+                    style="margin-left:2em">3、学</span>员应对学校的商业信息（包括但不限于内部视频讲课、押题密卷、上课内容、教材等）负有保密义务。未经学校书面同意，学员不得泄露或用于其他用途，否则学校有权要求学员支付违约金10000元。
+            </p>
+            <p><span style="margin-left:2em">4、因</span>学员自身原因被取消听课资格或学员自己提出终止听课的，学校不退还学员任何费用。</p>
+            <p><span
+                    style="margin-left:2em">5、因</span>不可抗拒（如自然灾害、政府行为、征收、征用、罢工、骚乱等）等特殊情形导致无法完成课程，出现学员退费情形的，学校按学员剩余课时退还学员报名费用。
+            </p>
+            <p><span
+                    style="margin-left:2em">6、</span>学员不得私自与班主任达成协议，以金钱或其他方式要求班主任为其上课或私自提供课程资料。一经发现，学校有权取消该学员听课资格并不予退还报名费。
+            </p>
+            <p><span style="margin-left:2em">7、任</span>何一方对本协议的内容或履行有争议的，应协商解决。协商不成任何一方均可向学校所在地法院起诉。</p>
+            <p><span style="margin-left:2em">8、本</span>协议自学校盖章、学员签字后生效。本协议一式两份，学校、学员各持一份。</p>
+        </div>
+        <div class="cachet">
+            <div>
+                <span style="line-height:150px">学校盖章：</span>
+                <img src="" class="schoolcachet" alt="" width="150px" height="150px"
+                    style="margin-left:120px;vertical-align:middle;">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+            <div style="overflow: hidden;position:relative">
+                <span style="line-height:150px">学员签字：</span>
+                <img src="" class="stuCachet" alt="" width="150px" height="75px"
+                    style="position:absolute;margin-left:120px;margin-top:37.5px">
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+            </div>
+        </div>
+        <div class="xieyidate" style="margin-bottom:40px">
+            <!-- <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div>
+                <div>填写日期：<span>2018</span>年&nbsp;<span>07</span>&nbsp;月&nbsp;<span>07</span>&nbsp;日</div> -->
+        </div>
+
+    </div>
+    <div class="modelstu">
+        <form class="modelstur" style="background: url('img/timg34.jpg');background-size:100% 100%;" id="contractleft"
+            action="" enctype="multipart/form-data" onsubmit="return false;">
+            <!-- <input type="text" name="hehe"> -->
+            <div class="modelstur-head" style="border-bottom:none">
+                <p style="color:#42b983">提交签名</p>
+                <button class="stux">X</button>
+            </div>
+            <div class="modelstu-body">
+                <div class="monumber"><span>签名：</span>
+                    <input type="file" name="stuContract">
+                </div>
+
+                <div>
+                    <p class="stup" style="color:#42b983"></p>
+                    <img src="" class="stuContract" alt="" width="150px" height="75px">
+                </div>
+                <input type="hidden" name="contract_id" value="12">
+                <p class="stup1" style="color:#42b983"></p>
+                <input type="button" class="submit" value="提交" style="margin-top:30px;padding:5px 15px;height:40px;background: #42b983;
+                    border: none;
+                    color: white;cursor:pointer">
+            </div>
+        </form>
+
+    </div>
+    <div class="modelgiveup">
+        <div class="modelgiveupr">
+            <div class="modeltable-head">
+                <p style="color:#42b983">是否确定退费？</p>
+                <button class="giveupx">X</button>
+            </div>
+            <div class="modeldel-body">
+
+                <div class="monumber" style="padding:20px 0">
+                    <p class="giveupp" style="color:#42b983;"></p>
+                    <button id="giveupgo" style="padding:0px 30px">确定</button>
+                    <button class="giveupx" style="padding:0px 30px">取消</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modelhistory">
+        <div class="modelgiveupr">
+            <div class="modeltable-head">
+                <p style="color:#42b983">是否确定退费？</p>
+                <button class="C_backx">X</button>
+            </div>
+            <div class="modeldel-body">
+
+                <div class="monumber" style="padding:20px 0">
+                    <p class="C_backp" style="color:#42b983;"></p>
+                    <button id="C_backgo" style="padding:0px 30px">确定</button>
+                    <button class="C_backx" style="padding:0px 30px">取消</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modeltable" style="">
+        <div class="modelstur">
+            <div class="modeltable-head">
+                <p style="color:#42b983">退费申请</p>
+                <button class="tablex">X</button>
+            </div>
+            <div class="modeldel-body" style="overflow:hidden;">
+                <form action="" id="coma_form" enctype="multipart/form-data"></form>
+                <div class="monumber" style="">
+                    <span>手机号：</span><input type="text" name="mobile">
+                </div>
+                <div class="monumber" style="">
+                    <span>姓名：</span><input type="text" name="stu_name">
+                </div>
+                <div class="monumber" style="">
+                    <span>原因大类：</span><select name="reason_big" id="" onchange="change_mid()">
+                        <option value="">请选择</option>
+                        <!-- <option value="自身原因">自身原因</option>
+                        <option value="售前原因">售前原因</option>
+                        <option value="售后原因">售后原因</option>
+                        <option value="履行协议">履行协议</option> -->
+                    </select>
+                </div>
+                <div class="monumber" style="">
+                    <span>原因中类：</span><select name="reason_mid" id="" onchange="change_sma()">
+                        <option value="">请选择</option>
+                        <!-- <option value="投诉">投诉</option>
+                        <option value="建议">建议</option>
+                        <option value="退费申请">退费申请</option> -->
+                    </select>
+                </div>
+                <div class="monumber" style="">
+                    <span>原因小类：</span><select name="reason_sma" id="">
+                        <option value="">请选择</option>
+                        <!-- <option value="招生老师">招生老师</option>
+                        <option value="班主任">班主任</option>
+                        <option value="客服">客服</option>
+                        <option value="授课老师">授课老师</option> -->
+                    </select>
+                </div>
+                <div class="monumber" style="">
+                    <span>投诉凭证：</span><input type="file" name="file1" multiple id="">
+                </div>
+                <div class="monumber" style="height: auto">
+                    <span>投诉内容：</span><textarea name="Complaints" placeholder="不少于50字" style="width: 60%;
+                        height: 60px;
+                        vertical-align: middle;
+                        border-radius: 5px;
+                        border: 1px solid rgb(210,210,210);"></textarea>
+                </div>
+
+                <div style="padding-top: 20px;">
+                    <p class="feedbackp" style="color:red;"></p>
+                    <button id="feedback" style="padding:0px 30px">确定</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modelphonein" style="display: none">
+        <div class="modelstur">
+            <div class="modeltable-head">
+                <p style="color:#42b983">投诉</p>
+                <button class="complainx">X</button>
+            </div>
+            <form action="" id="com_form" enctype="multipart/form-data"></form>
+            <div class="modeldel-body" style="overflow:hidden;">
+                <div class="monumber" style="">
+                    <span>姓名：</span><input type="text" name="com_name">
+                </div>
+                <div class="monumber" style="">
+                    <span>咨询号码：</span><input type="text" name="com_mobile">
+                </div>
+                <div class="monumber" style="">
+                    <span>投诉对象：</span><select name="com_target" id="">
+                        <option value="">请选择</option>
+                        <option value="招生老师">招生老师</option>
+                        <option value="班主任">班主任</option>
+                        <option value="客服">客服</option>
+                        <option value="授课老师">授课老师</option>
+                    </select>
+                </div>
+                <div class="monumber" style="height: auto">
+                    <span>投诉内容：</span><textarea name="com_content" placeholder="不少于50字" style="width: 60%;
+                        height: 60px;
+                        vertical-align: middle;
+                        border-radius: 5px;
+                        border: 1px solid rgb(210,210,210);"></textarea>
+                </div>
+                <div class="monumber" style="">
+                    <span>投诉凭证：</span><input type="file" name="file" multiple id="">
+                </div>
+                <div style="padding-top: 20px;">
+                    <p class="complainp" style="color:red;"></p>
+                    <button id="complain" style="padding:0px 30px">确定</button>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modelprompta" style="display: none">
+        <div class="modelstur">
+            <div class="modeltable-head">
+                <p style="color:#42b983">建议</p>
+                <button class="suggestionx">X</button>
+            </div>
+            <div class="modeldel-body" style="overflow:hidden;">
+                <div class="monumber" style="">
+                    <span>姓名：</span><input type="text" name="adv_name">
+                </div>
+                <div class="monumber" style="">
+                    <span>咨询号码：</span><input type="text" name="adv_mobile">
+                </div>
+                <div class="monumber" style="height: auto">
+                    <span>问题描述：</span><textarea name="adv_problem" placeholder="不少于50字" style="width: 60%;
+                            height: 60px;
+                            vertical-align: middle;
+                            border-radius: 5px;
+                            border: 1px solid rgb(210,210,210);"></textarea>
+                </div>
+                <div class="monumber" style="height: auto">
+                    <span>具体建议：</span><textarea name="adv_idea" placeholder="不少于50字" style="width: 60%;
+                                height: 60px;
+                                vertical-align: middle;
+                                border-radius: 5px;
+                                border: 1px solid rgb(210,210,210);"></textarea>
+                </div>
+                <div style="padding-top: 20px;">
+                    <p class="suggestionp" style="color:red;"></p>
+                    <button id="suggestion" style="padding:0px 30px">确定</button>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <a href="javascript:void(0)" style="float:right" class="pull_back">退费申请</a>
+    <a href="javascript:void(0)" style="float:right" class="suggestion_back">建议</a>
+    <a href="javascript:void(0)" style="float:right" class="Csuggestion_back">撤销建议</a>
+    <a href="javascript:void(0)" style="float:right" class="Ccomplain_back">撤销投诉</a>
+    <a href="javascript:void(0)" style="float:right" class="complain_back">投诉</a>
+</body>
+<script src="js/jquery-3.3.1.js"></script>
+<!-- <script src="js/font.js"></script> -->
+<script src="js/bootstrap.js"></script>
+<script>
+    var jiagou = {
+        "学员自身原因": {
+            "报名": ["自己报名未成功", "不符合报名条件", "放弃报名/考试", "未及时提供报名资料", "提供了错误的报名资料", "担心报名不合规", "其他原因"],
+            "课程问题": ["课程质量不满意", "课程安排不满意", "对授课老师不满意", "太难学不会", "没时间学习", "其他原因"],
+            "定金问题": ["交了定金之后不想学了", "家人反对", "其他原因"],
+            "身体原因": ["自己身体不好", "家人身体不好", "其他原因"],
+            "挂靠/兼职问题": ["单位不让挂靠/兼职", "担心无法兼职/挂靠", "其他原因"],
+            "申请证书问题": ["担心无法注册申请证书", "其他原因"],
+            "资金原因": ["资金短缺", "其他原因"],
+            "家庭原因": ["家庭矛盾", "其他原因"],
+            "负面新闻": ["网上有看到负面新闻/差评", "其他原因"],
+            "有其他学习渠道": ["打算自学", "在其他机构报名", "其他原因"],
+            "促销活动": ["促销活动班型降价", "其他原因"],
+            "协议": ["学员不愿提供电子签字", "学校未能提供纸质版协议", "其他原因"],
+            "邮寄资料问题": ["旧版资料", "盗版资料", "未收到邮寄的资料", "其他原因"],
+            "发票": ["不开发票", "发票类型不符合", "其他原因"],
+            "联系不上": ["长期无法被联系上"],
+        },
+        "售前原因": {
+            "服务态度": ["招生老师骂人", "招生老师态度差", "其他原因"],
+            "过度承诺": ["承诺有面授课", "承诺挂靠/兼职具体合作单位名称", "承诺奖学金与协议不符", "承诺退费与协议不符", "承诺服务期限与协议不符", "承诺授课老师一对一",
+                "报名条件不符，但承诺可以报名", "所选省份不能报名，但承诺可以报名", "承诺新班型新开课", "承诺上课时间与实际不符合", "承诺补录学籍就是报名成功", "承诺签挂靠/兼职合约",
+                "承诺开工作证明", "承诺有电子版教材（新）", "承诺纸质版教材（新）", "承诺一次通过（新）", "承诺一年拿证（新）", "承诺不符合报名条件报不上可退费（新）",
+                "承诺有代报名服务（新）", "其他原因"
+            ],
+            "夸大宣传": ["承诺有真题/原题/答案", "承诺不用学习可以考过", "承诺保过/包过", "使用官方、政府名义", "承诺具体挂靠费金额（新）", "其他原因"],
+            "私收费用": ["私自收取学员费用", "其他原因"],
+        },
+        "售后原因": {
+            "服务": ["班主任未及时开课", "班主任在班当天未回复消息", "班主任骂人", "班主任服务态度差", "客服态度差", "客服骂人", "长期无人联系", "客服电话长期无人接听",
+                "其他原因"],
+            "报名": ["报名未缴费", "报名报错城市", "报名报错科目", "报名照片上传错误", "报名漏报", "报名审核未通过", "注册信息错误", "其他原因"]
+        },
+        "履行协议": {
+            "符合协议条款": ["符合协议“一般退费”条款", "符合协议“不过退费”条款", "符合协议“挂靠退费”条款", "符合协议“考过全额奖励”条款", "其他原因"],
+        }
+    };
+    for(var k in jiagou){
+        $('select[name = reason_big]')[0].innerHTML+=`
+            <option value="`+k+`">`+k+`</option>    
+        `
+    }
+    function change_mid(){
+        big_text = $('select[name = reason_big]').val()
+        $('select[name = reason_mid]')[0].innerHTML = `
+            <option value="">请选择</option>
+        `
+        $('select[name = reason_sma]')[0].innerHTML = `
+            <option value="">请选择</option>
+        `
+        for(var k in jiagou[big_text]){
+        $('select[name = reason_mid]')[0].innerHTML+=`
+                <option value="`+k+`">`+k+`</option>    
+            `
+        }
+    }
+    function change_sma(){
+        big_text = $('select[name = reason_big]').val()
+        mid_text = $('select[name = reason_mid]').val()
+        $('select[name = reason_sma]')[0].innerHTML = `
+            <option value="">请选择</option>
+        `
+        for(var k in jiagou[big_text][mid_text]){
+        $('select[name = reason_sma]')[0].innerHTML+=`
+                <option value="`+jiagou[big_text][mid_text][k]+`">`+jiagou[big_text][mid_text][k]+`</option>    
+            `
+        }
+    }
+    var formData = new FormData(document.getElementById("com_form"));
+    var formData1 = new FormData(document.getElementById("coma_form"));
+    $('.suggestionx').click(function () {
+        $('.modelprompta')[0].style.display = "none"
+    })
+    $('.complainx').click(function () {
+        $('.modelphonein')[0].style.display = "none"
+    })
+    $('.complain_back').click(function () {
+        $('.modelphonein')[0].style.display = "block"
+    })
+    $('.suggestion_back').click(function () {
+        $('.modelprompta')[0].style.display = "block"
+    })
+    $('.tablex').click(function () {
+        $('.modeltable')[0].style.display = "none"
+    })
+    $('#giveupgo').click(function () {
+        $('.modeltable')[0].style.display = "block"
+    })
+    $('.giveupx').click(function () {
+        $('.modelgiveup')[0].style.display = "none"
+    })
+    $('.pull_back').click(function () {
+        $('.modelgiveup')[0].style.display = "block"
+    })
+    var sug_or_com = 0
+    $('.Csuggestion_back').click(function () {
+        $('.modelhistory p')[0].innerHTML = '是否确定撤销建议？'
+        sug_or_com = 1
+        $('.modelhistory')[0].style.display = "block"
+    })
+    $('.Ccomplain_back').click(function () {
+        $('.modelhistory p')[0].innerHTML = '是否确定撤销投诉？'
+        sug_or_com = 0
+        $('.modelhistory')[0].style.display = "block"
+    })
+    $('#C_backgo').click(function () {
+        if (sug_or_com == 0) {
+            console.log('投诉')
+        } else if (sug_or_com == 1) {
+            console.log('建议')
+        }
+    })
+    $('.C_backx').click(function () {
+        $('.modelhistory')[0].style.display = "none"
+    })
+    $("input[name=file]").change(function () {
+        formData.delete('file[]')
+        var file = this.files;
+        console.log(file)
+        var maxsize = 50 * 1024 * 1024
+        var files = []
+        for (var i = 0; i < file.length; i++) {
+            item = file[i]
+            if (item.size > maxsize) {
+                $('.complainp')[0].innerHTML = "图片尺寸超过50MB 请另选图片";
+                return
+            } else if (window.FileReader) {
+                files.push(item)
+                console.log(item)
+                // formData.set('file[]',item)
+                formData.append('file[]', item)
+            }
+        }
+    });
+    $("input[name=file1]").change(function () {
+        formData1.delete('file[]')
+        var file = this.files;
+        console.log(file)
+        var maxsize = 50 * 1024 * 1024
+        var files = []
+        for (var i = 0; i < file.length; i++) {
+            item = file[i]
+            if (item.size > maxsize) {
+                $('.complainp')[0].innerHTML = "图片尺寸超过50MB 请另选图片";
+                return
+            } else if (window.FileReader) {
+                files.push(item)
+                console.log(item)
+                // formData.set('file[]',item)
+                formData1.append('file[]', item)
+            }
+        }
+    });
+    $('#suggestion').click(function () {
+        obj = {
+            adv_name: $('input[name=adv_name]').val(),
+            adv_mobile: $('input[name=adv_mobile]').val(),
+            adv_problem: $('textarea[name=adv_problem]').val(),
+            adv_idea: $('textarea[name=adv_idea]').val(),
+        }
+        $.ajax({
+            url: "hetong.php",
+            type: "post",
+            data: obj,
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == 200) {
+                    $('.suggestionp')[0].innerHTML = "保存成功";
+                } else {
+                    $('.suggestionp')[0].innerHTML = data.message;
+                }
+            },
+            error: function () {
+                $('.suggestionp')[0].innerHTML = "服务器错误";
+            }
+        })
+    })
+    $('#complain').click(function () {
+        formData.set('com_name', $('input[name = com_name]').val())
+        formData.set('com_mobile', $('input[name = com_mobile]').val())
+        formData.set('com_target', $('select[name = com_target]').val())
+        formData.set('com_content', $('textarea[name = com_content]').val())
+        $.ajax({
+            url: "hetong.php",
+            type: "post",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data.code == 200) {
+                    $('.complainp')[0].innerHTML = "保存成功";
+                } else {
+                    $('.complainp')[0].innerHTML = data.message;
+                }
+            },
+            error: function () {
+                $('.complainp')[0].innerHTML = "服务器错误";
+            }
+        })
+    })
+    var regmobile = /^1[3|4|5|6|7|8|9][0-9]{9}$/;
+    var regname = /^([\u4e00-\u9fa5]){2,7}$/;
+    $('textarea[name = pullBack_reason]').on('keyup', function () {
+        if ($(this).val().length < 50) {
+            $(this).css('color', 'red')
+        } else {
+            $(this).css('color', 'black')
+        }
+    })
+    $('input[name = pullBack_name]').on('keyup', function () {
+        if (!regname.test($(this).val())) {
+            $(this).css('color', 'red')
+        } else {
+            $(this).css('color', 'black')
+        }
+    })
+    $('input[name = pullBack_mobile]').on('keyup', function () {
+        if (!regmobile.test($(this).val())) {
+            $(this).css('color', 'red')
+        } else {
+            $(this).css('color', 'black')
+        }
+    })
+    $('#feedback').click(function () {
+        formData1.set('mobile', $('input[name = mobile]').val())
+        formData1.set('stu_name', $('input[name = stu_name]').val())
+        formData1.set('reason_big', $('select[name = reason_big]').val())
+        formData1.set('reason_mid', $('select[name = reason_mid]').val())
+        formData1.set('reason_sma', $('select[name = reason_sma]').val())
+        formData1.set('Complaints', $('textarea[name = Complaints]').val())
+        // if ($('textarea[name = pullBack_reason]').val().length < 50) {
+        //     $('.feedbackp').text('退费内容不能少于50个字');
+        //     return;
+        // }
+        $('.feedbackp').text('');
+        $.ajax({
+            url: "hetong.php",
+            type: "post",
+            data: formData1,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data.code == 200) {
+                    $('.feedbackp')[0].innerHTML = "保存成功";
+                } else {
+                    $('.feedbackp')[0].innerHTML = data.message;
+                }
+            },
+            error: function () {
+                $('.feedbackp')[0].innerHTML = "服务器错误";
+            }
+        })
+    })
+    var Href = location.href.split('?')[1];
+    console.log(Href)
+    if (Href == undefined) {
+        $('input[name = stu-poll-content]').val('')
+    } else {
+        $('input[name = stu-poll-content]').val(Href.split('=')[1])
+    }
+    $('input[name = stu-poll-content]').on('keyup', function (e) {
+        if (e.key == 'Enter') {
+            window.location.href = "studentContract.html?content=" + $('input[name = stu-poll-content]').val()
+        }
+    })
+    $('.stu-poll-button').click(function () {
+        window.location.href = "studentContract.html?content=" + $('input[name = stu-poll-content]').val()
+    })
+    var Src;
+    var file, type;
+    var form = new FormData(document.getElementById("contractleft"));
+    $("input[ame=simplehead]").change(function () {
+        console.log($("input[name=simplehead]"))
+        file = this.files[0];
+        type = file.type;
+
+        console.log(type.indexOf("image/"), file.size)
+        var maxsize = 2 * 1024 * 1024
+        if (type.indexOf("image/") < 0) {
+            console.log(1)
+            $('.stup')[0].innerHTML = `请选择图片上传`;
+            $(".stuContract").attr("src", "");
+            Src = '';
+        } else if (file.size > maxsize) {
+            $('.stup')[0].innerHTML = `图片尺寸不能超过2MB`;
+            $(".stuContract").attr("src", "");
+            Src = '';
+        } else if (window.FileReader) {
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+            var reader = new FileReader(),
+                img = new Image();
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+                // 图片尺寸
+                img.src = e.target.result;
+            };
+            form.delete('stuContract')
+            img.onload = function () {
+                console.log(this.maxWidth)
+                // 图片原始尺寸
+                var originWidth = this.width;
+                var originHeight = this.height;
+
+                // log('图片原尺寸是：' + [originWidth, originHeight].join('x'));
+
+                // 计算出目标压缩尺寸
+                var maxWidth = 400,
+                    maxHeight = 400;
+
+                // 目标尺寸
+                var targetWidth = originWidth,
+                    targetHeight = originHeight;
+
+                if (originWidth > maxWidth || originHeight > maxHeight) {
+                    // 图片尺寸超过400x400的限制
+                    if (originWidth / originHeight > maxWidth / maxHeight) {
+                        // 更宽，按照宽度限定尺寸
+                        targetWidth = maxWidth;
+                        targetHeight = Math.round(maxWidth * (originHeight / originWidth));
+                    } else {
+                        targetHeight = maxHeight;
+                        targetWidth = Math.round(maxHeight * (originWidth / originHeight));
+                    }
+
+                    // log('超过400x400的限制，图片大小限制为' + [targetWidth, targetHeight].join('x'));
+                } else {
+                    // log('图片尺寸较小，不压缩');
+                }
+
+                canvas.width = targetWidth;
+                canvas.height = targetHeight;
+                console.log(targetWidth, targetHeight)
+                // 清除画布
+                context.clearRect(0, 0, targetWidth, targetHeight);
+
+                // 图片压缩
+                context.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+                // 转为blob并上传
+                canvas.toBlob(function (blob) {
+                    form.append('stuContract', blob)
+
+
+                }, file.type || 'image/png');
+            };
+            //监听文件读取结束后事件    
+            reader.onloadend = function (e) {
+                console.log(e)
+                Src = e.target.result;
+                $('.stup')[0].innerHTML = ``
+                $(".stuContract").attr("src", e.target.result);
+                $('.simplego').attr('disabled', false); //e.target.result就是最后的路径地址
+            };
+        }
+    });
+    $('.stunew').click(function () {
+        $('.modelstu')[0].style.display = "block"
+    })
+    $('.stux').click(function () {
+        $('.modelstu')[0].style.display = "none"
+    })
+    $('.submit').click(function () {
+        var Href = location.href.split('?')[1].split('=')[1];
+        $('input[type=hidden]').val(Href)
+
+        console.log(form)
+        console.log(document.getElementById("contractleft"))
+        // console.log(form.get('simplehead'))
+        if (type.indexOf("image/") > -1 && file.size < 2 * 1024 * 1024) {
+
+
+            $.ajax({
+                url: "hetong.php",
+                type: "post",
+                data: form,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data == 1) {
+                        $('.stuCachet').attr("src", Src);
+                        $('.stup1')[0].innerHTML = "提交成功"
+                        setTimeout(function () {
+                            $('.stup1')[0].innerHTML = ""
+                        }, 3000)
+                    } else {
+                        $('.stup1')[0].innerHTML = "提交失败"
+                        setTimeout(function () {
+                            $('.stup1')[0].innerHTML = ""
+                        }, 3000)
+                    }
+                },
+                error: function () {
+                    $('.stup1')[0].innerHTML = "服务器错误"
+                    setTimeout(function () {
+                        $('.stup1')[0].innerHTML = ""
+                    }, 3000)
+                }
+            })
+        } else {
+            $('.stup')[0].innerHTML = "请选择正确的图片及格式上传"
+            setTimeout(function () {
+                $('.stup')[0].innerHTML = ""
+            }, 3000)
+        }
+
+    })
+
+    function filter(h) {
+
+        var inputContent = h;
+        var arrMg = ["fuck", "tmd", "他妈的", "你麻痹", '卧槽', '操', '草', '艹', '窝草', '擦', '尼玛', '妈', '日', '你大爷', '傻', '沙比',
+            '煞笔', '傻比', '傻B', 'sb', 'SB', '逼', '吊', '屌', '逗比', '王八', '蠢', '猪', '狗', '死', '蛋', '智障', '弱智', '二逼',
+            '二比', '2b'
+        ];
+        var showContent = inputContent;
+
+        for (var i = 0; i < arrMg.length; i++) {
+            var r = new RegExp(arrMg[i], "ig");
+
+            showContent = showContent.replace(r, "*");
+        }
+        return showContent
+    }
+    $('span[name = pullBack_time]').text(getNowFormatDate(new Date()))
+    $('textarea[name=pullBack_reason]').on('keyup', function () {
+        var h = filter($('textarea[name=pullBack_reason]').val())
+        $('textarea[name=pullBack_reason]')[0].value = h
+    })
+
+    function getNowFormatDate(date) {
+        var seperator1 = "-";
+        var seperator2 = ":";
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        if (hour >= 0 && hour <= 9) {
+            hour = "0" + hour;
+        }
+        if (minute >= 0 && minute <= 9) {
+            minute = "0" + minute;
+        }
+        if (second >= 0 && second <= 9) {
+            second = "0" + second;
+        }
+        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+            " " + hour + seperator2 + minute +
+            seperator2 + second;
+        return currentdate;
+    }
+</script>
+
+</html>

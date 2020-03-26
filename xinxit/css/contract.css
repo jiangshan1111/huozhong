@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0
+}
+html,body{
+    width: 100%;
+}
+.contract{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 20%;
+    text-align: center
+}
+.contract-title{
+    overflow: hidden;
+}
+.contract-title p{
+    float: left;
+}
+.contract-title div{
+    float: right;
+}
+.contract-body{
+    table-layout: fixed;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid black;
+}
+.contract-body td{
+    word-wrap: break-word;
+    border: 1px solid black;
+    height: 40px;
+    width: 25%;
+}
+.contract-body td input{
+    display: inline-block;
+    height: 40px;
+    width: 100%;
+    border:none;
+}
+.cachet{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+.cachet>div{
+    display: inline-block;
+    width: 49%;
+    overflow: hidden;
+    text-align: left
+}
+.xieyi{
+    text-align: left;
+    margin-top: 20px
+}
+.xieyi p{
+    margin-top: 5px;
+}
+.xieyidate>div{
+    display: inline-block;
+    width: 49%;
+    text-align: left
+}
+.select{
+    width:200px;
+    height:30px;
+}
+.index{
+    color: white;
+    background: #42b983;
+    border: none;
+    border-radius:2px;
+    padding: 0 5px;
+    height: 30px; 
+}
+@media screen and (max-width:1000px){
+    .contract{
+        width: 100%;
+        margin-left: 0;
+    }
+    .contract-title p{
+        float: none;
+    }
+    .contract-title div{
+        float: none;
+    }
+    .contract-body>div{
+        width:100%;
+    }
+    .cachet>div{
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        text-align: left
+    }
+}
+

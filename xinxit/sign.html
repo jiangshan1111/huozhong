@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <link rel="stylesheet" href="css/sign.css">
+</head>
+<body>
+    <div class="hed"></div>
+    <form class="Box">
+        <div class="Boximg"></div>
+        <input type="username" class="nam" name="username" onkeyup="(this.v=function(){this.value=this.value.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]+/g,'');}).call(this)" placeholder="请输入用户名" required>
+        <input type="password" name="password" class="pas" onkeyup="(this.v=function(){this.value=this.value.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]+/g,'');}).call(this)" placeholder="密码">
+        
+        <input type="button" value="GO" class="but">
+        <p class="signp" style="color:white">gg</p>
+    </form>
+    
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+     <script type="text/javascript">  
+    //     var html = document.documentElement; 
+    //   function fontS(){  
+    //       var hW = html.offsetWidth;  
+    //       var hS = hW / 50;    
+    //       html.style.fontSize = hS + "px";  
+    //   }  
+    //   window.onresize = function(){fontS();window.location.reload()}  
+      function sign(){
+        $.ajax({
+            url:'',
+            type:'post',
+            data:{username:$('input[name = username]').val(),
+            password:$('input[name = password]').val()},
+            success:function(data){
+                if(data == 1){
+                    window.location.href = 'elseindex.html'
+                }else{
+                    $('.signp').text('登陆失败')
+                    setInterval(function(){
+                        $('.signp').text('')
+                    },3000)
+                }
+            },
+            error:function(){
+                $('.signp').text('服务器错误')
+                setInterval(function(){
+                        $('.signp').text('')
+                    },3000)
+                    window.location.href = 'elseindex.html'
+            }
+          })
+      }
+      $('.but').click(function(){
+          sign();
+      })
+      $('input[name = username]').on('keyup',function(e){
+          if(e.key == "Enter"){
+              sign()
+          }
+      })
+      $('input[name = password]').on('keyup',function(e){
+          if(e.key == "Enter"){
+              sign()
+          }
+      })
+    </script> 
+</html>

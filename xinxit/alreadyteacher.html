@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>已报名</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/datagrid-filter.js"></script>
+    <script type="text/javascript" src="js/datagrid-cellediting.js"></script>
+    <scrsipt type="text/javascript" src="js/jquery.edatagrid.js"></scrsipt>
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/Advisory.css">
+    <!-- <link rel="stylesheet" href="css/polling.css"> -->
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <style>
+        #alreadyallot{
+            width: 95.8%;
+        }
+        #alreadyallot1>div{
+            height: 40px;
+            float: left;
+            width: 50%;
+            margin-top: 20px;
+        }
+        #alreadyallot1>div>span{
+            width:17%;
+            display: inline-block;
+        }
+        #alreadyallot1>div>input{
+            width:72%;
+        }
+        #alreadyallot1>div>select{
+            width:75%;
+        }
+        .alreadyp1{
+            background-repeat: no-repeat;
+            background-position-x: 99%;
+            background-position-y: 50%;
+        }
+        .already-allot-button{
+            float: right;
+            background: #42b983;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            margin-top: 20px;
+        }
+        @media only screen and (max-width:1000px){
+            #alreadyallot1>div{
+                width: 100%;
+            }
+        }
+        #alreadyRegisteredNew[disabled]{
+            background-color: #eee;
+        }
+        .gg>li>span{
+            float: left;
+        }
+        #work-ordergo{
+            background-color: #42b983;
+        }
+        #work-ordergo[disabled]{
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>  
+        <div class="modelchance" style="display:block">
+                <div class="modelchancer">
+                    <div class="modelchance-head">
+                        <p style="color:#42b983">已报名</p>
+                    </div>
+                    <div class="chancesearch" style="width:95.8%;border:1px solid rgb(239,239,239);background:-webkit-linear-gradient(top,white 0,rgb(239, 239, 239) 100%)">
+                            <p class="chancesearchp1" style="margin-left:20px;background-image: url('img/up.svg');">查询条件</p>
+                        </div>
+                    <form class="modelchance-body" name="setform" id ="setform" style="overflow:hidden;display:none">
+                        <div>
+                            <span>手机号：</span>
+                            <input type="text" name="mobile" style="width:70%">
+                        </div>
+                        <div>
+                            <span>归属：</span>
+                            <select name="belong_to" id="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span>班型：</span>
+                            <select name="classType" id="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span>班主任：</span>
+                            <select name="tea_name" id="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span>报名时间：</span>
+                            <input class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="sign_up_date1" placeholder="日期">
+                            <span style="width:10%;text-align:center">至</span>
+                            <input class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="sign_up_date2" placeholder="日期">
+                        </div>
+                            <input type="button" class="chancebtn" id="chancere1" style="margin-right:30px" value="重置">
+                            <input type="button" class="chancebtn" id="submit_search1"  value="查询">
+                            <input type="button" class="chancebtn" id="alreadyRegisteredNew" style="width:80px"  value="查看工单" >
+                    </form>
+                    <div style="width:96%;margin-left:2%">
+                        <table id="datagrid4" title="机会列表" style="width:100%"  >
+                            <thead>
+                                <tr class="content">
+                                    <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                    <th data-options="field:'mobile',width:120,align:'center'">手机号</th>
+                                    <th data-options="field:'in_time',width:80,align:'center'">录入时间</th>
+                                    <th data-options="field:'sign_up_date',width:80,align:'center'">报名时间</th>
+                                    <th data-options="field:'project',width:80,align:'center'">项目</th>
+                                    <th data-options="field:'sign_money',width:80,align:'center'">成交流水</th>
+                                    <th data-options="field:'belong_to',width:80,align:'center',editor:'textbox'">归属</th>
+                                    <th data-options="field:'tea_name',width:80,align:'center'">班主任</th>
+                                    <th data-options="field:'process_status',width:80,align:'center'">工单</th>
+                                    <th data-options="field:'problem',width:80,align:'center'">工单问题</th>
+                                    <th data-options="field:'problem_note',width:80,align:'center'">工单备注</th>
+                                    <th data-options="field:'classType',width:80,align:'center'">班型</th>
+                                    <th data-options="field:'sign_type',width:80,align:'center'">报名类型</th>
+                                    <th data-options="field:'learn_status',width:80,align:'center'">学习状态</th>
+                                    <th data-options="field:'section',width:80,align:'center'">科目</th>
+                                    <th data-options="field:'did',width:80,align:'center'">考期</th>
+                                    <!-- <th data-options="field:'did',width:80,align:'center'">did</th> -->
+                                    <!-- ,hidden:true -->
+                                </tr>
+                                
+                            </thead>
+                        </table>
+                    </div>
+                    
+                </div>
+              </div>
+              <div class="model-work-order" style="overflow:auto">
+                <div class="modelorderr"style="top:10%" >
+                  <div class="modeldel-head">
+                      <p style="color:#42b983">查看工单<span style="font-size:12px"></span></p>
+                      <button class="work-orderx" style="">X</button>
+                  </div>
+                  <form class="modeldel-body"  id="workorderform" enctype="multipart/form-data">
+                        <ul class="Advi-foot-ul modelorderul gg" style="margin:0;overflow:hidden">
+                            <li><span>学员账号：</span>
+                                <!-- <input type="text" name="account"> -->
+                                hehe
+                            </li>
+                            <li><span>咨询时间：</span>
+                                2014-08-20 09:20:10
+                            </li>
+                            <li><span>班主任：</span>
+                                江山
+                            </li>
+                            <li><span>提交人：</span>
+                                江山
+                            </li>
+                            <li><span>问题：</span>
+                                你为什么不说话
+                            </li>
+                            <li><span>问题描述：</span>
+                                <!-- <textarea name="problem-description" style="height:30px"></textarea> -->
+                                <span style="width:55%;overflow:auto;height:50px;line-height:25px">召唤师可从以下28名LPL候选人中，选出两名选手参加2018全明星赛。在投票截止之后，得票最高的两名候选人将代表LPL赛区参加本次全明星赛。投票期间，每个QQ号只能投一次票，且游戏等级需满31级及以上。在投票结束后，2018全明星赛组委会在综合投票情况后会在全球候选人范围内额外选出4名选手参加本次全明星赛！</span>
+                            </li>
+                            <li style=""><span>查看附件：</span><a class="already-a" style="" href="#">aaa.jpg</a>
+                                <!-- <input type="file" name="attachment" id="" value="111"> -->
+                                </li>
+                            <li><span>处理状态：</span><select name="process_status" id="">
+                                <option value="">请选择</option>              
+                                <option value="已处理">已处理</option>              
+                                <option value="已处理待跟进">已处理待跟进</option>              
+                            </select></li>
+                            <li><span>处理备注：</span><textarea name="process_notes" style="height:30px"></textarea></li>
+                        </ul>
+                        
+                      <div>
+                            <p class="work-orderp" style="color:#42b983;">msg</p>
+                            <input id="work-ordergo" style="padding:5px 30px;color:white;border:none" type="button" value="确定">
+                    </div>
+                  </form>
+                </div>        
+            
+        </div>
+        <div class="modelprompta">
+                <div class="modelcuer">
+                    <div class="modelcuer-head">
+                        <p style="color:#42b983">提示</p>
+                        <button class="promptxa">X</button>
+                    </div>
+                    <div class="modeldel-body">
+                        <div class="monumber">
+                            <p class="promptpa" style="color:#42b983;"></p>
+                            <button class="promptxa" style="padding:0px 30px">确定</button>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+        
+</body>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+<script src="js/export.js"></script>
+<script type="text/javascript">    
+$('select[name=bigproblem]').on('change',function(){
+    $.ajax({
+        url:'',
+        type:'post',
+        data:{dataId:$('select[name=bigproblem] :selected').attr('data-fid')},
+        success:function(data){
+            for(var i=0;i<data.length;i++){
+                $('select[name=smallproblem]')[0].innerHTML += `<option value="`+data[i]+`">`+data[i]+`</option>`
+            }
+        },
+        error:function(){
+
+        }
+    })
+})
+$('.promptxa').click(function(){
+            $('.modelprompta')[0].style.display = "none";
+        })
+$('.alreadyp1').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#alreadyallot1')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#alreadyallot1')[0].style.display = "block"
+        }
+    })
+    //新建工单
+    var phone;
+    
+    $('#alreadyRegisteredNew').click(function(){
+        $('.model-work-order')[0].style.display = "block";
+        // $('.already-a').attr("href",'aaa.html')
+        var data12 = $("#datagrid4").datagrid("getSelections"),datadid = data12[0].did ;
+        
+        console.log(data12)
+        $.ajax({
+                 url:"hetong.php",
+                 type:"post",
+                 data:{did:datadid},
+                 success:function(data){
+                    $('.gg li')[0].innerHTML = `<span>学员账号：</span>`+"江山"
+                    $('.gg li')[1].innerHTML = `<span>咨询时间：</span>`+"2014-08-20 09:20:10"
+                    $('.gg li')[2].innerHTML = `<span>班主任：</span>`+"江山"
+                    $('.gg li')[3].innerHTML = `<span>提交人：</span>`+"江山"
+                    $('.gg li')[4].innerHTML = `<span>问题：</span>`+"你为什么不说话"
+                    $('.gg li')[5].innerHTML = `<span>问题描述：</span><span style="width:55%;overflow:auto;height:40px;line-height:20px">`+"江山召唤师可从以下28名LPL候选人中，选出两名选手参加2018全明星赛。在投票截止之后，得票最高的两名候选人将代表LPL赛区参加本次全明星赛。投票期间，每个QQ号只能投一次票，且游戏等级需满31级及以上。在投票结束后，2018全明星赛组委会在综合投票情况后会在全球候选人范围内额外选出4名选手参加本次全明星赛！"+`</span>`
+                    $('.gg li')[6].innerHTML = `<span>查看附件：</span><a class="already-a" style="" href="#">`+"bbb.jpg"+`</a>`
+                    $('textarea[name = process_notes]').val('hehe');
+                    $('select[name = process_status]').val('')
+                 },
+                 error:function(){
+                    
+                 }
+        })
+    })
+    $('.work-orderx').click(function(){
+        $('.model-work-order')[0].style.display = "none";
+    })
+    if($('select[name = process_status]').val()==""){
+                $('#work-ordergo').attr('disabled','disabled')
+            }else{
+                $('#work-ordergo').attr('disabled',false)
+            }
+    $('select[name = process_status]').on('change',function(){
+        if($('select[name = process_status]').val()==""){
+                $('#work-ordergo').attr('disabled','disabled')
+            }else{
+                $('#work-ordergo').attr('disabled',false)
+            }
+    })
+    $('#work-ordergo').click(function(){
+            
+                var data12 = $("#datagrid4").datagrid("getSelections"),datadid = data12[0].did ;
+                $.ajax({
+                 url:"hetong.php",
+                 type:"post",
+                 data:{process_notes:$('textarea[name = process_notes]').val(),did:datadid,process_status:$('select[name = process_status]').val()},
+                 success:function(data){
+                     if(data == 1){
+                        $('.work-orderp')[0].innerHTML = "提交成功"; 
+                        setTimeout(function(){
+                            $('.work-orderp')[0].innerHTML = ""
+                        },3000);
+                     }else{
+                        $('.work-orderp')[0].innerHTML = "提交失败";
+                        setTimeout(function(){
+                            $('.work-orderp')[0].innerHTML = ""
+                        },3000);
+                     }
+                    },
+                error:function(){
+                    $('.work-orderp')[0].innerHTML = "服务器错误";
+                    setTimeout(function(){
+                            $('.work-orderp')[0].innerHTML = ""
+                        },3000);
+                }
+             })
+            })
+
+
+
+    $('.chancesearchp1').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#setform')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#setform')[0].style.display = "block"
+        }
+    })
+    $('#chancere1').click(function(){
+        $("#setform").find('input[type=text],select,input[type=hidden]').each(function() {
+         $(this).val('');
+     });
+    })         
+    var thisApp = {
+        init: function () {
+            $("#datagrid4").edatagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                //这是数据加载的地址,返回对应的json数据包就行,json包格式例子,见下4
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                checkOnSelect:false,
+                selectOnCheck:true,
+                url:'datagrid_data1.json',
+                updateUrl: 'http://www.baidu.com', 
+                saveUrl: 'http://www.baidu.com',
+                method:'get',
+                queryParams: form2Json("setform"),　
+                onSave: function (index, row) {
+                        var $datagrid = $('#datagrid4');
+                        if ($datagrid.data('isSave')) {
+                            //如果需要刷新，保存完后刷新
+                            $datagrid.edatagrid('reload');
+                            $datagrid.removeData('isSave');
+                        }
+                    },
+                toolbar: [{
+                        text: '保存',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            //标记需要刷新
+                            $('#datagrid4').data('isSave', true).edatagrid('saveRow');
+                        }
+                    },{
+                        text: '导出',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            $(this).click(function(){
+                                var arr1 = [];
+                                console.log($('#datagrid4').datagrid('getData').rows)
+                                
+                                var data = JSON.stringify($('#datagrid4').datagrid('getData').rows);
+                                for (var i = 0; i < $('th').length; i++) {
+                                    arr1.push($('th')[i].innerHTML)
+                                }
+                                if (data == '')return;
+                                JSONToCSVConvertor(data, "Download", true,arr1);
+                                })
+                        }
+                    }],
+                    onLoadSuccess: function(data,currentRowIndex){
+                        //页面刷新时重置新建按钮
+                        var data1 = $("#datagrid4").datagrid("getSelections");
+                        console.log(data1)
+                        if(data1 != ""&& data1[0].process_status != ""){
+                            $('#alreadyRegisteredNew').attr('disabled',false)
+                            $('.already-allot-button').attr('disabled',false)
+                        }else{
+                            $('#alreadyRegisteredNew').attr('disabled','disabled')
+                            $('.already-allot-button').attr('disabled','disabled')
+                        }
+                    },
+                    onClickRow: function (rowIndex, field, value) {
+                        //点击时解开新建按钮
+                        var data1 = $("#datagrid4").datagrid("getSelections");
+                        console.log(data1[0].did)
+                        if(data1 != "" && data1[0].process_status != ""){
+                            $('#alreadyRegisteredNew').attr('disabled',false)
+                            $('.already-allot-button').attr('disabled',false)
+                        }else{
+                            $('#alreadyRegisteredNew').attr('disabled','disabled')
+                            $('.already-allot-button').attr('disabled','disabled')
+                        }
+                        },
+                        
+                    onDblClickRow:function(rowIndex, field, value){
+                    }
+                })
+            }
+        }
+        $(function(){
+            thisApp.init();
+            var dg=$('#datagrid4').datagrid();
+            dg.datagrid('enableFilter', [{}]);
+            var p = $('#datagrid4').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            $("#submit_search1").linkbutton({ iconCls: 'icon-search', plain: true }).click(function () {
+            //     $('.chancesearchp')[0].style.backgroundImage = 'url("img/up.svg")';
+            //  $('#searchform')[0].style.display = "none";
+             var dg = $('#datagrid4').datagrid({queryParams: form2Json("setform")});
+                dg.datagrid('enableFilter', [{
+                    field:'mobile',
+                    type:'text'
+                },{
+                    field:'in_time',
+                    type:'text'
+                },{
+                    field:'sign_up_date',
+                    type:'text'
+                },{
+                    field:'project',
+                    type:'text'
+                },{
+                    field:'sign_money',
+                    type:'text'
+                },{
+                    field:'belong_to',
+                    type:'text'
+                },{
+                    field:'tea_name',
+                    type:'text'
+                },{
+                    field:'process_status',
+                    type:'text'
+                },{
+                    field:'problem',
+                    type:'text'
+                },{
+                    field:'problem_note',
+                    type:'text'
+                },{
+                    field:'classType',
+                    type:'text'
+                },{
+                    field:'sign_type',
+                    type:'text'
+                },{
+                    field:'learn_status',
+                    type:'text'
+                },{
+                    field:'section',
+                    type:'text'
+                },{
+                    field:'exam_date',
+                    type:'text'
+                }]);
+                var p = $('#datagrid4').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            });
+            
+        // });
+        })
+        
+        function form2Json(id) {
+ 
+            var arr = $("#" + id).serializeArray()
+            var jsonStr = "";
+ 
+            jsonStr += '{';
+            for (var i = 0; i < arr.length; i++) {
+                jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+            }
+            jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+            jsonStr += '}';
+ 
+            var json = JSON.parse(jsonStr)
+            return json
+        }
+ 
+</script>
+</html>

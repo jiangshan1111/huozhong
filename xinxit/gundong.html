@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .let{
+            width:400px;
+            height: 30px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+        .let p{
+            height: 30px;
+            width:400px;
+            line-height: 30px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="let">
+        <div class="letup">
+        <p ><span class="ran"></span>&nbsp;&nbsp;<span class="Mon"></span>预定一个机位</p>
+        <p ><span class="ran"></span>&nbsp;&nbsp;<span class="Mon"></span>预定一个机位</p>
+        <p ><span class="ran"></span>&nbsp;&nbsp;<span class="Mon"></span>预定一个机位</p>
+        <p ><span class="ran"></span>&nbsp;&nbsp;<span class="Mon"></span>预定一个机位</p>
+        <p ><span class="ran"></span>&nbsp;&nbsp;<span class="Mon"></span>预定一个机位</p>
+        </div>
+        
+    </div>
+</body>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    
+    var arr1=['3','5','7','8','9'];
+    $('.ran')
+    for (var i = 0; i < $('.ran').length; i++) {
+        var j = Math.floor(Math.random()*5),k=Math.floor(Math.random()*10); f=Math.floor(Math.random()*10000)
+       $('.ran')[i].innerHTML = '1'+ arr1[j] + k + 'xxxx'+ f;
+        
+    }
+    var arr2=['xx','ee','rr','tt'];
+    function noticeUp(obj,top,time) {
+        $(obj).animate({
+        marginTop: top
+        }, time, function () {
+        $(this).css({marginTop:"0"}).find(":first").appendTo(this);
+        })
+       
+       }
+       $(function () {
+        // 调用 公告滚动函数
+        setInterval("noticeUp('.letup','-40px',500)", 2000);
+       
+        });
+        for (var i = 0; i < $('.Mon').length; i++) {
+         var endtime=new Date("2018/8/25,21:00:00");
+          var nowtime = new Date();
+          var hehetime = Math.random()*10000000;
+		  var leftsecond=parseInt((nowtime.getTime())/1000 - hehetime);
+        //   d=parseInt(leftsecond/3600/24);
+        console.log(new Date(leftsecond).getHours())
+        Y=new Date().getFullYear()
+          d= nowtime.getDate();
+          M= nowtime.getMonth() + 1;
+          H = nowtime.getHours();
+		  h=new Date(leftsecond).getHours()
+          m=new Date(leftsecond).getMinutes()
+          if(h<10){
+              h = '0'+h;
+          }
+          if(m<10){
+              m = '0'+m;
+          }
+          s=new Date(leftsecond).getSeconds()
+          if(s<10){
+            s = '0'+s;
+        }
+        console.log(d,h,m,M,H);
+            $('.Mon')[i].innerHTML =Y+'-'+ M +'-' + d +' '+h+':'+m+':'+s+' '
+            
+        }
+</script>
+</html>

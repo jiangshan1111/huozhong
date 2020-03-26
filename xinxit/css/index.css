@@ -1,0 +1,418 @@
+body{
+    font-family: "微软雅黑"
+}
+button{
+    color: white;
+    background: #42b983;
+    border: none;
+    border-radius:2px;
+    height: 30px; 
+  }
+button[disabled]{
+    background-color: #eee;
+}
+.simple-ul li{
+    list-style: none;
+    margin-top: 1rem;
+}
+#simple-ul{
+    margin-top: 2rem;
+    margin-left: 8rem;
+    position: relative;
+}
+.simple>div{
+    height: 14rem;
+    position: relative;
+}
+.simple>div:nth-of-type(3){
+    overflow: auto;
+}
+.rank-button1,.rank-button2{
+    width: 49%;
+    border: none;
+}
+.rank-button1{
+    background: white;
+    color: black
+}
+#span3{
+    margin:10px 1.69% 0 0;
+}
+.rank-button2{
+    background: rgb(239,239,239);
+    color: black
+}
+#hiddan{
+    margin-top: 2rem;
+}
+#searchspan{
+    position: absolute;
+    left: 201px;
+    top:6px;
+    /* margin-top: -8px; */
+    width: 28px;
+    height: 28px;
+    background:rgb(239,239,239) url('../img/search.svg') center no-repeat;
+    background-size:80% 80%;
+    cursor: pointer; 
+}
+.navbarb  a{
+    float: right;
+    /* margin-top:10px; */
+}
+@media (min-width: 1200px){
+#hiddan{
+    /* margin-left: 5%; */
+}
+.hehe button{
+    width: 5rem;
+    float: right;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+}
+@media (max-width: 767px){
+    .simple-ul{
+        margin-top: 0
+    }
+    #simple-ul{
+        margin-top: 3rem;
+        margin-left: 9rem;
+    }
+.hiddan>div>div{
+    border-bottom:0.1rem solid rgb(239,239,239);
+}
+.navbarb a{
+    width: 40px;
+    height:20px;
+    white-space:nowrap;
+}
+.aa{
+    overflow: hidden;
+}
+.bb{
+    overflow: normal;
+}
+}
+@media (min-width: 767px){
+    .hiddan>div>div{
+        border-right:0.1rem solid rgb(239,239,239);
+    }
+}
+.dropdow-menu{
+    position: absolute;
+top: 100%;
+left: 0;
+z-index: 1000;
+/* display: none; */
+float: left;
+min-width: 160px;
+padding: 5px 0;
+margin: 2px 0 0;
+list-style: none;
+background-color: #fff;
+border: 1px solid #ccc;
+border: 1px solid rgba(0,0,0,0.2);
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+-webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+-moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+-webkit-background-clip: padding-box;
+-moz-background-clip: padding;
+background-clip: padding-box;
+}
+.dropdow-menu a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+}
+@media (max-width: 979px){
+    .dropdow-menu {
+    position: static;
+    top: auto;
+    left: auto;
+    /* display: none; */
+    float: none;
+    max-width: none;
+    padding: 0;
+    margin: 0 15px;
+    background-color: transparent;
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    }
+ .dropdow-menu a {
+    padding: 9px 15px;
+    font-weight: bold;
+    color: #777;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}} 
+.phone{
+    color: blue;
+    background: url(../img/phone.svg) left no-repeat;
+    background-size: contain;
+    padding-left:20px;
+}
+.phone:hover{
+    background: url(../img/phone1.svg) left no-repeat;
+    background-size: contain;
+    text-decoration: none;
+    color: green;
+    cursor:url(../img/phone1.svg),auto
+}
+.rank-button1,.rank-button2{
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+}
+.Avdi,.yuyue{
+    position: relative;
+    cursor: pointer;
+}
+.yuyue{
+    font-size: 14px;
+}
+.Avdi button,.yuyue button{
+    position: absolute;
+    right: 10px;
+    bottom:10px;
+    padding: 0 10px;
+}
+.yuyue button{
+    bottom:60px;
+}
+.hehehe,.beizhu{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.beizhu:hover,.hehehe:hover{
+    overflow: auto;
+}
+.modelchance{
+    width: 100%;
+    background-color: rgb(239,239,239);
+    overflow: hidden;
+}
+.modelchancer{
+    width: 70%;
+    border-radius:10px; 
+    background: white;
+    overflow: hidden;
+    margin: 50px auto;
+}
+@media screen and (max-width:1000px){
+	.modelchancer{
+		margin: 0 auto;
+	}
+}
+.modelchance-head{
+    height: 50px;
+    width: 95%;
+    line-height: 50px;
+    font-size: 20px;
+    border-bottom: 1px dashed rgb(239,239,239);
+    padding-left: 5%;
+}
+.chancesearch,.chancesearch1,.chancesearch2{
+    margin-top: 20px;
+    height: 30px;
+    width: 96%;
+    margin-left: 2%;
+    background: rgb(239,239,239);
+    line-height: 30px;
+    border-radius: 3px;
+    position: relative;
+}
+.panel-title{
+    margin-left: 20px;
+}
+.chancesearch:before{
+    content: url('../img/search.svg');
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    left: 2px;
+    top: 3px;
+}
+.chancesearch1:before{
+    content: url('../img/alloct.svg');
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    left: 2px;
+    top: 3px;
+}
+.chancesearch2:before{
+    content: url('../img/pen.svg');
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    left: 2px;
+    top: 3px;
+}
+.panel-title:before{
+    content: url('../img/table.svg');
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    left: 2px;
+    top: 8px;
+}
+
+.modelchance-body select{
+    width: 73%;
+}
+.modelchance-body input{
+    width: 28%;
+}
+.modelchance-body span{
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+.polling-allot,#submit_search,#alreadyRegisteredNew,#chancere,#submit_search1,#chancere1,#seasearch,.reset{
+    float: right;
+    padding: 0 10px;
+    margin-left: 10px;
+    color: white;
+    background: #42b983;
+    border: none;
+    border-radius:2px;
+    height: 30px; 
+    width: 50px;
+}
+.modelchance-body>div{
+    float: left;
+    width: 50%;
+    margin-top: 5px;
+}
+@media screen and (max-width:1000px){
+    .modelchancer{
+        width: 100%;
+        left: 0;
+    }
+    .modelchance-body>div{
+        width: 100%;
+    }
+    .modelchance-body input{
+        width: 27%;
+    }
+}
+.createSip{
+    background: #42b983;
+}
+.modelpay,.modelsiptable,.modelphonein,.modelgiveuprr,.modelgiveuprrr,.moab,.modeldiscount,.modelyouhui,.modelprompta,.modelyouhui1,.modelprompt,.modelprompt2,.modelprompt3,.modelprompt1,.model-work-order,.modelcue,.modelorder,.modelphone1,.modelphone2,.modelphone3,.modelstupwd,.modelgiveup,.modeltable,.modelhistory,.modelEngine,.modelallot,.modelsimple,.modelcircul,.modelWX,.modeldel,.modeltarget,.modeltel,.modelreset,.modelrevise{
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+    transition: opacity .3s ease;
+}
+.modelcuer,.modeldisr,.modelorderr,.modelphone1r,.modelphone2r,.modelphone3r,.modelgiveupr,.modeltabler,.modelhistoryr,.modelcirculr,.modeldelr,.modeltargetr{
+    position: absolute;
+    background: white;
+    width: 70%;
+    left: 15%;
+    top: 50px; 
+    border-radius:10px;
+}
+.modelcuer,.modelphone1r,.modelphone2r,.modelphone3r,.modelgiveupr{
+    width: 30%;
+    left: 35%;
+    top:200px;
+}
+.modelcuer-head,.modelorder-head,.modelphone1-head,.modelphone3-head,.modelphone2-head,.modelgiveup-head,.modeltable-head,.modelhistory-head,.modelcircul-head,.modeldel-head,.modeltarget-head{
+    position: relative;
+    height: 50px;
+    width: 95%;
+    line-height: 50px;
+    font-size: 20px;
+    border-bottom: 1px dashed rgb(239,239,239);
+    padding-left: 5%;
+}
+.modelcuer-head button,.modelorder-head button,.modelphone3-head button,.modelphone2-head button,.modelphone1-head button,.modelgiveup-head button,.modeltable-head button,.modelhistory-head button,.modelcircul-head button,.modeldel-head button,.modeltarget-head button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:50px;
+    height: 50px;
+}
+.modelorde-body,.modelcircul-body,.modeldel-body,.modeltarget-body{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.monumber {
+    width: 60%;
+    height:50px;
+    margin-left: 20%;
+    padding-top: 20px;
+}
+.monumber span{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+.monumber input{
+    width:60%;
+}
+@media screen and (max-width:1000px){
+    .modelcuer,.modelorderr,.modelphone1r,.modelphone2r,.modelphone3r,.modelgiveupr,.modeltabler,.modelhistoryr,.modelcirculr,.modeldelr,.modeltargetr{
+        width:100%;
+        left: 0;
+    }
+    .monumber{
+        width: 100%;
+        margin-left: 0;
+    }
+}
+.historyrcontent,.searchcontent{
+    /* border: 1px solid #42b983; */
+    border-radius: 5px;
+    padding: 10px;
+}
+.allothid button,.delhid button,.targethid button,.resethid button,.revisehid button{
+    padding: 0 20px;
+}
+.modeltable table{
+    border-collapse:collapse;
+    border:1px solid rgb(204,204,204);
+    width:90%;
+    margin: 0 auto;
+}
+.modeltable table td {
+    border:1px solid rgb(204,204,204);
+    /* padding:5px; */
+    text-align: center;
+    width:20%;
+    height:40px;
+}
+.laba{
+    background:#42b983 url('../img/laba.svg') 2px 5px no-repeat;
+    /* color: black */
+}
+.chancesearchp,.chancesearchp1{
+
+    background-repeat:no-repeat; 
+    background-position-x: 99%;
+    background-position-y: 50%;
+}

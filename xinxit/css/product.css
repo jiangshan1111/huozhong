@@ -1,0 +1,369 @@
+/*
+  name:product2017
+  author:ymy
+  about:产品的样式表
+  description：产品包括互动课程，智能题库，问答系统，移动嗨学的详细介绍页面
+ */
+ @font-face {
+    font-family: 'PingFang-SC-Regular';
+    src: url('../fonts/PingFang Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'PingFang-SC-Medium';
+    src: url('../fonts/PingFang Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'PingFang-SC-Light';
+    src: url('../fonts/PingFang Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /**
+   * author:ymy
+   * about:网站改版的新的公共样式
+   *       其中包括：
+   *            按钮统一
+   *            登录统一的头部、底部
+   *            网站统一的字体
+   * addDate：2017-3-22
+   */
+  html,
+  body {
+    font-family: "PingFang-SC-Regular", "PingFang SC", "微软雅黑", "Microsoft YaHei";
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  ul,
+  li,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  input {
+    margin: 0;
+    padding: 0;
+  }
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  input {
+    outline: none;
+  }
+  li {
+    list-style: none;
+  }
+  em {
+    display: inline-block;
+  }
+  img {
+    border: none;
+  }
+  /**
+   * 头部部分
+   * description:此部分是包括所有的头部的样式
+   *              1、登录，以及相关二级页面的头部 login-header
+   *              2、登录之后页面的头部
+   */
+  .login-header {
+    position: fixed;
+    z-index: 2;
+    height: 66px;
+    line-height: 66px;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.32) 65%);
+    width: 100%;
+  }
+  .login-header .lh-con {
+    width: 1170px;
+    height: 66px;
+    margin: 0 auto;
+  }
+  .login-header .lh-con .logo {
+    width: 160px;
+    height: 17px;
+    display: inline-block;
+    float: left;
+  }
+  .login-header .lh-con .logo img {
+    width: 100%;
+  }
+  .login-header .lh-con ul {
+    float: right;
+  }
+  .login-header .lh-con ul li {
+    margin-left: 0;
+    margin-right: 49px;
+    float: left;
+  }
+  .login-header .lh-con ul li:hover,
+  .login-header .lh-con ul li.current {
+    border-top: 3px solid #4a90ff;
+    line-height: 60px;
+  }
+  .login-header .lh-con ul li:hover a,
+  .login-header .lh-con ul li.current a {
+    color: #4a90ff;
+    text-decoration: none;
+  }
+  .login-header .lh-con ul li a {
+    color: #fff;
+    width: 57px;
+    display: inline-block;
+    letter-spacing: 0.16px;
+  }
+  .login-footer {
+    width: 100%;
+    background: #1e2634;
+  }
+  .login-footer .lf-con {
+    height: 215px;
+    width: 1150px;
+    margin: 0 auto;
+    color: #fff;
+    margin-top: 52px;
+    margin-bottom: 0;
+  }
+  .login-footer .lf-con .part-ewm .ewm {
+    width: 88px;
+    float: left;
+    text-align: center;
+    color: #748498;
+    margin-right: 48px;
+    font-size: 12px;
+  }
+  .login-footer .lf-con .part-ewm .ewm p {
+    margin-top: 12px;
+  }
+  .login-footer .lf-con .part-ewm .ewm1 {
+    margin-left: 80px;
+  }
+  .login-footer .lf-con .part-con {
+    float: left;
+    padding-left: 76px;
+  }
+  .login-footer .lf-con .part-con .links a {
+    color: #fff;
+    font-size: 16px;
+    margin-right: 35px;
+    letter-spacing: 0.19px;
+  }
+  .login-footer .lf-con .part-con .links a:hover {
+    color: #4a90ff;
+  }
+  .login-footer .lf-con .part-con .f-cooperation {
+    margin-top: 40px;
+    margin-bottom: 14px;
+  }
+  .login-footer .lf-con .part-con .f-cooperation .borC {
+    margin-right: 9px;
+    display: inline-block;
+    width: 64px;
+    height: 24px;
+  }
+  .login-footer .lf-con .part-con .fText {
+    font-size: 12px;
+    color: #748498;
+  }
+  .login-footer .lf-con .part-con .fText a {
+    color: #748498;
+  }
+  /***
+   * 重写bootstrap navbar 用于首页及二级页面头部导航
+   * Cici Cheng
+   */
+  .morebtn {
+    display: inline-block;
+    width: 109px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #4a90ff;
+    background: #fff;
+    color: #4a90ff;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    font-size: 12px;
+    margin-top: 18px;
+    text-align: center;
+  }
+  .morebtn:hover {
+    background: #4a90ff;
+    color: #fff;
+  }
+  .morebtn .trangle-right {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 3.5px 0 3.5px 5px;
+    border-left-color: #4a90ff;
+    border-bottom-color: rgba(74, 144, 255, 0);
+    border-top-color: rgba(74, 144, 255, 0);
+    *border-style: dashed  dashed  dashed solid;
+    display: inline-block;
+    margin-left: 8px;
+  }
+  .morebtn:hover {
+    text-decoration: none;
+  }
+  .morebtn:hover .trangle-right {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 3.5px 0 3.5px 5px;
+    border-left-color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    *border-style: dashed  dashed  dashed solid;
+  }
+  @media (max-width: 1025px) {
+    .login-footer .lf-con {
+      width: 970px;
+    }
+    .login-footer .lf-con .part-con {
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+  }
+  @media (max-width: 767px) {
+    .login-footer .lf-con {
+      width: 750px;
+    }
+  }
+  .product-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 60px;
+  }
+  .product-header-logo {
+    margin-top: 19px;
+    width: 85px;
+    height: 22px;
+  }
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .section {
+    color: #335881;
+  }
+  .section .f16 {
+    font-size: 16px;
+    letter-spacing: 0.19px;
+    line-height: 22px;
+    margin: 0;
+  }
+  .section .f36 {
+    font-size: 36px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .section .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  .section.product-section1 {
+    text-align: center;
+  }
+  .section.product-section1 .imgarea {
+    margin: 0 auto;
+    width: 974px;
+  }
+  .section.product-section2 {
+    text-align: center;
+    height: 400px;
+    background: #F6F8FB;
+    margin-top: 46px;
+  }
+  .section.product-section2 .font-area {
+    margin: 0 auto;
+    margin-top: 147px;
+    text-align: left;
+    width: 350px;
+  }
+  .section.product-section2 .imgarea {
+    margin: 0 auto;
+    margin-top: 91px;
+    width: 431px;
+  }
+  .section.product-section2 .imgarea.askimgarea {
+    margin-top: 55px;
+  }
+  .section.product-section3 {
+    text-align: center;
+    height: 400px;
+  }
+  .section.product-section3 .font-area {
+    margin: 0 auto;
+    margin-top: 147px;
+    text-align: left;
+    width: 390px;
+  }
+  .section.product-section3 .imgarea {
+    margin: 0 auto;
+    width: 488px;
+    margin-top: 70px;
+  }
+  .section.product-section4 {
+    text-align: center;
+    height: 400px;
+    background: #F6F8FB;
+  }
+  .section.product-section4 .font-area {
+    margin: 0 auto;
+    margin-top: 147px;
+    text-align: left;
+    width: 360px;
+  }
+  .section.product-section4 .imgarea {
+    margin: 0 auto;
+    width: 396px;
+    margin-top: 70px;
+  }
+  .section.product-section4 .imgarea.examimgarea {
+    margin-top: 115px;
+  }
+  .section.product-section5 {
+    text-align: center;
+    height: 400px;
+  }
+  .section.product-section5 .font-area {
+    margin: 0 auto;
+    margin-top: 147px;
+    text-align: left;
+    width: 375px;
+  }
+  .section.product-section5 .imgarea {
+    margin: 0 auto;
+    width: 488px;
+    margin-top: 70px;
+  }
+  .section.product-section5.exam-section5 {
+    margin-bottom: 104px;
+  }
+  @media (min-width: 1200px) {
+    .container-fluid {
+      width: 1200px;
+    }
+  }
+  .footer-credit {
+    display: inline-block;
+    width: 64px;
+    height: 24px;
+  }

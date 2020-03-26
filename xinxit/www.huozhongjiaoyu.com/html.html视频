@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<div>
+                    <span style="line-height:150px">学校盖章：</span>
+                    <img src="http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg" class="schoolcachet"  alt="" width="150px" height="150px" style="margin-left:30px;vertical-align:middle;">
+                    <div>填写日期：<span>2019</span>年&nbsp;<span>3</span>&nbsp;月&nbsp;<span>1</span>&nbsp;日</div>
+				</div>-->
+				<video id="media" src="mzd.mp4" muted loop  controls="controls" autoplay="autoplay" width="400px" heigt="400px"></video>
+               <!-- <video src="mzd.mp4"  controls="controls" autoplay="autoplay" width="400px" heigt="400px"></video>
+                <video controls="controls" autoplay="autoplay" width="400px" heigt="400px">
+                	<source src="mzd.mp4" type="video/mp4"></source>
+                	<source src="mzd.ogv" type="video/ogg"></source>
+                	<source src="mzd.webm" type="video/webm"></source>
+                	<object width="" height="" type="application/x-shockwave-flash" data="mzd.swf">
+                		<param name="movie" value="mzd.swf" />
+                		<param name="flashvars" value="autostart=true&amp;file=mzd.swf" />
+                	</object>
+                	当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+				</video> -->
+				<script src="jquery-1.11.3.min.js"></script>
+				<script>
+					var Video = document.getElementById('media');
+					$.ajax({
+						url:'http://destine.huozhongedu.com/vendor/getfile.php?object=video/mda-jgrc0zjwv2vu85g2.mp4',
+						data:{},
+						dataType:'',
+						type:'get',
+						success:function(data){
+							Video.src = data;
+						},
+						error:function(){
+
+						}
+					})
+				</script>
+	</body>
+</html>

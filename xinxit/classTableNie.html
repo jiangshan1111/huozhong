@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>班表操作</title>
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+    <link href="css/styles.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Advisory.css">
+    <link rel="stylesheet" href="css/polling.css">
+    <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <style>
+        #polling-header-top {
+            height: 30px;
+            background: rgb(248, 248, 248);
+        }
+
+        #polling-header-top>p {
+            line-height: 30px;
+        }
+
+        .im_table td {
+            border: 1px solid rgb(204, 204, 204);
+            text-align: center;
+            width: 11.1%;
+            height: 30px;
+        }
+    </style>
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <!-- block -->
+            <div class="block">
+                <div class="span12" id="polling-header">
+                    <div class=" span12 " id="polling-header-top" style="margin-left:0">
+                        <p class="polling-headerp" style="background-image: url('img/up.svg');"><span></span>查询条件</p>
+                    </div>
+                    <div class=" span12 " id="polling-header-body" style="overflow:hidden;display: none;margin-left:0">
+                        <form style="position:relative;" name="seaform" id="seaform">
+                            <div class="span6"><span>咨询师：</span><select name="group_name" id="">
+                                    <!-- <option value="">请选择</option>  -->
+                                    <option value="">请选择姓名</option>
+                                    <option value="1">jiangshan-1</option>
+                                    <option value="2">jiangshan-1</option>
+                                    <option value="7">jiangsha-1</option>
+                                    <option value="8">jiangsh-1</option>
+                                    <option value="9">jiangs-1</option>
+                                    <option value="3">jiangshan-2</option>
+                                    <option value="4">jiangshan-3</option>
+                                    <option value="5">jiangshan-4</option>
+                                    <option value="6">jiangshan-5</option>
+                                </select></div>
+                            <div class="span6"><span>搜索：</span>
+                                <input type="text" class="search_input">
+                            </div>
+                            <div class="span6">
+                                <span>查询时间：</span><input class="Wdate" type="text" style="width:23%"
+                                    onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="last_time1"
+                                    placeholder="日期">
+                                <span style="width:10%;text-align:center">至</span>
+                                <input class="Wdate" type="text" style="width:23%"
+                                    onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="last_time2"
+                                    placeholder="日期">
+                            </div>
+                            <input type="button" class="reset" value="重置" style="margin-right:30px"></input>
+                            <input type="button" id="seasearch" class="seasearch" value="查询"></input>
+
+                        </form>
+                    </div>
+                    <div class=" span12 " id="polling-header-top" style="margin-left:0">
+                        <p class="polling-allotp" style="background-image: url('img/up.svg');"><span></span>数据开关</p>
+                    </div>
+                    <div class=" span12 " id="polling-allot-body" style="overflow:hidden;display: none;margin-left:0">
+                        <div style="position:relative;" id="seaform1">
+                            <div class="span6"><span>条件：</span>
+                                <select name="polling-search" id="">
+                                    <option value="user">按人</option>
+                                    <option value="group">按小组</option>
+                                    <option value="sector">按部门</option>
+                                    <option value="army">按军团</option>
+                                    <option value="project">按项目</option>
+                                </select></div>
+                            <div class="span6"><span>姓名：</span>
+                                <select name="polling-account" id="">
+                                    <option value="">请选择姓名</option>
+                                    <option value="1">jiangshan-1</option>
+                                    <option value="2">jiangshan-1</option>
+                                    <option value="7">jiangsha-1</option>
+                                    <option value="8">jiangsh-1</option>
+                                    <option value="9">jiangs-1</option>
+                                    <option value="3">jiangshan-2</option>
+                                    <option value="4">jiangshan-3</option>
+                                    <option value="5">jiangshan-4</option>
+                                    <option value="6">jiangshan-5</option>
+                                </select></div>
+                            <div class="span6"><span>搜索：</span>
+                                <input type="text" name="polling-name" placeholder="请输入咨询师正确信息"></div>
+                            <div class="span6">
+                                <span>限制时间：</span><input class="Wdate" type="text" style="width:23%"
+                                    onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="limit_time1"
+                                    placeholder="日期">
+                                <span style="width:10%;text-align:center">至</span>
+                                <input class="Wdate" type="text" style="width:23%"
+                                    onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="limit_time2"
+                                    placeholder="日期">
+                            </div>
+                            <input type="button" class="polling-allot" value="分配" style="margin-right:30px"></input>
+                            <span class="polling-allotspan" style="float:right;color:#42b983"></span>
+                        </div>
+                    </div>
+                    <div class=" span12 " id="polling-header-footer" style="margin-left:0">
+                        <div class="block-content collapse in">
+                            <div class="span12">
+                                <div style="overflow:auto">
+                                    <table id="datagrid2" title="领取数据列表" style="width:100%;height:400px"
+                                        data-options="rownumbers:true,singleSelect:true,pagination:true,pageSize:10,pagelist:[10,20,30]">
+
+
+                                        <thead data-options="frozen:true">
+                                            <tr class="content">
+                                                <!-- <th data-options="field:'ck',checkbox:true"></th> -->
+                                                <th data-options="field:'date_time',width:160,align:'center'">日期</th>
+                                                <th data-options="field:'user_name',width:160,align:'center',sortable:true,
+                                                    sorter:function (a,b) {
+                                                        return a.localeCompare(b);
+                                                    }">姓名</th>
+                                                <th data-options="field:'group',width:160,align:'center'">组别</th>
+                                            </tr>
+                                        </thead>
+                                        <thead>
+
+                                            <th data-options="field:'grade',width:160,align:'center',editor:{
+                                                        type:'combobox',
+                                                        options:{
+                                                            valueField:'grade',
+                                                            textField:'text',
+                                                            panelHeight:'auto',
+                                                            data:[{'text':'A','grade':'A'},{'text':'B','grade':'B'},{'text':'C','grade':'C'},{'text':'D','grade':'D'}]
+                                                        }
+                                                    }">等级</th>
+                                            <th
+                                                data-options="field:'max_num',width:160,align:'center' ,editor:'textbox'">
+                                                上限</th>
+                                            <th data-options="field:'rate',width:160,align:'center'">效率值</th>
+                                            <th data-options="field:'alloc_num',width:160,align:'center'">当前分配数</th>
+                                            <th data-options="field:'work_type',width:160,align:'center',editor:{
+                                                        type:'combobox',
+                                                        options:{
+                                                            valueField:'work_type',
+                                                            textField:'text',
+                                                            panelHeight:'auto',
+                                                            data:[{'text':'白班','work_type':'白班'},{'text':'白加','work_type':'白加'},{'text':'请假','work_type':'请假'},{'text':'加班','work_type':'加班'}]
+                                                        }
+                                                    }">班次</th>
+
+
+
+                                        </thead>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modelprompt1">
+        <div class="modelcuer">
+            <div class="modelcuer-head">
+                <p style="color:#42b983">提示</p>
+                <button class="promptx1">X</button>
+            </div>
+            <div class="modeldel-body">
+                <div class="monumber">
+                    <p class="promptp1" style="color:#42b983;"></p>
+                    <button class="promptx1" style="padding:0px 30px">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="model-work-order" style="overflow:auto">
+        <div class="modelorderr" style="top:10%">
+            <div class="modeldel-head">
+                <p style="color:#42b983">上传表格<span style="font-size:12px"></span></p>
+                <button class="work-orderx" style="">X</button>
+            </div>
+            <div class="modeldel-body">
+                <div class="monumber"><span>表格：</span>
+                    <input type="file" name="oldpwd" onchange="importf(this)">
+                </div>
+                <div style="max-height:350px;overflow: auto">
+                    <table class="im_table" style="    border-collapse: collapse;
+                border: 1px solid rgb(204,204,204);
+                width: 95%;
+                margin: 0 auto;
+                padding: 10px;">
+                        <tr>
+                            <td>姓名</td>
+                            <td>项目</td>
+                            <td>军团</td>
+                            <td>部门</td>
+                            <td>组别</td>
+                            <td>等级</td>
+                            <td>班次</td>
+                            <td>时间</td>
+                            <td>uid</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p class="revisep" style="color:#42b983;">hehe</p>
+
+                <button style="padding:0px 30px" class="revisewen">提交</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="js/xlcx.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/export.js"></script>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+<script>
+    $('.work-orderx').click(function () {
+        $('.model-work-order').css('display', 'none')
+    })
+    /*
+    FileReader共有4种读取方法：
+    1.readAsArrayBuffer(file)：将文件读取为ArrayBuffer。
+    2.readAsBinaryString(file)：将文件读取为二进制字符串
+    3.readAsDataURL(file)：将文件读取为Data URL
+    4.readAsText(file, [encoding])：将文件读取为文本，encoding缺省值为'UTF-8'
+                 */
+    var wb; //读取完成的数据
+    var rABS = false; //是否将文件读取为二进制字符串
+    var js;
+    var obja = [];
+
+    function importf(obj) { //导入
+        $('.im_table')[0].innerHTML = `
+            <tr>
+                        <td>姓名</td>
+                        <td>项目</td>
+                        <td>军团</td>
+                        <td>部门</td>
+                        <td>组别</td>
+                        <td>等级</td>
+                        <td>班次</td>
+                        <td>时间</td>
+                        <td>uid</td>
+                    </tr>
+            `
+        obja = [];
+        if (!obj.files) {
+            return;
+        }
+        var f = obj.files[0];
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var data = e.target.result;
+            if (rABS) {
+                wb = XLSX.read(btoa(fixdata(data)), { //手动转化
+                    type: 'base64'
+                });
+            } else {
+                wb = XLSX.read(data, {
+                    type: 'binary'
+                });
+            }
+            //wb.SheetNames[0]是获取Sheets中第一个Sheet的名字
+            //wb.Sheets[Sheet名]获取第一个Sheet的数据
+            wb.Sheets[wb.SheetNames[0]].A1.w = "user_name";
+            wb.Sheets[wb.SheetNames[0]].B1.w = "project";
+            wb.Sheets[wb.SheetNames[0]].C1.w = "army";
+            wb.Sheets[wb.SheetNames[0]].D1.w = "sector";
+            wb.Sheets[wb.SheetNames[0]].E1.w = "group";
+            wb.Sheets[wb.SheetNames[0]].F1.w = "grade";
+            console.log(wb.Sheets[wb.SheetNames[0]]);
+            js = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
+            console.log(js);
+            var ob = [];
+            for (let i = 0; i < js.length; i++) {
+                for (var k in js[i]) {
+                    if (k != 'user_name' && k != 'project' && k != 'group' && k != 'grade' && k != 'sector' && k !=
+                        'army') {
+                        var jsonc = {};
+                        jsonc.user_name = js[i].user_name;
+                        jsonc.project = js[i].project;
+                        jsonc.army = js[i].army;
+                        jsonc.sector = js[i].sector;
+                        jsonc.group = js[i].group;
+                        jsonc.grade = js[i].grade;
+                        jsonc.time = k;
+                        jsonc.class = js[i][k];
+                        ob.push(jsonc)
+                    }
+                }
+            }
+            console.log(ob)
+            // return;
+            js = ob;
+            console.log(js)
+            data = [{
+                    "uid": 230,
+                    "group": "第三军团三部一组",
+                    "user_name": "孙佳敏"
+                },
+                {
+                    "uid": 238,
+                    "group": "消防三部一组",
+                    "user_name": "马国明"
+                },
+                {
+                    "uid": 239,
+                    "group": "消防三部一组",
+                    "user_name": "母秋梅"
+                },
+                {
+                    "uid": 276,
+                    "group": "消防一部一组",
+                    "user_name": "范振翠"
+                },
+                {
+                    "uid": 304,
+                    "group": "消防一部一组",
+                    "user_name": "夏婉"
+                },
+                {
+                    "uid": 728,
+                    "group": "消防二部二组",
+                    "user_name": "李泉"
+                },
+                {
+                    "uid": 741,
+                    "group": "消防二部一组",
+                    "user_name": "任崇佑"
+                },
+                {
+                    "uid": 760,
+                    "group": "消防二部一组",
+                    "user_name": "毕雪花"
+                },
+                {
+                    "uid": 785,
+                    "group": "消防二部二组",
+                    "user_name": "袁学文"
+                },
+                {
+                    "uid": 834,
+                    "group": "消防四部二组",
+                    "user_name": "刘淑荣"
+                },
+                {
+                    "uid": 865,
+                    "group": "消防四部一组",
+                    "user_name": "马晓亭"
+                },
+                {
+                    "uid": 948,
+                    "group": "培训组",
+                    "user_name": "Jackson"
+                },
+                {
+                    "uid": 924,
+                    "group": "消防二部二组",
+                    "user_name": "黄亮"
+                },
+                {
+                    "uid": 937,
+                    "group": "消防四部一组",
+                    "user_name": "聂阳"
+                },
+                {
+                    "uid": 996,
+                    "group": "消防三部二组",
+                    "user_name": "范赛楠"
+                },
+                {
+                    "uid": 1009,
+                    "group": "消防五部一组",
+                    "user_name": "唐金龙"
+                },
+                {
+                    "uid": 1010,
+                    "group": "消防五部一组",
+                    "user_name": "韩卫宁"
+                },
+                {
+                    "uid": 1014,
+                    "group": "消防五部一组",
+                    "user_name": "崔思斌"
+                },
+                {
+                    "uid": 1018,
+                    "group": "消防一部一组",
+                    "user_name": "程宇"
+                },
+                {
+                    "uid": 1039,
+                    "group": "消防一部三组",
+                    "user_name": "吴远涛"
+                },
+                {
+                    "uid": 1055,
+                    "group": "消防二部二组",
+                    "user_name": "郝海红"
+                },
+                {
+                    "uid": 1152,
+                    "group": "消防五部三组",
+                    "user_name": "许海潮"
+                },
+                {
+                    "uid": 1084,
+                    "group": "消防三部三组",
+                    "user_name": "曹荷花"
+                },
+                {
+                    "uid": 1135,
+                    "group": "消防六部一组",
+                    "user_name": "雷昆仑"
+                },
+                {
+                    "uid": 1138,
+                    "group": "消防六部二组",
+                    "user_name": "张凤云"
+                },
+                {
+                    "uid": 1255,
+                    "group": "消防一部二组",
+                    "user_name": "胡苗苗"
+                },
+                {
+                    "uid": 1137,
+                    "group": "消防六部一组",
+                    "user_name": "袁和侠"
+                },
+                {
+                    "uid": 1128,
+                    "group": "消防六部一组",
+                    "user_name": "花海川"
+                },
+                {
+                    "uid": 1141,
+                    "group": "消防三部三组",
+                    "user_name": "郝丽君"
+                },
+                {
+                    "uid": 1144,
+                    "group": "消防三部二组",
+                    "user_name": "孟庆铎"
+                },
+                {
+                    "uid": 1145,
+                    "group": "消防三部三组",
+                    "user_name": "程蕻文"
+                },
+                {
+                    "uid": 1174,
+                    "group": "消防三部二组",
+                    "user_name": "李丹"
+                },
+                {
+                    "uid": 1154,
+                    "group": "消防六部一组",
+                    "user_name": "赵真银"
+                },
+                {
+                    "uid": 1293,
+                    "group": "消防六部三组",
+                    "user_name": "阎云飞"
+                },
+                {
+                    "uid": 1208,
+                    "group": "消防三部一组",
+                    "user_name": "严勇"
+                },
+                {
+                    "uid": 1252,
+                    "group": "消防六部一组",
+                    "user_name": "侯福建"
+                },
+                {
+                    "uid": 1205,
+                    "group": "消防三部三组",
+                    "user_name": "张志强"
+                },
+                {
+                    "uid": 1181,
+                    "group": "消防三部三组",
+                    "user_name": "郭书铭"
+                },
+                {
+                    "uid": 1199,
+                    "group": "消防六部三组",
+                    "user_name": "张娜娜"
+                },
+                {
+                    "uid": 1209,
+                    "group": "消防一部一组",
+                    "user_name": "袁伟彤"
+                },
+                {
+                    "uid": 1192,
+                    "group": "消防一部一组",
+                    "user_name": "徐春明"
+                },
+                {
+                    "uid": 1220,
+                    "group": "消防六部三组",
+                    "user_name": "罗兴"
+                },
+                {
+                    "uid": 1221,
+                    "group": "消防六部三组",
+                    "user_name": "蔡云峰"
+                },
+                {
+                    "uid": 1236,
+                    "group": "消防五部三组",
+                    "user_name": "许清东"
+                },
+                {
+                    "uid": 1619,
+                    "group": "消升六部三组",
+                    "user_name": "王璐"
+                },
+                {
+                    "uid": 1245,
+                    "group": "消防二部三组",
+                    "user_name": "韩志明"
+                },
+                {
+                    "uid": 1367,
+                    "group": "消防四部一组",
+                    "user_name": "任恩赐"
+                },
+                {
+                    "uid": 1260,
+                    "group": "消升二部二组",
+                    "user_name": "付春喜"
+                },
+                {
+                    "uid": 1300,
+                    "group": "消升四部二组",
+                    "user_name": "高玉明"
+                },
+                {
+                    "uid": 1306,
+                    "group": "消升三部一组",
+                    "user_name": "马世超"
+                },
+                {
+                    "uid": 1311,
+                    "group": "消防一部二组",
+                    "user_name": "赵凌"
+                },
+                {
+                    "uid": 1313,
+                    "group": "消防五部二组",
+                    "user_name": "任晓祥"
+                },
+                {
+                    "uid": 1320,
+                    "group": "消防六部三组",
+                    "user_name": "霍洪磊"
+                },
+                {
+                    "uid": 1321,
+                    "group": "消防一部一组",
+                    "user_name": "张兰"
+                },
+                {
+                    "uid": 1324,
+                    "group": "消升一部三组",
+                    "user_name": "胡晓磊"
+                },
+                {
+                    "uid": 1327,
+                    "group": "消防六部一组",
+                    "user_name": "刘佳伟"
+                },
+                {
+                    "uid": 1338,
+                    "group": "消防一部二组",
+                    "user_name": "肖湘"
+                },
+                {
+                    "uid": 1341,
+                    "group": "消防四部一组",
+                    "user_name": "于江滨"
+                },
+                {
+                    "uid": 1347,
+                    "group": "消防六部三组",
+                    "user_name": "孙佳敏"
+                },
+                {
+                    "uid": 1369,
+                    "group": "消防五部三组",
+                    "user_name": "孙美浩"
+                },
+                {
+                    "uid": 1442,
+                    "group": "消防六部三组",
+                    "user_name": "王绪州"
+                },
+                {
+                    "uid": 1464,
+                    "group": "消升四部二组",
+                    "user_name": "李海龙"
+                },
+                {
+                    "uid": 1392,
+                    "group": "消升三部三组",
+                    "user_name": "王志强"
+                },
+                {
+                    "uid": 1404,
+                    "group": "消防五部二组",
+                    "user_name": "陈垚"
+                },
+                {
+                    "uid": 1409,
+                    "group": "消防五部一组",
+                    "user_name": "张跃宇"
+                },
+                {
+                    "uid": 1426,
+                    "group": "消防二部一组",
+                    "user_name": "耿玉霞"
+                },
+                {
+                    "uid": 1412,
+                    "group": "消防五部三组",
+                    "user_name": "江慧怡"
+                },
+                {
+                    "uid": 1438,
+                    "group": "消防二部一组",
+                    "user_name": "马骥"
+                },
+                {
+                    "uid": 1421,
+                    "group": "消防三部一组",
+                    "user_name": "邢骥"
+                },
+                {
+                    "uid": 1463,
+                    "group": "消升四部一组",
+                    "user_name": "段岳飞"
+                },
+                {
+                    "uid": 1430,
+                    "group": "消防一部二组",
+                    "user_name": "乔昱博"
+                },
+                {
+                    "uid": 1439,
+                    "group": "消防五部一组",
+                    "user_name": "陈雪"
+                },
+                {
+                    "uid": 1451,
+                    "group": "消防六部二组",
+                    "user_name": "崔月"
+                },
+                {
+                    "uid": 1453,
+                    "group": "消防二部三组",
+                    "user_name": "白金铭"
+                },
+                {
+                    "uid": 1460,
+                    "group": "消升一部一组",
+                    "user_name": "王建伟"
+                },
+                {
+                    "uid": 1471,
+                    "group": "消升二部二组",
+                    "user_name": "李晨"
+                },
+                {
+                    "uid": 1461,
+                    "group": "消升一部一组",
+                    "user_name": "王丹平"
+                },
+                {
+                    "uid": 1470,
+                    "group": "消升二部一组",
+                    "user_name": "张玉山"
+                },
+                {
+                    "uid": 1473,
+                    "group": "消防一部一组",
+                    "user_name": "周树壮"
+                },
+                {
+                    "uid": 1615,
+                    "group": "消升六部一组",
+                    "user_name": "梁中原"
+                },
+                {
+                    "uid": 1475,
+                    "group": "消防五部一组",
+                    "user_name": "张健"
+                },
+                {
+                    "uid": 1478,
+                    "group": "消防五部一组",
+                    "user_name": "唐启宇"
+                },
+                {
+                    "uid": 1479,
+                    "group": "消防五部二组",
+                    "user_name": "孙荣旺"
+                },
+                {
+                    "uid": 1490,
+                    "group": "消防四部三组",
+                    "user_name": "刘旭焱"
+                },
+                {
+                    "uid": 1491,
+                    "group": "消防四部三组",
+                    "user_name": "张建琴"
+                },
+                {
+                    "uid": 1492,
+                    "group": "消防四部三组",
+                    "user_name": "苗云飞"
+                },
+                {
+                    "uid": 1609,
+                    "group": "消升三部一组",
+                    "user_name": "郝玉赫"
+                },
+                {
+                    "uid": 1497,
+                    "group": "消防一部二组",
+                    "user_name": "方超"
+                },
+                {
+                    "uid": 1498,
+                    "group": "消防一部二组",
+                    "user_name": "郝王飞"
+                },
+                {
+                    "uid": 1503,
+                    "group": "职称一部一组",
+                    "user_name": "吴彪"
+                },
+                {
+                    "uid": 1505,
+                    "group": "消升五部一组",
+                    "user_name": "韩士超"
+                },
+                {
+                    "uid": 1507,
+                    "group": "消升五部三组",
+                    "user_name": "李佳琳"
+                },
+                {
+                    "uid": 1508,
+                    "group": "消升五部三组",
+                    "user_name": "吴长剑"
+                },
+                {
+                    "uid": 1509,
+                    "group": "消升三部二组",
+                    "user_name": "赵微"
+                },
+                {
+                    "uid": 1510,
+                    "group": "消升六部一组",
+                    "user_name": "王海康"
+                },
+                {
+                    "uid": 1511,
+                    "group": "消升六部一组",
+                    "user_name": "卫延远"
+                },
+                {
+                    "uid": 1526,
+                    "group": "消防一部三组",
+                    "user_name": "张生"
+                },
+                {
+                    "uid": 1543,
+                    "group": "消升三部一组",
+                    "user_name": "马响"
+                },
+                {
+                    "uid": 1604,
+                    "group": "消升二部一组",
+                    "user_name": "王坤"
+                },
+                {
+                    "uid": 1527,
+                    "group": "消防四部二组",
+                    "user_name": "朱安超"
+                },
+                {
+                    "uid": 1616,
+                    "group": "消升六部二组",
+                    "user_name": "安国琪"
+                },
+                {
+                    "uid": 1529,
+                    "group": "消防二部三组",
+                    "user_name": "周洋"
+                },
+                {
+                    "uid": 1608,
+                    "group": "消升三部二组",
+                    "user_name": "贺跃峰"
+                },
+                {
+                    "uid": 1606,
+                    "group": "消升二部一组",
+                    "user_name": "张世童"
+                },
+                {
+                    "uid": 1535,
+                    "group": "消防六部一组",
+                    "user_name": "王娜燕"
+                },
+                {
+                    "uid": 1536,
+                    "group": "消防二部三组",
+                    "user_name": "于海勇"
+                },
+                {
+                    "uid": 1537,
+                    "group": "消防五部二组",
+                    "user_name": "曾庆华"
+                },
+                {
+                    "uid": 1538,
+                    "group": "消防五部二组",
+                    "user_name": "岳彩霞"
+                },
+                {
+                    "uid": 1542,
+                    "group": "消防三部二组",
+                    "user_name": "姚钰玲"
+                },
+                {
+                    "uid": 1547,
+                    "group": "消防一部一组",
+                    "user_name": "王丽君"
+                },
+                {
+                    "uid": 1571,
+                    "group": "消防三部二组",
+                    "user_name": "郑宇亭"
+                },
+                {
+                    "uid": 1565,
+                    "group": "消防五部三组",
+                    "user_name": "梅鸿飞"
+                },
+                {
+                    "uid": 1557,
+                    "group": "消防四部一组",
+                    "user_name": "李航"
+                },
+                {
+                    "uid": 1554,
+                    "group": "消防三部三组",
+                    "user_name": "王亚飞"
+                },
+                {
+                    "uid": 1569,
+                    "group": "消防六部三组",
+                    "user_name": "王天帅"
+                },
+                {
+                    "uid": 1572,
+                    "group": "消防三部二组",
+                    "user_name": "何李慧"
+                },
+                {
+                    "uid": 1570,
+                    "group": "消防一部三组",
+                    "user_name": "焦龙"
+                },
+                {
+                    "uid": 1567,
+                    "group": "消防五部一组",
+                    "user_name": "周珂珂"
+                },
+                {
+                    "uid": 1613,
+                    "group": "消升五部一组",
+                    "user_name": "王艳敏"
+                },
+                {
+                    "uid": 1568,
+                    "group": "消防四部三组",
+                    "user_name": "柴晓伟"
+                },
+                {
+                    "uid": 1574,
+                    "group": "消防三部三组",
+                    "user_name": "杨义杰"
+                },
+                {
+                    "uid": 1598,
+                    "group": "消防二部一组",
+                    "user_name": "王美惠"
+                },
+                {
+                    "uid": 1575,
+                    "group": "消防一部二组",
+                    "user_name": "程生金"
+                },
+                {
+                    "uid": 1578,
+                    "group": "消防二部三组",
+                    "user_name": "文进丽"
+                },
+                {
+                    "uid": 1579,
+                    "group": "消防二部三组",
+                    "user_name": "高智慧"
+                },
+                {
+                    "uid": 1581,
+                    "group": "消防四部三组",
+                    "user_name": "吕晓红"
+                },
+                {
+                    "uid": 1582,
+                    "group": "消防一部二组",
+                    "user_name": "魏程鹏"
+                },
+                {
+                    "uid": 1614,
+                    "group": "消升五部三组",
+                    "user_name": "张乐"
+                },
+                {
+                    "uid": 1607,
+                    "group": "消防三部一组",
+                    "user_name": "乔亚周"
+                },
+                {
+                    "uid": 1595,
+                    "group": "消防六部二组",
+                    "user_name": "寇志文"
+                },
+                {
+                    "uid": 1590,
+                    "group": "消防二部三组",
+                    "user_name": "邢凯强"
+                },
+                {
+                    "uid": 1628,
+                    "group": "消防六部二组",
+                    "user_name": "吴丹丹"
+                },
+                {
+                    "uid": 1587,
+                    "group": "消防一部一组",
+                    "user_name": "唐小育"
+                },
+                {
+                    "uid": 1591,
+                    "group": "消防一部二组",
+                    "user_name": "许连志"
+                },
+                {
+                    "uid": 1602,
+                    "group": "消升三部三组",
+                    "user_name": "潘进进"
+                },
+                {
+                    "uid": 1596,
+                    "group": "消防四部三组",
+                    "user_name": "杨鹏超"
+                },
+                {
+                    "uid": 1601,
+                    "group": "消升三部三组",
+                    "user_name": "张晓晨"
+                },
+                {
+                    "uid": 1600,
+                    "group": "消升一部三组",
+                    "user_name": "张磊"
+                },
+                {
+                    "uid": 1617,
+                    "group": "消升六部二组",
+                    "user_name": "陈嘉奇"
+                },
+                {
+                    "uid": 1620,
+                    "group": "消升二部三组",
+                    "user_name": "费重重"
+                },
+                {
+                    "uid": 1624,
+                    "group": "消防三部二组",
+                    "user_name": "张泽乾"
+                },
+                {
+                    "uid": 1621,
+                    "group": "消防四部三组",
+                    "user_name": "胡健"
+                },
+                {
+                    "uid": 1629,
+                    "group": "消防一部三组",
+                    "user_name": "邸静静"
+                },
+                {
+                    "uid": 1630,
+                    "group": "消防四部二组",
+                    "user_name": "苏海"
+                },
+                {
+                    "uid": 1625,
+                    "group": "消升五部一组",
+                    "user_name": "赵亮"
+                },
+                {
+                    "uid": 1631,
+                    "group": "消防三部二组",
+                    "user_name": "于腾飞"
+                },
+                {
+                    "uid": 1637,
+                    "group": "消防一部三组",
+                    "user_name": "暴子业"
+                },
+                {
+                    "uid": 1660,
+                    "group": "消升四部二组",
+                    "user_name": "郭芳"
+                },
+                {
+                    "uid": 1633,
+                    "group": "消防五部三组",
+                    "user_name": "魏蓉蓉"
+                },
+                {
+                    "uid": 1635,
+                    "group": "职称一部一组",
+                    "user_name": "冯立元"
+                },
+                {
+                    "uid": 1638,
+                    "group": "消防一部三组",
+                    "user_name": "周李"
+                },
+                {
+                    "uid": 1646,
+                    "group": "消防二部三组",
+                    "user_name": "杨晓龙"
+                },
+                {
+                    "uid": 1655,
+                    "group": "职称一部一组",
+                    "user_name": "王云云"
+                },
+                {
+                    "uid": 1643,
+                    "group": "消防三部二组",
+                    "user_name": "魏鑫"
+                },
+                {
+                    "uid": 1639,
+                    "group": "消升六部一组",
+                    "user_name": "吴珊珊"
+                },
+                {
+                    "uid": 1644,
+                    "group": "消防一部一组",
+                    "user_name": "尹俊超"
+                },
+                {
+                    "uid": 1642,
+                    "group": "消防四部一组",
+                    "user_name": "王利超"
+                },
+                {
+                    "uid": 1640,
+                    "group": "消防二部一组",
+                    "user_name": "姚文斌"
+                },
+                {
+                    "uid": 1641,
+                    "group": "消防六部三组",
+                    "user_name": "周文威"
+                },
+                {
+                    "uid": 1645,
+                    "group": "消防三部二组",
+                    "user_name": "未天赐"
+                },
+                {
+                    "uid": 1647,
+                    "group": "职称一部一组",
+                    "user_name": "苏岩"
+                },
+                {
+                    "uid": 1649,
+                    "group": "消升一部三组",
+                    "user_name": "杨鹤"
+                },
+                {
+                    "uid": 1650,
+                    "group": "消升一部三组",
+                    "user_name": "程义凡"
+                },
+                {
+                    "uid": 1651,
+                    "group": "消升一部三组",
+                    "user_name": "李晓伟"
+                },
+                {
+                    "uid": 1652,
+                    "group": "消升四部一组",
+                    "user_name": "薛永梅"
+                },
+                {
+                    "uid": 1653,
+                    "group": "消升四部一组",
+                    "user_name": "勾振良"
+                },
+                {
+                    "uid": 1668,
+                    "group": "消防六部二组",
+                    "user_name": "史亚龙"
+                },
+                {
+                    "uid": 1659,
+                    "group": "消防四部二组",
+                    "user_name": "李波"
+                },
+                {
+                    "uid": 1671,
+                    "group": "职称一部一组",
+                    "user_name": "孟嘉"
+                },
+                {
+                    "uid": 1656,
+                    "group": "职称一部一组",
+                    "user_name": "崔进帅"
+                },
+                {
+                    "uid": 1657,
+                    "group": "消升二部二组",
+                    "user_name": "祖金雷"
+                },
+                {
+                    "uid": 1658,
+                    "group": "消防六部二组",
+                    "user_name": "陈征"
+                },
+                {
+                    "uid": 1669,
+                    "group": "职称一部一组",
+                    "user_name": "张琪"
+                },
+                {
+                    "uid": 1670,
+                    "group": "消防三部一组",
+                    "user_name": "薛晓鹏"
+                },
+                {
+                    "uid": 1672,
+                    "group": "职称一部一组",
+                    "user_name": "张永杰"
+                },
+                {
+                    "uid": 1662,
+                    "group": "消防一部二组",
+                    "user_name": "宋晨"
+                },
+                {
+                    "uid": 1673,
+                    "group": "职称一部一组",
+                    "user_name": "王欣"
+                },
+                {
+                    "uid": 1664,
+                    "group": "消防五部三组",
+                    "user_name": "向雪林"
+                },
+                {
+                    "uid": 1665,
+                    "group": "消升五部三组",
+                    "user_name": "刘鹏"
+                },
+                {
+                    "uid": 1666,
+                    "group": "消防一部一组",
+                    "user_name": "崔晓燕"
+                },
+                {
+                    "uid": 1667,
+                    "group": "消防五部一组",
+                    "user_name": "高晓瑞"
+                },
+                {
+                    "uid": 1674,
+                    "group": "消防四部一组",
+                    "user_name": "赵宏斌"
+                },
+                {
+                    "uid": 1684,
+                    "group": "消防四部二组",
+                    "user_name": "刘宝娜"
+                },
+                {
+                    "uid": 1679,
+                    "group": "职称一部一组",
+                    "user_name": "宋晓倩"
+                },
+                {
+                    "uid": 1681,
+                    "group": "消防六部一组",
+                    "user_name": "金彦鹏"
+                },
+                {
+                    "uid": 1682,
+                    "group": "消防五部一组",
+                    "user_name": "常宏"
+                },
+                {
+                    "uid": 1683,
+                    "group": "消防三部一组",
+                    "user_name": "金洲"
+                }
+            ]
+            for (let i = 0; i < js.length; i++) {
+                obja[i] = [];
+                obja[i].user_name = js[i].user_name;
+                obja[i].project = js[i].project;
+                obja[i].army = js[i].army;
+                obja[i].sector = js[i].sector;
+                obja[i].group = js[i].group;
+                obja[i].grade = js[i].grade;
+                obja[i].class = js[i].class;
+                obja[i].time = js[i].time;
+                obja[i].uid = '0'
+                // delete js[i]['__rowNum__'];
+                console.log(js[i])
+                for (let j = 0; j < data.length; j++) {
+                    console.log(data[j])
+                    if (js[i].user_name == data[j].user_name && js[i].group == data[j].group) {
+                        console.log(data[j].uid)
+                        obja[i].uid = data[j].uid
+                    }
+                }
+            }
+            console.log(obja)
+
+            for (let k = 0; k < obja.length; k++) {
+                uid = obja[k].uid == '0' ? '无效' : obja[k].uid
+                if (uid == "无效") {
+                    $('.im_table')[0].innerHTML += `
+            <tr>
+                        <td>` + obja[k].user_name + `</td>
+                        <td>` + obja[k].project + `</td>
+                        <td>` + obja[k].army + `</td>
+                        <td>` + obja[k].sector + `</td>
+                        <td>` + obja[k].group + `</td>
+                        <td>` + obja[k].grade + `</td>
+                        <td>` + obja[k].class + `</td>
+                        <td>` + obja[k].time + `</td>
+                        <td>` + uid + `</td>
+                    </tr>
+            `
+                }
+            }
+            for (let k = 0; k < obja.length; k++) {
+                uid = obja[k].uid == '0' ? '无效' : obja[k].uid
+                if (uid != "无效") {
+                    $('.im_table')[0].innerHTML += `
+            <tr>
+                        <td>` + obja[k].user_name + `</td>
+                        <td>` + obja[k].project + `</td>
+                        <td>` + obja[k].army + `</td>
+                        <td>` + obja[k].sector + `</td>
+                        <td>` + obja[k].group + `</td>
+                        <td>` + obja[k].grade + `</td>
+                        <td>` + obja[k].class + `</td>
+                        <td>` + obja[k].time + `</td>
+                        <td>` + uid + `</td>
+                    </tr>
+            `
+                }
+            }
+        };
+        if (rABS) {
+            reader.readAsArrayBuffer(f);
+        } else {
+            reader.readAsBinaryString(f);
+        }
+    }
+
+    $('.revisewen').click(function () {
+        objaa = JSON.stringify(obja);
+        str = '"uid":"0"'
+        console.log(objaa, obja)
+        $.ajax({
+            url: '',
+            type: 'get',
+            data: {
+                obja
+            },
+            success: function () {
+
+            },
+            error: function () {
+
+            }
+        })
+    })
+
+    function fixdata(data) { //文件流转BinaryString
+        var o = "",
+            l = 0,
+            w = 10240;
+        for (; l < data.byteLength / w; ++l) o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l *
+            w + w)));
+        o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+        return o;
+    }
+</script>
+<script type="text/javascript">
+    var user = [{
+        uid: '13',
+        user_name: '江山',
+    }, {
+        uid: '12',
+        user_name: '江山1',
+    }, {
+        uid: '14',
+        user_name: '江山2',
+    }, {
+        uid: '15',
+        user_name: '江山3',
+    }]
+    var group = ["基金一组", "基金二组", "基金三组", "基金四组"];
+    var sector = ["基金一部", "基金二部", "基金三部", "基金四部"];
+    var army = ["基金一军团", "基金二军团", "基金三军团", "基金四军团"];
+    var project = ["基金一项目", "基金二项目", "基金三项目", "基金四项目"];
+    $('select[name = polling-search]').change(function () {
+        switch ($(this).val()) {
+            case 'user':
+                $('select[name=polling-account]')[0].innerHTML = ""
+                for (let i = 0; i < user.length; i++) {
+                    $('select[name=polling-account]')[0].innerHTML += `<option value=` + user[i].uid + `>` +
+                        user[i].user_name + `</option>`
+                }
+                break;
+            case 'group':
+                $('select[name=polling-account]')[0].innerHTML = ""
+                for (let i = 0; i < group.length; i++) {
+                    $('select[name=polling-account]')[0].innerHTML += `<option value=` + group[i] + `>` + group[
+                        i] + `</option>`
+                }
+                break;
+            case 'sector':
+                $('select[name=polling-account]')[0].innerHTML = ""
+                for (let i = 0; i < sector.length; i++) {
+                    $('select[name=polling-account]')[0].innerHTML += `<option value=` + sector[i] + `>` +
+                        sector[i] + `</option>`
+                }
+                break;
+            case 'army':
+                $('select[name=polling-account]')[0].innerHTML = ""
+                for (let i = 0; i < army.length; i++) {
+                    $('select[name=polling-account]')[0].innerHTML += `<option value=` + army[i] + `>` + army[
+                        i] + `</option>`
+                }
+                break;
+            case 'project':
+                $('select[name=polling-account]')[0].innerHTML = ""
+                for (let i = 0; i < project.length; i++) {
+                    $('select[name=polling-account]')[0].innerHTML += `<option value=` + project[i] + `>` +
+                        project[i] + `</option>`
+                }
+                break;
+            default:
+                break;
+        }
+
+        objopt5 = optnme($('select[name=polling-account]'))
+    })
+    var params = "";
+    // $(function(){
+    // 		$(function () {
+    //             var p = $('#datagrid2').datagrid('getPager');
+    //             $(p).pagination({
+    //                 beforePageText: '第',//页数文本框前显示的汉字  
+    //                 afterPageText: '页    共 {pages} 页',
+    //                 displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+    //             });
+    //        });
+    // 	})
+    $('.promptx1').click(function () {
+        $('.modelprompt1')[0].style.display = "none";
+    })
+
+    function optnme(q) {
+        var arr1 = [];
+        var arr2 = [];
+        var objopt = {}
+        for (let i = 0; i < q[0].length; i++) {
+            arr1.push(q[0][i].value);
+            arr2.push(q[0][i].innerHTML);
+
+        }
+        for (var j = 0; j < arr1.length; j++) {
+            objopt[arr1[j]] = arr2[j]
+
+        }
+        return objopt
+    }
+    var objopt5 = optnme($('select[name=polling-account]'))
+
+    function huhu() {
+        console.log(objopt5)
+        $('select[name=polling-account]')[0].innerHTML = ""
+        for (var k in objopt5) {
+            if (objopt5[k].indexOf($('input[name=polling-name]').val()) > -1) {
+                $('select[name=polling-account]')[0].innerHTML += "<select name='polling-account'>" +
+                    "<option value=" + k + ">" + objopt5[k] + "</option>" + "</select>"
+            }
+        }
+    }
+    $('input[name=polling-name]').on('keyup', function () {
+        huhu()
+    });
+    var objopt6 = optnme($('select[name=group_name]'))
+
+    function hehe() {
+        $('select[name=group_name]')[0].innerHTML = ""
+        for (var k in objopt6) {
+            if (objopt6[k].indexOf($('input[class=search_input]').val()) > -1) {
+                $('select[name=group_name]')[0].innerHTML += "<select name='group_name'>" +
+                    "<option value=" + k + ">" + objopt6[k] + "</option>" + "</select>"
+            }
+        }
+    }
+    $('input[class=search_input]').on('keyup', function () {
+        hehe()
+    });
+    $('.polling-headerp').click(function () {
+        if ($(this)[0].style.backgroundImage == 'url("img/down.svg")') {
+            console.log(1)
+            $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            $('#polling-header-body')[0].style.display = "none"
+        } else {
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#polling-header-body')[0].style.display = "block"
+        }
+    })
+    $('.polling-allotp').click(function () {
+        if ($(this)[0].style.backgroundImage == 'url("img/down.svg")') {
+            console.log(1)
+            $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            $('#polling-allot-body')[0].style.display = "none"
+        } else {
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#polling-allot-body')[0].style.display = "block"
+        }
+    })
+    $('.reset').click(function () {
+        $("#seaform").find('input[type=text],select,input[type=hidden]').each(function () {
+            $(this).val('');
+        });
+    })
+    var thisApp = {
+        init: function () {
+            $("#datagrid2").edatagrid({
+                collapsible: true,
+                rownumbers: true,
+                singleSelect: false,
+                pagination: true,
+                url: 'datagrid_data3.json',
+                method: 'get',
+                remoteSort: false,
+                checkOnSelect: true,
+                selectOnCheck: true,
+                showFooter: true,
+                saveUrl: 'http://www.baidu.com', //新建,都是eadatagrid封装好的,把链接填好就行,点击之后会自动发送json数据包
+                updateUrl: 'http://www.baidu.com', //保存
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                toolbar: [{
+                        text: '导出',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            // $(this).click(function(){
+                            var jsondata = '';
+                            $.ajax({
+                                url: 'datagrid_data3.json',
+                                type: 'get',
+                                data: params,
+                                // dataType:'json',
+                                success: function (data) {
+                                    jsondata = data;
+                                    console.log(data)
+                                    var arr1 = [];
+                                    var json = []
+                                    for (var i = 0; i < jsondata.length; i++) {
+                                        json[i] = {};
+                                        json[i]['date_time'] = ' ' + jsondata[i]
+                                            .date_time;
+                                        json[i]['user_name'] = jsondata[i]
+                                            .user_name;
+                                        json[i]['group'] = jsondata[i].group;
+                                        json[i]['grade'] = jsondata[i].grade;
+                                        json[i]['max_num'] = jsondata[i].max_num;
+                                        json[i]['rate'] = jsondata[i].rate;
+                                        json[i]['alloc_num'] = jsondata[i]
+                                            .alloc_num;
+                                        json[i]['work_type'] = jsondata[i]
+                                            .work_type;
+                                    }
+                                    // json[0].visit = data[0].visit;
+
+                                    var data = JSON.stringify(json);
+                                    console.log(data)
+                                    for (var i = 0; i < $('th').length; i++) {
+                                        arr1.push($('th')[i].innerHTML)
+                                    }
+                                    if (data == '') return;
+                                    // JSONToCSVConvertor(data, "Download", true,arr1);
+                                }
+                            })
+                            // })
+                        }
+                    },
+                    {
+                        text: '保存',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            $('#datagrid2').data('isSave', true).edatagrid('saveRow');
+                        }
+                    },
+                    {
+                        text: '上传班表',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            $('.model-work-order').css('display', 'block')
+                            $('.im_table')[0].innerHTML = ` <tr>
+                        <td>姓名</td>
+                        <td>项目</td>
+                        <td>军团</td>
+                        <td>部门</td>
+                        <td>组别</td>
+                        <td>班次</td>
+                        <td>时间</td>
+                        <td>uid</td>
+                    </tr>`
+                            // $('#datagrid2').data('isSave', true).edatagrid('saveRow');
+                        }
+                    }
+                ],
+                onSortColum: function (sort, order) { //其中sort代表排序列字段名称；order:排序列的顺序（ASC或DESC）
+                    $('#datagrid2').datagrid('reload', {
+                        sort: sort,
+                        order: order
+                    });
+                },
+                onLoadSuccess: function (data) { //加载完毕后获取所有的checkbox遍历
+
+                },
+                onClickRow: function (rowIndex, rowData) {
+
+                },
+                onDblClickRow: function () {
+                    console.log(1)
+                }
+            })
+        }
+    }
+    $(function () {
+        thisApp.init();
+        var dg = $('#datagrid2').datagrid({
+            singleSelect: false
+        });
+        dg.datagrid('enableFilter', [{}]);
+        var p = $('#datagrid2').datagrid('getPager');
+        $(p).pagination({
+            beforePageText: '第', //页数文本框前显示的汉字  
+            afterPageText: '页    共 {pages} 页',
+            displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+        });
+        $(".seasearch").linkbutton({
+            iconCls: 'icon-search',
+            plain: true
+        }).click(function () {
+            // $('#polling-header-footer')[0].style.display = "block"
+            thisApp.init();
+            params = form2Json("seaform");
+            //     $('.polling-headerp')[0].style.backgroundImage = 'url("{{asset("img/up.svg")}}")';
+            //  $('#polling-header-body')[0].style.display = "none";
+            var dg = $('#datagrid2').datagrid({
+                queryParams: form2Json("seaform"),
+                singleSelect: false,
+                url: 'datagrid_data3.json'
+            });
+            dg.datagrid('enableFilter', [{
+                field: 'mobile',
+                type: 'text'
+            }, {
+                field: 'project',
+                type: 'text'
+            }, {
+                field: 'first_name',
+                type: 'text'
+            }, {
+                field: 'last_name',
+                type: 'text'
+            }, {
+                field: 'in_time',
+                type: 'text'
+            }, {
+                field: 'last_consult_time',
+                type: 'text'
+            }, {
+                field: 'visit_times',
+                type: 'text'
+            }, {
+                field: 'give_up_times',
+                type: 'text'
+            }, {
+                field: 'sign_times',
+                type: 'text'
+            }, {
+                field: 'book_reason',
+                type: 'text'
+            }]);
+            var p = $('#datagrid2').datagrid('getPager');
+            $(p).pagination({
+                beforePageText: '第', //页数文本框前显示的汉字  
+                afterPageText: '页    共 {pages} 页',
+                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+            });
+        });
+        $('.polling-allot').click(function () {
+            var get2 = $("#datagrid2").datagrid("getSelections");
+            var arr5 = []
+            for (let i = 0; i < get2.length; i++)
+
+            {
+                arr5.push(get2[i].did);
+            }
+            console.log(arr5)
+            if ($('select[name=polling-account]').val() != "") {
+                $.ajax({
+                    url: '{{Url("admin/publicToMyData")}}',
+                    type: 'post',
+                    data: {
+                        did: arr5,
+                        data_switch: $('select[name = data_switch]').val(),
+                        limit_time1: $('input[name=limit_time1]').val(),
+                        limit_time2: $('input[name=limit_time2]').val(),
+                        allotname: $('select[name=polling-account]').val(),
+                        _token: "{{csrf_token()}}"
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        if (data.success == true) {
+                            $('.modelprompt1')[0].style.display = "block";
+                            $('.promptp1')[0].innerHTML = "成功" + data.successNum + "条 " +
+                                ' 失败' + data.failNum + '条';
+                        } else if (data.success == false) {
+                            $('.modelprompt1')[0].style.display = "block";
+                            $('.promptp1')[0].innerHTML = "该时段不能分配";
+                        } else {
+                            $('.modelprompt1')[0].style.display = "block";
+                            $('.promptp1')[0].innerHTML = "未知错误";
+                        }
+                    },
+                    error: function () {
+                        $('.modelprompt1')[0].style.display = "block";
+                        $('.promptp1')[0].innerHTML = "服务器错误";
+                    }
+                })
+            } else {
+                $('.modelprompt1')[0].style.display = "block";
+                $('.promptp1')[0].innerHTML = "请选择姓名";
+            }
+
+        })
+        $('.panel-title').append(`
+                <span style="margin-left:2rem;color:red">基金：112</span>
+                <span style="margin-left:2rem;color:red">消防：112</span>
+            `)
+        // });
+    })
+
+    function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray()
+        var jsonStr = "";
+
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+
+        var json = JSON.parse(jsonStr)
+        return json
+    }
+</script>
+
+</html>

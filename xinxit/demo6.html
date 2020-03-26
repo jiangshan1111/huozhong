@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="js/echarts.js" ></script>
+    <title>Document</title>
+
+    <style>
+        table {
+            cellspacing:0 ;
+            *border-collapse: collapse; /* IE7 and lower */
+            border-spacing: 0;
+            width: 100%;
+        }
+        .bordered tr:hover {
+            background: #fbf8e9;
+            -o-transition: all 0.1s ease-in-out;
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            -ms-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+        }
+ 
+        .bordered th {
+            padding: 7px;
+            text-align: center;
+            cellspacing:0;
+        }
+ 
+        .bordered td{
+            padding: 7px;
+            text-align: center;
+            cellspacing:0;
+        }
+ 
+ 
+        .bordered th {
+ 
+             background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+             background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+             background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+             background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+             background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
+             background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+        }
+        .bordered td:first-child, .bordered th:first-child {
+            border-left: none;
+        }
+ 
+ 
+ 
+        .bordered  tr:nth-of-type(2n){background:#FFFFFF;cursor: pointer;}
+        .bordered  tr:nth-of-type(2n+1){background:#F7FAFC;cursor: pointer;}
+ 
+        .bordered  tbody tr:hover{  background: #fbf8e9;
+            -o-transition: all 0.1s ease-in-out;
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            -ms-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+        }
+ 
+ 
+    </style>
+</head>
+<body>
+    <div id="main" style="width:800px; height: 600px;"></div>
+</body>
+<script>
+option = {
+    title: {
+        text: '未来一周气温变化',
+        subtext: '纯属虚构'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['最高气温','最低气温']
+    },
+    toolbox: {
+        show:true,
+            orient: 'horizontal',
+            showTitle: true,
+            feature:{
+                magicType: {
+                    type: ['line', 'bar']
+                },
+                dataView:{
+                    show: true,
+                    title: '某地区单位人数金额统计',
+                    readOnly:false,
+                    optionToContent: function(opt) {
+                        var colName = "序号";
+                        var typeName = "周";
+                        var dataview = opt.toolbox[0].feature.dataView;  //获取dataview
+                        var table = '<div style="position:absolute;top: 5px;left: 0px;right: 0px;line-height: 1.4em;text-align:center;font-size:14px;">'+dataview.title+'</div>'
+                        table += getTable(opt,colName,typeName);
+                        return table;
+                    }
+                },
+                saveAsImage:{
+                    type:'png',
+                    show:true,
+                    title:'保存为图片',
+                },
+                restore:{show:true}
+            }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+        // boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
+        axisLabel: {
+            formatter: '{value} %°C'
+        },
+        min:'0'
+    },
+    series: [
+        {
+            name:'最高气温',
+            type:'line',
+            data:[11, 11, 15, 13, 12, 13, 10],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        }
+    ]
+};
+function getTable(opt,colName,typeName){
+        var axisData = opt.xAxis[0].data;//获取图形的data数组
+        var series = opt.series;//获取series
+        var num = 0;//记录序号
+        var sum = new Array();//获取合计数组（根据对应的系数生成相应数量的sum）
+        for(var i=0; i<series.length; i++){
+            sum[i] = 0;
+        }
+        var table = '<table class="bordered"><thead><tr>'
+            + '<th>'+colName+'</th>'
+            + '<th>'+typeName+'</th>';
+        for(var i=0; i<series.length;i++){
+            table += '<th>'+series[i].name+'</th>'
+        }
+        table += '</tr></thead><tbody>';
+        for (var i = 0, l = axisData.length; i < l; i++) {
+            num += 1;
+            for(var n=0;n<series.length;n++){
+                if(series[n].data[i]){
+                    sum[n] += Number(series[n].data[i]);
+                }else{
+                    sum[n] += Number(0);
+                }
+ 
+            }
+            table += '<tr>'
+                + '<td>' + num + '</td>'
+                + '<td>' + axisData[i] + '</td>';
+            for(var j=0; j<series.length;j++){
+                if(series[j].data[i]){
+                    table += '<td>' + series[j].data[i] + '</td>';
+                }else{
+                    table += '<td>' + 0 + '</td>';
+                }
+ 
+            }
+            table += '</tr>';
+        }
+        //最后一行加上合计
+        table += '<tr>'+ '<td>' + (num+1) + '</td>' + '<td>合计</td>';
+        for(var n=0;n<series.length;n++){
+            if(String(sum[n]).indexOf(".")>-1)
+                table += '<td>' + (Number(sum[n])).toFixed(2)  + '</td>';
+            else
+                table += '<td>' + Number(sum[n])  + '</td>';
+        }
+        table += '</tr></tbody></table>';
+        return table;
+    }
+var myChart = echarts.init(document.getElementById('main'));
+
+        //使用制定的配置项和数据显示图表
+        myChart.setOption(option);  
+</script>
+</html>

@@ -1,0 +1,353 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>火种教育</title>
+    <link type="text/css" rel="stylesheet" href="css/campus.css">
+</head>
+<body style="background: #f3f5f7">
+<div class="campus-header">
+    <div class="container">
+        <div class="campus-logo">
+            <a href="index.html"><span class="campus-logo-img icon-sprite"></span></a>
+        </div>
+        <div class="campus-nav">
+               <a href="decla.html" class="campus-nav-link">郑重申明</a>
+               
+                <a href="hx-info.html" class="campus-nav-link">走进火种</a>
+                <a href="listdo.html" class="campus-nav-link">热点新闻</a>
+                <a href="listclass.html" class="campus-nav-link">公开课</a>
+                <a href="listnew.html" class="campus-nav-link">学员风采</a>
+                <a href="huoz.html" class="campus-nav-link">员工风采</a>
+                <a href="listtree.html" class="campus-nav-link on">人才招聘</a>
+                <a href="hzcontact.html" class="campus-nav-link">联系我们</a>
+                <a href="student/login.html" class="campus-nav-link">协议查看</a>
+                <a href="http://ketang.huozhongedu.com/" class="campus-nav-link">学员登录</a>
+        </div>
+
+    </div>
+</div>
+<div class="campus-recruitment">
+    <div class="container">
+        <div class="campus-item">
+            <span class="icon-sprite icon-recruitment"></span>
+            <span class="campus-item-text">招聘岗位</span>
+            <span class="campus-item-eng">Recruitment</span>
+        </div>
+        <div class="campus-recruitment-box">
+            <ul class="campus-recruitment-menu">
+                <li><a href="campus.html?data=1">销售专员</a></li>
+                <li class="on"><a href="campus.html?data=2">销售主管</a></li>
+                <li><a href="campus.html?data=3">消防讲师</a></li>
+                <li><a href="campus.html?data=4">基金讲师</a></li>
+                <li><a href="campus.html?data=5">教学管培</a></li>
+                <li><a href="campus.html?data=6">项目管培</a></li>
+                <li><a href="campus.html?data=7">企业培训师</a></li>
+                <li><a href="campus.html?data=8">教务班主任</a></li>
+                <li><a href="campus.html?data=9">在线客服</a></li>
+                <li><a href="campus.html?data=10">HRBP</a></li>
+                <li><a href="campus.html?data=11">会计</a></li>
+                <li><a href="campus.html?data=12">出纳</a></li>
+            </ul>
+            <div class="campus-recruitment-right">
+                <ul class="campus-recruitment-tab">
+                    <!-- <li class="on">助理产品经理</li> -->
+                </ul>
+                <div class="campus-recruitment-details">
+                    <!--项目管理方向-->
+                    <div class="campus-recruitment-detail on">
+                        <div class="campus-recruitment-item">
+                            <p class="campus-recruitment-icon campus-recruitment-address">工作地点：北京</p>
+                        </div>
+                        <div class="campus-recruitment-item">
+                            <p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1. 负责火种网学术创新、crm、用户体验端的基础产品工作；</p>
+                            <p>2. 负责用户需求分析、竞品分析、行业分析等工作，拓展产品合作，规划产品演进；</p>
+                            <p>3. 与研发团队紧密配合，编写产品需求，推进产品开发项目，达成产品目标；</p>
+                            <p>4. 与市场、运营团队紧密配合，完成产品推广与运营工作。</p>
+                        </div>
+                        <div class="campus-recruitment-item">
+                            <p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+                            <p>1. 重点大学统招本科及以上学历，专业不限，计算机相关专业优先； </p>
+                            <p>2. 有半年以上产品实习经验；</p>
+                            <p>3. 逻辑思维清晰，良好的沟通能力，良好的团队合作精神，具备快速的学习能力；</p>
+                            <p>4. 热爱互联网产品，有梦想作出优秀互联网产品的理想，相信产品改变世界，具备敏捷的洞察和思维能力。</p>
+                        </div>
+                        <div class="campus-recruitment-apply">
+                            <button type="button">立即申请</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popus">
+    <h2>简历请投递</h2>
+    <div class="pop_info">
+        <p>北京地区：zhangqilan@huozhongedu.com</p>
+        <p>邮件标题格式：应聘岗位 - 姓名 - 学校
+            - 学历 - 专业 - 联系电话 - 期望工作地
+            点 - 火种官网投递</p>
+    </div>
+    <div style="text-align: center; margin-top: 10px;">
+        <button>我知道了</button>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/campus.js"></script>
+<script>
+    var Href = location.href.split('=')[1];
+    console.log(Href)
+    switch (Href) {
+        case '1':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1、公司提供意向资源与客户电话沟通，挖掘客户的潜在需求；</p>
+                            <p>2、耐心，详细解答电话咨询的客户，对课程做出准确推荐；</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1、年龄20~30周岁，大专及以上学历；</p>
+            <p>2、热爱销售，喜欢并有足够自信向人推销产品；</p>
+            <p>3、有较强学习能力，踏实、专注，愿意为自我提升付出努力去实现；</p>
+            <p>4、有良好的语言表达能力和理解能力，普通话标准，口齿清楚，沟通能力强</p>
+            <p>5、善于与人建立良好的关系；</p>
+            <p>6、有销售工作经验者优先。</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[0]).addClass('on')
+            break;
+        case '2':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1、根据公司战略，制定部门销售计划，完成销售指标</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1、2年以上销售管理工作经验，有教育行业销售经验者优先；</p>
+            <p>2、良好的沟通能力、人际关系理解与建立能力；资源整合能力强，清晰的逻辑思维能力；</p>
+            <p>3、个性：热爱销售工作，自信乐观主动，能承受一定工作压力，高度责任心、团队协作精神及良好的务意识。</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[1]).addClass('on')
+            break;
+        case '3':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1、负责讲授注册消防工程师考试科目中一门或一门以上课程或讲一个专题(消防安全技术实务、消防安全技术综合能力、消防安全案例分析、建筑防火专题、消防设施专题)；</p>
+                            <p>2、根据公司教学安排进行备课，积极主动完成课程教学与学员答疑工作；</p>
+                            <p>3、根据公司教学安排，完成教学视频录制工作（直播+公开课录播）；</p>
+                            <p>4、参与公司教研活动，探讨考试特点、规律、趋势及课程教学的改进策略；</p>
+                            <p>5、了解教学对象学习情况，制度适合学生实际的教学计划。；</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1、具有高级消防设施操作员或者高级建构物消防员职业资格和工程师技术职务或一级注册消防工程师执业资格优先；</p>
+            <p>2、具有较强的亲和力，讲课生动活泼，知识面宽广；</p>
+            <p>3、专业成绩优秀，学习能力强。对考试有深入研究，了解考试流程，熟悉历年考试真题、透彻分析考试规律及趋势；</p>
+            <p>4、总结归纳能力较强，能够快速对考点进行提炼，善于总结应考、备考方法； </p>
+            <p>5、精通WORD、PPT等办公软件； </p>
+            <p>6、有参加相关职业资格考试的经验，获得考试资格证书者优先，有备考经验优先。</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[2]).addClass('on')
+            break;
+        case '4':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1.运用金融知识讲授培训课程，设计教学内容；</p>
+                            <p>2.根据公司教学安排进行备课，积极主动完成课程教学与辅导工作；</p>
+                            <p>3.参与公司教研活动，探讨考试特点、规律、趋势及课程教学的改进策略；</p>
+                            <p>4.完成上级领导交代的其他任务。</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1.本科及以上学历，金融专业优先；</p>
+            <p>2、有基金课程培训经验的优先；</p>
+            <p>3、过硬的教学素质及技巧，有2年及以上授课经验者优先考虑；</p>
+            <p>4、学习能力强，对考试有深入研究，掌握考试命脉，透彻分析考试规律及趋势；</p>
+            <p>5、精通WORD、PPT等相关办公软件，能制作精美的讲义；</p>
+            <p>6、形象好气质佳，有亲和力，能够激发学生的学习兴趣，热爱在线教育行。</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[3]).addClass('on')
+            break;
+        case '5':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1、负责相关授课及后续的学员辅导等工作，保障教学任务的完成；</p>
+                            <p>2、参与相关课程所需资料的编写和研发；</p>
+                            <p>3、承担教学课题的研究，着力进行各专项命题趋势、解题技巧以及教学方法与教学技巧的研究。</p>
+                            <p>4、根据课程需要，担任视频/音频课程主讲人。</p>
+                            <p>5、参与公司教研活动，不断提高自身教学水平</p>
+                            <p>6、根据互联网教育特点和用户体验，参与授课内容和形式的优化研发。</p>
+                            <p>7、能够根据课程内容调整好课程气氛，调动学员情绪，激发学员学习积极性以及报班欲望</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1.全日制大学本科及以上学历，优秀应届毕业生；</p>
+            <p>2.有参加相关职业资格考试的经验，获得考试资格证书者优先</p>
+            <p>3.有相关授课工作经验优先，普通话标准，讲课风格生动，轻松活泼，临场经验丰富</p>
+            <p>4.对教育行业有所向往，认真负责</p>
+            <p>5.有很强的工作责任心及团队协作精神 </p>
+            <p>6..熟练使用WORD、PPT等办公软件</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[4]).addClass('on')
+            break;
+        case '6':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1.接受管理培训生的系统化培训； </p>
+                            <p>2.协调内外部资源完成公司既定的区域销售计划和目标，推动企业项目运营；</p>
+                            <p>3.后期独立负责行业内竞争对手信息的收集与竞争策略应对；</p>
+                            <p>4.对季度销售团队业绩数据进行分析；</p>
+                            <p>5.独立负责产品的完整运营；</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>在数据中心/销售项目部/管理部轮岗；</p>
+            <p>1.数据中心轮岗
+(1)学习SEM推广的专业知识；
+(2)办公工具的数量使用（函数/透视表/代码/ps）
+(3)负责sem词汇调整，总结各类方法论</p>
+<p>2.销售部轮岗
+        (1)了解项目产品知识
+        (2)了解销售流程
+        (3)团队管理（主持周会/月会）</p>
+        <p>3.管理部轮岗
+        (1)把控数据推广-销售管理过程
+        (2)总负责项目整体流程
+        (3)预算把控/人力成本把控</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[5]).addClass('on')
+            break;
+        case '7':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1、新人入职培训，及时更新培训课件，做好备课工作，设计课程结构；</p>
+                            <p>2、做好培训记录，提出更为完善合理化的建议；</p>
+                            <p>3、做好市场调研，了解市场最新动态；</p>
+                            <p>4、做好业务深研记录；</p>
+                            <p>5、及时完成上级领导安排的工作；</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1、大专以上学历；</p>
+            <p>2、逻辑思维能力较强；</p>
+            <p>3、有教育行业培训经验优先；</p>
+            <p>晋升方向：
+培训主管<运营经理 <运营总监
+</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[6]).addClass('on')
+            break;
+        case '8':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1.负责对已缴费学员核对报名信息帮助学员在线报名；</p>
+                            <p>2.负责参与客户开课前期指导以及在后期问题咨询中做解答；</p>
+                            <p>3.负责考试题库实时更新，保证题库答案的正确；</p>
+                            <p>4.邮寄已报名缴费/开课学员的课程协议和发票；</p>
+                            <p>5.参与到新媒体运营等其他可能的运营中来；</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1.专科学历及以上，专业不限；</p>
+            <p>2.沟通协调能力强，有良好的客户服务意识</p>
+            <p>3.热爱教育行业，有教育行业经验者优先；</p>
+            <p>4.有爱心，有责任心，性格稳定，善良正直。</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[7]).addClass('on')
+            break;
+        case '9':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1.通过乐语系统与客户进行初步沟通，完成客户电话的索取；</p>
+                            <p>2.将当天实时拿到的首资数据，按照相应的等级和班表分配给市场部咨询师；</p>
+                            <p>3.根据当天数据，针对不同客户人群，总结相应的话术问题和沟通技巧。</p>
+                            <p>4.完成领导交代的其他工作；；</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1.有耐心工作比较细心； </p>
+            <p>2.有在线咨询行业半年以上工作经验；</p>
+            <p>3.优秀的沟通表达能力！</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[8]).addClass('on')
+            break;
+        case '10':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1、根据现有编制及业务发展需要，协调、统计各部门的招聘需求，编制年度人员招聘计划</p>
+                            <p>2、开发、维护、评估、分析各招聘渠道；</p>
+                            <p>3、建立和完善公司的招聘流程和招聘体系</p>
+                            <p>4、利用各种招聘渠道发布招聘广告，管理招聘机构；/p>
+                            <p>5、负责招聘工作，应聘人员的邀约，接待及面试;</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1、专科及以上学历，半年以上人力资源招聘相关经验，有猎头经验者为佳；</p>
+            <p>2、熟练运用各种招聘工具和手段，丰富的招聘经验及技巧，并具备员工关系工作经验</p>
+            <p>3、熟悉行业人才市场现状，具备全流程招聘独立操作经验，有中高级人才招聘经验；</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[9]).addClass('on')
+            break;
+        case '11':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1、处理日常全盘账务，处理税务(所得税、增值税、营业税)全盘账务工作；</p>
+                            <p>2、负责与业务部核对月度回款、付款；与出纳核对现金账、银行帐；</p>
+                            <p>3、负责公司税金的计算,申报和缴纳工作,协助有关部门开展财务审计和年检；</p>
+                            <p>4、正确计算收入,费用,成本,正确计算和处理财务成果,具体负责编制公司月度,年度会计报表,年度会计决算及附注说明和利润分配核算工作。</p>
+                            <p>5、监督公司各项财务管理制度在公司的执行情况，解决问题，反馈问题。</p>
+                            <p>6、处理公司内部各部门关于财务工作的协调配合。</p>
+                            <p>7、处理财务部日常事务等。</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1、全日制大专以上学历；</p>
+            <p>2、有会计从业资格证，有初级会计师职称、中级会计师职称优先考虑；</p>
+            <p>3、会计学专业、财务管理专业、会计电算化、审计专业等财务会计相关专业毕业；</p>
+            <p>4、有1年以上全套账务处理经验.</p>
+            <p>5、具备良好的沟通、协调能力，性格开朗；</p>
+            <p>6、具有良好的执行能力，处理问题的能力。</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[10]).addClass('on')
+            break;
+        case '12':
+            $('.campus-recruitment-address').text('工作地点：北京');
+            $('.campus-recruitment-item')[1].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-duty">岗位职责：</p>
+                            <p>1.负责公司出纳日常事务，包括但不限于现金记账、银行存款日记、记账凭证报销、支票管理、现金盘点、电费缴纳等；</p>
+                            <p>2.完成部门领导交办的其他任务。</p>`;
+            $('.campus-recruitment-item')[2].innerHTML = `<p class="campus-recruitment-icon campus-recruitment-must">任职要求：</p>
+            <p>1.会计财务等相关专业大专以上学历；</p>
+            <p>2.熟悉国家财经政策和会计税务等方面的法律法规；</p>
+            <p>3.品行端正.工作细致责任感强，有良好的沟通能力.团队精神；</p>
+            <p>4.熟练操作办公软件，Excel/Word，熟练使用财务记账软件；</p>`;
+            $('.campus-recruitment-menu li').each(function(index,el){
+                console.log(el)
+                $(el).removeClass('on')
+            })
+            $($('.campus-recruitment-menu li')[11]).addClass('on')
+            break;
+        default:
+            break;
+    }
+</script>
+</body>
+</html>
+

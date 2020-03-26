@@ -1,0 +1,180 @@
+.Advi{
+    height: 50px;
+    background: white;
+    overflow: hidden;
+}
+.Advi>p{
+    margin-left: 10px;
+    line-height: 50px;
+}
+.Advi-body{
+    /* height: 200px; */
+    background: white;
+    overflow: hidden;
+} 
+.Advi-body p{
+    margin-left: 10px;
+    
+    line-height: 50px;
+}
+.Advi-body ul{
+    /* height: 120px */
+    overflow: hidden;
+}
+.Advi-body li{
+    list-style: none;
+    width: 25%;
+    height: 40px;
+    float: left;
+    margin-top: 10px;
+}
+.Advi-body-foot button{
+    float: right;
+    width:70px;
+    height: 30px;
+    margin: 10px;
+}
+.Advi-body li>span:first-child{
+    display: inline-block;
+    width:30%;
+    line-height:40px; 
+    padding-left: 5px;
+}
+.Advi-body li input,.Advi-body li select{
+    width:60%;
+    height: 30px;
+}
+.Advi-body li select{
+    width:63%;
+    height: 41px;
+}
+.Advi-foot-body{
+    border: 1px solid rgb(197,197,197);
+    /* border-top:none; */
+    border-bottom:none;
+}
+.Advi-foot-body1 p{
+    color:#42b983;
+}
+.wujiaox{
+    /* display:inline-block; */
+    width: 20px;
+    height:20px;
+    position: absolute;
+    top:15px;
+}
+
+.Advi-foot-ul li{
+    list-style: none;
+    float: left;
+    width:50%;
+    height: 50px;
+    line-height: 50px;
+}
+.Advi-foot-ul li>span:first-child{
+    display: inline-block;
+    width:40%;
+}
+.Advi-foot-ul li>select{
+    width:48.5%;
+    height: 41px;
+}
+.Advi-foot-ul li>input{
+    width:47%;
+    height: 30px;
+}
+.modelorderul li textarea{
+    width: 48%;
+}
+.Advi-chat{
+    margin: 0;
+    background: url('../img/fankui.gif') 7px 0px no-repeat;
+    background-size:50px ; 
+    padding:0px 10% 10px 10%;
+}
+.modelorderul li select{
+    width:50.5%;   
+}
+#percent20{
+    float: right;
+    width:20%;
+}
+.addrediv>select{
+    height:40px;
+}
+.addrediv>input{
+    height:40px;
+}
+.addrediv{
+    width:77.5%;
+}
+#province,#city,#area,#adviaddress,#provincea,#citya,#areaa{
+    width:20%;
+}
+#province1,#provincea1{
+    margin-right:8%;
+}
+@media screen and (max-width:1100px){
+    .Advi-body li{
+        width:100%
+    }
+    #percent20{
+        float: right;
+        width:40%;
+    }
+    .addrediv{
+        height:100px;
+        overflow: hidden;
+    }
+    .Advi-body li input{
+        width: 45%;
+    }
+    .Advi-body li select{
+        width: 50%;
+    }
+    .Advi-body li textarea{
+        width: 48%;
+    }
+    .Advi-foot-ul li{
+    width:100%;
+    
+    }
+    .Advi-foot-ul li>input{
+        width:45%
+    }
+    .Advi-chat{
+        margin: 0;
+        background: url('../img/fankui.gif') 0px 8px no-repeat;
+        background-size:40px ; 
+    }
+    .modelorderul li{
+        height: 40px;
+        margin-top: 5px
+    }
+    #jiujiu{
+        height:100px;
+    }
+    #province,#city,#area,#provincea,#citya,#areaa{
+        width:43%;
+    }
+    #adviaddress{
+        width:36%;
+        margin-left: 1%;
+    }
+    #province1,#provincea1{
+        margin-right:6%;
+    }
+    .addrediv{
+        width:55%;
+    }
+    .modelorderul li select{
+        width:49%;   
+    }
+    .modelorderul li textarea{
+        width: 45.5%;
+    }
+}
+.luji{
+    padding-left: 20px;
+}
+

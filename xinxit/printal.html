@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>录音查询</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <!-- <link rel="stylesheet" href="css/element-ui.css"> -->
+    <link rel="stylesheet" href="../dist/assets/css/element-ui.css">
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <style>
+        .modelchance-body>div {
+            float: left;
+            width: 33%;
+            margin-top: 5px;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .modelchance-body>div {
+                width: 100%;
+            }
+        }
+
+        .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        }
+
+        .el-table th {
+            text-align: center;
+        }
+
+        .el-table td {
+            text-align: center;
+            padding: .3rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .el-table__body,
+        .el-table__footer,
+        .el-table__header {
+            table-layout: auto;
+            border-collapse: collapse;
+        }
+
+        .el-pagination button,
+        .el-pagination span:not([class*=suffix]) {
+            display: initial;
+            font-size: 13px;
+            min-width: 35.5px;
+            height: 28px;
+            line-height: 28px;
+            vertical-align: top;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .modelchance-body>div {
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modelchance" id="app" style="display:block">
+        <div class="modelchancer" style="width:90%">
+            <div class="modelchance-head">
+                <p style="color:#42b983">录音查询</p>
+            </div>
+            <div @click="closeForm" class="chancesearch"
+                style="width:95.8%;border:1px solid rgb(239,239,239);background:-webkit-linear-gradient(top,white 0,rgb(239, 239, 239) 100%)">
+                <p class="chancesearchp" style="margin-left:20px;background-image: url('img/down.svg');">查询条件</p>
+            </div>
+            <form class="modelchance-body" name="searchform" id="searchform" style="    overflow: hidden;
+    width: 95.8%;
+    margin: 0 auto;">
+                <div>
+                    <span>开始时间：</span>
+                    <input class="Wdate" autocomplete="off" style="width:70%" type="text"
+                        onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="startTime"
+                        placeholder="日期">
+                </div>
+                <div>
+                    <span>结束时间：</span>
+                    <input class="Wdate" autocomplete="off" style="width:70%" type="text"
+                        onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="endTime" placeholder="日期">
+                </div>
+                <div>
+                    <span>被叫号码：</span>
+                    <input type="text" name="called" style="width:70%">
+                </div>
+                <div>
+                    <span>咨询师：</span>
+                    <select name="sip" id="">
+                        <option value="">请选择类型</option>
+                        <option value="3">基金</option>
+                        <option value="4">消防</option>
+                    </select>
+                </div>
+                <div>
+                    <span>搜索：</span>
+                    <input type="text" class="sousuo" style="width:70%">
+                </div>
+                <div>
+                    <span>开始秒数：</span>
+                    <input type="text" name="durationS" style="width:70%">
+                </div>
+                <div>
+                    <span>结束秒数：</span>
+                    <input type="text" name="durationE" style="width:70%">
+                </div>
+                <div>
+                    <span>数据类型：</span>
+                    <select name="dataType" id="">
+                        <option value="">请选择类型</option>
+                        <option value="首咨">首咨</option>
+                        <option value="当周">当周</option>
+                        <option value="跨期">跨期</option>
+                    </select>
+                </div>
+                <div>
+                    <span>呼出类型：</span>
+                    <select name="callout" id="">
+                        <option value="">请选择类型</option>
+                        <option value="1">呼出</option>
+                        <option value="0">呼入</option>
+                    </select>
+                </div>
+                <div style="float:right">
+                    <input type="button" class="chancebtn" id="chancere" @click="chaxun" style="margin-right:30px" value="导出">
+                    <input type="button" class="chancebtn" id="chancere" style="" value="重置">
+                    <input type="button" class="chancebtn" id="submit_search" @click="chaxun" value="查询">
+                </div>
+            </form>
+            <div style="width:96%;margin-left:2%;margin-top: 20px">
+                <template>
+                    <el-table border :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                        :data="tableData" style="overflow: auto;">
+                        <!-- <el-table-column type="selection" :width="flexColumnWidthc()">
+                                        </el-table-column> -->
+                        <el-table-column prop="caller" label="sip" :width="flexColumnWidth()"
+                            style="text-align: center">
+                        </el-table-column>
+                        <el-table-column prop="user_name" label="咨询师" :width="flexColumnWidth()">
+                        </el-table-column>
+                        <el-table-column prop="called" label="被叫号码" :width="flexColumnWidth()">
+                        </el-table-column>
+                        <el-table-column prop="duration" label="秒数" :width="flexColumnWidth()">
+                        </el-table-column>
+                        <el-table-column prop="createTime" label="呼出时间" :width="flexColumnWidth()">
+                        </el-table-column>
+                        <el-table-column prop="releaseTime" label="挂断时间" :width="flexColumnWidth()">
+                        </el-table-column>
+                        <el-table-column prop="dataType" label="数据类型" :width="flexColumnWidth()">
+                        </el-table-column>
+                        <el-table-column prop="callout" label="呼出类型" :width="flexColumnWidth()">
+                        </el-table-column>
+                        <el-table-column label="操作" :width="flexColumnWidth()">
+                            <template slot-scope="scope">
+                                <el-button type="text" size="small" @click="dangan(scope.row)">播放</el-button>
+                                <!-- <el-dropdown>
+                                                    <el-button type="text" size="small">更多</el-button>
+                                                    <el-dropdown-menu slot="dropdown">
+                                                        <el-dropdown-item>修改信息</el-dropdown-item>
+                                                        <el-dropdown-item>禁用用户</el-dropdown-item>
+                                                        <el-dropdown-item>修改密码</el-dropdown-item>
+                                                        <el-dropdown-item onclick="window.location.href='indextran.html'">异动</el-dropdown-item>
+                                                        <el-dropdown-item>约课</el-dropdown-item>
+                                                    </el-dropdown-menu>
+                                                </el-dropdown> -->
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                        :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                        layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                    </el-pagination>
+                </template>
+            </div>
+
+        </div>
+    </div>
+</body>
+<!-- <script src="js/export.js"></script> -->
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/element-ui.js"></script>
+<script type="text/javascript">
+
+    var params = "";
+    $('.chancesearchp').click(function () {
+        if ($(this)[0].style.backgroundImage == 'url("img/down.svg")') {
+            console.log(1)
+            $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            $('#searchform')[0].style.display = "none"
+        } else {
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#searchform')[0].style.display = "block"
+        }
+    })
+    $('#chancere').click(function () {
+        $("#searchform").find('input[type=text],select').each(function () {
+            $(this).val('');
+        });
+    })
+
+    function downloadTemplate() {
+        var url = './assets/images/学员导入模版.xls';
+        window.open(url);
+    }
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                userList: [],
+                currentPage: 1, //初始页
+                activeIndexa: 0,
+                pagesize: 10, //    每页的数据
+                model: 0,
+                value2: false
+            }
+        },
+        created() {
+            let _this = this
+            // _this.flexColumnWidth();
+            // $.ajax({
+            // url: './cn.json',
+            // type: 'get',
+            // // data:'',
+            // dataType: 'json',
+            // success: function (data) {
+            //     console.log(1)
+            _this.userList = []
+            //     },
+            //     error: function () {
+
+            //     }
+            // })
+        },
+        mounted(){
+            setTimeout(() => {
+                function optnme(q){
+            var arr1 = [];
+            var arr2 = [];
+            var objopt = {}
+            for (let i = 0; i < q[0].length; i++) {
+                arr1.push( q[0][i].value);
+                arr2.push(q[0][i].innerHTML);
+                
+            }
+           for (var j = 0; j < arr1.length; j++) {
+               objopt[arr1[j]] = arr2[j]
+               
+           }
+           return objopt
+        }
+    var objopt5 = optnme($('select[name=sip]'))
+    function haha() {
+        $('select[name=sip]')[0].innerHTML = ""
+        for (var k in objopt5) {
+            if (objopt5[k].indexOf($('input[class=sousuo]').val()) > -1 ) {
+                $('select[name=sip]')[0].innerHTML += "<select name='sip' style='width:62%'>" +
+                    "<option value=" + k + ">" + objopt5[k] + "</option>" + "</select>"
+            }
+        }
+    }
+    $('input[class=sousuo]').on('keyup', function () {
+        console.log(1)
+        haha();
+    })
+            }, 20);
+        },
+        methods: {
+            chaxun() {
+                params = form2Json('searchform')
+                console.log(params)
+                let _this = this
+                $.ajax({
+                    url: './cn.json',
+                    type: 'get',
+                    // data:'',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(1)
+                        _this.userList = data
+                        _this.value2 = true
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            handleSizeChange: function (size) {
+                this.pagesize = size;
+            },
+            handleCurrentChange: function (currentPage) {
+                this.currentPage = currentPage;
+            },
+            export(){
+                
+        //         att = $('.el-table__fixed table')
+        // // res = this.userList;
+        //         str = "";
+        //         console.log(att[0]);
+        //         stra = ""
+        //         $(att[0].querySelectorAll('tr')[0].querySelectorAll('th')).each(function (
+        //         index, el) {
+        //         if (index != 0 && index != 1 && index != 5 && index != 9) {
+        //             stra += $(el)[0].querySelectorAll('div')[0].innerHTML
+        //             stra += ','
+        //         } else if (index == 1) {
+        //             stra += $(el)[0].querySelectorAll('div')[0].innerHTML
+        //             stra += ','
+        //         }
+        //         })
+        //         str += stra + '\r\n';
+        //         // str=" ,呼出,,,呼入,,,呼出+呼入,,,时长"+'\r\n'+"销售单元,总数,接通数,接通率,总数,接通数,接通率,总数,接通数,接通率,呼出,呼出平均,呼入,呼入平均,总时长,总平均"+'\r\n'
+        //         for (let k = 0; k < att[1].querySelectorAll('tr').length; k++) {
+
+        //         stra = ""
+        //         console.log(att[1].querySelectorAll('tr')[k].querySelectorAll('td'))
+        //         $(att[1].querySelectorAll('tr')[k].querySelectorAll('td')).each(function (
+        //             index, el) {
+        //             if (index != 0 && index != 4 && index != 5) {
+        //             stra += $(el)[0].querySelectorAll('div')[0].innerHTML
+        //             stra += ','
+        //             } else if (index == 4) {
+        //             // console.log($(el)[0].querySelectorAll('div')[0].innerHTML.split('↵↵'))
+        //             stra += $(el)[0].querySelectorAll('div')[0].innerHTML.replace(',', '/')
+        //             stra += ','
+        //             }
+
+        //         })
+        //         str += stra + '\r\n';
+        //         // const element = array[k];
+
+        //         }
+        //         console.log(str)
+        //         var fileName = "MyReport_";
+        //         fileName += "Download".replace(/ /g, "_");
+        //         var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+        //         var link = document.createElement("a");
+        //         link.href = uri;
+        //         link.style = "visibility:hidden";
+        //         link.download = fileName + ".CSV";
+        //         document.body.appendChild(link);
+        //         link.click();
+        //         document.body.removeChild(link);
+            },
+            flexColumnWidth() {
+                setTimeout(function () {
+                    return $('.el-table__header-wrapper').width() / 100 * 100 / 9
+                }, 20)
+            },
+            flexColumnWidthc() {
+                // return $('.el-table__header-wrapper').width() / 100 * 3
+            },
+            registerAll() {
+                window.location.href = 'indexregister.html'
+            },
+            closeForm() {
+                setTimeout(function () {
+                    if ($('.chancesearchp')[0].style.backgroundImage == 'url("img/down.svg")') {
+                        console.log(1)
+                        $('.chancesearchp')[0].style.backgroundImage = 'url("img/up.svg")';
+                        $('#searchform')[0].style.display = "none"
+                    } else {
+                        $('.chancesearchp')[0].style.backgroundImage = 'url("img/down.svg")'
+                        $('#searchform')[0].style.display = "block"
+                    }
+                }, 20)
+            },
+            dangan(scope) {
+                console.log(scope)
+                window.location.href = "indexdossier.html"
+            }
+        }
+    })
+
+    function form2Json(id) {
+
+        var arr = $("#" + id).serializeArray()
+        console.log(arr)
+        var jsonStr = "";
+
+        jsonStr += '{';
+        for (var i = 0; i < arr.length; i++) {
+            jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+        }
+        jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+        jsonStr += '}'
+
+        var json = JSON.parse(jsonStr)
+        return json
+    }
+</script>
+
+</html>

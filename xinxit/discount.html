@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>优惠码</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+     <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <style>
+    html,body{
+        height:100%;
+    }
+    .datagrid{
+        margin: 0 auto;
+    }
+    .modeldisr{
+        width:60%;
+        left:20%;
+    }
+    .chancesearch{
+        width:900px;
+        margin: auto;
+    }
+    form{
+        width: 900px;
+        margin:auto;
+    }
+    .detailsbox>div{
+        float:left;
+        width: 40%;
+        text-align: left;
+        padding-left:10%; 
+        height: 40px;
+        line-height: 40px;
+        
+    }
+    @media screen and (max-width:1000px) {
+        .chancesearch{
+        width:100%;
+        margin: auto;
+        }
+        form{
+            width: 100%;
+            margin:auto;
+        }
+        .modeldisr{
+            width:100%;
+            left:0;
+        }
+    }
+    </style>
+</head>
+<body>  
+        <div class="modelchance" style="display:block;height:100%">
+                <div class="modelchancer" style="padding-bottom:20px">
+                    <div class="modelcuer-head">
+                        <p style="color:#42b983">优惠码管理</p>
+                        <button style="width:auto;top:10px;right:10px;height:30px" class="youhuinew">创建优惠码</button>
+                    </div>
+                    <div class="chancesearch" style="border:1px solid rgb(239,239,239);background:-webkit-linear-gradient(top,white 0,rgb(239, 239, 239) 100%)">
+                            <p class="chancesearchp" style="margin-left:20px;background-image: url('img/down.svg');">查询条件</p>
+                        </div>
+                    <form class="modelchance-body" style="overflow:hidden" name="searchform" id ="searchform">
+                        <div>
+                            <span>优惠金额：</span>
+                            <input type="text" name="searchdiscount" style="width:70%">
+                        </div>
+                        <div>
+                            <span>优惠期限：</span>
+                            <input class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="limit_time_1" placeholder="日期">
+                            <span style="width:10%;text-align:center">至</span>
+                            <input class="Wdate" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="limit_time_2" placeholder="日期">
+                        </div>
+                            <input type="button" class="chancebtn" id="chancere" style="margin-right:30px;margin-bottom:20px" value="重置">
+                            <input type="button" class="chancebtn" id="submit_search"  value="查询">
+                    </form>
+                    <div style="width:100%;margin-left:0%;overflow:auto">
+                        <table id="datagrid1" title="机会列表" style="width:900px;margin:0 auto;"  
+                               >
+                            <thead>
+                                <tr class="content">
+                                    <th data-options="field:'limit_time',width:217.5,align:'center'">优惠期限</th>
+                                    
+                                    <th data-options="field:'discount',width:217.5,align:'center'">金额</th>
+                                    <th data-options="field:'discount_num',width:217.5,align:'center'">数量</th>
+                                    <th data-options="field:'already_made',width:217.5,align:'center'">已使用</th>
+                                </tr>
+                                
+                            </thead>
+                        </table>
+                    </div>
+                    
+                </div>
+              </div>
+              <div class="modeldiscount">
+                    <div class="modeldisr">
+                        <div class="modelcuer-head">
+                            <p style="color:#42b983">导出</p>
+                            <button class="discountx">X</button>
+                        </div>
+                        <div class="modeldel-body">
+                            <div class="monumber distable" style="height:210px;width:90%;overflow:auto;margin: 20px auto">
+                                <table style="width:100%">
+                                    <tr>
+                                        <td style="    border: 1px solid rgb(204,204,204);text-align: center;width: 20%;height: 40px;">优惠码</td>
+                                        <td  style="    border: 1px solid rgb(204,204,204);text-align: center;width: 20%;height: 40px;">优惠范围</td>
+                                        <td style="    border: 1px solid rgb(204,204,204);text-align: center;width: 20%;height: 40px;">使用期限</td>
+                                    </tr>
+                                </table> 
+                                <p class="promptpa" style="color:#42b983;"></p>
+                               
+                            </div>
+                             <button class="discountgo" style="padding:5px 15px;margin:20px;float:right">导出excel表</button>
+                        </div>
+                    </div>        
+                </div>
+                <div class="modelyouhui">
+                    <div class="modeldelr">
+                      <div class="modeldel-head">
+                          <p style="color:#42b983">优惠码</p>
+                          <button class="youhuix">X</button>
+                      </div>
+                      <div class="modeldel-body">
+                          <div class="monumber"><span>优惠码（随机）：</span>
+                            <input type="text" name="coupon_num">
+                          </div>
+                          <div class="monumber"><span>优惠金额：</span>
+                            <input type="text" name="discount1" placeholder="请输入金额">
+                            </div>
+                            <div class="monumber"><span>有效期（月）：</span>
+                                <input type="text" name="limit_time1" placeholder="请输入数字" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+                                </div>
+                                <div class="monumber"><span>批量生成：</span>
+                                    <input type="text" name="coupon_nums" placeholder="请输入数字" >
+                                    </div>
+                    <p class="youhuip" style="color:#42b983;">hehe</p>
+                    
+                            <button style="padding:0px 30px" class="youhuigo">保存</button>
+                            <!-- <button style="padding:0px 30px" onclick="location.href='discount.html'">查看</button> -->
+                          
+                      </div>
+                    </div>
+                  
+                </div>
+                <div class="moab" style="height:100%;overflow:auto">
+                    <div class="modeldelr">
+                      <div class="modeldel-head">
+                          <p style="color:#42b983">优惠详情</p>
+                          <button class="detailsx">X</button>
+                      </div>
+                      <div class="modeldel-body">
+                          
+                         <div style="width:100%;background: rgb(239, 239, 239);overflow:hidden" class="detailsbox">
+                            <p>基本信息</p>
+                            <div>优惠方式:<span class="dis1"></span></div>
+                            <div>发放量:<span class="dis2"></span></div>
+                            <div>使用期限:<span class="dis3"></span></div>
+                         </div>
+                         <p style="height:50px;line-height:50px">使用详情</p>
+                            <!-- <button style="padding:0px 30px" onclick="location.href='discount.html'">查看</button> -->
+                            <div style="width:100%;margin-left:0%;overflow:auto">
+                                    <table id="datagrid2" title="机会列表" style="display:block;width:1000px;margin:0 auto"  
+                                           >
+                                        <thead>
+                                            <tr>
+                                                <th data-options="field:'belong_to',width:80,align:'center'">使用人</th>
+                                                <th data-options="field:'classType',width:100,align:'center'">班型</th>
+                                                <th data-options="field:'create_time',width:160,align:'center'">发放日期</th>
+                                                <th data-options="field:'class_price',width:80,align:'center'">原价</th>
+                                                <th data-options="field:'cupon_num',width:160,align:'center'">优惠码</th>
+                                                <th data-options="field:'use_time',width:160,align:'center'">使用日期</th>
+                                                <th data-options="field:'discount',width:80,align:'center'">折扣</th>
+                                                <th data-options="field:'is_valid',width:80,align:'center'">使用状态</th>
+                                                <th data-options="field:'price',width:80,align:'center'">实付</th>
+                                            </tr>
+                                            
+                                        </thead>
+                                    </table>
+                                </div>
+                      </div>
+                    </div>
+                  
+                </div>
+</body>
+<script type="text/javascript">    
+    //保存优惠券
+        var regyouhui = /^-[0-9]|[0-9]+$/;
+        function youhuic(){
+            if (
+            $('input[name=discount1]')[0].style.color == "red"||
+            $('input[name=coupon_nums]')[0].style.color == "red"||
+            $('input[name=discount1]').val() == ""||
+            $('input[name=limit_time1]').val() == "") {
+            $('.youhuigo').attr('disabled','disabled')
+            }else{
+                $('.youhuigo').attr('disabled',false)
+            }
+        }
+        $('input[name=limit_time1]').on('focus',function(){
+            // $(this)[0].style.color = regyouhui.test($(this).val())?"green":"red";
+            youhuic()
+        })
+        $('input[name=limit_time1]').on('keyup',function(){
+            // $(this)[0].style.color = regyouhui.test($(this).val())?"green":"red";
+            youhuic()
+        })
+        $('input[name=coupon_nums]').on('keyup',function(){
+            if($(this).val()!=""&&regyouhui.test($(this).val())){
+                $(this).val(parseInt($(this).val()))
+            }
+            $(this)[0].style.color = regyouhui.test($(this).val())&&$(this).val()>0&&$(this).val()<501||$(this).val()==""?"green":"red";
+            youhuic()
+        })
+        $('input[name=discount1]').on('keyup',function(){
+            console.log($('input[name=limit_time1]'))
+            $(this)[0].style.color = regyouhui.test($(this).val())?"green":"red";
+            youhuic()
+        })
+        var youhuiarr = ["1"
+        ,"2",'3'
+        ,'4'
+        ,'5','6'
+        ,'7','8','9','0','q','w',
+            'e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v',
+            'b','n','m','Q','W','E','R','T','Y','U','I','O','P','L','K','J','H',
+            'G','F','D','S','A','Z','X','C','V','B','N','M'
+        ]
+        $('.youhuinew').click(function(){
+            youhuic()
+            $('.modelyouhui')[0].style.display = "block"
+            
+            var len = youhuiarr.length;
+            
+            var lb = "";
+            
+            for(var i=0;i<10;i++){
+                var la = Math.floor(Math.random()*len);
+                lb+=youhuiarr[la];
+            }
+            console.log(lb)
+            $('input[name = coupon_num]')[0].value = lb;
+        })
+        $('.youhuix').click(function(){
+            $('.modelyouhui')[0].style.display = "none";
+        })
+        $('.detailsx').click(function(){
+            $('.moab')[0].style.display = "none";
+        })
+        $('.youhuigo').click(function(){
+            var coupon_numsArr=[];
+            if($('input[name = coupon_nums]').val()!=""){
+                var len = youhuiarr.length;
+            
+                var lb = "";
+                var Arrlength = $('input[name = coupon_nums]').val()
+
+                // Youhui(coupon_numsArr,Arrlength,len)
+                // for(var i=0;i<Arrlength;i++){
+                //     lb="";
+                //     for(var j=0;j<10;j++){
+                //         var la = Math.floor(Math.random()*len);
+                //         lb+=youhuiarr[la];
+                //     }
+                //     if(coupon_numsArr.indexOf(lb)<0){
+                //          coupon_numsArr.push(lb)
+                //     }
+                // }
+                while(coupon_numsArr.length < Arrlength){
+                        lb="";
+                        for(var j=0;j<10;j++){
+                            var la = Math.floor(Math.random()*len);
+                            lb+=youhuiarr[la];
+                        }
+                        if(coupon_numsArr.indexOf(lb)<0){
+                            coupon_numsArr.push(lb)
+                        }
+                }
+            }
+            console.log(JSON.stringify(coupon_numsArr),coupon_numsArr)
+            $.ajax({
+                url:'',
+                type:'post',
+                data:{discount:$('input[name = discount1]').val(),
+                limit_time:$('input[name = limit_time1]').val(),
+                coupon_num:$('input[name = coupon_num]').val(),
+                coupon_nums:JSON.stringify(coupon_numsArr),},
+                success:function(data){
+                    if (data == 1) {
+                        $('.youhuip')[0].innerHTML = "优惠券已存在"
+                        setTimeout(function(){
+                            $('.youhuip')[0].innerHTML = ""
+                        },3000)
+                    }else if(data == 2){
+                        $('.youhuip')[0].innerHTML = "保存成功"
+                        setTimeout(function(){
+                            $('.youhuip')[0].innerHTML = ""
+                        },3000)
+                    }else{
+                        $('.youhuip')[0].innerHTML = "保存失败"
+                        setTimeout(function(){
+                            $('.youhuip')[0].innerHTML = ""
+                        },3000)
+                    }
+                },
+                error:function(){
+                    $('.youhuip')[0].innerHTML = "服务器错误"
+                    setTimeout(function(){
+                            $('.youhuip')[0].innerHTML = ""
+                        },3000)
+                }
+            })
+        })
+    $('.chancesearchp').click(function(){
+        if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+             $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+             $('#searchform')[0].style.display = "none"
+        }else{
+            $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+            $('#searchform')[0].style.display = "block"
+        }
+    })
+    $('#chancere').click(function(){
+        $("#searchform").find('input[type=text],select,input[type=hidden]').each(function() {
+         $(this).val('');
+     });
+    })
+    var thisApp1 = {
+        init:function(){
+            $("#datagrid2").datagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                //这是数据加载的地址,返回对应的json数据包就行,json包格式例子,见下4
+                pageSize: 10,
+                pageList: [10,20,50],
+                checkOnSelect:false,
+                selectOnCheck:true,
+                
+                })
+        }
+    }         
+    var thisApp = {
+        init: function () {
+            $("#datagrid1").datagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                //这是数据加载的地址,返回对应的json数据包就行,json包格式例子,见下4
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                checkOnSelect:false,
+                selectOnCheck:true,
+                url:'datagrid_data2.json',
+                method:'get',
+                queryParams: form2Json("searchform"),　
+                toolbar: [
+                     {
+                        text: '详情',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            var get = $("#datagrid1").datagrid("getSelections");
+                            $('.dis1')[0].innerHTML = "优惠"+get[0].discount+"元"
+                            $('.dis2')[0].innerHTML = get[0].discount_num
+                            $('.dis3')[0].innerHTML = get[0].limit_time
+                            if(get != ""){
+                                $('.moab')[0].style.display = "block";
+                                $.ajax({
+                                    url:"aaa.phpss",
+                                    type:'get',
+                                    data:{},
+                                    success:function(data){
+                                        $('#datagrid2').datagrid('loadData', data);
+                                    },
+                                    error:function(){
+                                        data = [{"limit_time":"2018-10-11 05:01:92","discount":"500","discount_num":"50","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:32","discount":"520","discount_num":"10","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:22","discount":"530","discount_num":"20","already_made":"已使用"},{"limit_time":"2018-10-11 05:01:92","discount":"500","discount_num":"50","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:32","discount":"520","discount_num":"10","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:22","discount":"530","discount_num":"20","already_made":"已使用"},{"limit_time":"2018-10-11 05:01:92","discount":"500","discount_num":"50","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:32","discount":"520","discount_num":"10","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:22","discount":"530","discount_num":"20","already_made":"已使用"},
+    {"limit_time":"2018-10-11 05:01:22","discount":"530","discount_num":"20","already_made":"已使用"},{"limit_time":"2018-10-11 05:01:92","discount":"500","discount_num":"50","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:32","discount":"520","discount_num":"10","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:22","discount":"530","discount_num":"20","already_made":"已使用"},
+    {"limit_time":"2018-10-11 05:01:22","discount":"530","discount_num":"20","already_made":"已使用"},{"limit_time":"2018-10-11 05:01:92","discount":"500","discount_num":"50","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:32","discount":"520","discount_num":"10","already_made":"未使用"},
+    {"limit_time":"2018-10-11 05:01:22","discount":"530","discount_num":"20","already_made":"已使用"}];
+    $('#datagrid2').datagrid('loadData', data);
+                                    }
+                                })
+                            }
+                            $('detailsx').click(function(){
+                                $('.moab')[0].style.display = "none";
+                            })
+                        }
+                    },{
+                        text: '导出',
+                        iconCls: 'icon-save',
+                        handler: function () {
+                            var get = $("#datagrid1").datagrid("getSelections");
+                            if(get == ""){
+                                console.log(1)
+                            }
+                            console.log(get[0].limit_time)
+                            
+                            $.ajax({
+                                url:'hehe.php',
+                                type:'post',
+                                data:{limit_time:get[0].limit_time},
+                                success:function(data){
+                                    if(data == 1){
+                                        $('.distable')[0].style.height = "210px";
+                                        $('.distable table')[0].innerHTML = `<tr>
+                                            <td style="    border: 1px solid rgb(204,204,204);text-align: center;width: 20%;height: 40px;">优惠码</td>
+                                            <td  style="    border: 1px solid rgb(204,204,204);text-align: center;width: 20%;height: 40px;">优惠范围</td>
+                                            <td style="    border: 1px solid rgb(204,204,204);text-align: center;width: 20%;height: 40px;">使用期限</td>
+                                        </tr>`
+                                        for(var k in data){
+                                        console.log(data[k])
+                                        $('.distable table')[0].innerHTML += `
+                                            <tr>
+                                                <td style="    border: 1px solid rgb(204,204,204);text-align: center;width: 20%;height: 40px;">`+data[k].coupon_num+`</td>
+                                                <td  style="    border: 1px solid rgb(204,204,204);text-align: center;width: 20%;height: 40px;">`+data[k].discount_range+`</td>
+                                                <td style="    border: 1px solid rgb(204,204,204);text-align: center;width: 20%;height: 40px;">`+data[k].limit_time+`</td>
+                                            </tr>`
+                                        }
+                                    }else{
+                                        $('.distable')[0].style.height = "auto";
+                                        $('.distable table')[0].innerHTML = `获取失败`
+                                    }
+                                },
+                                error:function(){
+                                    $('.distable')[0].style.height = "auto";
+                                    $('.distable table')[0].innerHTML = `服务器错误`
+                                }
+                            })
+                            $('.modeldiscount')[0].style.display = 'block'
+                            $('.discountx').click(function(){
+                                $('.modeldiscount')[0].style.display = 'none'
+                            })
+                        }
+                    }],
+                    onLoadSuccess: function(data,currentRowIndex){//加载完毕后获取所有的checkbox遍历
+                        console.log(currentRowIndex)
+                        
+                    },
+                    onClickRow: function (rowIndex, field, value) {
+                        
+                        },
+                    onDblClickRow:function(rowIndex, field, value){
+                       
+                        
+                    }
+                })
+            }
+        }
+        $(function(){
+            thisApp.init();
+            
+            var dg=$('#datagrid1').datagrid({});
+            dg.datagrid('enableFilter', [{}]);
+            thisApp1.init();
+            var dg2=$('#datagrid2').datagrid({});
+            dg2.datagrid('enableFilter', [{}]);
+            var p = $('#datagrid1').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            $("#submit_search").linkbutton({ iconCls: 'icon-search', plain: true }).click(function () {
+            //     $('.chancesearchp')[0].style.backgroundImage = 'url("img/up.svg")';
+            //  $('#searchform')[0].style.display = "none";
+             var dg = $('#datagrid1').datagrid({queryParams: form2Json("searchform"),url:'datagrid_data2.json'});
+                dg.datagrid('enableFilter',[{
+                field:'limit_time',
+                type:'text'
+            },{
+                field:'discount',
+                type:'text'
+            },{
+                field:'discount_num',
+                type:'text'
+            },{
+                field:'already_made',
+                type:'text'
+            }]);
+                var p = $('#datagrid1').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            });
+            $('.discountgo').click(function(){
+                var aa="";
+                for(i=0;i<$('.distable table td').length;i++){
+                    if((i)%3==0&&i!=0){
+                        aa+='\r\n'
+                    }
+                    console.log($('.distable table td')[i].innerHTML)
+                    aa+=$('.distable table td')[i].innerHTML+','; 
+                }console.log(aa)
+                var fileName = "MyReport_";
+                var ReportTitle="Download"
+                fileName += ReportTitle.replace(/ /g, "_");
+                var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(aa);
+                var link = document.createElement("a");
+                link.href = uri;
+                link.style = "visibility:hidden";
+                link.download = fileName + ".xlsx";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            })
+        // });
+        })
+        function form2Json(id) {
+ 
+            var arr = $("#" + id).serializeArray()
+            console.log(arr)
+            var jsonStr = "";
+ 
+            jsonStr += '{';
+            for (var i = 0; i < arr.length; i++) {
+                jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+            }
+            jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+            jsonStr += '}'
+ 
+            var json = JSON.parse(jsonStr)
+            return json
+        }
+ 
+</script>
+</html>

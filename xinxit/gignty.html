@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/gignty.css">
+</head>
+<body>
+    <div class="Cent">
+    <div class="All" style="">
+        <div class="top-title">销冠</div>
+        <div class="top-time"><span class="Year"></span>年<span class="month"></span>月<span class="day"></span>日</div>
+        <div class="box one" style="border:none;">
+            <ul>
+                <li><img src="./images/1.jpg" alt="轮播图片" title="hehe">
+                <p style="position:absolute;top:30%;left:30%;">haha</p>
+                <p style="position:absolute;top:60%;left:30%;">hehe</p></li>
+                <li><img src="./images/2.jpg" alt="轮播图片"></li>
+                <li><img src="./images/3.jpg" alt="轮播图片"></li>
+                <li><img src="./images/4.jpg" alt="轮播图片"></li>
+                <li><img src="./images/5.jpg" alt="轮播图片"></li>
+                <li><img src="./images/6.jpg" alt="轮播图片"></li>
+                <li><img src="./images/7.jpg" alt="轮播图片"></li>
+            </ul>      
+        </div>
+        <div class="box" id="two">
+            <ul>
+                <li><img src="./images/1.jpg" alt="轮播图片"></li>
+                <li><img src="./images/2.jpg" alt="轮播图片"></li>
+                <li><img src="./images/3.jpg" alt="轮播图片"></li>
+                <li><img src="./images/4.jpg" alt="轮播图片"></li>
+                <li><img src="./images/5.jpg" alt="轮播图片"></li>
+                <li><img src="./images/6.jpg" alt="轮播图片"></li>
+                <li><img src="./images/7.jpg" alt="轮播图片"></li>
+            </ul>      
+        </div>
+        <section id="lili">  </section>
+    </div>
+    
+    <div class="logind">
+        <div class="logined-bac"></div>
+        <form class="logined-bottom" action="#" method="post">
+            <input type="name" class="usename" name = "names" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9a-zA-Z-_]+/,'');}).call(this)" placeholder="用户名">
+            <input type="password" name = "password" class="pad" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9a-zA-Z-_]+/,'');}).call(this)" placeholder="密码">
+            <input type="checkbox" name="yuedu" id="yuedu">
+            <input type="submit" value="登录" class="gogo">
+        </form>
+    </div>
+    </div>
+    </div>
+</body>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/JQuery.LZSlide.js"></script>
+<script>
+  var html = document.documentElement; 
+      function fontS(){  
+          var hW = html.offsetWidth;  
+          var hS = hW / 50;    
+          html.style.fontSize = hS + "px";  
+      } 
+      $(document).mousemove(function(){
+        
+        if( $('.usename').val() != "" &&
+        $('.pad').val() != ""){
+            console.log(1);
+            $('.gogo').attr('disabled',false);
+        }else{
+            $('.gogo').attr('disabled',"disabled");
+        }
+    })
+    $(document).on('touchstart',function(){
+        if( $('.usename').val() != "" &&
+        $('.pad').val() != ""){
+            console.log(1);
+            $('.gogo').attr('disabled',false);
+        }else{
+            $('.gogo').attr('disabled',"disabled");
+        }
+    })
+    $('input[name = name]').on('keyup',function(e){
+          if(e.key == "Enter"){
+            if( $('.usename').val() != "" && $('.pad').val() != ""){
+                $('.logined-bottom').submit()
+            }
+          }
+      })
+      $('input[name = password]').on('keyup',function(e){
+          if(e.key == "Enter"){
+            if( $('.usename').val() != "" && $('.pad').val() != ""){
+                $('.logined-bottom').submit()
+            }
+          }
+      })
+    $('.gogo').click(function(){
+        window.location.href = "index.html";
+        console.log(1)
+    })
+    console.log(document.getElementsByTagName('img'));
+    $('.one').LZSlide({delay:2000,speed:3000});
+    $('#two').LZSlide({delay:1000});
+    var date = new Date();
+    console.log(date.getDate());
+    var Year = document.getElementsByClassName('Year');
+    var Month = document.getElementsByClassName('month');
+    var Day = document.getElementsByClassName('day');
+    Year[0].innerHTML = date.getFullYear();
+    Month[0].innerHTML = date.getMonth() + 1 ;
+    Day[0].innerHTML = date.getDate();
+    </script>
+</html>

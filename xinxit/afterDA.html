@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据分析表</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-filter.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+    <link rel="stylesheet" href="css/table.css">
+    <script src="My97DatePicker/My97DatePicker/WdatePicker.js"></script>
+    <style>
+        .hidd>div,.hidd1>div,.hidd2>div,.hidd3>div,.hidd4>div,.hidd5>div,.hidd6>div,.hidd7>div,.hidd8>div,.hidd9>div,.hidd10>div,.hidd11>div,.hidd12>div{
+                float: left;
+                width: 25%;
+                text-align: center
+            }
+            .hidd3>div,.hidd4>div,.hidd6>div,.hidd7>div,.hidd8>div,.hidd9>div,.hidd10>div,.hidd11>div,.hidd12>div{
+                width: 33%;
+            }
+            .hidd2>div,.hidd3>div{
+                width: 50%;
+            }
+            /* #searchform input[type=text]{
+                width: 60%;
+                height: 20px;
+                margin-left: 0px;
+            } */
+            #searchform>div{
+                margin-left:2%; 
+            }
+            .modelchance-body input[type = text]{
+                padding: 0;
+                width: 62%;
+                height: 30px;
+                margin: 0;
+            }
+            #searchform>div>div{
+                margin-top: 10px;
+                width: 33%;
+            }
+            #searchform select {
+                padding: 0;
+                width: 62%;
+                height: 30px;
+            }
+            #searchform span{
+                display: inline-block;
+                width: 30%;
+            }
+            .modelchance-body>div{
+            margin-top: 10px;
+        }
+        select{
+            margin-bottom: 0;
+        }
+        @media (max-width: 767px){
+            #searchform>div>div{
+                margin-top: 10px;
+                width: 100%;
+            }
+        }
+        .modelchancer {
+            overflow: -webkit-paged-x;
+        }
+    </style>
+</head>
+<body>  
+        <div class="modelchance" style="display:block">
+                <div class="modelchancer" style="width:90%">
+                    <div class="modelchance-head">
+                        <p style="color:#42b983">数据分析表</p>
+                    </div>
+                    <form name="searchform" id="searchform">
+                            <!-- <select name="type" id="">
+                                    <option value="">请选择项目</option>
+                                    <option value="基金项目">基金项目</option>
+                                    <option value="消防项目">消防项目</option>
+                                </select> -->
+                        <div class="chancesearch" style="width:95.8%;border:1px solid rgb(239,239,239);background:-webkit-linear-gradient(top,white 0,rgb(239, 239, 239) 100%)">
+                            <p class="chancesearchp" style="margin-left:20px;background-image: url('img/down.svg');">查询条件</p>
+                        </div>
+                    <div class="modelchance-body">
+                            <div style="position:relative;" data-ig="project">
+                                    <span>项目：</span><input class="" type="text"  name="project"  placeholder="项目">
+                                    <div class="hidd2" style="display:none;width:62%;position:absolute;top:30px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 0px">
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;消防</span>
+                                        </div>
+                                        <div style="text-align:center">
+                                            <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;基金</span>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="position:relative;" data-ig="name">
+                                        <span>属员：</span><input class="people" type="text"    placeholder="属员"><input class="" type="text"  name="people"  placeholder="属员" style="display:none">
+                                        <div class="hidd5" style="display:none;width:62%;position:absolute;top:30px;z-index:999;left:30%;background:white;border:1px solid rgb(219,219,219);border-radius:5px;padding:4px 0px">
+                                            
+                                        </div>
+                                    </div>
+                                    <div><span>搜索条件：</span><select name="search_by" id="">
+                                        <option value="">请选择</option>
+                                        <option value="project">按项目</option>  
+                                        <option value="belong_to">按属员</option>  
+                                        
+                                    </select></div>
+                                    <div style="clear:both;    float: none;"></div>
+                                
+                    </div>
+                    <div class="chancesearch" style="width:95.8%;border:1px solid rgb(239,239,239);background:-webkit-linear-gradient(top,white 0,rgb(239, 239, 239) 100%)">
+                        <p class="chancesearchp" style="margin-left:20px;background-image: url('img/down.svg');">查询条件</p>
+                    </div>
+                <div class="modelchance-body" style="overflow:inherit">
+                        <div  style="position:relative;" data-ig="time_type">
+                                <span>快捷搜索：</span><select class="mwd" id="">
+                                    <option value="">自定义</option>    
+                                    <option value="today">今天</option>    
+                                    <option value="yesterday">昨天</option>    
+                                    <option value="thisWeek">本周</option>    
+                                    <option value="lastWeek">上周</option>    
+                                    <option value="thisMonth">本月</option>    
+                                    <option value="lastMonth">上月</option>    
+                                </select>
+                            </div>
+                            <div  style="position:relative;" data-ig="time_start">
+                                    <span>起始时间：</span><input type="text"  class="start_time"  onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 00:00:00'})"  placeholder="日期" autocomplete="off">
+                                    
+                                </div>
+                                <div style="position:relative;" data-ig="time_end">
+                                    <span>截止时间：</span><input type="text"  class="end_time"  onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd 23:59:59'})" placeholder="日期" autocomplete="off">
+                                </div>
+                                <div><span>搜索条件：</span><select name="search_for" id="">
+                                        <option value="">请选择</option>
+                                        <option value="month">按月</option>
+                                        <option value="week">按周</option>   
+                                        <!-- <option value="3">按日</option>      -->
+                                    </select></div>
+                            <div style="clear:both"></div>
+                </div> 
+                    <div>
+                        <input type="button" class="chancebtn" id="chancere" style="margin-right:30px" value="重置">
+                        <input type="button" class="chancebtn" id="submit_search"  value="查询">
+                    </div>
+                    </form>
+                </div>
+                    <div style="width:96%;margin-left:2%">
+                        <table id="datagrid1" title="数据分析表" style="width:100%"  
+                               >
+                            <thead>
+                                <tr class="content">
+                                    <!-- <th data-options="field:'ck',checkbox:true,hidden:true" class="8777"></th> -->
+                                    <th data-options="field:'user_name',width:80,align:'center',editor:'textbox'">姓名</th>
+                                    <th data-options="field:'project',width:80,align:'center',editor:'textbox'">项目</th>
+                                    <th data-options="field:'all_num',width:80,align:'center',editor:'textbox'">服务总数</th>
+                                    
+                                    <th data-options="field:'count',width:80,align:'center',editor:'textbox'">分配人数</th>
+                                    <th data-options="field:'deposit',width:80,align:'center',editor:'textbox'">定金人数</th>
+                                    <th data-options="field:'repeat_repair_fee',width:120,align:'center',editor:'textbox'">代报名补费人数</th>
+                                    <th data-options="field:'should_class',width:80,align:'center',editor:'textbox'">应开课人数</th>
+                                    <th data-options="field:'is_class',width:80,align:'center',editor:'textbox'">开课合格人数</th>
+                                    <th data-options="field:'class_percent',width:80,align:'center',editor:'textbox'">开课合格率</th>
+                                    <th data-options="field:'should_phone',width:80,align:'center',editor:'textbox'">开班电话数</th> 
+                                    <th data-options="field:'phone_percent',width:100,align:'center',editor:'textbox'">开班电话完成率</th> 
+                                    <th data-options="field:'receipt',width:80,align:'center',editor:'textbox'">总回执人数</th> 
+                                    <th data-options="field:'receipt_percent',width:80,align:'center',editor:'textbox'">总回执率</th> 
+                                    <th data-options="field:'today_receipt',width:120,align:'center',editor:'textbox'">当日报名当日回执人数</th> 
+                                    <th data-options="field:'today_receipt_percent',width:120,align:'center',editor:'textbox'">当日报名当日回执率</th> 
+                                    <th data-options="field:'should_back_visit',width:80,align:'center',editor:'textbox'">应回访人数</th> 
+                                    <th data-options="field:'back_visit',width:100,align:'center',editor:'textbox'">完成回访人数</th> 
+                                    <th data-options="field:'back_visit_percent',width:80,align:'center',editor:'textbox'">回访完成率</th> 
+                                    <th data-options="field:'order_should_sign_up',width:160,align:'center',editor:'textbox'">当日报班学员中含代报名服务人数</th> 
+                                    <th data-options="field:'should_sign_up',width:100,align:'center',editor:'textbox'">需代报名人数</th> 
+                                    <th data-options="field:'sign_up',width:120,align:'center',editor:'textbox'">代报名实际完成人数</th> 
+                                    <th data-options="field:'sign_up_percent',width:100,align:'center',editor:'textbox'">代报名完成率</th> 
+                                    <th data-options="field:'should_send_jt1',width:80,align:'center',editor:'textbox'">基通1</th> 
+                                    <th data-options="field:'should_send_jt2',width:80,align:'center',editor:'textbox'">基通2</th> 
+                                    <th data-options="field:'should_send_jt3',width:80,align:'center',editor:'textbox'">基通3</th> 
+                                    <th data-options="field:'should_send_jj1',width:80,align:'center',editor:'textbox'">基教1</th> 
+                                    <th data-options="field:'should_send_jj2',width:80,align:'center',editor:'textbox'">基教2</th> 
+                                    <th data-options="field:'should_send_jj3',width:80,align:'center',editor:'textbox'">基教3</th> 
+                                    <th data-options="field:'should_send_xt',width:80,align:'center',editor:'textbox'">消通</th> 
+                                    <th data-options="field:'should_send_xj',width:80,align:'center',editor:'textbox'">消教</th> 
+                                     
+                                    <!-- <th data-options="field:'did',width:80,align:'center'">did</th> -->
+                                </tr>
+                                
+                            </thead>
+                        </table>
+                    </div>
+                    
+                </div>
+              </div>
+</body>
+<script src="js/export.js"></script>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.edatagrid.js"></script>
+<script type="text/javascript" src="https://www.jeasyui.com/easyui/datagrid-cellediting.js"></script>
+<script type="text/javascript"> 
+//项目
+$(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "project" || $(e.target.parentElement.parentElement).attr('data-ig') == "project" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "project"){
+            $('.hidd2')[0].style.display = "block"
+        }else{
+            var hhh = $('input[name = project]')[0].value;
+            $('.hidd2')[0].style.display = "none";
+            $('input[name = project]').val('');
+            $('.hidd2 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[name = project]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1]
+                    }
+            })
+            $('input[name = project]')[0].value = $('input[name = project]')[0].value.substring(1);
+            var arr = $('input[name = project]')[0].value.split(',');
+            if( hhh != $('input[name = project]')[0].value){
+                $.ajax({
+                    url:'aa.php',
+                    type:'get',
+                    data:{gArr:arr,gType:'4'},
+                    success:function(data){
+                        $('.hidd5')[0].innerHTML = "";
+                        for(var k in data){
+                            $('.hidd5')[0].innerHTML+=`<div style="text-align:center">
+                                                <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;`+data[k]+`</span>
+                                            </div>`
+                        }
+                    },
+                    error:function(){
+                    }
+                })
+            }
+            
+        }
+    })
+    $(document).click(function(e){
+        if($(e.target.parentElement).attr('data-ig') == "name" || $(e.target.parentElement.parentElement).attr('data-ig') == "name" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "name"){
+            $('.hidd5')[0].style.display = "block"
+        }else{
+            $('.hidd5')[0].style.display = "none";
+            $('input[class = people]').val('');
+            $('input[name = people]').val('');
+            $('.hidd5 input[type=checkbox]').each(function(index,el){
+                    if(el.checked == true){
+                        $('input[class = people]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1];
+                        $('input[name = people]')[0].value +=','+$(el.nextElementSibling).attr('data-uid')
+                    }
+            })
+            $('input[class = people]')[0].value = $('input[class = people]')[0].value.substring(1)
+            $('input[name = people]')[0].value = $('input[name = people]')[0].value.substring(1)
+        }
+    })
+    $('.chancesearchp').each(function(index,el){
+        $(el).click(function(){
+            
+            // $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+            console.log($(this)[0].style.backgroundImage)
+            if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+            console.log(1)
+                $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+                $('.modelchance-body')[index].style.display = "none"
+            }else{
+                $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+                $('.modelchance-body')[index].style.display = "block"
+            }
+            
+        })
+    })
+    // $('.chancesearchp').click(function(){
+    //     if($(this)[0].style.backgroundImage == 'url("img/down.svg")'){
+    //         console.log(1)
+    //          $(this)[0].style.backgroundImage = 'url("img/up.svg")';
+    //          $('#searchform')[0].style.display = "none"
+    //     }else{
+    //         $(this)[0].style.backgroundImage = 'url("img/down.svg")'
+    //         $('#searchform')[0].style.display = "block"
+    //     }
+    // })
+//周  
+// $('.hidd2')[0].innerHTML = ""
+//             for(var i=1;i<54;i++){
+//                 $('.hidd2')[0].innerHTML+=`<div style="text-align:center">
+//                                             <input type="checkbox" name="" id="" style="vertical-align: top;"><span style="display: inline;">&nbsp;`+i+`</span>
+//                                         </div>`
+//             }
+// $('.hidd2')[0].innerHTML+=`<div style="text-align:center;width:100%">区间：<input type='text' class="text1" style="width:40px;margin:0">-<input type='text' class="text2" style="width:40px;margin:0"></div>`;
+// $($('input[class=text2]')).on('keyup',function(){
+//     if($('input[class=text2]').val()>$('input[class=text1]').val()){
+//         $('.hidd2 input[type=checkbox]').each(function(index,el){
+//             if(index >= 0 && index<54){
+//                 var text1 ;
+//                 if($('input[class=text1]').val() == ""){
+//                     text1 = 0
+//                 }else{
+//                     text1 = $('input[class=text1]').val();
+//                 }
+//                 if(index>text1-2 && index<$('input[class=text2]').val()){
+//                     el.checked = true
+//                 }else{
+//                     el.checked = false
+//                 }
+//             }
+//         })
+//     }else{
+//         $('.hidd2 input[type=checkbox]').each(function(index,el){
+//             if(index >= 0 && index<54){
+//                 el.checked = false
+//             }
+                
+//         })
+//     }
+// })
+// $($('input[class=text1]')).on('keyup',function(){
+//     if($('input[class=text2]').val()>=$('input[class=text1]').val()){
+//         $('.hidd2 input[type=checkbox]').each(function(index,el){
+//             if(index >= 0 && index<54){
+//                 var text1 ;
+//                 if($('input[class=text1]').val() == ""){
+//                     text1 = 0
+//                 }else{
+//                     text1 = $('input[class=text1]').val();
+//                 }
+//                 if(index>text1-2 && index<$('input[class=text2]').val()){
+//                     el.checked = true
+//                 }else{
+//                     el.checked = false
+//                 }
+//             }
+//         })
+//     }else{
+//         $('.hidd2 input[type=checkbox]').each(function(index,el){
+//             if(index >= 0 && index<54){
+//                 el.checked = false
+//             }
+                
+//         })
+//     }
+// })
+// $(document).click(function(e){
+//         if($(e.target.parentElement).attr('data-ig') == "Week" || $(e.target.parentElement.parentElement).attr('data-ig') == "Week" || $(e.target.parentElement.parentElement.parentElement).attr('data-ig') == "Week"){
+//             $('.hidd2')[0].style.display = "block"
+//         }else{
+//             $('.hidd2')[0].style.display = "none";
+//             $('input[name = Week]').val('');
+            
+//             $('.hidd2 input[type=checkbox]').each(function(index,el){
+//                     if(el.checked == true){
+//                         $('input[name = Week]')[0].value +=','+el.nextElementSibling.innerHTML.split(';')[1];
+                        
+//                     }
+                    
+//             })
+//             $('input[name = Week]')[0].value = $('input[name = Week]')[0].value.substring(1)
+//         }
+//     })
+var params = "";
+    
+    $('#chancere').click(function(){
+        $("#searchform").find('input[type=text],select').each(function() {
+         $(this).val('');
+     });
+    })         
+    var thisApp = {
+        init: function () {
+            // var Url;
+            // console.log(location.href.split('?')[1])
+            // if(location.href.split('?')[1]==undefined){
+            //     Url = 'www.baidu.com'
+            // }else{
+            //     Url = 'datagrid_data1.json?'+location.href.split('?')[1]
+            // }
+            $("#datagrid1").datagrid({
+                rownumbers: true,
+                singleSelect: true,
+                pagination: true,
+                //这是数据加载的地址,返回对应的json数据包就行,json包格式例子,见下4
+                pageSize: 10,
+                pageList: [10, 50, 100],
+                checkOnSelect:false,
+                selectOnCheck:true,
+                url:'datagrid_data3.json',
+                method:'get',
+                // queryParams: form2Json("searchform"),　
+                toolbar: [
+                    {
+                        text: '导出',
+                            iconCls: 'icon-save',
+                            handler: function () {
+                                var CSV = '';
+                                // if (ShowLabel) {
+                                //     var row = "";
+                                // for ( var item in Arr) {
+                                // console.log(Arr[item])
+                                //         row +=Arr[item] + ',';
+                                //     }
+                                //     row = row.slice(0, -1);
+                                //     CSV += row + '\r\n';
+                                // }
+                                console.log(CSV)
+                                arrData = [
+    {
+        "info":"时间",
+        "card":5,
+        "belong":"聂秋杰-消防四部一组",
+        "chance":2,
+        "visits":36,
+        "week_visits":0,
+        "time_length":"5942",
+        "total_exhalation":"261",
+        "effective_exhalation":"47",
+        "sign_num":"1",
+        "sign_money":500,
+        "week_sign_num":0,
+        "week_sign_money":0,
+        "card_call_rate":"40%",
+        "visits_rate":"720%",
+        "week_visits_rate":"0%",
+        "over_sign_num":1,
+        "over_sign_money":500,
+        "week_reverse":"0%",
+        "over_reverse":"20%",
+        "arpu":500,
+        "week_arpu":0,
+        "over_arpu":500,
+        "deal_rate":100,
+        "average_time":22.77,
+        "call_compete_time":"18.01%",
+        "reverseDJ":"20%",
+        "reverseQK":"0%",
+        "reverse":"20%",
+        "rateBF":"0%",
+        "arpuQK":0,
+        "arpuBF":'',
+        "rateSign":"将%"
+    },
+    {
+        "info":"时间",
+        "card":5,
+        "belong":"聂秋杰-消防四部一组",
+        "chance":2,
+        "visits":36,
+        "week_visits":0,
+        "time_length":"5942",
+        "total_exhalation":"261",
+        "effective_exhalation":"47",
+        "sign_num":"1",
+        "sign_money":500,
+        "week_sign_num":0,
+        "week_sign_money":0,
+        "card_call_rate":"40%",
+        "visits_rate":"720%",
+        "week_visits_rate":"0%",
+        "over_sign_num":1,
+        "over_sign_money":500,
+        "week_reverse":"0%",
+        "over_reverse":"20%",
+        "arpu":500,
+        "week_arpu":0,
+        "over_arpu":500,
+        "deal_rate":100,
+        "average_time":22.77,
+        "call_compete_time":"18.01%",
+        "reverseDJ":"20%",
+        "reverseQK":"0%",
+        "reverse":"20%",
+        "rateBF":"0%",
+        "arpuQK":0,
+        "arpuBF":0,
+        "rateSign":"将%"
+    },
+    {
+        "info":"时间",
+        "card":26,
+        "belong":"艾超-消防四部一组",
+        "chance":18,
+        "visits":24,
+        "week_visits":1,
+        "time_length":"20661",
+        "total_exhalation":"320",
+        "effective_exhalation":"63",
+        "sign_num":0,
+        "sign_money":0,
+        "week_sign_num":0,
+        "week_sign_money":0,
+        "card_call_rate":"69.23%",
+        "visits_rate":"92.31%",
+        "week_visits_rate":"3.85%",
+        "over_sign_num":0,
+        "over_sign_money":0,
+        "week_reverse":"0%",
+        "over_reverse":"0%",
+        "arpu":0,
+        "week_arpu":0,
+        "over_arpu":0,
+        "deal_rate":0,
+        "average_time":64.57,
+        "call_compete_time":"19.69%",
+        "reverseDJ":"0%",
+        "reverseQK":"0%",
+        "reverse":"0%",
+        "rateBF":"0%",
+        "arpuQK":0,
+        "arpuBF":0,
+        "rateSign":"山%"
+    },
+    {
+        "info":"时间",
+        "card":14,
+        "belong":"马晓亭-消防四部一组",
+        "chance":12,
+        "visits":44,
+        "week_visits":4,
+        "time_length":"10966",
+        "total_exhalation":"292",
+        "effective_exhalation":"86",
+        "sign_num":"2",
+        "sign_money":3380,
+        "week_sign_num":0,
+        "week_sign_money":0,
+        "card_call_rate":"85.71%",
+        "visits_rate":"314.29%",
+        "week_visits_rate":"28.57%",
+        "over_sign_num":2,
+        "over_sign_money":3380,
+        "week_reverse":"0%",
+        "over_reverse":"14.29%",
+        "arpu":1690,
+        "week_arpu":0,
+        "over_arpu":1690,
+        "deal_rate":241.4,
+        "average_time":37.55,
+        "call_compete_time":"29.45%",
+        "reverseDJ":"7.14%",
+        "reverseQK":"7.14%",
+        "reverse":"14.29%",
+        "rateBF":"0%",
+        "arpuQK":3380,
+        "arpuBF":0,
+        "rateSign":"0%"
+    },
+    {
+        "info":"时间",
+        "card":20,
+        "belong":"李相晶-消防四部一组",
+        "chance":14,
+        "visits":5,
+        "week_visits":0,
+        "time_length":"14980",
+        "total_exhalation":"114",
+        "effective_exhalation":"28",
+        "sign_num":"4",
+        "sign_money":8852,
+        "week_sign_num":"2",
+        "week_sign_money":2880,
+        "card_call_rate":"70%",
+        "visits_rate":"25%",
+        "week_visits_rate":"0%",
+        "over_sign_num":2,
+        "over_sign_money":5972,
+        "week_reverse":"10%",
+        "over_reverse":"10%",
+        "arpu":2213,
+        "week_arpu":1440,
+        "over_arpu":2986,
+        "deal_rate":442.6,
+        "average_time":131.4,
+        "call_compete_time":"24.56%",
+        "reverseDJ":"5%",
+        "reverseQK":"10%",
+        "reverse":"15%",
+        "rateBF":"100%",
+        "arpuQK":4426,
+        "arpuBF":8852,
+        "rateSign":"33.33%"
+    },
+    {
+        "info":"时间",
+        "card":24,
+        "belong":"成茹-消防四部一组",
+        "chance":14,
+        "visits":52,
+        "week_visits":0,
+        "time_length":"14054",
+        "total_exhalation":"760",
+        "effective_exhalation":"78",
+        "sign_num":"1",
+        "sign_money":2880,
+        "week_sign_num":0,
+        "week_sign_money":0,
+        "card_call_rate":"58.33%",
+        "visits_rate":"216.67%",
+        "week_visits_rate":"0%",
+        "over_sign_num":1,
+        "over_sign_money":2880,
+        "week_reverse":"0%",
+        "over_reverse":"4.17%",
+        "arpu":2880,
+        "week_arpu":0,
+        "over_arpu":2880,
+        "deal_rate":120,
+        "average_time":18.49,
+        "call_compete_time":"10.26%",
+        "reverseDJ":"0%",
+        "reverseQK":"4.17%",
+        "reverse":"4.17%",
+        "rateBF":"0%",
+        "arpuQK":2880,
+        "arpuBF":0,
+        "rateSign":"0%"
+    },
+    {
+        "info":"时间",
+        "card":1,
+        "belong":"聂阳-消防四部一组",
+        "chance":1,
+        "visits":0,
+        "week_visits":0,
+        "time_length":"1",
+        "total_exhalation":"1",
+        "effective_exhalation":"1",
+        "sign_num":"1",
+        "sign_money":500,
+        "week_sign_num":"1",
+        "week_sign_money":500,
+        "card_call_rate":"100%",
+        "visits_rate":"0%",
+        "week_visits_rate":"0%",
+        "over_sign_num":0,
+        "over_sign_money":0,
+        "week_reverse":"100%",
+        "over_reverse":"0%",
+        "arpu":500,
+        "week_arpu":500,
+        "over_arpu":0,
+        "deal_rate":500,
+        "average_time":1,
+        "call_compete_time":"100%",
+        "reverseDJ":"100%",
+        "reverseQK":"0%",
+        "reverse":"100%",
+        "rateBF":"0%",
+        "arpuQK":0,
+        "arpuBF":0,
+        "rateSign":"0%"
+    },
+    {
+        "info":"时间",
+        "card":11,
+        "belong":"惠保洪-消防四部一组",
+        "chance":3,
+        "visits":53,
+        "week_visits":0,
+        "time_length":"12195",
+        "total_exhalation":"894",
+        "effective_exhalation":"86",
+        "sign_num":"1",
+        "sign_money":2880,
+        "week_sign_num":"1",
+        "week_sign_money":2880,
+        "card_call_rate":"27.27%",
+        "visits_rate":"481.82%",
+        "week_visits_rate":"0%",
+        "over_sign_num":0,
+        "over_sign_money":0,
+        "week_reverse":"9.09%",
+        "over_reverse":"0%",
+        "arpu":2880,
+        "week_arpu":2880,
+        "over_arpu":0,
+        "deal_rate":261.8,
+        "average_time":13.64,
+        "call_compete_time":"9.62%",
+        "reverseDJ":"0%",
+        "reverseQK":"9.09%",
+        "reverse":"9.09%",
+        "rateBF":"0%",
+        "arpuQK":2880,
+        "arpuBF":0,
+        "rateSign":"0%"
+    },
+    {
+        "info":"时间",
+        "card":130,
+        "belong":"数据汇总",
+        "chance":80,
+        "visits":250,
+        "week_visits":10,
+        "time_length":91677,
+        "total_exhalation":2942,
+        "effective_exhalation":449,
+        "sign_num":11,
+        "sign_money":21872,
+        "week_sign_num":5,
+        "week_sign_money":9140,
+        "card_call_rate":"61.54%",
+        "visits_rate":"192.31%",
+        "week_visits_rate":"7.69%",
+        "over_sign_num":6,
+        "over_sign_money":12732,
+        "week_reverse":"3.85%",
+        "over_reverse":"4.62%",
+        "arpu":1988,
+        "week_arpu":1828,
+        "over_arpu":2122,
+        "deal_rate":168.2,
+        "average_time":31.16,
+        "call_compete_time":"15.26%",
+        "reverseDJ":"3.08%",
+        "reverseQK":"4.62%",
+        "reverse":"7.69%",
+        "rateBF":"25%",
+        "arpuQK":3645,
+        "arpuBF":21872,
+        "rateSign":"10%"
+    }
+]
+                                //1st loop is to extract each row
+                                for (var i = 0; i < arrData.length; i++) {
+                                    var row = "";
+                                    for ( var index in arrData[i]) {
+                                        row += '"' + arrData[i][index] + '",';
+                                    }
+
+                                    row.slice(0, row.length - 1);
+                                    CSV += row + '\r\n';
+                                    
+                                }
+                                
+                                if (CSV == '') {
+                                    alert("Invalid data");
+                                    return;
+                                }
+                                console.log(CSV)
+                                var fileName = "后端_";
+                                var ReportTitle="数据"
+                                fileName += ReportTitle.replace(/ /g, "_");
+                                var uri = 'data:text/xlsx;charset=utf-8,\uFEFF' + encodeURI(CSV);
+                                var link = document.createElement("a");
+                                link.href = uri;
+                                link.style = "visibility:hidden";
+                                link.download = fileName + ".xlsx";
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                            }
+                        }
+                    ],
+                    onLoadSuccess: function(data,currentRowIndex){//加载完毕后获取所有的checkbox遍历
+                        
+                        
+                    },
+                    onClickRow: function (rowIndex, field, value) {
+                       
+                        },
+                    onDblClickRow:function(rowIndex, field, value){
+                        
+                    }
+                })
+            }
+        }
+        function getNowFormatDate(date) {
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    if (hour >= 0 && hour <= 9) {
+        hour = "0" + hour;
+    }
+    if (minute >= 0 && minute <= 9) {
+        minute = "0" + minute;
+    }
+    if (second >= 0 && second <= 9) {
+        second = "0" + second;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + hour + seperator2 + minute
+            + seperator2 + second;
+    return currentdate;
+    }
+    var oneday = 1000 * 60 * 60 * 24,today=new Date();
+        getday = today.getDay() == 0?7: today.getDay();
+    var arr=[];
+    var getYearWeek = function (date) {
+    var datea = new Date(date), dateb = new Date(new Date(date).getFullYear(), 0, 1),
+    d = Math.round((datea.valueOf() - dateb.valueOf()) / 86400000);
+    return Math.ceil( (d + ((dateb.getDay() + 1) - 1)) / 7 );
+    };
+    // console.log(getYearWeek('2019-01-07 00:00:00'));
+    var getMonthWeek = function (date1,date2) {
+        arr=[];
+        week1 = new Date(date1).getDay() == '0'?'7':new Date(date1).getDay(),week2 = new Date(date2).getDay()== '0'?'7':new Date(date1).getDay();
+        // console.log((week2-week1) , ((new Date(date2.split(' ')+" 00:00:00").getTime())-(new Date(date1.split(' ')+" 00:00:00").getTime()))/(24*60*60*1000))
+    //   console.log(((new Date(str).getTime())))
+        if(getYearWeek(date1) != getYearWeek(date2)){
+            length = getYearWeek(date2) - getYearWeek(date1)+1;
+            console.log(getNowFormatDate(new Date(new Date(new Date(date2).toLocaleDateString()).getTime()- oneday * (new Date(date1).getDay()-1))),new Date(date1).getDate())
+            console.log(new Date(date1).toLocaleDateString())
+            arr[0]=[date1,getNowFormatDate(new Date(new Date(new Date(date1).toLocaleDateString()).getTime()- oneday * (new Date(date1).getDay()-8)-1))]
+            arr[length-1]=[getNowFormatDate(new Date(new Date(new Date(date2).toLocaleDateString()).getTime()- oneday * (new Date(date2).getDay()-1))),date2]
+            if(length >2 ){
+                for (let i = 1; i < length-1; i++) {
+                    arr[i]=[getNowFormatDate(new Date(new Date(new Date(date1).toLocaleDateString()).getTime()- oneday * (new Date(date1).getDay()-1-7*i))),getNowFormatDate(new Date(new Date(new Date(date1).toLocaleDateString()).getTime()- oneday * (new Date(date1).getDay()-8-7*i)-1))]
+                }
+            }
+            
+        }else{
+            arr[0]=[date1,date2]
+        }
+        return arr;
+    };
+    var getMonthday = function (date1,date2) {
+        arr = [];
+        var length = new Date(date2).getMonth()-new Date(date1).getMonth()+1;
+        console.log(length)
+        if(length == 1){
+            arr[0]=[date1,date2]
+        }else{
+            console.log(getNowFormatDate(new Date((new Date(new Date(date1).getFullYear(),new Date(date1).getMonth()+1,1).getTime()-1))))
+            // datet = 
+            arr[0]=[date1,getNowFormatDate(new Date((new Date(new Date(date1).getFullYear(),new Date(date1).getMonth()+1,1).getTime()-1)))]
+            arr[length-1]=[getNowFormatDate(new Date(new Date(new Date(date2).toLocaleDateString()).getTime()- oneday * (new Date(date2).getDate()-1))),date2]
+            // arr[1]=[date1,getNowFormatDate(new Date(new Date(date1).getFullYear(),new Date(date1).getMonth()+1,1))]
+            if(length>2){
+                for (let j = 1; j < length-1; j++) {
+                arr[j]=[getNowFormatDate(new Date((new Date(new Date(date1).getFullYear(),new Date(date1).getMonth()+j,1)))),getNowFormatDate(new Date((new Date(new Date(date1).getFullYear(),new Date(date1).getMonth()+1+j,1).getTime()-1)))]
+                
+            }
+            }
+            
+        }
+        return arr;
+    }
+    // getMonthday("2019-04-12 00:00:00","2019-04-24 00:00:03")
+    // console.log(arr)
+    //  var getDate=getMonthWeek("2019-04-12 00:00:00","2019-04-14 00:00:03");
+        $(function(){
+            thisApp.init();
+            var dg=$('#datagrid1').datagrid({});
+            dg.datagrid('enableFilter', [{}]);
+            var p = $('#datagrid1').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            $("#submit_search").linkbutton({ iconCls: 'icon-search', plain: true }).click(function () {
+            //     $('.chancesearchp')[0].style.backgroundImage = 'url("img/up.svg")';
+            //  $('#searchform')[0].style.display = "none";
+             console.log($('#searchform'));
+             params=form2Json("searchform");
+             if(params['search_for'] == "month"){
+                params['arr']=getMonthday($('#searchform input[class = start_time]').val(),$('#searchform input[class = end_time]').val())
+             }else if(params['search_for'] == "week"){
+                params['arr']=getMonthWeek($('#searchform input[class = start_time]').val(),$('#searchform input[class = end_time]').val())
+             }
+             console.log(params)
+             var dg = $('#datagrid1').datagrid({queryParams: params,url:'datagrid_data3.json',singleSelect:true});
+             
+             dg.datagrid('enableFilter',[{
+                field:'user_name',
+                type:'text'
+            },{
+                field:'project',
+                type:'text'
+            },{
+                field:'all_num',
+                type:'text'
+            },{
+                field:'count',
+                type:'text'
+            },{
+                field:'deposit',
+                type:'text'
+            },{
+                field:'repeat_repair_fee',
+                type:'text'
+            },{
+                field:'should_class',
+                type:'text'
+            },{
+                field:'is_class',
+                type:'text'
+            },{
+                field:'class_percent',
+                type:'text'
+            },{
+                field:'should_phone',
+                type:'text'
+            },{
+                field:'phone_percent',
+                type:'text'
+            },{
+                field:'receipt',
+                type:'text'
+            },{
+                field:'receipt_percent',
+                type:'text'
+            },{
+                field:'today_receipt',
+                type:'text'
+            },{
+                field:'today_receipt_percent',
+                type:'text'
+            },{
+                field:'should_back_visit',
+                type:'text'
+            },{
+                field:'back_visit',
+                type:'text'
+            },{
+                field:'back_visit_percent',
+                type:'text'
+            },{
+                field:'order_should_sign_up',
+                type:'text'
+            },{
+                field:'should_sign_up',
+                type:'text'
+            },{
+                field:'sign_up',
+                type:'text'
+            },{
+                field:'sign_up_percent',
+                type:'text'
+            },{
+                field:'should_send_jt1',
+                type:'text'
+            },{
+                field:'should_send_jt2',
+                type:'text'
+            },{
+                field:'should_send_jt3',
+                type:'text'
+            },{
+                field:'should_send_jj1',
+                type:'text'
+            },{
+                field:'should_send_jj2',
+                type:'text'
+            },{
+                field:'should_send_jj3',
+                type:'text'
+            },{
+                field:'should_send_xt',
+                type:'text'
+            },{
+                field:'should_send_xj',
+                type:'text'
+            }]);
+                var p = $('#datagrid1').datagrid('getPager');
+	            $(p).pagination({
+	                beforePageText: '第',//页数文本框前显示的汉字  
+	                afterPageText: '页    共 {pages} 页',
+	                displayMsg: '当前: 第 {from}~{to} 条   共 {total} 条',
+	            });
+            });
+            
+        // });
+        })
+        function form2Json(id) {
+ 
+            var arr = $("#" + id).serializeArray()
+            console.log(arr)
+            var jsonStr = "";
+ 
+            jsonStr += '{';
+            for (var i = 0; i < arr.length; i++) {
+                jsonStr += '"' + arr[i].name + '":"' + arr[i].value + '",'
+            }
+            jsonStr = jsonStr.substring(0, (jsonStr.length - 1));
+            jsonStr += '}'
+ 
+            var json = JSON.parse(jsonStr)
+            return json
+        }
+ 
+</script>
+</html>
