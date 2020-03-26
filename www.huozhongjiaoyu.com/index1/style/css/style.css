@@ -1,0 +1,300 @@
+
+.main_nav{}
+
+.user {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(52, 54, 66, 0.9);
+  z-index: 3;
+  overflow-y: auto;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0; 
+  -webkit-transition: opacity 0.3s 0, visibility 0 0.3s;
+  -moz-transition: opacity 0.3s 0, visibility 0 0.3s;
+  transition: opacity 0.3s 0, visibility 0 0.3s;
+}
+.user.is-visible {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s 0, visibility 0 0;
+  -moz-transition: opacity 0.3s 0, visibility 0 0;
+  transition: opacity 0.3s 0, visibility 0 0;
+}
+.user.is-visible .user-con {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.user-con {
+  position: relative;
+  width: 380px;;
+
+  background:url(../images/form_bj1.png)/*tpa=http://cqiedu.com/xl/xf-bj-bd-pc-a/style/images/form_bj1.png*/ center no-repeat;
+  margin: 220px auto;
+  cursor: auto;
+  border-radius: 0.25em;
+  -webkit-transform: translateY(-30px);
+  -moz-transform: translateY(-30px);
+  -ms-transform: translateY(-30px);
+  -o-transform: translateY(-30px);
+  transform: translateY(-30px);
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;}
+.user-con .user-zhuce:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.user-con .user-zhuce li {
+  width: 100%;
+  
+  text-align: center;
+}
+.user-con .user-zhuce li:first-child a {
+  border-radius: .25em 0 0 0;
+}
+.user-con .user-zhuce li:last-child a {
+  border-radius: 0 .25em 0 0;
+}
+.user-con .user-zhuce{ padding-top:1em;}
+.user-con .user-zhuce a {
+  display: block;
+  width:350px;
+   margin:10px auto 40px ;
+   font-size:26px;
+   height:25px;
+   text-align:center;
+    color: #333;
+  text-decoration:none;
+  font-family:"Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+}
+.user-con .user-zhuce a.selected {
+  background: #FFF;
+  color: #505260;
+}
+@media only screen and (min-width: 600px) {
+  .user-con {
+    margin: 10% auto;
+  }
+  .user-con .user-zhuce a {
+    height: 50px;
+    line-height:50px;
+  }
+}
+
+.info_form1 .info_p {
+  position: relative;
+  margin: 1.4em 0;
+}
+.info_form1 .info_p:first-child {
+  margin-top: 0;
+}
+.info_form1 .info_p:last-child {
+  margin-bottom: 0;
+}
+.info_form1 label {
+  font-size: 16px;
+  font-size: 0.875rem;
+}
+.info_form1 label.image-replace {
+  /* replace text with an icon */
+  display: inline-block;
+  position: absolute;
+  left: 35px;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  color: transparent;
+  text-shadow: none;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+}
+.info_form1 label.cd-username {
+  background-image: url("../images/cd-icon-username.svg")/*tpa=http://cqiedu.com/xl/xf-bj-bd-pc-a/style/images/cd-icon-username.svg*/;
+}
+.info_form1 label.cd-email {
+  background-image: url("../images/cd-icon-email.svg")/*tpa=http://cqiedu.com/xl/xf-bj-bd-pc-a/style/images/cd-icon-email.svg*/;
+}
+.info_form1 label.cd-password {
+  background-image:url(../images/shouji.png)/*tpa=http://cqiedu.com/xl/xf-bj-bd-pc-a/style/images/shouji.png*/;
+}
+.info_form1 input {
+  margin: 0;
+  padding: 0;
+}
+.info_form1 input.full-width {
+  width: 88%;
+}
+.info_form1 input.full-width2 {
+  width: 47%;
+}
+.info_form1 input.has-padding {
+	width:220px;
+  padding:12px 0px 12px 20px;
+}
+.info_form1 input.has-border {
+  border: 1px solid #bc0000;
+  background:#fff;
+  border-radius:0px;
+  margin-bottom:10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+.info_form1 input.has-border:focus {
+  border-color: #343642;
+  box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
+  outline: none;
+}
+.info_form1 input.has-error {
+  border: 1px solid #d76666;
+}
+
+.info_form1 input[type=submit] {
+  padding: 5px 0;
+  cursor: pointer;
+
+  color: #FFF;
+  font-weight: bold;
+  border: none;
+  border-radius:none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+.no-touch .info_form1 input[type=submit]:hover, .no-touch .cd-form input[type=submit]:focus {
+  background: #3599ae;
+  outline: none;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .info_form1 {
+    padding:110px 0 0 0px;
+	height:270px;
+	width:380px;
+  }
+  .info_form1 .info_p {
+    margin:12px 0;
+  }
+  .info_form1 .info_p:first-child {
+    margin-top: 0;
+  }
+  .info_form1 .info_p:last-child {
+    margin-bottom: 0;
+  }
+ 
+  .info_form1 input[type=submit] {
+    padding: 8px 0;
+    border-radius:none;
+	width:236px;
+
+  }
+
+
+
+
+.user-close-form {
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 0;
+  top: 5px;
+  background:url(../images/closed.png)/*tpa=http://cqiedu.com/xl/xf-bj-bd-pc-a/style/images/closed.png*/ no-repeat center center;
+  text-indent: 100%;
+  white-space: nowrap;
+  color:#000;
+  font-size:30px;
+}
+@media only screen and (min-width: 1170px) {
+  .user-close-form {
+    display: none;
+  }
+  
+  .user-close-form {
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: -28px;
+  top: -18px;
+  background:url(../images/closed.png)/*tpa=http://cqiedu.com/xl/xf-bj-bd-pc-a/style/images/closed.png*/ no-repeat center center;
+  text-indent: 100%;
+  white-space: nowrap;
+  color:#000;
+  font-size:30px;
+}
+}
+
+
+
+#user-login.is-selected, #cd-signup.is-selected, #cd-reset-password.is-selected {
+  display: block;
+}
+
+
+
+/*表单*/
+
+.info_form1_hide{
+    display: none;
+    background-color: white;
+    text-align: center;
+    padding: 15px 20px;
+}
+
+.info_form1_hide p{
+    color: #333; font-size:16px;
+}
+.submit1{
+     background-color:#bc0000;
+    border-radius: 3px;
+    width:;
+	margin-left:15px;
+    color: white;
+    font-size: 18px;
+    border: 0px;
+	font-weight:bold;
+    outline-style: none;
+	font-family:"Microsoft YaHei","微软雅黑";
+	cursor:pointer;
+}
+
+.submit1:hover{background:#e50000;}
+
+.info_form1 select {
+ 	padding: 8px 60px 8px 20px;
+	width:105%;
+	margin-bottom:10px;
+	margin-top:12px;
+ 	border: 1px solid #2784c7;
+ 	background:#fff;
+  	border-radius:0px;
+ 	color:#777;
+
+}

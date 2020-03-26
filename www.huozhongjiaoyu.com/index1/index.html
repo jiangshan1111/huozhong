@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>火种教育</title>
+    <link type="text/css" rel="stylesheet" href="style/css/main.css">
+<!--     <link href="style/css/login.css" rel="stylesheet" type="text/css"> -->
+    <link href="style/css/style.css" tppabs="style/css/style.css" rel="stylesheet" type="text/css">
+
+    <link href="style/css/common.css" tppabs="style/css/common.css" rel="stylesheet" type="text/css">
+    <script charset="utf-8" src="style/js/jquery-1.11.1.min.js" ></script>
+    <script type="text/javascript" src="style/js/main.js"></script>
+<body>
+
+<div class="header">
+<div class="myWrap">
+            <img src="style/images/xl00.png"class="header__h1"  style="float:left;" />
+
+<p  class="reg_btn main_nav">
+<a><img src="style/images/xl000.png">&nbsp;考生注册</a>
+</p>      
+  </div>
+  </div>
+        
+  <!--导航-->
+      <div class="nav">
+        <div class="nav_home">
+           <div id="menu">
+             <ul id="nav" class="ej_list main_nav">
+               <li class="mainlevel bolf" ><a>首页</a></li>
+               <li class="mainlevel"><a >报考条件</a></li>
+               <li class="mainlevel"><a >专业限制</a></li>
+               <li class="mainlevel"><a >社保审核</a></li>
+               <li class="mainlevel"><a >报名时间</a></li>
+               <li class="mainlevel"><a >成绩审核</a></li>
+               <li class="mainlevel"><a >注册要求</a></li>
+               <li class="mainlevel" style="border:none;"><a >学历限制</a></li>
+             </ul>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      
+      
+  <!--内容区-->   
+          
+          <div class="cont">
+
+         
+                <div class="regTime__h1">首页 > 报考条件</div>
+          
+            <div class="use_info">
+            <img src="style/images/xl01.png"/>
+                <div class="info_panel">
+                    
+                    <label><span >*</span>请选择您的学历</label>
+                    
+                    <select style="border:1px solid #a9a9a9;" name="educate">
+                        <option value="00">请选择您的学历</option>
+                        <option value="高中">高中</option>
+                        <option value="中专">中专</option>
+                        <option value="大专">大专</option>
+                        <option value="本科">本科</option>
+                        <option value="硕士">硕士</option>
+                        <option value="博士">博士</option>
+                        <option value="其他">其他</option>
+                    </select>
+
+                    <label><span >*</span>请选择您的年龄</label>
+                    
+                    <select style="border:1px solid #a9a9a9;" name="age">
+                        <option value="00">请选择您的年龄</option>
+                        <option value="25岁及以上">25岁及以上 </option>
+                        <option value="25岁以下">25岁以下</option>
+                        <!-- <option value="3"> 理工类</option>
+                        <option value="4"> 医药类</option>
+                        <option value="5">经管类</option> -->
+                        <!-- <option value="其他">其他</option> -->
+                    </select>
+                    
+                    
+                    <!--  <label><span >*</span>请选择您的工作年限</label>
+                    
+                    <select style="border:1px solid #a9a9a9;">
+                        <option value="00">请选择您的工作年限</option>
+                        <option value="1">1年以下 </option>
+                        <option value="2"> 1-3年 </option>
+                        <option value="3"> 3-10年 </option>
+                        <option value="4"> 10年以上</option>
+                    </select> -->
+
+             <label><span >*</span>请使用手机号验证</label>
+               
+                <input id="info_tel"  type="text" name="info[]"  placeholder="请输入本人真实手机号" maxlength="20">
+                
+                
+                <p ><img src="style/images/checked_icon.png"><font style="color:#FF0004; margin:0px 3px; line-height:30px;">*</font>我已阅读并同意<span style="color:#bd0000; font-weight:bold;">《条件查询协议 》</span></p>
+                
+                <button id="submit" class="submit" type="submit">条件查询&nbsp;&gt;</button>
+            </div>
+            <div class="info_panel_hide">
+                <p id="hide_pname"></p> <br>
+            </div>
+        </div>
+
+<div style="border-bottom:6px solid #c30000; width:1000px; margin:0 auto 50px;"></div>
+<p style="font-size:18px;">@北京智行火种教育科技有限公司版权所有</p>
+
+
+
+        
+          </div>
+
+
+<!--footer  start-->
+  
+<!--footer  End-->
+<!--弹出注册-->           
+<!--弹出注册-->           
+<div class="user"> 
+        <div class="user-con">
+            <ul class="user-zhuce">
+            </ul>
+            <div id="user-login">
+                <div class="info_form1">
+                
+                
+                  <p class="info_p" style="margin:10px 0 10px 60px;">
+                       <input class="full-width has-padding has-border"  type="text"  id="info_tel2"  name="info[]" placeholder="请输入您的手机号" maxlength="20" >  
+                    </p>
+                    
+                     <p class="info_p" style="margin:0px 0 30px 60px;">
+                        <input class="full-width has-padding has-border" id="info_name2" type="password" name="info[]" placeholder="请设置6位密码" maxlength="20">
+                    </p>
+
+                  
+
+                    <p class="info_p"> 
+                        <bottom id="submit2" style="color:#fff; padding:10px 70px; margin-top:20px;" class="full-width2 submit1" type="submit" >立刻注册</bottom>
+                    </p>
+                    
+                </div>
+                 <a href="#0" class="user-close-form"></a>
+            </div>
+
+        </div> 
+    </div>
+
+
+
+<!--add new  js-->
+<script type="text/javascript" src="style/js/info.js" charset="utf-8"></script>
+
+</body>
+</html>
+
+<script>
+  function onOK(){
+	  alert("成功提交，请耐心等待通知");
+  }
+</script>
