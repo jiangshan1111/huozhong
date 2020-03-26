@@ -1,0 +1,24 @@
+html,body{width:100%;height:auto;font-size:14px;background-color:#fff;
+  font-family: "Hiragino Sans GB", "Microsoft Yahei", SimSun, Arial, "Helvetica Neue", Helvetica;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+body{overflow-y: auto;overflow-x: hidden;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ol,ul,li{list-style:none}
+a{text-decoration:none;display:inline-block;}
+a:hover{text-decoration:none!important;}
+caption,th{text-align:left}
+i,em{display:inline-block;font-style: normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+button, input, select, textarea { font-size:100%; }
+
+.fl{float:left}
+.fr{float:right}
+.clear{clear:both;overflow: hidden;content: '';}
+.clear:after{zoom:1;}
+input::-webkit-input-placeholder{color: #bfbebe;}
+input:-ms-input-placeholder{color:#bfbebe;}
+input::-moz-placeholder{color:#bfbebe; }
+input,button{outline: none;padding:0;}
+/*页面根节点*/

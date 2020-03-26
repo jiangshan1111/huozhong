@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购买课程</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/edua-icons.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
+    <link rel="stylesheet" type="text/css" href="css/cubeportfolio.min.css">
+    <link rel="stylesheet" type="text/css" href="css/settings.css">
+    <link rel="stylesheet" type="text/css" href="css/bootsnav.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/loader.css">
+    <link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
+</head>
+<body>
+        <div class="topbar">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="pull-left"><span class="info">&nbsp;&nbsp;&nbsp;中国三级健康管理师考试指定培训报名机构</span> </div>
+                      <ul class="social_top pull-right">
+                        <li><a href="images/81.png" alt="微信二维码" target="view_window"><i class="iconfont icon-weixin"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <!--Header-->
+              <header>
+                <nav class="navbar navbar-default navbar-fixed white no-background bootsnav">
+                  <div class="container">
+                    <!-- <div class="search_btn btn_common"><i class="icon-icons185"></i></div> -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                      </button>
+                      <a class="navbar-brand" href="index.html"><img src="images/logo-head.png" alt="logo"
+                          class="logo logo-display">
+                        <img src="images/logo.png" class="logo logo-scrolled" alt="">
+                      </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                      <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOut">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="courses.html">热门课程</a></li>
+                        <li><a href="About us.html">关于我们</a></li>
+                        <li><a href="http://contract.xuexi8.org.cn/login.php?entry=jianwei">协议查看</a></li>
+                        <!--			<li><a href="event.html"  >行业资讯</a></li>-->
+                        <li><a href="http://ketang.huozhongedu.com/">学员登录</a></li>
+                        <li><a href="pay.html">扫码支付</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+              </header>
+    <img src="images/pay_banner.jpg" class="bannerImg" />
+    <div class="payCont">
+        <ul class="creatOrder">
+            <li>
+                <p class="listOptionTitle projectChose">
+                    <i class="pic_icon"></i>
+                    <span>已选项目</span>
+                </p>
+                <p class="choseCont" id="hasProjectText"></p>
+            </li>
+            <li>
+                <p class="listOptionTitle subjectChose">
+                    <i class="pic_icon"></i>
+                    <span>已选科目</span>
+                </p>
+                <p class="choseCont" id="hasSubjectText"></p>
+            </li>
+            <li>
+                <p class="listOptionTitle courseChose">
+                    <i class="pic_icon"></i>
+                    <span>已选课程</span>
+                </p>
+                <p class="choseCont" id="hasClassText"></p>
+            </li>
+            <li>
+                <p class="listOptionTitle priceChose">
+                    <i class="pic_icon"></i>
+                    <span>支付金额</span>
+                </p>
+                <p class="choseCont">
+                    <i>￥</i>
+                    <input type="text" placeholder="请输入金额" class="inputPrice">
+                </p>
+            </li>
+            <li>
+                <p class="listOptionTitle payTypeChose">
+                    <i class="pic_icon"></i>
+                    <span>支付方式</span>
+                </p>
+                <p class="choseCont payTypeList">
+                    <span class="watchPay"></span>
+                    <span class="alipayPay"></span>
+                    <span class="unionPay"></span>
+                </p>
+            </li>
+            <li>
+                <p class="listOptionTitle phoneChose">
+                    <i class="pic_icon"></i>
+                    <span>联系方式</span>
+                </p>
+                <p class="choseCont phoneInput">
+                    <i></i>
+                    <input type="text" placeholder="请输入电话" class="phoneInput">
+                </p>
+            </li>
+            <li>
+                <button class="orderPay" id="orderPay">发起订单</button>
+            </li>
+        </ul>
+        <p class="tipsText">请选择您购买的课程</p>
+        <ul class="choseClassBox">
+            <li class="list">
+                <span class="listName">项目名称：</span>
+                <div class="projectBox listCont"></div>
+            </li>
+            <li class="list">
+                <span class="listName">科目名称：</span>
+                <div class="subjectBox listCont"></div>
+            </li>
+            <li class="list">
+                <span class="listName">课程名称：</span>
+                <div class="classBox listCont"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="payCode">
+        <i class="closeCode"></i>
+        <div class="codeBox">
+
+        </div>
+    </div>
+    <div class="bankDialog">
+        <div class="dialogCont">
+            <p class="title">填写银行资料</p>
+            <ul>
+                <li class="bankList clear">
+                    <span>证件类型：</span>
+                    <select disabled id="cardType">
+                        <option value="1">身份证</option>
+                    </select>
+                </li>
+                <li class="bankList clear">
+                    <span>姓名：</span>
+                    <input type="text" id="name" />
+                </li>
+                <li class="bankList clear">
+                    <span>证件号：</span>
+                    <input type="text" id="cardNo"/>
+                </li>
+                <li class="bankList clear">
+                    <span>银行卡号：</span>
+                    <input type="text" id="bankCardNo"/>
+                </li>
+                <li class="bankList clear">
+                    <span>银行预留手机号：</span>
+                    <input type="text" id="mobile"/>
+                </li>
+                <li class="bankList clear">
+                    <span>短信验证码：</span>
+                    <input type="text" class="testingInput" id="smsCode"/>
+                    <button id="sendSms">获取短信验证码</button>
+                </li>
+            </ul>
+            <div class="opearBox">
+                <span class="cancelBtn">取消</span>
+                <span class="sureBtn">确定</span>
+            </div>
+        </div>
+    </div>
+    <!--<div class="footerBox">
+        <p>— 在未来遇见更好的自己 —</p>
+    </div>-->
+     <!--FOOTER-->
+  <footer class="padding-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-4 footer_panel bottom25">
+              <h3 class="heading bottom25"><strong>关注我们<br>
+                  <span class="divider-left"></span></strong></h3>
+              <!--        <a href="index.html" class="footer_logo bottom25"><img src="images/logo.png" alt="Edua"></a>-->
+              <!--        <p class="text-justify">继承传统,重复的把'今天'以前继承下来的知识不断更新迭代后传递给'明天'。创造未来,超越现实、追求理想，想要发展就必须继承传统并且超越传统才能超越未来！</p>-->
+              <div class="ewm">
+                <img src="images/81.png" alt="zhiyikaoEDU">
+                <!-- <img src="images/0.5 (2).png" alt="小程序">
+                  <img src="images/0.51.png" alt="zhiyikao"> -->
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 footer_panel bottom25">
+              <h3 class="heading bottom25"><strong>快速链接<br>
+                  <span class="divider-left"></span></strong></h3>
+              <ul class="links">
+                <li><a href="index.html"><i class="icon-chevron-small-right"></i>首页</a></li>
+                <li><a href="courses.html"><i class="icon-chevron-small-right"></i>热门课程</a></li>
+                <!--          <li><a href="event.html"><i class="icon-chevron-small-right"></i>行业资讯</a></li>-->
+                <li><a href="About us.html"><i class="icon-chevron-small-right"></i>关于我们</a></li>
+                <li><a href="http://contract.xuexi8.org.cn/login.php?entry=jianwei"><i
+                      class="icon-chevron-small-right"></i>协议查看</a></li>
+                <li><a href="http://ketang.huozhongedu.com/"><i class="icon-chevron-small-right"></i>学员登录</a></li>
+                
+                <li><a href="pay.html"><i class="icon-chevron-small-right"></i>扫码支付</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4 footer_panel bottom25">
+              <h3 class="heading bottom25"><strong>联系我们<br>
+                  <span class="divider-left"></span></strong></h3>
+              <!--
+              <p class=" address"><em class="icon-map-pin"></em>北京市朝阳区霄云路32号2号楼7层706室</p>
+            -->
+              <p class=" address"><i class="icon-phone"></i>010-60703671</p>
+              <img src="images/footer-map.png" alt="we are here" class="img-responsive">
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="fText"><a href="#" target="_blank">Copyright@2019 北京马卡鲁教育科技有限公司　版权所有<br> </a><a
+                  href="http://beian.miit.gov.cn" target="_blank">京ICP备19015315号-1</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/jquery-2.2.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootsnav.js"></script>
+    <script src="js/jquery.appear.js"></script>
+    <script src="js/jquery-countTo.js"></script>
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.cubeportfolio.min.js"></script>
+    <script src="js/jquery.themepunch.tools.min.js"></script>
+    <script src="js/jquery.themepunch.revolution.min.js"></script>
+    <script src="js/revolution.extension.layeranimation.min.js"></script>
+    <script src="js/revolution.extension.navigation.min.js"></script>
+    <script src="js/revolution.extension.parallax.min.js"></script>
+    <script src="js/revolution.extension.slideanims.min.js"></script>
+    <script src="js/revolution.extension.video.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/functions.js"></script>
+</body>
+</html>
