@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/addTitle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classMessage.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <style>
+        body {
+            color: black;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+        .el-input--prefix .el-input__inner {
+    padding-left: 30px;
+    height: 28px;
+    line-height: 28px;
+}
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+
+        .heading {
+            position: relative;
+            margin: 15px 0;
+            padding: 3px 8px;
+            border-left: 3px solid #fa6900;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li style="color:e #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company">
+                <div class="block clear">
+
+
+
+                    <div class="labels classStatus else1">
+                        <s id="statusText">{{course_info.course_status}}</s>
+                        <div class="sanjiao"></div>
+                    </div>
+
+
+
+                    <div class="class-title">课程名称 ： {{course_info.course_name}}</div>
+                    <input type="hidden" value="832295" id="classTypeId">
+                    <div class="sum">
+
+
+
+
+
+
+
+                        <span>授课类型：{{course_info.course_type}}</span>
+
+
+                    </div>
+
+                    <div class="price">
+                        价格：{{course_info.special_price}}元
+                    </div>
+
+
+
+
+
+                    
+
+
+
+
+                </div>
+            </div>
+            <div class="u-wrap company overflow points-use-class" style="    margin-top: 20px;">
+
+
+                <div class="left-side">
+                    <div class="left-sides-title courseCancle">
+                        <!-- <em>返回</em> -->
+                    </div>
+                    <div class="left-sides-title pop">
+                        <em class="iconfont" style="font-size:13px">| |</em>
+                    </div>
+                    <ul class="menuList_choose">
+                        <li class="subentry" @click="goManage" code="baseCode" mark="/editClass/editClassBaseInfo/832295/togther">
+                            <i class="mdi mdi-information"></i><em>基本信息</em></li>
+                            <li class="subentry" v-if="course_info.course_type != '直播'" @click="goVideo" code="videoCode" mark="/editClass/editClassVideoInfo/832295/togther">
+                                <i class="mdi mdi-television-classic"></i><em>视频课</em></li>
+                            <li class="subentry" v-if="course_info.course_type != '录播'" code="moduleLive" @click="goZhibo" mark="/editClass/editClassModuleLive/832295/togther">
+                                <i class="mdi mdi-television"></i><em><em>直播课</em></li>
+                            <!-- <li class="subentry" code="moduleFace" mark="/editClass/editClassModuleFace/832295/togther">
+                                <i class="mdi mdi-worker"></i><em>面授课</em></li> -->
+    
+                            <li class="subentry" v-if="course_info.course_type != '录播'" @click="goClassTable" code="listCode" mark="/editClass/editCourseList/832295/togther">
+                                <i class="mdi mdi-equal-box"></i><em>排课表</em></li>
+                        <li class="lines"></li>
+                        <li class="subentry t1 active" @click="goClassStu" code="studentsCode" mark="/classStu/studentList/832295/togther">
+                            <i class=" mdi mdi-human-male"></i><em>学员管理</em></li>
+                        <li class="subentry" code="classResource" @click="goClassZL"
+                            mark="/classModuleLesson/classesResource/832295/togther">
+                            <i class=" mdi mdi-database-plus"></i><em>课程资料</em></li>
+                        <li class="subentry t1" code="statisticsCode" @click="goClassTJ" 
+                            mark="/companyLiveStaticDetail/companyLiveStaticDetailList/832295/togther">
+                            <i class=" mdi mdi-table-of-contents"></i><em>直播上课统计</em></li>
+                    </ul>
+                </div>
+                <input type="hidden" id="courseUseMethod" value="simple">
+                <div class="right-side">
+                    <div class="u-wrap classes">
+                        <div class="mainbackground nopadding">
+                            <div class="heading">
+                                <h2 class="h5">上课情况</h2>
+                                <span class="line"></span>
+                            </div>
+                            <div class="table-box t-table-box">
+                                <table>
+                                    <tbody>
+                                        <tr class="table-title">
+                                            <td>学习进度</td>
+                                            <td>注册时间</td>
+                                            <td>报名时间</td>
+                                            <td>提问次数</td>
+                                            <td>评论次数</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{study_info.rate}}</td>
+                                            <td>{{study_info.create_time}}</td>
+                                            <td>{{study_info.enrollment_time}}</td>
+                                            <td>{{study_info.answer_times}}</td>
+                                            <td>{{study_info.pinglun_times}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="pages-box"></div>
+                            </div>
+                            <div class="tab-box">
+                                <div :class="activeIndexa == 0?'tab-name tab1 active':'tab-name tab1'"
+                                    @click="activea(0)">学习详情</div>
+                                <div :class="activeIndexa == 1?'tab-name tab2 active':'tab-name tab2'"
+                                    @click="activea(1)">做题记录</div>
+                                <div class="exportexcle fr" v-if="activeIndexa == 0"><a class="btn btn-primary"
+                                        style="    float: right;color:white" @click="exportTable">导出</a></div>
+                            </div>
+                            <div class="user-list" style="margin-top: 20px;" v-if="activeIndexa == 0">
+                                <!-- <table id="leanRecordTable">
+                                    <tbody>
+                                        <tr class="table-title">
+                                            <td>课次名称</td>
+                                            <td>教学形式</td>
+                                            <td>最后上课时间</td>
+                                            <td>完成情况</td>
+                                            <td>累计上课</td>
+                                            <td>最长上课时间</td>
+                                        </tr>
+                                        <tr>
+                                            <td>案例分析精讲课第二节（上）</td>
+                                            <td>视频</td>
+                                            <td>未学习</td>
+                                            <td>未完成</td>
+                                            <td class="total-pop" data-id="3153591" data-type="TEACH_METHOD_VIDEO">0次
+                                            </td>
+                                            <td>0秒</td>
+                                        </tr>
+                                    </tbody>
+                                </table> -->
+                                <template>
+                                    <el-table border
+                                        :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                        :data="tableData" style="overflow: auto;">
+                                        <el-table-column prop="ct_name" label="课次名称" :width="flexColumnWidth(15)"
+                                            style="text-align: center">
+                                        </el-table-column>
+                                        <el-table-column prop="course_type" label="教学形式" :width="flexColumnWidth(15)">
+                                        </el-table-column>
+                                        <el-table-column prop="last_class_time" label="最后上课时间"
+                                            :width="flexColumnWidth(20)">
+                                        </el-table-column>
+                                        <el-table-column prop="completion_status" label="完成情况"
+                                            :width="flexColumnWidth(15)">
+                                        </el-table-column>
+                                        <el-table-column prop="sum_class_hour" label="累计上课"
+                                            :width="flexColumnWidth(15)">
+                                        </el-table-column>
+                                        <el-table-column prop="max_class_time" label="最长上课时间"
+                                            :width="flexColumnWidth(20)">
+                                        </el-table-column>
+                                    </el-table>
+                                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                        :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                        layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                                    </el-pagination>
+                                </template>
+                            </div>
+                            <div class="b-table-box" style="display:block" v-if="activeIndexa == 1">
+                                <div class="table-box-input">
+                                    <select id="tikuId_select" name="tiKuName"
+                                                v-model="search_question_record.item_bank_id"
+                                                @change="change_son_tikus">
+                                                <option value="">题库名称</option>
+                                                <option v-for="(item,index) in tikus" :value="item.item_bank_id">
+                                                    {{item.item_bank_name}}</option>
+                                            </select>
+                                            <select id="tikuSub_select" name="subjectName"
+                                            v-model="search_question_record.ibs_id">
+                                            <option value="">子题库名称</option>
+                                            <option v-for="(item,index) in son_tikus" :value="item.ibs_id">
+                                                {{item.ibs_name}}</option>
+                                        </select>
+                                        <select v-model="search_question_record.type" id="stu_exerciseType"
+                                        name="exerciseType">
+                                        <option value="">类型名称</option>
+                                        <option value="1">快速做题</option>
+                                        <option value="2">章节练习</option>
+                                        <option value="3">模拟题/真</option>
+                                        <option value="4">课后练习</option>
+                                        <option value="5">章节测验</option>
+                                        <option value="6">课后作业</option>
+                                        <option value="7">每日一练</option>
+                                        <option value="8">智能组卷</option>
+                                        <option value="9">快速15道</option>
+                                    </select>
+                                    <template>
+                                            <el-date-picker v-model="value3"  type="date" placeholder="选择日期">
+                                            </el-date-picker>
+                                    </template>
+                                    <input id="search" type="button" value="搜索" @click="search_question_records"
+                                        style="width: 90px;position:relative;top:2px;margin-left:3px;color:#fff;background-color: #237fd5;border-color:#237fd5;border-radius: 3px;">
+                                </div>
+                                <template>
+                                    <el-table border
+                                        :data="userList5.slice((currentPage5-1)*pagesize5,currentPage5*pagesize5)"
+                                        style="overflow: auto;width: 100%;margin-top: 20px">
+                                        <el-table-column prop="time" label="做题时间" :width="flexColumnWidthf()"
+                                            style="text-align: center">
+                                        </el-table-column>
+                                        <el-table-column prop="item_bank_name" label="题库" :width="flexColumnWidthf()">
+                                        </el-table-column>
+                                        <el-table-column prop="ibs_name" label="科目" :width="flexColumnWidthf()">
+                                        </el-table-column>
+                                        <el-table-column prop="type" label="类型" :width="flexColumnWidthf()">
+                                        </el-table-column>
+                                        <el-table-column prop="question_num" label="做题数" :width="flexColumnWidthf()">
+                                        </el-table-column>
+                                        <el-table-column prop="score" label="得分" :width="flexColumnWidthf()">
+                                        </el-table-column>
+                                        <el-table-column prop="zql" label="正确率" :width="flexColumnWidthf()">
+                                        </el-table-column>
+                                        <el-table-column prop="error_num" label="错题数" :width="flexColumnWidthf()">
+                                        </el-table-column>
+                                        <el-table-column label="操作" :width="flexColumnWidthf()">
+                                            <template slot-scope="scope">
+                                                <el-button type="text" size="small" @click="dangan(scope.row)">查看
+                                                </el-button>
+                                            </template>
+                                        </el-table-column>
+                                    </el-table>
+                                    <el-pagination @size-change="handleSizeChange5"
+                                        @current-change="handleCurrentChange5" :current-page="currentPage5"
+                                        :page-sizes="[5, 10, 20, 40]" :page-size="pagesize5"
+                                        layout="total, sizes, prev, pager, next, jumper" :total="userList5.length">
+                                    </el-pagination>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    //所有题库
+                    tikus: [],
+                    son_tikus: [],
+                    search_question_record: {
+                        "item_bank_id": '',
+                        "ibs_id": '',
+                        "type": '',
+                        "time": "",
+                        student_id: window.location.href.split('=')[1]
+                    },
+                    userList5:[],
+                    currentPage5: 1, //初始页
+                    pagesize5: 10, //    每页的数据
+                    userList: [{
+                            "stu_id": 1,
+                            "course_package_id": 2,
+                            "invalid_date": "2020-08-01T00:00:00.000+0000",
+                            "last_login_time": "2019-09-18T06:21:06.000+0000",
+                            "enrollment_time": "2019-09-20T02:10:10.000+0000",
+                            "fontdesk_account_status": 1,
+                            "wechat": "11111",
+                            "stu_name": "秀秀秀",
+                            "tel": "18800428784",
+                            "email": "2623000107@qq.com"
+                        },
+                        {
+                            "stu_id": 2,
+                            "course_package_id": 2,
+                            "invalid_date": "2020-08-01T00:00:00.000+0000",
+                            "last_login_time": "2019-09-18T12:21:06.000+0000",
+                            "enrollment_time": "2019-09-20T02:10:10.000+0000",
+                            "fontdesk_account_status": 1,
+                            "wechat": "xudadadada",
+                            "stu_name": "测试2",
+                            "tel": "13100870731",
+                            "email": "lwx18800428784@163.com"
+                        },
+                        {
+                            "stu_id": 3,
+                            "course_package_id": 2,
+                            "invalid_date": "2020-08-01T00:00:00.000+0000",
+                            "last_login_time": "2019-09-23T07:15:15.000+0000",
+                            "enrollment_time": "2019-09-20T02:10:10.000+0000",
+                            "fontdesk_account_status": 1,
+                            "wechat": "xudadadada",
+                            "stu_name": "测试3",
+                            "tel": "13100870731",
+                            "email": "lwx18800428784@163.com"
+                        }
+                    ],
+                    class_info: {
+
+                    },
+                    stu_info: {
+
+                    },
+                    study_info: {
+                        rate: '',
+                        create_time: '',
+                        enrollment_time: '',
+                        answer_times: '',
+                        pinglun_times: ''
+                    },
+                    value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+                    value2: '',
+                    value3: '',
+                    
+                    course_info:{}
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.course_info = JSON.parse(localStorage.course_info)
+                this.stu_info = JSON.parse(localStorage.stu_info)
+                course_id = window.location.href.split('=')[1]
+                obj = {
+                    course_id: course_id
+                }
+                if (course_id == undefined) {
+
+                } else {
+                    obj = {
+                        course_id: parseInt(course_id),
+                        stu_id: _this.stu_info.stu_id
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/selectOneCourseOneStuRateOfLearning',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.study_info.create_time = _this.getNowFormatDate(new Date(data
+                                .create_time))
+                            _this.study_info.enrollment_time = _this.getNowFormatDate(new Date(data
+                                .enrollment_time))
+                            _this.study_info.rate = Math.floor(data.accumulated_class_hours *
+                                10000 / data.total_class_hour) / 100 + '%'
+                            _this.study_info.answer_times = '未知'
+                            _this.study_info.pinglun_times = '未知'
+                            //             setTimeout(()=>{
+                            //             editor.sync();
+                            // html = document.getElementById('editor_id').value; // 原生API
+                            // editor.html(_this.class_info.details)
+                            //             },20)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/selectOneCourseOneStuRateOfLearningDetail',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.userList = data
+                            for (let k = 0; k < _this.userList.length; k++) {
+                                _this.userList[k].last_class_time = _this.getNowFormatDate(new Date(
+                                    _this.userList[k].last_class_time))
+                            }
+                            // _this.userList = _this.userList.map((item)=>{
+                            //     item.last_class_time = _this.getNowFormatDate(new Date(item.last_class_time))
+                            // })
+                            // _this.imgSrc = _this.class_info.cover
+                            // _this.xieyis = data.courseCpAgreementData
+                            // localStorage.cp_name = _this.class_info.cp_name
+                            // localStorage.total_price = _this.class_info.total_price
+                            //             setTimeout(()=>{
+                            //             editor.sync();
+                            // html = document.getElementById('editor_id').value; // 原生API
+                            // editor.html(_this.class_info.details)
+                            //             },20)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                }
+
+            },
+            methods: {
+                active() {
+
+                },
+                change_son_tikus() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/queryIBS',
+                        type: 'post',
+                        contentType: 'application/json',
+                        // data:JSON.stringify(_this.stu),
+                        data: JSON.stringify({
+                            item_bank_id: _this.search_question_record.item_bank_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.search_question_record.ibs_id = ""
+                            _this.son_tikus = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                search_question_records() {
+                    let _this = this
+                    obj = _this.search_question_record
+                    if (_this.value3 != "" && _this.value3 != null) {
+                        obj.time = _this.getNowFormatDate(_this.value3).split(' ')[0]
+                    }else{
+                        obj.time = ''
+                    }
+                    console.log(obj)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080//ItemBank/queryQuestionRecord',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        // data: {
+                        //     stu_id: stu_id
+                        // },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item) => {
+                                        item.time = _this.getNowFormatDate(new Date(item.time)).split(' ')[0]
+                                        item.zql = item.zql*100+"%"
+                                        switch (item.type) {
+                                            case 1:
+                                            item.type = "快速做题"
+                                                break;
+                                            case 2:
+                                            item.type = "章节练习"
+                                                break;
+                                            case 3:
+                                            item.type = "模拟题/真"
+                                                break;
+                                            case 4:
+                                            item.type = "课后练习"
+                                                break;
+                                            case 5:
+                                            item.type = "章节测验"
+                                                break;
+                                            case 6:
+                                            item.type = "课后作业"
+                                                break;
+                                            case 7:
+                                            item.type = "每日一练"
+                                                break;
+                                            case 8:
+                                            item.type = "智能组卷"
+                                                break;
+                                            case 9:
+                                            item.type = "快速15道"
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                    })
+                                    _this.userList5 = data
+                            // _this.stu_small = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                flexColumnWidthf() {
+                    return $('.el-table__header-wrapper').width() / 9
+                },
+                handleSizeChange5: function (size) {
+                    this.pagesize5 = size;
+                },
+                handleCurrentChange5: function (currentPage) {
+                    this.currentPage5 = currentPage;
+                },
+                exportTable() {
+                    _this = this
+                    console.log(_this.userList)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '课程导出学习详情【'+_this.course_info.course_name+'】【'+_this.userList.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    str="课次名称,教学形式,最后上课时间,完成情况,累计上课,最长上课时间"+'\r\n'
+                    for (let k = 0; k < _this.userList.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList[k].ct_name+','
+                        stra += _this.userList[k].course_type+','
+                        stra += _this.userList[k].last_class_time+','
+                        stra += _this.userList[k].completion_status+','
+                        stra += _this.userList[k].sum_class_hour+','
+                        stra += _this.userList[k].max_class_time+','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "学员详情表".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                activea(num) {
+                    let _this = this
+                    this.activeIndexa = num
+                    switch (num) {
+                        case 1:
+                        $.ajax({
+                                url: 'http://192.168.10.166:8080/ItemBank/queryItemBank',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    // stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    _this.tikus = data
+                                    $.ajax({
+                                        url: 'http://192.168.10.166:8080/ItemBank/queryIBS',
+                                        type: 'post',
+                                        contentType: 'application/json',
+                                        // data:JSON.stringify(_this.stu),
+                                        data: JSON.stringify({
+                                            item_bank_id: _this
+                                                .search_question_record.item_bank_id
+                                        }),
+                                        dataType: 'json',
+                                        success: function (data) {
+                                            console.log(1)
+                                            _this.son_tikus = data
+                                        },
+                                        error: function () {
+
+                                        }
+                                    })
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            obj = {
+                                //         "item_bank_id": '',
+                                // "ibs_id": '',
+                                // "type": '',
+                                // "time": "",
+                                student_id: window.location.href.split('=')[1]
+                            }
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080//ItemBank/queryQuestionRecord',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                // data: {
+                                //     stu_id: stu_id
+                                // },
+                                dataType: 'json',
+                                success: function (data) {
+                                    data.map((item) => {
+                                        item.time = _this.getNowFormatDate(new Date(item.time)).split(' ')[0]
+                                        item.zql = item.zql*100+"%"
+                                        switch (item.type) {
+                                            case 1:
+                                            item.type = "快速做题"
+                                                break;
+                                            case 2:
+                                            item.type = "章节练习"
+                                                break;
+                                            case 3:
+                                            item.type = "模拟题/真"
+                                                break;
+                                            case 4:
+                                            item.type = "课后练习"
+                                                break;
+                                            case 5:
+                                            item.type = "章节测验"
+                                                break;
+                                            case 6:
+                                            item.type = "课后作业"
+                                                break;
+                                            case 7:
+                                            item.type = "每日一练"
+                                                break;
+                                            case 8:
+                                            item.type = "智能组卷"
+                                                break;
+                                            case 9:
+                                            item.type = "快速15道"
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                    })
+                                    console.log(data)
+                                    _this.userList5 = data
+                                    // _this.stu_small = data
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                    
+                        default:
+                            break;
+                    }
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                },
+                goAddstu(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageStuAdd.html?course_id='+course_id)
+                    }
+                },
+                goZhibo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageTelecast.html?course_id='+course_id)
+                    }
+                },
+                goClassStu(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageStu.html?course_id='+course_id)
+                    }
+                },
+                goClassZL(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageziliao.html?course_id='+course_id)
+                    }
+                },
+                goClassTJ(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanagezhibo.html?course_id='+course_id)
+                    }
+                },
+                goVideo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageVideo.html?course_id='+course_id)
+                    } 
+                },
+                goManage(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanage.html?course_id='+course_id)
+                    } 
+                },
+                goClassTable(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageClasstable.html?course_id='+course_id)
+                    }
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

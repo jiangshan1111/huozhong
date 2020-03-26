@@ -1,0 +1,139 @@
+/*签章详情*/
+.signatureDetail{width:calc(100% - 140px);margin:20px auto;padding:22px 30px 48px;background:#f7f7f7;}
+.signatureDetail .title{font-size:16px;color:#2a2a2a;line-height: 16px;padding:0 0 11px 18px;position:relative;
+    border-bottom:1px solid #e1e4e6;}
+.signatureDetail .title span{width:4px;height:16px;background:#fa6900;position: absolute;left:6px;top:0;}
+.signatureDetail .signatureCont dl{float:left;margin-top:28px;text-align: left;margin-right:7%;}
+.signatureDetail .signatureCont dl:last-child{margin-right:0;}
+.signatureCont dl dt{font-size:12px;color:#93999f;line-height: 22px;}
+.signatureCont dl dd{font-size:14px;color:#2a2a2a;line-height: 24px;}
+.signatureDetail .contDetail{width:calc(100% - 340px);min-height:620px;background:#fff;margin:35px auto 0;}
+
+/*签章配置页*/
+.signTipsText{font-size:12px;color:#999;margin:12px 24px 0 28px;}
+.signTipsText a{font-size:12px;color:#00aaff;margin:0 0 0 4px;text-decoration: none;}
+.signApply{margin:30px 24px 0 28px;padding-bottom:68px;}
+.signApply li{line-height: 24px;font-size:14px;color:#999;margin-bottom:22px;}
+.signApply li span{color:#666;margin-right:8px;}
+.signApply li .signLable{color:#666;line-height: 14px;float:left;font-size:14px;}
+.signApply .signLable i{color:#ff3333;margin-right:6px;font-size:14px;}
+.signApply .inputFillePic{float:left;}
+.signApply .inputFillePic dd{width:146px;height:146px;border:1px dashed #eee;float:left;margin-left:14px;border-radius:3px;}
+.inputFillePic dd div{width:146px;height:146px;display: table-cell;background-color:#fff;vertical-align: middle;text-align: center;position:relative;}
+.inputFillePic dd .upPicBtn{width:54px;height:26px;border-radius:3px;background:#00c08a;font-size:12px;color:#fff;
+    position:absolute;top:60px;left:46px;text-decoration: none;display: none;}
+.signApply .inputFillePic dd:hover .upPicBtn{display: block;}
+.inputFillePic .upPicBtn input{width:100%;height:100%;filter: alpha(opacity=0);
+    -moz-opacity: 0;-khtml-opacity: 0;opacity: 0;cursor: pointer;position: absolute;top: 0;left: 0;font-size: 0;}
+.signApply .picLimit{width:100%;font-size:12px;color:#b5b9bc;float:left;padding-left:60px;margin-top:14px;}
+.signApply .holdSetSign{padding-left:60px;margin-top:40px;}
+.signApply .holdSetSign button{padding:0;width:66px;height:32px;border:1px solid #ddd;border-radius:3px;color:#8c8c8c;font-size:14px;float:inherit;}
+.signApply .holdSetSign .holdBtn{border:1px solid #00aaff;margin-left:8px;background:#00aaff;color:#fff;}
+.signApply .holdSetSign .cancelBtn:hover{background:#f3f3f3;}
+.signApply .holdSetSign .holdBtn:hover{background:#009eed;border:1px solid #009eed;}
+/*购买签章数量*/
+.signOpenTips{width:100%;text-align: center;font-size:12px;color:#b5b9bc;margin-top:160px;}
+.signOpenTips p{margin-top:20px;}
+/*购买签章数量详情*/
+.signNumbDetail{margin:12px 24px 0 20px;}
+.signNumbDetail .dataCavas,.signNumbDetail .dragBox{height:244px;float:left;background:#fff;border:1px solid #eee;
+    -webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;}
+.signNumbDetail .dataCavas{width:220px;margin-right:20px;}
+.signNumbDetail .dragBox{width:calc(100% - 244px);position:relative;}
+.signNumbDetail p.title{font-size:14px;color:#333;padding:14px 0 0 18px;}
+.signNumbDetail .circleShow{width:100%;height:100px;margin-top:28px;position:relative;}
+.signNumbDetail .circleShow .circleSvg{position:absolute;    left: 96px;top: -26px;margin-left:-50px;
+    -webkit-transform:rotate(-90deg) ;-moz-transform:rotate(-90deg) ;-ms-transform:rotate(-90deg) ;
+    -o-transform:rotate(-90deg) ;transform: rotate(-90deg);}
+.signNumbDetail .circleShow .coverBox{transform-origin: center;transition: stroke-dasharray .8s ease-in;}
+.signNumbDetail .usageBox{display: flex;margin-top:20px;}
+.signNumbDetail .usageBox li{flex:1;text-align: center;position:relative;}
+.signNumbDetail .usageBox li strong{font-size:18px;color:#040000;line-height: 24px;display: block;}
+.signNumbDetail .usageBox li span{font-size:12px;color:#93999f;line-height: 20px;display: block;}
+.signNumbDetail .usageBox li .line{width:1px;height:22px;position:absolute;left:110px;top:10px;background:#eee;}
+.signNumbDetail .cavansNumBox{position:absolute;top:40px;left:50%;transform: translate(-50%,0)}
+.signNumbDetail .cavansNumBox .usedNum{font-size:18px;color:#00aaff;}
+.signNumbDetail .cavansNumBox .totalNum{font-size:14px;color:#333;}
+.signNumbDetail .payDetailBox{width:100%;height:70px;position:absolute;bottom:0;left:0;border-top:1px solid #eee;line-height: 70px;
+    font-size:14px;color:#333;}
+.signNumbDetail .payDetailBox div{display: inline-block;margin-right:30px;}
+.signNumbDetail .payDetailBox>div{margin-left:30px;}
+.signNumbDetail .payDetailBox span{color:#00aaff;font-size:18px;margin-right:8px;vertical-align: bottom;}
+.signNumbDetail .payDetailBox .payOrderBtn{width:90px;height:32px;line-height:32px;text-align:center;background:#00aaff;color:#fff;
+    -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;position:absolute;right:20px;top:19px;text-decoration: none;}
+.signNumbDetail .payDetailBox .payOrderBtn:hover{background:#07bbee;}
+.signNumbDetail .setSignBox{padding:0 20px 0 32px;}
+.signNumbDetail .setSignBox .axisBox{width:calc(100% - 208px);min-width:434px;margin-right:24px;float:left;}
+.signNumbDetail .setSignBox .dragAxis{width:100%;height:6px;border-radius:6px;background:#f0f3f6;margin-top:64px;position:relative;}
+.signNumbDetail .dragAxis .realTimeData{min-width:34px;height:28px;border-radius:2px;background-color:#3d3d3d;position:absolute;
+    top:-45px;left:0;color:#fff;line-height: 28px;text-align: center;font-size:14px;padding:0 10px;}
+.signNumbDetail .dragAxis .realTimeData span{width:100%;height:100%;display:block;}
+.signNumbDetail .dragAxis .realTimeData i{width:12px;height:4px;position: absolute;bottom:-4px;left:50%;margin-left:-6px;
+    background:url("../images/icon_triangle1.png")no-repeat 0 0;}
+.signNumbDetail .dragAxis .opcBg{width:0;height:6px;position:absolute;top:0;left:0;background:#00c08a;border-radius:6px;}
+.signNumbDetail .dragAxis .dragBtn{width:14px;height:14px;position:absolute;top:-4px;left:0px;background:#00c08a;border-radius:100%;
+    -webkit-box-shadow: 0 5px 5px 1px rgba(0,192,138,0.18);z-index:1;cursor: pointer;
+    -moz-box-shadow: 0 5px 5px 1px rgba(0,192,138,0.18);
+    box-shadow: 0 5px 5px 1px rgba(0,192,138,0.18);}
+.signNumbDetail .dragAxis .dragBtn strong{width:8px;height:8px;background:#fff;border-radius:100%;position:absolute;top:3px;left:3px;}
+.signNumbDetail .rulerBox{width:100%;height:34px;position:relative;}
+.signNumbDetail .rulerBox li{position: absolute;top:0;font-size:14px;color:#333;text-align: center;line-height:40px;}
+.signNumbDetail .rulerBox li i{width:1px;height:8px;background:#dadde0;position:absolute;top:0;left:6px;}
+.signNumbDetail .rulerBox li:nth-child(1) i{left:4px;}
+.signNumbDetail .rulerBox li:nth-child(6) i{left:9px;}
+.signNumbDetail .setSignBox .inputSignNum{width:132px;height:34px;float:left;border:1px solid #dadee0;border-radius:3px;margin-top:46px;}
+.signNumbDetail .inputSignNum span{width:33px;line-height:34px;text-align:center;font-size:20px;color:#666;float:left;background:#f3f5f7;cursor: pointer;}
+.signNumbDetail .inputSignNum span.decreaseBtn{border-right:1px solid #dadee0;}
+.signNumbDetail .inputSignNum span.plusBtn{border-left:1px solid #dadee0;float:right;}
+.signNumbDetail .inputSignNum input{width:62px;float:left;border:0;height:34px;text-align: center;padding:0;}
+
+
+/*签章使用统计*/
+.searchCondition{margin:12px 0 0 28px;}
+.searchCondition input,.searchCondition select,.searchTime{float:left;}
+.searchCondition input,.searchCondition select{width:160px;height:26px;padding:0;border:1px solid #d7d7d7;margin:0 10px 10px 0;padding-left:10px;color:#666;}
+.searchTime input{width:80px;margin:0;}
+input:-moz-placeholder{color:#666;}
+input::-webkit-input-placeholder{color:#666;}
+input:-ms-input-placeholder{color:#666;}
+.searchTime span,button{float:left;}
+.searchTime button{height:26px;background-color: #00aaff;font-size: 12px;color: #fff;line-height: 12px;
+	border: none;outline: none;vertical-align: top;border-radius: 4px;margin-left:12px;}
+.searchTime button:hover{background:#00b7ee;}
+.searchTime span{line-height: 26px;margin:0 10px;}
+.right-side .usedDetail{padding:0 28px;text-align: right;font-size:14px;color:#666;}
+.right-side .signTable{width:calc(100% - 56px);margin:10px 28px;border-collapse:collapse;text-align: center;}
+.right-side .signTable th{background:#f0f0f0;padding:0;line-height: 38px;font-weight: normal;border:1px solid #ddd;}
+.right-side .signTable td{border:1px solid #ddd;color:#666;line-height: 36px;}
+.right-side .signTable td a{color:#00aaff;text-decoration: none;}
+
+.signatureDetail{width:calc(100% - 140px);margin:20px auto;padding:22px 30px 48px;background:#f7f7f7;}
+.signatureDetail .title{font-size:16px;color:#2a2a2a;line-height: 16px;padding:0 0 11px 18px;position:relative;
+	border-bottom:1px solid #e1e4e6;}
+.signatureDetail .title span{width:4px;height:16px;background:#fa6900;position: absolute;left:6px;top:0;}
+.signatureDetail .signatureCont dl{float:left;margin-top:28px;text-align: left;}
+.signatureCont dl dt{font-size:12px;color:#93999f;line-height: 22px;}
+.signatureCont dl dd{font-size:14px;color:#2a2a2a;line-height: 24px;}
+.signatureCont .schoolName{width:16%;}
+.signatureCont .accountName{width:16%;}
+.signatureCont .orderNum{width:16%;}
+.signatureCont .payStatus{width:12%;}
+.signatureCont .tradeName{width:16%;}
+.signatureCont .signMode{width:12%;}
+.signatureCont .signTime{width:12%;}
+.signatureDetail .contDetail{width:calc(100% - 340px);min-height:620px;background:#fff;margin:35px auto 0;}
+.signNumbDetail .cavansNumBox {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translate(-50%,0);
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+}
+.signNumbDetail .cavansNumBox .laveNum {
+    display: block;
+    line-height: 26px;
+    color: #93999f;
+    font-size: 24px;
+}

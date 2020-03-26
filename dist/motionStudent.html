@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/starfun.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/asprition.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/star.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger-screen.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .view .study {
+            border: none;
+        }
+
+        *,
+        *::before,
+        *::after {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+            <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data"></form>
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 运营
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='motion.html'">问答</li>
+                        
+                        <li onclick="window.location.href='motionPinglun.html'">课程评论</li>
+                        <li onclick="window.location.href='motionNews.html'">新闻资讯</li>
+                        <li onclick="window.location.href='motionCuxiao.html'">促销</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='motionStudent.html'">学员心声
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company overflow coupon-page" style="width: 100%;
+            margin: 0;">
+
+                <!--证书管理开始-->
+                <div class="right-side L-right-side showIn">
+                    <div class="u-wrap classes set-system" style="   
+                     width: 100%;  margin: 0;
+                    ">
+                        <div class="screen-right-cont set-system">
+                            <div class="screen-right-title">
+                                <h3>
+                                    <i>学员心声</i>
+                                </h3>
+                                <div class="set-new manage-button couponCreate" @click="add_stu_heart">添加学员心声</div>
+                            </div>
+                            <!--新加证书管理内容结束-->
+                            <div class="view" id="studendList" style="height: auto;">
+
+
+
+
+
+                                <div class="study" data-id="2280" v-for="(item,index) in stu_hearts">
+                                    <div class="study-up">
+                                        <div class="study-img">
+
+                                            <img :src="item.stu_head"
+                                                style="width: 100%;height: 100%;">
+
+                                        </div>
+                                        <div class="study-author">{{item.stu_name}}</div>
+                                    </div>
+                                    <div class="study-down" v-html="item.stu_content">
+                                        
+                                    </div>
+                                    <div class="study-edit">
+                                        <div class="center">
+                                            <div class="left"  @click="delt_stu_heart(item)">删除</div>
+                                            <div class="right" @click="edit_stu_heart(item)">编辑</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--证书管理结束-->
+            </div>
+
+
+        </div> <!-- end container -->
+        <div class="layer-tips-bg" :style="model != 0?'display:block':'display:none'"></div>
+        <div class="layer-tips L-allowAdmissionsTc-b allowAdmin L-allowAdmissionsTc" id="L-allowAdmissionsTc"
+            :style="model == 1?'display: block;z-index:9999;top: 70px;margin-top: 0;':'display: none;z-index:9999;top: 70px;margin-top: 0;'">
+            <div class="layer-tips-title">
+    <span class="optype">{{add_stu_heart_label == true?'新增':'编辑'}}</span>学员心声<i class="close iconfont" style="    top: 10px;
+               right: 12px;
+               font-size: 20px;" @click="model=0">x</i>
+            </div>
+            <div class="Layer-tips-content">
+                <div class="clear">
+                    <div class="fl">
+                        <div class="name">
+                            <div class="left fl"><i class="star">*</i>学员名称</div>
+                            <input class="right fl" type="text" v-model="stu_info.stu_name" placeholder="最多可输入十个字 " name="userName">
+                            <label for="" class="label" id="name_tip" style="display: none;">学员名称必须在10个字以内</label>
+                        </div>
+                        <div class="portrait clear">
+                            <div class="left  fl"><i class="star">*</i>学员头像</div>
+                            <div class="left-m  fl userPic"><img style="width: 120px;height: 120px;"
+                                    :src="head">
+                            </div>
+                            <div class="right fl " style="    width: 64px;">
+                                <label class="control-label btn" for="uploadform-excelfiles"
+                                                                style="        margin-bottom: 0px;
+                                                                padding: 0;">上传头像</label><input
+                                                                type="file" id="uploadform-excelfiles" @change="file"
+                                                                multiple class="attachment-upload"
+                                                                style="
+                                                                position: absolute;    top: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fr">
+                        <div class="sort">
+                            <div class="left fl"><i class="star">*</i>学员排序</div>
+                            <input class="right fl" type="text" v-model="stu_info.stu_sort" placeholder="输入数字" name="sortNum">
+                        </div>
+                        <div class="portrait clear">
+                                <div class="left  fl"><i class="star">*</i>学员生活照</div>
+                                <div class="left-m  fl userPic"><img style="width: 120px;height: 120px;"
+                                        :src="head1">
+                                </div>
+                                <div class="right fl " style="    width: 64px;">
+                                    <label class="control-label btn" for="uploadform-excelfiles"
+                                                                    style="        margin-bottom: 0px;
+                                                                    padding: 0;">上传照片</label><input
+                                                                    type="file" id="uploadform-excelfiles" @change="file1"
+                                                                    multiple class="attachment-upload"
+                                                                    style="
+                                                                    position: absolute;    top: 0;">
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="idea clear">
+                    <div class="left  fl"><i class="star">*</i>学员心声</div>
+                    <textarea  v-model="stu_info.stu_content" class="right  fr" name="des"></textarea>
+                    <!-- <div class="number fl">176/500</div> -->
+                </div>
+            </div>
+            <div class="layer-tips-btns ">
+                <a href="javascript:;" class="btn btn-mini btn-default " @click="model=0">取消</a>
+                <a href="javascript:;" class="btn btn-mini btn-default btn-info" id="L-edior" type="2"
+                    data-id="2283" @click="submit_stu_heart">保存</a>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    head:'',
+                    head1:'',
+                    stu_hearts:[],
+                    add_stu_heart_label:false,
+                    stu_info:{
+                        "stu_name":"", 
+                        "stu_sort":'',
+                        "stu_head":"",
+                        "stu_life_photo":"",
+                        "stu_content":"",
+                        "user_id":parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.init()
+            },
+            methods: {
+                active() {
+
+                },
+                delt_stu_heart(item){
+                    let _this = this
+                    this.$confirm(`是否确认删除该学员心声`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/operate/deleteStudentVoice',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: {
+                                student_thinking_id: item.student_thinking_id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    _this.$message({
+                                        title: '提示',
+                                        message: '删除成功',
+                                        duration: 2000
+                                    });
+                                    obj = _this.stu_hearts
+                                    _this.stu_hearts = obj.filter((item1) => {
+                                        return item1.student_thinking_id != item.student_thinking_id
+                                    })
+                                }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }).catch(() => {
+                        _this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                },
+                submit_stu_heart(){
+                    let _this=this
+                    if(_this.add_stu_heart_label == true){
+                        obj = JSON.parse(JSON.stringify(_this.stu_info))
+                        console.log(obj)
+                        $.ajax({
+                                url: 'http://192.168.10.166:8080/operate/AddstudentVoice',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                dataType: 'json',
+                                success: function (data) {
+                                    if(data.message == "success"){
+                                        _this.$message.success({
+                                            type: 'info',
+                                            message: '新增成功',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                        _this.init()
+                                    }else{
+                                        _this.$message.error({
+                                            type: 'info',
+                                            message: '新增失败',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$message.error({
+                                            type: 'info',
+                                            message: '服务器错误',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                }
+                            })
+                    }else{
+                        obj = JSON.parse(JSON.stringify(_this.stu_info))
+                        console.log(obj)
+                        $.ajax({
+                                url: 'http://192.168.10.166:8080/operate/editStudentVoice',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                dataType: 'json',
+                                success: function (data) {
+                                    if(data.message == "success"){
+                                        _this.$message.success({
+                                            type: 'info',
+                                            message: '修改成功',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                        _this.init()
+                                    }else{
+                                        _this.$message.error({
+                                            type: 'info',
+                                            message: '修改失败',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$message.error({
+                                            type: 'info',
+                                            message: '服务器错误',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                }
+                            })
+                    }
+                },
+                edit_stu_heart(item){
+                    this.add_stu_heart_label = false
+                    this.stu_info=item
+                    this.head = item.stu_head
+                    this.head1 = item.stu_life_photo
+                    this.model = 1
+                },
+                add_stu_heart(){
+                    this.add_stu_heart_label = true
+                    this.model = 1
+                    this.stu_info={
+                        "stu_name":"", 
+                        "stu_sort":'',
+                        "stu_head":"",
+                        "stu_life_photo":"",
+                        "stu_content":"",
+                        "user_id":parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                    }
+                    this.head = ''
+                    this.head1 = ''
+                },
+                activea(num) {
+
+                },
+                init() {
+                    let _this = this
+                $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/showStudentVoice',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        // data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.stu_hearts = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                },
+                file(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        var maxsize = 2 * 1024 * 1024
+                        if (type.indexOf("image/") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择图片上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            var form = document.getElementById("addFormOne");
+                            var formData = new FormData(form);
+                            formData.set('multipartFile', item)
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/pse/uploadFile',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                // dataType: 'json',
+                                success: function (data) {
+                                    _this.stu_info.stu_head = data
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                _this.head = e.target.result
+                                console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    $(e.target).val('')
+                },
+                file1(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log('jiangshan1')
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        var maxsize = 2 * 1024 * 1024
+                        if (type.indexOf("image/") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择图片上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            var form = document.getElementById("addFormOne");
+                            var formData = new FormData(form);
+                            formData.set('multipartFile', item)
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/pse/uploadFile',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                // dataType: 'json',
+                                success: function (data) {
+                                    _this.stu_info.stu_life_photo = data
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                _this.head1 = e.target.result
+                                console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    $(e.target).val('')
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

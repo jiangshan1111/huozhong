@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/manger.css">
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-account"></i> 学员
+                    <ul class="row page-ul">
+                        <li onclick="window.location.href='index.html'">学员管理</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='studentNotice.html'">学员通知
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="row student ">
+                <div class="mainbackground" style="width:100%">
+                    <div class="main-content nospace notice-list">
+                        <table class="table table-noline">
+                            <colgroup>
+                                <col width="25%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="15%">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2">
+                                        <span class="c-title"  v-html="notice.type_name">问答被回复通知</span>
+                                        <input type="hidden" value="714323" id="msgId">
+                                    </td>
+                                    <td>
+                                        <span class="t-title">通知类型：</span>
+                                        <span class="t-content" v-html="notice.notice_type">
+
+
+
+
+
+
+                                        </span>
+                                    </td>
+                                    <td>
+
+
+
+
+                                    </td>
+                                    <td>
+                                        <span class="t-title">操作人：</span>
+                                        <span class="t-content" v-html="notice.user_id">
+
+                                            大漠老师
+
+
+
+                                        </span>
+                                    </td>
+                                    <td rowspan="2">
+                                        <!-- <a href="javascript:;" class="btn btn-sm btn-default btn-returns">返回</a> -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="t-title">通知方式：</span>
+                                        <span class="t-content"  v-html="notice.notice_way">
+
+
+
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="t-title">通知人数：</span>
+                                        <span class="t-content"  v-html="notice.notice_people_num"></span>
+                                    </td>
+                                    <td>
+                                        <span class="t-title">发送时间：</span>
+                                        <span class="t-content"  v-html="notice.send_time">
+                                            2019-07-17 10:28:31
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="mainbackground" style="width:100%">
+                    <div class="heading">
+                        <h2 class="h5">通知结果</h2>
+                        <span class="line"></span>
+                    </div>
+                    <div class="main-content">
+                        <div class="notice-result-list">
+                            <div class="n-result">
+                                <div class="m-title">
+                                    <h2 class="h6">
+                                        <span>发送时间：<span class="send-time" v-html="notice.send_time">2019-07-17 10:28:31</span></span>
+                                        <span class="t-name">发送人：
+
+                                            {{ notice.user_id}}
+
+
+
+                                        </span>
+                                        <span class="t-name">通知状态：
+
+
+
+                                                {{ notice.notice_status == 1?'已完成':'已提交发送'}}
+                                        </span>
+                                    </h2>
+                                </div>
+                                <!-- src="http://manage.yunduoketang.com/classModuleLesson/resutlContent?msgId=714323" -->
+                                <div class="result-main">
+                                    <div class="c">
+                                        <span class="c-title">通知内容：</span>
+                                        <span class="c-content l-content">
+                                            <span class="msg-content" style="width:700px;word-break: break-all;" v-html="notice.notice_content">
+                                                <!-- <iframe
+                                                    
+                                                    id="result" width="700px" frameborder="0" v-html="notice.notice_content">
+
+                                                </iframe> -->
+                                            </span>
+                                        </span>
+                                    </div>
+
+                                    <p class="c">
+                                        <span class="c-title">成功发送：</span>
+                                        <span class="c-content">
+                                            <a href="javascript:;" class="btn btn-link btn-view" data-type="1">
+
+
+                                                1
+
+                                            </a>人
+                                        </span>
+
+
+                                        <span class="c-content">
+                                                 条
+                                        </span>
+                                    </p>
+                                    <p class="c">
+                                        <span class="c-title">发送失败：</span>
+                                        <span class="c-content">
+                                            <em class="alert" style="text-decoration:none;">
+                                                <a href="javascript:;" class="btn btn-link btn-failure" data-type="0">
+
+
+                                                    0
+
+                                                </a>条</em>
+                                        </span>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    notice: {
+                        "notice_title": "通知1",
+                        "type_name": "课程001",
+                        "send_time": "2019-10-09 15:48:24",
+                        "notice_content": "测试通知内容001",
+                        "notice_way": "邮件",
+                        "user_id": "qinyu",
+                        "notice_status": "1",
+                        "notice_people_num": 5,
+                        "notice_type": "指定通知"
+                    },
+                    pickerOptions: {
+                        shortcuts: [{
+                            text: '最近一周',
+                            onClick(picker) {
+                                const end = new Date();
+                                const start = new Date();
+                                start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                                picker.$emit('pick', [start, end]);
+                            }
+                        }, {
+                            text: '最近一个月',
+                            onClick(picker) {
+                                const end = new Date();
+                                const start = new Date();
+                                start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                                picker.$emit('pick', [start, end]);
+                            }
+                        }, {
+                            text: '最近三个月',
+                            onClick(picker) {
+                                const end = new Date();
+                                const start = new Date();
+                                start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                                picker.$emit('pick', [start, end]);
+                            }
+                        }]
+                    },
+                    value1: '',
+                    value2: ''
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                notice_id = window.location.href.split('=')[1]
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/student/queryNoticeResultById',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    data: {
+                        notice_id
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.notice = data
+                        // _this.userList = data
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                active() {
+                    this.activeIndexb = 2
+                    console.log(1)
+                    let _this = this
+                    $.ajax({
+                        url: './cn.json',
+                        type: 'get',
+                        // data:'',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.userList = data
+                            // _this.userList = []
+
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                    this.init()
+                    let _this = this
+                    $.ajax({
+                        url: './cn.json',
+                        type: 'get',
+                        // data:'',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.userList = data
+                            _this.userList1 = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                flexColumnWidth() {
+                    return $('.el-table__header-wrapper').width() / 100 * 25
+                },
+                flexColumnWidthc() {
+                    return $('.el-table__header-wrapper').width() / 100 * 3
+                },
+                flexColumnWidthd() {
+                    return $('.el-table__header-wrapper').width() / 3
+                },
+                flexColumnWidthe() {
+                    return $('.el-table__header-wrapper').width() / 6
+                },
+                flexColumnWidthf() {
+                    return $('.el-table__header-wrapper').width() / 9
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

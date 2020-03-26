@@ -1,0 +1,491 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/class-bag.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <link href="css/queCenter.css" rel="stylesheet" type="text/css">
+    <link href="css/newPay.css" rel="stylesheet" type="text/css">
+    <link href="css/element-ui.css" rel="stylesheet" type="text/css">
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header">
+
+    </div>
+    <!--新用户注册（手机号/用户名）over-->
+    <!-- register-end-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <div class="payCont" id="app" v-cloak style="margin-top: 60px;" v-cloak>
+        <div class="contUp clear">
+            <span class="statusPic"></span>
+            <dl class="right">
+                <dt>订单提交成功，请尽快支付~</dt>
+                <dd class="fenLei"><span>商品类别：</span>
+                    <b>{{order_type}}</b>
+                </dd>
+                <dd class="bianHao clear">
+                    <span><b>订单编号：</b><em>{{order_num}}</em></span>
+                    <strong>应付金额：<em
+                            class="money">￥{{order_type == "课程"?course_info.special_price:class_info.favorable_price}}</em>元</strong>
+                </dd>
+            </dl>
+        </div>
+        <div class="contDown">
+
+            <p class="choseTitle">
+                <span @click="change_youhui" style="cursor: pointer;" class="moreSelect">
+                    使用优惠券
+                    <i class="iconfont">{{youhui_lebel == true?'':''}}</i>
+                </span>
+            </p>
+
+            <div class="selChose" v-if="youhui_lebel == true" style="display: block;">
+                <ul class="choseTable clear">
+                    <li class="active">优惠券</li>
+                </ul>
+                <div class="tableCont">
+                    <div class="tableCont1">
+                        <ul class="quan clear">
+
+                            <li v-for="(item,index) in coupon_info" @click="choose_coupon(item)"
+                                :class="item.tf_use == 1?(item.choose == true?'quan active':'quan'):'quan disN'">
+                                <p class="zheKou" v-if="item.preferential_way == '满减'" name="ticket" typevalue="1"
+                                    data-val="1.0" code="KHUpXLuwmQX3mCh0" overnum="111.0">
+                                    <i>￥</i><em>{{item.dc_denomination.split(',')[1]}}</em><span>满{{item.dc_denomination.split(',')[0]}}</span>
+                                </p>
+                                <p class="zheKou" v-if="item.preferential_way == '折扣'" name="ticket" typevalue="2"
+                                    data-val="8.0" code="Y0m73cN4ltlU0fWk">
+                                    <em>{{item.dc_denomination}}</em>折</p>
+                                <p class="zheKou" v-if="item.preferential_way == '抵现'" name="ticket" typevalue="0"
+                                    data-val="12312.0" code="77X33qEj47KnKo01"><i>￥</i><em>{{item.dc_denomination}}</em>
+                                </p>
+                                <p class="term">有效期至：{{item.service_life_end_time}}</p>
+                                <div class="fanWei">使用范围：{{item.preferential_scope}}</div>
+                                <i class="xuanZhong" :style="item.choose == true?'display:inline':'display:none'"></i>
+                            </li>
+
+                        </ul>
+                        <p class="duiHuan youhuiIput">
+                            <input type="text" id="mcoupon" placeholder="输入优惠码兑换" v-model="dh_coupon_num">
+                            <i class=" guanBi" style="display: none;">X</i><a href="javascript:;" @click="dh_coupon" class="uesBtn">兑换</a>
+                            <strong class="cuoWu" style="display: none;">优惠码输入有误，核对后再输入</strong>
+                        </p>
+                    </div>
+                </div>
+                <p class="quanDetail">
+                    <span class="dyMoney">金额抵用：<em class="JMPrice">-￥{{coupon_money}}</em></span>
+                    <span class="quanNumber" style="">优惠券<em class="totalCou">1</em>张；</span>
+                    <span class="dyQian" style="display: none">余额<em class="rechargeUsed">￥0</em>；</span>
+                    <span class="dyJf" style="display: none">积分<em class="integralUsed">0</em></span>
+                </p>
+            </div>
+
+            <div class="zhiFuBox">
+                <p class="zhiFuTitle">支付方式</p>
+                <div class="bankList clear">
+                    <ul>
+                        <li @click="order_pay = 1"  :class="order_pay == 1?'bankPic1 active':'bankPic1'" paytype="PAY_TYPE_ZFB"><i class="choseBtn"></i></li>
+                        <li @click="order_pay = 2"  :class="order_pay == 2?'bankPic2 active':'bankPic2'" paytype="PAY_TYPE_WX_GZH"><i class="choseBtn"></i></li>
+                    </ul>
+
+                </div>
+                <ul class="heJi">
+                    <li>
+                        <span>金额总计：<em>￥{{order_type == "课程"?course_info.special_price:class_info.favorable_price}}</em></span>
+                    </li>
+                    <li><span>减免金额：<em class="JMPrice">-￥{{coupon_money}}</em></span></li>
+                    <li><span>应付金额：<em class="finalPrice payable">￥{{((order_type == "课程"?course_info.special_price:class_info.favorable_price)*100-coupon_money*100)/100}}</em></span>
+                    </li>
+                    <li class="zhiFuBtn"><a href="javascript:;" @click="goPay">支付</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tishiAlert" v-show="model == 1" style="display: block;">
+                <div>
+                    <i class="iconfont"></i>
+                </div>
+                <h1>请您在打开的网页中进行支付</h1>
+                <p>支付完成前请不要关闭该窗口</p>
+                <div class="btns">
+                    <button class="failBtn" @click="pay_search()">支付遇到问题</button>
+                    <button class="successBtn"  @click="pay_search()">支付成功</button>
+                </div>
+            </div>
+            <div class="opc" v-show="model == 1" style="display: block;"></div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <form method="post" id="myForm">
+            <input type="hidden" name="type" id="typeValue">
+        </form>
+        <!-- footer end -->
+
+
+
+    </div>
+    <form method="post" id="myForm">
+        <input type="hidden" name="type" id="typeValue">
+    </form>
+    <!-- footer end -->
+    <!--百度统计代码-->
+
+
+
+
+
+
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<script src="js/vue.min.js"></script>
+<script src="js/element-ui.js"></script>
+<script src="js/qrcode.min.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                currentPage: 1, //初始页
+                activeIndexa: 0,
+                activeIndexb: 0,
+                stu_id: localStorage.stu_id,
+                pagesize: 10, //    每页的数据
+                model: 0,
+                youhui_lebel: false,
+                value2: '',
+                order_num: "",
+                order_type: "",
+                order_pay: 0,
+                cpc: '',
+                
+                coupon_info: [],
+                dh_coupon_num:'',
+                selected_coupon: {
+
+                },
+                class_info: {
+
+                },
+                course_info: {
+
+                }
+            }
+        },
+        created() {
+            let _this = this
+            _this.order_num = localStorage.order_num
+            _this.order_type = localStorage.order_type
+            if (_this.order_type == '课程') {
+                _this.course_info = JSON.parse(localStorage.order_info)
+                _this.cpc = _this.course_info.course_id
+            } else if (_this.order_type == '课程包') {
+                _this.class_info = JSON.parse(localStorage.order_info)
+                _this.cpc = _this.class_info.course_package_id
+            }
+            console.log(_this.course_info)
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+            $.ajax({
+                url: 'http://192.168.10.166:8080/stu/Discovery/queryStudentCoupon',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "product_type": _this.order_type,
+                    "stu_id": _this.stu_id,
+                    "cpc": _this.cpc
+                }),
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    _this.coupon_info = data
+                    // _this.sub_stu_info = JSON.parse(JSON.stringify(data))
+                },
+                error: function () {
+
+                }
+            })
+        },
+        computed: {
+            coupon_money(){
+                money = this.order_type == "课程"?this.course_info.special_price:this.class_info.favorable_price
+                // money = 500
+                let _this = this
+                if(_this.selected_coupon.dc_denomination == null || _this.selected_coupon.dc_denomination == '' || _this.selected_coupon.dc_denomination == 0){
+                    return 0 
+                }else{
+                    switch (_this.selected_coupon.preferential_way) {
+                        case '抵现':
+                            if(_this.selected_coupon.dc_denomination>money){
+                                return 0 
+                            }else{
+                                return _this.selected_coupon.dc_denomination
+                            }
+                            break;
+                        case '满减':
+                            if(_this.selected_coupon.dc_denomination.split(',')[0]>money){
+                                return 0 
+                            }else{
+                                return _this.selected_coupon.dc_denomination.split(',')[1]
+                            }
+                            break;
+                        case '折扣':
+                            return money * (10-_this.selected_coupon.dc_denomination)/10
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            },
+        },
+        methods: {
+            //提交订单
+            goPay(){
+                let _this = this
+                console.log(_this.selected_coupon.small_discount_id)
+                obj = {
+                    "outTradeNo":_this.order_num,
+                    "stu_id":_this.stu_id,
+                    "small_discount_id":_this.selected_coupon.small_discount_id,
+                    "type":_this.order_pay == '1'?'支付宝网页':'微信网页',
+                    price:((_this.order_type == "课程"?_this.course_info.special_price:_this.class_info.favorable_price)*100-_this.coupon_money*100)/100
+                }
+                if(_this.selected_coupon.small_discount_id == undefined){
+                    delete obj.small_discount_id
+                }
+                localStorage.pay_way_info=JSON.stringify(obj)
+                window.open('order_next.html')
+               _this.model = 1
+            },
+            //查询是否支付成功
+            pay_search(){
+                let _this = this
+                $.ajax({
+                url: 'http://192.168.10.166:8080/order/Verification ',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "order_num":"S_48C_1T_1583389558783",
+                    "stu_id":_this.stu_id
+                }),
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    if(data.code == 200){
+                        window.location.href="order_success.html"
+                    }else{
+                        window.location.href="order_error.html"
+                    }
+                    // _this.sub_stu_info = JSON.parse(JSON.stringify(data))
+                },
+                error: function () {
+
+                }
+            })
+            },
+            dh_coupon() {
+                let _this = this
+                console.log(_this.dh_coupon_num)
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/Discovery/ExchangeDiscountCode',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "discount_code_value": _this.dh_coupon_num,
+                        "stu_id": _this.stu_id 
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        if(data == 1){
+                            _this.$message.success({
+                                type: 'info',
+                                message: '兑换成功',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/stu/Discovery/queryStudentCoupon',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    "product_type": _this.order_type,
+                                    "stu_id": _this.stu_id,
+                                    "cpc": _this.cpc
+                                }),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    _this.coupon_info = data
+                                    _this.choose_coupon(_this.selected_coupon)
+                                },
+                                error: function () {
+
+                                }
+                            })
+                        }else{
+                            _this.$message.error({
+                                type: 'info',
+                                message: '兑换失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                    }
+                })
+            },
+            choose_coupon(item) {
+                console.log(item)
+                if (item.tf_use == 1) {
+                    this.selected_coupon = item
+                    arr = JSON.parse(JSON.stringify(this.coupon_info))
+                    arr.map((i) => {
+                        i.choose = false
+                        if (i.small_discount_id == item.small_discount_id) {
+                            i.choose = true
+                        }
+                    })
+                    this.coupon_info = arr
+                    console.log(this.coupon_info)
+                }
+            },
+            change_youhui() {
+                if (this.youhui_lebel == false) {
+                    this.youhui_lebel = true
+                } else {
+                    this.youhui_lebel = false
+                }
+            },
+            getNowFormatDate(date) {
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                if (hour >= 0 && hour <= 9) {
+                    hour = "0" + hour;
+                }
+                if (minute >= 0 && minute <= 9) {
+                    minute = "0" + minute;
+                }
+                if (second >= 0 && second <= 9) {
+                    second = "0" + second;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                    " " + hour + seperator2 + minute +
+                    seperator2 + second;
+                return currentdate;
+            },
+            activeA(num) {
+                this.activeIndexa = num
+            },
+            activeB(num) {
+                this.activeIndexb = num
+            },
+            goNext() {
+                window.open('tiku_detail.html')
+            },
+        }
+    })
+</script>
+
+</html>

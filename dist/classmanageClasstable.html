@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/addTitle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classNum.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/nanoScroller.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+        .timeTable .class_list .class_list_r .class_list_r_title {
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+}
+        .wrapper {
+            padding-top: 60px;
+        }
+        .jiangshan p:hover{
+            color:#00aaff;
+        }
+        .jiangHover{
+            cursor: pointer;
+        }
+        .jiangHover:hover{
+            color:#00aaff;
+        }
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+
+        select,
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"] {
+            margin: 7px 2px;
+        }
+
+        i.editer {
+            background: url(./assets/images/bianji.svg) no-repeat;
+            width: 16px;
+            height: 16px;
+            border: none;
+            top: 27px;
+            display: -webkit-inline-box;
+            vertical-align: sub;
+        }
+
+        i.delete {
+            background: url(./assets/images/delete.svg) no-repeat;
+            width: 16px;
+            height: 16px;
+            border: none;
+            top: 27px;
+            display: -webkit-inline-box;
+            vertical-align: sub;
+        }
+
+        .timeTable .class_list .class_list_r .class_list_r_title .registration i {
+            vertical-align: sub;
+        }
+
+        i.zhushi {
+            background: url(./assets/images/zhushi.svg) no-repeat;
+            width: 16px;
+            height: 16px;
+            border: none;
+            top: 27px;
+            display: -webkit-inline-box;
+            vertical-align: sub;
+        }
+
+        .timeTable .class_list .class_list_r .class_main li .on {
+            top: 10px;
+        }
+
+        i.on {
+            background: url(./assets/images/selected.svg) no-repeat;
+            width: 16px;
+            height: 16px;
+            border: none;
+            top: 27px;
+            display: -webkit-inline-box;
+            vertical-align: sub;
+        }
+
+        /* .q-btn-primary {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #00b7ee;
+    color: #fff;
+    padding: 0;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+} */
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper q-box" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li style="color:e #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company">
+                <div class="block clear">
+
+
+
+                    <div class="labels classStatus else1">
+                        <s id="statusText">{{course_info.course_status}}</s>
+                        <div class="sanjiao"></div>
+                    </div>
+
+
+
+                    <div class="class-title">课程名称 ： {{course_info.course_name}}</div>
+                    <input type="hidden" value="832295" id="classTypeId">
+                    <div class="sum">
+
+
+
+
+
+
+
+                        <span>授课类型：{{course_info.course_type}}</span>
+
+
+                    </div>
+
+                    <div class="price">
+                        价格：{{course_info.special_price}}元
+                    </div>
+
+
+
+
+
+                    
+
+
+
+
+                </div>
+            </div>
+            <div class="u-wrap company overflow points-use-class  content_main" style="    margin-top: 20px;padding:0">
+
+                <div class="left-side">
+                    <div class="left-sides-title courseCancle">
+                        <!-- <em>返回</em> -->
+                    </div>
+                    <div class="left-sides-title pop">
+                        <em class="iconfont" style="font-size:13px">| |</em>
+                    </div>
+                    <ul class="menuList_choose">
+                            <li class="subentry" @click="goManage" code="baseCode" mark="/editClass/editClassBaseInfo/832295/togther">
+                                <i class="mdi mdi-information"></i><em>基本信息</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '直播'" @click="goVideo" code="videoCode" mark="/editClass/editClassVideoInfo/832295/togther">
+                                    <i class="mdi mdi-television-classic"></i><em>视频课</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '录播'" code="moduleLive" @click="goZhibo" mark="/editClass/editClassModuleLive/832295/togther">
+                                    <i class="mdi mdi-television"></i><em><em>直播课</em></li>
+                                <!-- <li class="subentry" code="moduleFace" mark="/editClass/editClassModuleFace/832295/togther">
+                                    <i class="mdi mdi-worker"></i><em>面授课</em></li> -->
+        
+                                <li class="subentry" v-if="course_info.course_type != '录播'" @click="goClassTable" code="listCode" mark="/editClass/editCourseList/832295/togther">
+                                    <i class="mdi mdi-equal-box"></i><em>排课表</em></li>
+                            <li class="lines"></li>
+                            <li class="subentry t1" @click="goClassStu" code="studentsCode" mark="/classStu/studentList/832295/togther">
+                                <i class=" mdi mdi-human-male"></i><em>学员管理</em></li>
+                            <li class="subentry" code="classResource" @click="goClassZL"
+                                mark="/classModuleLesson/classesResource/832295/togther">
+                                <i class=" mdi mdi-database-plus"></i><em>课程资料</em></li>
+                            <li class="subentry t1" code="statisticsCode" @click="goClassTJ" 
+                                mark="/companyLiveStaticDetail/companyLiveStaticDetailList/832295/togther">
+                                <i class=" mdi mdi-table-of-contents"></i><em>直播上课统计</em></li>
+                    </ul>
+                </div>
+                <input type="hidden" id="courseUseMethod" value="simple">
+                <div class="information_side_r fr">
+                    <div class="title-box" style="padding: 0;">
+                        <div class="tit-font"><span>排课表</span></div>
+                    </div>
+                    <div class="timeTable clearfloat">
+
+
+
+
+                        <h4 style="width:98%">直播课表<span class="jiangHover" style="float:right" @click="goTable('num','course_id','0')">管理所有班次</span></h4>
+
+                        <div v-for="(val,k,index) in classEs" class="class_list live_class clearfloat" data-module-id="778108">
+                                <!-- <div v-for="(item,index) in classEs" class="class_list live_class clearfloat" data-module-id="778108"> -->
+                            <div class="class_list_l fl jiangshan" style="height: 88px;">
+                                <p style="height: 23px;cursor: pointer;" @click="goTable(val[0].course_unit_id,'course_unit_id',val[0].course_unit_id)"><span>{{k}}</span></p>
+                            </div>
+                            <div class="class_list_r fr">
+                                <!-- <div class="class_list_r_title">
+                                    <div class="manage_class fr"><i class="iconfont" style="background: url('./assets/images/guanli.svg') no-repeat; width: 16px; height: 16px; border: none;
+                                                        display: -webkit-inline-box;
+                                                        vertical-align: middle;">&nbsp;</i><span @click="goTable(val[0].course_unit_id,'course_unit_id'),val[0].course_unit_id">管理班号</span></div>
+
+
+
+                                </div> -->
+                                <ul class="class_main clearfloat" style="overflow: auto;
+                                    height: 87px;">
+
+                                    <li class="clearfloat" data-module-no-id="181104" data-type="0" style="margin-top:0">
+                                        <!-- <i class="iconfont on" data-module-on-sale-id="326248">&nbsp;</i> -->
+                                        <div class="class_main_content">
+                                            <p v-for="(item,i) in val" class="class_p" @click="goTable(item.course_times_id,'course_times_id',val[0].course_unit_id)">{{item.ct_name}}</p>
+                                            <!-- <p>
+                                                            <span class="face_class"> <i>课次：</i><b>1 </b></span>
+                                                            <span class="face_class"> <i>课时：</i><b>2.0</b></span>
+                                                        </p> -->
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- <div class="class_list live_class clearfloat" data-module-id="778164">
+                                    <div class="class_list_l fl" style="height: 88px;">
+                                        <p style="height: 23px;"><span>2019年6月考期：科三精讲课</span></p>
+                                    </div>
+                                    <div class="class_list_r fr">
+                                        <div class="class_list_r_title">
+                                            <div title="指定默认报名的班号" class="registration"><span>指定默认报名的班号</span><i class="iconfont zhushi" title="为此课程中每个单元指定默认报名班号，报名此课程时默认安排到此班号中">&nbsp;</i></div>
+                                            
+                                                
+                                                
+                                                    <div class="add_class fr"><i class="iconfont" style="background: url('./assets/images/addT.svg') no-repeat; width: 16px; height: 16px; border: none;
+                                                        display: -webkit-inline-box;
+                                                        vertical-align: middle;">&nbsp;</i><span>添加班号 </span></div>
+                                                    <div class="manage_class fr"><i class="iconfont" style="background: url('./assets/images/guanli.svg') no-repeat; width: 16px; height: 16px; border: none;
+                                                        display: -webkit-inline-box;
+                                                        vertical-align: middle;">&nbsp;</i><span>管理班号</span></div>
+                                                
+                                            
+            
+                                        </div>
+                                        <ul class="class_main clearfloat">
+                                            
+                                                <li class="clearfloat" data-module-no-id="181118" data-type="0">
+                                                    <i class="iconfont on" data-module-on-sale-id="326249">&nbsp;</i>
+                                                    <div class="class_main_content">
+                                                        <p class="class_p">2019年6月考期：科三精讲课</p>
+                                                        <p>
+                                                            <span class="face_class"> <i>课次：</i><b>7 </b></span>
+                                                            <span class="face_class"> <i>课时：</i><b>14.0</b></span>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div> -->
+
+                        <!-- <div class="class_list live_class clearfloat" data-module-id="778165">
+                                    <div class="class_list_l fl" style="height: 88px;">
+                                        <p style="height: 23px;"><span>2019年6月考期：科三串讲课</span></p>
+                                    </div>
+                                    <div class="class_list_r fr">
+                                        <div class="class_list_r_title">
+                                            <div title="指定默认报名的班号" class="registration"><span>指定默认报名的班号</span><i class="iconfont zhushi" title="为此课程中每个单元指定默认报名班号，报名此课程时默认安排到此班号中">&nbsp;</i></div>
+                                            
+                                                
+                                                
+                                                    <div class="add_class fr"><i class="iconfont" style="background: url('./assets/images/addT.svg') no-repeat; width: 16px; height: 16px; border: none;
+                                                        display: -webkit-inline-box;
+                                                        vertical-align: middle;">&nbsp;</i><span>添加班号 </span></div>
+                                                    <div class="manage_class fr"><i class="iconfont" style="background: url('./assets/images/guanli.svg') no-repeat; width: 16px; height: 16px; border: none;
+                                                        display: -webkit-inline-box;
+                                                        vertical-align: middle;">&nbsp;</i><span>管理班号</span></div>
+                                                
+                                            
+            
+                                        </div>
+                                        <ul class="class_main clearfloat">
+                                            
+                                                <li class="clearfloat" data-module-no-id="181121" data-type="0">
+                                                    <i class="iconfont on" data-module-on-sale-id="326250">&nbsp;</i>
+                                                    <div class="class_main_content">
+                                                        <p class="class_p">2019年6月考期：科三串讲课</p>
+                                                        <p>
+                                                            <span class="face_class"> <i>课次：</i><b>1 </b></span>
+                                                            <span class="face_class"> <i>课时：</i><b>2.0</b></span>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div> -->
+                        <!--                             
+                                <div class="class_list live_class clearfloat" data-module-id="856909">
+                                    <div class="class_list_l fl" style="height: 88px;">
+                                        <p style="height: 23px;"><span>2019年9月考期：科三精讲课</span></p>
+                                    </div>
+                                    <div class="class_list_r fr">
+                                        <div class="class_list_r_title">
+                                            <div title="指定默认报名的班号" class="registration"><span>指定默认报名的班号</span><i class="iconfont zhushi" title="为此课程中每个单元指定默认报名班号，报名此课程时默认安排到此班号中">&nbsp;</i></div>
+                                            
+                                                
+                                                
+                                                    <div class="add_class fr"><i class="iconfont" style="background: url('./assets/images/addT.svg') no-repeat; width: 16px; height: 16px; border: none;
+                                                        display: -webkit-inline-box;
+                                                        vertical-align: middle;">&nbsp;</i><span>添加班号 </span></div>
+                                                    <div class="manage_class fr"><i class="iconfont" style="background: url('./assets/images/guanli.svg') no-repeat; width: 16px; height: 16px; border: none;
+                                                        display: -webkit-inline-box;
+                                                        vertical-align: middle;">&nbsp;</i><span>管理班号</span></div>
+                                                
+                                            
+            
+                                        </div>
+                                        <ul class="class_main clearfloat">
+                                            
+                                                <li class="clearfloat" data-module-no-id="212425" data-type="0">
+                                                    <i class="iconfont on" data-module-on-sale-id="326251">&nbsp;</i>
+                                                    <div class="class_main_content">
+                                                        <p class="class_p">2019年9月考期：科三精讲课-直播-20190806</p>
+                                                        <p>
+                                                            <span class="face_class"> <i>课次：</i><b>8 </b></span>
+                                                            <span class="face_class"> <i>课时：</i><b>16.0</b></span>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div> -->
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        // .disableSelection();
+        console.log(1)
+
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+                    value2: '',
+                    classEs: {},
+                    course_info:{},
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.course_info = JSON.parse(localStorage.course_info)
+                course_id = window.location.href.split('=')[1]
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/course/queryCourseTimesFromOneCourse',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    data: {
+                        course_id
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        var name = []
+                        for (let i = 0; i < data.length; i++) {
+                            if (name.indexOf(data[i].cu_name) < 0) {
+                                name.push(data[i].cu_name)
+                            }
+                        }
+                        console.log(name)
+                        obj = {}
+                        for (let k = 0; k < name.length; k++) {
+                            obj[name[k]] = []
+                            for (let i = 0; i < data.length; i++) {
+                                if (data[i].cu_name == name[k]) {
+                                    obj[name[k]].push(data[i])
+                                }
+                            }
+                        }
+                    //     _this.classEs = {
+                    //     'ceshi':[{"ct_name":"修改课次测试1","course_times_id":1,"course_unit_id":2,"cu_name":"课程单元002"},{"ct_name":"课次002","course_times_id":2,"course_unit_id":2,"cu_name":"课程单元002"},{"ct_name":"课次003","course_times_id":3,"course_unit_id":2,"cu_name":"课程单元002"},{"ct_name":"课次0031","course_times_id":4,"course_unit_id":5,"cu_name":"课程单元0021"}],
+                    //     'ceshi1':[{"ct_name":"修改课次测试1","course_times_id":1,"course_unit_id":2,"cu_name":"课程单元002"},{"ct_name":"课次002","course_times_id":2,"course_unit_id":2,"cu_name":"课程单元002"},{"ct_name":"课次003","course_times_id":3,"course_unit_id":2,"cu_name":"课程单元002"},{"ct_name":"课次0031","course_times_id":4,"course_unit_id":5,"cu_name":"课程单元0021"}],
+                    // }
+                    _this.classEs= obj
+                        console.log( _this.classEs)
+                        for (var k in _this.classEs) {
+                            console.log(k)
+                            
+                        }
+                        // for (k in data) {
+                        //     for (let index = 0; index < array.length; index++) {
+                        //         const element = array[index];
+
+                        //     }
+                        //     if(data[k].cu_name == ){
+                        //         name.push(data[k].cu_name)
+                        //     }
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            mounted() {},
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                goZhibo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageTelecast.html?course_id='+course_id)
+                    }
+                },
+                goClassStu(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageStu.html?course_id='+course_id)
+                    }
+                },
+                goClassZL(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageziliao.html?course_id='+course_id)
+                    }
+                },
+                goClassTJ(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanagezhibo.html?course_id='+course_id)
+                    }
+                },
+                goVideo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageVideo.html?course_id='+course_id)
+                    } 
+                },
+                goManage(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanage.html?course_id='+course_id)
+                    } 
+                },
+                goClassTable(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageClasstable.html?course_id='+course_id)
+                    }
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                goTable(k,l,n){
+                    if(k == 'num'){
+                        window.open('resourceClasskc.html?course_id='+course_id)
+                    }else{
+                    window.open('resourceClasskc.html?'+l+'='+k)
+                    }
+                    localStorage.course_id = course_id
+                    localStorage.course_unit_id = n
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

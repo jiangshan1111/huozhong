@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/addTitle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+        .el-table__empty-text {
+    width: 100%;
+    color: #909399;
+}
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+
+        .el-input--prefix .el-input__inner {
+            height: 30px;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 28px;
+        }
+
+        .el-date-editor .el-range__icon {
+            line-height: 27px;
+        }
+
+        .el-input__inner {
+            height: 28px;
+            line-height: 28px;
+        }
+        .el-message-box__input {
+    padding-top: 0;
+}
+        #searchForm .condition {
+            margin-bottom: 15px;
+            float: left;
+            padding: 0 0 0 10px;
+            margin-right: 6px;
+            height: 28px;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+
+        select,
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"] {
+            margin: 7px 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <a href="http://image.yunduoketang.com/course/public/e820f90b-eff1-434e-85f1-9dc45c8b9822.jpeg" download="test1.jpeg">DownloadAttrTest</a> -->
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li style="color:e #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company">
+                <div class="block clear">
+
+
+
+                    <div class="labels classStatus else1">
+                        <s id="statusText">{{course_info.course_status}}</s>
+                        <div class="sanjiao"></div>
+                    </div>
+
+
+
+                    <div class="class-title">课程名称 ： {{course_info.course_name}}</div>
+                    <input type="hidden" value="832295" id="classTypeId">
+                    <div class="sum">
+
+
+
+
+
+
+
+                        <span>授课类型：{{course_info.course_type}}</span>
+
+
+                    </div>
+
+                    <div class="price">
+                        价格：{{course_info.special_price}}元
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <div class="u-wrap company overflow points-use-class" style="    margin-top: 20px;">
+<div class="left-side">
+                    <div class="left-sides-title courseCancle">
+                        <!-- <em>返回</em> -->
+                    </div>
+                    <div class="left-sides-title pop">
+                        <em class="iconfont" style="font-size:13px">| |</em>
+                    </div>
+                    <ul class="menuList_choose">
+                            <li class="subentry" @click="goManage" code="baseCode" mark="/editClass/editClassBaseInfo/832295/togther">
+                                <i class="mdi mdi-information"></i><em>基本信息</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '直播'" @click="goVideo" code="videoCode" mark="/editClass/editClassVideoInfo/832295/togther">
+                                    <i class="mdi mdi-television-classic"></i><em>视频课</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '录播'" code="moduleLive" @click="goZhibo" mark="/editClass/editClassModuleLive/832295/togther">
+                                    <i class="mdi mdi-television"></i><em><em>直播课</em></li>
+                                <!-- <li class="subentry" code="moduleFace" mark="/editClass/editClassModuleFace/832295/togther">
+                                    <i class="mdi mdi-worker"></i><em>面授课</em></li> -->
+        
+                                <li class="subentry" v-if="course_info.course_type != '录播'" @click="goClassTable" code="listCode" mark="/editClass/editCourseList/832295/togther">
+                                    <i class="mdi mdi-equal-box"></i><em>排课表</em></li>
+                            <li class="lines"></li>
+                            <li class="subentry t1 active" @click="goClassStu" code="studentsCode" mark="/classStu/studentList/832295/togther">
+                                <i class=" mdi mdi-human-male"></i><em>学员管理</em></li>
+                            <li class="subentry" code="classResource" @click="goClassZL"
+                                mark="/classModuleLesson/classesResource/832295/togther">
+                                <i class=" mdi mdi-database-plus"></i><em>课程资料</em></li>
+                            <li class="subentry t1" code="statisticsCode" @click="goClassTJ" 
+                                mark="/companyLiveStaticDetail/companyLiveStaticDetailList/832295/togther">
+                                <i class=" mdi mdi-table-of-contents"></i><em>直播上课统计</em></li>
+                    </ul>
+                </div>
+                <input type="hidden" id="courseUseMethod" value="simple">
+                <div class="right-side" style="background-color: white;">
+                    <div class="mainbackground nopadding" style="min-height: 546px;">
+                        <div class="heading" data-protocolconfig="true">
+                            <h2 class="h5">学员列表</h2>
+                            <div style="position: absolute;right: 0;top: -8px;padding:0 10px;">
+
+                                <span><a href="javascript:;" @click="goAddstu" class="btn btn-primary addStudent">添加学员</a></span>
+                                <span><a href="javascript:;" class="btn btn-primary importexcle" @click="godaoru">导入学员</a></span>
+
+                                <span><a href="javascript:;" @click="exportStujd" class="btn btn-primary exportexcle">导出学员</a></span>
+                                <span><a href="javascript:;"
+                                        class="btn btn-primary exportStudyPercent" @click="exportStu_jd">导出学习进度</a></span>
+                            </div>
+                            <span class="line"></span>
+                        </div>
+                        <form method="post" id="searchForm">
+                            <div class="inputSelect">
+                                <input type="hidden" id="classTypeId" name="classTypeId" value="928989">
+                                <input type="text" id="stuMobile" v-model="search_info.tel" name="mobile" placeholder="手机号">
+                                <input type="text" id="stuusername" v-model="search_info.wechat" name="username" placeholder="微信号">
+                                <input type="text" id="stuName" name="name" v-model="search_info.stu_name" placeholder="姓名">
+                                <input type="text" id="sfzh" name="identityId" v-model="search_info.ID_number" placeholder="证件号码">
+                                <input type="hidden" name="label" value="face">
+                                <select class="select" id="registStatus" v-model="search_info.fontdesk_account_status" name="status">
+                                    <option value="">前台账号状态</option>
+                                    <option value="1">启用</option>
+                                    <option value="2">禁用</option>
+                                </select>
+                                <select class="select" id="classType" v-model="search_info.access_way" name="classType">
+                                    <option value="获取课程">报名课程学员</option>
+                                    <option value="获取课程包">报名包含此课程的课程包的学员</option>
+                                    <option value="">全部学员</option>
+                                </select>
+                                <span class="condition" style="    margin: 7px 2px;"><template>
+                                        <!-- <div class="block"> -->
+                                        <span class="demonstration c-title">报名时间</span>
+                                        <el-date-picker v-model="value2" type="datetimerange" range-separator="至"
+                                            start-placeholder="开始日期" end-placeholder="结束日期">
+                                        </el-date-picker>
+                                        <!-- </div> -->
+                                    </template></span>
+
+                                <span><a href="javascript:;" @click="search" class="btn btn-primary searchContents">搜索</a></span>
+                            </div>
+                        </form>
+                        <div class="user-list" style="margin-top: 20px;">
+                            <!-- <table class="newTable table table-center" id="tableList">
+                                <tbody>
+                                    <tr>
+                                        <th>姓名</th>
+                                        <th>手机号</th>
+                                        <th>用户名</th>
+                                        <th>邮箱</th>
+
+                                        <th>报名时间</th>
+                                        <th>有效期至</th>
+                                        <th>最后登录时间</th>
+                                        <th>获取方式</th>
+                                        <th>账号状态</th>
+                                        <th style="width: 12%;">操作</th>
+                                    </tr>
+                                    <tr data-buy="true">
+                                        <td></td>
+                                        <td>18800000000</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2019-11-15 13:41:09</td>
+                                        <td>无限期</td>
+                                        <td>2019-11-18 14:30:22</td>
+                                        <td>报名课程</td>
+                                        <td class="ustatus">启用</td>
+                                        <td class="slink"><a mobile="2362867"
+                                                href="/student_detail/classLeanRecord/2362867/928989//COMMODITY_CLASS/face?type=update ">学习记录</a>|<a
+                                                class="more" href="javascript:void(0);">更多</a>
+                                            <ul class="none" style="width: 102px;">
+                                                <li><a class="toTransaction" label="meet" mobile="18800000000" uname=""
+                                                        href="javascript:void(0);">异动</a></li>
+                                                <li><a class="addEndTime" href="javascript:void(0);"
+                                                        data-masterid="7001699" data-endtime="无限期"
+                                                        data-stuid="2362867">修改有效期</a></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pages pagination"></div> -->
+                            <template>
+                                <el-table border :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                    :data="tableData" style="overflow: auto;">
+                                    <el-table-column prop="stu_name" label="姓名" :width="flexColumnWidth(8)"
+                                        style="text-align: center">
+                                    </el-table-column>
+                                    <el-table-column prop="tel" label="手机号" :width="flexColumnWidth(11)">
+                                    </el-table-column>
+                                    <el-table-column prop="wechat" label="微信号" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="email" label="邮箱" :width="flexColumnWidth(15)">
+                                    </el-table-column>
+                                    <el-table-column prop="enrollment_time" label="报名时间" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="invalid_date" label="有效期至" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="last_login_time" label="最后登录时间" :width="flexColumnWidth(12)">
+                                    </el-table-column>
+                                    <el-table-column prop="fontdesk_account_status" label="账号状态" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column label="操作" :width="flexColumnWidth(14)">
+                                        <template slot-scope="scope">
+                                            <el-button type="text" size="small" @click="study_record(scope.row)">学习记录</el-button>
+                                            <el-dropdown>
+                                                <el-button type="text" @click="" size="small">更多</el-button>
+                                                <el-dropdown-menu>
+                                                    <!-- <el-dropdown-item command="a" @click.native="change_people(scope.row)">移出课程包
+                                                    </el-dropdown-item> -->
+                                                    <el-dropdown-item command="d" @click.native="change_time(scope.row)">修改有效期
+                                                    </el-dropdown-item>
+                                                </el-dropdown-menu>
+                                            </el-dropdown>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                    :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                    layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                                </el-pagination>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="resourceList" style="display: none">
+                        <input type="hidden" id="hiddenModuleNoId">
+                        <input type="hidden" id="hiddenFileId">
+                        <div class="title-box">
+                            <div class="tit-font fl">
+                                <span class="t">个人课程资料</span>
+                            </div>
+                            <div class="fr">
+                                <button class="upLoad" id="upLoad">上传资料</button>
+                            </div>
+                        </div>
+                        <div class="materialTable mt30">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+        <div class="v-modal" tabindex="0" v-show="model == 1" style="display:none;z-index: 43;"></div>
+        <div tabindex="-1" role="dialog" v-show="model == 1" aria-modal="true" style="display:none;z-index: 44;" aria-label="提示" class="el-message-box__wrapper"
+            style="">
+            <div class="el-message-box" style="width: 40%;">
+                <div class="el-message-box__header">
+                    <div class="el-message-box__title">
+                        <!----><span></span></div><button type="button" aria-label="Close" @click="model = 0"
+                        class="el-message-box__headerbtn"><i class="el-message-box__close el-icon-close"></i></button>
+                </div>
+                <div class="el-message-box__content">
+                    当前有效期至：{{youxiaoqiZ}}
+                </div>
+                <div class="el-message-box__content">
+                    调整有效期
+                    <input type="radio" value="0" v-model="youxiaoqi_status"   name="integralFlag"><em
+                    class="marg">指定日期</em>
+                <input type="radio" value="1" v-model="youxiaoqi_status" name="integralFlag"><em
+                    class="marg">不限日期</em>
+                </div>
+                <div class="el-message-box__content"  v-show="youxiaoqi_status == 0">
+                   
+                    <div class="el-message-box__input">
+                        <div class="el-input">
+                            <template>
+                                <!-- <div class="block"> -->
+                                  <span class="demonstration c-title">选择有效期：</span>
+                                  <el-date-picker
+                                    v-model="value3">
+                                  </el-date-picker>
+                                <!-- </div> -->
+                              </template>
+                        </div>
+                        <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
+                    </div>
+                </div>
+                <div class="el-message-box__btns"><button  @click="model = 0" type="button"
+                        class="el-button el-button--default el-button--small">
+                        <!---->
+                        <!----><span>
+                            取消
+                        </span></button><button @click="submit_time()" type="button"
+                        class="el-button el-button--default el-button--small el-button--primary ">
+                        <!---->
+                        <!----><span>
+                            确定
+                        </span></button></div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script> -->
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    search_info:{
+                        course_id:'',
+                        endEnrollmentTime:'',
+                        wechat:'',
+                        fontdesk_account_status:'',
+                        ID_number:'',
+                        stu_name:'',
+                        tel:'',
+                        access_way:'',
+                        startEnrollmentTime:''
+                    },
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    youxiaoqi:'',
+                    youxiaoqiZ:'',
+                    youxiaoqi_status:0,
+                    value3:'',
+                    yxq:{
+                        "stu_id": 1,
+                        "course_id": 1,
+                        "invalid_date": "2019-02-03 10:00:00"
+                    },
+                    value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+                    value2: [],
+                    userList: [
+                        {
+                    "stu_id": 1,
+                    "course_package_id": 2,
+                    "invalid_date": "2020-08-01T00:00:00.000+0000",
+                    "last_login_time": "2019-09-18T06:21:06.000+0000",
+                    "enrollment_time": "2019-09-20T02:10:10.000+0000",
+                    "fontdesk_account_status": 1,
+                    "wechat": "11111",
+                    "stu_name": "秀秀秀",
+                    "tel": "18800428784",
+                    "email": "2623000107@qq.com"
+                        },
+                        {
+                    "stu_id": 2,
+                    "course_package_id": 2,
+                    "invalid_date": "2020-08-01T00:00:00.000+0000",
+                    "last_login_time": "2019-09-18T12:21:06.000+0000",
+                    "enrollment_time": "2019-09-20T02:10:10.000+0000",
+                    "fontdesk_account_status": 1,
+                    "wechat": "xudadadada",
+                    "stu_name": "测试2",
+                    "tel": "13100870731",
+                    "email": "lwx18800428784@163.com"
+                        },
+                        {
+                    "stu_id": 3,
+                    "course_package_id": 2,
+                    "invalid_date": "2020-08-01T00:00:00.000+0000",
+                    "last_login_time": "2019-09-23T07:15:15.000+0000",
+                    "enrollment_time": "2019-09-20T02:10:10.000+0000",
+                    "fontdesk_account_status": 1,
+                    "wechat": "xudadadada",
+                    "stu_name": "测试3",
+                    "tel": "13100870731",
+                    "email": "lwx18800428784@163.com"
+                        }
+                    ],
+                    course_info:{}
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                course_id = window.location.href.split('=')[1]
+                _this.course_info = JSON.parse(localStorage.course_info)
+                obj={
+                    course_id:course_id
+                }
+                if(course_id == undefined){
+
+}else{
+    console.log('jiangshan')
+    $.ajax({
+                    url: 'http://192.168.10.166:8080/course/queryStudentListByCourseId',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    data: obj,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        // _this.xieyis = data
+                        // _this.class_info.agreement_id = '';
+                        _this.userList = data
+                        for (let i = 0; i < _this.userList.length; i++) {
+                            _this.userList[i].last_login_time = _this.getNowFormatDate(new Date(_this.userList[i].last_login_time))
+                            _this.userList[i].enrollment_time = _this.getNowFormatDate(new Date(_this.userList[i].enrollment_time))
+                            _this.userList[i].invalid_date = _this.getNowFormatDate(new Date(_this.userList[i].invalid_date))
+                            _this.userList[i].fontdesk_account_status = _this.userList[i].fontdesk_account_status == 1?'启用':'禁用'
+                        }
+                    },
+                    error: function () {
+
+                    }
+                })
+}
+            },
+            methods: {
+                active() {
+
+                },
+                change_time(scope){
+                    console.log(scope)
+                    this.yxq.stu_id = scope.stu_id
+                    this.yxq.course_id = parseInt(window.location.href.split('=')[1])
+                    this.youxiaoqiZ = scope.invalid_date
+                    this.model = 1
+                },
+                submit_time(){
+                    _this = this
+                    console.log(this.value3,this.youxiaoqi_status)
+                    obj = _this.yxq
+                    if(this.youxiaoqi_status == 1){
+                        obj.invalid_date = "2099-12-31 23:59:59"
+                    }else{
+                        obj.invalid_date = _this.getNowFormatDate(new Date(_this.value3))
+                    }
+                    console.log(obj)
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/course/updateInvalidDateOfCourse',
+                            type: 'post',
+                            contentType:'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                if (data.message == '修改有效日期成功') {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改有效期成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    _this.search()
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改有效期失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                activea(num) {
+
+                },
+                godaoru(){
+                    window.open('classmanageStuExport.html?course_id='+window.location.href.split('=')[1])
+                },
+                search(){
+                    _this =this
+                    console.log(_this.value2 )
+                    if(_this.value2.length == 0 || _this.value2 == null){
+                        _this.search_info.begin_time = ""
+                        _this.search_info.end_time = ""
+                    }else{
+                        _this.search_info.begin_time = _this.getNowFormatDate(new Date(_this.value2[0]))
+                        _this.search_info.end_time = _this.getNowFormatDate(new Date(_this.value2[1]))
+                    }
+                    _this.search_info.course_id =parseInt(window.location.href.split('=')[1])
+                    
+                    obj = {}
+                    console.log(_this.search_info)
+                    // for (var k in _this.search_info) {
+                    //     // if(_this.search_info[k] != ""){
+                    //         obj[k] = _this.search_info[k]
+                    //     // }
+                    // }
+                    obj = JSON.parse(JSON.stringify(_this.search_info))
+                    obj.fontdesk_account_status =parseInt(obj.fontdesk_account_status)
+                    console.log(obj)
+                    $.ajax({
+                    url: 'http://192.168.10.166:8080/course/studentListSearchBoxFromCourse',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(obj),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        // _this.xieyis = data
+                        // _this.class_info.agreement_id = '';
+                        _this.userList = data
+                        for (let i = 0; i < _this.userList.length; i++) {
+                            // _this.userList[i].last_login_time = _this.getNowFormatDate(new Date(_this.userList[i].last_login_time))
+                            // _this.userList[i].enrollment_time = _this.getNowFormatDate(new Date(_this.userList[i].enrollment_time))
+                            // _this.userList[i].invalid_date = _this.getNowFormatDate(new Date(_this.userList[i].invalid_date))
+                            _this.userList[i].fontdesk_account_status = _this.userList[i].fontdesk_account_status == 1?'启用':'禁用'
+                        }
+                    },
+                    error: function () {
+
+                    }
+                })
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                exportStujd(){
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '课程导出学员数据【'+_this.course_info.course_name+'】【'+_this.userList.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    console.log(_this.userList)
+                    str="姓名,手机号,微信号,邮箱,报名时间,有效期至,最后登录时间,账号状态"+'\r\n'
+                    for (let k = 0; k < _this.userList.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList[k].stu_name+','
+                        stra += _this.userList[k].tel+','
+                        stra += _this.userList[k].wechat+','
+                        stra += _this.userList[k].email+','
+                        stra += _this.userList[k].enrollment_time+','
+                        stra += _this.userList[k].invalid_date+','
+                        stra += _this.userList[k].last_login_time+','
+                        stra += _this.userList[k].fontdesk_account_status+','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "学员列表".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                exportStu_jd(){
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/exportLearningProgress',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        data: {
+                            course_id: window.location.href.split('=')[1]
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            // _this.tikus = data
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/Ex/Ex',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    operation: '课程导出学习进度【'+_this.course_info.course_name+'】【'+data.length+'】条',
+                                    user_id: JSON.parse(localStorage.login_user_info).user_id,
+                                }),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            str="学生,课程,旷课次数,课程总时长,累计上课时长"+'\r\n'
+                            for (let k = 0; k <data.length; k++) {
+
+                                stra = ""
+                                stra += data[k].stu_name+','
+                                stra += data[k].course_name+','
+                                stra += data[k].truancy_times+','
+                                stra += data[k].total_class_hour+','
+                                stra += data[k].accumulated_class_hours+','
+                                str += stra + '\r\n';
+                                // const element = array[k];
+
+                            }
+                            console.log(str)
+                            var fileName = "";
+                            fileName += "学员学习进度报表".replace(/ /g, "_");
+                            var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                            var link = document.createElement("a");
+                            link.href = uri;
+                            link.style = "visibility:hidden";
+                            link.download = fileName + ".CSV";
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                    
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                goAddstu(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageStuAdd.html?course_id='+course_id)
+                    }
+                },
+                goZhibo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageTelecast.html?course_id='+course_id)
+                    }
+                },
+                goClassStu(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageStu.html?course_id='+course_id)
+                    }
+                },
+                goClassZL(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageziliao.html?course_id='+course_id)
+                    }
+                },
+                goClassTJ(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanagezhibo.html?course_id='+course_id)
+                    }
+                },
+                goVideo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageVideo.html?course_id='+course_id)
+                    } 
+                },
+                goManage(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanage.html?course_id='+course_id)
+                    } 
+                },
+                goClassTable(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageClasstable.html?course_id='+course_id)
+                    }
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                study_record(scope){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageStua.html?course_id='+course_id)
+                    }
+                    console.log(scope)
+                    localStorage.stu_info = JSON.stringify(scope)
+                },
+                flexColumnWidth(num) {
+
+return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+.width() / 100 * num : 12 * num
+},
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

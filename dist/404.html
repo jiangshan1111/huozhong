@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+</head>
+
+<body>
+    <div>
+        <ul>
+
+        </ul>
+    </div>
+        <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+ <script>
+  $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/queryLog',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({}),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            for (let k = 0; k < data.length; k++) {
+                                $('ul')[0].innerHTML+=`<li>`
+                                +data[k].operation+
+                                `</li>
+                                
+                                `
+                                
+                            }
+                            
+                        },
+                        error: function () {
+
+                        }
+                    })
+ </script>
+</body>
+
+</html>

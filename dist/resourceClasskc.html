@@ -1,0 +1,2800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <!-- <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/newSource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newresource.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/toProtocolList.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/agreement-4.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classNum.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" /> -->
+    <style>
+        body {
+            color: black;
+        }
+
+        .el-button+.el-button {
+            margin-left: 0px;
+        }
+
+        .dialog h5 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .dialog .dialog_schedule {
+            width: 710px;
+            height: 480px;
+            padding: 0 22px !important;
+        }
+
+        .dialog .dialog_schedule .schedule_box {
+            margin-bottom: 10px;
+        }
+
+        .btn.btn-success {
+            color: #fff !important;
+            background-color: #00c08b;
+            border: 1px solid #00c08b;
+        }
+
+        .nopadding .impotrArea {
+            padding-top: 0;
+            min-height: 380px;
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .heading {
+            margin-bottom: 20px;
+        }
+
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .el-input--prefix .el-input__inner {
+            line-height: 1;
+            height: 28px;
+            margin: 0;
+            width: auto;
+        }
+
+        .resource .mainmbackground .r-list {
+            padding-bottom: 0;
+        }
+
+        .u-wrap .mainbackground.nopadding {
+            padding: 1px 20px 10px;
+        }
+
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .el-date-editor .el-range__icon {
+            font-size: 14px;
+            margin-left: -5px;
+            color: #c0c4cc;
+            float: left;
+            line-height: 28px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .schedule .schedule_box .schedule_main p span {
+            display: inline-block;
+            width: 20px;
+            margin: 0 8px;
+            color: #666;
+
+            line-height: 28px;
+            font-size: 12px;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav"> </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data"></form>
+
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 资源
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='resource.html'">学科</li>
+                        <li onclick="window.location.href='resourceSchool.html'">校区</li>
+                        <li onclick="window.location.href='resourceKu.html'">资源库</li>
+                        <li onclick="window.location.href='resourceClassxy.html'">课程协议</li>
+                        <li onclick="window.location.href='resourceTeacher.html'">教师课时</li>
+                        <li style="color: rgb(250, 105, 0); border-bottom: 2px solid rgb(250, 105, 0);"
+                            onclick="window.location.href='resourceClassdy.html'">课程单元</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground nopadding" style="height: auto;">
+                    <div class="heading headingImp">
+                        <h2 class="h5">排课</h2>
+                        <a v-if="isCourse == 1" id="addCourseUnit" href="javascript:void(0)"
+                            class=" btn-primary searchContents newsearCon"
+                            style="position: absolute;right: 257px;top: -7px;padding-top: 6px;font-size: 14px;padding-bottom: 6px;color:white;"
+                            @click="model = 2">添加课次</a>
+                        <a v-if="isCourse == 1" id="addCourseUnit" href="javascript:void(0)"
+                            class=" btn-primary searchContents newsearCon"
+                            style="position: absolute;right: 357px;top: -7px;padding-top: 6px;font-size: 14px;padding-bottom: 6px;color:white;"
+                            @click="piliang_add">批量添加</a>
+                        <a id="addCourseUnit" href="javascript:void(0)" class=" btn-primary searchContents newsearCon"
+                            style="position: absolute;right: 0;top: -7px;padding-top: 6px;font-size: 14px;padding-bottom: 6px;color:white;"
+                            @click="piliang_delete">批量删除</a>
+                        <a id="addCourseUnit" href="javascript:void(0)" class=" btn-primary searchContents newsearCon"
+                            style="position: absolute;right: 100px;top: -7px;padding-top: 6px;font-size: 14px;padding-bottom: 6px;color:white;"
+                            @click="piliang_change">批量更改教师教务</a>
+                        <span class="line"></span>
+                    </div>
+                    <!-- 前端新加html -->
+                    <div class=" impotrArea">
+                        <div class="proxyBox" style="margin-top: 20px;">
+                            <template>
+                                <el-table border :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                    :data="tableData" style="overflow: auto;" @selection-change="handleSelectionChange">
+
+                                    <el-table-column type="selection" :width="flexColumnWidth(4)">
+                                    </el-table-column>
+                                    <el-table-column prop="date" label="日期" :width="flexColumnWidth(11)"
+                                        style="text-align: center">
+                                    </el-table-column>
+                                    <el-table-column prop="time" label="时间" :width="flexColumnWidth(11)">
+                                    </el-table-column>
+                                    <el-table-column prop="ct_name" label="课次" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="total_hours" label="课时" :width="flexColumnWidth(6)">
+                                    </el-table-column>
+                                    <el-table-column prop="tf_charge" label="免费" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="tf_barrage" label="弹幕" :width="flexColumnWidth(6)">
+                                    </el-table-column>
+                                    <el-table-column prop="js_user_name" label="教师" :width="flexColumnWidth(8)">
+                                    </el-table-column>
+                                    <el-table-column prop="jw_user_name" label="教务" :width="flexColumnWidth(11)">
+                                    </el-table-column>
+                                    <el-table-column prop="ct_pattern" label="模式" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column label="操作" :width="flexColumnWidth(13)">
+                                        <template slot-scope="scope">
+                                            <el-button type="text" size="small" @click="review(scope.row)">修改
+                                            </el-button>
+                                            <el-button type="text" size="small" @click="delete_row(scope.row)">删除
+                                            </el-button>
+                                            <el-dropdown @command="">
+                                                <el-button type="text" @click="" size="small">更多</el-button>
+                                                <el-dropdown-menu>
+                                                    <el-dropdown-item command="a" @click.native="go_ziliao(scope.row)">
+                                                        课程资料
+                                                    </el-dropdown-item>
+                                                    <!-- <el-dropdown-item command="b" @click.native="">
+                                                        课后练习
+                                                    </el-dropdown-item> -->
+                                                </el-dropdown-menu>
+                                            </el-dropdown>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                    :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                    layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                                </el-pagination>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+        <div class="dialog" id="addLessonDialog" v-show="model == 1" style="display: none;">
+            <div id="LessonSubmitForm" style="height: auto;    top: 60px;
+            bottom:auto;padding-bottom:60px !important;" class="schedule clearfloat prompt dialog_schedule"><i
+                    @click="model = 0" class="iconfont" style="position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                font-size: 20px;">x</i>
+                <input name="moduleNo.totalHours" type="hidden" value="48" id="totalHours">
+                <input name="classTeachType" type="hidden" value="TEACH_METHOD_LIVE" id="classTeachType">
+                <input name="moduleNo.id" type="hidden" value="57040" id="id">
+                <h5>批量添加</h5>
+                <div style="height: auto;">
+                    <div class="">
+                        <div style="right: -17px;">
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">课次系列名称：</div>
+                                <div class="schedule_main">
+                                    <input type="text" class="shift_name" id="moduleLessonName"
+                                        name="moduleNo.moduleName" v-model="submit_info.ct_name">
+                                    <div class="schedule_title">开课日期：</div>
+                                    <template>
+                                        <el-date-picker v-model="value1" type="date" placeholder="选择日期"
+                                            @change="change_date">
+                                        </el-date-picker>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">排课天：</div>
+                                <div class="schedule_main  ban_class_main weekDiv">
+                                    <!-- <i class="weekday allday" name="moduleNo.lessonDay" value="1"></i><span>周一</span>
+                                    <i class="weekday allday" name="moduleNo.lessonDay" value="2"></i><span>周二</span>
+                                    <i class="weekday allday" name="moduleNo.lessonDay" value="3"></i><span>周三</span>
+                                    <i class="weekday allday" name="moduleNo.lessonDay" value="4"></i><span>周四</span>
+                                    <i class="weekday allday" name="moduleNo.lessonDay" value="5"></i><span>周五</span>
+                                    <i class="weekend saturday allday" name="moduleNo.lessonDay" value="6"></i><span>周六</span>
+                                    <i class="weekend sunday allday on" name="moduleNo.lessonDay" value="0"></i><span>周日</span> -->
+                                    <template>
+                                        <el-checkbox-group v-model="checkedCities1" @change="time_sw">
+                                            <el-checkbox v-for="city in cities1" :label="city.label"
+                                                :value="city.value">{{city.value}}
+                                            </el-checkbox>
+                                        </el-checkbox-group>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">上课时间：</div>
+                                <div class="schedule_main class_time">
+                                    <a @click="activea(0)"
+                                        :class="activeIndexa == 0?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_MORNING">上午</a>
+                                    <a @click="activea(1)"
+                                        :class="activeIndexa == 1?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_AFTERNOON">下午</a>
+                                    <a @click="activea(2)"
+                                        :class="activeIndexa == 2?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_WHOLE_DAY">全天</a>
+                                    <a @click="activea(3)"
+                                        :class="activeIndexa == 3?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_NIGHT">晚上</a>
+                                    <p class="class_time_main">
+                                        <template>
+                                            <el-time-picker is-range style="width: 42%;
+                                              height: 28px;
+                                              margin-top: 0px;
+                                              vertical-align: sub;" v-model="value2" range-separator="至"
+                                                placeholder="选择时间范围" format="HH:mm" @change="time_sw">
+                                            </el-time-picker>
+                                        </template>
+                                    </p>
+                                    <input name="moduleNo.lessonScope" value="LESSON_TIME_MORNING" id="lessonScope"
+                                        type="hidden">
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title" style="margin-right:40px">总课次数：{{submit_info.kc_times}}
+                                </div>
+
+                                <div class="schedule_title">每课次课时数：{{submit_info.kc_time}}</div>
+                                <div class="schedule_main class_num">
+                                    <!-- <input type="text" id="lessonTotalCount" value="1" maxlength="2" name="moduleNo.lessonTotalCount" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"> -->
+
+
+                                    <!-- <input type="text" id="lessonHour" maxlength="2" value="1" name="moduleNo.lessonHour" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"> -->
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div style="    overflow: hidden;">
+                                <div class="schedule_box clearfloat"
+                                    style="    width: 50%;    float: left;height: 30px;">
+                                    <div class="schedule_title">模式：</div>
+                                    <div class="schedule_main radiomain barrage">
+                                        <select name="" id="" v-model="submit_info.ct_pattern">
+                                            <option value="">请选择</option>
+                                            <option value="大班课">大班课</option>
+                                            <option value="小班课">小班课</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title">是否支持弹幕：</div>
+                                    <div class="schedule_main radiomain barrage">
+                                        <input type="radio" name="ef21" value="1" v-model="submit_info.tf_barrage"
+                                            style="cursor:pointer"><span class="chose_status"
+                                            style="    width: auto;">是</span>
+                                        <input type="radio" name="ef21" value="2" v-model="submit_info.tf_barrage"
+                                            style="cursor:pointer"><span class="chose_status"
+                                            style="    width: auto;">否</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title">是否免费：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef22" v-model="submit_info.tf_charge" value="1"><span
+                                            class="chose_status" style="    width: auto;">是</span>
+                                        <input type="radio" name="ef22" v-model="submit_info.tf_charge" value="2"><span
+                                            class="chose_status" style="    width: auto;">否</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title" style="width: auto;">虚拟用户昵称类型：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef23" v-model="submit_info.robotType" value="0"><span
+                                            class="chose_status" style="    width: auto;">真实姓名</span>
+                                        <input type="radio" name="ef23" v-model="submit_info.robotType" value="1"><span
+                                            class="chose_status" style="    width: auto;">网络昵称</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat"
+                                    style="    width: 50%;    float: left;">
+                                    <div class="schedule_title" style="width: auto;
+                                            font-size: 12px;">老师助教是否显示虚拟用户：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef24" v-model="submit_info.adminNotShow"
+                                            value="0"><span class="chose_status" style="    width: auto;">显示</span>
+                                        <input type="radio" name="ef24" v-model="submit_info.adminNotShow"
+                                            value="1"><span class="chose_status" style="    width: auto;">不显示</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" v-if="submit_info.ct_pattern == '小班课'"
+                                    style="    width: 50%;    float: left;">
+                                    <div class="schedule_title" style="width: auto;">小班合流模式配置：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef25" v-model="submit_info.streamMode" value="1"><span
+                                            class="chose_status" style="    width: auto;">多人模式</span>
+                                        <input type="radio" name="ef25" v-model="submit_info.streamMode" value="2"><span
+                                            class="chose_status" style="    width: auto;">双人模式</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" v-if="submit_info.ct_pattern == '小班课'"
+                                    style="    width: 50%;    float: left;height: 30px;">
+                                    <div class="schedule_title">小班课类型：</div>
+                                    <div class="schedule_main radiomain">
+                                        <select name="" id="" v-model="submit_info.smallType">
+                                            <option value="3">1V16</option>
+                                            <option value="1">1V1</option>
+                                            <option value="2">1V6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title">虚拟用户数量：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="text" v-model="submit_info.robotNumber" id="">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="schedule_box clearfloat" style="margin-bottom: 0;">
+                                <div class="schedule_title">教师：</div>
+                                <div class="schedule_main radiomain">
+                                    <select name="" id="" v-model="submit_info.teacher">
+                                        <option value="">请选择</option>
+                                        <option v-for="(item,index) in js_user_ids" :value="item.user_id">
+                                            {{item.true_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">教务：</div>
+                                <div class="schedule_main radiomain" style="overflow: auto;
+                                            width: 82%;
+                                            height: 60px;">
+                                    <template>
+                                        <el-checkbox-group v-model="checkedCities">
+                                            <el-checkbox v-for="city in cities" :label="city.user_id"
+                                                :value="city.user_id">
+                                                {{city.true_name}}</el-checkbox>
+                                        </el-checkbox-group>
+                                    </template>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <!-- <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 384px; transform: translate(0px, 0px);"></div></div></div> -->
+                    </div>
+
+                    <div class="save_btn clearfloat">
+                        <a class="btn btn-default btn-lg cancelDialog" @click="model = 0">取消</a>
+                        <a class="btn btn-primary btn-lg saveDialog" style="color:white" @click="submit_kcs">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog" id="addLessonDialog" v-show="model == 2" style="display: none;">
+            <div id="LessonSubmitForm" style="height: auto;    top: 70px;
+            bottom:auto;padding-bottom:60px !important;" class="schedule clearfloat prompt dialog_schedule"><i
+                    @click="model = 0" class="iconfont" style="position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                font-size: 20px;">x</i>
+                <h5>添加课次</h5>
+                <div style="height: auto;">
+                    <div class="">
+                        <div style="right: -17px;">
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">课次系列名称：</div>
+                                <div class="schedule_main">
+                                    <input type="text" class="shift_name" id="moduleLessonName"
+                                        name="moduleNo.moduleName" v-model="kc_submit_info.ct_name">
+                                    <div class="schedule_title">开课日期：</div>
+                                    <template>
+                                        <el-date-picker v-model="value3" type="date" placeholder="选择日期">
+                                        </el-date-picker>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">上课时间：</div>
+                                <div class="schedule_main class_time">
+                                    <a @click="activeb(0)"
+                                        :class="activeIndexb == 0?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_MORNING">上午</a>
+                                    <a @click="activeb(1)"
+                                        :class="activeIndexb == 1?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_AFTERNOON">下午</a>
+                                    <a @click="activeb(2)"
+                                        :class="activeIndexb == 2?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_WHOLE_DAY">全天</a>
+                                    <a @click="activeb(3)"
+                                        :class="activeIndexb == 3?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_NIGHT">晚上</a>
+                                    <p class="class_time_main">
+                                        <template>
+                                            <el-time-picker is-range style="width: 42%;
+                                              height: 28px;
+                                              margin-top: 0px;
+                                              vertical-align: sub;" v-model="value4" range-separator="至"
+                                                placeholder="选择时间范围" format="HH:mm">
+                                            </el-time-picker>
+                                        </template>
+                                    </p>
+                                    <input name="moduleNo.lessonScope" value="LESSON_TIME_MORNING" id="lessonScope"
+                                        type="hidden">
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+
+
+                                <div class="schedule_title">每课次课时数：{{kc_submit_info.total_hours}}</div>
+                                <div class="schedule_main class_num">
+                                    <!-- <input type="text" id="lessonTotalCount" value="1" maxlength="2" name="moduleNo.lessonTotalCount" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"> -->
+
+
+                                    <!-- <input type="text" id="lessonHour" maxlength="2" value="1" name="moduleNo.lessonHour" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"> -->
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div style="    overflow: hidden;">
+                                <div class="schedule_box clearfloat"
+                                    style="    width: 50%;    float: left;height: 30px;">
+                                    <div class="schedule_title">模式：</div>
+                                    <div class="schedule_main radiomain barrage">
+                                        <select name="" id="" v-model="kc_submit_info.ct_pattern">
+                                            <option value="">请选择</option>
+                                            <option value="大班课">大班课</option>
+                                            <option value="小班课">小班课</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title">是否支持弹幕：</div>
+                                    <div class="schedule_main radiomain barrage">
+                                        <input type="radio" name="ef" value="1" v-model="kc_submit_info.tf_barrage"
+                                            style="cursor:pointer"><span class="chose_status"
+                                            style="    width: auto;">是</span>
+                                        <input type="radio" name="ef" value="2" v-model="kc_submit_info.tf_barrage"
+                                            style="cursor:pointer"><span class="chose_status"
+                                            style="    width: auto;">否</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title">是否免费：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef1" v-model="kc_submit_info.tf_charge"
+                                            value="1"><span class="chose_status" style="    width: auto;">是</span>
+                                        <input type="radio" name="ef1" v-model="kc_submit_info.tf_charge"
+                                            value="2"><span class="chose_status" style="    width: auto;">否</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title" style="width: auto;">虚拟用户昵称类型：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef2" v-model="kc_submit_info.robotType"
+                                            value="0"><span class="chose_status" style="    width: auto;">真实姓名</span>
+                                        <input type="radio" name="ef2" v-model="kc_submit_info.robotType"
+                                            value="1"><span class="chose_status" style="    width: auto;">网络昵称</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat"
+                                    style="    width: 50%;    float: left;">
+                                    <div class="schedule_title" style="width: auto;
+                                            font-size: 12px;">老师助教是否显示虚拟用户：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef3" v-model="kc_submit_info.adminNotShow"
+                                            value="0"><span class="chose_status" style="    width: auto;">显示</span>
+                                        <input type="radio" name="ef3" v-model="kc_submit_info.adminNotShow"
+                                            value="1"><span class="chose_status" style="    width: auto;">不显示</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" v-if="kc_submit_info.ct_pattern == '小班课'"
+                                    style="    width: 50%;    float: left;">
+                                    <div class="schedule_title" style="width: auto;">小班合流模式配置：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef4" v-model="kc_submit_info.streamMode"
+                                            value="1"><span class="chose_status" style="    width: auto;">多人模式</span>
+                                        <input type="radio" name="ef4" v-model="kc_submit_info.streamMode"
+                                            value="2"><span class="chose_status" style="    width: auto;">双人模式</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" v-if="kc_submit_info.ct_pattern == '小班课'"
+                                    style="    width: 50%;    float: left;height: 30px;">
+                                    <div class="schedule_title">小班课类型：</div>
+                                    <div class="schedule_main radiomain">
+                                        <select name="" id="" v-model="kc_submit_info.smallType">
+                                            <option value="3">1V16</option>
+                                            <option value="1">1V1</option>
+                                            <option value="2">1V6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title">虚拟用户数量：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="text" v-model="kc_submit_info.robotNumber" id="">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="schedule_box clearfloat" style="margin-bottom: 0;">
+                                <div class="schedule_title">教师：</div>
+                                <div class="schedule_main radiomain">
+                                    <select name="" id="" v-model="kc_submit_info.js_user_id">
+                                        <option value="">请选择</option>
+                                        <option v-for="(item,index) in js_user_ids" :value="item.user_id">
+                                            {{item.true_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">教务：</div>
+                                <div class="schedule_main radiomain" style="overflow: auto;
+                                            width: 82%;
+                                            height: 60px;">
+                                    <template>
+                                        <el-checkbox-group v-model="checkedCities2">
+                                            <el-checkbox v-for="city in cities" :label="city.user_id"
+                                                :value="city.user_id">
+                                                {{city.true_name}}</el-checkbox>
+                                        </el-checkbox-group>
+                                    </template>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <!-- <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 384px; transform: translate(0px, 0px);"></div></div></div> -->
+                    </div>
+
+                    <div class="save_btn clearfloat">
+                        <a class="btn btn-default btn-lg cancelDialog" @click="model = 0">取消</a>
+                        <a class="btn btn-primary btn-lg saveDialog" style="color:white" @click="submit_kc_alone">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog" id="addLessonDialog" v-show="model == 3" style="display: none;">
+            <div id="LessonSubmitForm" style="height: auto;    top: 70px;
+            bottom:auto;padding-bottom:60px !important;" class="schedule clearfloat prompt dialog_schedule"><i
+                    @click="model = 0" class="iconfont" style="position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                font-size: 20px;">x</i>
+                <h5>修改课次</h5>
+                <div style="height: auto;">
+                    <div class="">
+                        <div style="right: -17px;">
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">课次系列名称：</div>
+                                <div class="schedule_main">
+                                    <input type="text" class="shift_name" id="moduleLessonName"
+                                        name="moduleNo.moduleName" v-model="review_info.ct_name">
+                                    <div class="schedule_title">开课日期：</div>
+                                    <template>
+                                        <el-date-picker v-model="review_info.date" type="date" placeholder="选择日期">
+                                        </el-date-picker>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">上课时间：</div>
+                                <div class="schedule_main class_time">
+                                    <a @click="activec(0)"
+                                        :class="activeIndexc == 0?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_MORNING">上午</a>
+                                    <a @click="activec(1)"
+                                        :class="activeIndexc == 1?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_AFTERNOON">下午</a>
+                                    <a @click="activec(2)"
+                                        :class="activeIndexc == 2?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_WHOLE_DAY">全天</a>
+                                    <a @click="activec(3)"
+                                        :class="activeIndexc == 3?'btn btn-sm btn-success':'btn btn-sm btn-default'"
+                                        lessonscope="LESSON_TIME_NIGHT">晚上</a>
+                                    <p class="class_time_main">
+                                        <template>
+                                            <el-time-picker is-range style="width: 42%;
+                                              height: 28px;
+                                              margin-top: 0px;
+                                              vertical-align: sub;" v-model="review_info.time" range-separator="至"
+                                                placeholder="选择时间范围" format="HH:mm">
+                                            </el-time-picker>
+                                        </template>
+                                    </p>
+                                    <input name="moduleNo.lessonScope" value="LESSON_TIME_MORNING" id="lessonScope"
+                                        type="hidden">
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+
+
+                                <div class="schedule_title">每课次课时数：{{review_info.total_hours}}</div>
+                                <div class="schedule_main class_num">
+                                    <!-- <input type="text" id="lessonTotalCount" value="1" maxlength="2" name="moduleNo.lessonTotalCount" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"> -->
+
+
+                                    <!-- <input type="text" id="lessonHour" maxlength="2" value="1" name="moduleNo.lessonHour" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"> -->
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="    overflow: hidden;">
+                                <div class="schedule_box clearfloat"
+                                    style="    width: 50%;    float: left;height: 30px;">
+                                    <div class="schedule_title">模式：</div>
+                                    <div class="schedule_main radiomain barrage">
+                                        <select name="" id="" v-model="review_info.ct_pattern">
+                                            <option value="">请选择</option>
+                                            <option value="大班课">大班课</option>
+                                            <option value="小班课">小班课</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title">是否支持弹幕：</div>
+                                    <div class="schedule_main radiomain barrage">
+                                        <input type="radio" name="ef11" value="1" v-model="review_info.tf_barrage"
+                                            style="cursor:pointer"><span class="chose_status"
+                                            style="    width: auto;">是</span>
+                                        <input type="radio" name="ef11" value="2" v-model="review_info.tf_barrage"
+                                            style="cursor:pointer"><span class="chose_status"
+                                            style="    width: auto;">否</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title">是否免费：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef12" v-model="review_info.tf_charge" value="1"><span
+                                            class="chose_status" style="    width: auto;">是</span>
+                                        <input type="radio" name="ef12" v-model="review_info.tf_charge" value="2"><span
+                                            class="chose_status" style="    width: auto;">否</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title" style="width: auto;">虚拟用户昵称类型：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef2" v-model="review_info.robotType"
+                                            value="0"><span class="chose_status" style="    width: auto;">真实姓名</span>
+                                        <input type="radio" name="ef2" v-model="review_info.robotType"
+                                            value="1"><span class="chose_status" style="    width: auto;">网络昵称</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat"
+                                    style="    width: 50%;    float: left;">
+                                    <div class="schedule_title" style="width: auto;
+                                            font-size: 12px;">老师助教是否显示虚拟用户：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef3" v-model="review_info.adminNotShow"
+                                            value="0"><span class="chose_status" style="    width: auto;">显示</span>
+                                        <input type="radio" name="ef3" v-model="review_info.adminNotShow"
+                                            value="1"><span class="chose_status" style="    width: auto;">不显示</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" v-if="review_info.ct_pattern == '小班课'"
+                                    style="    width: 50%;    float: left;">
+                                    <div class="schedule_title" style="width: auto;">小班合流模式配置：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="radio" name="ef15" v-model="review_info.streamMode" value="1"><span
+                                            class="chose_status" style="    width: auto;">多人模式</span>
+                                        <input type="radio" name="ef15" v-model="review_info.streamMode" value="2"><span
+                                            class="chose_status" style="    width: auto;">双人模式</span>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" v-if="review_info.ct_pattern == '小班课'"
+                                    style="    width: 50%;    float: left;height: 30px;">
+                                    <div class="schedule_title">小班课类型：</div>
+                                    <div class="schedule_main radiomain">
+                                        <select name="" id="" v-model="review_info.smallType">
+                                            <option value="3">1V16</option>
+                                            <option value="1">1V1</option>
+                                            <option value="2">1V6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="schedule_box clearfloat" style="    width: 50%;    float: left;">
+                                    <div class="schedule_title">虚拟用户数量：</div>
+                                    <div class="schedule_main radiomain">
+                                        <input type="text" v-model="review_info.robotNumber" id="">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="schedule_box clearfloat" style="margin-bottom: 0;">
+                                <div class="schedule_title">教师：</div>
+                                <div class="schedule_main radiomain">
+                                    <select name="" id="" v-model="review_info.js_user_id">
+                                        <option value="">请选择</option>
+                                        <option v-for="(item,index) in js_user_ids" :value="item.user_id">
+                                            {{item.true_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">教务：</div>
+                                <div class="schedule_main radiomain" style="overflow: auto;
+                                            width: 82%;
+                                            height: 60px;">
+                                    <template>
+                                        <el-checkbox-group v-model="checkedCities3">
+                                            <el-checkbox v-for="city in cities" :label="city.user_id"
+                                                :value="city.user_id">
+                                                {{city.true_name}}</el-checkbox>
+                                        </el-checkbox-group>
+                                    </template>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <!-- <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 384px; transform: translate(0px, 0px);"></div></div></div> -->
+                    </div>
+
+                    <div class="save_btn clearfloat">
+                        <a class="btn btn-default btn-lg cancelDialog" @click="model = 0">取消</a>
+                        <a class="btn btn-primary btn-lg saveDialog" style="color:white" @click="submit_review">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog uploadDialog" v-show="model == 4" style="display: none;" id="class-resource">
+            <input type="hidden" id="moduleNoId" value="131022">
+            <div class="prompt course_information"><i class="iconfont closeBtn" @click="model = 0">x</i>
+                <h5>课程资料</h5>
+                <div class="course_information_main">
+                    <div class="nano">
+                        <div class="" style="right: -17px;">
+                            <div class="course_box">
+                                <div class="course_title">资料类型：</div><input type="file" id="doctype" lecid="549741"
+                                    style="border: none; display: none; position: relative; z-index: 1;" url="" mark=""
+                                    cname="" name="doc">
+                                <div class="course_main">
+                                    <select id="sourceType" v-model="ziliao_info.c_recourses_type">
+                                        <option value="教材">教材</option>
+                                        <option value="教辅">教辅</option>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="course_box">
+                                <div class="course_title">上传资料：</div>
+                                <div class="course_main">
+                                    <label class="control-label btn" for="uploadform-excelfiles"
+                                        style="    border: 1px solid rgb(200,200,200);">上传资料</label><input type="file"
+                                        id="uploadform-excelfiles" @change="file" multiple class="attachment-upload"
+                                        style="left:-9999px;position:absolute;">
+                                    <span
+                                        class="upload_explain">支持上传类型:doc,pdf,xls,ppt,docx,pptx,xlsx,zip,rar;文件不能大于1G</span>
+                                </div>
+                            </div>
+                            <div class="course_box">
+                                <div class="course_title">课程资料：</div>
+                                <div class="course_main">
+                                    <ul class="clearfloat courseSourceUl">
+                                        <li v-for="(item,index) in file_con" type="add"
+                                            id="o_1dpuhd9g9170616g31vndg8e126416" fileid="345435">
+                                            <span>{{item.name}}</span><i class="iconfont"
+                                                @click="closeFile(item.name)"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nano-pane" style="display: none;">
+                            <div class="nano-slider" style="height: 248px; transform: translate(0px, 0px);"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="save_btn">
+                    <!-- <a class="btn btn-default btn-lg closeUpload">取消</a> -->
+                    <a class="btn btn-primary btn-lg saveUpload" @click="submit_ziliao" style="color:white">确定</a>
+                </div>
+            </div>
+        </div>
+        <div class="dialog" id="addLessonDialog" v-show="model == 5" style="display: none;">
+            <div id="LessonSubmitForm" style="height: 230px" class="schedule clearfloat prompt dialog_schedule"><i
+                    @click="model = 0" class="iconfont" style="position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    width: 20px;
+                    height: 20px;
+                    text-align: center;
+                    line-height: 20px;
+                    font-size: 20px;">x</i>
+                <h5>批量修改教师教务</h5>
+                <div style="height: 100px;">
+                    <div class="">
+                        <div style="right: -17px;">
+                            <div class="schedule_box clearfloat" style="margin-bottom: 0;">
+                                <div class="schedule_title">教师：</div>
+                                <div class="schedule_main radiomain">
+                                    <select name="" id="" v-model="piliang_change_id">
+                                        <option value="">请选择</option>
+                                        <option v-for="(item,index) in js_user_ids" :value="item.user_id">
+                                            {{item.true_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">教务：</div>
+                                <div class="schedule_main radiomain" style="overflow: auto;
+                                                width: 82%;
+                                                height: 60px;">
+                                    <template>
+                                        <el-checkbox-group v-model="checkedCities4">
+                                            <el-checkbox v-for="city in cities" :label="city.user_id"
+                                                :value="city.user_id">
+                                                {{city.true_name}}</el-checkbox>
+                                        </el-checkbox-group>
+                                    </template>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <!-- <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 384px; transform: translate(0px, 0px);"></div></div></div> -->
+                    </div>
+
+                    <div class="save_btn clearfloat">
+                        <a class="btn btn-default btn-lg cancelDialog" @click="model = 0">取消</a>
+                        <a class="btn btn-primary btn-lg saveDialog" style="color:white" @click="submit_change">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value3: '',
+                    isCourse: '1',
+                    js_user_ids: [],
+                    jw_user_ids: [],
+                    ziliao_info: {
+                        c_recourses_type: "教材"
+                    },
+                    value2: [new Date('Thu Nov 14 2019 09:00:00 GMT+0800'), new Date(
+                        'Thu Nov 14 2019 11:30:00 GMT+0800')],
+                    value4: [new Date('Thu Nov 14 2019 09:00:00 GMT+0800'), new Date(
+                        'Thu Nov 14 2019 11:30:00 GMT+0800')],
+                    projects: [],
+                    multipleSelection1: [],
+                    kemus: [],
+                    course_times_ids: [],
+                    checkedCities: [],
+                    checkedCities2: [],
+                    checkedCities3: [],
+                    checkedCities4: [],
+                    cities: [{
+                        label: 'qinyu1',
+                        value: 'qinyu1',
+                    }, {
+                        label: 'qinyu1',
+                        value: 'qinyu2',
+                    }, {
+                        label: 'qinyu1',
+                        value: 'qinyu3',
+                    }, {
+                        label: 'qinyu1',
+                        value: 'qinyu4',
+                    }, {
+                        label: 'qinyu1',
+                        value: 'qinyu5',
+                    }, {
+                        label: 'qinyu1',
+                        value: 'qinyu6',
+                    }, ],
+                    checkedCities1: [],
+                    cities1: [],
+                    piliang_change_id: "",
+                    piliang_change_ids: [],
+                    userList: [
+                        // {
+                        // "ct_name": "课次003",课次名字
+                        // "tf_charge": "1",是否收费，1是，2否
+                        // "course_times_id": 3,课次id
+                        // "ct_pattern": "大班课",模式
+                        // "end_time_datess": "2019-10-13T09:00:00.000+0000",结束时间
+                        // "js_user_id": "qinyu",教师
+                        // "begin_class_date": "2019-10-13T07:00:00.000+0000",开始时间
+                        // "total_hours": 2,课时
+                        // "tf_barrage": "2",是否弹幕
+                        // "jw_user_id": "qinyu"教务
+                        // }
+                    ],
+                    file_con: [],
+                    submit_info: {
+                        ct_name: '',
+                        kc_times: '',
+                        kc_time: '',
+                        tf_charge: 1,
+                        tf_barrage: 1,
+                        "ct_pattern": "大班课",
+                        teacher: '',
+                        "js_user_id": 1,
+                        begin_class_date: '',
+                        end_time_datess: '',
+                        jw_user_id: '',
+                        streamMode: 1,
+                        smallType: 3,
+                        robotNumber: '',
+                        robotType: 0,
+                        adminNotShow: 1,
+                    },
+                    kc_submit_info: {
+                        "begin_class_date": "2020-12-31 9:00:00",
+                        "end_time_datess": "2020-12-31 11:00:00",
+                        "ct_name": "",
+                        "total_hours": 2,
+                        "tf_charge": 1,
+                        "tf_barrage": 2,
+                        "ct_pattern": "大班课",
+                        "js_user_id": 1,
+                        "jw_user_id": 1,
+                        "course_id": 1,
+                        "course_unit_id": 2,
+                        streamMode: 1,
+                        smallType: 3,
+                        robotNumber: '',
+                        robotType: 0,
+                        adminNotShow: 1,
+                    },
+                    review_info: {
+                        "begin_class_date": "2020-12-31 9:00:00",
+                        "end_time_datess": "2020-12-31 11:00:00",
+                        "ct_name": "",
+                        "total_hours": 2,
+                        "tf_charge": 1,
+                        "tf_barrage": 2,
+                        "ct_pattern": "大班课",
+                        "js_user_id": 1,
+                        "jw_user_id": 1,
+                        "course_id": 1,
+                        "course_unit_id": 2,
+                        streamMode: 1,
+                        smallType: 3,
+                        robotNumber: '',
+                        robotType: 0,
+                        adminNotShow: 1,
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function () {
+                    $("#topnav").load("header.html");
+                });
+                console.log(window.location.href.split('?')[1])
+                _this.init()
+                obj = {
+                    project_id: JSON.parse(localStorage.course_info).project_id,
+                    power_name: '教师'
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/PublicClass/queryUser',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(obj),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.js_user_ids = data
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].cu_statusa = _this.userList[i]
+                        //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                        //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+                obj = {
+                    project_id: JSON.parse(localStorage.course_info).project_id,
+                    power_name: '教务'
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/PublicClass/queryUser',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(obj),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.cities = data
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].cu_statusa = _this.userList[i]
+                        //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                        //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+                console.log(_this.submit_info)
+            },
+            mounted() {
+                setTimeout(function () {
+                    console.log($("div.block"))
+                    // $("div.block").on("click",function () {
+                    //     console.log($(this))
+                    //                 $(this).find(".manageGL").show();
+                    //             });
+                    $("div.block").on("mouseenter ", "div.hidden", function () {
+                        console.log($(this))
+                        $(this).find(".manageGL").show();
+                    });
+                    $("div.block").on("mouseleave ", "div.hidden", function () {
+                        $(this).find(".manageGL").hide();
+                    });
+                }, 20)
+            },
+            methods: {
+                active() {
+
+                },
+                file(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        console.log(type)
+                        var maxsize = 1024 * 1024 * 1024
+                        if (fileEnd.indexOf("doc") < 0 && fileEnd.indexOf("pdf") < 0 && fileEnd.indexOf(
+                                "xls") < 0 &&
+                            fileEnd.indexOf("ppt") < 0 && fileEnd.indexOf("docx") < 0 && fileEnd
+                            .indexOf("pptx") < 0 &&
+                            fileEnd.indexOf("xlsx") < 0 && fileEnd.indexOf("zip") < 0 && fileEnd
+                            .indexOf("rar") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择正确的格式上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            var form = document.getElementById("addFormOne");
+                            var formData = new FormData(form);
+                            // console.log(_this.file_con[0]==item)
+
+                            index = 0
+                            for (let i = 0; i < _this.file_con.length; i++) {
+                                if (_this.file_con[i].name == item.name) {
+                                    index += 1
+                                }
+                            }
+                            if (index == 0) {
+                                formData.set('multipartFile', item)
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/pse/uploadFile',
+                                    type: 'post',
+                                    // contentType: 'application/json',
+                                    data: formData,
+                                    processData: false,
+                                    contentType: false,
+                                    // dataType: 'json',
+                                    success: function (data) {
+                                        item.HTC = data
+                                        console.log(item)
+                                        _this.file_con.push(item)
+                                    },
+                                    error: function () {
+
+                                    }
+                                })
+                            } else {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '不能上传命名相同的文件',
+                                    duration: 2000
+                                });
+                            }
+                            // if(_this.file_con.indexOf(item) < 0){
+                            // _this.file_con.push(item)
+                            // }
+                            console.log(_this.file_con)
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                // _this.imgSrc = e.target.result
+                                // console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    // $(e.target).val('')
+                },
+                delete_row(scope) {
+                    _this = this
+                    console.log(scope)
+                    _this.$confirm(`是否确认删除课次?`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/deleteCourseTimes',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: {
+                                course_times_id: scope.course_times_id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+
+                                _this.init()
+                                // _this.changeKecheng()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                getNowFormatDate1(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+                    return currentdate;
+                },
+                time_sw() {
+                    _this = this
+                    console.log(_this.checkedCities1.length)
+                    console.log(_this.value2)
+                    hour = (new Date(_this.value2[1]).getTime() - new Date(_this.value2[0]).getTime()) / 100 /
+                        3600
+                    console.log(Math.floor(hour) / 10)
+                    _this.submit_info.kc_time = Math.floor(hour) / 10
+                    _this.submit_info.kc_times = _this.checkedCities1.length
+                },
+                time_swb() {
+                    _this = this
+                    // console.log(_this.checkedCities1.length)
+                    // console.log(_this.value2)
+                    hour = (new Date(_this.value4[1]).getTime() - new Date(_this.value4[0]).getTime()) / 100 /
+                        3600
+                    // console.log(Math.floor(hour)/10)
+                    _this.kc_submit_info.total_hours = Math.floor(hour) / 10
+                    // _this.submit_info.kc_times = _this.checkedCities1.length
+                },
+                time_swc() {
+                    _this = this
+                    // console.log(_this.checkedCities1.length)
+                    // console.log(_this.value2)
+                    hour = (new Date(_this.review_info.time[1]).getTime() - new Date(_this.review_info.time[0])
+                        .getTime()) / 100 / 3600
+                    // console.log(Math.floor(hour)/10)
+                    _this.review_info.total_hours = Math.floor(hour) / 10
+                    // _this.submit_info.kc_times = _this.checkedCities1.length
+                },
+                search_cu() {
+                    _this = this
+                    console.log(this.search_info)
+                    obj = JSON.parse(JSON.stringify(_this.search_info))
+                    obj.cu_status = parseInt(obj.cu_status)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/courseUnitSearchBox',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.userList = data
+                            for (let i = 0; i < _this.userList.length; i++) {
+                                _this.userList[i].cu_statusa = _this.userList[i]
+                                    .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                                    .cu_status == 2 ? '未被课程使用' : '禁用'
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                change_kemus() {
+                    _this = this;
+                    // _this.stu.exam_id = ''
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.search_info.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+
+                            // _this.changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                change(limit) {
+                    var size = "";
+                    if (limit < 0.1 * 1024) { //小于0.1KB，则转化成B
+                        size = limit.toFixed(2) + "B"
+                    } else if (limit < 0.1 * 1024 * 1024) { //小于0.1MB，则转化成KB
+                        size = (limit / 1024).toFixed(2) + "KB"
+                    } else if (limit < 0.1 * 1024 * 1024 * 1024) { //小于0.1GB，则转化成MB
+                        size = (limit / (1024 * 1024)).toFixed(2) + "MB"
+                    } else { //其他转化成GB
+                        size = (limit / (1024 * 1024 * 1024)).toFixed(2) + "GB"
+                    }
+
+                    var sizeStr = size + ""; //转成字符串
+                    var index = sizeStr.indexOf("."); //获取小数点处的索引
+                    var dou = sizeStr.substr(index + 1, 2) //获取小数点后两位的值
+                    if (dou == "00") { //判断后两位是否为00，如果是则删除00                
+                        return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2)
+                    }
+                    return size;
+                },
+                go_ziliao(scope) {
+                    console.log(scope)
+                    _this.file_con = []
+                    _this.ziliao_info.course_id = localStorage.course_id
+                    _this.ziliao_info.course_unit_id = localStorage.course_unit_id
+                    _this.ziliao_info.course_times_id = scope.course_times_id
+                    _this.ziliao_info.user_id = 1
+                    _this.ziliao_info.c_recourses_source = '课次'
+                    _this.model = 4
+                },
+                submit_change() {
+                    _this = this
+                    obj = {
+                        course_times_ids: this.piliang_change_ids,
+                        js_user_id: this.piliang_change_id,
+                        jw_user_id: this.checkedCities4.join(',')
+                    }
+                    console.log(this.checkedCities4, this.piliang_change_id, this.piliang_change_ids)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/plUpdateJsAndJw',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.$message.success({
+                                type: 'info',
+                                message: data.message,
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.init()
+                            // _this.changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                submit_ziliao() {
+                    _this = this
+                    arr = []
+                    for (let i = 0; i < _this.file_con.length; i++) {
+                        obj = {}
+                        obj.c_recourses_name = _this.file_con[i].name
+                        obj.c_recourses_size = _this.change(_this.file_con[i].size)
+                        obj.recourses_address = _this.file_con[i].HTC
+                        obj.user_id = 1
+                        obj.c_recourses_source = _this.ziliao_info.c_recourses_source
+                        obj.c_recourses_type = _this.ziliao_info.c_recourses_type
+                        obj.course_id = _this.ziliao_info.course_id
+                        obj.course_unit_id = _this.ziliao_info.course_unit_id
+                        obj.course_times_id = _this.ziliao_info.course_times_id
+                        arr.push(obj)
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/bindingRecourse',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(arr),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.$message.success({
+                                type: 'info',
+                                message: data.message,
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            // _this.changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activea(num) {
+                    _this = this
+                    _this.activeIndexa = num
+                    switch (_this.activeIndexa) {
+                        case 0:
+                            _this.value2 = [new Date('Thu Nov 14 2019 09:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 11:30:00 GMT+0800')]
+                            break;
+                        case 1:
+                            _this.value2 = [new Date('Thu Nov 14 2019 14:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 18:00:00 GMT+0800')]
+                            break;
+                        case 2:
+                            _this.value2 = [new Date('Thu Nov 14 2019 09:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 18:00:00 GMT+0800')]
+                            break;
+                        case 3:
+                            _this.value2 = [new Date('Thu Nov 14 2019 19:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 21:00:00 GMT+0800')]
+                            break;
+                        default:
+                            break;
+                    }
+                    _this.time_sw()
+                    obj = {
+
+                    }
+                },
+                closeFile(index) {
+                    _this = this
+                    console.log(index)
+                    _this.file_con = _this.file_con.filter((i) => {
+                        return i.name != index
+                    })
+
+                },
+                activeb(num) {
+                    _this = this
+                    _this.activeIndexb = num
+
+                    switch (_this.activeIndexb) {
+                        case 0:
+                            _this.value4 = [new Date('Thu Nov 14 2019 09:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 11:30:00 GMT+0800')]
+                            break;
+                        case 1:
+                            _this.value4 = [new Date('Thu Nov 14 2019 14:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 18:00:00 GMT+0800')]
+                            break;
+                        case 2:
+                            _this.value4 = [new Date('Thu Nov 14 2019 09:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 18:00:00 GMT+0800')]
+                            break;
+                        case 3:
+                            _this.value4 = [new Date('Thu Nov 14 2019 19:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 21:00:00 GMT+0800')]
+                            break;
+                        default:
+                            break;
+                    }
+                    _this.time_swb()
+                },
+                activec(num) {
+                    _this = this
+                    _this.activeIndexc = num
+
+                    switch (_this.activeIndexc) {
+                        case 0:
+                            _this.review_info.time = [new Date('Thu Nov 14 2019 09:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 11:30:00 GMT+0800')]
+                            break;
+                        case 1:
+                            _this.review_info.time = [new Date('Thu Nov 14 2019 14:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 18:00:00 GMT+0800')]
+                            break;
+                        case 2:
+                            _this.review_info.time = [new Date('Thu Nov 14 2019 09:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 18:00:00 GMT+0800')]
+                            break;
+                        case 3:
+                            _this.review_info.time = [new Date('Thu Nov 14 2019 19:00:00 GMT+0800'), new Date(
+                                'Thu Nov 14 2019 21:00:00 GMT+0800')]
+                            break;
+                        default:
+                            break;
+                    }
+                    _this.time_swc()
+                },
+                init() {
+                    _this = this
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                    obj = {}
+                    switch (window.location.href.split('?')[1].split('=')[0]) {
+                        case 'course_id':
+                            obj.c_type = '课程'
+                            _this.isCourse = 0
+                            obj.c_id = window.location.href.split('?')[1].split('=')[1]
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/course/queryOneCourseTimesByIdAndType',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: obj,
+                                dataType: 'json',
+                                success: function (data) {
+                                    _this.userList = data
+                                    for (let i = 0; i < _this.userList.length; i++) {
+                                        _this.userList[i].date = _this.getNowFormatDate(new Date(
+                                            _this
+                                            .userList[i].begin_class_date)).split(' ')[0]
+                                        _this.userList[i].time = _this.getNowFormatDate(new Date(
+                                                _this
+                                                .userList[i].begin_class_date)).split(' ')[1] +
+                                            '-' +
+                                            _this.getNowFormatDate(new Date(_this.userList[i]
+                                                .end_time_datess)).split(' ')[1]
+                                        _this.userList[i].tf_charge = _this.userList[i].tf_charge ==
+                                            1 ?
+                                            '收费' : '免费'
+                                        _this.userList[i].tf_barrage = _this.userList[i]
+                                            .tf_barrage ==
+                                            1 ? '是' : '否'
+                                        _this.userList[i].jw_user_name = _this.userList[i]
+                                            .jw_user_name
+                                            .join(',')
+                                    }
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case 'course_unit_id':
+                            console.log()
+                            obj.course_id = localStorage.course_id
+                            obj.course_unit_id = window.location.href.split('?')[1].split('=')[1]
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/course/queryCourseTimesFromOneCourseUnit',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: obj,
+                                dataType: 'json',
+                                success: function (data) {
+                                    _this.userList = data
+                                    for (let i = 0; i < _this.userList.length; i++) {
+                                        _this.userList[i].date = _this.getNowFormatDate(new Date(
+                                            _this
+                                            .userList[i].begin_class_date)).split(' ')[0]
+                                        _this.userList[i].time = _this.getNowFormatDate(new Date(
+                                                _this
+                                                .userList[i].begin_class_date)).split(' ')[1] +
+                                            '-' +
+                                            _this.getNowFormatDate(new Date(_this.userList[i]
+                                                .end_time_datess)).split(' ')[1]
+                                        _this.userList[i].tf_charge = _this.userList[i].tf_charge ==
+                                            1 ?
+                                            '收费' : '免费'
+                                        _this.userList[i].tf_barrage = _this.userList[i]
+                                            .tf_barrage ==
+                                            1 ? '是' : '否'
+                                        _this.userList[i].jw_user_name = (_this.userList[i]
+                                                .jw_user_name != null && _this.userList[i]
+                                                .jw_user_name != '') ? _this.userList[i]
+                                            .jw_user_name
+                                            .join(',') : ''
+                                    }
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case 'course_times_id':
+                            obj.c_type = '课次'
+                            _this.isCourse = 0
+                            obj.c_id = window.location.href.split('?')[1].split('=')[1]
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/course/queryOneCourseTimesByIdAndType',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: obj,
+                                dataType: 'json',
+                                success: function (data) {
+                                    _this.userList = data
+                                    for (let i = 0; i < _this.userList.length; i++) {
+                                        _this.userList[i].date = _this.getNowFormatDate(new Date(
+                                            _this
+                                            .userList[i].begin_class_date)).split(' ')[0]
+                                        _this.userList[i].time = _this.getNowFormatDate(new Date(
+                                                _this
+                                                .userList[i].begin_class_date)).split(' ')[1] +
+                                            '-' +
+                                            _this.getNowFormatDate(new Date(_this.userList[i]
+                                                .end_time_datess)).split(' ')[1]
+                                        _this.userList[i].tf_charge = _this.userList[i].tf_charge ==
+                                            1 ?
+                                            '收费' : '免费'
+                                        _this.userList[i].tf_barrage = _this.userList[i]
+                                            .tf_barrage ==
+                                            1 ? '是' : '否'
+                                        _this.userList[i].jw_user_name = _this.userList[i]
+                                            .jw_user_name
+                                            .join(',')
+                                    }
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                Next() {
+                    this.activeIndexa = 1;
+                    setTimeout(() => {
+                        console.log($('.nextRight'))
+                        $('.nextRight').css('background-position', '0 -32px')
+                    }, 20)
+
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+                returnf() {
+                    this.activeIndexa = 0;
+                    setTimeout(() => {
+                        console.log($('.nextRight'))
+                        $('.nextRight').css('background-position', '0 0px')
+                    }, 20)
+
+                },
+                submit_review() {
+                    _this = this
+                    console.log(this.review_info)
+                    obj = {
+                        "begin_class_date": "2020-12-31 9:00:00",
+                        "end_time_datess": "2020-12-31 11:00:00",
+                        "ct_name": "测试插入课次",
+                        "total_hours": 2,
+                        "tf_charge": 1,
+                        "tf_barrage": 2,
+                        "ct_pattern": "大班课",
+                        "js_user_id": 1,
+                        "jw_user_id": 1,
+                        "course_id": 1,
+                        "course_unit_id": 2
+                    }
+                    obj.begin_class_date = _this.getNowFormatDate(new Date(_this.review_info.date)).split(' ')[
+                        0] + ' ' + _this.getNowFormatDate(new Date(_this.review_info.time[0])).split(' ')[1]
+                    obj.end_time_datess = _this.getNowFormatDate(new Date(_this.review_info.date)).split(' ')[
+                        0] + ' ' + _this.getNowFormatDate(new Date(_this.review_info.time[1])).split(' ')[1]
+                    obj.course_times_id = _this.review_info.course_times_id
+                    obj.jw_user_id = _this.checkedCities3.join(',')
+                    obj.ct_name = _this.review_info.ct_name
+                    obj.total_hours = _this.review_info.total_hours
+                    obj.tf_charge = _this.review_info.tf_charge
+                    obj.tf_barrage = parseInt(_this.review_info.tf_barrage)
+                    obj.js_user_id = _this.review_info.js_user_id
+                    obj.ct_pattern = _this.review_info.ct_pattern
+                    obj.smallType = _this.review_info.smallType
+                    obj.robotNumber = _this.review_info.robotNumber
+                    obj.streamMode = _this.review_info.streamMode
+                    obj.robotType = _this.review_info.robotType
+                    obj.adminNotShow = _this.review_info.adminNotShow
+                    if (obj.ct_pattern == '大班课') {
+                        delete obj.smallType
+                        delete obj.streamMode
+                    }
+                    console.log(obj)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/updateCourseTimes',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.code == 200) {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '修改成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.init()
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+
+
+                            // _this.changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                submit_kc_alone() {
+                    _this = this
+                    this.kc_submit_info.course_id = localStorage.course_id
+                    this.kc_submit_info.course_unit_id = localStorage.course_unit_id
+                    this.kc_submit_info.tf_barrage = parseInt(this.kc_submit_info.tf_barrage)
+                    this.kc_submit_info.jw_user_id = _this.checkedCities2.join(',')
+                    this.kc_submit_info.begin_class_date = _this.getNowFormatDate(new Date(_this.value3)).split(
+                        ' ')[0] + ' ' + _this.getNowFormatDate(new Date(_this.value4[0])).split(' ')[1]
+                    this.kc_submit_info.end_time_datess = _this.getNowFormatDate(new Date(_this.value3)).split(
+                        ' ')[0] + ' ' + _this.getNowFormatDate(new Date(_this.value4[1])).split(' ')[1]
+                    console.log(this.kc_submit_info)
+                    obj = JSON.parse(JSON.stringify(this.kc_submit_info))
+                    if (obj.ct_pattern == '大班课') {
+                        delete obj.smallType
+                        delete obj.streamMode
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/insertCourseTimes',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.code == 200) {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '新建成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.init()
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                submit_kcs() {
+                    _this = this
+                    this.submit_info.begin_class_date = _this.getNowFormatDate(new Date(_this.value2[0])).split(
+                        ' ')[1]
+                    this.submit_info.end_time_datess = _this.getNowFormatDate(new Date(_this.value2[1])).split(
+                        ' ')[1]
+                    this.submit_info.jw_user_ids = _this.checkedCities.join(',')
+                    console.log(this.submit_info)
+                    console.log(this.checkedCities)
+
+                    arr = []
+                    for (let i = 0; i < this.checkedCities1.length; i++) {
+                        obj = {}
+                        obj.begin_class_date = this.checkedCities1[i] + ' ' + this.submit_info.begin_class_date
+                        obj.end_time_datess = this.checkedCities1[i] + ' ' + this.submit_info.end_time_datess
+                        obj.js_user_id = this.submit_info.teacher
+                        obj.jw_user_id = this.submit_info.jw_user_ids
+                        obj.total_hours = this.submit_info.kc_time
+                        obj.tf_charge = this.submit_info.tf_charge
+                        obj.tf_barrage = this.submit_info.tf_barrage
+                        obj.course_id = localStorage.course_id
+                        obj.ct_pattern = this.submit_info.ct_pattern
+                        obj.streamMode = this.submit_info.streamMode
+                        obj.smallType = this.submit_info.smallType
+                        obj.robotNumber = this.submit_info.robotNumber
+                        obj.robotType = this.submit_info.robotType
+                        obj.adminNotShow = this.submit_info.adminNotShow
+                        obj.course_unit_id = localStorage.course_unit_id
+                        obj.ct_name = this.submit_info.ct_name + this.checkedCities1[i]
+                        if (obj.ct_pattern == '大班课') {
+                            delete obj.smallType
+                            delete obj.streamMode
+                        }
+                        arr.push(obj)
+                    }
+                    console.log(arr)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/plInsertCourseTimes',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(arr),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.code == 200) {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '新建成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.init()
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                dangan(scope) {
+                    console.log(scope)
+                },
+                detail_cu(scope) {
+                    console.log(scope.course_unit_id)
+                    window.open('resourceClassdyD.html?course_unit_id=' + scope.course_unit_id)
+                },
+                piliang_add() {
+                    _this = this
+                    _this.model = 1
+                },
+                piliang_change() {
+                    _this = this
+                    _this.model = 5
+                    let ids = []
+                    console.log(this.multipleSelection1)
+                    this.multipleSelection1.map((item) => {
+                        ids.push(item.course_times_id)
+                    })
+                    this.piliang_change_ids = ids
+                },
+                piliang_delete() {
+                    _this = this
+                    let ids = []
+                    this.multipleSelection1.map((item) => {
+                        ids.push(item.course_times_id)
+                    })
+                    _this.$confirm(`是否确认删除课次?`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        console.log(ids)
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/plDeleteCourseTimes',
+                            type: 'get',
+                            // contentType:'application/json',
+                            data: {
+                                course_times_ids: ids.join(',')
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                if (data.code == "200") {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改状态成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    _this.init()
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改状态失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                },
+                handleSelectionChange(val) {
+
+                    this.multipleSelection1 = val;
+                    console.log(this.multipleSelection1.length)
+                    $('.sPan').text(this.multipleSelection1.length)
+                    // if (this.multipleSelection1.length > 0) {
+                    // $('.genggai').css('display', 'block')
+                    // } else {
+                    // $('.genggai').css('display', 'none')
+                    // }
+                    let ids = []
+                    this.multipleSelection1.map((item) => {
+                        ids.push(item.stu_id)
+                    })
+                    this.selectedIDs = ids
+                    console.log('多选', this.selectedIDs)
+                },
+                change_date() {
+                    _this = this
+                    _this.checkedCities1 = []
+                    console.log(new Date(this.value1).getDay())
+                    arr = [{
+                        value: '周一',
+                        label: '2019-01-01'
+                    }, {
+                        value: '周二',
+                        label: '2019-01-01'
+                    }, {
+                        value: '周三',
+                        label: '2019-01-01'
+                    }, {
+                        value: '周四',
+                        label: '2019-01-01'
+                    }, {
+                        value: '周五',
+                        label: '2019-01-01'
+                    }, {
+                        value: '周六',
+                        label: '2019-01-01'
+                    }, {
+                        value: '周日',
+                        label: '2019-01-01'
+                    }, ]
+                    switch (new Date(this.value1).getDay()) {
+                        case 0:
+                            arr = arr.slice(6)
+                            arr[0].label = _this.getNowFormatDate1(new Date(new Date(this.value1).getTime()))
+                            break;
+                        case 1:
+                            arr = arr.slice(0)
+                            for (let i = 0; i < 7; i++) {
+                                arr[i].label = _this.getNowFormatDate1(new Date(new Date(this.value1)
+                                    .getTime() + i * 24 * 3600 * 1000))
+                            }
+                            break;
+                        case 2:
+                            arr = arr.slice(1)
+                            for (let i = 0; i < 6; i++) {
+                                arr[i].label = _this.getNowFormatDate1(new Date(new Date(this.value1)
+                                    .getTime() + i * 24 * 3600 * 1000))
+                            }
+                            break;
+                        case 3:
+                            arr = arr.slice(2)
+                            for (let i = 0; i < 5; i++) {
+                                arr[i].label = _this.getNowFormatDate1(new Date(new Date(this.value1)
+                                    .getTime() + i * 24 * 3600 * 1000))
+                            }
+                            break;
+                        case 4:
+                            arr = arr.slice(3)
+                            for (let i = 0; i < 4; i++) {
+                                arr[i].label = _this.getNowFormatDate1(new Date(new Date(this.value1)
+                                    .getTime() + i * 24 * 3600 * 1000))
+                            }
+                            break;
+                        case 5:
+                            arr = arr.slice(4)
+                            for (let i = 0; i < 3; i++) {
+                                arr[i].label = _this.getNowFormatDate1(new Date(new Date(this.value1)
+                                    .getTime() + i * 24 * 3600 * 1000))
+                            }
+                            break;
+                        case 6:
+                            arr = arr.slice(5)
+                            for (let i = 0; i < 2; i++) {
+                                arr[i].label = _this.getNowFormatDate1(new Date(new Date(this.value1)
+                                    .getTime() + i * 24 * 3600 * 1000))
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log(_this.value2, arr)
+                    _this.cities1 = arr
+                },
+                review(scope) {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/findOneCtInfo',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "course_times_id": scope.course_times_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.code == 200) {
+                                _this.review_info = data.data
+                                // _this.review_info.tf_barrage = _this.review_info.tf_barrage == '是' ? 1 : 2
+                                // _this.review_info.tf_charge = _this.review_info.tf_charge == '免费' ? 1 : 2
+                                // time = _this.review_info.time.split('-')
+                                
+                                _this.$set(_this.review_info,'date',new Date(parseInt(_this.review_info
+                                    .start_time)))
+                                _this.$set(_this.review_info,'time',[])
+                                _this.$set(_this.review_info.time,0,new Date(parseInt(_this.review_info
+                                    .start_time)))
+                                _this.$set(_this.review_info.time,1,new Date(parseInt(_this.review_info
+                                    .end_time)))
+                                // _this.review_info.date = new Date(parseInt(_this.review_info
+                                //     .start_time))
+                                _this.review_info.course_times_id = scope.course_times_id
+                                _this.checkedCities3 = [];
+                                _this.review_info.jw_user_id.split(',').map((item) => {
+                                    _this.checkedCities3.push(parseInt(item))
+                                })
+                                _this.model = 3
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                    // this.model = 3
+                    // this.review_info = JSON.parse(JSON.stringify(scope))
+                    // this.review_info.tf_barrage = this.review_info.tf_barrage == '是' ? 1 : 2
+                    // this.review_info.tf_charge = this.review_info.tf_charge == '免费' ? 1 : 2
+                    // time = this.review_info.time.split('-')
+                    // this.review_info.time = []
+                    // this.review_info.time[0] = new Date('2019-02-12 ' + time[0])
+                    // this.review_info.time[1] = new Date('2019-02-12 ' + time[1])
+                    // this.checkedCities3 = [];
+                    // this.review_info.jw_user_id.split(',').map((item) => {
+                    //     this.checkedCities3.push(parseInt(item))
+                    // })
+
+                    // console.log(this.review_info, this.checkedCities3)
+                },
+                jinyong(scope) {
+                    _this = this
+                    obj = {
+                        course_unit_id: scope.course_unit_id,
+                        status_code: 0,
+                    }
+                    if (scope.cu_status == 3) {
+                        obj.status_code = 1
+                    } else {
+                        obj.status_code = 0
+                    }
+                    this.$confirm(`是否确认` + _this.cu_status == 3 ? '启用' : '禁用', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/updateCourseUnitStatus',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                obja = JSON.parse(JSON.stringify(_this.userList))
+                                for (let i = 0; i < obja.length; i++) {
+                                    if (obj.course_unit_id == obja[i].course_unit_id) {
+                                        obja[i].cu_status = data.cu_status
+                                        obja[i].cu_statusa = obja[i]
+                                            .cu_status == 1 ? '已被课程使用' : obja
+                                            .cu_status == 2 ? '未被课程使用' : '禁用'
+                                    }
+                                }
+                                _this.userList = obja
+                                console.log(obja, _this.userList)
+                                _this.$message.info({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

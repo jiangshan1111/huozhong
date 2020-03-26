@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/addTitle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="./kindeditor/plugins/code/prettify.css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+
+        </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company">
+                <div class="block clear">
+
+
+
+                    <div class="labels classStatus else1">
+                        <s id="statusText">{{class_info.cp_status}}</s>
+                        <div class="sanjiao"></div>
+                    </div>
+
+
+
+                    <div class="class-title">课程包名称 ： {{class_info.cp_name}}</div>
+
+                    <div class="price">
+                        价格：{{class_info.favorable_price}}元
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="u-wrap company overflow points-use-class" style="    margin-top: 20px;">
+
+
+                <div class="left-side">
+                    <div class="left-sides-title courseCancle">
+                        <!-- <em>返回</em> -->
+                    </div>
+                    <div class="left-sides-title pop">
+                        <em class="iconfont" style="font-size:13px">| |</em>
+                    </div>
+                    <ul class="menuList_choose">
+                        <li class="subentry active" @click="gomange" code="baseCode"
+                            mark="/editClass/editClassBaseInfo/832295/togther">
+                            <i class="mdi mdi-information"></i><em>基本信息</em></li>
+                        <li class="subentry" @click="goClassmange" code="videoCode"
+                            mark="/editClass/editClassVideoInfo/832295/togther">
+                            <i class="mdi mdi-television-classic"></i><em>课程管理</em></li>
+                        <li class="lines"></li>
+                        <li class="subentry t1" @click="goStumange" code="studentsCode"
+                            mark="/classStu/studentList/832295/togther">
+                            <i class=" mdi mdi-human-male"></i><em>学员管理</em></li>
+                    </ul>
+                </div>
+                <input type="hidden" id="courseUseMethod" value="simple">
+                <div class="right-side">
+                    <div class="u-wrap classes">
+                        <div class="mainbackground nopadding">
+                            <div class="heading" data-protocol="91">
+                                <h2 class="h5">基本信息</h2>
+                                <span class="line"></span>
+                            </div>
+                            <form id="addFormOne" method="post">
+                                <div class="c-main">
+                                    <div class="c-content">
+                                        <p class="c">
+                                            <span class="c-title">学科</span>
+                                            <span class="c-content">
+                                                <select v-model="class_info.project_id" id="itemOneList">
+
+
+
+                                                    <option v-for="(item,index) in projects" :value="item.pse_id">
+                                                        {{item.pse_name}}</option>
+
+
+                                                </select>
+
+                                            </span>
+                                        </p>
+                                        <p class="c">
+                                            <span class="c-title">课程名称</span>
+                                            <span class="c-content"><input type="text" id="classTypeName" name="name"
+                                                    value="" v-model="class_info.cp_name">
+                                            </span>
+                                            <span class="firstspan"
+                                                style="display: none;margin-left:360px;margin-top:-28px;">该课程名称已存在</span>
+                                        </p>
+                                        <p class="c">
+                                            <span class="c-title">定价</span>
+                                            <span class="c-content">
+                                                <input type="text" v-model="class_info.total_price" name="originalPrice"
+                                                    class="prices" id="prices" value="0.0">
+                                            </span>
+                                        </p>
+                                        <p class="c">
+                                            <span class="c-title">优惠价</span>
+                                            <span class="c-content"><input v-model="class_info.favorable_price"
+                                                    name="realPrice" class="prices" id="realPrice" type="text"
+                                                    value="0.0">
+                                            </span>
+                                        </p>
+                                        <p class="c">
+                                            <span class="c-title">购买基数</span>
+                                            <span class="c-content"><input v-model="class_info.buying_base_number"
+                                                    name="baseNum" type="text" value="1">
+                                                <i class="iconfont ask"
+                                                    style="cursor: pointer;color:gray;margin-left: 10px;"
+                                                    title="基数的值作为课程购买人数的一部分，显示在网校前台"></i>
+                                            </span>
+                                        </p>
+                                        <p class="c setting">
+                                            <span class="c-title">课程有效天数</span>
+                                            <span class="c-content">
+                                                <input type="radio" v-model="class_info.effictive_days_type"
+                                                    value="有效天数" checked="checked" id="fix_day"> <label for="fix_day"
+                                                    style="display: inline-block;">有效天数</label>
+                                                <input type="radio" v-model="class_info.effictive_days_type"
+                                                    value="有效日期" style="margin-left: 30px" id="fix_date"><label
+                                                    for="fix_date" style="display: inline-block;">有效日期</label>
+                                            </span>
+                                            <!-- <i class="iconfont ask"
+                                                style="cursor: pointer;color:gray;margin-left: 10px;"
+                                                title="有效天数代表购买后可学习n天，有效期至代表无论何时购买都在固定日期到期"></i> -->
+                                        </p>
+                                        <p class="c setting" id="p_validityDay"
+                                            v-show="class_info.effictive_days_type=='有效天数'">
+                                            <span class="c-title"></span>
+                                            <span class="c-content">
+                                                有效天数<input type="text" v-model="class_info.effictive_days"
+                                                    class="settingcount" placeholder="0或者不填为不限天数" value=""
+                                                    style="margin-left: 30px;">
+                                            </span>
+                                        </p>
+                                        <p class="c setting" id="p_validityDate"
+                                            v-show="class_info.effictive_days_type=='有效日期'">
+                                            <span class="c-title"></span>
+                                            <span class="c-content">
+                                                有效期至
+                                                <input type="text" v-model="class_info.effictive_date"
+                                                    class="settingcount" placeholder="不选择日期为不限日期" value=""
+                                                    style="margin-left: 30px;">
+                                            </span>
+                                        </p>
+                                        <!-- 共享课程 -->
+
+                                        <p class="c"><span class="c-title">课程包协议</span><span class="c-content">
+                                                <select id="courseProtocol" v-model="class_info.agreement_id"
+                                                    style="width:189px;min-width: 180px;">
+                                                    <option value="">请选择</option>
+                                                    <option v-for="(item,index) in xieyis" :value="item.agreement_id">
+                                                        {{item.agreement_name}}</option>
+
+                                                </select></span></p>
+                                        <!-- <p class="c">
+                                            <span class="c-title" id="lableType" ids="togther">授课方式</span>
+                                            <span class="c-content" id="ltype">
+                                                <a href="javascript:;" ids="video"
+                                                    class="btn btn-mini btn-default btn-success">录播</a>
+                                                <a href="javascript:;" ids="live"
+                                                    class="btn btn-mini btn-default btn-success">直播</a>
+                                                <a href="javascript:;" ids="face"
+                                                    class="btn btn-mini btn-default">面授</a>
+                                            </span>
+                                        </p> -->
+                                        <p class="c">
+                                            <span class="c-title">是否为推荐课程包</span>
+                                            <span class="c-content" style="color:black;">
+                                                <input type="radio" v-model="class_info.tf_recommended" value="1"
+                                                    name="recommendFlag">是
+                                                <input type="radio" v-model="class_info.tf_recommended" value="2"
+                                                    name="recommendFlag">否
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="c-content">
+
+                                        <p class="c q-c">
+                                            <span class="c-title top">课程包封面</span>
+                                            <span class="c-content">
+                                                <span class="view">
+                                                    <img id="commdotityPic"
+                                                        :src="imgSrc == ''?'assets/images/AAAAAA&text=no+image.png':imgSrc"
+                                                        realpath="" style="max-width:500px" alt="课程图片">
+                                                </span>
+                                                <span class="btns">
+                                                    <!-- <input type="file" name="" id=""> -->
+                                                    <!-- <form id="uploadForm" enctype="multipart/form-data"> -->
+                                                    <label class="control-label btn" for="uploadform-excelfiles"
+                                                        style="    border: 1px solid rgb(200,200,200);">更换封面</label><input
+                                                        type="file" id="uploadform-excelfiles" @change="file" multiple
+                                                        class="attachment-upload"
+                                                        style="left:-9999px;position:absolute;">
+                                                    <!-- </form> -->
+
+                                                    <!-- <a href="javascript:;"
+                                                                    class="btn btn-default btn-upload">选择封面</a> -->
+                                                </span>
+                                            </span>
+
+                                        </p>
+                                        <p class="c q-c">
+                                            <span class="c-title">课程包简介</span>
+                                            <span class="c-content">
+                                                <textarea style="width: 100%;height: 100px;" name="description"
+                                                    v-model="class_info.describe" id="description" maxlength="120"
+                                                    placeholder="输入课程描述"></textarea>
+                                                <span style="font-size: 10px;">注:课程包简介最多输入120个字</span>
+                                            </span>
+                                        </p>
+
+                                        <p class="c" style="">
+                                            <span class="c-title">课程详情</span>
+                                            <span class="c-content">
+                                                <textarea id="editor_id" style="width:100%;height:300px;">
+                                                                </textarea>
+                                            </span>
+                                        </p>
+                                        <!-- <span class="c-content" style="display:inline-block;margin-top:10px;margin-left:12px;">
+                                                    <textarea class="ckeditor form-control" id="" name="content" rows="6" data-error-container="#editor2_error" style="max-width:920px; min-width:800px;"></textarea>
+                                                </span> -->
+                                        <p></p>
+                                        <p class="c text-center" style="margin-top: 10px;">
+                                            <a href="javascript:;" mark="save" class="btn btn-primary save_detail"
+                                                @click="submit_notice('未发布')">保存</a>
+                                            <a href="javascript:;" mark="continue" class="btn btn-primary save_detail"
+                                                @click="submit_notice('招生中')">保存并发布</a>
+                                            <!-- <a href="" class="btn btn-default">取消</a> -->
+                                        </p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <!-- <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script> -->
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script charset="utf-8" src="./kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="./kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="./kindeditor/plugins/code/prettify.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+                    value2: '',
+                    projects: [],
+                    kemus: [],
+                    xieyis: [],
+                    imgSrc: 'http://image.yunduoketang.com/course/34270/20190829/e2386465-dc91-433b-b505-39362d1cb02e.png',
+                    class_info: {
+                        // "project_id": '',
+                        // "subject_id": '',
+                        // "course_type":localStorage.addclassZB,
+                        // "course_name": '',
+                        // "price": '',
+                        // "special_price": '',
+                        // "buying_base_number": '',
+                        "effictive_days_type": '有效天数',
+                        // "effictive_date":'',
+                        // "effictive_days":'',
+                        // "watch_times":'',
+                        "agreement_id": '',
+                        "tf_recommended": 1,
+                        // "cover":'',
+                        // "user_id": '',
+                        // "course_describe": '',
+                        // "details": '',
+                        // "course_status": '未上架',
+                        // "branch_school_id": 1
+                    },
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){ 
+            $("#topnav").load("header.html"); 
+            }); 
+                KindEditor.ready(function (K) {
+                    window.editor = K.create('#editor_id');
+                });
+                course_package_id = window.location.href.split('=')[1]
+                console.log(course_package_id)
+                if (course_package_id == undefined) {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/queryCursePackageInfo',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {},
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.xieyis = data.courseCpAgreementData
+                        },
+                        error: function () {
+
+                        }
+                    })
+                } else {
+                    console.log('jiangshan')
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/queryCursePackageInfo',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            course_package_id: course_package_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.class_info = data.coursePackageData
+                            _this.imgSrc = _this.class_info.cover
+                            _this.xieyis = data.courseCpAgreementData
+                            localStorage.cp_name = _this.class_info.cp_name
+                            localStorage.total_price = _this.class_info.total_price
+                            setTimeout(() => {
+                                editor.sync();
+                                html = document.getElementById('editor_id').value; // 原生API
+                                editor.html(_this.class_info.details)
+                            }, 20)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        if (course_package_id == undefined) {
+
+                            _this.class_info.project_id = _this.projects[0].pse_id
+                        }
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                submit_notice(num) {
+                    _this = this
+                    course_package_id = window.location.href.split('=')[1]
+                if (course_package_id == undefined) {
+                    setTimeout(() => {
+                        var form = document.getElementById("addFormOne");
+                        console.log(form)
+                        var formData = new FormData(form);
+                        html = editor.html();
+
+                        // 同步数据后可以直接取得textarea的value
+                        editor.sync();
+                        html = document.getElementById('editor_id').value; // 原生API
+                        html = $('#editor_id').val(); // jQuery
+                        console.log(html)
+                        _this.class_info.details = html
+                        _this.class_info.cp_status = num
+                        console.log(_this.class_info)
+
+                        for (var k in _this.class_info) {
+                            if (_this.class_info[k] != null && _this.class_info[k] != "") {
+                                formData.set(k, _this.class_info[k])
+                            }
+                        }
+
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/coursePackage/insertCursePackage',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '插入成功',
+                                        duration: 2000
+                                    });
+                                    setTimeout(() => {
+                                        window.open('classes.html')
+                                    }, 1000);
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '插入失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }, 20)
+                }else{
+                    setTimeout(() => {
+                        var form = document.getElementById("addFormOne");
+                        console.log(form)
+                        var formData = new FormData(form);
+                        html = editor.html();
+
+                        // 同步数据后可以直接取得textarea的value
+                        editor.sync();
+                        html = document.getElementById('editor_id').value; // 原生API
+                        html = $('#editor_id').val(); // jQuery
+                        console.log(html)
+                        _this.class_info.details = html
+                        _this.class_info.cp_status = num
+                        console.log(_this.class_info)
+                        if('string' == typeof(_this.class_info.cover)){
+                            _this.class_info.string_cover = _this.class_info.cover
+    delete _this.class_info.cover
+    delete _this.class_info.file_cover
+                        }else{
+                            _this.class_info.file_cover = _this.class_info.cover
+    delete _this.class_info.cover
+    delete _this.class_info.string_cover
+                        }
+                        for (var k in _this.class_info) {
+                            if (_this.class_info[k] != null && _this.class_info[k] != "") {
+                                formData.set(k, _this.class_info[k])
+                            }
+                        }
+
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/coursePackage/updateCursePackageInfo',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改成功',
+                                        duration: 2000
+                                    });
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }, 20)
+
+}
+                },
+                file(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        var maxsize = 2 * 1024 * 1024
+                        if (type.indexOf("image/") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择图片上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            _this.class_info.cover = item
+                            console.log(item)
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                _this.imgSrc = e.target.result
+                                console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    $(e.target).val('')
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                goStumange() {
+                    href = window.location.href.split('=')[1] == undefined ? 'classesmanageStu.html' :
+                        'classesmanageStu.html?course_package_id=' + window.location.href.split('=')[1]
+                    console.log(href)
+                    if (window.location.href.split('=')[1] == undefined) {
+                        this.$notify.info({
+                            title: '提示',
+                            message: '请先新建课程包',
+                            duration: 2000
+                        });
+                    } else {
+                        window.open(href)
+                    }
+                    // 
+                    // window.location.href=``
+                },
+                goClassmange() {
+                    href = window.location.href.split('=')[1] == undefined ? 'classesmanageClass.html' :
+                        'classesmanageClass.html?course_package_id=' + window.location.href.split('=')[1]
+                    console.log(href)
+                    if (window.location.href.split('=')[1] == undefined) {
+                        this.$notify.info({
+                            title: '提示',
+                            message: '请先新建课程包',
+                            duration: 2000
+                        });
+                    } else {
+                        window.open(href)
+                    }
+                    // window.location.href=``
+                },
+                gomange() {
+                    href = window.location.href.split('=')[1] == undefined ? 'classesmanage.html' :
+                        'classesmanage.html?course_package_id=' + window.location.href.split('=')[1]
+                    console.log(href)
+                    if (window.location.href.split('=')[1] == undefined) {
+                        this.$notify.info({
+                            title: '提示',
+                            message: '请先新建课程包',
+                            duration: 2000
+                        });
+                    } else {
+                        window.open(href)
+                    }
+                    // window.location.href=``
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

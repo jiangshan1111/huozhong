@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/manger.css">
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+        .student .mainbackground .main-content .m-title .more {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    color: #666;
+}
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-account"></i> 学员
+                    <ul class="row page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;">学员管理</li>
+                        <li onclick="window.location.href='studentNotice.html'">学员通知</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="row student ">
+                <div class="mainbackground" style="height:156px;width:100%;">
+                    <div class="main-content nospace" id="topMessage">
+                        <div class="m-b-m">
+                            <div class="m-b-p clear">
+                                <div class="m-b-p-left">
+                                        <p class="h c">
+                                                <span class="p-title">姓名</span> <span class="p-content">{{stu.stu_name}}</span>
+                                            </p>
+                                            <p class="h c">
+                                                <span class="p-title">学费</span> <span class="p-content">{{stu_info.special_price}}</span>
+                                            </p>
+                                            <p class="h c">
+                                                <span class="p-title">报名时间</span> <span class="p-content">{{stu_info.order_time}}</span>
+                                            </p>
+                                            <p class="h c">
+                                                <span class="p-title">手机号码</span> <span class="p-content">{{stu.tel}}</span>
+                                            </p>
+                                            <p class="h c">
+                                                <span class="p-title">微信号</span> <span class="p-content">{{stu.wechat}}</span>
+                                            </p>
+                                            <p class="h c">
+                                                <span class="p-title">已缴</span> <span class="p-content">{{stu_info.refund_payment_money}}</span>
+                                            </p>
+                                            <p class="h c">
+                                                <span class="p-title">来源</span> <span class="p-content">{{stu_info.order_resource}}</span>
+                                            </p>
+                                            <p class="h c">
+                                                <span class="p-title">课程</span> <span class="p-content">{{stu_info.course_id}}</span>
+                                            </p>
+                                            <p class="h c important">
+                                                <span class="p-title">欠缴</span> <span class="p-content">{{stu_info.overdue_payment}}</span>
+                                            </p>
+                                </div>
+                                <div class="m-b-p-right">
+                                    <div class="btns">
+                                        <a href="javascript:;" id="1" @click="goReturnfee"
+                                            class="m-btn">退费</a> <a href="javascript:;" id="2"
+                                            @click="changeClass" class="m-btn m-active">转班</a> <a
+                                            href="javascript:;" id="4" @click="goOrderdetail" class="m-btn">详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainbackground fl mystep1" style="width:100%;">
+                    <div class="heading">
+                        <h2 class="h5">选择课程</h2>
+                        <div class="user-infos">
+                            <span class="user_name"></span> <span class="user_mobile"></span>
+                        </div>
+                        <span class="line"></span>
+                    </div>
+                    <div class="main-content payMasterInfo">
+                        <div class="m-title">
+                            <h2 class="h6">订单信息</h2>
+                        </div>
+                        <ul class="list-infos clear">
+                            <li>
+                                <p class="c">
+                                    <span class="c-title">学科</span> <span class="c-content">
+                                        <select name="" v-model="project_id" @change="inita" class="itemOne">
+                                            <option value="">请选择</option>
+                                            <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="c">
+                                    <span class="c-title">学科小类</span> <span class="c-content">
+                                        <select name="" v-model="subject_id" class="itemSecond" @change="searchClass">
+                                            <option value="">请选择</option>
+                                            <option v-for="(item,index) in kemus" :value="item.pse_id">{{item.pse_name}}</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="c">
+                                    <span class="c-title">学习课程</span> <span class="c-content">
+                                        <select name="" class="classType" v-model="change_info.course_id" @change="selected" style="width: 74%">
+                                            <option value="">请选择</option>
+                                            <option v-for="(item,index) in kcs" :value="item.course_id">{{item.course_name}}</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="c">
+                                    <span class="c-title">总 课 时</span> <span class="c-content totalClassHour">{{total_hours}}</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="c">
+                                    <span class="c-title">授课类型</span> <span class="c-content resouceType">{{selected_shouke}}</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mainbackground fl mystep2" style="width:100%;">
+                
+                        <div class="main-content">
+                            <div class="m-title">
+                                <h2 class="h6">新订单应缴费用</h2>
+                            </div>
+                            <ul class="list-infos clear">
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">培训费用</span> <span class="c-content trainingFee">{{total_price}}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">总价</span> <span class="c-content totalAmount">{{total_price}}</span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="main-content hasPayed">
+                            <div class="m-title">
+                                <h2 class="h6">原订单已缴费用</h2>
+                            </div>
+                            <ul class="list-infos clear">
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">原订单总价</span> <span class="c-content ototalAmount">{{order_info.training_cost}}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">原订单已缴</span> <span class="c-content opayed">{{order_info.refund_payment_money}}</span>
+                                    </p>
+                                </li>
+                                <li class="full-long">
+                                    <p class="c">
+                                        <span>POS:</span><span class="opos">{{order_info.pos}}</span>
+                                        <span>现金:</span><span class="ocash">{{order_info.cash}}</span>
+                                        <span>支票:</span><span class="ocheck">{{order_info.b_check}}</span>
+                                        <span>转账:</span><span class="orimit">{{order_info.transfer_accounts}}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">已使用</span> <input type="text" v-model="already_use" class="c-content used"> 
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">剩余</span> <span class="c-content last">{{parseInt(order_info.cash)+parseInt(order_info.b_check)+parseInt(order_info.pos)+parseInt(order_info.transfer_accounts)-already_use}}</span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="main-content payInfo">
+                            <div class="m-title" v-show="parseInt(order_info.cash)+parseInt(order_info.b_check)+parseInt(order_info.pos)+parseInt(order_info.transfer_accounts)-already_use < total_price && total_price != 0 && total_price != null" style="display:none">
+                                <h2 class="h6">补缴</h2>
+                                <span class="more">
+                                       <b style="color:red;">欠缴</b>
+                                       <b class="needPay" style="color:red;">{{total_price -( parseInt(order_info.cash)+parseInt(order_info.b_check)+parseInt(order_info.pos)+parseInt(order_info.transfer_accounts)-already_use) }}</b>
+                               </span>
+                            </div>
+                            <div class="m-title" v-show="parseInt(order_info.cash)+parseInt(order_info.b_check)+parseInt(order_info.pos)+parseInt(order_info.transfer_accounts)-already_use >= total_price && total_price != 0 && total_price != null" style="display:none">
+                                <h2 class="h6">退费</h2>
+                                <span class="more">
+                                       <b style="color:red;">需退</b>
+                                       <b class="needPay" style="color:red;">{{parseInt(order_info.cash)+parseInt(order_info.b_check)+parseInt(order_info.pos)+parseInt(order_info.transfer_accounts)-already_use - total_price}} </b>
+                               </span>
+                            </div>
+                            <div class="pay-list clear">
+                                <!-- <div class="pay-order">
+                                    <span><input type="radio" name="payType" value="ALL" checked="checked"> 全款</span> 
+                                    
+                                </div>
+                                <div class="pay-list-left">
+                                    <p>本期</p>
+                                </div> -->
+                                <div class="pay-list-right">
+                                    <p class="c">
+                                        <span class="p-title">POS：</span> <span class="p-content">￥
+                                            <input id="pos" v-model="change_info.pos" class="money" type="text" placeholder="输入金额">
+                                        </span>
+                                    </p>
+                                    <p class="c">
+                                        <span class="p-title">现金：</span> <span class="p-content">￥
+                                            <input id="cash" v-model="change_info.cash" class="money" type="text" placeholder="输入金额">
+                                        </span>
+                                    </p>
+                                    <p class="c">
+                                        <span class="p-title">支票：</span> <span class="p-content">￥
+                                            <input id="cheque" v-model="change_info.b_check" class="money" type="text" placeholder="输入金额">
+                                        </span>
+                                    </p>
+                                    <p class="c">
+                                        <span class="p-title">转账：</span> <span class="p-content">￥
+                                            <input id="remit" v-model="change_info.transfer_accounts" class="money" type="text" placeholder="输入金额">
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- 这里是分期显示的地方 -->
+                            <div class="stageInfo"></div>
+                        </div>
+                        <div class="main-content payBack none" style="display: none;">
+                            <div class="m-title">
+                                <h2 class="h6">退费</h2>
+                                <span class="more">
+                                       <b style="color:red;">需退</b>
+                                       <b class="needBack" style="color:red;">0</b>
+                               </span>
+                            </div>
+                            <div class="pay-list clear">
+                                <div class="pay-order">
+                                    <p class="c">
+                                        <span class="p-title">POS</span>
+                                        <span class="p-content opos">0.00</span>
+                                        <span class="p-title">退费金额</span>
+                                        <span class="p-content"><input class="bpos money" type="text" value="" placeholder="输入金额"></span>
+                                    </p>
+                                    <p class="c">
+                                        <span class="p-title">现金</span>
+                                        <span class="p-content ocash">100.00</span>
+                                        <span class="p-title">退费金额</span>
+                                        <span class="p-content"><input class="bcash money" type="text" value="" placeholder="输入金额"></span>
+                                    </p>
+                                    <p class="c">
+                                        <span class="p-title">支票</span>
+                                        <span class="p-content ocheck">0.00</span>
+                                        <span class="p-title">退费金额</span>
+                                        <span class="p-content"><input class="bcheck money" type="text" value="" placeholder="输入金额"></span>
+                                    </p>
+                                    <p class="c">
+                                        <span class="p-title">转账</span>
+                                        <span class="p-content orimit">0.00</span>
+                                        <span class="p-title">退费金额</span>
+                                        <span class="p-content"><input class="bremit money" type="text" value="" placeholder="输入金额"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-bo text-center">
+                            <p class="c">
+                                <span class="p-title">&nbsp;</span> <span class="p-content">
+                                    <!-- <a href="javascript:;" class="btn btn-sm btn-default cancle">返回</a> -->
+                                    <a href="javascript:;" class="btn btn-sm btn-primary nextstep" @click="submit_order">确定</a> 
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    already_use:0,
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    projects: [],
+                    kemus:[],
+                    kcs:[],
+                    total_price:'',
+                    value1: '',
+                    value2: '',
+                    project_id:'',
+                    subject_id:'',
+                    total_hours:'',
+                    selected_shouke:'',
+                    order_info:{},
+                    change_info:{
+                        "stu_id":1,
+                        "course_id":'',
+                        "branch_school_id":1,
+                        "pos":0,
+                        "b_check":0,
+                        "transfer_accounts":0,
+                        "cash":0,
+                        "budget_status":1,
+                        "transaction_type":"转班",
+                        "user_id":parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "money":7,
+                        "tran_way":"综合",
+                        "pre_course_id":2,
+                        "agreement_status":0
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.stu_info = JSON.parse(localStorage.detail)
+                _this.stu = JSON.parse(localStorage.stu)
+                console.log(_this.stu_info,_this.stu)
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/student/transactionDetail',
+                    type: 'post',
+                    // contentType:'application/json',
+                    // data:JSON.stringify(_this.stu),
+                    data:{order_id:_this.stu_info.order_id},
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.order_info = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        _this.inita()
+                        // _this.userList = data
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                        //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                        //     _this.userList[i].enrollment_status = _this.userList[i]
+                        //         .enrollment_status == 1 ? '已报名' : '未报名'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                active() {
+                    this.activeIndexb = 2
+                    console.log(1)
+                    let _this = this
+                    $.ajax({
+                        url: './cn.json',
+                        type: 'get',
+                        // data:'',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.userList = data
+                            // _this.userList = []
+
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                searchClass() {
+                    _this = this
+                    // obj = {};
+                    // if(this.activeIndexb != ""){
+                    //     obj.subject_id = _this.activeIndexb
+                    // }
+                    // if(this.activeIndexb != ""){
+                    //     obj.subject_id = _this.activeIndexb
+                    // }
+                    // if(this.activeIndexb != ""){
+                    //     obj.subject_id = _this.activeIndexb
+                    // }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/selectCourseByProjectAndSubject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.project_id,
+                            subject_id: _this.subject_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcs = data
+                            _this.change_info.course_id = ""
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                selected(){
+                    console.log(this.change_info.course_id)
+                    for (let i = 0; i < this.kcs.length; i++) {
+                        if(this.change_info.course_id == this.kcs[i].course_id){
+                            this.selected_shouke = this.kcs[i].course_type
+                            this.total_hours = this.kcs[i].total_hours
+                            this.total_price = this.kcs[i].price
+                            console.log(this.total_price,this.total_hours,this.selected_shouke)
+                            if(this.kcs[i].agreement_id != '' &&this.kcs[i].agreement_id != null){
+                                this.change_info.agreement_status = 0
+                            }else{
+                                this.change_info.agreement_status = 1
+                            }
+                        }
+                        
+                    }
+                },
+                inita() {
+                    _this = this
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                            type: 'get',
+                            // contentType: 'application/json',
+                            data: {
+                                project_id: _this.project_id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.kemus = data
+                                _this.subject_id = ""
+                                // _this.activeIndexb = _this.kemus[0].pse_id
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                    this.init()
+                    let _this = this
+                    $.ajax({
+                        url: './cn.json',
+                        type: 'get',
+                        // data:'',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.userList = data
+                            _this.userList1 = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                submit_order(){
+                    _this = this
+                    if( _this.total_price == 0 || _this.total_price == null){
+                        _this.$notify.info({
+                                        title: '提示',
+                                        message: '请选择新班型',
+                                        duration: 2000
+                                    });
+                                    return
+                    }else if(parseInt(_this.order_info.cash)+parseInt(_this.order_info.b_check)+parseInt(_this.order_info.pos)+parseInt(_this.order_info.transfer_accounts)-_this.already_use >= _this.total_price ){
+                        _this.change_info.budget_status = 0
+                        _this.change_info.money = parseInt(_this.order_info.cash)+parseInt(_this.order_info.b_check)+parseInt(_this.order_info.pos)+parseInt(_this.order_info.transfer_accounts)-_this.already_use - _this.total_price
+                    }else{
+                        _this.change_info.budget_status = 0
+                        _this.change_info.money = -(parseInt(_this.order_info.cash)+parseInt(_this.order_info.b_check)+parseInt(_this.order_info.pos)+parseInt(_this.order_info.transfer_accounts)-_this.already_use - _this.total_price)
+                    }
+                    _this.change_info.stu_id = _this.stu_info.stu_id
+                    str = '';
+                    if(parseInt(this.change_info.cash)+parseInt(this.change_info.b_check)+parseInt(this.change_info.pos)+parseInt(this.change_info.transfer_accounts)-this.already_use == parseInt(this.change_info.money) ){
+
+                    }else{
+                        this.$notify.info({
+                                        title: '提示',
+                                        message: '总金额必须等于欠缴(需退)金额',
+                                        duration: 2000
+                                    });
+                        return
+                    }
+                    if(this.change_info.pos != 0){
+                        str+='+pos'
+                    }
+                    if(this.change_info.cash != 0){
+                        str+='+现金'
+                    }
+                    if(this.change_info.b_check != 0){
+                        str+='+支票'
+                    }
+                    if(this.change_info.transfer_accounts != 0){
+                        str+='+转账'
+                    }
+                    this.change_info.tran_way = str.substring(1)
+                    this.change_info.pre_course_id = this.stu_info.course_id
+                    console.log(_this.change_info)
+                    obj = _this.change_info
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/student/doShiftCourse',
+                        type: 'post',
+                        contentType:'application/json',
+                        data:JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data.code == "200" ){
+                                _this.$notify.info({
+                                        title: '提示',
+                                        message: '插入成功',
+                                        duration: 2000
+                                    });
+                            }else{
+                                _this.$notify.info({
+                                        title: '提示',
+                                        message: '插入失败',
+                                        duration: 2000
+                                    });
+                            }
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                        }
+                    })
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                goOrderdetail(){
+                    window.open('indextranDetail.html')
+                },
+                changeClass(){
+                    window.open('indextranChange.html')
+                },
+                goReturnfee(){
+                    window.open('indexReturnfee.html')
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                flexColumnWidth() {
+                    return $('.el-table__header-wrapper').width() / 100 * 25
+                },
+                flexColumnWidthc() {
+                    return $('.el-table__header-wrapper').width() / 100 * 3
+                },
+                flexColumnWidthd() {
+                    return $('.el-table__header-wrapper').width() / 3
+                },
+                flexColumnWidthe() {
+                    return $('.el-table__header-wrapper').width() / 6
+                },
+                flexColumnWidthf() {
+                    return $('.el-table__header-wrapper').width() / 9
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

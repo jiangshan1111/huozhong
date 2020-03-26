@@ -1,0 +1,164 @@
+<style>
+.profile-dropdown i {
+    vertical-align: sub;
+    margin-right: 5px;
+}
+</style>
+<nav class="navbar-custom" id="header-app">
+
+    <div class="container-fluid">
+        <ul class="list-unstyled topbar-right-menu float-right mb-0">
+
+            <li class="dropdown notification-list">
+                <!-- Mobile menu toggle-->
+                <a class="navbar-toggle nav-link">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <!-- End mobile menu toggle-->
+            </li>
+
+
+            <li class="dropdown notification-list">
+                <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false" aria-expanded="false">
+                    <span
+                        class="ml-1">{{user_name}}<i class="mdi mdi-chevron-down"></i> </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
+                    <!-- item-->
+                    <a href="javascript:void(0)" onclick="delete localStorage.login_user_info;window.location.href='login.html';" class="dropdown-item notify-item">
+                        <i class="dripicons-power"></i> <span>退出</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="localStorage.simple_activeIndexb = 0;window.location.href='change_info.html';"  class="dropdown-item notify-item">
+                        <i class="dripicons-power"></i> <span>修改密码</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="localStorage.simple_activeIndexb = 1;window.location.href='change_info.html';" class="dropdown-item notify-item">
+                        <i class="dripicons-power"></i> <span>账户信息</span>
+                    </a>
+                </div>
+            </li>
+            <!-- <li class="dropdown notification-list">
+                    <a href="javascript:void(0);" class="nav-link right-bar-toggle">
+                        <i class="dripicons-gear noti-icon"></i>
+                    </a>
+                </li> -->
+
+        </ul>
+        <div class="topbar-menu">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+
+                        <li @click="activeA(1)" v-if="power_function.indexOf('[1,') > -1" :class="header_activeIndex == 1?'has-submenu active':'has-submenu'">
+                            <a href="index.html"><i class=" mdi mdi-account"></i>学员</a>
+                        </li>
+
+                        <li @click="activeA(2)" v-if="power_function.indexOf('[5,') > -1" :class="header_activeIndex == 2?'has-submenu active':'has-submenu'">
+                            <a href="class.html"><i class="mdi mdi-atom"></i>课程</a>
+                        </li>
+
+                        <li @click="activeA(3)" v-if="power_function.indexOf('[2,') > -1" :class="header_activeIndex == 3?'has-submenu active':'has-submenu'">
+                            <a href="direct.html"><i class="mdi mdi-email-outline"></i>教学</a>
+                        </li>
+
+                        <li @click="activeA(4)" v-if="power_function.indexOf('[8,') > -1" :class="header_activeIndex == 4?'has-submenu active':'has-submenu'">
+                            <a href="motion.html"><i class="mdi mdi-cube-outline"></i>运营</a>
+                        </li>
+
+                        <li @click="activeA(5)" v-if="power_function.indexOf('[9,') > -1" :class="header_activeIndex == 5?'has-submenu active':'has-submenu'">
+                            <a href="question.html"><i class="mdi mdi-buffer"></i>题库</a>
+                        </li>
+
+                        <li @click="activeA(6)" v-if="power_function.indexOf('[7,') > -1" :class="header_activeIndex == 6?'has-submenu active':'has-submenu'">
+                            <a href="resource.html"><i class="mdi mdi-file-multiple"></i>资源</a>
+                        </li>
+                        <li @click="activeA(7)" v-if="power_function.indexOf('[6,') > -1" :class="header_activeIndex == 7?'has-submenu active':'has-submenu'">
+                            <a href="finance.html"><i class="mdi mdi-view-dashboard "></i>财务</a>
+                        </li>
+                        <li @click="activeA(8)" v-if="power_function.indexOf('[3,') > -1" :class="header_activeIndex == 8?'has-submenu active':'has-submenu'">
+                            <a href="data.html"><i class="mdi  mdi mdi-database"></i>数据</a>
+                        </li>
+                        <li @click="activeA(9)" v-if="power_function.indexOf('[4,') > -1" :class="header_activeIndex == 9?'has-submenu active':'has-submenu'">
+                            <a href="system.html"><i class=" mdi mdi-laptop"></i>系统</a>
+                        </li>
+
+
+                    </ul>
+                    <!-- End navigation menu -->
+
+                    <div class="clearfix"></div>
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div>
+        <ul class="list-inline menu-left mb-0">
+        </ul>
+    </div>
+
+</nav>
+<script>
+       new Vue({
+            el: '#header-app',
+            data() {
+                return {
+                    user_id:'',
+                    header_activeIndex:1,
+                    user_name:'江山',
+                    power_function:''
+                }
+            },
+            created() {
+                let _this = this
+                if(localStorage.header_activeIndex == undefined){
+                    _this.header_activeIndex = 1
+                }else{
+                    _this.header_activeIndex = parseInt(localStorage.header_activeIndex)
+                }
+                if(localStorage.login_user_info == undefined){
+                    window.location.href="login.html"
+                }else{
+                    _this.user_name = JSON.parse(localStorage.login_user_info).user_name
+                    _this.user_id = JSON.parse(localStorage.login_user_info).user_id
+                    _this.power_function = JSON.parse(localStorage.login_user_info).power_function
+                }
+            },
+            methods: {
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                activeA(num) {
+                    this.header_activeIndex = num
+                    localStorage.header_activeIndex = num
+                },
+                           }
+        })
+    </script>

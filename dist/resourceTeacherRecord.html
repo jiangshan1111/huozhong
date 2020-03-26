@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <!-- <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newSource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newresource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toProtocolList.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/agreement-4.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .nopadding .impotrArea {
+            padding-top: 0;
+            min-height: 380px;
+        }
+
+        .timeSearch em {
+            width: 80px;
+        }
+
+        .heading {
+            margin-bottom: 20px;
+        }
+
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .resource .mainbackground .r-list {
+            padding-bottom: 0;
+        }
+
+        .u-wrap .mainbackground.nopadding {
+            padding: 1px 20px 10px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 26px;
+        }
+
+        .el-date-editor .el-range__icon {
+            line-height: 28px;
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+        .el-table__empty-text {
+    width: 100%;
+    color: #909399;
+}
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+        .dropdown {
+    position: inherit;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 资源
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='resource.html'">学科</li>
+                        <li onclick="window.location.href='resourceSchool.html'">校区</li>
+                        <li onclick="window.location.href='resourceKu.html'">资源库</li>
+                        <li onclick="window.location.href='resourceClassxy.html'">课程协议</li>
+                        <li style="color: rgb(250, 105, 0); border-bottom: 2px solid rgb(250, 105, 0);"
+                            onclick="window.location.href='resourceTeacher.html'">教师课时</li>
+                        <li onclick="window.location.href='resourceClassdy.html'">课程单元</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground nopadding" style="height: auto;">
+                    <div class="heading headingImp">
+                        <h2 class="h5">约课详情</h2>
+                        <div class="search searchAdmin">
+                        </div>
+                        <span class="line"></span>
+                    </div>
+                    <!-- 前端新加html -->
+                    <div class=" impotrArea">
+
+                        <div class="timeSearch clear">
+                            <em class="fl">日期 :</em>
+                            <div class="fl month_type">
+                                <a @click="activea(1)"
+                                    :class="activeIndexa == 1?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;">全部</a>
+                                <a @click="activea(2)"
+                                    :class="activeIndexa == 2?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" data-month="threeMonth">三个月</a>
+                                <a @click="activea(3)"
+                                    :class="activeIndexa == 3?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" data-month="prevMonth">上月</a>
+                                <a @click="activea(4)"
+                                    :class="activeIndexa == 4?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" data-month="nowMonth">本月</a>
+                                <a @click="activea(5)"
+                                    :class="activeIndexa == 5?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" data-month="custom">指定时间</a>
+                                <template v-if="activeIndexa == 5">
+                                    <el-date-picker v-model="value1" style="    height: 28px;
+                                    vertical-align: top;" type="datetimerange" range-separator="至"
+                                        start-placeholder="开始日期" end-placeholder="结束日期">
+                                    </el-date-picker>
+                                </template>
+                            </div>
+                        </div>
+                        <!-- <div class="timeSearch clear">
+                            <em class="fl">课次状态 :</em>
+                            <div class="fl meet_status">
+                                <a  @click="activea(5)" :class="activeIndexa == 5?'btn btn-default btn-success':'btn btn-default'" href="javascript:;">全部</a>
+                                <a  @click="activea(5)" :class="activeIndexa == 5?'btn btn-default btn-success':'btn btn-default'" href="javascript:;" data-status="1">待上课</a>
+                                <a class="btn btn-default " href="javascript:;" data-status="2">已上课</a>
+                                <a class="btn btn-default " href="javascript:;" data-status="-1">已取消</a>
+                            </div>
+                        </div> -->
+                        <div class="timeSearch clear">
+                            <em class="fl">搜索 :</em>
+                            <div class="fl">
+                                <span class="namemob">
+                                    <input class="curinp" v-model="search_info.course_name" type="text"
+                                        placeholder="课程名称" id="classTypeName">
+                                    <input type="text" v-model="search_info.stu_name" placeholder="姓名" id="stuName">
+                                    <input type="text" v-model="search_info.wechat" placeholder="微信号" id="username">
+                                    <input type="text" v-model="search_info.tel" placeholder="手机号" id="mobile">
+                                    <button @click="init">搜索</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="proxyBox">
+                            <div class="dataview clear">
+                                <span class="fl datav-name">
+                                    <strong>
+                                        已教授总学员数&nbsp;:
+                                        <em>{{stus}}</em>
+                                    </strong>
+                                    <strong>
+                                        已教授总课时数&nbsp;&nbsp;:
+                                        <em>{{hours}}</em>
+                                    </strong>
+
+                                </span>
+                                <!-- <button class="fr">导出</button> -->
+                            </div>
+                            <template>
+                                <el-table border :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                    :data="tableData" style="overflow: auto; margin-top: 20px">
+                                    <el-table-column prop="ct_name" label="课次名称" :width="flexColumnWidth(14)"
+                                        style="text-align: center">
+                                    </el-table-column>
+                                    <el-table-column prop="course_name" label="课程名称"
+                                        :width="flexColumnWidth(14)">
+                                    </el-table-column>
+                                    <el-table-column prop="tel" label="手机号"
+                                        :width="flexColumnWidth(14)">
+                                    </el-table-column>
+                                    <el-table-column prop="wechat" label="微信号"
+                                        :width="flexColumnWidth(14)">
+                                    </el-table-column>
+                                    <!-- <el-table-column prop="total_hours_reserved" label="课次状态"
+                                        :width="flexColumnWidth(25)">
+                                    </el-table-column> -->
+
+                                    <el-table-column prop="begin_class_time" label="上课时间"
+                                        :width="flexColumnWidth(14)">
+                                    </el-table-column>
+                                    <el-table-column prop="sum_class_hour" label="累计上课时长（分）"
+                                        :width="flexColumnWidth(14)">
+                                    </el-table-column>
+                                    <el-table-column label="操作" :width="flexColumnWidth(14)">
+                                        <template slot-scope="scope">
+                                            <el-button type="text" style="  margin-left: 0;" size="small" @click="">
+                                                ---
+                                            </el-button>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                    :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                    layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                                </el-pagination>
+                            </template>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 1,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: [],
+                    value2: '',
+                    stus:0,
+                    hours:0,
+                    userList: [],
+                    search_info: {
+                        "user_id": parseInt(window.location.href.split('=')[1]),
+                        "begin_time": "",
+                        "end_time": "",
+                        "course_name": "",
+                        "stu_name": "",
+                        "wechat": "",
+                        "tel": ""
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.init()
+            },
+            mounted() {
+                setTimeout(function () {
+                    console.log($("div.block"))
+                    // $("div.block").on("click",function () {
+                    //     console.log($(this))
+                    //                 $(this).find(".manageGL").show();
+                    //             });
+                    $("div.block").on("mouseenter ", "div.hidden", function () {
+                        console.log($(this))
+                        $(this).find(".manageGL").show();
+                    });
+                    $("div.block").on("mouseleave ", "div.hidden", function () {
+                        $(this).find(".manageGL").hide();
+                    });
+                }, 20)
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                },
+                activeb(num) {
+                    this.activeIndexb = num
+                },
+                getLastThreeMonthYestdy(date) {
+                    var daysInMonth = new Array([0], [31], [28], [31], [30], [31], [30], [31], [31], [30], [31],
+                        [30], [31]);
+                    var strYear = date.getFullYear();
+                    var strDay = date.getDate();
+                    var strMonth = date.getMonth() + 1;
+                    if (strYear % 4 == 0 && strYear % 100 != 0) {
+                        daysInMonth[2] = 29;
+                    }
+                    if (strMonth < 4) {
+                        strYear -= 1;
+                        if (strMonth == 1) {
+                            strMonth = 10
+                        } else if (strMonth == 2) {
+                            strMonth = 11;
+                        } else if (strMonth == 3) {
+                            strMonth = 12;
+                        }
+                    } else {
+                        strMonth -= 3;
+                    }
+                    strDay = daysInMonth[strMonth] >= strDay ? strDay : daysInMonth[strMonth];
+                    if (strMonth < 10) {
+                        strMonth = "0" + strMonth;
+                    }
+                    if (strDay < 10) {
+                        strDay = "0" + strDay;
+                    }
+                    var dataStr = strYear + "-" + strMonth + "-" + strDay;
+                    return dataStr;
+                },
+                getLastMonthYestdy(date) {
+                    var year = date.substr(0, 4);
+                    var month = date.substr(5, 2);
+                    var day = date.substr(8, 2);
+                    var thisDay = new Date(year, month, 0);
+                    var maxThisDay = thisDay.getDate();
+                    if (month - n < 0) {
+                        year = year - 1;
+                        month = 12 + parseInt(month - n);
+                        if (month < 10) {
+                            month = '0' + month
+                        }
+                    } else if (month - n > 12) {
+                        year = parseInt(year) + 1;
+                        month = parseInt(month - n) - 12;
+                        if (month < 10) {
+                            month = '0' + month
+                        }
+                    } else {
+                        if (month - n < 10) {
+                            month = '0' + (month - n);
+                        } else {
+                            month = (month - n);
+                        }
+                    }
+                    var lastDay = new Date(year, month, 0);
+                    var maxLastDay = lastDay.getDate();
+                    if (day > maxLastDay) {
+                        day = maxLastDay;
+                    } else if (day == maxThisDay) {
+                        day = maxLastDay;
+                    }
+                    return year + '-' + month + '-' + day + ' ' + date.split(' ')[1];
+                },
+                init() {
+                    let _this = this
+                    var oneday = 1000 * 60 * 60 * 24,
+                        today = new Date();
+                    getday = today.getDay() == 0 ? 7 : today.getDay();
+                    obj = JSON.parse(JSON.stringify(_this.search_info))
+                    switch (_this.activeIndexa) {
+                        case 1:
+                            obj.begin_time = ''
+                            obj.end_time = ''
+                            break;
+                        case 2:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.begin_time = _this.getLastThreeMonthYestdy(new Date()) + ' ' + _this
+                                .getNowFormatDate(new Date()).split(' ')[1]
+                            break;
+                        case 3:
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date(new Date(new Date()
+                                    .toLocaleDateString()).getTime() - oneday * today.getDate()) -
+                                oneday * (new Date(today - oneday * today.getDate()).getDate() - 1)))
+                            obj.end_time = _this.getNowFormatDate(new Date(new Date(new Date()
+                                    .toLocaleDateString()).getTime() - oneday * (today.getDate() - 1) -
+                                1))
+                            break;
+                        case 4:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date(new Date(new Date()
+                                .toLocaleDateString()).getTime() - oneday * (today.getDate() -
+                                1))))
+                            break;
+                        case 5:
+                            obj.begin_time = _this.getNowFormatDate(new Date(_this.value1[0]))
+                            obj.end_time = _this.getNowFormatDate(new Date(_this.value1[1]))
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log(obj)
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resources/teachingRecordHoursShowAndSearch',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.hours = 0
+                            _this.stus = 0
+                            arr=[]
+                            data.map((item)=>{
+                                item.begin_class_time = _this.getNowFormatDate(new Date(item.begin_class_time))
+                                if(arr.indexOf(item.stu_id) < 0){
+                                    arr.push(item.stu_id)
+                                    _this.stus += 1
+                                }
+                                _this.hours+=item.total_hours
+                            })
+                            _this.userList = data
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <!-- <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" /> -->
+    <style>
+        body {
+            color: black;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i>  题库
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='questionexam.html'">试题</li>
+                        <li onclick="window.location.href='questionexamtextPaper.html'">试卷</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='questionChapters.html'">章节考点
+                        </li>
+                        <li onclick="window.location.href='questionSector.html'">科目管理</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap tiku">
+                <div class="mainbackground nopadding">
+                    <div class="classes-type">
+                        <p class="c">
+                            <span class="t-content" id="subList">
+                                <!-- <a href="javascript:void(0)" class="btn btn-sm btn-default subject btn-success"
+                                    subid="20535">test01</a> -->
+                                    <a v-for="(item,index) in son_tikus" @click="activea(item.ibs_id)"
+                                    :class="activeIndexa == item.ibs_id?'btn btn-mini btn-success':'btn btn-mini btn-default'"
+                                    href="javascript:;" data-id="20706">{{item.ibs_name}}</a>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="u-wrap tiku">
+                <div class="mainbackground nopadding ">
+                    <div class="parts">
+                        <div class="p-1" style="padding:.4rem !important">
+                            <div class="heading">
+                                <h2 class="h5">章</h2>
+                                <span class="line"></span>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <ul id="chapterInfo" data-listidx="0">
+                                        <li chapterid="45684" class="chOrder chaCss45684 " v-for="(item,index) in son_tikus2" :style="item.selected == true?'background:rgb(210,210,210)':''"  @click="son3(item.chapter_test_point_id)" data-itemidx="0">
+                                            <span class="info"  v-if="item.edit == false"  chapterid="45684"
+                                                style="display: inline-block; width: 170px; height: 32px; cursor: pointer;">
+                                                <a href="javascript:void(0)" chapterid="45684"
+                                                    style="line-height: 2.5">{{item.name}}</a>
+                                            </span>
+
+                                            <span class=" chapterM" v-if="item.edit == false">
+                                                <a href="javascript:void(0)" class="btn btn-sm iconfont"
+                                                    style="padding: 7px 7px;float: right;" chapterdelid="45684" @click.stop="delete_chapter(item.chapter_test_point_id)"></a>
+                                                <a href="javascript:void(0)" class="btn btn-sm iconfont" ht="编辑"
+                                                    style="padding: 7px 7px;float: right;" @click.stop="edit_chapter(item.chapter_test_point_id)"></a>
+                                            </span>
+
+                                            <span style="" class="edit"  v-if="item.edit == true">
+                                                <input type="text" v-model="edit_chapter_info.name" value="test01" maxlength="50" class="newChapterName"
+                                                    style="width: 153px;">
+                                                <a href="javascript:void(0)" class="btn btn-sm btn-success"
+                                                    chapteraddid="45684"  @click.stop="submit_edit_chapter(item.chapter_test_point_id)">保存</a>
+                                                <a href="javascript:void(0)" class="btn btn-sm btn-default" @click.stop="close_edit_chapter">取消</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <li class="addCBtn" style="display: list-item;" v-if="add_chapter == false">
+                                        <a href="javascript:void(0)" @click="add_chapter = true" class="btn btn-sm btn-success">添加一章</a>
+                                    </li>
+                                    <li class="addCConter" style="" v-if="add_chapter == true">
+                                        <input type="text" v-model="add_chapter_info.name" id="addChapterName" maxlength="50" style="width: 153px;">
+                                        <a href="javascript:void(0)" @click="submit_add_chapter" class="btn btn-sm btn-success">保存</a>
+                                        <a href="javascript:void(0)" @click="add_chapter = false" class="btn btn-sm btn-default">取消</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-2" style="padding:.4rem !important">
+                            <div class="heading">
+                                <h2 class="h5">节</h2>
+                                <span class="line"></span>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <ul id="sectionInfo" data-listidx="0">
+
+
+
+
+
+
+
+
+                                        <li :style="item.selected == true?'cursor: pointer;background:rgb(210,210,210)':'cursor: pointer;'"  v-for="(item,index) in son_tikus3"  @click="son4(item.chapter_test_point_id)"
+                                            sectionid="70227" class="secOrder secCss70227" data-itemidx="0">
+                                            <span class="info"  v-if="item.edit == false" sectionid="70227"
+                                                style="display: inline-block; width: 170px; height: 32px; cursor: pointer;">
+                                                <a href="javascript:void(0)" sectionid="70227"
+                                                    style="line-height: 2.5">{{item.name}}</a>
+                                            </span>
+
+                                            <span class="sectionM" v-if="item.edit == false">
+                                                <a href="javascript:void(0)" class="btn btn-sm iconfont"
+                                                    style="padding: 7px 7px;float: right;" secdelid="70227" @click.stop="delete_section(item.chapter_test_point_id)"></a>
+                                                <a href="javascript:void(0)" class="btn btn-sm iconfont"
+                                                    style="padding: 7px 7px;float: right;" ht="编辑" @click.stop="edit_section(item.chapter_test_point_id)"></a>
+                                            </span>
+
+                                            <span style="" class="edit"  v-if="item.edit == true">
+                                                <input type="text"  v-model="edit_section_info.name" value="test001" maxlength="50" class="newSectionName"
+                                                    style="width: 153px;">
+                                                <a href="javascript:void(0)" class="btn btn-sm btn-success"
+                                                    sectionaddid="70227" @click.stop="submit_edit_section(item.chapter_test_point_id)">保存</a>
+                                                <a href="javascript:void(0)" @click.stop="close_edit_section" class="btn btn-sm btn-default">取消</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <li class="addSBtn" v-if="add_section == false && selected_info.chapter_id != ''">
+                                        <a href="javascript:void(0)" @click="add_section = true" class="btn btn-sm btn-success">添加一节</a>
+                                    </li>
+                                    <li class="addSConter" style="" v-if="add_section == true">
+                                        <input type="text"  v-model="add_section_info.name" id="addSectionName" maxlength="50" style="width: 153px;">
+                                        <a href="javascript:void(0)" @click="submit_add_section" class="btn btn-sm btn-success">保存</a>
+                                        <a href="javascript:void(0)" @click="add_section = false" class="btn btn-sm btn-default">取消</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-3" style="padding:.4rem !important">
+                            <div class="heading">
+                                <h2 class="h5">考点</h2>
+                                <span class="line"></span>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <ul id="pointInfo">
+                                        <li style=" cursor: pointer;"  v-for="(item,index) in son_tikus4"
+                                        sectionid="70227" class="secOrder secCss70227" data-itemidx="0">
+                                        <span class="info" v-if="item.edit == false" sectionid="70227"
+                                            style="display: inline-block; width: 170px; height: 32px; cursor: pointer;">
+                                            <a href="javascript:void(0)" sectionid="70227"
+                                                style="line-height: 2.5">{{item.name}}</a>
+                                        </span>
+
+                                        <span class="sectionM" v-if="item.edit == false">
+                                            <a href="javascript:void(0)" class="btn btn-sm iconfont"
+                                                style="padding: 7px 7px;float: right;" secdelid="70227"
+                                                 @click.stop="delete_exam(item.chapter_test_point_id)"></a>
+                                            <a href="javascript:void(0)" class="btn btn-sm iconfont"
+                                                style="padding: 7px 7px;float: right;" ht="编辑" @click.stop="edit_exam(item.chapter_test_point_id)"></a>
+                                        </span>
+
+                                        <span style="" class="edit"  v-if="item.edit == true">
+                                            <input type="text" value="test001" v-model="edit_exam_info.name" maxlength="50" class="newSectionName"
+                                                style="width: 153px;">
+                                            <a href="javascript:void(0)" class="btn btn-sm btn-success"
+                                                sectionaddid="70227" @click.stop="submit_edit_exam(item.chapter_test_point_id)">保存</a>
+                                            <a href="javascript:void(0)" class="btn btn-sm btn-default" @click.stop="close_edit_exam">取消</a>
+                                        </span>
+                                    </li>
+                                    </ul>
+                                    <li class="addPBtn" style="display: list-item;"  v-if="add_exam == false && selected_info.section_id != ''">
+                                        <a href="javascript:void(0)" @click="add_exam = true" class="btn btn-sm btn-success">添加考点</a>
+                                    </li>
+                                    <li class="addPConter" style=""  v-if="add_exam == true">
+                                        <input type="text" v-model="add_exam_info.name" id="addPointName" maxlength="50" style="width: 153px;">
+                                        <a href="javascript:void(0)" @click="submit_add_exam" class="btn btn-sm btn-success">保存</a>
+                                        <a href="javascript:void(0)" @click="add_exam = false" class="btn btn-sm btn-default">取消</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script src="assets/js/jquery-list-dragsort.js"></script>
+    <!-- <script src="assets/js/chapter.js"></script> -->
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    son_tikus: [],
+                    ques_info: {},
+                    son_tikus2: [],
+                    userList: [],
+                    son_tikus3: [],
+                    son_tikus4: [],
+                    add_chapter:false,
+                    add_section:false,
+                    add_exam:false,
+                    //新增章
+                    add_chapter_info:{
+                        "ibs_id":1,
+                        "name":"",
+                        "creation_time":1,
+                        "operator_id":parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "type":1,
+                        "father_id":0
+                    },
+                    //新增节
+                    add_section_info:{
+                        "ibs_id":1,
+                        "name":"",
+                        "creation_time":1,
+                        "operator_id":parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "type":2,
+                        "father_id":0
+                    },
+                    //新增考点
+                    add_exam_info:{
+                        "ibs_id":1,
+                        "name":"",
+                        "creation_time":1,
+                        "operator_id":parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "type":3,
+                        "father_id":0
+                    },
+                    selected_info:{
+                        chapter_id:'',
+                        section_id:''
+                    },
+                    //编辑章
+                    edit_chapter_info:{
+                        chapter_test_point_id:'',
+                        name:'',
+                    },
+                    //编辑节
+                    edit_section_info:{
+                        chapter_test_point_id:'',
+                        name:'',
+                    },
+                    //编辑考点
+                    edit_exam_info:{
+                        chapter_test_point_id:'',
+                        name:'',
+                    },
+                    search_question_info: {
+                        // "ibs_id":1,
+                        // "state":1,
+                        "chapter_id": '',
+                        "section_id": '',
+                        "examination_site_id": '',
+                        "difficulty": '',
+                        "question_name": '',
+                        // "question_type":1 
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.ques_info = JSON.parse(localStorage.ques_info)
+                console.log(_this.ques_info)
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/ItemBank/queryIBS',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        item_bank_id: _this.ques_info.item_bank_id
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.son_tikus = data
+                        _this.activea(_this.son_tikus[0].ibs_id)
+                        // _this.tikus = data
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            mounted() {
+
+            },
+            methods: {
+                active() {
+
+                },
+                submit_add_chapter(){
+                    let _this = this
+                    obj=JSON.parse(JSON.stringify(_this.add_chapter_info))
+                    obj.ibs_id = _this.activeIndexa
+                    obj.creation_time = _this.getNowFormatDate(new Date())
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/insertChapterSectionPoint',
+                        type: 'post',
+                        contentType:'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data == 1){
+                                _this.son2()
+                                _this.add_chapter = false
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                submit_add_section(){
+                    let _this = this
+                    console.log(_this.selected_info)
+                    obj=JSON.parse(JSON.stringify(_this.add_section_info))
+                    obj.ibs_id = _this.activeIndexa
+                    obj.creation_time = _this.getNowFormatDate(new Date())
+                    obj.father_id = _this.selected_info.chapter_id
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/insertChapterSectionPoint',
+                        type: 'post',
+                        contentType:'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data == 1){
+                                _this.son3(_this.selected_info.chapter_id)
+                                _this.add_section = false
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                submit_add_exam(){
+                    let _this = this
+                    console.log(_this.selected_info)
+                    obj=JSON.parse(JSON.stringify(_this.add_exam_info))
+                    obj.ibs_id = _this.activeIndexa
+                    obj.creation_time = _this.getNowFormatDate(new Date())
+                    obj.father_id = _this.selected_info.section_id
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/insertChapterSectionPoint',
+                        type: 'post',
+                        contentType:'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data == 1){
+                                _this.son4(_this.selected_info.section_id)
+                                _this.add_exam = false
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                activea(num) {
+
+                },
+                submit_edit_chapter(id){
+                    let _this = this
+                    _this.edit_chapter_info.chapter_test_point_id = id
+                    console.log(_this.edit_chapter_info)
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/ItemBank/updateChapterSectionPoint',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(_this.edit_chapter_info),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改成功',
+                                        duration: 2000
+                                    });
+                                    _this.son2(_this.activeIndexa)
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 2000
+                                });
+                            }
+                        })
+                },
+                submit_edit_section(id){
+                    let _this = this
+                    _this.edit_section_info.chapter_test_point_id = id
+                    console.log(_this.edit_section_info)
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/ItemBank/updateChapterSectionPoint',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(_this.edit_section_info),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改成功',
+                                        duration: 2000
+                                    });
+                                    _this.son3(_this.selected_info.chapter_id)
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 2000
+                                });
+                            }
+                        })
+                },
+                submit_edit_exam(id){
+                    let _this = this
+                    _this.edit_exam_info.chapter_test_point_id = id
+                    console.log(_this.edit_exam_info)
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/ItemBank/updateChapterSectionPoint',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(_this.edit_exam_info),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改成功',
+                                        duration: 2000
+                                    });
+                                    _this.son4(_this.selected_info.section_id)
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 2000
+                                });
+                            }
+                        })
+                },
+                delete_chapter(id){
+                    console.log(id)
+                    let _this = this
+                    this.$confirm(`您确定要删除此章？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        dangerouslyUseHTMLString: true,
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/ItemBank/deleteChapterSectionPoint',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "chapter_test_point_id": id,
+                                "tf_delete": 1
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除成功',
+                                        duration: 2000
+                                    });
+                                    _this.son_tikus2.map((item)=>{
+                                        if(item.chapter_test_point_id == id){
+                                            if(item.selected == true){
+                                                item.selected = false
+                                                _this.selected_info.chapter_id = ''
+                                                _this.selected_info.section_id = ''
+                                                _this.son_tikus4 = []
+                                                _this.son_tikus3 = []
+                                            }
+                                        }
+                                    })
+                                    _this.son_tikus2 = _this.son_tikus2.filter((item) => {
+                                        return item.chapter_test_point_id != id
+                                    })
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '已取消'
+                        });
+                    });
+                },
+                delete_section(id){
+                    console.log(id)
+                    let _this = this
+                    this.$confirm(`您确定要删除此节？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        dangerouslyUseHTMLString: true,
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/ItemBank/deleteChapterSectionPoint',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "chapter_test_point_id": id,
+                                "tf_delete": 1
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除成功',
+                                        duration: 2000
+                                    });
+                                    _this.son_tikus3.map((item)=>{
+                                        if(item.chapter_test_point_id == id){
+                                            if(item.selected == true){
+                                                item.selected = false
+                                                _this.selected_info.section_id = ''
+                                                _this.son_tikus4 = []
+                                            }
+                                        }
+                                    })
+                                    _this.son_tikus3 = _this.son_tikus3.filter((item) => {
+                                        return item.chapter_test_point_id != id
+                                    })
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '已取消'
+                        });
+                    });
+                },
+                delete_exam(id){
+                    console.log(id)
+                    let _this = this
+                    this.$confirm(`您确定要删除此考点？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        dangerouslyUseHTMLString: true,
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/ItemBank/deleteChapterSectionPoint',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "chapter_test_point_id": id,
+                                "tf_delete": 1
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除成功',
+                                        duration: 2000
+                                    });
+                                    _this.son_tikus4 = _this.son_tikus4.filter((item) => {
+                                        return item.chapter_test_point_id != id
+                                    })
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '已取消'
+                        });
+                    });
+                },
+                close_edit_chapter(){
+                    let _this = this
+                    _this.son_tikus2.map((item)=>{
+                        item.edit = false
+                    })
+                },
+                close_edit_section(){
+                    let _this = this
+                    _this.son_tikus3.map((item)=>{
+                        item.edit = false
+                    })
+                },
+                close_edit_exam(){
+                    let _this = this
+                    _this.son_tikus4.map((item)=>{
+                        item.edit = false
+                    })
+                },
+                edit_chapter(id){
+                    console.log(id)
+                    let _this = this
+                    _this.son_tikus2.map((item)=>{
+                        item.edit = false
+                        if(item.chapter_test_point_id == id){
+                            item.edit = true
+                            // _this.edit_chapter_info.id = id
+                            _this.edit_chapter_info.name = item.name
+                        }
+                    })
+                },
+                edit_section(id){
+                    console.log(id)
+                    let _this = this
+                    _this.son_tikus3.map((item)=>{
+                        item.edit = false
+                        if(item.chapter_test_point_id == id){
+                            item.edit = true
+                            // _this.edit_chapter_info.id = id
+                            _this.edit_section_info.name = item.name
+                        }
+                    })
+                },
+                edit_exam(id){
+                    console.log(id)
+                    let _this = this
+                    _this.son_tikus4.map((item)=>{
+                        item.edit = false
+                        if(item.chapter_test_point_id == id){
+                            item.edit = true
+                            // _this.edit_chapter_info.id = id
+                            _this.edit_exam_info.name = item.name
+                        }
+                    })
+                },
+                son2() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/queryChapter',
+                        type: 'post',
+                        contentType:'application/json',
+                        data: JSON.stringify({
+                            ibs_id: _this.activeIndexa
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                        data.map((item)=>{
+                            console.log(item)
+                            item.selected = false
+                            item.edit = false
+                        })
+                            console.log(data)
+                            _this.son_tikus2 = data
+                            _this.search_question_info.chapter_id = ''
+                            _this.search_question_info.section_id = ''
+                            _this.search_question_info.examination_site_id = ''
+                            _this.son_tikus3 = []
+                            _this.son_tikus4 = []
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                son3(num) {
+                    let _this = this
+                    _this.add_section = false
+                    _this.selected_info.section_id= ''
+                    _this.son_tikus4 = []
+                    _this.son_tikus2.map((item)=>{
+                        item.selected = false
+                        if(item.chapter_test_point_id == num){
+                            item.selected = true
+                            _this.selected_info.chapter_id = num
+                        }
+                    })
+                    obj = {
+                        "ibs_id": _this.activeIndexa,
+                        "father_id":num
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/querySection',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        data.map((item)=>{
+                            console.log(item)
+                            item.selected = false
+                            item.edit = false
+                        })
+                            _this.son_tikus3 = data
+                            _this.search_question_info.section_id = ''
+                            _this.search_question_info.examination_site_id = ''
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                son4(num) {
+                    let _this = this
+                    _this.add_exam = false
+                    _this.son_tikus3.map((item)=>{
+                        item.selected = false
+                        if(item.chapter_test_point_id == num){
+                            item.selected = true
+                            _this.selected_info.section_id = num
+                        }
+                    })
+                    obj = {
+                        "ibs_id": _this.activeIndexa,
+                        "father_id": num
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/queryPoint',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            
+                        data.map((item)=>{
+                            console.log(item)
+                            item.edit = false
+                        })
+                            _this.son_tikus4 = data
+                            _this.search_question_info.examination_site_id = ''
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                    let _this = this
+                    _this.son2()
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

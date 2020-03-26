@@ -1,0 +1,209 @@
+/*修改颜色 开始*/
+.themBlue  .actionBut .success {
+ 
+  background-color: #00aaff;
+}
+.themBlue  .actionBut .success:hover {
+  background-color: #009eed;
+}
+
+.themBlue  .actionBut .default:hover {
+    background-color: #00aaff;
+}
+.themBlue .step-pro b{
+  color: #00aaff;
+}
+/*修改颜色 结束*/
+
+.testAlertBox {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 111;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.testAlertContent {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #fff;
+  width: 640px;
+  margin: -162px 0 0 -320px;
+}
+.alertContentTitle,
+.alertContentTitle h2 {
+  width: 100%;
+  text-align: center;
+}
+.alertContentTitle {
+  position: relative;
+}
+.alertContentTitle h3 {
+  font-size: 24px;
+  line-height: 24px;
+  color: #333;
+  padding-top: 40px;
+}
+.alertContentTitle .deleBut {
+  right: 14px;
+  top: 14px;
+  position: absolute;
+  font-family: iconfont !important;
+  font-size: 14px;
+  line-height: 14px;
+  color: #999;
+  cursor: pointer;
+}
+.alertContent {
+  width: 100%;
+  min-height: 175px;
+  text-align: center;
+  padding: 0 34px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.actionBut {
+  width: 100%;
+  text-align: center;
+  padding: 0 35px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*font-size: 0;*/
+  letter-spacing: -3px;
+}
+.actionBut button {
+  font-size: 12px;
+  line-height: 36px;
+  margin: 0 45px;
+  padding: 0 36px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+.actionBut .default {
+  border: 1px solid #ddd;
+  color: #999;
+}
+.actionBut .success {
+  border: none;
+  color: #FFF;
+  background-color: #07bbee;
+}
+.actionBut .success:hover {
+  background-color: #01aadd;
+}
+.actionBut .default:hover {
+  border-color: transparent;
+  color: #fff;
+  background-color: #07bbee;
+}
+.testList {
+  width: 100%;
+  /*font-size: 0;*/
+  letter-spacing: -3px;
+}
+.testList p {
+  width: 98px;
+  height: 101px;
+  margin: 49px 46px 0;
+  display: inline-block;
+  background: url("../image/ques_tan01.png") no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  color: #fff;
+}
+.testList p b{
+  margin-right: 4px;
+}
+.testList p span {
+  line-height: 60px;
+  margin:0 4px;
+}
+.progress {
+  width: 100%;
+}
+.progress-box {
+  padding-top: 108px;
+  position: relative;
+  width: 360px;
+  margin: 0 auto;
+}
+.progress-box p {
+  height: 10px;
+  border-radius: 5px;
+}
+.progress-box .defaul-pro {
+  background-color: #eee;
+}
+.progress-box .step-pro {
+  background-color: #009eed;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 90%;
+  max-width: 100%;
+}
+.step-pro span {
+  font-size: 14px;
+  color: #333;
+}
+.step-pro b,
+.step-pro em {
+  font-size: 16px;
+}
+.step-pro {
+  margin-top: 26px;
+  width: 100%;
+  text-align: center;
+}
+.step-pro b {
+  color: #07bbee;
+  font-weight: normal;
+}
+.step-pro em {
+  color: #bbb;
+}
+.step-pro span {
+  width: 145px;
+  height: 35px;
+  border: 1px solid #f3f3f3;
+  position: absolute;
+  right: -70px;
+  top: -50px;
+  border-radius: 4px;
+  line-height: 35px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(3, 3, 3, 0.3);
+  -moz-box-shadow: 0 1px 4px 0 rgba(3, 3, 3, 0.3);
+  box-shadow: 0 1px 4px 0 rgba(3, 3, 3, 0.3);
+}
+.step-pro span:after,
+.step-pro span:before {
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 6px solid #f3f3f3;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  left: 50%;
+  margin-left: -6px;
+  position: absolute;
+}
+.step-pro span:after {
+  border-top-color: #fff;
+  bottom: -5px;
+}
+.step-pro span:before {
+  bottom: -7px;
+}

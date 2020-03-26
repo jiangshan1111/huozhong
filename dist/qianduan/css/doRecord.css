@@ -1,0 +1,453 @@
+/*
+* @Author: baocheng
+* @Date:   2017-07-05 17:39:04
+* @Last Modified by:   baocheng
+* @Last Modified time: 2017-09-08 19:25:00
+*/
+/*颜色修改 开始*/
+.themBlue .wedge {
+    background: #00aaff;
+}
+.themBlue  .scoreFin strong{
+    color: #00aaff;
+}
+
+.themBlue .recordList .urseOper button{
+    border: 1px solid #00aaff;
+    background-color: #00aaff;
+}
+
+.themBlue .recordList .urseOper button:hover {
+    background-color: #009eed;
+    border-color: #009eed;
+}
+
+.themBlue .recordList .urseOper .contiYell {
+    border-color: #ff9900;
+
+    background-color: #fff;
+}
+.themBlue .recordList .urseOper .contiYell:hover {
+    border-color: #ff9900;
+
+    background-color: #ff9900;
+}
+
+.themBlue .pages-find li:hover, .themBlue .pages-find li.active {
+    color: #fff;
+    border-color: #00aaff;
+    background-color: #00aaff;
+}
+
+/*颜色修改 结束*/
+
+.blueGray {
+    background-color: #f5f8fa;
+}
+
+.centerBox {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+.achieveBox {
+    padding: 20px 0 60px;
+}
+
+b,
+strong {
+    font-weight: normal;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+
+/*分页按钮 start*/
+
+.pages-find {
+    padding: 40px 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.pages-find li:nth-child(1) {
+    display: none;
+}
+
+.pages-find li {
+    color: #707070;
+    border-color: #aaa;
+}
+
+.pages-find li a {
+    padding: 5px 10px;
+    color: #707070;
+}
+
+.pages-find li span {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.pages-find li:hover,
+.pages-find li.active {
+    color: #fff;
+    border-color: #07bbee;
+    background-color: #07bbee;
+}
+
+.pages-find li.disabled:hover {
+    border-color: #d8d8d8;
+}
+
+
+/*分页按钮 end*/
+
+
+/* 公共头 start*/
+
+.achieveBox .achieveTit {
+    height: 80px;
+    padding: 0 30px;
+    line-height: 80px;
+    box-shadow: 0 0 5px 1px rgba(238, 238, 238, .75);
+    background-color: #fff;
+}
+
+.achieveTit .markImg {
+    width: 50px;
+    height: 52px;
+    background-image: url(../../images/tiku/tikuImg.png);
+    background-repeat: no-repeat;
+    margin-right: 15px;
+    margin-top: 14px;
+}
+
+.achieveTit .recimg-rec {
+    background-position: -239px -10px;
+}
+
+.achieveTit .recimg-hide {
+    background-position: -392px -10px;
+}
+
+.achieveTit .recimg-arror {
+    background-position: -333px -10px;
+}
+
+.achieveTit strong {
+    font-size: 24px;
+    margin-right: 28px;
+    font-weight: normal;
+}
+
+.achieveTit .strRec {
+    color: #00cc99;
+}
+
+.achieveTit .strHide {
+    color: #ff9933;
+}
+
+.achieveTit .strError {
+    color: #ff6666;
+}
+
+.achieveTit b {
+    font-size: 14px;
+    color: #666;
+    font-weight: normal;
+}
+
+.retQue {
+    margin: 0 17px;
+    padding: 13px 27px;
+    outline: none;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    border: 1px solid #eee;
+    background-color: #fff;
+    color: #666;
+    margin-top: 18px;
+}
+
+.retQue:hover {
+    background-color: #f3f3f3;
+}
+
+
+/* 公共头 end*/
+
+
+/*记录 start*/
+
+.achieveBox .recordContent {
+    padding: 30px 30px 0 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 1px rgba(238, 238, 238, .75);
+    margin-top: 20px;
+}
+
+.recordContent .recordList li {
+    height: 56px;
+    line-height: 56px;
+    padding: 0 10px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.recordContent .recordList li:hover {
+    background-color: #f0faff;
+}
+
+.recordList .typeMessage i {
+    font-size: 12px;
+    color: #666;
+    margin-right: 20px;
+}
+
+.recordList .typeMessage b {
+    width: 130px;
+    font-size: 12px;
+    color: #999;
+    margin-right: 34px;
+    text-align: right;
+}
+
+.recordList .typeMessage button {
+    padding: 6px 11px;
+    font-size: 12px;
+    color: #999;
+    line-height: 1;
+    border: 1px solid #eee;
+    outline: none;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+
+/*环形精度条 start*/
+
+.typeMessage .circle {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 18px;
+    margin-right: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.circle i {
+    content: "";
+    background: #fff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.dial-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 10px;
+}
+
+.container1 {
+    left: 0;
+}
+
+.container2 {
+    right: 0;
+}
+
+.wedge {
+    display: block;
+    background: #07bbee;
+    height: 20px;
+    width: 10px;
+}
+
+.container1 .wedge {
+    -webkit-transform: rotateZ(50deg);
+    -moz-transform: rotateZ(50deg);
+    -ms-transform: rotateZ(50deg);
+    -o-transform: rotateZ(50deg);
+    transform: rotateZ(50deg);
+    border-radius: 20px 0 0 20px;
+    -webkit-transform-origin: 10px 10px;
+    -moz-transform-origin: 10px 10px;
+    -ms-transform-origin: 10px 10px;
+    -o-transform-origin: 10px 10px;
+    transform-origin: 10px 10px;
+}
+
+.container2 .wedge {
+    -webkit-transform: rotateZ(180deg);
+    -moz-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+    border-radius: 0 20px 20px 0;
+    left: 0;
+    -webkit-transform-origin: 0 50%;
+    -moz-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
+    -o-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+}
+
+
+/*环形精度条 end*/
+
+.typeMessage .circle:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 9px;
+    top: -18px;
+    height: 16px;
+    width: 0;
+    border-left: 2px solid #eee;
+}
+
+.typeMessage .circle:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 9px;
+    top: 22px;
+    height: 16px;
+    width: 0;
+    border-left: 2px solid #eee;
+}
+
+.recordList .typeMessage em {
+    font-size: 12px;
+    color: #999;
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.recordList .urseOper {
+    width: 164px;
+    height: 56px;
+}
+
+.recordList .urseOper button {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 0;
+    padding: 6px 11px;
+    line-height: 1;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    border: 1px solid #07bbee;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    background-color: #07bbee;
+}
+
+.recordList .urseOper .contiYell {
+    border-color: #ff9900;
+    color: #ff9900;
+    background-color: #fff;
+}
+
+.recordList .urseOper .contiYell:hover {
+    border-color: #ff9900;
+    color: #fff;
+    background-color: #ff9900;
+}
+
+.recordList .urseOper button:hover {
+    background-color: #01aadd;
+    border-color: #01aadd;
+}
+
+.testResult .scoreFin {
+    width: 80px;
+    font-size: 12px;
+    color: #666;
+    padding-right: 30px;
+}
+
+.scoreFin strong {
+    color: #07bbee;
+    font-weight: 700;
+}
+
+.scoreFin .contiYell {
+    color: #07bbee;
+}
+
+.testResult .correctText {
+    margin-right: 22px;
+}
+
+.testResult .correctText i {
+    font-size: 14px;
+    color: #4db565;
+    margin-right: 5px;
+    vertical-align: bottom;
+}
+
+.testResult .correctText b {
+    display: inline-block;
+    width: 16px;
+    color: #666;
+}
+
+.testResult .errorText {
+    margin-right: 40px;
+}
+
+.testResult .errorText i {
+    font-size: 13px;
+    color: #ee4d33;
+    margin-right: 5px;
+    vertical-align: bottom;
+}
+
+.testResult .errorText b {
+    display: inline-block;
+    width: 16px;
+    color: #666;
+}
+
+.recordList .testResult em {
+    display: inline-block;
+    width: 46px;
+    text-align: left;
+    font-size: 12px;
+    color: #666;
+    margin-right: 40px;
+}
+
+
+/*记录 end*/

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+        .el-input--suffix .el-input__inner {
+    padding-right: 30px;
+    height: 30px;
+    width: 170px;
+}
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+        .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width: 170px;
+}
+.el-input--prefix .el-input__inner {
+    height: 28px;
+}
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+             margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+        .proxyBox .liveList li {
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 教学
+                    <ul class="lrow page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='direct.html'">上直播</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap operate">
+                    <div class="mainbackground nopadding main2" style="">
+                        <div class="impotrArea" style="min-height: 80px;">
+                        <div class="proxyBox">
+                            <ul class="liveList liveList2">
+                
+                    
+                        <li class="clear">
+                            <div class="fl liveTit">
+                                
+                                
+                                
+                                
+                                    <h2>
+                                        <em class="over">{{new Date(detail_info.begin_class_date) > new Date()?'直播未开始':new Date(detail_info.end_time_datess) > new Date()?'直播进行中':'直播已结束'}}</em>
+                                        <b>{{getNowFormatDate(new Date(detail_info.begin_class_date))}}</b>
+                                    </h2>
+                                
+                            </div>
+                            <div class="fl liveCur">
+
+
+                                    <p class="addPad">
+                                        <span>课次名称 :<em>{{detail_info.ct_name}}</em></span>
+                                    </p>
+                                    <p>
+                                        <span>授课教师 :<em>{{detail_info.true_name}}</em></span>
+                                        <span>时长 :<em>{{detail_info.total_hours}}小时</em></span>
+
+                                        <span class="stuNum">学员数量 :<em>{{detail_info.num_of_student}}人</em></span>
+
+
+                                        <span>课程类型 :<em>直播课</em></span>
+                                    </p>
+                                </div>
+                
+                            
+                                
+                                
+                                <div class="fr uploadArea" data-id="34270" data-company="34270">
+                                        <span class="btn-sel" data-id="865947" data-name="2019一级消防工程师试讲课"
+                                            data-module="646641" data-classtype="1"
+                                            @click="goDetail(detail_info)">详情</span>
+                                        <el-dropdown>
+                                            <!-- <el-button type="primary"> -->
+                                            <span class="getmore">更多
+
+                                            </span>
+                                            <!-- </el-button> -->
+                                            <el-dropdown-menu slot="dropdown"  v-if="new Date(detail_info.begin_class_date) > new Date()">
+                                                <el-dropdown-item @click.native="review(detail_info)">修改课次</el-dropdown-item>
+                                            </el-dropdown-menu>
+                                        </el-dropdown>
+
+                                    </div>
+                                
+                            
+                
+                            
+                                <p class="fr playback"><span class="btn-up" living-type="1" data-type="huifang" data-id="113024" data-classtype="1">查看回放</span>
+                                </p>
+                            
+                            
+                            
+                                
+                                
+                            
+                        </li>
+                </ul>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="mainbackground main1">
+                    <div class="operate_main nospace personLive">
+                            <div class="heading">
+                                <h2 class="h5">直播信息</h2>
+                
+                                 
+                
+                                <span class="line"></span>
+                         </div>
+                           <div class="class_number_cell">
+                                <div class="w h">
+                                   <span class="class_number_name">直播主题：</span>
+                                   <span class="class_number_sp">{{detail_info.ct_name}}</span>
+                               </div>
+                               <div class="w h">
+                                   <span class="class_number_name">老师：</span>
+                                   <span class="class_number_sp">{{detail_info.true_name}}</span>
+                               </div>
+                               <div class="w h" v-show="detail_info.type == '修改'">
+                                   <span class="class_number_name">开始时间：</span>
+                                   <template>
+                                        <el-date-picker
+                                          v-model="value1"
+                                          type="datetime"
+                                          placeholder="选择日期时间">
+                                        </el-date-picker>
+                                    </template>
+                               </div>
+                               <div class="w h" v-show="detail_info.type == '详情'">
+                                    <span class="class_number_name">开始时间：</span>
+                                    <span class="class_number_sp">
+                                         {{getNowFormatDate(new Date(detail_info.begin_class_date))}}
+                                    </span>
+                                </div>
+                               <div class="w h" v-show="detail_info.type == '修改'">
+                                    <span class="class_number_name">结束时间：</span>
+                                    <template>
+                                           <el-date-picker
+                                             v-model="value2"
+                                             type="datetime"
+                                             placeholder="选择日期时间">
+                                           </el-date-picker>
+                                       </template>
+                                </div>
+                               <div class="w h" v-show="detail_info.type == '详情'">
+                                   <span class="class_number_name">结束时间：</span>
+                                   <span class="class_number_sp">
+                                        {{getNowFormatDate(new Date(detail_info.end_time_datess))}}
+                                   </span>
+                               </div>
+                               <div class="w h">
+                
+                                   <span class="class_number_name">教务：</span>
+                                    
+                                       
+                                   <template>
+                                      
+                                        <el-select
+                                          v-model="value3"
+                                          multiple
+                                          collapse-tags
+                                          placeholder="请选择">
+                                          <el-option
+                                            v-for="item in options"
+                                            :key="item.user_id"
+                                            :label="item.user_name"
+                                            :value="item.user_id">
+                                          </el-option>
+                                        </el-select>
+                                      </template>
+                               </div>
+                               <div class="w h">
+                                   <span class="class_number_name">当前状态：</span>
+                                   
+                                   
+                                   
+                                   
+                                       <span class="class_number_sp">{{new Date(detail_info.begin_class_date) > new Date()?'直播未开始':new Date(detail_info.end_time_datess) > new Date()?'直播进行中':'直播已结束'}}</span>
+                                   
+                               </div>
+                                
+                
+                                
+                
+                               
+                                
+                               
+                
+                           </div>
+                           <div class="subbtns return" style="display: none;">
+                               <a class="btn btn-big btn-default btn-return" href="javascript:;">返回列表</a>
+                           </div>
+                           <div class="subbtns update" style="">
+                               
+                                       <a class="btn btn-big btn-success btn-save-update" href="javascript:;"  v-show="detail_info.type == '修改'" @click="submit_edit">保存</a>
+                           </div>
+                        
+                
+                        <form id="exportForm" method="post">
+                            <input type="hidden" name="lessonId" id="lessonId" value="113024">
+                            <input type="hidden" name="classTypeName" id="classTypeName" value="基金考试科目一:直播密训班">
+                        </form>
+                    </div>
+                </div>
+                </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+    
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0 ,
+                    value1: '',
+                    value2: '',
+                    value3: [],
+                    detail_info:{},
+                    options: [],
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.detail_info = JSON.parse(localStorage.kc_detail)
+                console.log(_this.detail_info)
+                _this.value1 = new Date(_this.detail_info.begin_class_date)
+                _this.value2 = new Date(_this.detail_info.end_time_datess)
+                _this.value3 = []
+                _this.detail_info.jw_user_id.split(',').map((i)=>{
+                    _this.value3.push(parseInt(i))
+                })
+                obj = {
+                    project_id: 1,
+                    power_name: '教务'
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/comment/queryComment',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.options = data.datalist2
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].cu_statusa = _this.userList[i]
+                        //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                        //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                submit_edit(){
+                    let _this = this
+                    console.log(_this.value3)
+                    obj = {
+                        "begin_class_date":_this.getNowFormatDate(new Date(_this.value1)),
+                        "end_time_datess":_this.getNowFormatDate(new Date(_this.value2)),
+                        "jw_user_id":_this.value3.join(','),
+                        "course_times_id":_this.detail_info.course_times_id
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/teaching/updateLiveCourseTimes',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data.code == 200){
+                                _this.$message.success({
+                                        title: '提示',
+                                        message: '修改成功',
+                                        duration: 2000
+                                    });
+                                    _this.detail_info.begin_class_date = obj.begin_class_date
+                                    _this.detail_info.end_time_datess = obj.end_time_datess
+                                    _this.detail_info.jw_user_id = obj.jw_user_id
+                                    _this.detail_info.course_times_id = obj.course_times_id
+                                    localStorage.kc_detail = JSON.stringify(_this.detail_info)
+                            }else{
+                                _this.$message.error({
+                                        title: '提示',
+                                        message: '修改失败',
+                                        duration: 2000
+                                    });
+                            }
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].cu_statusa = _this.userList[i]
+                            //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                            //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                },
+                review(item){
+                    item.type = "修改"
+                    console.log(item)
+                    localStorage.kc_detail = JSON.stringify(item)
+                    window.open('directdetail.html')
+                },
+                goDetail(item){
+                    item.type = "详情"
+                    console.log(item)
+                    localStorage.kc_detail = JSON.stringify(item)
+                    window.open('directdetail.html')
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

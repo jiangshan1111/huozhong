@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newSource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newresource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toProtocolList.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/layer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/coupon.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/agreement-4.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+        .dropdown {
+    position: inherit;
+}
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .resource .mainbackground .r-list {
+            padding-bottom: 0;
+        }
+
+        .u-wrap .mainbackground.nopadding {
+            padding: 1px 20px 10px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .resource .mainbackground .r-list ul li {
+            padding: 0;
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 资源
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='resource.html'">学科</li>
+                        <li onclick="window.location.href='resourceSchool.html'">校区</li>
+                        <li onclick="window.location.href='resourceKu.html'">资源库</li>
+                        <li onclick="window.location.href='resourceClassxy.html'">课程协议</li>
+                        <li style="color: rgb(250, 105, 0); border-bottom: 2px solid rgb(250, 105, 0);"
+                            onclick="window.location.href='resourceTeacher.html'">教师课时</li>
+                        <li onclick="window.location.href='resourceClassdy.html'">课程单元</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground nopadding">
+                    <div class="heading">
+                        <h2 class="h5" style="font-weight: normal;">课程协议</h2>
+                        <div class="search searchAdmin">
+
+                        </div>
+                        <span class="line"></span>
+                    </div>
+                    <div class="proxySearch">
+                        <span>关键词:</span>
+
+                        <select id="oneItem" v-model="search_info.project_id" 
+                            class="selStyle">
+                            <option value="">请选择学科</option>
+
+                            <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}
+
+                        </select>
+                        <input type="text" v-model="search_info.true_name" maxlength="50" id="name" placeholder="搜索教师名称"
+                            style="font-size: 12px;vertical-align: top;width: 160px;height: 26px;">
+                        <input class="proto-search" @click="init" type="button" id="search" value="搜索">
+                    </div>
+                    <div id="loadData">
+                        <div class="r-list L-r-list">
+                            <div class="r-list L-r-list-table" id="teacherContent"
+                                style="min-height: 350px;position: relative;">
+                                <template>
+                                    <el-table border
+                                        :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                        :data="tableData" style="overflow: auto; margin-top: 20px">
+                                        <el-table-column prop="true_name" label="教师名称" :width="flexColumnWidth(25)"
+                                            style="text-align: center">
+                                        </el-table-column>
+                                        <el-table-column prop="total_hours_available_for_appointment" label="总课时"
+                                            :width="flexColumnWidth(25)">
+                                        </el-table-column>
+                                        <el-table-column prop="total_hours_reserved" label="当前已预约总课时"
+                                            :width="flexColumnWidth(25)">
+                                        </el-table-column>
+                                        <el-table-column label="操作" :width="flexColumnWidth(23)">
+                                            <template slot-scope="scope">
+                                                <el-button type="text" style="  margin-left: 0;" size="small"
+                                                    @click="edit_classTime(scope.row)">
+                                                    编辑课时
+                                                </el-button>
+                                                <el-button type="text" style="  margin-left: 0;" size="small"
+                                                    @click="view_record(scope.row)">
+                                                    授课记录
+                                                </el-button>
+                                            </template>
+                                        </el-table-column>
+                                    </el-table>
+                                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                        :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                        layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                                    </el-pagination>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+        <div class="layui-layer-shade" v-if="model != 0" id="layui-layer-shade2" times="2"
+            style="z-index: 51; background-color: rgb(0, 0, 0); opacity: 0.3;"></div>
+        <div tabindex="-1" v-show="model == 1" role="dialog" aria-modal="true" aria-label="HTML 片段" class="el-message-box__wrapper"
+            style="overflow: auto; z-index: 2001;">
+            <div class="el-message-box" style="overflow: auto;">
+                <div class="el-message-box__header">
+                    <div class="el-message-box__title"><span>编辑课时</span></div> <button @click="model = 0" type="button" aria-label="Close"
+                        class="el-message-box__headerbtn"><i class="el-message-box__close el-icon-close"></i></button>
+                </div>
+                <div class="el-message-box__content">
+                    <div class="el-message-box__message">
+                        <p></p>
+                        <div>
+                            <div class="content-wrapper" style="background: white;">
+                                <form class="form-sample">
+                                    <div class="row">
+                                        <div class="col-md-12" style="padding-left: 1.5rem; padding-right: 1.5rem;">
+                                            <div class="form-group"><label>编辑课时：</label> <input type="text"
+                                                    class="form-control form-control-sm" v-model="classTime_info.total_hours_available_for_appointment"></div>
+                                        </div>
+                                    </div> <input type="button" @click="submit_classTime" value="提交" class="btn btn-gradient-primary mr-2"
+                                        style="float: right; background-color: rgb(0, 170, 255); border: 0px; transition: opacity 0.3s ease 0s; color: white;">
+                                </form>
+                            </div>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    currentPage1: 1, //初始页
+                    currentPage2: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    pagesize1: 10, //    每页的数据
+                    pagesize2: 10, //    每页的数据
+                    model: 0,
+                    projects: [],
+                    value1: '',
+                    value2: '',
+                    userList: [],
+                    userList1: [],
+                    userList2: [],
+                    search_info: {
+                        "project_id": '',
+                        power_name: '教师',
+                        "true_name": ""
+                    },
+                    classTime_info:{
+                        "user_id":parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "total_hours_available_for_appointment":25
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify({}),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                _this.init()
+            },
+            mounted() {
+                let _this = this
+                // obj = JSON.parse(JSON.stringify(_this.search_c_info))
+                //     for(var k in obj){
+                //         if(obj[k] == '' || obj[k] == null){
+                //             delete obj[k]
+                //         }
+                //     }
+                // })
+
+            },
+            methods: {
+                active() {
+
+                },
+                submit_classTime(){
+                    let _this = this
+                    console.log(_this.classTime_info)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resources/editTotalHoursAvailable',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(_this.classTime_info),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data.message == 'success'){
+                                _this.$message.success({
+                                        type: 'info',
+                                        message: '修改成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    _this.init()
+                            }else{
+                                _this.$message.error({
+                                        type: 'info',
+                                        message: '修改失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                        type: 'info',
+                                        message: '服务器错误',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                        }
+                    })
+                },
+                edit_classTime(scope){
+                    this.model = 1
+                    this.classTime_info.user_id = scope.user_id
+                    this.classTime_info.total_hours_available_for_appointment = scope.total_hours_available_for_appointment
+                },
+                view_record(scope) {
+                    window.open('resourceTeacherRecord.html?id=' + scope.user_id)
+                    console.log(scope)
+                    // search_c_info.bindingRelationship == '未绑定协议'?'--':'查看详情'
+                },
+                init() {
+                    let _this = this
+                    obj = JSON.parse(JSON.stringify(_this.search_info))
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    console.log(obj)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resources/teacherHoursShowAndSearch',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            // data.map((item) => {
+                            //     item.create_time = _this.getNowFormatDate(new Date(item
+                            //         .create_time))
+                            //     item.agreement_type1 = item.agreement_type == 1 ? '课程协议' :
+                            //         '课程包协议'
+                            //     item.agreement_pattern1 = item.agreement_pattern == 1 ?
+                            //         '普通协议' : '电子协议'
+                            //     item.agreement_way1 = item.agreement_way == 1 ? '购买前' :
+                            //         '学习前'
+                            //     item.agreement_status1 = item.agreement_status == 1 ? '启用' :
+                            //         '停用'
+                            // })
+                            _this.userList = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

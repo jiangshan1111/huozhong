@@ -1,0 +1,415 @@
+/* @font-face {
+    font-family: 'iconfont';
+    src: url('fonts/iconfont.eot');
+    src: url('fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('fonts/iconfont.woff') format('woff'), url('fonts/iconfont.ttf') format('truetype'), url('fonts/iconfont.svg#iconfont') format('svg')
+} */
+body{
+    font-family: '微软雅黑'
+}
+li{
+    list-style: none;
+}
+.page-ul li{
+    list-style: none;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: .1rem;
+    cursor: pointer;
+    width: 25%;
+}
+#topnav .has-submenu.active a ,#topnav .has-submenu.active a i {
+    /* color: rgb(250, 105, 0); */
+    color: rgba(255, 255, 255, 0.7);
+}
+.navbar-custom .nav-link {
+    padding: 0;
+    line-height: 48px !important;
+    color: rgba(255, 255, 255, 0.8);
+}
+.navbar-custom {
+    border-radius: 0;
+    min-height: 48px !important;
+    color: #fff;
+    z-index: 2;
+}
+.wrapper {
+    padding-top: 48px !important;
+}
+@media (min-width: 992px){
+    #topnav .navigation-menu > li > a {
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+    }
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: "Libre Franklin", sans-serif;
+    margin: 10px 0;
+    font-weight: 100;
+}
+.page-title-box .page-title {
+    font-size: 16px;
+    margin: 0;
+    line-height: 35px;
+}
+.page-title-box {
+    margin-bottom: 20px;
+}
+.page-ul{
+    width: 40%;
+    display: inline-flex;
+    margin: 0;
+    margin-left: 5%;
+}
+.colRow .coll{
+    float: left;
+    width: 11%;
+    margin:20px .1% 0 0;
+    /* height: 20px; */
+}
+.colRow .coll input{
+    width: 80%;
+    height: 30px;
+    border: 1px solid #dcdfe6;
+    color: #dcdfe6;
+    height: 32px;
+    border-radius: 5px;
+}
+.colRow .coll select{
+    width: 80%;
+    height: 30px;
+    border: 1px solid #dcdfe6;
+    height: 32px;
+    color: rgb(110,110,110);
+    border-radius: 5px;
+}
+.colRow button{
+    float: left;
+    height: 34px;
+    margin: 15px 0 0 0;
+    padding: 0 20px;
+    margin-left: 20px;
+    background-color: #0af;
+    border: 1px solid #0af;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+.colRow>p button{
+    float: right;
+    height: 34px;
+    margin: 0 0 10px 0;
+    padding: 0 20px;
+    margin-left: 20px;
+    background-color: #0af;
+    border: 1px solid #0af;
+    border-radius: 3px;
+    color: white;
+}
+.colRow>p{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 0;
+}
+
+@media screen and (max-width:750px){
+    .page-ul{
+        width: 80%;
+        display: inline-flex;
+        margin: 0;
+        margin-left: 5%;
+        padding: 0%;
+    }
+    .page-ul li,.page-title-box .page-title{
+        font-size: .1rem;
+    }
+}
+.footer{
+    height: auto;
+}
+.heading {
+    position: relative;
+    margin: 6px 0;
+    padding: 5px 8px;
+    border-left: 3px solid #fa6900;
+    height: 28px;
+}
+h5, .h5 {
+    font-size: 18px;
+    margin: 0;
+}
+.stuheading .line {
+    margin-left: -10px;
+}
+.heading .line {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    height: 0;
+    border-bottom: 2px solid #ddd;
+}
+.colRow .el-input__inner {
+    height: auto;
+    margin: 15px 0 0 0;
+}
+.el-range-editor.el-input__inner {
+    padding: 0 10px;
+}
+.top-content h5{
+    margin: 20px 0 10px 0;
+}
+.top-content p{
+    margin: 0;
+    text-indent: 2em;
+}
+.top-content p button{
+    height: 34px;
+    margin: 0 0 20px 0;
+    padding: 0 20px;
+    margin-left: 20px;
+    background-color: #0af;
+    border: 1px solid #0af;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+.upCont li{
+    list-style: none;
+    line-height: 2.5rem;
+}
+.messageUp{
+    overflow: hidden;
+}
+.messageUp>div,.messageUp>ul{
+    float: left;
+}
+.messageUp  .studyPic {
+    width: 152px;
+    height: 152px;
+    background-color: #fff;
+    position: relative;
+    top: 8px;
+    left: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.messageUp  .studyPic .bg1 {
+    width: 142px;
+    height: 142px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -71px;
+    margin-top: -71px;
+    background-color: #f7f7f7;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+.messageUp  .studyPic .bg2 {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: -60px;
+    background-color: #efefef;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+.messageUp  .studyPic i {
+    width: 108px;
+    height: 108px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -54px;
+    margin-top: -54px;
+    background-image: url(../images/head_big.png);
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.messageDown .headTitle li{
+    list-style: none;
+    display: inline-block;
+    font-size: 16px;
+    color: #666;
+    margin-right: 38px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+ .messageDown .headTitle {
+     width: 100%;
+    height: 51px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    line-height: 52px;
+}
+.messageDown .headTitle li.active {
+    border-bottom: 3px solid #00aaff;
+    color: #00aaff;
+    height: 50px;
+}
+.studyList dd,.studyList span{
+    float: left;
+}
+.studyList dd{
+    height: 40px;
+    line-height: 40px;
+}
+.studyList span{
+    text-align: right;
+}
+.messageDown .classifyBox {
+    overflow: hidden;
+    float: left;
+}
+.messageDown .classifyBox li {
+    list-style: none;
+    background: #fff;
+    font-size: 12px;
+    color: #999;
+    padding: 5px 13px;
+    border: 1px solid #d7d7d7;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    float: left;
+    margin-right: 14px;
+    cursor: pointer;
+}
+.messageDown .classifyBox li.active {
+    color: #fff;
+    background: #1ebb90;
+    border: 1px solid #1ebb90;
+}
+.showClass {
+    display: inline;
+    float: right;
+    margin-right: 15px;
+    font-size: 14px;
+    color: #333;
+}
+.recordBox .recordListBox dd {
+    position: relative;
+    background: #fff;
+    min-height: 200px;
+    height: auto;
+    margin-top: 24px;
+    float: none;
+    border: 1px solid rgb(230,230,230);
+}
+.status_img {
+    position: absolute;
+    width: 81px;
+    height: 80px;
+    background: red;
+    right: 30px;
+    bottom: 44px;
+}
+.learning {
+    background: url(../images/learning.png) no-repeat center center;
+}
+.delete {
+    background: url(../images/delete.png) no-repeat center center;
+}
+.recordBox .recordListBox .recordPic {
+    width: 292px;
+    height: 160px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../images/overview_demo.jpg);
+}
+.recordBox .recordListBox .listCont {
+    margin: 0 20px 0 334px;
+    padding-top: 22px;
+}
+.recordBox .listCont li {
+    font-size: 14px;
+    color: #999;
+    line-height: 26px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.clear{
+    clear: both;
+}
+.recordBox .integralBox {
+    width: 100%;
+    margin-top: 0;
+}
+.el-table__empty-block {
+    justify-content: inherit;
+}
+.el-table .cell {
+    line-height: 30px;
+}
+.transactList li {
+    overflow: hidden;
+    background-color: #f3f6f8;
+}
+.transactList .tranpic .backMony {
+    background-image: url(../images/tuifei.png);
+}
+.zhiBoBox {
+    padding-bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.messageDown .contentTable button {
+    /* list-style: none; */
+    background: #fff;
+    font-size: 12px;
+    color: #999;
+    padding: 5px 13px;
+    border: 1px solid #d7d7d7;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    /* float: left; */
+    margin-right: 14px;
+    cursor: pointer;
+}
+.messageDown .contentTable button.active {
+    color: #fff;
+    background: #1ebb90;
+    border: 1px solid #1ebb90;
+}
+.zhiBoBox .title {
+    margin: 20px 0 10px;
+}
+.studyList span {
+    float: none;
+}
+.studyList .title {
+    text-align: left
+}
+.studyList .lessonOut {
+    float: right;
+    height: 34px;
+    margin: 0 0 20px 0;
+    padding: 0 20px;
+    margin-left: 20px;
+    background-color: #0af;
+    border: 1px solid #0af;
+    border-radius: 3px;
+    color: white;
+    line-height: 34px;
+}
+.writeRecord .searchTerm {
+    margin-top: 10px;
+}

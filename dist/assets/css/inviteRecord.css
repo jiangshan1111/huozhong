@@ -1,0 +1,294 @@
+.box-sizing {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .clear:after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+  .clear {
+    zoom: 1;
+  }
+  .fl {
+    float: left;
+  }
+  .fr {
+    float: right;
+  }
+  .recordBox {
+    width: 100%;
+    padding: 24px 10px 0;
+  }
+  .appoint {
+    margin-bottom: 30px;
+  }
+  .appointTime button,
+  .exportBUt {
+    padding: 0 10px;
+    margin: 0;
+    margin-right: 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #999;
+    line-height: 26px;
+    border: 1px solid #d7d7d7;
+  }
+  .appointTime .active {
+    color: #fff;
+    padding: 0 11px;
+    line-height: 28px;
+    border: none;
+    background-color: #1ebb90;
+  }
+  /*.appointTime button:hover {*/
+  /*background-color: #f3f3f3;*/
+  /*}*/
+  
+  
+  .appointTime .newsearch {
+    display: inline-block;
+    width: 175px;
+    border-color: #E0E0E0;
+    margin-right:20px;
+    margin-left: 15px;
+    padding: 4px 10px;
+    font-size: 14px;
+    vertical-align: baseline;
+    color: #666;
+  }
+  .record-title {
+    padding: 24px 10px 6px;
+    border-bottom: 1px solid #ccc;
+  }
+  .record-title h3 {
+    font-size: 16px;
+    color: #000;
+    line-height: 22px;
+    padding-left: 10px;
+    border-left: 3px solid #fa6900;
+  }
+  .appointTime {
+    font-size: 0;
+    height: 28px;
+  }
+  .appoint h3 {
+    font-size: 14px;
+    line-height: 28px;
+    color: #999;
+    margin-right: 10px;
+  }
+  .appointTime label {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .appointTime span {
+    font-size: 12px;
+    color: #999;
+    line-height: 28px;
+    margin: 0 10px;
+    vertical-align: middle;
+  }
+  .starTime,
+  .endTime,
+  .proxyName {
+    width: 85px;
+    height: 28px;
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    vertical-align: top;
+    font-size: 12px;
+    color: #999;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .proxyName {
+    width: 148px;
+    margin-right: 20px;
+  }
+  .proxyName::-webkit-input-placeholder,
+  .proxyName:-moz-placeholder,
+  .proxyName:-ms-input-placeholder {
+    font-size: 12px;
+    color: #999;
+  }
+  button.search,
+  button.exportBUt {
+    border: none;
+    color: #fff;
+    background-color: #00aaff;
+    border-radius: 4px;
+  }
+  .stateCount .exportBUt{
+    padding: 2px 18px;
+  }
+  
+  .search.manage-button{
+    padding: 0 11px;
+  }
+  .searchal{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  button.search:hover,
+  button.exportBUt:hover {
+    background-color: #009eed;
+  }
+  .stateCount {
+    margin-bottom: 14px;
+  }
+  .stateCount p {
+    font-size: 14px;
+    color: #333;
+    line-height: 26px;
+  }
+  .stateCount b {
+    font-weight: normal;
+  }
+  .stateCount span {
+    padding-right: 28px;
+  }
+  .tabBox {
+    width: 100%;
+  }
+  .newTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .newTable th,
+  .newTable td {
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    line-height: 38px;
+  }
+  .newTable th {
+    font-weight: normal;
+    color: #333;
+    font-size: 14px;
+    background-color: #f0f0f0;
+  }
+  .newTable td {
+    color: #666;
+    font-size: 12px;
+    background-color: #fff;
+  }
+  .newTable td a {
+    color: #00aaff;
+    font-size: 12px;
+    text-decoration: none;
+  }
+  .newTable td a:hover {
+    color: #01AADD;
+  }
+  .asideAlert {
+    background: rgba(0, 0, 0, 0.2);
+    /*支持rgba的浏览器*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  .asideCont {
+    width: 960px;
+    max-height: 586px;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    margin-left: -480px;
+    min-height: 200px;
+    position: absolute;
+    transform: translateY(-50%);
+  }
+  .asideTitle {
+    font-size: 16px;
+    color: #333;
+    line-height: 36px;
+    padding: 3px 15px 0 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  i.butDel {
+    font-size: 14px;
+    color: #949494;
+    line-height: 14px;
+    font-family: iconfont !important;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .asideInserCon {
+    width: 100%;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .actionBox {
+    margin-bottom: 20px;
+  }
+  .actionBox span {
+    font-size: 14px;
+    color: #333;
+    line-height: 26px;
+    margin-right: 25px;
+  }
+  .actionBox b {
+    font-weight: normal;
+  }
+  .actionBox select,
+  .actionBox input {
+    height: 26px;
+    padding: 0 10px;
+    margin: 0;
+    margin-right: 20px;
+  }
+  .actionBox select {
+    width: 150px;
+    border: 1px solid #ccc;
+  }
+  .actionBox input {
+    width: 170px;
+    border: 1px solid #ccc;
+  }
+  .asideStatus {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .asideStatus span {
+    float: right;
+    font-size: 14px;
+    color: #666;
+    margin-left: 40px;
+  }
+  .asideStatus b {
+    font-weight: normal;
+  }
+  .redius {
+    position: relative;
+  }
+  .redius i {
+    position: absolute;
+    cursor: pointer;
+    right: -12px;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+  }
+  i.up {
+    top: 0;
+    border-bottom-color: #616161;
+  }
+  i.down {
+    bottom: 0;
+    border-top-color: #616161;
+  }
+  .alertTable th {
+    line-height: 33px;
+  }
+  .alertTable td {
+    line-height: 33px;
+  }
+  

@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .iconfontH {
+            color: red;
+        }
+
+        .tipsH {
+            color: red;
+        }
+
+        .iii {
+            position: absolute;
+            top: 23px;
+            right: -8px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #ddd;
+        }
+
+        .cc {
+            height: 62px;
+            padding: 0 1%;
+            line-height: 1.5;
+        }
+
+        .alert {
+            padding: 15px;
+            border: 1px solid transparent;
+            margin: 0 auto;
+        }
+
+        .alert-warning {
+            color: #c09853;
+            background-color: #fcf8e3;
+            border-color: #fbeed5
+        }
+
+        .alert-dismissable .cloze {
+            position: relative;
+            right: 50px;
+            color: inherit;
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        .cloze {
+            float: right;
+            font-size: 21px;
+            font-weight: bold;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .2;
+            filter: alpha(opacity=20);
+            display: inline-block;
+            margin-top: 0px;
+            margin-right: 0px;
+            width: 9px;
+            height: 9px;
+            background-repeat: no-repeat !important;
+        }
+
+        .noalert {
+            float: right;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .2;
+            filter: alpha(opacity=20);
+            display: inline-block;
+            margin: 1px -15px 0 15px;
+            width: 80px;
+            height: 9px;
+            background-repeat: no-repeat !important;
+            cursor: pointer;
+        }
+
+        .cloze:hover,
+        .cloze:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            opacity: .5;
+            filter: alpha(opacity=50)
+        }
+
+        button.cloze {
+            padding: 0;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            -webkit-appearance: none
+        }
+
+        .dropdown {
+            position: absolute;
+        }
+
+        .dropdown {
+            position: inherit;
+        }
+
+        .el-date-editor .el-range-separator {
+            width: 24px;
+        }
+
+        .el-date-editor .el-range-input {
+            width: 46%;
+        }
+
+        .listBox {
+            position: fixed;
+            width: 870px;
+            left: 50%;
+            top: 70px;
+            margin-left: -375px;
+            background-color: #fff;
+        }
+
+        .pages li.disabled {
+            padding: 0px;
+        }
+
+        #dateList a {
+            margin-right: 15px
+        }
+
+        #keyword {
+            display: inline-block;
+            width: 70px;
+            font-size: 14px;
+            color: #999;
+            padding-right: 10px;
+            line-height: 26px;
+            text-align: right;
+            float: left;
+        }
+
+        #schoolIds {
+            width: 148px;
+            height: 26px;
+            border: 1px solid #d7d7d7;
+            border-radius: 2px;
+            margin-right: 15px;
+            font-size: 12px;
+            color: #666;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .balanceTable td {
+            line-height: 22px;
+            padding: 0px 5px !important;
+        }
+
+        #export {
+            margin-right: 15px;
+            margin-bottom: 8px;
+        }
+
+        .nopadding .impotrArea {
+            padding-top: 0;
+            min-height: 380px;
+        }
+
+        .heading {
+            margin-bottom: 20px;
+        }
+
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .resource .mainmbackground .r-list {
+            padding-bottom: 0;
+        }
+
+        .u-wrap .mainbackground.nopadding {
+            padding: 1px 20px 10px;
+        }
+
+        .proxySearch {
+            font-size: 0;
+            margin-bottom: 20px;
+        }
+
+        .proxySearch span {
+            width: 80px;
+        }
+
+        .timeSearch em {
+            width: 80px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        /* .timeSearch .btn {
+            font-size: 12px;
+            padding: 6px 12px;
+            margin-right: 12px;
+            margin-bottom: 5px;
+        } */
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav"> </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper  company" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px;margin-top:10px">
+            <!-- End page title box -->
+            <div class="u-wrap query overflow">
+
+
+
+
+
+
+
+
+
+
+                <!-- 二级导航 -->
+                <div class="left-side">
+                    <div class="left-side-title">
+                        <em>用户信息配置</em>
+                        <!-- <span class="iconfont return-pic hcancle">&#xe650;</span> -->
+                    </div>
+                    <ul id="course_manage" class="system_managelist">
+
+                        <li :class="activeIndexb == 0?'subentry active':'subentry'" @click="activea(0)"
+                            code="student_count">修改密码</li>
+
+
+
+
+                        <li :class="activeIndexb == 1?'subentry active':'subentry'" @click="activea(1)"
+                            code="teacher_hour">账户信息</li>
+
+
+
+                    </ul>
+                </div>
+
+                <div class="right-side" v-if="activeIndexb == 0">
+                    <div class="title-box">
+                        <div class="tit-font">
+                            <span class="t">修改密码</span>
+                        </div>
+                    </div>
+                    <div class="add-teacher-room edit-pwd"
+                        style="width: 400px;height: 280px;margin: 5% 28%;background-color: white;position: inherit;display: block;">
+                        <div class="add-teacher-room-content">
+                            <div class="edit-password">
+                                <p class="cc">
+                                    <span class="sc-c-title" style="width: 100px;">旧密码</span>
+                                    <span class="sc-c-content">
+                                        <input type="password" v-model="pwd_info.old_user_pass" placeholder="输入你的旧密码"
+                                            id="oldPwd">
+                                        <i class="iconfontH">*</i>
+
+                                    </span>
+                                    <span class="sc-c-title">&nbsp;</span>
+                                    <span class="sc-c-content">
+                                        <span class="tipsH old"></span>
+                                    </span>
+
+
+                                </p>
+                                <p class="cc">
+                                    <span class="sc-c-title" style="width: 100px;">新密码</span>
+                                    <span class="sc-c-content">
+                                        <input type="password" v-model="pwd_info.new_user_pass" placeholder="输入新密码"
+                                            id="newPwd">
+                                        <i class="iconfontH">*</i>
+
+                                    </span>
+                                    <span class="sc-c-title">&nbsp;</span>
+                                    <span class="sc-c-content">
+                                        <span class="tipsH new"></span>
+                                    </span>
+
+                                </p>
+                                <p class="cc">
+                                    <span class="sc-c-title" style="width: 100px;">重复一遍</span>
+                                    <span class="sc-c-content">
+                                        <input type="password" v-model="pwd_info.again_user_pass" placeholder="再次输入新密码"
+                                            id="nextPwd">
+                                        <i class="iconfontH">*</i>
+
+                                    </span>
+                                    <span class="sc-c-title">&nbsp;</span>
+                                    <span class="sc-c-content">
+                                        <span class="tipsH next"></span>
+                                    </span>
+
+                                </p>
+                                <p class="cc">
+                                    <span class="sc-c-title">&nbsp;</span>
+                                    <span class="sc-c-content" style="margin-left: 60px;">
+                                        <a href="javascript:;" class="btn btn-sm btn-primary save"
+                                            @click="submit_pwd">修改</a>
+                                        <!-- <a href="javascript:;" class="btn btn-sm btn-primary cancle">取消</a> -->
+                                    </span>
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-side" v-if="activeIndexb == 1">
+                    <div class="mainbackground">
+                        <div class="buy-title" style="border-bottom: solid 1px #ccc;">
+                            <div class="heading">
+                                <i class="brand-text" style="font-style: initial;">账户信息</i>
+                            </div>
+                        </div>
+                        <div class="main">
+                            <input type="hidden" value="34270" id="companyId">
+                            <p class="c">
+                                <span class="m-title">登录名</span> <input type="text" class="readonly" name="name"
+                                    value="jiangshan1" readonly="" v-model="simple_info.user_name" tabindex="-1">
+                            </p>
+                            <p class="c">
+                                <span class="m-title">姓名</span> <input type="hidden" value="江山" id="HRealName"> <input
+                                    type="text" name="realName" v-model="simple_info.true_name" class="input-edit"
+                                    value="江山" tabindex="-1">
+                            </p>
+
+                            <p class="c">
+                                <span class="m-title">手机号码</span> <input type="hidden" value="13437259576" id="HMobile">
+                                <input type="text" name="mobile" v-model="simple_info.tel" value="13437259576"
+                                    tabindex="-1">
+                            </p>
+                        </div>
+                        <div class="buy-title" style="border-bottom: solid 1px #ccc;">
+                            <div class="heading">
+                                <i class="brand-text" style="font-style: initial;">紧急联系人</i>
+                            </div>
+                        </div>
+                        <div class="main">
+                            <p class="c">
+                                <span class="m-title">姓名</span> <input type="hidden" value=""
+                                    id="HEmergencyContactName">
+                                <input type="text" name="emergencyContactName" v-model="simple_info.urgent_people"
+                                    class="input-edit" value="" tabindex="-1">
+                            </p>
+                            <p class="c">
+                                <span class="m-title">电话号码</span> <input type="hidden" value=""
+                                    id="HEmergencyContactMobile"> <input type="text" name="emergencyContactMobile"
+                                    class="input-edit" value="" v-model="simple_info.urgent_people_tel" tabindex="-1">
+                            </p>
+                        </div>
+                        <div class="main">
+                            <p class="cc">
+                                <span class="sc-c-title">&nbsp;</span>
+                                <span class="sc-c-content" style="margin-left: 60px;">
+                                    <a href="javascript:;" class="btn btn-sm btn-primary save"
+                                        @click="submit_simple">修改</a>
+                                    <!-- <a href="javascript:;" class="btn btn-sm btn-primary cancle">取消</a> -->
+                                </span>
+
+                            </p>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    activeIndexa: 0,
+                    activeIndexb: localStorage.simple_activeIndexb == undefined ? 0 : parseInt(localStorage
+                        .simple_activeIndexb),
+                    user_id: parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                    model: 0,
+                    pwd_info: {
+                        old_user_pass: '',
+                        new_user_pass: '',
+                        again_user_pass: '',
+                    },
+                    simple_info: {
+                        user_name: '',
+                        true_name: '',
+                        tel: "",
+                        urgent_people: '',
+                        urgent_people_tel: '',
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function () {
+                    $("#topnav").load("header.html");
+                });
+                _this.activea(_this.activeIndexb)
+            },
+            mounted() {
+
+            },
+            methods: {
+                active() {
+
+                },
+                submit_simple() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/user/updateinfo',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(_this.simple_info),
+                        // dataType: 'json',
+                        success: function (data) {
+                            if (data.code == 200) {
+                                _this.$message.success({
+                                    type: "提示",
+                                    message: '修改成功'
+                                })
+                            } else {
+                                _this.$message.error({
+                                    type: "提示",
+                                    message: '修改失败'
+                                })
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: "提示",
+                                message: '服务器错误'
+                            })
+                        }
+                    })
+                },
+                submit_pwd() {
+                    let _this = this
+                    if (_this.pwd_info.new_user_pass != _this.pwd_info.again_user_pass) {
+                        _this.$message.error({
+                            type: "提示",
+                            message: '两次密码输入不一致'
+                        })
+                        return
+                    }
+                    if(!(/^[0-9a-zA-Z]+$/g.test(_this.pwd_info.new_user_pass) && /^[0-9a-zA-Z]+$/g.test(_this.pwd_info.old_user_pass))){
+                        _this.$message.error({
+                            type: "提示",
+                            message: '密码格式错误，只能填写数字或者字母'
+                        })
+                        return
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/user/updateinfo',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            user_id: _this.user_id,
+                            true_name: _this.pwd_info.nickname,
+                            old_user_pass: _this.pwd_info.old_user_pass,
+                            new_user_pass: _this.pwd_info.new_user_pass,
+                        }),
+                        // dataType: 'json',
+                        success: function (data) {
+                            if (data.code == 200) {
+                                _this.$message.success({
+                                    type: "提示",
+                                    message: '修改成功'
+                                })
+                                setTimeout(()=>{
+                                    delete localStorage.login_user_info;window.location.href='login.html';
+                                },1000)
+                            } else {
+                                _this.$message.error({
+                                    type: "提示",
+                                    message: '修改失败'
+                                })
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: "提示",
+                                message: '服务器错误'
+                            })
+                        }
+                    })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                activea(num) {
+                    let _this = this
+                    this.activeIndexb = num;
+                    console.log(this.activeIndexb)
+                    switch (this.activeIndexb) {
+                        case 0:
+                            // _this.search_stu_tj()
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/user/queryinfo',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    "user_id": _this.user_id
+                                }),
+                                // dataType: 'json',
+                                success: function (data) {
+                                    // window.open(data.liveUrl)
+                                    if (data.code == 200) {
+                                        _this.pwd_info = {
+                                            old_user_pass: '',
+                                            new_user_pass: '',
+                                            again_user_pass: '',
+                                            nickname:data.data.true_name
+                                        }
+                                    }
+                                    console.log(data)
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case 1:
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/user/queryinfo',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    "user_id": _this.user_id
+                                }),
+                                // dataType: 'json',
+                                success: function (data) {
+                                    // window.open(data.liveUrl)
+                                    if (data.code == 200) {
+                                        _this.simple_info = data.data
+                                    }
+                                    console.log(data)
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            // _this.search_teacher_tj()
+                            break;
+                        default:
+                            break;
+                    }
+                    localStorage.simple_activeIndexb = num
+                },
+                activec(num) {
+                    this.activeIndexc = num;
+                },
+                actived(num) {
+                    this.activeIndexd = num;
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

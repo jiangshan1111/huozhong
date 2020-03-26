@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <!-- <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newSource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/importText.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" /> -->
+    <style>
+        body {
+            color: black;
+        }
+
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 题库
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='questionexam.html'">试题</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='questionexamtextPaper.html'">
+                            试卷</li>
+                        <li onclick="window.location.href='questionChapters.html'">章节考点</li>
+                        <li onclick="window.location.href='questionSector.html'">科目管理</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground nopadding">
+                    <div class="heading headingImp">
+                        <h2 class="h5">导入记录</h2>
+                        <div class="search searchAdmin">
+                            <!-- <a href="javascript:;" class="btn btn-mini btn-primary">
+                             返回</a> -->
+                        </div>
+                        <span class="line"></span>
+                    </div>
+                    <!-- 前端新加html -->
+                    <div class=" impotrArea">
+                        <table class="table table-center cashrecord-tab">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="28%">
+                                <col width="19%">
+                                <col width="9%">
+                                <col width="8%">
+                                <col width="9%">
+                                <col width="7%">
+                            </colgroup>
+                            <tbody><tr class="tab-htr"><th>文件名称</th><th>导入题库</th><th>导入科目</th><th>导入时间</th><th>试题数量</th><th>操作人</th><th>操作</th></tr><tr class="tab-dtr"><td>消防设施周测08.xlsx</td><td>格致学院教研题库</td><td>实务设施</td><td>2019-09-10</td><td>21</td><td>weixuefeng19</td><td><em data-id="38501" class="del">删除试题</em></td></tr><tr class="tab-dtr"><td>消防设施周测07.xlsx</td><td>格致学院教研题库</td><td>实务设施</td><td>2019-09-10</td><td>25</td><td>weixuefeng19</td><td><em data-id="38500" class="del">删除试题</em></td></tr><tr class="tab-dtr"><td>建筑防火周测13.xlsx</td><td>格致学院教研题库</td><td>建筑防火</td><td>2019-09-10</td><td>25</td><td>weixuefeng19</td><td><em data-id="38499" class="del">删除试题</em></td></tr><tr class="tab-dtr"><td>消防设施周测7.xlsx</td><td>格致学院教研题库</td><td>综合设施</td><td>2019-09-03</td><td>25</td><td>weixuefeng19</td><td><em data-id="38231" class="del">删除试题</em></td></tr><tr class="tab-dtr"><td>消防设施周测06.xlsx</td><td>格致学院教研题库</td><td>综合设施</td><td>2019-09-03</td><td>28</td><td>weixuefeng19</td><td><em data-id="38230" class="del">删除试题</em></td></tr><tr class="tab-dtr"><td>综合145周测1.xlsx</td><td>格致学院教研题库</td><td>综合一、四、五篇</td><td>2019-09-03</td><td>31</td><td>weixuefeng19</td><td><em data-id="38229" class="del">删除试题</em></td></tr><tr class="tab-dtr"><td>实务设施周测1.xlsx</td><td>格致学院教研题库</td><td>实务设施</td><td>2019-09-03</td><td>25</td><td>weixuefeng19</td><td><em data-id="38228" class="del">删除试题</em></td></tr><tr class="tab-dtr"><td>实务145周测6.xlsx</td><td>格致学院教研题库</td><td>实务一、四、五篇</td><td>2019-09-03</td><td>25</td><td>weixuefeng19</td><td><em data-id="38227" class="del">删除试题</em></td></tr><tr class="tab-dtr"><td>实务145周测3.xlsx</td><td>格致学院教研题库</td><td>实务一、四、五篇</td><td>2019-09-03</td><td>28</td><td>weixuefeng19</td><td><em data-id="38226" class="del">删除试题</em></td></tr><tr class="tab-dtr"><td>建筑防火周测12.xlsx</td><td>格致学院教研题库</td><td>建筑防火</td><td>2019-09-03</td><td>39</td><td>weixuefeng19</td><td><em data-id="38225" class="del">删除试题</em></td></tr></tbody></table>
+                        <div class="pages pages-find">
+                            <ul class="pagination"><span class="page_about">每页<select class="pageshow" id="pageshow"><option selected="">10</option><option>20</option><option>50</option><option>100</option></select>条<span></span></span><span class="current prev">上一页</span><span class="current">1</span><a href="javascript:;">2</a><a href="javascript:;">3</a><a href="javascript:;">4</a><a href="javascript:;">5</a><span class="dot">...</span><a href="javascript:;">34</a><a href="javascript:;" class="next">下一页</a><span class="page_sum">共340条</span><span class="search-input">跳至<input id="pagevalue" size="1" value="1" type="text">页</span><a id="search" class="search" href="javascript:;">跳转</a></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script> -->
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <!-- <script type="text/javascript" src="http://manage.yunduoketang.com/javascripts/tiku/tikuIndex.js?version=1567692166187"></script> -->
+    <!-- <script src="assets/js/notice.js"></script>
+    <script src="http://manage.yunduoketang.com/javascripts/common/utils.js?version=1563474866721"></script>
+    <script type="text/javascript"
+        src="http://manage.yunduoketang.com/plugins/ckeditor/ckeditor.js?version=1563474866721"></script> -->
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: ''
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+            },
+            mounted() {
+                setTimeout(function () {
+                    console.log($("div.block"))
+                    // $("div.block").on("click",function () {
+                    //     console.log($(this))
+                    //                 $(this).find(".manageGL").show();
+                    //             });
+                    $("div.block").on("mouseenter ", "div.hidden", function () {
+                        console.log($(this))
+                        $(this).find(".manageGL").show();
+                    });
+                    $("div.block").on("mouseleave ", "div.hidden", function () {
+                        $(this).find(".manageGL").hide();
+                    });
+                }, 20)
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                Next() {
+                    this.activeIndexa = 1;
+                    setTimeout(() => {
+                        console.log($('.nextRight'))
+                        $('.nextRight').css('background-position', '0 -32px')
+                    }, 20)
+
+                },
+                returnf() {
+                    this.activeIndexa = 0;
+                    setTimeout(() => {
+                        console.log($('.nextRight'))
+                        $('.nextRight').css('background-position', '0 0px')
+                    }, 20)
+
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+.mobile-icon.iconfont{
+    color:  #787d82;
+    font-size: 20px;
+    cursor: pointer;
+}
+.app-load{
+    float: right;
+    color: #787d82;
+    line-height: 60px;
+    font-size: 22px;
+    display: block;
+    width: 60px;
+    text-align: center;
+    height: 60px;
+}
+.app-load:hover .mobile-icon.iconfont{
+    color: #fff;
+}
+.app-load:hover{
+    color: #fff;
+    transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    background: #4d4e54;
+}
+.app-load.active{
+    color:#fff;
+    background: #363c41;
+}
+.app-load.active .mobile-icon.iconfont{
+    color:#fff;
+}

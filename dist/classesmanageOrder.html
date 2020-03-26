@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/addTitle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classMessage.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+
+        .heading {
+            position: relative;
+            margin: 15px 0;
+            padding: 3px 8px;
+            border-left: 3px solid #fa6900;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+
+        </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company">
+                <div class="block clear">
+
+
+
+                    <div class="labels classStatus else1">
+                        <s id="statusText">{{class_info.cp_status}}</s>
+                        <div class="sanjiao"></div>
+                    </div>
+
+
+
+                    <div class="class-title">课程包名称 ： {{class_info.cp_name}}</div>
+
+                    <div class="price">
+                        价格：{{class_info.favorable_price}}元
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="u-wrap company overflow points-use-class" style="    margin-top: 20px;">
+
+
+                <div class="left-side">
+                    <div class="left-sides-title courseCancle">
+                        <!-- <em>返回</em> -->
+                    </div>
+                    <div class="left-sides-title pop">
+                        <em class="iconfont" style="font-size:13px">| |</em>
+                    </div>
+                    <ul class="menuList_choose">
+                        <li class="subentry" code="baseCode" onclick="window.location.href='classesmanage.html'" mark="/editClass/editClassBaseInfo/832295/togther">
+                            <i class="mdi mdi-information"></i><em>基本信息</em></li>
+                        <li class="subentry" onclick="window.location.href='classesmanageClass.html'" code="videoCode"
+                            mark="/editClass/editClassVideoInfo/832295/togther">
+                            <i class="mdi mdi-television-classic"></i><em>课程管理</em></li>
+                        <li class="lines"></li>
+                        <li class="subentry t1" onclick="window.location.href='classesmanageStu.html'"
+                            code="studentsCode" mark="/classStu/studentList/832295/togther">
+                            <i class=" mdi mdi-human-male"></i><em>学员管理</em></li>
+                        <li class="subentry active" code="classResource"
+                            onclick="window.location.href='classesmanageOrder.html'"
+                            mark="/classModuleLesson/classesResource/832295/togther">
+                            <i class=" mdi mdi-database-plus"></i><em>订单管理</em></li>
+                    </ul>
+                </div>
+                <input type="hidden" id="courseUseMethod" value="simple">
+                <div class="right-side" style="background-color: white;">
+
+                    <div class="mainbackground nopadding" style="min-height: 546px;">
+                        <div class="heading clear">
+                            <h2 class="h5" style="float:left;">订单管理</h2>
+                            <span class="line"></span>
+                        </div>
+                        <form method="post" id="searchForm">
+                            <div>
+                                <input type="hidden" id="classPackageId" name="classPackageId" value="12295">
+                                <span style="margin-left:15px" id="timeMarking">
+                                    <a href="javascript:void(0);" class="choose">全部</a>
+                                    <a href="javascript:void(0);" mark="sevnday">最近七天</a>
+                                </span>
+                                <span style="margin-left: 10px;"><input type="text" name="startTime"
+                                        style="width: 80px;" placeholder="开始时间"
+                                        class="date-picker from"><em>至</em><input type="text" style="width: 80px;"
+                                        placeholder="截止时间" name="endTime" class="date-picker to"></span>
+                                <select id="stageNames" name="stageName">
+                                    <option value="">阶段名称</option>
+                                    <option value="20368">基础精讲</option>
+                                    <option value="20369">模块强化</option>
+                                </select>
+                                <input type="text" id="stuName" name="name" placeholder="学员姓名" style="width:100px;">
+                                <span><a href="javascript:;" class="btn btn-primary searchContents">搜索</a></span>
+                            </div>
+                        </form>
+                        <div style="margin-top: 10px;text-align:right;padding:0 10px;">
+                            <span>已付款额:&nbsp;&nbsp;<span id="payedOrder">5476800.00</span></span>
+                            <span style="margin-left:5px;">欠款:&nbsp;&nbsp;<span id="paying">0.00</span></span>
+                            <span style="margin-left:5px;">总金额:&nbsp;&nbsp;<span id="payTotal">5476800.00</span></span>
+                        </div>
+                        <div class="user-list" style="margin-top: 5px;">
+                            <table class="table table-center" id="tableList">
+                                <tbody>
+                                    <tr>
+                                        <th width="10%">手机号</th>
+                                        <th width="10%">姓名</th>
+                                        <th width="10%">用户名</th>
+                                        <th width="10%">订单时间</th>
+                                        <th width="10%">支付时间</th>
+                                        <th width="10%">来源</th>
+                                        <th width="10%">支付方式</th>
+                                        <th width="15%">总金额</th>
+                                        <th width="15%">已付款额</th>
+                                    </tr>
+
+                                    <tr ids="5991158">
+                                        <td>18686102322</td>
+                                        <td>白继英</td>
+                                        <td></td>
+                                        <td>2019-08-16</td>
+                                        <td>2019-08-16</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                    <tr ids="5990186">
+                                        <td>15960204510</td>
+                                        <td>吴端旺</td>
+                                        <td></td>
+                                        <td>2019-08-16</td>
+                                        <td>2019-08-16</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                    <tr ids="5989850">
+                                        <td>18691869007</td>
+                                        <td>庞磊</td>
+                                        <td></td>
+                                        <td>2019-08-16</td>
+                                        <td>2019-08-16</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                    <tr ids="5988990">
+                                        <td>18909414794</td>
+                                        <td>王喜春</td>
+                                        <td></td>
+                                        <td>2019-08-15</td>
+                                        <td>2019-08-15</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                    <tr ids="5988989">
+                                        <td>13783620597</td>
+                                        <td>宋德清</td>
+                                        <td></td>
+                                        <td>2019-08-15</td>
+                                        <td>2019-08-15</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                    <tr ids="5988988">
+                                        <td>15933870995</td>
+                                        <td>刘永刚</td>
+                                        <td></td>
+                                        <td>2019-08-15</td>
+                                        <td>2019-08-15</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                    <tr ids="5988987">
+                                        <td>13703789466</td>
+                                        <td>范瑞仙</td>
+                                        <td></td>
+                                        <td>2019-08-15</td>
+                                        <td>2019-08-15</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                    <tr ids="5988985">
+                                        <td>13405985410</td>
+                                        <td>黄文蓉</td>
+                                        <td></td>
+                                        <td>2019-08-15</td>
+                                        <td>2019-08-15</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                    <tr ids="5988983">
+                                        <td>13119015988</td>
+                                        <td> 赵喜珠</td>
+                                        <td></td>
+                                        <td>2019-08-15</td>
+                                        <td>2019-08-15</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                    <tr ids="5988980">
+                                        <td>13095021237</td>
+                                        <td>李恒</td>
+                                        <td></td>
+                                        <td>2019-08-15</td>
+                                        <td>2019-08-15</td>
+                                        <td>线下报名</td>
+                                        <td>线下支付</td>
+                                        <td>16,800.00</td>
+                                        <td>16,800.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script src="assets/js/notice.js"></script>
+    <script src="http://manage.yunduoketang.com/javascripts/common/utils.js?version=1563474866721"></script>
+    <script type="text/javascript"
+        src="http://manage.yunduoketang.com/plugins/ckeditor/ckeditor.js?version=1563474866721"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){ 
+            $("#topnav").load("header.html"); 
+            }); 
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

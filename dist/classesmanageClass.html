@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/addTitle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/classMessage.css" rel="stylesheet" type="text/css" /> -->
+    <link rel="stylesheet" href="assets/css/class-manage.css">
+    <style>
+        body {
+            color: black;
+        }
+
+        .right-side .ui-state-default.course-manage {
+            height: 120px;
+            padding: 10px 15px;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+
+    </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company">
+                <div class="block clear">
+
+
+
+                    <div class="labels classStatus else1">
+                        <s id="statusText">{{class_info.cp_status}}</s>
+                        <div class="sanjiao"></div>
+                    </div>
+
+
+
+                    <div class="class-title">课程包名称 ： {{class_info.cp_name}}</div>
+
+                    <div class="price">
+                        价格：{{class_info.favorable_price}}元
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="u-wrap company overflow points-use-class" style="    margin-top: 20px;">
+
+
+                <div class="left-side">
+                    <div class="left-sides-title courseCancle">
+                        <!-- <em>返回</em> -->
+                    </div>
+                    <div class="left-sides-title pop">
+                        <em class="iconfont" style="font-size:13px">| |</em>
+                    </div>
+                    <ul class="menuList_choose">
+                        <li class="subentry" @click="gomange" code="baseCode"
+                            mark="/editClass/editClassBaseInfo/832295/togther">
+                            <i class="mdi mdi-information"></i><em>基本信息</em></li>
+                        <li class="subentry active" @click="goClassmange" code="videoCode"
+                            mark="/editClass/editClassVideoInfo/832295/togther">
+                            <i class="mdi mdi-television-classic"></i><em>课程管理</em></li>
+                        <li class="lines"></li>
+                        <li class="subentry t1" @click="goStumange" code="studentsCode"
+                            mark="/classStu/studentList/832295/togther">
+                            <i class=" mdi mdi-human-male"></i><em>学员管理</em></li>
+                    </ul>
+                </div>
+                <input type="hidden" id="courseUseMethod" value="simple">
+                <div class="right-side">
+                    <div class="u-wrap classes">
+                        <div class="mainbackground nopadding">
+                            <div class="heading">
+                                <h2 class="h5 class-manage-head">课程管理</h2>
+
+                                <span class="head-btn choice-class-btn" @click="add_course('')">添加课程</span>
+                                <span class="head-btn add-grade-btn" @click="model = 1">添加阶段</span>
+                                <em>原价<span id="totalCoursePrice">{{moneyes}}</span>元</em>
+                                <em>共<span id="totalCourseNum">{{classes}}</span>个课程</em>
+                                <span class="line"></span>
+                            </div>
+                            <div style="padding-bottom: 30px;">
+                                <div id="sortable" class="ui-sortable">
+                                    <div class="ui-state-disabled ui-sortable-handle"></div>
+                                    <div class="ui-state-parent par ui-sortable-handle" v-for="(item,index) in userList"
+                                        ids="20368">
+                                        <div class="ui-state-default"><span class="iconfont" title="可拖拽"></span><span
+                                                style="padding-right: 20px;max-width: 120px;overflow: hidden">{{item.stage_name}}</span><span
+                                                style="padding-right: 10px;max-width: 120px;overflow: hidden;font-size: 12px;color: #FE5151;"></span>
+                                            <em class="iconfont open-btn"
+                                                @click="shensuo(index,item.check)">{{item.check == 0?'':''}}</em><em
+                                                class="iconfont delstage"
+                                                @click="delete_stage(item.stage_id,item.course)"></em><em
+                                                class="iconfont editstage" @click="edit_stage(item)"></em><em
+                                                class="iconfont addcourse" @click="add_course(item.stage_id)"></em>
+                                        </div>
+                                        <div class="open-box" v-show="item.check == 1">
+                                            <div class="sec-title" style="margin-left:0">
+                                                <b>[阶段描述]</b>{{item.stage_describe}}</div>
+                                            <div class="sortable-sec droptrue son stageCourse_list22308 ui-sortable"
+                                                style="min-height:5px;" stageid="22308">
+                                                <div class="ui-state-default course-manage ui-sortable-handle"
+                                                    v-for="(item1,index1) in item.course" cid="721616" ids="141227"><img
+                                                        :src="item1.cover" alt="" width="19%" height="100px">
+                                                    <div class="course-manage-cont">
+                                                        <div class="course-manage-title" style="line-height: 20px"><span
+                                                                style="width:66%;word-break: break-all;">{{item1.course_name}}</span><em>{{item1.price}}元</em><i>{{item1.course_status}}</i>
+                                                        </div>
+                                                        <div class="course-manage-bottom"><span
+                                                                class="play-status yellow-bg">{{item1.course_type}}</span><span
+                                                                class="remove-btn delCourse" cid="721616" ids="141227"
+                                                                @click="delete_course(item.stage_id,item1.course_id)">移除课程</span>
+                                                                <span
+                                                                class="show_flag" cid="721616" ids="141227"><input
+                                                                    type="checkbox" v-model="item1.tf_show" @change="change_show(item1,item.stage_id)"
+                                                                    id="course_show_721616">前台显示此课程</span>
+                                                                    <span
+                                                                class="number-box"><i>{{item1.xsrs != null?item1.xsrs:'0'}}学员</i>
+                                                                |
+                                                                <i>{{item1.total_hours}}课时</i> </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+        <div class="pop-fixed add-grade-pop" style="display: block;" v-show="model == 1">
+            <div class="select-board cum-detail">
+                <div class="board-title">
+                    <span id="addMarktitle">添加阶段</span>
+                    <em class="iconfont pop-close-btn" @click="model = 0"></em>
+                </div>
+                <form id="stageForm" method="post">
+                    <div class="select-content">
+                        <div style="margin-top: 20px;">
+                            <div class="add-grade-content">
+                                <p>
+                                    <span>名称</span>
+                                    <input type="text" name="title" v-model="stage_info.stage_name" id="stage_title"
+                                        placeholder="最多输入16个汉字" style="width: 400px">
+                                </p>
+                                <p style="height:30px">
+                                    <span>阶段售卖</span>
+                                    <a href="javascript:;" id="vedio-paper"><input type="radio" name="type-set"
+                                            id="type-paper" value="1" v-model="stage_info.tf_buy" class="radio"><label
+                                            for="type-paper" style="display: inline;">允许</label></a><a
+                                        href="javascript:;" class="q-type-choice"><input type="radio" name="type-set"
+                                            id="type-paper2" value="2" v-model="stage_info.tf_buy" class="radio"><label
+                                            for="type-paper2" style="display: inline;">不允许</label></a>
+                                </p>
+                                <p class="setstagePrice" v-show="stage_info.tf_buy == 1" style="display: none;">
+                                    <span>设置阶段价格</span>
+                                    <!--                         <em style="margin-right: 10px;"></em> -->
+                                    <input class="prices" v-model="stage_info.cp_stage_price" type="text"
+                                        id="stage_price" name="realPrice" style="width: 80px">
+                                </p>
+                                <p>
+                                    <span>阶段描述</span>
+                                    <textarea name="description" v-model="stage_info.stage_describe" maxlength="120"
+                                        id="stage_description" cols="30" rows="10"
+                                        style="width: 400px;height: 100px;resize: none"
+                                        placeholder="此处输入描述内容"></textarea>
+                                </p>
+                                <div>
+                                    <span class="yes-btn manageStage" @click="submit_stage">确认</span>
+                                    <!-- <span class="cancel-btn">取消</span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="page-btn-box"></div>
+            </div>
+        </div>
+        <div class="pop-fixed choice-class-pop" style="display: block;" v-show="model == 2">
+            <div class="select-board cum-detail">
+                <div class="board-title">
+                    <span>选择课程</span>
+                    <em class="iconfont pop-close-btn" @click="model = 0"></em>
+                </div>
+                <div class="select-content">
+                    <div>
+                        <div class="selects">
+                            <select name="xk" id="itemOne" v-model="search_info.project_id" @change="search_kemus"
+                                style="width: 90px;">
+                                <option value="">请选择</option>
+                                <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}</option>
+                            </select>
+                            <select name="km" id="itemTwo" v-model="search_info.subject_id">
+                                <option value="">请选择</option>
+                                <option v-for="(item,index) in kemus" :value="item.pse_id">{{item.pse_name}}</option>
+                            </select>
+                            <input type="text" v-model="search_info.course_user_name" placeholder="课程名称/老师"
+                                id="searchName" class="input-name" style="width: 100px;height: 29px;">
+                            <span id="searchCourse" @click="search_course">查询</span>
+                        </div>
+                        <div id="classLists" style="max-height:360px;overflow:auto;min-height: 150px;">
+                            <div v-for="(item,index) in userList_course" @click="selected(index)" class="pop-course "
+                                style="height:120px" ids="239407" publishstatus="CLASS_ON_SALE">
+                                <img :src="item.cover" alt="" width="19%" height="100px">
+                                <div class="course-manage-cont">
+                                    <div v-if="item.status == 1" class="top-right-tag courselable  chooseds"><span>已选择<i
+                                                class="iconfont"></i></span></div>
+                                    <div class="course-manage-title" style="line-height: 30px">
+                                        <span>{{item.course_name}}</span><em>{{item.price}}元</em></div>
+                                    <div class="course-manage-bottom"><span class="play-status blue-bg"
+                                            tag="live">{{item.course_type}}</span><span
+                                            class="number-box"><i>{{item.xsrs}}学员</i> | <i><span
+                                                    class="t_courseNum239407">{{item.total_hours}}</span>课时</i> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="page-btn-box" style="width: 100%;">
+                    <div class="pages pagination"><span class="current prev">上一页</span><span class="current">1</span><a
+                            href="javascript:void(0)">2</a><a href="javascript:void(0)" class="next">下一页</a><span
+                            class="page_sum">共6条</span><span class="search-input">跳至<input id="pagevalue" size="1"
+                                value="1" type="text">页</span><a id="search" class="search" href="javascript:;">跳转</a>
+                    </div>
+                </div> -->
+                <div class="choice-class-box bottomButtom" style="display: block;">
+                    <span class="yes-btn add_stage_course" stageid="22308" @click='submit_course'>确认</span>
+                    <!-- <span class="cancel-btn">取消</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script src="assets/js/jquery.ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    projects: [],
+                    kemus: [],
+                    classes: 0,
+                    moneyes: 0,
+                    selected_course: [],
+                    selected_stage: '',
+                    selected_courses: [],
+                    value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+                    value2: '',
+                    userList_course: [],
+                    userList: [],
+                    search_info: {
+                        project_id: '',
+                        subject_id: '',
+                        course_user_name: '',
+                    },
+                    class_info: {},
+                    stage_change: 0,
+                    stage_info: {
+                        "course_package_id": 1,
+                        "stage_name": "",
+                        "stage_describe": "",
+                        "sort_of_stage": 2,
+                        'tf_buy': 2,
+                        'cp_stage_price': 0,
+                    },
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function () {
+                    $("#topnav").load("header.html");
+                });
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        _this.activeIndexa = _this.projects[0].pse_id
+                    },
+                    error: function () {
+
+                    }
+                })
+                course_package_id = window.location.href.split('=')[1]
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/coursePackage/queryCursePackageInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    data: {
+                        course_package_id: course_package_id
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.class_info = data.coursePackageData
+                    },
+                    error: function () {
+
+                    }
+                })
+                _this.inita()
+            },
+            mounted() {
+                console.log($('.base-sort'))
+                var $this = this;
+                $this.loadData()
+            },
+            methods: {
+                active() {
+
+                },
+                change_show(item1,id){
+                    console.log(item1)
+                    let _this = this
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/coursePackage/updateShowCursePackageStageCourse',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                course_id:item1.course_id,
+                                stage_id:id,
+                                tf_show:item1.tf_show?'1':'2',
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改成功',
+                                        duration: 2000
+                                    });
+                                    _this.inita()
+                                } else {
+                                    _this.$notify.error({
+                                        title: '提示',
+                                        message: '修改失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '提示',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                },
+                edit_stage(item) {
+                    console.log(item)
+                    this.stage_info.course_package_id = parseInt(window.location.href.split('=')[1])
+                    this.stage_info.stage_name = item.stage_name
+                    this.stage_info.stage_describe = item.stage_describe
+                    this.stage_info.sort_of_stage = item.sort_of_stage
+                    this.stage_info.tf_buy = item.tf_buy
+                    this.stage_info.cp_stage_price = item.cp_stage_price
+                    this.model = 1
+                    this.stage_info.stage_id = item.stage_id
+                    this.stage_change = 1
+                },
+                delete_stage(stage_id, course) {
+                    _this = this
+                    console.log(course)
+                    if (course.length > 0) {
+                        _this.$notify.error({
+                            title: '提示',
+                            message: '阶段下有课程无法删除',
+                            duration: 2000
+                        });
+                    } else {
+                        obj = {
+                            course_package_id: parseInt(window.location.href.split('=')[1]),
+                            stage_id: stage_id,
+                            tf_delete: '1'
+                        }
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/coursePackage/deleteCursePackageStage',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '移除成功',
+                                        duration: 2000
+                                    });
+                                    _this.inita()
+                                } else {
+                                    _this.$notify.error({
+                                        title: '提示',
+                                        message: '移除失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '提示',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }
+                },
+                delete_course(stage_id, course_id) {
+                    console.log(stage_id, course_id)
+                    let _this = this
+                    obj = {
+                        stage_id: stage_id,
+                        course_id: course_id,
+                        tfDelete: 1
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/deleteCursePackageStageCourse',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '移除成功',
+                                    duration: 2000
+                                });
+                                _this.inita()
+                            } else {
+                                _this.$notify.error({
+                                    title: '提示',
+                                    message: '移除失败',
+                                    duration: 2000
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                title: '提示',
+                                message: '服务器错误',
+                                duration: 2000
+                            });
+                        }
+                    })
+
+                },
+                shensuo(index, check) {
+                    let _this = this
+                    console.log(index, check)
+                    _this.userList.map((item, i) => {
+                        // console.log(item,i)
+                        if (i == index) {
+                            if (check == 0) {
+                                item.check = 1
+                            } else {
+                                item.check = 0
+                            }
+                        }
+                    })
+                },
+                submit_course() {
+                    let _this = this
+                    _this.userList.map((item) => {
+                        if (item.stage_id == _this.selected_stage) {
+                            sort_of = item.course.length + 1
+                        }
+                    })
+                    console.log(_this.selected_course, _this.selected_stage)
+                    _this.selected_courses = []
+                    for (let k = 0; k < _this.selected_course.length; k++) {
+                        obj = {}
+                        obj.course_id = _this.selected_course[k]
+                        obj.stage_id = _this.selected_stage
+                        obj.sort_of_course = parseInt(sort_of) + k
+                        obj.tf_show = '2'
+                        _this.selected_courses.push(obj)
+                    }
+                    console.log(_this.selected_courses)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/plInsertStageCurse',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(_this.selected_courses),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data > 0) {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '插入成功',
+                                    duration: 2000
+                                });
+                                _this.inita()
+                            } else {
+                                _this.$notify.error({
+                                    title: '提示',
+                                    message: '插入失败',
+                                    duration: 2000
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                title: '提示',
+                                message: '服务器错误',
+                                duration: 2000
+                            });
+                        }
+                    })
+                },
+                selected(index) {
+                    let _this = this
+                    obj = JSON.parse(JSON.stringify(_this.userList_course))
+                    obj.map((item, bindex) => {
+                        if (bindex == index) {
+                            if (item.status == 1) {
+                                item.status = 0
+                                _this.selected_course = _this.selected_course.filter((i) => {
+                                    return i != item.course_id
+                                })
+                            } else {
+                                item.status = 1
+                                _this.selected_course.push(obj[bindex].course_id)
+                            }
+                        }
+                    })
+                    _this.userList_course = obj
+                },
+                add_course(id) {
+                    let _this = this
+                    console.log(id)
+                    if (id == '') {
+                        _this.selected_stage = _this.userList[_this.userList.length - 1].stage_id
+                    } else {
+                        _this.selected_stage = id
+                    }
+                    _this.selected_course = []
+                    console.log(_this.selected_stage)
+                    obj = JSON.parse(JSON.stringify(_this.search_info))
+                    for (var k in obj) {
+                        if (obj[k] == '') {
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/queryCurse ',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.userList_course = data
+                            _this.userList_course.map((item) => {
+                                item.status = 0
+                            })
+                            _this.model = 2
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                search_course() {
+                    let _this = this
+                    obj = _this.search_info
+                    for (var k in obj) {
+                        if (obj[k] == '') {
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/queryCurse ',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.userList_course = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                search_kemus() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.search_info.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                price_init() {
+                    let _this = this
+                    _this.classes = 0
+                    _this.moneyes = 0
+                    _this.userList.map((item) => {
+                        _this.classes += item.course.length
+                        item.course.map((i) => {
+                            _this.moneyes += i.price
+                        })
+                    })
+                },
+                inita() {
+                    let _this = this
+                    course_package_id = parseInt(window.location.href.split('=')[1])
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/queryCursePackageStageCourse',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            course_package_id: course_package_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item) => {
+                                item.check = 1
+                                item.course.map((item1)=>{
+                                    item1.tf_show = item1.tf_show == 1
+                                })
+                            })
+                            console.log(data)
+                            _this.userList = data
+                            _this.price_init()
+
+                            // _this.
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                submit_stage() {
+                    _this = this
+                    if (this.stage_change == 0) {
+                        delete this.stage_info.stage_id
+                        console.log(this.stage_info)
+                        this.stage_info.course_package_id = parseInt(window.location.href.split('=')[1])
+                        this.stage_info.sort_of_stage = _this.userList.length + 1
+                        obj = this.stage_info
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/coursePackage/insertCursePackageStage',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '插入成功',
+                                        duration: 2000
+                                    });
+                                    _this.inita()
+                                } else {
+                                    _this.$notify.error({
+                                        title: '提示',
+                                        message: '插入失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '提示',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    } else {
+                        obj = this.stage_info
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/coursePackage/updateCursePackageStageinfo',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '修改成功',
+                                        duration: 2000
+                                    });
+                                    _this.stage_change = 0
+                                    _this.inita()
+                                } else {
+                                    _this.$notify.error({
+                                        title: '提示',
+                                        message: '修改失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '提示',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }
+                },
+                activea(num) {
+
+                },
+                loadData: function (moduleId) {
+                    var $this = this;
+                    if (!moduleId) {
+                        $('#sortable').sortable({
+                            placeholder: "ui-state-highlight",
+                            update: function (event, ui) {
+                                // $this.sort(ui.item);
+                                console.log(ui)
+                            },
+                            delay: 200,
+                            // start: $this.collapseAll
+                        }).disableSelection();
+                        $('#sortable').find(".son").sortable({
+                            placeholder: "ui-state-highlight",
+                            update: function (event, ui) {
+                                // $this.sort(ui.item.siblings());
+                                // $this.sort(ui.item);
+                                console.log(ui)
+                            },
+                            receive: function (event, ui) {
+                                // $this.mvLecture(ui.sender, $(event.target).parents(".dis"), ui.item);
+                            },
+                            delay: 200,
+                            connectWith: ".son"
+                        }).disableSelection();
+                        return;
+                    }
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                goStumange() {
+                    href = window.location.href.split('=')[1] == undefined ? 'classesmanageStu.html' :
+                        'classesmanageStu.html?course_package_id=' + window.location.href.split('=')[1]
+                    console.log(href)
+                    if (window.location.href.split('=')[1] == undefined) {
+                        this.$notify.info({
+                            title: '提示',
+                            message: '请先新建课程包',
+                            duration: 2000
+                        });
+                    } else {
+                        window.open(href)
+                    }
+                    // 
+                    // window.location.href=``
+                },
+                goClassmange() {
+                    href = window.location.href.split('=')[1] == undefined ? 'classesmanageClass.html' :
+                        'classesmanageClass.html?course_package_id=' + window.location.href.split('=')[1]
+                    console.log(href)
+                    if (window.location.href.split('=')[1] == undefined) {
+                        this.$notify.info({
+                            title: '提示',
+                            message: '请先新建课程包',
+                            duration: 2000
+                        });
+                    } else {
+                        window.open(href)
+                    }
+                    // window.location.href=``
+                },
+                gomange() {
+                    href = window.location.href.split('=')[1] == undefined ? 'classesmanage.html' :
+                        'classesmanage.html?course_package_id=' + window.location.href.split('=')[1]
+                    console.log(href)
+                    if (window.location.href.split('=')[1] == undefined) {
+                        this.$notify.info({
+                            title: '提示',
+                            message: '请先新建课程包',
+                            duration: 2000
+                        });
+                    } else {
+                        window.open(href)
+                    }
+                    // window.location.href=``
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,768 @@
+/*
+* @Author: baocheng
+* @Date:   2017-05-18 21:03:18
+* @Last Modified by:   baocheng
+* @Last Modified time: 2017-07-20 21:04:08
+*/
+/*��ɫ�޸� ��ʼ*/
+.themBlue .classPaper .selcurRec li:hover .recNum {
+  color: #00aaff;
+}
+.themBlue .opeType button {
+  background-color: #00aaff;
+}
+.themBlue .opeType button:hover {
+  background-color: #009eed;
+}
+.themBlue .queClass-title .clatitName li:hover {
+  color: #00aaff;
+  border-bottom-color: #00aaff;
+}
+.themBlue .queClass-title .clatitName .actli {
+  color: #00aaff;
+  border-bottom-color: #00aaff;
+}
+.themBlue .progress-par .progress-son {
+  background-color: #00aaff;
+}
+.themBlue .progressBox span b {
+  color: #00aaff;
+}
+.themBlue .showResult span em {
+  color: #00aaff;
+}
+.themBlue .dryrun-itemName .doParper button {
+  color: #00aaff;
+  border-color: #00aaff;
+}
+.themBlue .dryrun-itemName .doParper button:hover {
+  background-color: #009eed;
+  border: 1px solid #009eed;
+}
+.themBlue .dryrun-itemName .doParper .checkAnswer {
+  color: #fff;
+  background-color: #00aaff;
+  border: 1px solid #00aaff;
+}
+.themBlue .dryrun-itemName .doParper .examAlign {
+  color: #fff;
+  background-color: #00aaff;
+  border: 1px solid #00aaff;
+}
+.themBlue .dryrun-itemName .doParper .checkAnswer:hover,
+.themBlue .dryrun-itemName .doParper .examAlign:hover {
+  border-color: #009eed;
+  background-color: #009eed;
+}
+/*��ɫ�޸� ����*/
+.questionBg {
+  background-color: #f5f8fa;
+}
+.simu-quechoose {
+  margin-bottom: 60px;
+}
+.simulexamBox {
+  padding: 30px 20px 30px;
+}
+.simulexamBox .classPaper {
+  height: 100px;
+}
+.classPaper .selCurTitle {
+  position: relative;
+  height: 50px;
+  margin-top: 14px;
+  margin-right: 77px;
+  cursor: pointer;
+}
+.classPaper .selCurTitle:hover .moresection {
+  display: block;
+}
+.selCurTitle span {
+  display: block;
+  height: 24px;
+  font-size: 24px;
+  line-height: 24px;
+  color: #333;
+}
+.selCurTitle span i {
+  position: relative;
+  top: -2px;
+  margin-left: 10px;
+}
+.selCurTitle .moresection {
+  display: none;
+  position: absolute;
+  top: 41px;
+  border: 1px solid #dfe1e6;
+  background: #fff;
+  left: 0;
+  z-index: 2;
+  padding: 10px 16px;
+  box-shadow: 0 0 3px #dfe1e6;
+  max-height: 400px;
+  overflow: auto;
+}
+.moresection a {
+  display: block;
+  text-align: center;
+  line-height: 32px;
+  color: #929eb0;
+  white-space: nowrap;
+}
+.moresection a:hover {
+  color: #00aaff;
+}
+.selCurTitle .moresection::after {
+  content: ' ';
+  display: inline-block;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -5px;
+  width: 10px;
+  height: 10px;
+  background: url(../../images/queImages/queIndexIcon.png) no-repeat;
+  background-position: 0 -241px;
+}
+.classPaper .selcurRec li {
+  display: inline-block;
+  text-align: center;
+  margin-right: 40px;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+.classPaper .selcurRec li:hover .recNum {
+  color: #07bbee;
+}
+.selcurRec li a {
+  display: block;
+  width: 50px;
+  height: 52px;
+  line-height: 1;
+  background-image: url(../image/tikuImg.png);
+  background-repeat: no-repeat;
+}
+.selcurRec .recimg-hide {
+  background-position: -356px -10px;
+}
+.selcurRec .recimg-arror {
+  background-position: -296px -10px;
+}
+.selcurRec .recimg-rec {
+  background-position: -238px -10px;
+}
+.selcurRec .recNum {
+  display: inline-block;
+  font-size: 12px;
+  color: #999;
+  line-height: 1;
+  padding-top: 14px;
+}
+.classPaper .opeType {
+  margin-top: 14px;
+}
+.opeType button {
+  padding: 11px 27px;
+  line-height: 1;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  margin-left: 12px;
+  background-color: #07bbee;
+  border: 1px solid #07bbee;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+.opeType button:hover {
+  border: 1px solid #01aadd;
+  color: #fff;
+  background-color: #01aadd;
+}
+.simulexamBox .historyRecord {
+  position: relative;
+  font-size: 12px;
+  color: #999;
+  line-height: 40px;
+  background-color: #f6f6f6;
+  padding-left: 20px;
+}
+.simulexamBox .historyRecord a {
+  cursor: pointer;
+  margin-left: 13px;
+  color: #ff9900;
+}
+.simulexamBox .historyRecord a:hover {
+  text-decoration: underline;
+}
+.simulexamBox .historyRecord .iconfont {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 14px;
+  color: #bbb;
+  cursor: pointer;
+}
+/*�½�ģ���л� start*/
+.queClassified {
+  padding-top: 40px;
+  min-height: 480px;
+}
+.queClassified .queClass-title {
+  margin-top: 10px;
+}
+.queClass-title .clatitName {
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+.queClass-title .clatitName li {
+  display: inline-block;
+  font-size: 18px;
+  color: #333;
+  padding: 0 40px 17px;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  /*   -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;*/
+}
+.queClass-title .clatitName li:hover {
+  color: #07bbee;
+  border-bottom-color: #07bbee;
+}
+.queClass-title .clatitName .actli {
+  color: #07bbee;
+  border-bottom-color: #07bbee;
+}
+.queClassified .chapterCon {
+  margin-top: 20px;
+}
+/*.chapterCon .chapterList {
+    border: 1px solid #eee;
+    border-bottom: none;
+}*/
+.chapterList .chapter-item {
+  position: relative;
+  /* border-bottom: 1px solid #eee; */
+  border: 1px solid #eee;
+  margin-top: -1px;
+}
+.chapter-item .chapter-itemName {
+  padding: 0 20px;
+  height: 58px;
+  line-height: 58px;
+}
+.chapter-itemName .preschool-par {
+  position: relative;
+  padding-left: 40px;
+  font-size: 14px;
+  color: #666;
+}
+.chapter-itemName .preschool-par i {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -13px;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  background-image: url(../image/chapter.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+}
+.chapter-itemName .preschool-par i:hover {
+  background-position: 0 -36px;
+}
+.chapter-itemName .preschool-par .hovblue {
+  background-position: 0 -36px;
+}
+.chapter-itemName .doque-par {
+  position: relative;
+  padding-right: 92px;
+}
+.doque-par button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -13px;
+  padding: 6px 11px;
+  line-height: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #00aaff;
+  background-color: #fff;
+  border: 1px solid #00aaff;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+.doque-par button:hover {
+  color: #fff;
+  background-color: #00aaff;
+}
+.doque-par em {
+  font-size: 12px;
+  color: #999;
+  margin-left: 20px;
+}
+.chapter-item .chapter-itemBox {
+  /* display: none; */
+  border-top: 1px solid #eee;
+  padding: 13px 25px 13px 64px;
+  background-color: #f9f9f9;
+}
+.chapter-item .chapter-itemBox dd {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  color: #999;
+}
+.chapter-itemBox dd .preschool-sec {
+  position: relative;
+  padding-left: 30px;
+}
+.chapter-itemBox .preschool-sec b {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
+  background-image: url(../image/chapter_second.png);
+  background-repeat: no-repeat;
+}
+/*ģ������*/
+/*.chapterCon .dryrunList {
+    border: 1px solid #eee;
+    border-bottom: none;
+}*/
+.dryrunList .dryrun-item {
+  position: relative;
+  /*  border-bottom: 1px solid #eee;*/
+  border: 1px solid #eee;
+  margin-top: -1px;
+}
+.dryrun-item .dryrun-itemName {
+  padding: 0 20px;
+  height: 58px;
+  line-height: 58px;
+}
+.dryrun-itemName .parperName {
+  font-size: 14px;
+  color: #666;
+}
+.parperName strong {
+  width: 18px;
+  height: 20px;
+  background-image: url(../image/tikuImg.png);
+  background-repeat: no-repeat;
+  margin-right: 15px;
+  margin-top: 18px;
+}
+.parperName .trueSub {
+  background-position: -126px -10px;
+}
+.parperName .mockSub {
+  background-position: -154px -10px;
+}
+.parperName .homeSub {
+  background-position: -182px -10px;
+}
+.parperName .exerSub {
+  background-position: -211px -10px;
+}
+.parperName .parperType {
+  width: 56px;
+  margin-right: 38px;
+}
+.parperName .parperDescr {
+  width: 200px;
+  margin-right: 53px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.parperName .progressBox {
+  position: relative;
+  padding-left: 176px;
+}
+.progressBox .progress-par {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -3px;
+  width: 160px;
+  height: 6px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+.progress-par .progress-son {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 6px;
+  background-color: #07bbee;
+  border-radius: 3px;
+}
+.progressBox span {
+  font-size: 12px;
+  color: #999;
+}
+.progressBox span b {
+  font-weight: normal;
+  color: #07bbee;
+}
+.showResult span {
+  font-size: 12px;
+  color: #999;
+  margin-right: 20px;
+}
+.showResult span em {
+  color: #07bbee;
+}
+.dryrun-itemName .doParper {
+  position: relative;
+  padding-right: 188px;
+}
+.doParper span {
+  font-size: 12px;
+  color: #999;
+  margin-left: 20px;
+}
+.dryrun-itemName .doParper button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -13px;
+  padding: 6px 11px;
+  line-height: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #07bbee;
+  background-color: #fff;
+  border: 1px solid #07bbee;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+.dryrun-itemName .doParper button:hover {
+  color: #fff;
+  background-color: #01aadd;
+  border: 1px solid #01aadd;
+}
+.dryrun-itemName .doParper .clickyell {
+  color: #ff9900;
+  background-color: #fff;
+  border: 1px solid #ff9900;
+}
+.dryrun-itemName .doParper .clickyell:hover {
+  color: #fff;
+  background-color: #ff9900;
+  border-color: #ff9900;
+}
+.dryrun-itemName .doParper .checkAnswer {
+  right: 82px;
+  color: #fff;
+  background-color: #07bbee;
+  border: 1px solid #07bbee;
+}
+.dryrun-itemName .doParper .examAlign {
+  color: #fff;
+  background-color: #07bbee;
+  border: 1px solid #07bbee;
+}
+.dryrun-itemName .doParper .checkAnswer:hover,
+.dryrun-itemName .doParper .examAlign:hover {
+  border-color: #01aadd;
+  background-color: #01aadd;
+}
+/*�½�ģ���л� end*/
+.rankGrade {
+  width: 100%;
+}
+.rankGrade > img {
+  width: 576px;
+  height: 110px;
+  display: block;
+  margin: 50px auto 0;
+}
+.rankGradeBox {
+  text-align: center;
+  width: 100%;
+  padding-top: 34px;
+}
+.rankGradeBox span {
+  font-size: 24px;
+  color: #5d6770;
+  line-height: 30px;
+  margin: 0 18px;
+}
+b,
+strong {
+  font-weight: normal;
+}
+.partakeBox {
+  padding-top: 44px;
+  text-align: center;
+}
+.partake {
+  width: 166px;
+  border: 1px solid #895412;
+  border-radius: 24px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 48px;
+  background-color: #ffea00;
+  color: #381d07;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  margin-left: 158px;
+}
+i.iconfont {
+  font-family: iconfont !important;
+}
+.shareLink {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 18px 40px 0;
+  cursor: pointer;
+}
+.shareLink > b {
+  font-size: 16px;
+  line-height: 18px;
+  color: #5d6770;
+}
+.shareLink > i {
+  font-size: 18px;
+  line-height: 18px;
+  color: #5d6770;
+}
+
+.sharebox .shaboxp {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.sharebox .sharebox1 {
+  background-image: url(../../images/weixin-front.png);
+}
+.sharebox .sharebox2 {
+  background-image: url(../../images/qq-front.png);
+  background-size: auto 100%;
+  margin-left: 9px;
+}
+.sharebox .sharebox3 {
+  background-image: url(../../images/weibo-front.png);
+}
+
+.rankBefore {
+  width: 869px;
+  margin: 106px auto 0;
+  position: relative;
+  height: 388px;
+}
+.rankBefore dd,
+.rankBefore dt {
+  width: 33.33%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*float: left;*/
+}
+.rankHeadImg {
+  width: 100%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.rankHeadImg > img {
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.rankBeforeCon {
+  background-color: #fafafa;
+  border: 1px solid #ececec;
+  margin-top: 30px;
+  text-align: center;
+}
+.rankBefore dt .rankBeforeCon {
+  height: 286px;
+}
+.rankBefore dd .rankBeforeCon {
+  height: 246px;
+}
+.rankBefore dt {
+  position: absolute;
+  left:33.33%;
+  z-index: 1;
+  margin-top: -40px;
+}
+.rankTwo,.rankThree{
+  position: absolute;
+}
+.rankTwo{
+  left:0;
+}
+.rankThree{
+  right:0;
+}
+.rankBefore dt .rankBeforeCon,
+.rankBefore dd:first-child .rankBeforeCon {
+  -webkit-border-radius: 4px 0 0 0;
+  -moz-border-radius: 4px 0 0 0;
+  border-radius: 4px 0 0 0;
+}
+.rankBefore dd:last-child .rankBeforeCon {
+  -webkit-border-radius: 0 4px 0 0;
+  -moz-border-radius: 0 4px  0 0;
+  border-radius: 0 4px 0 0;
+}
+.rankBefore dt .rankBeforeCon {
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+.rankHead > img {
+  width: 49px;
+  height: 69px;
+  display: block;
+  margin: -2px auto 13px;
+}
+.rankHead > span {
+  font-size: 18px;
+  color: #5d6770;
+  line-height: 22px;
+}
+.getScore > p {
+  font-size: 14px;
+  width: 100%;
+  margin: 0;
+}
+.pFirstChild {
+  color: #5d6770;
+}
+.pFirstChild > strong {
+  font-size: 36px;
+  color: #ff6604;
+  line-height: 36px;
+}
+.pLastChild {
+  color: #381d07;
+  line-height: 16px;
+  padding-top: 20px;
+}
+.getScore {
+  margin-top: 40px;
+}
+.rankList {
+  width: 869px;
+  margin: 9px auto 0;
+}
+.rankList > li {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+.rankListLeft {
+  line-height: 106px;
+}
+.rankListLeft > b {
+  font-size: 24px;
+  color: #a6a6a6;
+  display: inline-block;
+  min-width: 66px;
+  text-align: left;
+  line-height: 52px;
+  vertical-align: middle;
+}
+.rankListLeft > img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid transparent;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 26px;
+}
+.rankListLeft > span {
+  font-size: 18px;
+  color: #5d6770;
+  line-height: 111px;
+}
+.rankListRight {
+  line-height: 106px;
+}
+.rankListRight > strong {
+  font-size: 28px;
+  color: #ff6604;
+}
+.rankListRight > i {
+  margin: 0 4px;
+}
+.rankListRight > span {
+  color: #5d6770;
+  font-size: 14px;
+}
+.rankList {
+  padding-bottom: 28px;
+}
+/*5.9新增章节选择弹窗*/
+.choseChapter{width:546px;position:fixed;top:50%;left:50%;margin-left:-273px;transform: translate(0,-50%);z-index: 1001;
+  background:#fff;-webkit-box-shadow: 0 0 10px 1px rgba(3,3,3,0.3);-moz-box-shadow: 0 0 10px 1px rgba(3,3,3,0.3);
+  box-shadow: 0 0 10px 1px rgba(3,3,3,0.3); -webkit-border-radius: 10px;  -moz-border-radius: 10px;border-radius: 10px;}
+.choseChapter .closeBtn{position:absolute;top:14px;right:20px;cursor: pointer;color:#999;}
+.choseChapter .title{font-size:24px;color:#333;text-align: center;line-height: 36px;margin-top:26px;}
+.choseChapter .title span{font-size:16px;color:#93999f;}
+.topicChoseBox{margin:10px 59px 10px 61px}
+.choseChapter .topicChoseBox p{font-size:18px;color:#2a2a2a;line-height: 26px;margin: 12px 0;}
+.typeList{margin:12px -20px -12px 0;}
+.typeList li{height:34px;line-height:34px;padding:0 10px;border:1px solid #a9adb0;-webkit-border-radius: 6px;-moz-border-radius: 6px;
+  border-radius: 6px;float:left;font-size:14px;color:#666;margin:0 20px 10px 0;position:relative;cursor: pointer;min-width: 106px;text-align: center}
+.typeList.topic li.active{background:#0099ff;color:#fff;border:1px solid #0099ff;}
+.typeList li.disChose{color:#B5B9BC;border:1px solid #cdd2d4;}
+.typeList li.chose{color:#ffffff;border: 1px solid #07bbee;background-color: #07bbee}
+.typeList li.active{color:#00a9ee;border:1px solid #00a9ee;}
+.typeBox{margin:36px 0px 30px;}
+.typeBox dd{width:198px;height:100px;float:left;-webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;}
+.typeBox .type1{margin-right:30px;background:url("../../images/tiku/zuoti_pic2.png")no-repeat 0 0; cursor: pointer;background-position: center}
+.typeBox .type2{background:url("../../images/tiku/zuoti_pic1.png")no-repeat 0 0;cursor: pointer;background-position: center}
+.footerLogin{line-height:18px;font-size:18px;color:#93999f;text-align: center;margin-top:30px;padding-bottom:20px;}
+.footerLogin span{color:#00a9ee;cursor: pointer;}
+.doSectionDiv{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  /* display: none; */
+}
+.chapter-itemBox img{
+  padding-left: 20px;
+  margin-top: -5px;
+  cursor: pointer;
+}

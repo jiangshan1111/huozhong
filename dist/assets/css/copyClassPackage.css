@@ -1,0 +1,408 @@
+/*复制课程包样式 开始*/
+.classes .mainbackground .m-list ul li{overflow:inherit;z-index:1;}
+.btn.btn-sm.moreEditBtn{position:relative;}
+.btn.btn-sm.moreEditBtn:hover .moreOperaBox{display: block;}
+.moreOperaBox{width:100px;position:absolute;top:-64px;left:0;padding:0 10px;border:1px solid #d7d7d7;background:#fff;display: none;
+    -webkit-box-shadow:0 3px 6px 0 rgba(0,0,0,0.1);-moz-box-shadow:0 3px 6px 0 rgba(0,0,0,0.1);border-radius: 3px;z-index:1;
+    box-shadow:0 3px 6px 0 rgba(0,0,0,0.1);}
+.moreOperaBox dd{line-height: 26px;padding:4px 18px 0;border-bottom:1px solid #ececec;text-align: center;cursor: pointer;}
+.moreOperaBox dd:last-child{border-bottom:0;}
+.moreOperaBox dd:hover{color:#0099ff;}
+/*关联课程包弹窗*/
+.relationLayer,.stageLayer{width:960px;max-height:640px;position:fixed;top:50%;left:50%;margin-left:-450px;padding:0 0 50px;display: none;
+    -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;background:#fff;z-index:101;transform:translateY(-50%);
+    -webkit-box-shadow:0 0 9px 2px rgba(3,3,3,0.3);-moz-box-shadow: 0 0 9px 2px rgba(3,3,3,0.3);box-shadow: 0 0 9px 2px rgba(3,3,3,0.3);}
+.relationLayer .layerHead{line-height:60px;font-size:18px;color:#2a2a2a;padding:0 30px;}
+.relationLayer .layerHead span{float:left}
+.relationLayer .layerHead i{float:right;color:#bbbbbb;font-size:20px;}
+.relationLayer .selectBox{padding:0 30px;}
+.relationLayer .selectBox select{width:132px;height:32px;padding:0 0 0 8px;border:1px solid #dadee0;font-size:14px;color:#b5b9bc;
+    float:left;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;margin-right:10px;}
+.relationLayer .selectBox select.choseAll{width:120px;}
+.relationLayer .selectBox .searchInput{float:right;}
+.relationLayer .searchInput input{width:176px;height:30px;border:1px solid #dadee0;display:inline-block;padding:0 0 0 8px;float:left;color:#333;}
+.relationLayer .searchInput button{width:62px;height:32px;border:0;outline:none;display:inline-block;float:left;
+    font-size:14px;color:#fff;background:#0099ff;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;margin-left:8px;}
+.relationLayer .searchInput input::placeholder{color:#b5b9bc;}
+.relationLayer .searchInput input:-moz-placeholder{color:#b5b9bc;}
+.relationLayer .searchInput input::-webkit-input-placeholder{color:#b5b9bc;}
+.relationLayer .searchInput input:-ms-input-placeholder{color:#b5b9bc;}
+
+.relationList{width:calc(100% - 60px);max-height:450px; overflow-y:hidden;margin-top:24px;padding:0 20px 0 30px;}
+.relationList .vaguePos{width:calc(100% - 50px);height:120px;position:absolute;bottom:0;left:30px;
+    background: url("../images/6.4.8/dim_pic.png")no-repeat 0 0/cover;display: none;}
+.relationList .listBox li{border-top:1px solid #eeeeee;padding:20px 0;display:flex;position:relative;}
+.relationList .listBox li:last-child{padding-bottom:0;}
+.relationList .listBox .relationPic{width:182px;height:98px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;
+    background:url("../images/1.jpg")no-repeat center/cover;position: relative;}
+.relationList .listBox .relationPic i{padding:0 12px 0 9px;background:rgba(0,0,0,0.5);position:absolute;left:0;bottom:4px;color:#eee;
+    -webkit-border-radius:0 20px 20px 0;-moz-border-radius:0 20px 20px 0;border-radius:0 20px 20px 0;line-height: 26px;font-style: normal;}
+.relationList .listBox .leftCont{flex: 1;margin-left:20px;position: relative;}
+.relationList .leftCont .title{width:500px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+    font-size:16px;color:#333;line-height:24px;}
+.relationList .leftCont .classStatus{width:500px;font-size:12px;color:#b5b9bc;line-height:20px;margin-top:8px;}
+.relationList .leftCont .classStatus i{margin:0 14px;}
+.relationList .leftCont .className{font-size:12px;color:#93999f;position:absolute;bottom:0;left:0;
+    width:470px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.relationList .relationBtnBox{position:absolute;right:0;bottom:30px;}
+.relationList .relationBtnBox span{line-height:40px;margin-right:30px;font-size:14px;color:#93999f;font-weight:100; }
+.relationList .relationBtnBox span i{margin-right:6px;}
+.relationList .relationBtnBox span i.active{color:#0099ff;}
+.relationList .relationBtnBox a{text-decoration:none;line-height:40px;border:1px solid #e1e5e6;font-size:14px;color:#93999f;padding:0 20px;
+    -webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;display: inline-block;font-weight:100;}
+
+.relationList .allList .relationBtnBox a.cancelRela:hover{background-color:#f3f3f3;}
+.relationList .allList .relationBtnBox a.correctLink:hover{border-color:#0099ff;color:#0099ff;}
+.relationList .noRelationClass .relationBtnBox a{border-color:#0099ff;color:#0099ff;}
+.relationList .noRelationClass .relationBtnBox a:hover{background:#0099ff;color:#fff;border-color:#0099ff;}
+.relationList .hasRelationClass .relationBtnBox a:hover{background:#f7f7f7;color:#93999f;border-color:#e1e5e6;}
+
+.cancelRelation{width:370px;height:220px;position:fixed;top:50%;left:50%;background:#fff;border-radius:6px;
+    margin-left:-210px;margin-top:-110px;z-index:101;padding:0 20px 0 30px;display: none;}
+.cancelRelation .head{font-size:22px;color:#2a2a2a;line-height: 30px;margin-top:20px;}
+.cancelRelation .head span{float: left}
+.cancelRelation .head i{float: right;color:#bbbbbb;font-size:20px;}
+.cancelRelation p{line-height:22px;font-size:14px;color:#4c4c4c;margin-top:20px;}
+.cancelRelation .btnBox{width:calc(100% - 20px);position: absolute;bottom:30px;left:0;text-align: right;}
+.cancelRelation .btnBox span{width:64px;height:30px;border:1px solid #dadee0;cursor: pointer;text-align: center;line-height: 30px;
+    -webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;display:inline-block;font-size:14px;color:#93999f;}
+.cancelRelation .btnBox span:hover{background:#f3f3f3;}
+.cancelRelation .btnBox span.sureBtn{background:#0099ff;color:#fff;border-color:#0099ff;margin-left:8px;}
+.cancelRelation .btnBox span.sureBtn:hover{background:#07bbee;color:#fff;border-color:#07bbee;}
+.relationMask{width:100%;height:100%;position:fixed;top:0;left:0;background:rgba(0,0,0,0.4);z-index:100;display: none;}
+
+.stageLayer .stageLayerHead{line-height:80px;font-size:18px;color:#2a2a2a;padding:0 30px;}
+.stageLayer .stageLayerHead span{float:left}
+.stageLayer .stageLayerHead i{float:right;color:#bbbbbb;font-size:20px;}
+.stageLayer .stageNameInput{padding:0 30px;}
+.stageLayer .stageNameInput input{width:184px;height:30px;border:1px solid #dadee0;padding:0 0 0 10px;font-size:14px;color:#333;
+    -webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;float:left;}
+.stageLayer .stageNameInput input::placeholder{color:#b5b9bc;}
+.stageLayer .stageNameInput input:-moz-placeholder{color:#b5b9bc;}
+.stageLayer .stageNameInput input::-webkit-input-placeholder{color:#b5b9bc;}
+.stageLayer .stageNameInput input:-ms-input-placeholder{color:#b5b9bc;}
+.stageLayer .stageNameInput button{width:62px;height:32px;background:#0099ff;font-size:14px;color:#fff;border:0;float:left;
+    -webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;margin-left:8px;}
+.stageLayer .stageNameInput button:hover{background:#07bbee;}
+.stageLayer .stageListBox{padding:0 30px;margin-top:26px;clear: both;}
+.stageLayer .stageListBox li{height:46px;line-height:46px;border:1px solid #ededf1;background:#fff;
+    -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;margin-bottom:12px;}
+.stageLayer .stageListBox li.active{border-color:#0099ff;background:#f6fbff;}
+.stageLayer .stageListBox li.active:hover{border-color:#0099ff;background:#f6fbff;}
+.stageLayer .stageListBox li:hover{background:#f6f7f8;}
+.stageLayer .stageListBox .chsoeIcon{float: left;font-size:20px;color:#cdcdcd;margin:0 14px 0 20px;}
+.stageLayer .stageListBox .chsoeIcon.active{color:#0099ff;}
+.stageLayer .stageListBox .stageListName{width:134px;float: left;font-size:14px;color:#333;text-overflow: ellipsis;
+    white-space: nowrap;overflow: hidden;}
+.stageLayer .stageListBox .stageListText{width:580px;line-height:46px;float:left;text-overflow: ellipsis;white-space: nowrap;
+    overflow: hidden;color:#666;}
+.stageLayer .stageListBox .stagePrice{width:130px;float: left;font-size:12px;color:#b5b9bc;
+    text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.stageLayer  .correctBtnBox{position:absolute;bottom:50px;right:30px;}
+.stageLayer  .correctBtnBox button{width:62px;height:32px;background:#0099ff;font-size:14px;color:#fff;border:0;float:left;
+    -webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;margin-left:8px;}
+.stageLayer  .correctBtnBox button.cancel{background:#fff;border:1px solid #dadee0;color:#93999f;}
+.stageLayer  .correctBtnBox button.cancel:hover{background:#f3f3f3;}
+.stageLayer  .correctBtnBox button.correct:hover{background:#07bbee;}
+/*分页插件修改样式*/
+.current.prev i{cursor: inherit;}
+.current.next i{cursor: inherit;}
+.stageLayer  .pages{padding-left:28px;margin:38px 0 0 0;}
+.stageLayer  .pages .pagination2{text-align: left;}
+/*复制课程包样式 结束*/
+
+/*复制课程 弹框开始 2019.7.10*/
+.cengbg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+}
+
+.copyclass_tk{
+    width: 560px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: fixed;
+    padding: 20px 0 40px 0;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    max-height: 520px;
+    overflow-y: inherit;
+    margin-left: -280px;
+    height: 400px;
+    margin-top: -240px;
+}
+
+
+
+
+.copyclass_tit{
+    margin-right: 20px;
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.copyclass_tit h3{
+    color: #2a2a2a;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 30px;
+}
+
+.copyclass_tit em{
+    display: block;
+    font-size: 40px;
+    color: #bbb;
+    cursor: pointer;
+}
+
+.copyclass_tk .formcont{
+    margin: 0 30px 0 40px;
+    max-height: 385px;
+    overflow-y: auto;
+}
+
+.copyclass_tk .forminp{
+    margin-bottom: 12px;
+}
+
+.copyclass_tk .forminp label{
+    width: 70px;
+    color: #2a2a2a;
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 24px;
+}
+
+.copyclass_tk .forminp input,.sele_box select{
+    width: 242px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 8px;
+}
+
+.copyclass_tk .forminp .tshi{
+    color: #ff0000;
+    font-size: 12px;
+    margin-left: 95px;
+    margin-top: 5px;
+}
+
+.copyclass_tk .price_box input{
+    width: 132px;
+
+}
+
+.copyclass_tk .join_box input{
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+}
+
+.copyclass_tk .joininfo,.copyclass_tk .nojoininfo{
+    display: inline-block;
+}
+
+.copyclass_tk .joininfo label,.copyclass_tk .nojoininfo label{
+    color: #666;
+    margin-left: 8px;
+}
+
+/* .copyclass_tk .join_box input[type=radio] {
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+    clip: rect(0,0,0);
+}
+
+.copyclass_tk .join_box input[type=radio]:after {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: -2px;
+    content: " ";
+    border:1px solid #dadee0;
+    background-color: #fff;
+    color: #fff;
+    display: inline-block;
+    visibility: visible;
+    border-radius: 50%;
+}
+
+.copyclass_tk .join_box input[type=radio]:checked:before {
+    content: "·";
+    display: block;
+    position: relative;
+    top: -1.6px;
+    left: 0px;
+    width: 6px;
+    height: 6px;
+    color: #fff;
+    font-weight: 400;
+    z-index: 1;
+    border:2px solid #0099ff;
+    background-color: #fff;
+    border-radius: 50%;
+} */
+
+.tshigary{
+    color: #b5b9bc;
+    font-size: 12px;
+    margin-left: 84px;
+    margin-top: 5px;
+}
+
+.pstxt{
+    color: #b5b9bc;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f8f8f8;
+    padding-left: 10px;
+    margin:0 30px;
+}
+
+.endingbox{
+    width: 142px;
+    margin: 20px auto 0;
+}
+
+.endingbox button{
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    text-align:center;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.endingbox button.endingbox_cancel{
+    color: #93999f;
+    border:1px solid #dadee0;
+    width: 64px;
+}
+
+.endingbox button.endingbox_submit{
+    color: #fff;
+    background-color: #0099ff;
+    width: 66px;
+    border:none;
+}
+
+.forminp input::-webkit-input-placeholder{
+    /* 设置placeholder颜色  */
+    color: #b5b9bc;
+    /* placeholder字体大小  */
+    font-size: 14px;
+}
+
+.forminp input::-moz-input-placeholder {
+    /* placeholder颜色  */
+    color: #b5b9bc;
+    /* placeholder字体大小  */
+    font-size: 14px;
+}
+
+
+.forminp input::-o-input-placeholder {
+    /* placeholder颜色  */
+    color: #b5b9bc;
+    /* placeholder字体大小  */
+    font-size: 14px;
+}
+
+.forminp input::input-placeholder {
+    /* placeholder颜色  */
+    color: #b5b9bc;
+    /* placeholder字体大小  */
+    font-size: 14px;
+}
+
+::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 8px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #F2F2F2;
+}
+::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    /*-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);*/
+    border-radius: 8px;
+    background: #F8F8F8;
+}
+.vipClassBox{display: none;margin-left:96px;}
+.vipClassBox li{float: left;margin:0 6px 10px 0;border:1px solid #d7d7d7;color:#898989;font-size:12px;padding:6px 10px;
+    -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;cursor: pointer;}
+.vipClassBox li.active{color:#fff;background:#1ebb90;border-color:#1ebb90;}
+
+.tkheader{
+    position: relative;
+    z-index: 22;
+}
+
+.formcont .forminp label{
+    width: 70px;
+}
+
+.tshigary{
+    margin-left: 94px;
+}
+
+.askicon{
+    display: inline-block;
+    margin-left: -35px;
+}
+
+.togglebox{
+    position: relative;
+}
+
+.blackbgtxt{
+    position: absolute;
+    width: 260px;
+    padding: 15px 12px;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 12px;
+    top: 30px;
+    left: -34px;
+    border-radius: 5px;
+    display: none;
+}
+
+.blackbgtxt:before{
+    content:"";
+    border:8px solid rgba(0,0,0,0.25);
+    border-top-color:transparent;
+    border-right-color:transparent;
+    border-left-color:transparent;
+    width:0px;
+    height:0px;
+    position:absolute;
+    left: 125px;
+    top: -16px;
+}
+.blackbgtxt:after{
+    content:"";
+    border:8px solid rgba(0,0,0,0.25);
+    border-top-color:transparent;
+    border-right-color:transparent;
+    border-left-color:transparent;
+    width:0px;
+    height:0px;
+    position:absolute;
+    left: 125px;
+    top: -16px;
+}
+/*复制课程 弹框开始 2019.7.10 end*/

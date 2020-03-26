@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <!-- <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .save_ {
+            padding-left: 7px;
+        }
+
+        .loading-bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 777;
+            background-color: #000;
+            opacity: 0.2;
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data"></form>
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 资源
+                    <ul class="lrow page-ul">
+                        <li style="color: rgb(250, 105, 0); border-bottom: 2px solid rgb(250, 105, 0);"
+                            onclick="window.location.href='resource.html'">学科</li>
+                        <li onclick="window.location.href='resourceSchool.html'">校区</li>
+                        <li onclick="window.location.href='resourceKu.html'">资源库</li>
+                        <li onclick="window.location.href='resourceClassxy.html'">课程协议</li>
+                        <li onclick="window.location.href='resourceTeacher.html'">教师课时</li>
+                        <li onclick="window.location.href='resourceClassdy.html'">课程单元</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground nopadding">
+                    <div class="heading">
+                        <h2 class="h5">学科</h2>
+                        <span class="line"></span>
+                    </div>
+                    <div id="loadData">
+                        <div class="main-content" style="height:720px">
+                            <div id="sortTable" class="ui-sortable clear" data-listidx="0">
+
+
+
+                                <div :class="item.pse_status == 2?'block':'active block'"
+                                    :style="'width: 28%;margin: 30px 2.5%;'"
+                                    v-for="(item,index) in projects" data-type="start" data-id="128040"
+                                    data-itemidx="0">
+                                    <div class="hidden" :style="'height:100%;'+(item.pse_status == 2?'background:#EEEEEE':'background:#ffffff')">
+                                        <input type="hidden" class="oneId" value="128040">
+                                        <input type="hidden" class="oneStatus" value="0">
+                                        <div class="b-title">
+                                            <div class="tt">
+                                                <div class="h3"><b style="cursor: pointer;">
+                                                        {{item.pse_name}}
+                                                    </b><i class="iconfont btn-del-pro" data-id="128040"
+                                                        style="display: none;" @click="delete_project(item)"></i><i
+                                                        class="iconfont btn-edit-pro" @click="edit_project(item)"
+                                                        data-id="128040" style="display: none;"></i>
+                                                </div>
+                                                <div class="c">
+
+                                                    <span style="
+                                                    display: inline-block;
+                                                    overflow: hidden;
+                                                    width: 100%;
+                                                    text-overflow: ellipsis;
+                                                    white-space: nowrap;" :title="item.pse_describe">
+                                                        {{item.pse_describe}}</span>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="b-content">
+                                            <span class="add-subs" v-show = "item.add_kemu == true">
+                                                <input type="text" v-model="insert_kemu.pse_name" class="twoName" size="14">
+                                                <input type="button" class="btn btn-mini btn-default" name="twoAdd"
+                                                    value="保存" @click="submit_kemu(item)" data-pid="128040">
+                                                <input type="button" class="btn btn-mini btn-default" name="twoCancel"
+                                                    value="取消" @click="item.add_kemu = false">
+                                            </span>
+                                            <ul class="eachTwoItem ui-sortable">
+
+                                                <li v-for="(item1,index1) in item.kemus"
+                                                    class="ui-state-default ui-sortable-handle" data-id="249698">
+                                                    <span class="r-subs-title">
+
+
+                                                        <em name="一次取证班" v-if="item1.edit == false" smallname="一次取证班..." class="disabled">
+                                                            {{item1.pse_name}}
+                                                        </em>
+                                                        <em name="一次取证班" v-if="item1.edit == true" smallname="一次取证班..." class="disabled">
+                                                                <input type="text" style="padding: 0;" v-model="item1.pse_name" class="twoItemName" value="一次取证班">
+                                                            </em>
+
+                                                        <span class="b" style="margin-top:-5px">
+                                                                <a  v-if="item1.edit == true" href="javascript:;" class="btn btn-mini btn-link btn-ok-two" @click="edit_kemu(item1,item)">保存</a>
+                                                                <a  v-if="item1.edit == true" href="javascript:;" class="btn btn-mini btn-link btn-two-cancel"  @click="item1.edit = false">&nbsp;&nbsp;取消</a>
+                                                            <i  v-if="item1.edit == false" class="iconfont btn-edit-two" @click="item1.edit = true"></i>
+                                                            <i  v-if="item1.edit == false" class="iconfont btn-del-two" @click="delete_kemu(item1,item)"></i>
+
+
+                                                           
+                                                            <i v-if="item1.pse_status == 1 && item1.edit == false" @click="change_status(item1)" class="iconfont open btn-switch btn-two" style="    display: inline-block;
+                                                    background: url(./assets/images/qiyongb.svg) no-repeat;
+                                                    width: 22px;
+                                                    height: 19px;
+                                                    vertical-align: sub;
+                                                    color: white;" title="已启用，点击停用"></i>
+                                                            <i  v-if="item1.pse_status == 2 && item1.edit == false" @click="change_status(item1)" title="已停用，点击启用" name="oneStatus"
+                                                                class="iconfont left btn-ok btn-switch"
+                                                                style="    display: inline-block;
+                                                                background: url(./assets/images/tinyongb.svg) no-repeat;
+                                                                width: 22px;
+                                                                height: 19px;
+                                                                vertical-align: sub;
+                                                                color: white;"></i>
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div :class="item.pse_status == 1?'b-btns b-btns-new':'b-btns'">
+                                            <i v-if="item.pse_status == 1 "  @click="change_status(item)" class="iconfont left btn-ok btn-switch" title="已启用，点击停用" name="oneStatus"
+                                                style="    background: url(./assets/images/qiyonga.svg) no-repeat;
+                                    width: 24px;
+                                    height: 24px;
+                                    margin-top: 13px;
+                                    color: white;"></i>
+                                    <i v-if="item.pse_status == 2 "  @click="change_status(item)" class="iconfont left btn-ok btn-switch" title="已启用，点击停用" name="oneStatus"
+                                    style="    background: url(./assets/images/tiyong.svg) no-repeat;
+                        width: 24px;
+                        height: 24px;
+                        margin-top: 13px;
+                        color: white;cursor: pointer;"></i>
+                                            <i class="iconfont right add-sub" title="添加学科小类" name="twoToCreate"  @click="item.add_kemu = item.pse_status == 1?true:false" style="    background: url(./assets/images/add2.svg) center no-repeat;
+                                    width: 24px;
+                                    height: 24px;
+                                    margin-top: 13px;
+                                    color: white;"></i>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="block active" id="addOneItem" data-itemidx="3">
+                                    <div class="b-btns" style="margin-left:-100px;margin-bottom:120px;"
+                                        @click="add_project">
+                                        <div class="btn-addss btn-pro" id="createPro" title="添加一级学科"><i class="iconfont"
+                                                style="font-size:80px"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="add-subs-layer stop-subs" id="stopPanel" style="display: none">
+                            <p class="c">
+                                <span class="l-description"> <em
+                                        class="alert-tips">该学科下有在售的课程，如果停用、删除学科，这些课程将不可见，确认停用该学科吗？</em>
+                                </span>
+                            </p>
+                            <p class="c">
+                            </p>
+                            <table id="classHint">
+                            </table>
+                            <p></p>
+                            <p class="c text-center">
+                                <a href="javascript:;" class="btn btn-sm btn-primary btn-stop btn-primary">继续</a>
+                                <!-- <a id="cancel" href="javascript:;"
+                                    class="btn btn-sm btn-default btn-cancel btn-primary">返回</a> -->
+                            </p>
+                        </div>
+                        <div class="add-subs-layer-bg"></div>
+
+
+                        <div class="q-box tagManage none" style="margin-left: -400px; margin-top: -275px;">
+                            <div class="title_q">
+                                <h3>标签管理</h3>
+                                <i class="iconfont closeBtn"></i>
+                            </div>
+                            <div class="content">
+                                <div class="trans">
+                                    <i class="iconfont prev prev_tag" style=" height: 26px;"></i>
+                                    <i class="iconfont next next_tag" style=" height: 26px;"></i>
+                                    <div class="list-cont">
+                                        <ul class="list clear _itemSecondId" style="width:20000px;margin-left:0px;">
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <!-- ajax加载中div开始 -->
+                        <div class="loading lp-units-loading" style="display: none">
+                            <p>
+                                <i></i>加载中,请稍后...
+                            </p>
+                        </div>
+                        <div class="loading-bg lp-units-loading-bg" style="display: none"></div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+        <div class="add-subs-layer-bg" style="display: block;" v-show="model != 0"></div>
+        <div class="add-subs-layer _none" id="addPro"
+            style="height: 416px; display: block;    box-sizing: unset;margin-left: -250px;margin-top: -233px;"
+            v-show="model == 1">
+            <input type="hidden" value="" id="addOrUpdateItemid">
+            <input type="hidden" id="status" value="add">
+            <input type="hidden" id="newimg" value="">
+            <p class="c">
+                <span class="l-title">学科名称：</span>
+                <span class="l-content"><input v-model="insert_info.pse_name" type="text" style="padding:0;height:30px"
+                        id="oneItemName" size="30"></span>
+            </p>
+            <p class="c">
+                <span class="l-title">学科描述：</span>
+                <span class="l-content">
+                    <textarea v-model="insert_info.pse_describe" rows="6" style="padding:0;" cols="38" id="remark"
+                        style="resize: none;" onkeyup="javascript:check();"></textarea>
+                </span>
+                <!-- <span
+                    style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已输入<span
+                        id="remarkHint">0</span>个字，不多于128个字</span> -->
+            </p>
+            <p class="c">
+                <span class="l-title">学科展示图：</span>
+                <span class="l-content upImg">
+                    <span class="imgTitle"><img :src="head"></span>
+                    <span class="imgBut">
+                        <label class="control-label btn" for="uploadform-excelfiles"
+                            style="    border: 1px solid rgb(200,200,200);display: block;padding: 0">上传图片</label><input
+                            type="file" id="uploadform-excelfiles" @change="file" multiple class="attachment-upload"
+                            style="left:-9999px;position:absolute;">
+                        <i>建议上传尺寸：224*428</i>
+                    </span>
+                </span>
+            </p>
+            <p class="c">
+                <span class="l-title">&nbsp;</span>
+                <span class="l-content">
+                    <a href="javascript:;" class="btn btn-sm btn-primary" id="addOne" @click="submit_project">确定</a>
+                    <a id="oneCancel" href="javascript:;" class="btn btn-sm btn-default btn-cancel"
+                        @click="model = 0">取消</a>
+                </span>
+            </p>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <!-- <script src="assets/js/onePro.js"></script> -->
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    edit_project_status: false,
+                    projects: [],
+                    head: '',
+                    insert_kemu:{
+                        "pse_name":"", 
+                        "fid":2, 
+                        "pse_type":2, 
+                        "user_id":parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                    },
+                    insert_info: {
+                        "pse_name": "",
+                        "fid": 0,
+                        "pse_type": 1, //类型（1项目，2科目，3考期）
+                        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        pse_describe: '',
+                        pse_display_map: '',
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.search_projects()
+            },
+            mounted() {
+
+            },
+            methods: {
+                submit_kemu(item){
+                    let _this = this
+                    console.log(item,this.insert_kemu)
+                    obj = this.insert_kemu
+                    obj.fid = item.pse_id
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/insertPse',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '新建成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+
+                                    _this.search_projects()
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '新建失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                },
+                search_projects() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resources/showAllProject',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        // data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            data.map((item) => {
+                                item.add_kemu = false
+                                _this.search_kemus(item)
+                            })
+                            _this.projects = data
+                            setTimeout(() => {
+                                $(".block").each(function () {
+                                    var dat = $(this).find(".b-content");
+                                    var parent = $(this);
+                                    if (parent.attr("data-type") == "start") {
+                                        parent.mouseover(function () {
+                                            parent.find(".btn-edit-pro")
+                                                .show();
+                                            parent.find(".btn-del-pro")
+                                                .show();
+                                        });
+                                        parent.mouseout(function () {
+                                            parent.find(".btn-edit-pro")
+                                                .hide();
+                                            parent.find(".btn-del-pro")
+                                                .hide();
+                                        });
+                                    }
+                                    if (parent.find(".oneId").val() != null &&
+                                        parent
+                                        .find(".oneId").val() != "") {
+                                        //判断能不能用
+                                        if (parent.find(".oneStatus").val() == 1) {
+                                            parent.find("em").attr("class",
+                                                "disabled");
+                                            parent.find(".r-subs-title a").html("");
+                                        }
+                                        dat.find("li:gt(4)").attr("style",
+                                            "display:none");
+
+                                        //伸展
+                                        if (parent.find(".b-content").find("li")
+                                            .length > 5) {
+                                            parent.on("mouseenter", ".hidden",
+                                                    function () {
+                                                        dat.find("li:gt(4)")
+                                                            .removeAttr(
+                                                                "style");
+                                                        var hei = parent.find(
+                                                                ".b-content").find(
+                                                                "li")
+                                                            .size() * 25 + 160;
+                                                        $(this).animate({
+                                                            "height": hei +
+                                                                "px"
+                                                        }, 200);
+                                                    })
+                                                .on("mouseleave", ".hidden",
+                                                    function () {
+                                                        dat.find("li:gt(4)").attr(
+                                                            "style",
+                                                            "display:none");
+                                                        $(this).animate({
+                                                            "height": "100%"
+                                                        }, 200);
+                                                    });
+                                        }
+                                        //$(".add-subs").hide();
+                                        // parent.find("i[name='twoToCreate']").off(
+                                        //     'click').on("click", function () {
+                                        //     if (parent.attr("data-type") ==
+                                        //         "stop") {
+                                        //         return false;
+                                        //     }
+                                        //     parent.find(".add-subs").show();
+                                        //     parent.find(".add-subs").attr(
+                                        //         "data-parentId", parent
+                                        //         .find(".oneId").val());
+                                        // });
+                                        // parent.find("input[name='twoCancel']").off(
+                                        //     'click').on("click", function () {
+                                        //     parent.find(".twoName").val("");
+                                        //     parent.find(".add-subs").hide();
+                                        // });
+                                    }
+                                })
+                            }, 20)
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                change_status(item1){
+                    console.log(item1)
+                    let _this = this
+                    obj = {
+                        pse_status:item1.pse_status == 1?2:1,
+                        pse_id:item1.pse_id,
+                    }
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/enableOrDisableProjectOrSubject',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改状态成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    item1.pse_status = item1.pse_status == 1?2:1
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改状态失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                },
+                edit_kemu(item1,item){
+                    console.log(item1,item)
+                    let _this = this
+                    obj = {
+                        pse_name:item1.pse_name,
+                        pse_id:item1.pse_id,
+                    }
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/editProjectOrSubject',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    item1.edit = false
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                },
+                submit_project() {
+                    let _this = this
+                    obj = JSON.parse(JSON.stringify(this.insert_info))
+                    console.log(obj)
+                    if (_this.edit_project_status == false) {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/insertPse',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '新建成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+
+                                    _this.search_projects()
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '新建失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    } else {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/editProjectOrSubject',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+
+                                    _this.search_projects()
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }
+
+                },
+                file(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        var maxsize = 2 * 1024 * 1024
+                        if (type.indexOf("image/") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择图片上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            var form = document.getElementById("addFormOne");
+                            var formData = new FormData(form);
+                            formData.set('multipartFile', item)
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/pse/uploadFile',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                // dataType: 'json',
+                                success: function (data) {
+                                    _this.insert_info.pse_display_map = data
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                _this.head = e.target.result
+                                console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    $(e.target).val('')
+                },
+                add_project() {
+                    let _this = this
+                    _this.edit_project_status = false
+                    _this.insert_info = {
+                        "pse_name": "",
+                        "fid": 0,
+                        "pse_type": 1, //类型（1项目，2科目，3考期）
+                        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        pse_describe: '',
+                        pse_display_map: '',
+                    }
+                    _this.head = ''
+                    _this.model = 1
+                },
+                edit_project(item) {
+                    if(item.pse_status == 1){
+                    let _this = this
+                    _this.edit_project_status = true
+                    _this.insert_info = item
+                    _this.head = _this.insert_info.pse_display_map
+                    _this.model = 1
+                    }
+                },
+                delete_kemu(item,item1){
+                    let _this = this
+                    console.log(item)
+                    this.$confirm(`是否确认删除该学科小类`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/deleteProjectOrSubject',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: {
+                                pse_id: item.pse_id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '删除成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    item1.kemus = item1.kemus.filter((i) => {
+                                        return i.pse_id != item.pse_id
+                                    })
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '删除失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        _this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                },
+                delete_project(item) {
+                    let _this = this
+                    if(item.pse_status == 1){
+                    console.log(item)
+                    this.$confirm(`是否确认删除该学科`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/deleteProjectOrSubject',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: {
+                                pse_id: item.pse_id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '删除成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    _this.projects = _this.projects.filter((i) => {
+                                        return i.pse_id != item.pse_id
+                                    })
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '删除失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        _this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                        
+                    }
+
+                },
+                search_kemus(fath) {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resources/showSubjectFromOneProject',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        async: false,
+                        data: {
+                            f_id: fath.pse_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((it)=>{
+                                it.edit = false
+                            })
+                            fath.kemus = data
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                Next() {
+                    this.activeIndexa = 1;
+                    setTimeout(() => {
+                        console.log($('.nextRight'))
+                        $('.nextRight').css('background-position', '0 -32px')
+                    }, 20)
+
+                },
+                returnf() {
+                    this.activeIndexa = 0;
+                    setTimeout(() => {
+                        console.log($('.nextRight'))
+                        $('.nextRight').css('background-position', '0 0px')
+                    }, 20)
+
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

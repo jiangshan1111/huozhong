@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/teacher.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 运营
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='motion.html'">问答</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='motionTeather.html'">老师动态
+                        </li>
+                        <li onclick="window.location.href='motionPinglun.html'">课程评论</li>
+                        <li onclick="window.location.href='motionNews.html'">新闻资讯</li>
+                        <li onclick="window.location.href='motionCuxiao.html'">促销</li>
+                        <li onclick="window.location.href='motionStudent.html'">学员心声</li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="Y_wrap">
+                <div class="Y_background org_back">
+                       <div class="Y_head Y_clear">
+                           <h2 class="h5">动态</h2>
+                           <div class="input-ground">
+                               <span class="text">
+                                  <input type="text" placeholder="搜索老师" class="searchTeacher">
+                                   <button type="button" class="btn btn-default btn-sm search-icon">搜索</button>
+                               </span>
+           
+                           </div>
+                           <span class="line"></span>
+                       </div>
+                       <div class="list">
+                       <!--  
+                           <div class="subject_list Y_clear">
+                               <div class="left">
+                                   学科：
+                               </div>
+                               <div class="middle">
+                                   <ul class="Y_clear">
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                       <li>会计</li>
+                                   </ul>
+                               </div>
+                               <div class="right">
+                                   <span>更多<i class="iconfont">&#xe656;</i></span>
+                               </div>
+                           </div>
+                          --> 
+                           <div class="teacher_list Y_clear Y_mt10">
+                               <div class="left">
+                                   老师：
+                               </div>
+                               <div class="middle">
+                                   <ul class="teahcerName clear"><li><a class="searchAllTeacher btn btn-mini btn-default btn-success" id="">全部</a></li><li><a class="tName btn btn-mini btn-default" id="120447">买吾兰江</a></li><li><a class="tName btn btn-mini btn-default" id="120446">陶君宇</a></li><li><a class="tName btn btn-mini btn-default" id="117465">消防陈老师</a></li><li><a class="tName btn btn-mini btn-default" id="116842">王玉婕</a></li><li><a class="tName btn btn-mini btn-default" id="116486">陈元丰</a></li><li><a class="tName btn btn-mini btn-default" id="116079">马尔茳</a></li><li><a class="tName btn btn-mini btn-default" id="116076">张瑞</a></li><li><a class="tName btn btn-mini btn-default" id="116075">刘芯辛</a></li><li><a class="tName btn btn-mini btn-default" id="116074">王齐</a></li><li><a class="tName btn btn-mini btn-default" id="115261">消防莫老师</a></li><li><a class="tName btn btn-mini btn-default" id="114898">江山</a></li><li><a class="tName btn btn-mini btn-default" id="113649">多鱼老师</a></li><li><a class="tName btn btn-mini btn-default" id="112847">消防王老师</a></li><li><a class="tName btn btn-mini btn-default" id="112845">消防唐老师</a></li><li><a class="tName btn btn-mini btn-default" id="112679">唐文韬</a></li><li><a class="tName btn btn-mini btn-default" id="112067">消防大海老师</a></li><li><a class="tName btn btn-mini btn-default" id="112057">消防石老师</a></li><li><a class="tName btn btn-mini btn-default" id="112015">消防魏老师</a></li><li><a class="tName btn btn-mini btn-default" id="110924">大海老师</a></li><li><a class="tName btn btn-mini btn-default" id="106627">消防一一老师</a></li><li><a class="tName btn btn-mini btn-default" id="106350">大漠老师</a></li><li><a class="tName btn btn-mini btn-default" id="106105">消防木子老师</a></li><li><a class="tName btn btn-mini btn-default" id="105396">何智鹏</a></li><li><a class="tName btn btn-mini btn-default" id="105395">杜燕青</a></li><li><a class="tName btn btn-mini btn-default" id="104709">紫陌老师</a></li><li><a class="tName btn btn-mini btn-default" id="104395">仙女</a></li><li><a class="tName btn btn-mini btn-default" id="104390">赵老师</a></li><li><a class="tName btn btn-mini btn-default" id="103443">段老师</a></li><li><a class="tName btn btn-mini btn-default" id="103442">张小杰</a></li><li><a class="tName btn btn-mini btn-default" id="103441">启林老师</a></li><li><a class="tName btn btn-mini btn-default" id="103440">小杰老师</a></li><li><a class="tName btn btn-mini btn-default" id="102074">杨老师</a></li><li><a class="tName btn btn-mini btn-default" id="100556">格致木子老师</a></li><li><a class="tName btn btn-mini btn-default" id="100545">大圣老师</a></li><li><a class="tName btn btn-mini btn-default" id="97633">刘老师</a></li><li><a class="tName btn btn-mini btn-default" id="96908">可可老师</a></li><li><a class="tName btn btn-mini btn-default" id="96565">李老师</a></li><li><a class="tName btn btn-mini btn-default" id="96455">消防胡老师</a></li><li><a class="tName btn btn-mini btn-default" id="96449">消防徐老师</a></li><li><a class="tName btn btn-mini btn-default" id="93774">刘老师</a></li><li><a class="tName btn btn-mini btn-default" id="91349">焦老师</a></li><li><a class="tName btn btn-mini btn-default" id="90968">朱磊老师</a></li><li><a class="tName btn btn-mini btn-default" id="89730">张旭东老师</a></li><li><a class="tName btn btn-mini btn-default" id="89728">何老师</a></li><li><a class="tName btn btn-mini btn-default" id="89458">胡盛涛</a></li><li><a class="tName btn btn-mini btn-default" id="88801">王明辉</a></li><li><a class="tName btn btn-mini btn-default" id="86870">三石老师</a></li><li><a class="tName btn btn-mini btn-default" id="83459">昕昕老师</a></li><li><a class="tName btn btn-mini btn-default" id="78206">恬恬老师</a></li><li><a class="tName btn btn-mini btn-default" id="52508">郭增耀</a></li><li><a class="tName btn btn-mini btn-default" id="50869">于老师</a></li><li><a class="tName btn btn-mini btn-default" id="31697">甘宁</a></li><li><a class="tName btn btn-mini btn-default" id="31667">秦羽</a></li></ul>
+                               </div>
+                               <div class="right hideRight" style="display: none">
+                                   <span hide-div="hideRight">收起<i class="iconfont"></i></span>
+                               </div>
+                               <div class="right showRight">
+                                   <span hide-div="showRight">更多<i class="iconfont"></i></span>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="border"></div>
+                       <div class="title">
+                           <span class="searchType" style="cursor: pointer" searchtype="1">最新</span>
+                           <span class="searchType click" style="cursor: pointer" searchtype="2">热门</span>
+                       </div>
+                      
+                       <div class="dynamicsList"><div class="Y_trend Y_clear statusId_332"><div class="headicon"><a class="teacherLink" teacherid="50022" href="javascript:void(0);"><img src="http://image.yunduoketang.com/headpic/34270/20171204/65bbd242-be98-4a3e-ab3b-bd3ea66b5342.jpg" alt="" width="50" height="50"><br><em>李丛蔚</em></a></div><div class="Y_content"><p style="word-break: break-all">谢谢同学们的认可，我会继续努力，帮助大家顺利通过消防考试。请大家一定要在课堂积极思考，发挥主观能动性</p><div class="trend_pic Y_clear"></div><p class="Y_time"><span class="Y_mr20">2018-03-19</span><span>19:12</span></p><p class="Y_icon"><span class="Praise Y_mr20"><i class="iconfont fnt_color"></i><em style="cursor: auto">赞 (12)</em></span><span class="comment contentCount" count="3" clickonce="0" isclick="0" id="332"><i class="iconfont fnt_color"></i><em>评论 (3)</em></span></p><div class="Y_comment comment_332" style="display :none;"></div></div><div class="btns"><button class="delete delete1" id="332">删除</button></div><div class="Y_cb"></div><hr></div></div>
+                            <!-- 分页插件开始 -->
+                       <div class="pages pagination"></div>
+                      <div class="mark mark1">
+                           <input type="hidden" class="deleteId" id="">
+                           <div class="alertbox">
+                               <p style="text-align: center"><i class="iconfont"></i>您是否确定删除该条动态及评论</p>
+                               <div class="button-box Y_clear">
+                                   <button class="yes">是</button>
+                                   <button class="no">否</button>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="mark mark2">
+                           <div class="alertbox">
+                               <input type="hidden" class="deleteReplayId" id="">
+                               <p style="text-align: center"><i class="iconfont"></i>您是否确定删除该条评论</p>
+                               <div class="button-box Y_clear">
+                                   <button class="yes">是</button>
+                                   <button class="no">否</button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>	
+           </div>
+
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script src="assets/js/notice.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: ''
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

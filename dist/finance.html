@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newSource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newresource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toProtocolList.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/agreement-4.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/transAccount.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .nopadding .impotrArea {
+            padding-top: 0;
+            min-height: 380px;
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .timeSearch .namemob {
+            margin-bottom: 0;
+        }
+
+        .timeSearch {
+            font-size: 0;
+            margin-bottom: 17px;
+        }
+
+        .heading {
+            margin-bottom: 20px;
+        }
+
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .resource .mainmbackground .r-list {
+            padding-bottom: 0;
+        }
+
+        .u-wrap .mainbackground.nopadding {
+            padding: 1px 20px 10px;
+        }
+
+        .proxySearch {
+            font-size: 0;
+            margin-bottom: 20px;
+        }
+
+        .proxySearch span {
+            width: 80px;
+        }
+
+        .timeSearch em {
+            width: 80px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .timeSearch .btn {
+            font-size: 12px;
+            padding: 6px 12px;
+            margin-right: 12px;
+            margin-bottom: 5px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 28px;
+        }
+
+        .el-date-editor .el-range__icon {
+            line-height: 28px;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+        .dropdown {
+    position: inherit;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 财务
+                    <ul class="lrow page-ul">
+                        <li style="color: rgb(250, 105, 0); border-bottom: 2px solid rgb(250, 105, 0);"
+                            onclick="window.location.href='finance.html'">收支</li>
+                        <li onclick="window.location.href='financeOrder.html'">订单</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground nopadding">
+                    <div class="heading headingImp clear">
+                        <h2 class="h5">收支</h2>
+                        <span class="line"></span>
+                    </div>
+                    <!-- 前端新加html -->
+                    <div class=" impotrArea">
+                        <div class="proxySearch">
+                            <span>筛选条件 :</span>
+                            <select name="" v-if="activeIndexb == 1" v-model="search_info.budget_way" id="payType">
+                                <option value="">请选择支付方式</option>
+                                <option value="线上支付">线上支付</option>
+                                <option value="线下支付">线下支付</option>
+                                <option value="首信易">首信易</option>
+                                <option value="微信平台">微信平台</option>
+                                <option value="微信APP">微信APP</option>
+                                <option value="支付宝平台">支付宝平台</option>
+                                <option value="支付宝网银">支付宝网银</option>
+                                <option value="个人支付宝转账">个人支付宝转账</option>
+                                <option value="个人微信转账">个人微信转账</option>
+                                <option value="支付宝担保交易">支付宝担保交易</option>
+                                <option value="银行汇款">银行汇款</option>
+                                <option value="学习卡兑换">学习卡兑换</option>
+
+                                <option value="信用卡分期">信用卡分期</option>
+                                <option value="第三方分期">第三方分期</option>
+                                <option value="苹果内购">苹果内购</option>
+                            </select>
+                            <select name="" v-if="activeIndexb == 2" v-model="search_info.tran_way" id="payType">
+                                <option value="">请选择退费方式</option>
+                                <option value="综合">综合</option>
+                                <option value="支票">支票</option>
+                                <option value="pos">pos</option>
+                                <option value="现金">现金</option>
+                                <option value="转账">转账</option>
+                            </select>
+                            <select name="" v-model="search_info.product_type" @change="project_change"
+                                id="commodityType">
+                                <option value="">选择商品类型</option>
+                                <option value="课程">课程</option>
+                                <option value="课程包">课程包</option>
+                                <option value="会员">会员</option>
+                                <option value="积分">积分</option>
+                                <option value="余额">余额</option>
+                                <option value="课时">课时</option>
+                                <option value="代报考">代报考</option>
+                            </select>
+                            <select name="" v-if="search_info.product_type == '课程' || search_info.product_type == '课程包'"
+                                v-model="search_info.project_id" @change="change_kemus()" id="commodityType">
+                                <option value="">请选择学科</option>
+                                <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}
+                            </select>
+                            <select name="" v-if="search_info.product_type == '课程'" v-model="search_info.subject_id"
+                                id="commodityType">
+                                <option value="">请选择学科小类</option>
+                                <option v-for="(item,index) in kemus" :value="item.pse_id">{{item.pse_name}}
+                            </select>
+                        </div>
+                        <div class="timeSearch clear">
+                            <em class="fl">日期 :</em>
+                            <div class="fl" id="condition">
+                                <a @click="activea(1)"
+                                    :class="activeIndexa == 1?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" mark="today">今天</a>
+                                <a @click="activea(2)"
+                                    :class="activeIndexa == 2?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" mark="yesday">昨天</a>
+                                <a @click="activea(3)"
+                                    :class="activeIndexa == 3?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" mark="sevnday">7天</a>
+                                <a @click="activea(4)"
+                                    :class="activeIndexa == 4?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" mark="thirty">当月</a>
+                                <a @click="activea(5)"
+                                    :class="activeIndexa == 5?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" mark="thirmonth">三个月</a>
+                                <a @click="activea(6)"
+                                    :class="activeIndexa == 6?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;" mark="nos">指定时间</a>
+                                <template v-if="activeIndexa == 6">
+                                    <el-date-picker v-model="value1" style="    height: 28px;
+                                    vertical-align: top;" type="datetimerange" range-separator="至"
+                                        start-placeholder="开始日期" end-placeholder="结束日期">
+                                    </el-date-picker>
+                                </template>
+
+
+                            </div>
+                        </div>
+                        <div class="timeSearch clear">
+                            <em class="fl">收支 :</em>
+                            <div class="fl">
+
+                                <a @click="activeb(1)"
+                                    :class="activeIndexb == 1?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;">收入</a>
+
+
+                                <a @click="activeb(2)"
+                                    :class="activeIndexb == 2?'btn btn-default btn-success':'btn btn-default'"
+                                    href="javascript:;">退费</a>
+
+                            </div>
+                        </div>
+                        <div class="timeSearch clear">
+                            <em class="fl">关键词 :</em>
+                            <div class="fl">
+                                <span class="namemob">
+                                    <input type="text" v-model="search_info.product_name" id="product_name"
+                                        placeholder="商品名称">
+                                    <input type="text" v-model="search_info.order_num" id="orderNum" placeholder="订单号">
+                                    <input type="text" v-model="search_info.stu_name" id="stuName" placeholder="学员姓名">
+                                    <input type="text" v-model="search_info.tel" id="username" placeholder="学员账号">
+                                    <button id="searchBtn" @click="init">搜索</button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="proxyBox" v-if="activeIndexb == 1">
+                            <div class="dataview">
+                                <span class="fl datav-name" style="float: left;">
+                                    <strong>
+                                        线上收入&nbsp;:
+                                        <em>￥{{price.online}}元</em>
+                                    </strong>
+                                    <strong>
+                                        线下收入&nbsp;&nbsp;:
+                                        <em>￥{{price.offline}}元</em>
+                                    </strong>
+                                    <strong>
+                                        总收入&nbsp;&nbsp;:
+                                        <em>￥{{price.total}}元</em>
+                                    </strong>
+                                </span>
+                                <span style="float: right;margin-bottom: 10px;">
+                                    <span style="float: left;margin-right: 9px;margin-top: 6px;"><input type="checkbox"
+                                            id="zero-checkbox" style="vertical-align: middle;" name="zeroFlag"
+                                            v-model='zero_order'>0元订单</span>
+                                    <span style="float: left;"><button class="fr balanceExport"
+                                            @click="exportOrder">导出</button></span>
+                                </span>
+                            </div>
+                            <template>
+                                <el-table border :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                    :data="tableData" style="overflow: auto; margin-top: 20px">
+                                    <el-table-column prop="branch_school_name" label="分校" :width="flexColumnWidth(10)"
+                                        style="text-align: center">
+                                    </el-table-column>
+                                    <el-table-column prop="order_num" label="订单号" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="stu_name" label="姓名" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="tel" label="账号" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="product_type" label="商品类型" :width="flexColumnWidth(8)">
+                                    </el-table-column>
+                                    <el-table-column prop="product_name" label="商品名称" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="order_time" label="下单时间" :width="flexColumnWidth(12)">
+                                    </el-table-column>
+                                    <el-table-column prop="refund_payment_time" label="支付时间"
+                                        :width="flexColumnWidth(12)">
+                                    </el-table-column>
+                                    <el-table-column prop="refund_payment_money" label="支付金额"
+                                        :width="flexColumnWidth(8)">
+                                    </el-table-column>
+                                    <el-table-column prop="budget_way" label="支付方式" :width="flexColumnWidth(9)">
+                                    </el-table-column>
+                                </el-table>
+                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                    :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                    layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                                </el-pagination>
+                            </template>
+                        </div>
+                        <div class="proxyBox" v-if="activeIndexb == 2">
+                            <div class="dataview">
+                                <span style="float: right;margin-bottom: 10px;">
+                                    <span style="float: left;"><button class="fr balanceExport"
+                                            @click="exportOrder1">导出</button></span>
+                                </span>
+                            </div>
+                            <template>
+                                <el-table border
+                                    :data="userList1.slice((currentPage1-1)*pagesize1,currentPage1*pagesize1)"
+                                    :data="tableData" style="overflow: auto; margin-top: 20px">
+                                    <el-table-column prop="branch_school_name" label="分校" :width="flexColumnWidth(10)"
+                                        style="text-align: center">
+                                    </el-table-column>
+                                    <el-table-column prop="order_num" label="订单号" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="stu_name" label="姓名" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="tel" label="账号" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="product_type" label="商品类型" :width="flexColumnWidth(8)">
+                                    </el-table-column>
+                                    <el-table-column prop="product_name" label="商品名称" :width="flexColumnWidth(10)">
+                                    </el-table-column>
+                                    <el-table-column prop="tran_way" label="退费方式" :width="flexColumnWidth(12)">
+                                    </el-table-column>
+                                    <el-table-column prop="money" label="退费金额" :width="flexColumnWidth(12)">
+                                    </el-table-column>
+                                    <el-table-column prop="transaction_time" label="退费时间" :width="flexColumnWidth(16)">
+                                    </el-table-column>
+                                </el-table>
+                                <el-pagination @size-change="handleSizeChange1" @current-change="handleCurrentChange1"
+                                    :current-page="currentPage1" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize1"
+                                    layout="total, sizes, prev, pager, next, jumper" :total="userList1.length">
+                                </el-pagination>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    currentPage1: 1, //初始页
+                    activeIndexa: 1,
+                    activeIndexb: 1,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    pagesize1: 10, //    每页的数据
+                    model: 0,
+                    value1: [],
+                    value2: '',
+                    projects: [],
+                    userList: [],
+                    userList1: [],
+                    kemus: [],
+                    price:{
+                        online:0,
+                        offline:0,
+                        total:0,
+                    },
+                    zero_order: true,
+                    search_info: {
+                        "budget_status": 0,
+                        "budget_way": "",
+                        "product_type": "",
+                        "tran_way": "",
+                        "project_id": '',
+                        "subject_id": '',
+                        // "begin_time":"2019-05-17T10:27:12.000+0000",开始时间
+                        // "end_time":"2020-05-17T10:27:12.000+0000",结束时间
+                        "product_name": "",
+                        "order_num": "",
+                        "stu_name": "",
+                        "tel": "",
+                        // "zero_order":""是否包含零元订单（默认包含，当这个字段是null或者空的时候不包含）
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify({}),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                _this.init()
+            },
+            mounted() {
+
+            },
+            methods: {
+                active() {
+
+                },
+                project_change() {
+                    let _this = this
+                    _this.search_info.project_id = ''
+                    _this.search_info.subject_id = ''
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                },
+                change_kemus(num) {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.search_info.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+                            _this.search_info.subject_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activeb(num) {
+                    this.activeIndexb = num
+                },
+                getLastThreeMonthYestdy(date) {
+                    var daysInMonth = new Array([0], [31], [28], [31], [30], [31], [30], [31], [31], [30], [31],
+                        [30], [31]);
+                    var strYear = date.getFullYear();
+                    var strDay = date.getDate();
+                    var strMonth = date.getMonth() + 1;
+                    if (strYear % 4 == 0 && strYear % 100 != 0) {
+                        daysInMonth[2] = 29;
+                    }
+                    if (strMonth < 4) {
+                        strYear -= 1;
+                        if (strMonth == 1) {
+                            strMonth = 10
+                        } else if (strMonth == 2) {
+                            strMonth = 11;
+                        } else if (strMonth == 3) {
+                            strMonth = 12;
+                        }
+                    } else {
+                        strMonth -= 3;
+                    }
+                    strDay = daysInMonth[strMonth] >= strDay ? strDay : daysInMonth[strMonth];
+                    if (strMonth < 10) {
+                        strMonth = "0" + strMonth;
+                    }
+                    if (strDay < 10) {
+                        strDay = "0" + strDay;
+                    }
+                    var dataStr = strYear + "-" + strMonth + "-" + strDay;
+                    return dataStr;
+                },
+                exportOrder() {
+                    _this = this
+                    console.log(_this.userList)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出收入表【'+_this.userList.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    str = "分校,订单号,姓名,账号,商品类型,商品名称,下单时间,支付时间,支付金额,支付方式" + '\r\n'
+                    for (let k = 0; k < _this.userList.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList[k].branch_school_name + ','
+                        stra += _this.userList[k].order_num + ','
+                        stra += _this.userList[k].stu_name + ','
+                        stra += _this.userList[k].tel + ','
+                        stra += _this.userList[k].product_type + ','
+                        stra += _this.userList[k].product_name + ','
+                        stra += _this.userList[k].order_time + ','
+                        stra += _this.userList[k].refund_payment_time + ','
+                        stra += _this.userList[k].refund_payment_money + ','
+                        stra += _this.userList[k].budget_way + ','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "收入表".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                exportOrder1() {
+                    _this = this
+                    console.log(_this.userList)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出退费表【'+_this.userList1.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    str = "分校,订单号,姓名,账号,商品类型,商品名称,退费方式,退费金额,退费时间" + '\r\n'
+                    for (let k = 0; k < _this.userList1.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList1[k].branch_school_name + ','
+                        stra += _this.userList1[k].order_num + ','
+                        stra += _this.userList1[k].stu_name + ','
+                        stra += _this.userList1[k].tel + ','
+                        stra += _this.userList1[k].product_type + ','
+                        stra += _this.userList1[k].product_name + ','
+                        stra += _this.userList1[k].tran_way + ','
+                        stra += _this.userList1[k].money + ','
+                        stra += _this.userList1[k].transaction_time + ','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "退费表".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                init() {
+                    let _this = this
+                    var oneday = 1000 * 60 * 60 * 24,
+                        today = new Date();
+                    getday = today.getDay() == 0 ? 7 : today.getDay();
+                    obj = JSON.parse(JSON.stringify(_this.search_info))
+                    switch (_this.activeIndexa) {
+                        case 1:
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date(new Date()
+                                .toLocaleDateString()).getTime()))
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            break;
+                        case 2:
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date(new Date()
+                                .toLocaleDateString()).getTime() - oneday))
+                            obj.end_time = _this.getNowFormatDate(new Date(new Date(new Date()
+                                .toLocaleDateString()).getTime() - 1))
+                            break;
+                        case 3:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date().getTime() - 7 * 24 *
+                                3600 * 1000))
+                            break;
+                        case 4:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date(new Date(new Date()
+                                .toLocaleDateString()).getTime() - oneday * (today.getDate() -
+                                1))))
+                            break;
+                        case 5:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.begin_time = _this.getLastThreeMonthYestdy(new Date()) + ' ' + _this
+                                .getNowFormatDate(new Date()).split(' ')[1]
+                            break;
+                            break;
+                        case 6:
+                            obj.begin_time = _this.getNowFormatDate(new Date(_this.value1[0]))
+                            obj.end_time = _this.getNowFormatDate(new Date(_this.value1[1]))
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log(_this.activeIndexb)
+                    if (_this.activeIndexb == 1) {
+                        obj.budget_status = 0
+                        delete obj.tran_way
+                    } else if (_this.activeIndexb == 2) {
+                        obj.budget_status = 1
+                        delete obj.budget_way
+                    }
+                    if (_this.zero_order == true && obj.budget_status == 0) {
+                        obj.zero_order = 1
+                    } else {
+                        delete obj.zero_order
+                    }
+                    for (var k in obj) {
+                        if (obj[k] === '' || obj[k] === null) {
+                            delete obj[k]
+                        }
+                    }
+                    console.log(obj)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/finance/budgetSearchBox',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (obj.budget_status == 0) {
+                                _this.price={
+                                    online:0,
+                                    offline:0,
+                                    total:0,
+                                },
+                                data.map((item) => {
+                                    item.order_time = _this.getNowFormatDate(new Date(item
+                                        .order_time))
+                                    item.refund_payment_time = _this.getNowFormatDate(
+                                        new Date(item.refund_payment_time))
+                                        _this.price.total+=item.refund_payment_money
+                                        if(item.budget_way == "线上支付"){
+                                            _this.price.online+=item.refund_payment_money
+                                        }else if(item.budget_way == "线下支付"){
+                                            _this.price.offline+=item.refund_payment_money
+                                        }
+                                })
+                                _this.userList = data
+                            } else if (obj.budget_status == 1) {
+                                data.map((item) => {
+                                    item.transaction_time = _this.getNowFormatDate(new Date(
+                                        item.transaction_time))
+                                })
+                                _this.userList1 = data
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleSizeChange1: function (size) {
+                    this.pagesize1 = size;
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                handleCurrentChange1: function (currentPage) {
+                    this.currentPage1 = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

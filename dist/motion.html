@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .commentTabCont.classAnswer .addEvery:hover {
+            background: #27be94;
+            border-color: #27be94;
+            color: #fff;
+        }
+
+        .commentTabCont.classAnswer .addPraise:hover {
+            background: #ff6161;
+            border-color: #ff6161;
+            color: #fff;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+    </style>
+    <style>
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+    </style>
+    <style type="text/css">
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 运营
+                    <ul class="lrow page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='motion.html'">问答</li>
+                        
+                        <li onclick="window.location.href='motionPinglun.html'">课程评论</li>
+                        <li onclick="window.location.href='motionNews.html'">新闻资讯</li>
+                        <li onclick="window.location.href='motionCuxiao.html'">促销</li>
+                        <li onclick="window.location.href='motionStudent.html'">学员心声</li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="classComment">
+
+                <div class="commentTabCont classAnswer">
+                    <div class="commentTabContList">
+                        <ul class="classifyFilter" style="margin-top:0">
+                            <li class="clear">
+                                <span class="classifyName t-title fl">类型：</span>
+                                <div class="classifyFactor t-content fr" id="itemOneList">
+
+                                    <i type="sqwd" @click="activea(1)" :class="activeIndexa == 1?'active':''">社区问答</i>
+                                    <i type="kcwd" @click="activea(2)" :class="activeIndexa == 2?'active':''">课程问答</i>
+                                </div>
+                            </li>
+                            <li class="c itemSec clear">
+                                <span class="classifyName t-title fl">课程分类：</span>
+                                <div class="classifyFactor t-content fr">
+                                    <i @click="activeb('')" :class="activeIndexb == ''?'active':''" ids="">全部</i>
+
+                                    <i ids="86684" v-for="(item,index) in types" @click="activeb(item.pse_id)"
+                                        :class="activeIndexb == item.pse_id?'active':''">{{activeIndexa == 1?item.modify_name:item.pse_name}}</i>
+
+                                </div>
+                            </li>
+                            <li class="clear">
+                                <span class="classifyName t-title fl">状态：</span>
+                                <div class="classifyFactor t-content fr">
+                                    <i @click="activec('')" :class="activeIndexc == ''?'active':''" jz="">全部</i>
+                                    <i @click="activec(1)" :class="activeIndexc == 1?'active':''" jz="1">置顶</i>
+                                    <i @click="activec(2)" :class="activeIndexc == 2?'active':''" jz="2">精华</i>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="publicCont" id="questionList">
+                            <li class="commentList" v-for="(item,index) in qas">
+                                <div class="personPic">
+                                    <img alt="" :src="item.picture" class="yuanPic" width="50px;" height="50px;">
+                                    <p class="plName">
+                                        {{item.nicename}}
+                                    </p>
+                                </div>
+                                <div class="infoShow">
+                                    <p class="personCommentText">
+                                        <i class="iconfont questionMark"></i>
+                                        <i v-if="item.state == 1 || item.state == 3" class="iconfont zdt praiseMark" style="cursor: default;"></i>
+                                        <i v-if="item.state == 2 || item.state == 3" class="iconfont jht veryMark" style="cursor: default;"></i>
+                                        {{item.title}}
+                                    </p>
+                                    <p class="answerText showAllCon38702 none">
+                                    </p>
+                                    <p v-html="item.content"></p>
+                                    <p></p>
+
+                                    <dl class="clear time answerTime ans">
+                                        <dd>提问时间：{{item.creation_time}}</dd>
+                                        <dd>
+                                            <i class="iconfont" ids="38702"></i>
+                                            <span class="showAll showAlls38702" ids="38702" style="cursor: pointer;"
+                                                @click="change_selected(index,item)">{{item.selected == true?'隐藏全部':'显示全部'}}</span>
+                                        </dd>
+                                        <dd>
+                                            <i class="iconfont showAns" ids="38702" usert="1803702"></i>
+                                            <span class="showAns" ids="38702" usert="1803702" style="cursor: pointer;"
+                                                @click="qns_que(item)">回答</span>
+                                        </dd>
+                                        <dd>
+                                        </dd>
+                                        <dd>展示时间：{{item.creation_time}}</dd>
+                                    </dl>
+                                    <span class="delComment" ids="38702" @click="delete_qa(item,index,1)"><i
+                                            class="iconfont"></i>删除问答</span>
+                                    <div class="addMarBox">
+                                        <span
+                                            :class="(item.state == 1 || item.state == 3)?'addPraise zdIcon active':'addPraise zdIcon'"
+                                            title="加入置顶" ids="38702" @click="change_state('顶',item)">顶</span>
+                                        <span
+                                            :class="(item.state == 2 || item.state == 3)?'addEvery jhIcon active':'addEvery jhIcon'"
+                                            title="加入精华" ids="38702" @click="change_state('精',item)">精</span>
+                                    </div>
+                                </div>
+                                <div v-if="item.selected == true" class="plContent pl52036" queid="52036">
+
+                                    <div class="oneanswer" v-for="(item1,index1) in item.son_qas" data-id="77908"
+                                        data-queid="52036">
+                                        <table class="onean t-t" cellpadding="0px" cellspacing="0px">
+                                            <colgroup>
+                                                <col width="100px">
+                                                <col width="100%">
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="title-t" valign="top">
+                                                        <div class="title-hip">
+                                                            <img class="yuanPic" :src="item1.picture">
+                                                        </div>
+                                                        <div class="title-name">
+                                                            {{item1.nicename}}
+                                                        </div>
+                                                    </td>
+                                                    <td class="content-c" valign="top">
+                                                        <div class="c-top">
+                                                            <span style="font-size:14px"
+                                                                v-html="`@`+item1.fname+` `+item1.content"></span>
+                                                        </div>
+                                                        <div class="c-bottom">
+                                                            <span>回复时间:
+                                                                {{getNowFormatDate(new Date(item1.creation_time))}}</span>
+                                                            <span class="anss"
+                                                                style="margin-left:10px;color: #0099ff;cursor: pointer;"
+                                                                data-id="77908"><span class="xzi">回答:(<span
+                                                                        class="count">0</span>)</span></span>
+                                                            <span class="ore"
+                                                                style="margin-left:30px;cursor: pointer;"><i
+                                                                    class="iconfont"></i><span class="xzi"
+                                                                    @click="edit_son_qa(index,index1)">回复</span></span>
+                                                            <span class="del" style="margin-left:10px;cursor: pointer;"
+                                                                data-id="77908" data-types="1"><i
+                                                                    class="iconfont"></i><span
+                                                                    class="xzi" @click="delete_qa(item1,index1,2)">删除</span></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="twoans">
+                                                    <td></td>
+                                                    <td class="c">
+                                                        <div class="two-content" style="display:none">
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="h-text" style="display:table-row"
+                                                    v-show="item1.edit == true">
+                                                    <td></td>
+                                                    <td class="t" style="width: 80%;">
+                                                        <div class="onetext" style="display: block;">
+                                                            <textarea rows="5" style="width: 95%;"
+                                                                :placeholder="'回复@'+item1.nicename" v-model="item1.edit_input" data-name="卫国老师"
+                                                                data-types="QUESTION_ANSWER_TEACHER"></textarea>
+                                                            <p style="float: right;margin-right: 3%;">
+
+                                                                <a class="btn btn-mini btn-primary btn-onere"
+                                                                    style="cursor: pointer;color:white" data-id="77908"
+                                                                    data-uid="181583" @click="reply(item1,index,item)">回复</a>
+
+                                                                <!-- <a class="btn btn-mini btn-default btn-oneca"
+                                                                    style="cursor: pointer;">取消</a> -->
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="plContent none pl38702" queid="38702"></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="commentTabContList reviewComment" style="display: none;">
+                        <dl class="gradeBox auditCodition clear">
+                            <dt>
+                                <button class="reviewBtn">一键审核</button>
+                            </dt>
+                            <dd class="auditStatus" type="0">全部<span></span></dd>
+                            <dd class="auditStatus active" type="1">未审核<span></span></dd>
+                            <dd class="auditStatus" type="2">已通过<span></span></dd>
+                            <dd class="auditStatus" type="3">未通过<span></span></dd>
+                        </dl>
+                        <ul class="publicCont" id="auditList">
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="addLessonDialog" class="dialog" style="overflow: hidden;" v-show="model == 1">
+                <div id="LessonSubmitForm" class="schedule clearfloat prompt"
+                    style="height: 360px;padding: 60px  0 0 3% !important;width:50%"><i class="iconfont"
+                        @click="model = 0"
+                        style="position: absolute; top: 20px; right: 20px; width: 20px; height: 20px; text-align: center; line-height: 20px; font-size: 20px;cursor: pointer;">x</i>
+                    <textarea id="editor_id2" name="content" style="width:94%;height:300px;">
+                            </textarea>
+                    <div class="save_btn clearfloat" style="bottom:10px"><a class="btn btn-default btn-lg cancelDialog"
+                            @click="model = 0">取消</a> <a class="btn btn-primary btn-lg saveDialog" style="color: white;"
+                            @click="submit_ans_que">保存</a></div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script charset="utf-8" src="./kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="./kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="./kindeditor/plugins/code/prettify.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 1,
+                    activeIndexb: '',
+                    activeIndexc: '',
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    types: [],
+                    qa_info: {
+
+                    },
+                    ans_que_info: {
+                        mid: 1,
+                        fid: 3,
+                        publisher: parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        content: '',
+                        course_type: 1
+                    },
+                    qas: [],
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.activea(1)
+                var callBackPath =
+                    'http://192.168.10.64:5502/dist/kindeditor/redirect.html'; //redirect.html的请求路径 例如 http://www.abc.com/redirect.html
+
+                KindEditor.ready(function (K) {
+                    window.editor2 = K.create('#editor_id2', {
+                        afterTab: function () {
+                            console.log(1)
+                        },
+                        items: ['source', '|', 'undo', 'redo', '|', 'preview', 'bold', 'italic',
+                            'strikethrough', 'table', 'justifyleft', 'justifycenter',
+                            'justifyright', 'justifyfull', 'insertorderedlist',
+                            'insertunorderedlist'
+                        ],
+                        uploadJson: 'http://192.168.10.166:8080/ItemBank/uploadFile?callBackPath=' +
+                            callBackPath,
+                        // fileManagerJson : 'http://192.168.10.166:8080/ItemBank/uploadFile',
+                        allowFileManager: true
+                    });
+                });
+            },
+            methods: {
+                active() {
+
+                },
+                //修改问答状态
+                change_state(state, item) {
+                    let _this = this
+                    console.log(state, item)
+                    obj = {
+                        questions_id: item.questions_id
+                    }
+                    if (state == '顶') {
+                        if (item.state != 1 && item.state != 3) {
+                            if (item.state == 2) {
+                                obj.state = 3
+                            } else {
+                                obj.state = 1
+                            }
+                        }else{
+                            if (item.state == 3) {
+                                obj.state = 2
+                            } else {
+                                obj.state = 0
+                            }
+                        }
+                    } else {
+                        if (item.state != 2 && item.state != 3) {
+                            if (item.state == 1) {
+                                obj.state = 3
+                            } else {
+                                obj.state = 2
+                            }
+                        }else{
+                            if (item.state == 3) {
+                                obj.state = 1
+                            } else {
+                                obj.state = 0
+                            }
+                        }
+                    }
+                    
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/questions/updateQestions',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: obj,
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    if (data == 1) {
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '修改成功',
+                                            duration: 2000
+                                        });
+                                        _this.search_qa()
+                                    } else {
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '修改失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$notify.error({
+                                        title: '错误',
+                                        message: data,
+                                        duration: 0
+                                    });
+                                }
+                            })
+                },
+                reply(item1,i,it){
+                    let _this = this
+                    console.log(item1)
+                    obj = {
+                        mid: 1,
+                        fid: 3,
+                        publisher: parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        content: '',
+                        course_type: 1
+                    }
+                    obj.mid = item1.mid
+                    obj.fid = item1.questions_id
+                    obj.content = item1.edit_input
+                    obj.course_type = item1.course_type
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/questions/insertQestions',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '回答成功',
+                                    duration: 2000
+                                });
+                                _this.qas.map((item, index) => {
+                        if (index == i) {
+                            // if (item.selected == true) {
+                            //     // item.selected = false
+                            // } else {
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/questions/showQuestions',
+                                    type: 'post',
+                                    // contentType: 'application/json',
+                                    data: {
+                                        mid: item.mid
+                                    },
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        data = data.filter((a)=>{
+                                            return a.fid != 0
+                                        })
+                                        data.map((i) => {
+                                            i.edit = false
+                                            i.edit_input = ''
+                                        })
+                                        data = data.sort((a, b) => {
+                                            if (new Date(a.creation_time) >
+                                                new Date(b.creation_time)) {
+                                                return 1
+                                            } else {
+                                                return -1
+                                            }
+                                        })
+                                        console.log(data)
+                                        item.son_qas = data
+                                        item.selected = true
+                                        // _this.tikus = data
+                                    },
+                                    error: function () {
+                                        _this.$message.error({
+                                            type: 'info',
+                                            message: '服务器错误',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                    }
+                                })
+                            // }
+                        }
+                    })
+                            } else {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '回答失败',
+                                    duration: 2000
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: data,
+                                duration: 0
+                            });
+                        }
+                    })
+                },
+                qns_que(item) {
+                    editor2.sync();
+                    html = document.getElementById('editor_id2').value; // 原生API
+                    editor2.html('')
+                    let _this = this
+                    console.log(item)
+                    _this.ans_que_info.mid = item.mid
+                    _this.ans_que_info.fid = item.questions_id
+                    _this.ans_que_info.course_type = _this.activeIndexa
+                    _this.model = 1
+                },
+                submit_ans_que() {
+                    let _this = this
+                    html2 = editor2.html();
+
+                    // 同步数据后可以直接取得textarea的value
+                    editor2.sync();
+                    html2 = document.getElementById('editor_id2').value; // 原生API
+                    // html = K('#editor_id').val(); // KindEditor Node API
+                    html2 = $('#editor_id2').val(); // jQuery
+                    console.log(html2)
+                    _this.ans_que_info.content = html2
+                    console.log(_this.ans_que_info)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/questions/insertQestions',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(_this.ans_que_info),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '回答成功',
+                                    duration: 2000
+                                });
+                                _this.search_qa()
+                            } else {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '回答失败',
+                                    duration: 2000
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: data,
+                                duration: 0
+                            });
+                        }
+                    })
+                },
+                delete_qa(item,i,num) {
+                    console.log(item)
+                    _this = this
+                    if(num == 1){
+                        this.$confirm(`您确定要删除此问题？`, '提示', {
+                            confirmButtonText: '确定',
+                            cancelButtonText: '取消',
+                            dangerouslyUseHTMLString: true,
+                            type: 'warning'
+                        }).then(() => {
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/questions/deleteQestions',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: {
+                                    questions_id: item.questions_id,
+                                    tf_delete: 1
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    if (data == 1) {
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '删除成功',
+                                            duration: 2000
+                                        });
+                                        _this.search_qa()
+                                    } else {
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '删除失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$notify.error({
+                                        title: '错误',
+                                        message: data,
+                                        duration: 0
+                                    });
+                                }
+                            })
+                        }).catch(() => {
+                            this.$message({
+                                type: 'info',
+                                message: '已取消'
+                            });
+                        });
+                    }else{
+                        this.$confirm(`您确定要删除此问题？`, '提示', {
+                            confirmButtonText: '确定',
+                            cancelButtonText: '取消',
+                            dangerouslyUseHTMLString: true,
+                            type: 'warning'
+                        }).then(() => {
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/questions/deleteQestions',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: {
+                                    questions_id: item.questions_id,
+                                    tf_delete: 1
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    if (data == 1) {
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '删除成功',
+                                            duration: 2000
+                                        });
+                                        _this.qas.map((item2, index) => {
+                        if (index == i) {
+                            // if (item2.selected == true) {
+                            //     item2.selected = false
+                            // } else {
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/questions/showQuestions',
+                                    type: 'post',
+                                    // contentType: 'application/json',
+                                    data: {
+                                        mid: item2.mid
+                                    },
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        
+                                        data = data.filter((a)=>{
+                                            return a.fid != 0
+                                        })
+                                        data.map((i) => {
+                                            i.edit = false
+                                            i.edit_input = ''
+                                        })
+                                        data = data.sort((a, b) => {
+                                            if (new Date(a.creation_time) >
+                                                new Date(b.creation_time)) {
+                                                return 1
+                                            } else {
+                                                return -1
+                                            }
+                                        })
+                                        console.log(data)
+                                        item2.son_qas = data
+                                        item2.selected = true
+                                        // _this.tikus = data
+                                    },
+                                    error: function () {
+                                        _this.$message.error({
+                                            type: 'info',
+                                            message: '服务器错误',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                    }
+                                })
+                            // }
+                        }
+                    })
+                                    } else {
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '删除失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$notify.error({
+                                        title: '错误',
+                                        message: data,
+                                        duration: 0
+                                    });
+                                }
+                            })
+                        }).catch(() => {
+                            this.$message({
+                                type: 'info',
+                                message: '已取消'
+                            });
+                        });
+                    }
+                },
+                edit_son_qa(index, index1) {
+                    let _this = this
+                    console.log(_this.qas[index].son_qas[index1])
+                    _this.qas[index].son_qas[index1].edit = true
+                },
+                change_selected(i, it) {
+                    console.log(i, it)
+                    let _this = this
+                    _this.qas.map((item, index) => {
+                        if (index == i) {
+                            if (item.selected == true) {
+                                item.selected = false
+                            } else {
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/questions/showQuestions',
+                                    type: 'post',
+                                    // contentType: 'application/json',
+                                    data: {
+                                        mid: item.mid
+                                    },
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        
+                                        data = data.filter((a)=>{
+                                            return a.fid != 0
+                                        })
+                                        data.map((i) => {
+                                            i.edit = false
+                                            i.edit_input = ''
+                                        })
+                                        data = data.sort((a, b) => {
+                                            if (new Date(a.creation_time) >
+                                                new Date(b.creation_time)) {
+                                                return 1
+                                            } else {
+                                                return -1
+                                            }
+                                        })
+                                        console.log(data)
+                                        item.son_qas = data
+                                        item.selected = true
+                                        // _this.tikus = data
+                                    },
+                                    error: function () {
+                                        _this.$message.error({
+                                            type: 'info',
+                                            message: '服务器错误',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                    }
+                                })
+                            }
+                        }
+                    })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                search_qa() {
+                    let _this = this
+                    obj = {}
+                    switch (_this.activeIndexa) {
+                        case 1:
+                            obj = {
+                                course_type: 1,
+                                subject_id: _this.activeIndexb,
+                                state: _this.activeIndexc,
+                            }
+                            break;
+                        case 2:
+                            obj = {
+                                course_type: 2,
+                                project_id: _this.activeIndexb,
+                                state: _this.activeIndexc,
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null || obj[k] == 0) {
+                            delete obj[k]
+                        }
+                    }
+                    console.log(obj)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/questions/showQuestions',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        data: obj,
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item) => {
+                                item.creation_time = _this.getNowFormatDate(new Date(item
+                                    .creation_time))
+                                item.selected = false
+                                item.son_qas = []
+                            })
+                            _this.qas = data
+                            
+                    _this.qas = _this.qas.sort((a,b)=>{
+                        if(a.creation_time > b.creation_time){
+                            return -1
+                        }else{
+                            return 1
+                        }
+                    })
+                            // _this.tikus = data
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                activea(num) {
+                    let _this = this
+                    _this.activeIndexa = num
+                    _this.activeIndexb = 0
+                    switch (_this.activeIndexa) {
+                        case 1:
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/questions/queryQestionClassification',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+
+                                }),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    data = data.filter((item) => {
+                                        return item.tf_enabled == 1
+                                    })
+                                    _this.types = data
+                                    _this.search_qa()
+                                    // _this.tikus = data
+                                },
+                                error: function () {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '服务器错误',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            })
+                            break;
+                        case 2:
+
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/resources/showAllProject',
+                                type: 'post',
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    _this.types = data
+                                    _this.search_qa()
+                                    // _this.tikus = data
+                                },
+                                error: function () {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '服务器错误',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            })
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                activeb(num) {
+                    let _this = this
+                    _this.activeIndexb = num
+                    _this.search_qa()
+                },
+                activec(num) {
+                    let _this = this
+                    _this.activeIndexc = num
+                    _this.search_qa()
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

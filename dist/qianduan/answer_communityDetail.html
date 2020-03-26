@@ -1,0 +1,334 @@
+<html lang="zh-cn">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+	<link rel="icon" href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+		type="image/x-icon">
+	<link rel="shortcut icon"
+		href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+		type="image/x-icon">
+	<script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/head.css">
+	<link data-id="header-theme" rel="stylesheet" href="css/header.css">
+	<link data-id="theme-header" rel="stylesheet" href="css/black.css">
+	<link rel="stylesheet" href="css/head-case.css">
+	<link rel="stylesheet" href="css/app-icon1.css">
+	<link rel="stylesheet" href="css/register_thirdLogin.css">
+	<link rel="stylesheet" href="css/element-ui.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+	<link href="css/newIndex.css" rel="stylesheet" type="text/css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/newHomeIndex.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/ask.css">
+	<link rel="stylesheet" href="../kindeditor/themes/default/default.css" />
+	<link rel="stylesheet" href="../kindeditor/plugins/code/prettify.css" />
+
+	<meta name="keywords"
+		content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+	<meta name="description"
+		content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+	<title>火种教育−火种教你考证书</title>
+	<link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+	<link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+	<div id="header" class="header header-fix"> </div>
+	<!-- register-end-->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+	<!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+	<script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+	<script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+	<div id="app" v-cloak style="height: auto;margin-top: 60px" class="w clear">
+		<!-- 左侧-->
+		<div class="left-box">
+			<div class="whole">
+				<h1><i class="backhead" style="cursor: pointer;">全部问答</i><b>&gt;</b><i class="quetitle">{{question.title}}</i>
+				</h1>
+				<div class="content">
+					<div class="question">
+						<div class="name">
+							<img
+								:src="question.head ? question.head : 'http://ketang.huozhongedu.com/images/user/iconfont-danxiantouxiangline.png'"
+								alt="">
+							<i>{{question.nicename ? question.nicename : '匿名用户'}}</i>
+						</div>
+						<h1 class="quetitle">{{question.title}}</h1>
+						<div class="word" v-html="question.content"></div>
+						<div class="foot">
+							<p>
+								<em>提问时间：{{getNowFormatDate(question.creation_time)}}</em>
+								<em>最后回答：{{getNowFormatDate(question.maxtime)}}</em>
+								<i class="iconfont"></i>
+								<i v-if="question.subject_id">{{filterSubjet(question.subject_id)}}</i>
+							</p>
+						</div>
+						<div class="reply">
+							<span class="answer"><i>4</i>回答</span>
+							<span class="static"><i>218</i>浏览</span>
+						</div>
+					</div>
+					<div class="comments" v-if="answerList.length">
+						<div class="q-comment" data-id="71147" v-for="(ans,index) in answerList">
+							<div class="q-comment-wrap-box clear">
+								<div class="q-comment-wrap clear">
+									<div class="q-comment-author">
+										<img
+											:src="ans.head ? ans.head : 'http://ketang.huozhongedu.com/images/user/iconfont-danxiantouxiangline.png'"
+											alt="">
+										<p>
+											<span>{{ans.nicename ? ans.nicename : '匿名用户'}}</span>
+										</p>
+									</div>
+									<div class="q-comment-d">
+										<div v-if="ans.fidname">您对用户 {{ans.fidname}} 的评论：</div>
+										<div class="inner" v-html="ans.content"></div>
+										<p class="q-comment-addon clear">
+											<span class="time">{{getNowFormatDate(ans.creation_time)}}</span>
+											<span class="reply" itematt="one0" @click="replyChild(ans,index)">
+												<i class="iconfont"></i>
+												<i>回复</i>
+											</span>
+										</p>
+									</div>
+								</div>
+								<!-- 回复每条数据 需登录-->
+								<div class="reply-box" itematt="one0">
+									<div class="q-reply-item clear">
+										<div class="q-reply-item-author">
+											<img src="http://ketang.huozhongedu.com/images/user/iconfont-danxiantouxiangline.png" alt="">
+										</div>
+										<div class="reply-area">
+											<textarea placeholder="回复  183xxxx1812：" data-ansid="71147" data-parid="71147" data-uid="2207201"
+												data-uname="183xxxx1812" data-types="QUESTION_ANSWER_STUDENT"></textarea>
+											<div class="mask">
+												登录后才可回复
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="q-reply" v-if="ans.isShow" style="position: relative;padding: 10px 0 10px 120px;border-top: 1px solid #f0f0f0;border-bottom: 1px solid #f0f0f0;">
+								<textarea v-model="ans.value" name="" id="" style="width: 100%;" rows="3"></textarea>
+								<el-button @click="replySend(ans,index)" style="position: absolute;left: 34px;top: 17px;" type="primary" icon="el-icon-edit" circle></el-button>
+							</div>
+							<div class="slide" style="display:none;">
+								<p class="word-btn">点击展开后面<i></i>条评论</p>
+								<img class="jia" src="http://ketang.huozhongedu.com/images/ask/1.gif" style="display: none;">
+							</div>
+							<div class="line"></div>
+						</div>
+						<div class="myPagination" style="text-align: center">
+							<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+								:current-page.sync="currentPage1" :page-size="10" layout="total, prev, pager, next"
+								:total="pageTotal">
+							</el-pagination>
+						</div>
+					</div>
+					<textarea style="width:100%;height:200px;margin-top: 40px;" v-model="replyValue"></textarea>
+
+				</div>
+				<div class="pages" style="overflow: hidden;height: 40px;">
+					<button @click="replyBtnFn()"
+						style="color: #fff;font-size: 14px;width: 76px;height: 32px;line-height: 32px;background: #00b7ee;padding: 0;border: 0;border-radius: 4px;">回复</button>
+				</div>
+			</div>
+		</div>
+		<!-- 右侧-->
+		<div class="right-box">
+			<div class="my-ask new"><a style="color: #fff;" href="answer_communityNew.html">发新问题</a></div>
+			<div class="question">
+				<div class="title-wrap">
+					<span class="title">相关问题</span>
+				</div>
+				<div class="content">
+					<a href="/askQuestion/myQuestion/50724" v-for="rel in relatedIssues">{{rel.title}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+<script src="js/vue.min.js"></script>
+<script src="js/element-ui.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.js"> </script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<!-- <script charset="utf-8" src="../kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="../kindeditor/lang/zh-CN.js"></script>
+<script charset="utf-8" src="../kindeditor/plugins/code/prettify.js"></script> -->
+
+<script>
+	var app = new Vue({
+		el: '#app',
+		data() {
+			return {
+				domain: 'http://192.168.10.166:8080',
+				questions_id: 0,
+				question: [],
+				answerList: [],
+				classification: [],
+				relatedIssues: [],
+				replyValue: '',
+				currentPage1: 1,
+				pageTotal: 0,
+				pagesize: 10, //    每页的数据
+			}
+		},
+		created() {
+			$(document).ready(function () {
+				$("#header").load("header.html");
+			});
+			// 获取问题大类
+			$.ajax({
+				type: 'post',
+				url: this.domain + '/stu/Question/queryClassificationName',
+				data: JSON.stringify({}),
+				contentType: 'application/json',
+				success: res => {
+					this.classification = res
+				}
+			})
+			this.initPage(1)
+		},
+		methods: {
+			//分页
+			handleSizeChange(val) {
+				console.log(`每页 ${val} 条`);
+			},
+			handleCurrentChange(val) {
+				console.log(val)
+				this.initPage(val - 0)
+				// this.search_kcs(val - 0)
+			},
+			initReply(fid,index = '') {
+				$.ajax({
+					type: 'post',
+					url: this.domain + '/stu/Question/ReplyQuestion',
+					data: JSON.stringify({
+						"mid": this.question.mid,
+						"fid": fid, // 回复哪个人的 questions_id  如果回复的是最主问题 取 datalist1的 回复某个人取 datalist2的
+						"publisher": localStorage.stu_id, // 账号id
+						"content": index === '' ? this.replyValue : this.answerList[index].value,
+						course_type: window.location.href.split('?')[1].split('&')[1].split('=')[1],
+						"picture": ""
+					}),
+					contentType: 'application/json',
+					success: res => {
+						if (res) {
+							this.initPage(1)
+							window.scrollTo(0,0)
+							alert('回复成功！')
+						} else {
+							alert('回复失败！')
+						}
+						this.replyValue = ""
+					}
+				})
+			},
+			replyChild(ans,index) {
+				this.answerList[index].isShow = !this.answerList[index].isShow
+			},
+			replySend(ans,index) {
+				if (ans.value.length) {
+					this.initReply(ans.questions_id,index)
+				}
+				this.answerList[index].isShow = false
+				this.answerList[index].value = ''
+			},
+			replyBtnFn() {
+				if (!this.replyValue) return alert('不能为空')
+				this.initReply(this.question.questions_id)
+			},
+			getNowFormatDate(date) {
+				if (!date) {
+					return
+				}
+				date = new Date(date)
+				var seperator1 = "-";
+				var seperator2 = ":";
+				var month = date.getMonth() + 1;
+				var strDate = date.getDate();
+				var hour = date.getHours();
+				var minute = date.getMinutes();
+				var second = date.getSeconds();
+				if (month >= 1 && month <= 9) {
+					month = "0" + month;
+				}
+				if (strDate >= 0 && strDate <= 9) {
+					strDate = "0" + strDate;
+				}
+				if (hour >= 0 && hour <= 9) {
+					hour = "0" + hour;
+				}
+				if (minute >= 0 && minute <= 9) {
+					minute = "0" + minute;
+				}
+				if (second >= 0 && second <= 9) {
+					second = "0" + second;
+				}
+				var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+					" " + hour + seperator2 + minute +
+					seperator2 + second;
+				return currentdate;
+			},
+			filterSubjet(subject_id) {
+				let type = ''
+				subject_id = subject_id.replace(/;/g, '').split('')
+				subject_id.forEach(itm => {
+					this.classification.forEach(el => {
+						if (el.pse_id.toString() === itm.toString()) {
+							type += el.modify_name + ' '
+						}
+					})
+				})
+				return type
+			},
+			initPage(num) {
+				// 获取问题详情
+				this.questions_id = window.location.href.split('?')[1].split('&')[0].split('=')[1]
+				$.ajax({
+					type: 'post',
+					url: this.domain + '/stu/Question/queryOneQuestion',
+					data: JSON.stringify({
+						questions_id: this.questions_id,
+						course_type: window.location.href.split('?')[1].split('&')[1].split('=')[1],
+						pageNum: num,
+						pageSize: 10
+					}),
+					contentType: 'application/json',
+					success: res => {
+						this.question = res.datalist1[0]
+						this.answerList = res.datalist2.map(el=> {
+							el.isShow = false
+							el.value = ''
+							return el
+						})
+						// 子回复检查是否是某个人的评论
+						this.answerList.forEach((itm,index) => {
+							res.datalist2.forEach((im,i) => {
+								if(itm.fid === im.questions_id){
+									this.answerList[index]['fidname'] = im.nicename ? im.nicename : '匿名用户'
+								}
+							})
+						})
+						this.pageTotal = res.datalist2.length
+						console.log(this.answerList)
+						this.relatedIssues = res.datalist3
+						this.currentPage1 = num
+					}
+				})
+			}
+		}
+	})
+</script>
+
+</html>

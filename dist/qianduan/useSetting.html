@@ -1,0 +1,1055 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <link rel="stylesheet" type="text/css" href="css/person.css">
+    <link rel="stylesheet" href="css/classbag-detail.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/element-ui.css">
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
+    <style>
+        #provinceView li span {
+            white-space: nowrap;
+        }
+
+        #provinceInfoEdit li span {
+            white-space: nowrap;
+        }
+
+        .viewwindow {
+            background-color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            z-index: 10;
+            display: none;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .icondiv {
+            height: 30px;
+            position: relative;
+            line-height: 30px;
+        }
+
+        .viewwindow2 {
+            background-color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            z-index: 10;
+            display: none;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .icondiv2 {
+            height: 30px;
+            position: relative;
+            line-height: 30px;
+        }
+    </style>
+
+    <style>
+        .pages li {
+            float: initial;
+        }
+    </style>
+
+
+    <style type="text/css">
+        .xz {
+            color: #3ec0ef;
+        }
+
+        li:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="background-cyan" data-personhomepage="" style="    margin-top: 60px;">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix">
+
+    </div>
+    <!-- register-end-->
+    <div id="app"  v-cloak class="content-box" style="margin-top:90px;min-height: 600px;height: auto;">
+        <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data"></form>
+        <div class="content-left" style="height: auto;">
+            <div class="headpic">
+
+                <div class="pic" :style="'background-image:url('+stu_info.head+')'">
+
+
+                    <div class="setup">设置</div>
+                    <div class="maskpic">
+                        <img src="./image/semic.png" alt="">
+                    </div>
+                </div>
+                <div class="headtit">
+
+
+                    {{sub_stu_info.tel}}
+
+
+
+
+                </div>
+                <div class="headlabel static" v-show="write_label == false"
+                    style="text-align: center;word-break: break-all;">
+                    <span class="qm" style="word-break: break-word;max-height: 38px;display: block;overflow: hidden;">
+
+                        {{sub_stu_info.autograph == null?'这家伙很懒，什么都没有留下。。。':sub_stu_info.autograph}}
+
+
+                    </span>
+                    <span class="iconfont" style="cursor: pointer;" @click="change_write"></span>
+                </div>
+                <div class="headlabel2 write" :style="write_label == true?'display:block':''">
+                    <textarea ref="textarea" name=""  cols="30" rows="2" maxlength="40"
+                        @blur="submit_infomation" v-model="sub_stu_info.autograph == null?'这家伙很懒，什么都没有留下。。。':sub_stu_info.autograph"></textarea>
+                    <!-- <span class="font-num"><em class="inCount">12</em>/40</span> -->
+                </div>
+            </div>
+            <ul>
+                <li @click="activeA(1)" :class="activeIndexa == 1?'uncheck label-active':'uncheck'"
+                    data-url="student/showInfo" num="1">
+                    <span class="iconfont" style=""></span>
+                    <span class="choiceBtn myCourse" style="">账号信息</span>
+                </li>
+                <div class="dashed"></div>
+
+                <li @click="activeA(2)" :class="activeIndexa == 2?'uncheck label-active':'uncheck'"
+                    data-url="student/showVipInfo" num="2">
+                    <span class="iconfont" style=""></span>
+                    <span class="choiceBtn" style="">个人资料</span>
+                </li>
+                <div class="dashed"></div>
+
+
+                <div class="dashed"></div>
+                <li @click="activeA(3)" :class="activeIndexa == 3?'uncheck label-active':'uncheck'"
+                    data-url="student/toHeadPic" num="3">
+                    <span class="iconfont" style=""></span>
+                    <span class="choiceBtn" style="">设置头像</span>
+                </li>
+                <div class="dashed"></div>
+                <li @click="activeA(4)" :class="activeIndexa == 4?'uncheck label-active':'uncheck'"
+                    data-url="usersFront/toUpdatePwd" num="4">
+                    <span class="iconfont" style=""></span>
+                    <span class="choiceBtn" style="">修改密码</span>
+                </li>
+            </ul>
+        </div>
+        <div class="content-right" style="overflow: hidden;min-height: 594px;">
+            <div v-if="activeIndexa == 1">
+                <div class="wrap user-main">
+                    <div style="margin-left: 30px;font-size: 18px;color: #474746;">账号信息</div>
+                    <div class="line" style="margin-left: 30px;width: 920px;"></div>
+                </div>
+                <div class="L-account">
+                    <!--普通账号-->
+                    <dl class="L-general-account">
+                        <dt>普通账号</dt>
+
+
+
+                        <dd class="L-info">
+                            <h4>
+                                <i class="iconfont L-phone L-active"></i>
+                            </h4>
+                            <div class="clear L-clear to_b_mobile">
+                                <div class="L-aLeft">
+                                    <h3>
+                                        <i>手机号</i>
+
+                                        <span>{{stu_info.md_tel}}</span><em>已绑定</em>
+
+
+                                    </h3>
+                                    <p>可用手机号加密码登录在线网校，可用手机号找回密码</p>
+                                </div>
+
+
+
+
+
+
+
+
+                            </div>
+                        </dd>
+
+
+
+
+
+
+
+                        <dd class="L-info">
+                            <h4>
+                                <i class="iconfont L-acinfo L-active"></i>
+                            </h4>
+                            <div class="clear L-clear to_b_email">
+                                <div class="L-aLeft">
+                                    <h3><i>邮箱</i>
+
+                                        <span>{{stu_info.email}}</span><em>{{stu_info.email == null?'未绑定':'已绑定'}}</em>
+
+
+                                    </h3>
+                                    <p>可用邮箱加密码登录在线网校
+                                        <!-- ，可用邮箱找回密码 -->
+                                    </p>
+                                </div>
+                                <a href="javascript:;" @click="model = 1" data-type="email">
+
+                                    {{stu_info.email == null?'绑定邮箱':'更改'}}
+
+
+                                </a>
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <!--社交账号-->
+
+
+                    <dl class="L-social-account">
+
+
+
+
+                        <dt>社交账号</dt>
+
+
+
+
+
+
+                        <dd class="">
+
+
+
+                            <img src="/images/bind/weixin-def.png" alt="">
+                            <span>未绑定</span>
+                            <a href="javascript:;" data-type="weixin">立即绑定</a>
+
+
+                        </dd>
+
+                    </dl>
+
+
+                </div>
+            </div>
+            <div v-if="activeIndexa == 2">
+                <div class="wrap user-main">
+                    <div class="clear" style="margin-left: 30px;font-size: 18px;color: #474746;width: 920px;">
+                        <p class="fl" style="font-size: 16px">个人资料<span
+                                style="font-size: 12px;color: #666;margin-left: 14px;">(信息的真实性会涉及到您的权益,为保护您的权益,请输入真实有效信息。)</span>
+                        </p>
+
+                    </div>
+                    <div class="line" style="margin-left: 30px;width: 920px;"></div>
+                </div>
+                <div class="wrap edit-content nospace">
+
+                </div>
+                <div class="wrap user-infos L-user-infos" style="margin-top: -60px;width: 920px;">
+                    <div class="view-infos">
+                        <div class="contents">
+                            <h2 class="h6">
+                                基本信息
+                                <span style="color: red;font-size: 12px;">标注*的为必填项</span>
+                                <a v-if="infomation1 == false" href="javascript:;" class="btn btn-sm edit"
+                                    id="editBaseInfo" style="" @click="infomation1 = true">编辑</a>
+                                <a v-if="infomation1 == true" href="javascript:;" class="btn btn-sm edit"
+                                    id="editBaseInfo" style="    right: 70px;" @click="submit_infomation">保存</a>
+                                <a v-if="infomation1 == true" href="javascript:;" class="btn btn-sm edit"
+                                    id="baseCancle" style="text-decoration: none;color: #474747;"
+                                    @click="infomation1 = false">取消</a>
+                            </h2>
+                            <!-- 学生学历code和证件类型code和证件号码 -->
+                            <div class="box L-box">
+                                <ul class="list infos view" id="baseInfoView" v-if="infomation1 == false"
+                                    style="display: block;">
+                                    <li class="L-posR" style="height: 29px"><span
+                                            style="width: 72px;margin-left: -7px;"><span class="BT"
+                                                style="width: 4px;margin-top: 2px;color: red;position: absolute">*</span>姓名：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.stu_name}}</em>
+                                    </li>
+                                    <li class="L-posR" style="height: 29px"><span
+                                            style="width: 72px;margin-left: -7px;"><span class="BT"
+                                                style="width: 4px;margin-top: 2px;color: red;position: absolute">&nbsp;</span>昵称：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.nickname}}</em>
+                                    </li>
+                                    <li class="L-posR" style="height: 29px"><span
+                                            style="width: 72px;margin-left: -7px;"><span class="BT"
+                                                style="width: 4px;margin-top: 2px;color: red;position: absolute">&nbsp;</span>证件类型：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.ID_type}}
+                                        </em></li>
+                                    <li class="L-posR" style="height: 29px"><span
+                                            style="width: 72px;margin-left: -7px;"><span class="BT"
+                                                style="width: 4px;margin-top: 2px;color: red;position: absolute">&nbsp;</span>证件号码：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.ID_number}}</em>
+                                    </li>
+                                    <li class="L-posR" style="height: 29px"><span
+                                            style="width: 72px;margin-left: -7px;"><span class="BT"
+                                                style="width: 4px;margin-top: 2px;color: red;position: absolute">&nbsp;</span>性别：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.sex}}</em>
+                                    </li>
+                                    <li class="L-posR" style="height: 29px"><span
+                                            style="width: 72px;margin-left: -7px;"><span class="BT"
+                                                style="width: 4px;margin-top: 2px;color: red;position: absolute">&nbsp;</span>最高学历：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.education}}
+                                        </em></li>
+                                    <li class="L-posR" style="height: 29px"><span
+                                            style="width: 72px;margin-left: -7px;"><span class="BT"
+                                                style="width: 4px;margin-top: 2px;color: red;position: absolute">&nbsp;</span>年龄：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.birthday == null?'':new Date().getFullYear() - new Date(stu_info.birthday).getFullYear()}}</em>
+                                    </li>
+                                    <li class="L-posR" style="height: 29px"><span
+                                            style="width: 72px;margin-left: -7px;"><span class="BT"
+                                                style="width: 4px;margin-top: 2px;color: red;position: absolute">&nbsp;</span>出生日期：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.birthday}}</em>
+                                    </li>
+                                    <li class="hkAddress" style="height: 29px"><span
+                                            style="width: 83px;margin-left: -48px;"><span class="BT"
+                                                style="width: 18px;margin-top: 2px;color: red;">&nbsp;</span>户口所在地：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.hukou_address}}</em>
+                                    </li>
+                                    <li class="L-posR" style="height: 29px"><span
+                                            style="width: 72px;margin-left: -7px;"><span class="BT"
+                                                style="width: 4px;margin-top: 2px;color: red;position: absolute">&nbsp;</span>签名：</span><em
+                                            style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.autograph}}</em>
+                                    </li>
+                                </ul>
+                                <form action="" id="baseForm">
+                                    <input type="hidden" name="id" value="2406045" id="stuId">
+                                    <ul class="list infos edit" id="baseInfoEdit" v-if="infomation1 == true"
+                                        style="display: block;">
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;"><span
+                                                    style=" width: 4px;margin-top: 2px;color: red;position: absolute;">*</span>姓名：</span>
+                                            <em><input type="text" maxlength="100" v-model="sub_stu_info.stu_name"
+                                                    name="name" id="stuNames"></em>
+                                        </li>
+                                        <li class="L-posR"><span style="width: 72px;margin-left: -7px;">
+                                                <span class="BT"
+                                                    style=" width: 18px;margin-top: 2px;color: red;">&nbsp;</span>昵称：</span>
+                                            <em><input type="text" maxlength="10" v-model="sub_stu_info.nickname"
+                                                    name="nickName" id="nickName"></em>
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">证件类型：</span>
+                                            <em>
+                                                <select name="identityTypeCode" v-model="sub_stu_info.ID_type"
+                                                    id="idenType">
+                                                    <option value="">请选择</option>
+
+                                                    <option value="身份证" id="ID_IDCARD">身份证</option>
+
+                                                    <option value="护照" id="ID_PASSPORT">护照</option>
+
+                                                    <option value="港澳通行证" id="ID_HMP">港澳通行证</option>
+
+                                                    <option value="台胞证" id="ID_TCP">台胞证</option>
+
+                                                    <option value="军官证" id="ID_OFFICERS">军官证</option>
+
+                                                    <option value="士官证" id="ID_SERGEANTS">士官证</option>
+
+                                                    <option value="未确定证件" id="ID_UNCONFM_ID">未确定证件</option>
+
+                                                </select>
+                                            </em>
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">
+                                                <span class="BT"
+                                                    style=" width: 18px;margin-top: 2px;color: red;">&nbsp;</span>证件号码：</span>
+                                            <em><input type="text" v-model="sub_stu_info.ID_number" name="identityId"
+                                                    id="identityId" maxlength="20"></em>
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">性别：</span>
+                                            <em class="L-check">
+
+
+                                                <input type="radio" v-model="sub_stu_info.sex" value="男" name="sex">男
+                                                <input type="radio" v-model="sub_stu_info.sex" value="女" name="sex">女
+
+                                            </em>
+                                        </li>
+                                        <li class="L-posR"><span style="width: 72px;margin-left: -7px;">最高学历：</span>
+                                            <em>
+                                                <select name="educationCode" v-model="sub_stu_info.education"
+                                                    id="dicEducationCode">
+                                                    <option value="">请选择</option>
+
+                                                    <option value="小学" id="primary_school">小学</option>
+
+                                                    <option value="初中" id="juniorHigh_school">初中</option>
+
+                                                    <option value="高中" id="seniorHigh_school">高中</option>
+
+                                                    <option value="大专以下" id="UNDER_JUNIOR">大专以下</option>
+
+                                                    <option value="大专" id="JUNIOR">大专</option>
+
+                                                    <option value="本科" id="BECHELOR">本科</option>
+
+                                                    <option value="研究生" id="POSTGRADUATE">研究生</option>
+
+                                                    <option value="博士生及以上" id="DOCTOR">博士生及以上</option>
+
+                                                </select>
+                                            </em>
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">年龄：</span>
+                                            <em>
+                                                {{new Date().getFullYear() - new Date(sub_stu_info.birthday).getFullYear()}}
+                                            </em>
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">出生日期：</span>
+                                            <em><input type="text" name="birthday" id="datetimepicker"
+                                                    v-model="sub_stu_info.birthday"></em>
+                                        </li>
+                                        <li class="hkAddress">
+                                            <span style="width: 72px;margin-left: -38px;">户口所在地：</span>
+                                            <em><input type="text" v-model="sub_stu_info.hukou_address" name="hkAddress"
+                                                    maxlength="20"></em>
+                                        </li>
+                                        <li class="L-posR"><span style="width: 72px;margin-left: -7px;">签名：</span>
+                                            <em>
+                                                <input type="text" maxlength="20" v-model="sub_stu_info.autograph"
+                                                    name="userSign" id="userSign">
+                                            </em>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                            <h2 class="h6">
+                                联系信息
+                                <span style="color: red;font-size: 12px;">标注*的为必填项</span>
+                                <a v-if="infomation2 == false" href="javascript:;" class="btn btn-sm edit"
+                                    id="editBaseInfo" style="" @click="infomation2 = true">编辑</a>
+                                <a v-if="infomation2 == true" href="javascript:;" class="btn btn-sm edit"
+                                    id="editBaseInfo" style="    right: 70px;" @click="submit_infomation">保存</a>
+                                <a v-if="infomation2 == true" href="javascript:;" class="btn btn-sm edit"
+                                    id="baseCancle" style="text-decoration: none;color: #474747;"
+                                    @click="infomation2 = false">取消</a>
+                            </h2>
+                            <div class="box L-box">
+                                <ul class="list infos view" id="conInfoView" v-if="infomation2 == false"
+                                    style="display: block;">
+                                    <div id="lxColumn">
+
+                                        <li class="L-posR" style="height: 27px;"><span style="width: 72px;margin-left: -7px;">手机号：</span><em
+                                                style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.tel}}</em>
+                                        </li>
+                                        <li class="L-posR"><span style="width: 72px;margin-left: -7px;">办公电话：</span><em
+                                                style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.office_tel}}</em>
+                                        </li>
+                                        <li class="L-posR"><span style="width: 72px;margin-left: -7px;">紧急联系人：</span><em
+                                                style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.urgent_people}}</em>
+                                        </li>
+                                        <li class="L-posR"><span
+                                                style="width: 96px;margin-left: -32px;">紧急联系人电话：</span><em
+                                                style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.urgent_people_tel}}</em>
+                                        </li>
+                                        <li class="L-posR"><span style="width: 72px;margin-left: -7px;">邮箱：</span><em
+                                                style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.email}}</em>
+                                        </li>
+                                        <li class="L-posR"><span style="width: 72px;margin-left: -7px;">微信：</span><em
+                                                style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.wechat}}</em>
+                                        </li>
+                                        <li class="L-posR"><span style="width: 72px;margin-left: -7px;">QQ号：</span><em
+                                                style="width: 68%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">{{stu_info.qq}}</em>
+                                        </li>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                                </ul>
+                                <form action="" id="conForm">
+                                    <input type="hidden" name="id" value="2406045" id="stuId">
+                                    <ul class="list infos view" id="conInfoEdit" selector="" v-if="infomation2 == true"
+                                        style="display: block;">
+                                        <li class="L-posR"><span style="width: 72px;margin-left: -7px;">手机号：</span>
+                                            <em><input type="text" v-model="sub_stu_info.tel" name="mobile" id="mobile"
+                                                    disabled="disabled" style="border:  0;" maxlength="20"></em>
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">办公电话：</span>
+                                            <em><input type="text" v-model="sub_stu_info.office_tel" name="officePhone"
+                                                    maxlength="20"></em>
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">紧急联系人：</span>
+                                            <em><input type="text" v-model="sub_stu_info.urgent_people"
+                                                    name="emergencyContact" maxlength="20"></em>
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 96px;margin-left: -31px;">紧急联系人电话：</span>
+                                            <em><input type="text" v-model="sub_stu_info.urgent_people_tel"
+                                                    name="emergencyPhone" maxlength="20"></em>
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">邮箱：</span>
+
+
+
+                                            <em><input type="text" v-model="sub_stu_info.email" name="email" id="email"
+                                                    maxlength="20"></em>
+
+
+                                        </li>
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">微信：</span>
+                                            <em><input type="text" v-model="sub_stu_info.wechat" name="weixinId"
+                                                    maxlength="20"></em>
+                                        </li>
+
+                                        <li class="L-posR">
+                                            <span style="width: 72px;margin-left: -7px;">QQ号：</span>
+                                            <em><input type="text" v-model="sub_stu_info.qq" name="qq"
+                                                    maxlength="20"></em>
+                                        </li>
+                                    </ul>
+
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="L-layer" style="display: none"></div>
+                <div class="viewwindow">
+                    <div class="icondiv"><span style="margin-left: 10px;font-size: 15px">图片预览</span><a
+                            href="javascript:;" class="iconfont L-delete"
+                            style="float: right;margin-right: 10px;"></a><br>
+                        <hr>
+                    </div><img style="width:100%;max-height:450px;margin-top: 7px" src="">
+                </div>
+                <div class="viewwindow2">
+                    <div class="icondiv2"><span style="margin-left: 10px;font-size: 15px">图片预览</span><a
+                            href="javascript:;" class="iconfont L-delete"
+                            style="float: right;margin-right: 10px;"></a><br>
+                        <hr>
+                    </div><img style="width:100%;max-height:450px;margin-top: 7px" src="">
+                </div>
+            </div>
+            <div v-if="activeIndexa == 3">
+                <div class="wrap user-main">
+                    <div style="margin-left: 30px;font-size: 18px;color: #474746;">设置头像</div>
+                    <div class="line" style="margin-left: 30px;width: 920px;"></div>
+                </div>
+                <div class="wrap edit-content user-main nospace" style="width: 920px;">
+                    <div class="edit-main">
+                        <div class="edit-picture clear">
+                            <div class="picture-left" style="width: 100%;">
+                                <div class="upload" style="    text-align: center;
+                                padding-left: 0;">
+                                    <label class="control-label btn" for="uploadform-excelfiles"
+                                        style="    border: 1px solid rgb(200,200,200);">上传头像</label><input type="file"
+                                        id="uploadform-excelfiles" @change="file" multiple class="attachment-upload"
+                                        style="left:-9999px;position:absolute;">
+                                </div>
+
+                                <div class="upload-div pic" style="    margin: 0 auto;">
+                                    <img id="target" style="    width: 100%;
+                                    height: 100%;" :src="imgSrc">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btns" style="padding-left: 0;width: 100%;">
+                            <p style="text-align: center;">
+                                <a href="javascript:void(0);" id="saveTP" @click="submit_image"
+                                    class="btn btn-sm btn-primary"
+                                    style="background-color: #00baee;border-color: #00baee;color:white">完成</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-if="activeIndexa == 4">
+                <div class="wrap user-main">
+                    <div style="margin-left: 30px;font-size: 18px;color: #474746;">设置密码</div>
+                    <div class="line" style="margin-left: 30px;width: 920px;"></div>
+                </div>
+                <div class="wrap edit-content nospace">
+
+                    <input type="hidden" id="userId" value="2338779">
+                    <input type="hidden" id="pwdOpen" value="">
+                    <input type="hidden" id="upPwdToken" value="5e00d5b3b2e24c53aa5b2355835f1e0b">
+                    <div class="edit-main" style="left: -160px;position: relative;">
+                        <div class="edit-password">
+                            <p class="c">
+                                <span class="c-title">旧密码</span>
+                                <span class="c-content">
+                                    <input type="password" v-model="old_stu_pass" placeholder="输入你的旧密码" id="oldPwd">
+                                    <i class="iconfont">*</i>
+                                </span>
+                                <span class="tips old"></span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">新密码</span>
+                                <span class="c-content">
+                                    <input type="password" v-model="stu_pass" placeholder="输入新密码" id="newPwd">
+                                    <i class="iconfont">*</i>
+                                </span>
+                                <span class="tips new"></span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">重复一遍</span>
+                                <span class="c-content">
+                                    <input type="password" v-model="qr_stu_pass" placeholder="再次输入新密码" id="nextPwd">
+                                    <i class="iconfont">*</i>
+                                </span>
+                                <span class="tips next"></span>
+                            </p>
+                            <p class="c">
+                                <a href="javascript:;" @click="change_pass" class="btn btn-sm btn-primary save"
+                                    style="color:white;background-color: #00baee;border-color: #00baee;">保存</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="L-layer" v-show="model == 1" style=""></div>
+        <div class="L-content"  v-show="model == 1"><a href="javascript:;" class="iconfont L-delete" @click="model = 0"></a>
+            <form>
+                <h2>绑定邮箱</h2>
+                <ul>
+                    <li><label for="phone-L">邮箱账号</label>
+                        <input type="text" name="" id="phone-L" v-model="sub_stu_info.email" placeholder="请输入邮箱账号"
+                            class="L-phone email_input"></li>
+                </ul><input type="button" value="确定" @click="submit_infomation" class="L-sub bindEmail">
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <form method="post" id="myForm">
+            <input type="hidden" name="type" id="typeValue">
+        </form>
+        <!-- footer end -->
+
+
+
+    </div>
+    <form method="post" id="myForm">
+        <input type="hidden" name="type" id="typeValue">
+    </form>
+    <!-- footer end -->
+    <!--百度统计代码-->
+
+
+
+
+
+
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<!-- <script src="https://unpkg.com/swiper/js/swiper.js"> </script> -->
+<!-- <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script> -->
+<script src="js/vue.min.js"> </script>
+<script src="js/element-ui.js"> </script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                currentPage: 1, //初始页
+                activeIndexa: 4,
+                activeIndexb: 0,
+                pagesize: 10, //    每页的数据
+                model: 0,
+                value2: '',
+                stu_id: localStorage.stu_id,
+                old_stu_pass: '',
+                stu_pass: '',
+                qr_stu_pass: '',
+                write_label: false,
+                infomation1: false,
+                infomation2: false,
+                stu_info: {},
+                sub_stu_info: {},
+                imgSrc: ''
+            }
+        },
+        created() {
+            let _this = this
+            $(document).ready(function(){ 
+            $("#header").load("header.html"); 
+            }); 
+            //学员信息
+            $.ajax({
+                url: 'http://192.168.10.166:8080/stu/queryStuInfo',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    stu_id: _this.stu_id
+                }),
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    _this.stu_info = data
+                    _this.sub_stu_info = JSON.parse(JSON.stringify(data))
+                    _this.imgSrc = _this.stu_info.head
+                    _this.stu_info.md_tel = data.tel.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+                },
+                error: function () {
+
+                }
+            })
+        },
+        methods: {
+            //修改个人签名
+            change_write(){
+                this.write_label = true
+                this.$refs.textarea.focus()
+            },
+            //修改密码
+            change_pass() {
+                let _this = this
+                if(_this.stu_id == 0 || _this.stu_id == undefined){
+                    _this.$message.error({
+                        type: 'info',
+                        message: "请先登录",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+                if (_this.stu_pass == _this.qr_stu_pass) {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/changePassword',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "stu_id": _this.stu_id,
+                            "old_stu_pass": _this.old_stu_pass,
+                            "stu_pass": _this.stu_pass,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '修改密码成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '修改密码失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                } else {
+                    _this.$message.error({
+                        type: 'info',
+                        message: '请确认两次密码一致',
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                }
+
+            },
+            //提交头像
+            submit_image() {
+                let _this = this
+                if(_this.stu_id == 0 || _this.stu_id == undefined){
+                    _this.$message.error({
+                        type: 'info',
+                        message: "请先登录",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/settingHead',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "stu_id": _this.stu_id,
+                        "head": _this.imgSrc
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        if (data == 1) {
+                            _this.$message.success({
+                                type: 'info',
+                                message: '上传头像成功',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.stu_info.head = _this.imgSrc
+                            _this.sub_stu_info.head = _this.imgSrc
+                        } else {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '上传头像失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            //图片上传
+            file(e) {
+                // var allFile = [];
+                console.log(e.target)
+                var fileError = 0;
+                fileList = e.currentTarget.files;
+                _this = this
+                $.each(fileList, function (index, item) {
+                    index = 0 // $(itme).setAttribute('type','file');
+                    var fileName = item.name;
+                    var fileEnd = fileName.substring(fileName.indexOf("."));
+                    console.log(item.size)
+                    //上传文件格式判断
+                    type = item.type;
+                    var maxsize = 2 * 1024 * 1024
+                    if (type.indexOf("image/") < 0) {
+                        console.log(1)
+                        _this.$notify.error({
+                            title: '错误',
+                            message: '请选择图片上传',
+                            duration: 2000
+                        });
+                    } else if (item.size > maxsize) {
+                        _this.$notify.error({
+                            title: '错误',
+                            message: '图片尺寸不能超过2MB',
+                            duration: 2000
+                        });
+                    } else if (window.FileReader) {
+                        var form = document.getElementById("addFormOne");
+                        var formData = new FormData(form);
+                        formData.set('multipartFile', item)
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/pse/uploadFile',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            // dataType: 'json',
+                            success: function (data) {
+                                _this.imgSrc = data
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        console.log(item)
+
+                    }
+                    // 
+                });
+                $(e.target).val('')
+            },
+            //提交个人信息
+            submit_infomation() {
+                let _this = this
+                console.log(_this.sub_stu_info)
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/changePassword',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(_this.sub_stu_info),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        if (data == 1) {
+                            _this.$message.success({
+                                type: 'info',
+                                message: '修改成功',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.stu_info = JSON.parse(JSON.stringify(_this.sub_stu_info))
+                            _this.stu_info.md_tel = _this.stu_info.tel.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+                            _this.infomation1 = false
+                            _this.infomation2 = false
+                            _this.model = 0
+                            _this.write_label = false
+                        } else {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '修改失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            getNowFormatDate(date) {
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                if (hour >= 0 && hour <= 9) {
+                    hour = "0" + hour;
+                }
+                if (minute >= 0 && minute <= 9) {
+                    minute = "0" + minute;
+                }
+                if (second >= 0 && second <= 9) {
+                    second = "0" + second;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                    " " + hour + seperator2 + minute +
+                    seperator2 + second;
+                return currentdate;
+            },
+            activeA(num) {
+                this.activeIndexa = num
+            },
+            activeB(num) {
+                this.activeIndexb = num
+            },
+        }
+    })
+</script>
+
+</html>

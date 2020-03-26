@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/manger.css">
+    <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/coupon.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger-screen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/inviteRecord.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/distrib.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/utils.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .stopboxtk p {
+            float: left;
+            margin-left: 20px;
+            color: #333;
+        }
+
+        .stopboxtk p input {
+            margin-right: 5px;
+        }
+
+        .stopboxtk span.tishitxt {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        .system_managelist .subentry span,
+        .system_managelist .subentry em {
+            vertical-align: middle;
+        }
+
+        .system_managelist .subentry em {
+            display: inline-block;
+            background: url("/images/new-icon.png") left top no-repeat;
+            width: 24px;
+            height: 11px;
+            margin-left: 10px;
+        }
+
+        .screenList .btn {
+            margin-right: 15px;
+            border-radius: 3px;
+            padding: 6px 12px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <style>
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .usedetails {
+            width: 920px;
+            margin: 10px auto 10px;
+            clear: both;
+            position: relative;
+            height: 30px;
+        }
+
+        .usedetailsinfo {
+            width: 172px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .usedetailsL {
+            width: 340px;
+            float: left;
+        }
+
+        .usedetailsL label {
+            font-size: 14px;
+            color: #333;
+            display: inline-block;
+            margin-right: 12px;
+        }
+
+        .usedetails .usedetails_inp {
+            width: 100px;
+            height: 28px;
+            line-height: 28px;
+            border-radius: 4px;
+            border: 1px solid rgba(224, 224, 224, 1);
+            padding-left: 10px;
+            display: inline-block;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .selecticon {
+            width: 8px;
+            height: 4px;
+            color: #B0B0B0;
+            position: absolute;
+            top: 5px;
+            left: 145px;
+            z-index: 99;
+            cursor: pointer;
+        }
+
+        .usedetails_sel {
+            width: 100px;
+            padding: 5px 0px;
+            position: absolute;
+            left: 72px;
+            top: 35px;
+            z-index: 2;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 6px 1px rgba(136, 137, 137, 0.6);
+            display: none;
+        }
+
+        .usedetails_sel span {
+            font-size: 12px;
+            color: #333;
+            height: 30px;
+            line-height: 30px;
+            display: block;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+        .usedetails_sel span:hover {
+            color: #00b7ee;
+        }
+
+        .searchbox {
+            width: 160px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .searchbox input {
+            width: 148px;
+            height: 28px;
+            line-height: 28px;
+            border-radius: 4px;
+            border: 1px solid rgba(224, 224, 224, 1);
+            margin-left: 15px;
+            padding-left: 10px;
+        }
+
+        .searchbox input::-webkit-input-placeholder {
+            color: #B5B9BC;
+
+        }
+
+        .searchbox input::-moz-input-placeholder {
+            color: #B5B9BC;
+        }
+
+
+        .searchbox input::-o-input-placeholder {
+            color: #B5B9BC;
+        }
+
+        .searchbox input::input-placeholder {
+            color: #B5B9BC;
+        }
+
+        .searchicon {
+            position: absolute;
+            top: 7px;
+            right: 5px;
+            cursor: pointer;
+        }
+
+        .usedetailsR {
+            width: 130px;
+            float: right;
+        }
+
+        .usedetailsR p {
+            color: #939CA5;
+            font-size: 12px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .usedetailsR .exportbtn {
+            width: 110px;
+            height: 30px;
+            background: rgba(0, 170, 255, 1);
+            border-radius: 4px;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            padding: 0px;
+            border: 0px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 运营
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='motion.html'">问答</li>
+                        
+                        <li onclick="window.location.href='motionPinglun.html'">课程评论</li>
+                        <li onclick="window.location.href='motionNews.html'">新闻资讯</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='motionCuxiao.html'">促销</li>
+                        <li onclick="window.location.href='motionStudent.html'">学员心声</li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company overflow coupon-page" style="margin: 0;width: auto">
+                <!-- 二级导航 -->
+                <div class="left-side">
+                    <div class="left-side-title">
+                        <em>促 销</em>
+                    </div>
+                    <ul class="system_managelist">
+                        <!-- 
+                        <li :class="activeIndexa == 0?'subentry member_flaging active':'subentry member_flaging'"
+                            code="invite_config" @click="active(0)"><span style="    font-size: 14px;">学员邀请记录</span>
+                        </li>
+
+
+                        <li :class="activeIndexa == 1?'subentry member_flaging active':'subentry member_flaging'"
+                            code="teacher_invite" @click="active(1)"><span style="    font-size: 14px;">教师邀请记录</span>
+                        </li>
+
+
+                        <li :class="activeIndexa == 2?'subentry member_flaging active':'subentry member_flaging'"
+                            code="org_invite" @click="active(2)" id="orgInvite"><span
+                                style="    font-size: 14px;">代理机构邀请记录</span></li> -->
+
+
+                        <li :class="activeIndexa == 3?'subentry member_flaging active':'subentry member_flaging'"
+                            code="coupon_manage" @click="active(3)"><span style="font-size: 14px;">优惠码管理</span></li>
+
+
+                    </ul>
+                </div>
+                <!-- <div class="right-side" v-show="activeIndexa == 0">
+                    <div class="u-wrap">
+                        <div class="record-title"style="padding:0">
+                            <h3>
+                                <i style="font-style: normal ;"> 学员邀请记录</i>
+                            </h3>
+                        </div>
+                        <div class="recordBox">
+                            <div class="appoint clear" style="margin-bottom: 0;">
+                                <h3 class="fl">日期：</h3>
+                                <div class="fl appointTime">
+                                    <button class="button_mark" mark="today" date="">全部</button>
+                                    <button class="button_mark" mark="yesterday" date="1">今天</button>
+                                    <button class="button_mark active" mark="sevenday" date="2">七天</button>
+                                    <button class="button_mark" mark="thirty" date="3">当月</button>
+                                    <button class="button_mark" mark="nos" date="">指定日期</button>
+                                    <label style="display: none;" id="dateCondition">
+                                        <input type="text" class="date-picker from starTime">
+                                        <span>至</span>
+                                        <input type="text" class="date-picker to endTime">
+                                    </label>
+                                    <input type="text" class="newsearch" placeholder="邀请人名称/手机号/邀请码" id="contentSearch">
+                                    <button class="search manage-button">搜索</button>
+                                </div>
+                            </div>
+
+                            <div class="stateCount clear" style="margin-bottom: 7px;">
+                                <p class="fl" style="line-height: 1; margin-top: 10px;">
+                                    <span>被邀请注册的总人数：<b id="totalRegNumber">0 </b>人</span>
+                                    <span>被邀请消费的总人数：<b id="totalConNumber">0 </b>次</span>
+                                    <span>发放代金券奖励总金额：<b id="totalRewardsMoney">0.00 </b>元</span>
+                                    <span>发放积分奖励总数：<b id="totalRewardsIntegral">0.00 </b>元</span>
+                                </p>
+                                <button class="exportBUt fr" id="exportExcel">导出</button>
+                            </div>
+                            <div class="tabBox">
+                                <table class="newTable userRecordTable">
+                                    <colgroup>
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="16%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>邀请人</th>
+                                            <th>邀请码</th>
+                                            <th>邀请注册人数</th>
+                                            <th>邀请消费人数</th>
+                                            <th>代金劵奖励金额</th>
+                                            <th>积分奖励金额</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="7">没有查找到数据</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pages pagination"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-side wxRight-side" v-show="activeIndexa == 1">
+                    <div>
+                        <div class="title-box titlefen-box">
+                            <div class="tit-font ">
+                                <span class="t ts">教师邀请记录</span>
+                                <span class="kg kgCla kg-fen" level="cla">
+                                
+                                </span>
+                            </div>
+                        </div>
+                        <div class="recordContent">
+                            <div class="screenList screenList-check">
+                                <span class="datel">日期 :</span>
+                                <a class="btn btn-mini btn-default " href="javascript:;">全部</a>
+                                <a class="btn btn-mini btn-default " href="javascript:;">上月</a>
+                                <a class="btn btn-mini btn-default " href="javascript:;">本月</a>
+                                <a class="btn btn-mini btn-success btn-td" href="javascript:;">指定时间</a>
+                                <input type="text" name="startTime" class="date-picker from">
+                                <em class="datetit-z">至</em>
+                                <input type="text" name="endTime" class="date-picker to">
+                                <input class="nameTel" type="text" placeholder="教师姓名/手机号">
+                                <a class="btn  check" href="javascript:;" id="searchTeacInvite">查询</a>
+                            </div>
+                            <ul class="showList" style="padding: 0">
+                                <li class="classific">
+                                    <span>邀请总人数 :</span>
+                                    <em id="totalInviteNumber">0 人</em>
+                                </li>
+                                <li class="classific">
+                                    <span>消费总次数 :</span>
+                                    <em id="totalConsumeTimes">0 次</em>
+                                </li>
+                                <li class="classific">
+                                    <span>消费总金额 :</span>
+                                    <input type="hidden" value="" class="hiddenConsumeBalance">
+                                    <em id="totalConsumeBalance">0.00 元</em>
+                                </li>
+                                <li class="classific">
+                                    <span>提成奖励总金额 :</span>
+                                    <input type="hidden" value="" class="hiddenRewardBalance">
+                                    <em id="totalRewardBanlance">0.00 元</em>
+                                </li>
+                                <a class="btn export fr" href="javascript:;">导出</a>
+                                <input type="hidden" class="hidSortType">
+                                <input type="hidden" class="hidSort">
+                            </ul>
+                            <table class="table table-center cashrecord-tab" id="table1">
+                                <colgroup>
+                                    <col width="12.5%">
+                                    <col width="12.5%">
+                                    <col width="12.5%">
+                                    <col width="11.5%">
+                                    <col width="10%">
+                                    <col width="12.5%">
+                                    <col width="16.5%">
+                                    <col width="12.5%">
+                                </colgroup>
+                                <tbody>
+                                    <tr class="tab-htr">
+                                        <th>教师姓名</th>
+                                        <th>手机号</th>
+                                        <th>邀请码</th>
+                                        <th>
+                                            <div class="headClick">
+                                                <span mark="inviteNumber">邀请人数</span>
+                                                <p class="sanCon">
+                                                    <span class="san-top  triangle up"></span>
+                                                    <span class="san-bottom triangle down"></span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="headClick">
+                                                <span mark="consumeTimes">消费次数</span>
+                                                <p class="sanCon">
+                                                    <span class="san-top  triangle up"></span>
+                                                    <span class="san-bottom triangle down"></span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="headClick">
+                                                <span mark="consumeBalance">消费金额</span>
+                                                <p class="sanCon">
+                                                    <span class="san-top  triangle up"></span>
+                                                    <span class="san-bottom triangle down"></span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="headClick">
+                                                <span mark="rewardBalance">提成奖励金额</span>
+                                                <p class="sanCon">
+                                                    <span class="san-top  triangle up"></span>
+                                                    <span class="san-bottom triangle down"></span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th>操作</th>
+                                    </tr>
+                                <tr><td colspan="8">没有查找到数据</td></tr></tbody>
+                            </table><input type="hidden" id="pageNo" value="1">
+                            <div class="pages">
+                                <ul class="pagination"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-side wxRight-side" v-show="activeIndexa == 2">
+                    <div>
+                        <div class="title-box titlefen-box">
+                            <div class="tit-font ">
+                                <span class="t ts">代理机构邀请记录</span>
+                                <span class="kg kgCla kg-fen" level="cla">
+                                
+                                </span>
+                            </div>
+                        </div>
+                        <div class="recordContent">
+                            <div class="screenList screenList-check">
+                                
+                                <span class="datel">日期 :</span>
+                                <a class="btn btn-mini btn-default " href="javascript:;">全部</a>
+                                <a class="btn btn-mini btn-default " href="javascript:;">上月</a>
+                                <a class="btn btn-mini btn-default " href="javascript:;">本月</a>
+                                <a class="btn btn-mini btn-success btn-td" href="javascript:;">指定时间</a>
+                                <input type="text" name="startTime" class="date-picker from">
+                                <em class="datetit-z">至</em>
+                                <input type="text" name="endTime" class="date-picker to">
+                                <input class="nameTel" type="text" placeholder="代理机构名称">
+                                <a class="btn  check" href="javascript:;" id="searchTeacInvite">查询</a>
+                            </div>
+                            <ul class="showList" style="padding:0">
+                                <li class="classific">
+                                    <span>邀请总人数 :</span>
+                                    <em id="totalInviteNumber">0 人</em>
+                                </li>
+                                <li class="classific">
+                                    <span>消费总次数 :</span>
+                                    <em id="totalConsumeTimes">0 次</em>
+                                </li>
+                                <li class="classific">
+                                    <span>消费总金额 :</span>
+                                    <input type="hidden" value="" class="hiddenConsumeBalance">
+                                    <em id="totalConsumeBalance">0.00 元</em>
+                                </li>
+                                <li class="classific">
+                                    <span>提成奖励总金额 :</span>
+                                    <input type="hidden" value="" class="hiddenRewardBalance">
+                                    <em id="totalRewardBanlance">0.00 元</em>
+                                </li>
+                                <a class="btn export fr" href="javascript:;">导出</a>
+                                <input type="hidden" class="hidSortType">
+                                <input type="hidden" class="hidSort">
+                            </ul>
+                            <table class="table table-center cashrecord-tab" id="table1">
+                                <colgroup>
+                                    
+                                    
+                                        <col width="25%">
+                                    
+                                    <col width="12.5%">
+                                    <col width="12.5%">
+                                    <col width="12.5%">
+                                    <col width="12.5%">
+                                    <col width="12.5%">
+                                    <col width="12.5%">
+                                </colgroup>
+                                <tbody>
+                                    <tr class="tab-htr">
+                                        
+                                        <th>代理机构名称</th>
+                                        <th>创建时间</th>
+                                        <th>
+                                            <div class="headClick">
+                                                <span mark="inviteNumber">注册学员数量</span>
+                                                <p class="sanCon">
+                                                    <span class="san-top  triangle up"></span>
+                                                    <span class="san-bottom triangle down"></span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="headClick">
+                                                <span mark="consumeTimes">消费次数</span>
+                                                <p class="sanCon">
+                                                    <span class="san-top  triangle up"></span>
+                                                    <span class="san-bottom triangle down"></span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="headClick">
+                                                <span mark="consumeBalance">消费金额</span>
+                                                <p class="sanCon">
+                                                    <span class="san-top  triangle up"></span>
+                                                    <span class="san-bottom triangle down"></span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="headClick">
+                                                <span mark="rewardBalance">提成奖励金额</span>
+                                                <p class="sanCon">
+                                                    <span class="san-top  triangle up"></span>
+                                                    <span class="san-bottom triangle down"></span>
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th>操作</th>
+                                    </tr>
+                                <tr><td colspan="7">没有查找到数据</td></tr></tbody>
+                            </table><input type="hidden" id="pageNo" value="1">
+                            <div class="pages">
+                                <ul class="pagination"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="right-side" v-show="activeIndexa == 3">
+
+                    <div class="u-wrap classes set-system">
+                        <div class="screen-right-cont set-system">
+                            <div class="screen-right-title" style="padding:0">
+                                <h3 style="border-left-color: #fa6900;">
+                                    <i> 优惠码管理</i>
+                                </h3>
+
+                                <div class="set-new manage-button couponCreate"
+                                    onclick="window.open('motionAddyh.html');localStorage.edit_discount = false" style="    top: 0;
+                                "> 创建优惠码<span class="manage-button-mask"></span></div>
+                            </div>
+                            <div class="search-cont" style="margin: 10px 0px;">
+                                <!--                     <select name="" id="startStatus"> -->
+                                <!--                         <option value="-1">状态</option> -->
+                                <!--                         <option value="begin">未开始</option> -->
+                                <!--                         <option value="ing">进行中</option> -->
+                                <!--                         <option value="old">已结束</option> -->
+                                <!--                     </select> -->
+                                <select name="" id="sendStatus" v-model="search_info.release_status">
+                                    <option value="">状态</option>
+                                    <option value="否">未发放</option>
+                                    <option value="是">已发放</option>
+                                </select>
+                                <select name="" id="issueWayStatus" v-model="search_info.create_discount_code_method">
+                                    <option value="">发放方式</option>
+                                    <option value="线上发放">线上发放</option>
+                                    <option value="线下发放">线下发放</option>
+
+                                </select>
+                                <span class="use-time">
+                                    <em>使用期限</em>
+                                    <template>
+                                        <el-date-picker v-model="value1" type="datetimerange" range-separator="至"
+                                            start-placeholder="开始日期" style="width: 360px;vertical-align: middle;
+                                                        height:30px" end-placeholder="结束日期">
+                                        </el-date-picker>
+                                    </template>
+                                </span>
+                                <input type="text" id="patchName" v-model="search_info.discount_code_name"
+                                    placeholder="优惠名称">
+                                <button class="btn btn-sm btn-primary btn-searh manage-button" @click="search_discount"
+                                    style="height: 26px;padding-bottom: 19px;width:auto;padding:5px 10px;line-height:12px;">搜索</button>
+                            </div>
+                            <div class="user-list">
+                                <template>
+                                    <el-table border
+                                        :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                        :data="tableData" style="overflow: auto;">
+                                        <el-table-column prop="user_name" label="发放人" :width="flexColumnWidth(8)">
+                                        </el-table-column>
+                                        <el-table-column prop="discount_code_name" label="优惠名称"
+                                            :width="flexColumnWidth(8)">
+                                        </el-table-column>
+                                        <el-table-column prop="discount_method" label="优惠方式"
+                                            :width="flexColumnWidth(9)">
+                                        </el-table-column>
+                                        <el-table-column prop="product_type" label="商品类型" :width="flexColumnWidth(8)">
+                                        </el-table-column>
+                                        <el-table-column prop="preferential_scope" label="优惠范围"
+                                            :width="flexColumnWidth(9)">
+                                        </el-table-column>
+                                        <el-table-column prop="create_discount_code_method" label="发放方式"
+                                            :width="flexColumnWidth(9)">
+                                        </el-table-column>
+                                        <el-table-column prop="ff_status" label="发放状态" :width="flexColumnWidth(9)">
+                                        </el-table-column>
+                                        <el-table-column prop="time_range" label="使用期限" :width="flexColumnWidth(12)">
+                                        </el-table-column>
+                                        <el-table-column prop="quantity_issued" label="发放数量"
+                                            :width="flexColumnWidth(8)">
+                                        </el-table-column>
+                                        <el-table-column prop="used_num" label="领取数量" :width="flexColumnWidth(8)">
+                                        </el-table-column>
+
+                                        <el-table-column label="操作" :width="flexColumnWidth(11)">
+                                            <template slot-scope="scope">
+                                                <el-button type="text" v-if="scope.row.ff_status != '未发放'" size="small"
+                                                    @click="changeModel(scope.row)">
+                                                    详情
+                                                </el-button>
+                                                <el-button v-if="scope.row.ff_status == '未发放'" type="text"
+                                                    style="    margin-left: 0;" size="small"
+                                                    @click="fafang_discount(scope.row)">
+                                                    发放
+                                                </el-button>
+                                                <el-button v-if="scope.row.ff_status != '已发放'" type="text" style="    margin-left: 0;" size="small"
+                                                    @click="edit_discount_in(scope.row)">
+                                                    编辑
+                                                </el-button>
+                                                <el-dropdown style="    margin-left: 0;">
+                                                    <el-button type="text" size="small" @click="">更多</el-button>
+                                                    <el-dropdown-menu>
+                                                        <el-dropdown-item command="a" v-if="scope.row.ff_status != '未发放'"
+                                                            @click.native="exportModel(scope.row)">导出
+                                                        </el-dropdown-item>
+                                                        <el-dropdown-item command="b"
+                                                            v-if="scope.row.ff_status != '已停用'"
+                                                            @click.native="change_status(scope.row)">
+                                                            {{scope.row.ff_status!='已停用'?'停用':'启用'}}
+                                                        </el-dropdown-item>
+                                                        <el-dropdown-item command="c" v-if="scope.row.used_num === 0"
+                                                            @click.native="delete_discount(scope.row)">删除
+                                                        </el-dropdown-item>
+                                                    </el-dropdown-menu>
+                                                </el-dropdown>
+                                            </template>
+                                        </el-table-column>
+                                    </el-table>
+                                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                        :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                        layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                                    </el-pagination>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div> <!-- end container -->
+        <div class="layer-tips-bg" :style="model != 0?'display:block':'display:none'"></div>
+        <div class="layer-tips coupon-code-detail couponCodeDetail"
+            :style="model == 1?'display:block;margin-left: -470px; margin-top: -285px;z-index:10000':'display:none;margin-left: -470px; margin-top: -285px;z-index:10000'">
+            <div class="layer-tips-title">优惠码详情 <i class="close confirm_close"
+                    style="position: absolute;                     right: 10px;                     top: 0px;     font-size: 24px;cursor:pointer"
+                    @click="model=0">x</i></div>
+            <div class="coupon-basic-info">
+                <h3>基本信息</h3>
+                <div class="info-cont">
+                    <ul class="clear">
+                        <li><span class="itm-tilte">优惠名称</span><span
+                                id="patch_name">{{edit_info.discount_code_name}}</span></li>
+                        <li><span class="itm-tilte">优惠方式</span><span
+                                id="patch_useWay">{{edit_info.discount_method}}</span></li>
+                        <li><span class="itm-tilte">发放量</span><span
+                                id="patch_totalNum">{{edit_info.quantity_issued}}</span></li>
+                        <li><span class="itm-tilte">优惠对象</span><span
+                                id="patch_forCrowd">{{edit_info.concession_object}}</span></li>
+                        <li><span class="itm-tilte">使用期限</span><span id="patch_time">{{edit_info.time_range}}</span>
+                        </li>
+                        <li><span class="itm-tilte">使用范围</span><span
+                                id="patch_useRange">{{edit_info.preferential_scope}}</span></li>
+                        <li><span class="itm-tilte">优惠说明</span>
+                            <span
+                                id="patch_description">{{edit_info.stop_reason!=undefined?('已停用,'+edit_info.stop_reason+' '+edit_info.stop_time):''}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="usedetails">
+                <div class="usedetailsL" style="width:640px">
+                    <div class="usedetailsinfo">
+                        <label>使用详情</label>
+                        <select name="" id="" v-model="search_de_info.small_discount_status">
+                            <option value="">全部状态</option>
+                            <option value="未领取">未领取</option>
+                            <option value="已领取">已领取</option>
+                            <option value="已使用">已使用</option>
+                        </select>
+                    </div>
+
+                    <div class="searchbox">
+                        <input id="mobile" v-model="search_de_info.tel" class="getcode" value="" type="text" name=""
+                            placeholder="领取账号">
+                        <i class="iconfont searchicon coupon-lib-button"></i>
+                    </div>
+                    <button class="exportbtn coupon-lib-export" style="margin-left:20px"
+                        @click="search_discount_detail(edit_info)">搜索</button>
+                </div>
+                <div class="usedetailsR">
+                    <i class="iconfont askicon notSign"></i>
+                    <button class="exportbtn coupon-lib-export" @click="export_discount_detail">导出使用详情</button>
+
+                    <input type="hidden" id="totalCoupons" value="40">
+
+                </div>
+            </div>
+            <div class="coupon-use-detail">
+                <template>
+                    <el-table border :data="userList1.slice((currentPage1-1)*pagesize1,currentPage1*pagesize1)"
+                        :data="tableData" style="overflow: auto;max-height: 200px">
+                        <el-table-column prop="discount_code_value" label="优惠码" :width="flexColumnWidth(11)">
+                        </el-table-column>
+                        <el-table-column prop="small_discount_status" label="状态" :width="flexColumnWidth(11)">
+                        </el-table-column>
+                        <el-table-column prop="tel" label="领取账号" :width="flexColumnWidth(11)">
+                        </el-table-column>
+                        <el-table-column prop="purchased_goods" label="所购商品" :width="flexColumnWidth(11)">
+                        </el-table-column>
+                        <el-table-column prop="discount_method" label="优惠方式" :width="flexColumnWidth(10)">
+                        </el-table-column>
+                        <el-table-column prop="original_price" label="原价" :width="flexColumnWidth(10)">
+                        </el-table-column>
+                        <el-table-column prop="actual_payment" label="实付" :width="flexColumnWidth(10)">
+                        </el-table-column>
+                        <el-table-column prop="date_of_collection" label="领取日期" :width="flexColumnWidth(11)">
+                        </el-table-column>
+                        <el-table-column prop="date_of_use" label="使用日期" :width="flexColumnWidth(11)">
+                        </el-table-column>
+                    </el-table>
+                    <el-pagination @size-change="handleSizeChange1" @current-change="handleCurrentChange1"
+                        :current-page="currentPage1" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize1"
+                        layout="total, sizes, prev, pager, next, jumper" :total="userList1.length">
+                    </el-pagination>
+                </template>
+            </div>
+        </div>
+
+        <div class="add-alert-content lead-out-code layer-tips-bg" style="display: inherit;" v-show="model == 2">
+            <div class="s_box" style="top:60px">
+                <div class="top">
+                    <h3>导出优惠码</h3>
+                    <i class="s_right iconfont" @click="model = 0"></i>
+                </div>
+                <div class="cont" style="padding-top:0">
+                    <div class="tabCont" style="    background: white;padding:0">
+                        <table class="table table-center coupons_libs_List">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="30%">
+                                <col width="30%">
+                                <col width="10%">
+                            </colgroup>
+                            <tbody>
+                                <tr class="tr1">
+                                    <td>优惠码</td>
+                                    <td>优惠范围</td>
+                                    <td>使用期限</td>
+                                    <td>数量</td>
+                                </tr>
+
+                                <tr class="export_tr">
+                                    <td>{{export_tr.num}}</td>
+                                    <td>{{export_tr.range}}</td>
+                                    <td>{{export_tr.time}}</td>
+                                    <td>{{export_tr.nums}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--                 <p class="q_page"> -->
+                        <!--                     <input type="text"> -->
+                        <!--                     <span><i>/</i>100</span> -->
+                        <!--                     <a class="prev" href="javascript:void(0);"><i class="iconfont">&#xe6c0;</i>上一页</a> -->
+                        <!--                     <a class="next" href="javascript:void(0);">下一页<i class="iconfont">&#xe6bf;</i></a> -->
+                        <!--                 </p> -->
+                    </div>
+                </div>
+                <div class="right" style="">
+
+                    <span></span>
+                    <input type="hidden" id="totalRecords" value="1">
+                    <a href="javascript:;" class="manage-button export_coupons_data" @click="exportYouhui">导出Excel文件
+                        <span class="manage-button-mask"></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="stopboxtk layerTips Confirm" style="display: block" v-show="model == 3">
+            <div class="layerTipsTitle" style="padding-left: 21px;">请选择停用原因<i class="Close iconfont Confirm_Close"
+                    @click="model = 0"></i>
+            </div>
+            <div class="layerTipsContent"><span class="tishitxt">停用后此批未使用的优惠券不可再使用。</span>
+                <p><input type="radio" class="stop-reason" v-model="stop_reason" value="操作失误" name="stopReason">操作失误</p>
+                <p><input type="radio" class="stop-reason" v-model="stop_reason" value="活动结束" name="stopReason">活动结束</p>
+                <p><input type="radio" class="stop-reason" v-model="stop_reason" value="其他" name="stopReason">其他</p>
+            </div><input v-if="stop_reason == '其他'" id="otherReasonInput" type="text" v-model="stop_reason_info"
+                placeholder="请输入10个字以内的原因，非必填" maxlength="10"
+                style="margin-left: 19px; width: 236px; margin-top: 15px;">
+            <div class="layerTipsBtns">
+                <a href="javascript:;" class="btn btn-mini btn-default Confirm_Cancle" @click="model = 0">取消</a>
+                <a href="javascript:;" class="btn btn-mini btn-success Confirm_Ok" @click="submit_stop">确定</a></div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    currentPage1: 1, //初始页
+                    activeIndexa: 3,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    pagesize1: 10, //    每页的数据
+                    model: 0,
+                    userList: [],
+                    userList1: [],
+                    stop_id: 0,
+                    stop_reason: '其他',
+                    stop_reason_info: '其它',
+                    value1: [],
+                    value2: '',
+                    edit_info: {
+
+                    },
+                    export_tr: {
+                        num: '1',
+                        range: '2',
+                        time: '3',
+                        nums: '4',
+                    },
+                    search_info: {
+                        "release_status": "",
+                        "create_discount_code_method": "",
+                        "discount_code_name": "",
+                        "begin_time": "",
+                        "end_time": ""
+                    },
+                    search_de_info: {
+                        "discount_code_id": 13,
+                        "small_discount_status": "",
+                        "tel": ""
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                console.log(this.model)
+                _this.search_discount()
+            },
+            methods: {
+                active(num) {
+                    this.activeIndexa = num
+                },
+                submit_stop() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/discontinueUseDiscountCode',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "discount_code_id": _this.stop_id,
+                            "stop_reason": _this.stop_reason == '其他' ? _this.stop_reason_info :
+                                _this.stop_reason
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.message == "success") {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '停用成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.userList.map((item) => {
+                                    if (item.discount_code_id == _this.stop_id) {
+                                        item.ff_status = '已停用'
+                                    }
+                                    // item.ff_status = item.release_status == '是' ? item.release_status != '':'已停用':"已发放" : '未发放'
+                                    // item.time_range = item.service_life_start_time + ' 到 ' +
+                                    //     item.service_life_end_time
+                                })
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '停用失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                delete_discount(scope) {
+                    let _this = this
+                    this.$confirm(`是否确认删除该优惠券`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/operate/deleteDiscountCode',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: {
+                                discount_code_id: scope.discount_code_id,
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    _this.$message.success({
+                                        title: '提示',
+                                        message: '删除成功',
+                                        duration: 2000
+                                    });
+                                    obj = _this.userList
+                                    _this.userList = obj.filter((item) => {
+                                        return item.discount_code_id != scope.discount_code_id
+                                    })
+                                } else {
+                                    _this.$message.error({
+                                        title: '提示',
+                                        message: '删除失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    title: '提示',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        _this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                },
+                fafang_discount(scope) {
+                    let _this = this
+                    console.log(scope)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/grantDiscountCode',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                            "discount_code_id": scope.discount_code_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.message == 'success') {
+                                _this.$message.success({
+                                    title: '提示',
+                                    message: '发放成功',
+                                    duration: 2000
+                                });
+                                _this.userList.map((i) => {
+                                    if (i.discount_code_id == scope.discount_code_id) {
+                                        i.ff_status = '已发放'
+                                    }
+                                })
+                            } else {
+                                _this.$message.error({
+                                    title: '提示',
+                                    message: '发放失败',
+                                    duration: 2000
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                title: '提示',
+                                message: '服务器错误',
+                                duration: 2000
+                            });
+                        }
+                    })
+                },
+                change_status(scope) {
+                    this.stop_id = scope.discount_code_id
+                    this.model = 3
+                },
+                exportYouhui() {
+                    _this = this
+                    console.log(_this.userList)
+                    setTimeout(() => {
+                        console.log($('.export_tr td'))
+                        $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出优惠码详情【1】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                        str = "优惠码,优惠范围,使用期限,数量" + '\r\n'
+                        stra = ''
+                        for (let i = 0; i < $('.export_tr td').length; i++) {
+                            stra += ',' + $('.export_tr td')[i].innerHTML
+                        }
+                        str = str + stra.substring(1)
+                        var fileName = "";
+                        fileName += "优惠码详情".replace(/ /g, "_");
+                        var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                        var link = document.createElement("a");
+                        link.href = uri;
+                        link.style = "visibility:hidden";
+                        link.download = fileName + ".CSV";
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }, 20)
+
+                },
+                export_discount_detail() {
+                    _this = this
+                    console.log(_this.userList1)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出优惠码使用详情【'+_this.userList1.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    str = "优惠码,状态,领取账号,所购商品,优惠方式,原价,实付,领取日期,使用日期" + '\r\n'
+                    for (let k = 0; k < _this.userList1.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList1[k].discount_code_value + ','
+                        stra += _this.userList1[k].small_discount_status + ','
+                        stra += _this.userList1[k].tel + ','
+                        stra += _this.userList1[k].purchased_goods + ','
+                        stra += _this.userList1[k].discount_method + ','
+                        stra += _this.userList1[k].original_price + ','
+                        stra += _this.userList1[k].actual_payment + ','
+                        stra += _this.userList1[k].date_of_collection + ','
+                        stra += _this.userList1[k].date_of_use + ','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "优惠码使用详情".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                search_discount_detail(scope) {
+                    let _this = this
+                    obj = JSON.parse(JSON.stringify(_this.search_de_info))
+                    obj.discount_code_id = scope.discount_code_id
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/queryDiscountDetail',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.s_total_hours = 0
+                            data.map((item) => {
+                                item.discount_method = scope.discount_method
+                                item.date_of_collection = _this.getNowFormatDate(new Date(
+                                    item.date_of_collection))
+                                item.date_of_use = _this.getNowFormatDate(new Date(item
+                                    .date_of_use))
+                                // item.ff_status = item.release_status == '是' ? '已发放' : '未发放'
+                                // item.time_range = item.service_life_start_time + ' 到 ' +
+                                //     item.service_life_end_time
+                            })
+                            _this.userList1 = data
+                            _this.model = 1
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                search_discount() {
+                    let _this = this
+                    obj = JSON.parse(JSON.stringify(_this.search_info))
+                    if (this.value1 != '' && this.value1 != null && this.value1.length != 0) {
+                        obj.begin_time = _this.getNowFormatDate(new Date(_this.value1[0]))
+                        obj.end_time = _this.getNowFormatDate(new Date(_this.value1[1]))
+                    } else {
+                        obj.begin_time = ''
+                        obj.end_time = ''
+                    }
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/queryAllDiscount',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            // _this.s_total_hours = 0
+                            data.map((item) => {
+                                switch (item.preferential_way) {
+                                    case '抵现':
+                                        item.discount_method = '抵现' + item.dc_denomination
+                                        break;
+                                    case '折扣':
+                                        item.discount_method = '折扣' + item.dc_denomination
+                                        break;
+                                    case '满减':
+                                        item.discount_method = '满' + item.dc_denomination.split(',')[
+                                            0] + '减' + item.dc_denomination.split(',')[1]
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                item.ff_status = item.release_status == '是' ? "已发放" : item
+                                    .release_status == '否' ? '未发放' : '已停用'
+                                item.time_range = item.service_life_start_time + ' 到 ' +
+                                    item.service_life_end_time
+                            })
+                            _this.userList = data
+                        },
+                        error: function () {}
+                    })
+                },
+                changeModel(scope) {
+                    let _this = this
+                    console.log(scope)
+                    _this.edit_info = scope
+                    // _this.userList1.discount_method = scope.discount_method
+                    obj = {
+                        "discount_code_id": 13
+                    }
+                    _this.search_discount_detail(scope)
+                },
+                edit_discount_in(scope) {
+                    window.open('motionAddyh.html');
+                    localStorage.edit_discount = true
+                    localStorage.edit_discount_info = JSON.stringify(scope)
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+                exportModel(scope) {
+                    let _this = this
+                    obj = JSON.parse(JSON.stringify(_this.search_de_info))
+                    obj.discount_code_id = scope.discount_code_id
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/queryDiscountDetail',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.s_total_hours = 0
+                            _this.export_tr.num = data[0].discount_code_value
+                            _this.export_tr.range = scope.preferential_scope
+                            _this.export_tr.time = scope.time_range
+                            _this.export_tr.nums = scope.quantity_issued
+                            _this.model = 2
+                        },
+                        error: function () {
+
+                        }
+                    })
+
+                },
+                activea(num) {
+
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                handleSizeChange1: function (size) {
+                    this.pagesize1 = size;
+                },
+                handleCurrentChange1: function (currentPage) {
+                    this.currentPage1 = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

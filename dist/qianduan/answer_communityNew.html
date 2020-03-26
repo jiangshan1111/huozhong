@@ -1,0 +1,412 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/newHomeIndex.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ask.css">
+    <link rel="stylesheet" type="text/css" href="css/select2.css">
+    <link rel="stylesheet" type="text/css" href="css/element-ui.css">
+    <link rel="stylesheet" href="../kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="../kindeditor/plugins/code/prettify.css" />
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+    <style>
+        .is-multiple {
+            z-index: 10001 !important;
+        }
+
+        .el-icon-plus {
+            line-height: inherit !important;
+        }
+
+        .w-e-text-container {
+            position: relative;
+            z-index: 10 !important;
+        }
+
+        .w-e-toolbar .w-e-menu {
+            z-index: 10 !important;
+        }
+    </style>
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix"> </div>
+    <!-- register-end-->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script> -->
+    <div class="w clear" id="app" style="margin-top:60px;overflow: inherit;" v-cloak>
+        <!-- 左侧-->
+        <div class="left-box">
+            <div class="ask-page clear">
+                <h1>发问题</h1>
+                <div class="inner">
+
+                    <div class="title">
+                        <span class="label">标题：</span>
+                        <input type="text" @focus="focusChange" class="frame" placeholder="请输入问题标题"
+                            v-model="titileValue" id="q-title">
+                        <p class="pro">
+                            <span class="hid-pro t-hint" v-if="warningTitle">
+                                <i class="iconfont"></i>标题为5-80个字符！
+                            </span>
+                        </p>
+                    </div>
+                    <div class="title">
+                        <span class="label">分类：</span>
+                        <template>
+                            <el-select @focus="focusChange" v-model="typeValue" multiple collapse-tags
+                                style="width:100%" placeholder="请选择">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label"
+                                    :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </template>
+                        <p class="pro">
+                        </p>
+                    </div>
+
+                    <div class="sub">
+                        <span class="label">内容：</span>
+                        <!-- 编辑器 -->
+                        <div class="cont-wrap" id="editor_id">
+                        </div>
+                        <p class="pro">
+                            <span v-if="wraningContent" class="hid-pro cd-hint">
+                                <i class="iconfont"></i>内容不多于20000个字符！
+                            </span>
+                        </p>
+                    </div>
+                    <p class="pro">
+                        <span v-if="wraning" class="hid-pro c-hint">
+                            <i class="iconfont"></i>标题或分类或内容不能为空！
+                        </span>
+                    </p>
+                    <div class="uploadImg">
+                        <span>上传图片：</span>
+                        <el-upload class="avatar-uploader" action="http://192.168.10.166:8080/Ex/upload1"
+                            :on-success="handleAvatarSuccess" list-type="picture-card" :on-remove="handleRemove"
+                            multiple :auto-upload="false" :http-request="uploadFile" :limit="9" ref="upload"
+                            :before-upload="beforeAvatarUpload">
+                            <i class="el-icon-plus"></i>
+                        </el-upload>
+                    </div>
+                    <p class="pro"></p>
+                    <!-- <div class="text clear">
+							<input type="text" placeholder="请输入验证码" id="validate">
+							<span class="text-word codeimg"><img src="/captcha?refesh=Mon Nov 25 2019 15:28:42 GMT+0800 (中国标准时间)" height="40" width="100" "=""></span>
+								<span class="change">
+								   看不清
+								   <i onclick="Form.refreshCaptcha();">换一换</i>
+								</span>
+						</div>
+						<p class="pro">
+						   <span class="hid-pro v-hint">
+							  验证码错误
+						   </span>
+                        </p> -->
+                    <button @click="release" class="release" :class="!noClick ? '' : 'noClick'"
+                        :disabled="noClick">发布</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 右侧-->
+        <div class="right-box">
+            <div class="r-answers">
+                <div class="title-wrap">
+                    <span class="title">一周热门问题</span>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li v-for="week in weekData">
+                            <a href="/askQuestion/myQuestion/1956" v-html="week.content"></a>
+                            <p><i>3</i></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ban-answer">
+                <div class="title-wrap">
+                    <span class="title">问答禁止这些提问</span>
+                </div>
+                <ul>
+                    <li>1、禁止发布求职、交易、推广、广告类与问答无关信息将一律清理。</li>
+                    <li>2、尽可能详细描述您的问题，如标题与内容不符，或与问答无关的信息将被关闭。</li>
+                    <li>3、问答刷屏用户一律冻结账号。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="https://unpkg.com/swiper/js/swiper.js"> </script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+<script src="./js/vue.min.js"></script>
+<!-- <script src="./js/element-ui.js"></script> -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="./js/wangEditor.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        delimiters: ['``', '``'],
+        data() {
+            return {
+                imageUrl: '',
+                domain: 'http://192.168.10.166:8080',
+                options: [{
+                    value: '科目一法律法规',
+                    label: '科目一法律法规'
+                }, {
+                    value: '科目二证券基础',
+                    label: '科目二证券基础'
+                }, {
+                    value: '科目三招募股权',
+                    label: '科目三招募股权'
+                }, {
+                    value: '消防安全技术实务',
+                    label: '消防安全技术实务'
+                }, {
+                    value: '消防安全技术综合能力',
+                    label: '消防安全技术综合能力'
+                }, {
+                    value: '消防安全案例分析',
+                    label: '消防安全案例分析'
+                }],
+                editor: null,
+                titileValue: '', // 标题
+                typeValue: [], // 分类
+                weekData: [], // 一周热门
+                wraning: false,
+                warningTitle: false,
+                wraningContent: false,
+                formDate: null,
+                noClick: false
+            }
+        },
+        methods: {
+            focusChange() {
+                this.wraningContent = false
+                this.warningTitle = false
+                this.wraning = false
+            },
+            handleAvatarSuccess(res, file) {
+                console.log('成功回调')
+            },
+            beforeAvatarUpload(file) {
+                console.log('拦截回调')
+                const isJPG = file.type === ('image/jpeg' && 'image/png');
+                const isLt2M = file.size / 1024 / 1024 < 20;
+                if (!isJPG) {
+
+                    alert('上传头像图片只能是 JPG/PNG 格式!')
+                }
+                if (!isLt2M) {
+                    alert('上传头像图片大小不能超过 20MB!')
+                }
+                return isJPG && isLt2M;
+            },
+            handleRemove(file, fileList) {
+                console.log('删除文件');
+            },
+            // submit事件保存图片
+            uploadFile(file) {
+                this.formDate.append('file', file.file);
+            },
+            // 提交问题
+            release() {
+                this.wraning = this.warningTitle = this.wraningContent = false
+                if (this.titileValue === '' || this.typeValue.length === 0 || this.editor.txt.text() === '') {
+                    this.$element.Message({
+                        message: '标题或分类或内容不能为空！',
+                        type: 'warning'
+                    });
+                    this.wraning = true
+                    return
+                } else if (!(/^.{5,80}$/.test(this.titileValue))) {
+                    this.$element.Message({
+                        message: '标题为5-80个字符！',
+                        type: 'warning'
+                    });
+                    this.warningTitle = true
+                    return
+                } else if (!(/^[\u4e00-\u9fffa-zA-Z0-9]{0,20000}$/.test(this.editor.txt.text()))) {
+                    this.$element.Message({
+                        message: '内容不多于20000个字符！',
+                        type: 'warning'
+                    });
+                    this.wraningContent = true
+                    return
+                }
+                this.noClick = true
+                this.formDate = new FormData()
+                this.$refs.upload.submit();
+                $.ajax({
+                    url: this.domain + "/Ex/upload1",
+                    type: "post",
+                    data: this.formDate,
+                    processData: false,
+                    contentType: false,
+                    dataType: 'JSON',
+                    cache: false,
+                    success: data => {
+                        $.ajax({
+                            type: 'post',
+                            url: this.domain + '/stu/Question/askQuestions',
+                            data: JSON.stringify({
+                                "subject_id": ';' + this.typeValue.join(';') +
+                                ';', // 分类id
+                                "publisher": localStorage.stu_id, // 学生id
+                                "content": this.editor.txt.html(),
+                                "picture": data.data.length ? data.data.join(';') :
+                                    '',
+                                "title": this.titileValue
+                            }),
+                            contentType: 'application/json',
+                            success: res => {
+                                if (res) {
+                                    this.titileValue = ''
+                                    this.typeValue = []
+                                    this.editor.txt.html('<p><br></p>')
+                                    this.formDate = null
+                                    this.$refs.upload.clearFiles()
+                                    this.noClick = false
+                                    alert('发布成功！')
+                                } else {
+                                    this.noClick = false
+                                    alert('发布失败，请重试！')
+                                }
+                            },
+                            error: err => {
+                                this.noClick = false
+                                alert('网络连接失败！请重试！')
+                            }
+                        })
+                    },
+                    error: function () {
+                        this.noClick = false
+                        alert("图片上传错误请重新上传")
+                    }
+                })
+            }
+        },
+        created() {
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+            $.ajax({
+                type: 'post',
+                url: this.domain + '/stu/Question/oneWeekHotTopics',
+                data: JSON.stringify({}),
+                contentType: 'application/json',
+                success: res => {
+                    this.weekData = res
+                }
+            })
+            // 分类
+            $.ajax({
+                type: 'post',
+                url: this.domain + '/stu/Question/queryClassificationName',
+                data: JSON.stringify({}),
+                contentType: 'application/json',
+                success: res => {
+                    this.options = res.map(item => {
+                        return {
+                            label: item.modify_name,
+                            value: item.pse_id
+                        }
+                    })
+                }
+            })
+        },
+        mounted() {
+            var E = window.wangEditor
+            this.editor = new E('#editor_id')
+            this.editor.customConfig.onfocus = this.focusChange
+            this.editor.customConfig.debug = true
+            // this.editor.customConfig.uploadImgShowBase64 = true
+            // this.editor.customConfig.showLinkImg = false
+            // this.editor.customConfig.uploadImgServer = 'http://192.168.10.166:8080/Ex/upload'//配置上传到服务器地址
+            // this.editor.customConfig.customUploadImg = function (files, insert) {//对上传的图片进行处理，图片上传的方式
+            //     var data = new FormData()
+            //     // var boundary = 'hhh'
+            //     for(var i =0; i<files.length;i++) {
+            //         // console.log(files[i].name = 'ddddd')
+            //         // files[i].name = '2.png'
+            //         // files[i].name = i + '#' + files[i].name
+            //         data.append("file", files[i])
+            //     }
+            //     console.log(files)
+            //     $.ajax({
+            //         url: "http://192.168.10.166:8080/Ex/upload1",
+            //         type: "post",
+            //         data: data,
+            //         processData:false,
+            //         contentType:false,
+            //         dataType: 'JSON',
+            //         cache: false,  
+            //         success: function (data) {
+            //             console.log(data)
+            //             insert(data[0])
+            //             // var imgUrl=data.newName
+            //             //这里是对图片格式进行处理，我这里因为是要保存到本地服务器上，将图片前缀修改
+            //             // editor.cmd.do('insertHTML', '<img style="width: 200px;height: 200px;" src="http://localhost/ScTradeInSta/public/resource/image/'+ imgUrl+'" alt="">')
+            //         },
+            //         error: function () {
+            //             alert("图片上传错误")
+            //         }
+            //     })
+            // }
+            this.editor.customConfig.menus = [
+                'head', // 标题  
+                'bold', // 粗体  
+                'italic', // 斜体  
+                'underline', // 下划线  
+                'foreColor', // 文字颜色  
+                'backColor', // 背景颜色  
+                'list', // 列表  
+                'justify', // 对齐方式  
+                'quote', // 引用  
+                // 'image',  // 插入图片  
+                // 'table',  // 表格  
+                'undo', // 撤销  
+                'redo' // 重复  
+            ]
+            this.editor.create()
+        }
+    })
+    app.$element = ELEMENT
+    // console.log(ELEMENT)
+</script>
+
+</html>

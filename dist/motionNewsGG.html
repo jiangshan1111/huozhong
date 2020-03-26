@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <!-- <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!--<link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/system.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="./kindeditor/plugins/code/prettify.css" />
+    <style>
+        body {
+            color: black;
+            background: white;
+        }
+
+        select,
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"] {
+            /* padding: .45em 8px .35em; */
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: -webkit-baseline-middle;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+            <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data"></form>
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 运营
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='motion.html'">问答</li>
+                        
+                        <li onclick="window.location.href='motionPinglun.html'">课程评论</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='motionNews.html'">新闻资讯</li>
+                        <li onclick="window.location.href='motionCuxiao.html'">促销</li>
+                        <li onclick="window.location.href='motionStudent.html'">学员心声</li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap set-system">
+                <div class="mainbackground nopadding">
+                    <div class="heading">
+                        <h2 class="h5">编辑新闻公告</h2>
+                        <span class="line"></span>
+                    </div>
+                    <div class="add-news">
+                        <div class="add-infos">
+                            <p class="c">
+                                <span class="c-title">标题</span>
+                                <span class="c-content">
+                                    <input type="text" v-model="news_info.news_title" class="long-title" id="titles"
+                                        name="newsTitle" maxlength="40" value="test">
+                                </span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">分类</span>
+
+
+                                <select id="typeList" v-model="news_info.type_id">
+                                    <option value="">请选择</option>
+                                    <option v-for="(item,index) in types" :value="item.public_id">{{item.public_name}}
+                                    </option>
+                                </select>
+
+
+
+                            </p>
+                            <p class="c">
+                                <span class="c-title">是否推荐</span>
+                                <span class="c-content" style="vertical-align: bottom;">
+
+
+
+                                    <input type="radio" v-model="news_info.tf_comment" value="1" name="recommendFlag">是
+                                    <input type="radio" v-model="news_info.tf_comment" value="2" name="recommendFlag">否
+
+
+
+
+
+                                </span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">封面图片</span>
+                                <span class="c-content">
+                                    <span class="view">
+
+                                        <img id="imgObject" ids="" width="280" height="160" :src="imgSrc" alt="">
+
+
+                                    </span>
+                                    <span class="btns" style="    margin-top: 20px;">
+                                        <label class="control-label btn" for="uploadform-excelfiles"
+                                            style="    border: 1px solid rgb(200,200,200);">上传封面</label><input
+                                            type="file" id="uploadform-excelfiles" @change="file" multiple
+                                            class="attachment-upload" style="left:-9999px;position:absolute;">
+                                        <span style="padding:0 10px;color:#999;font-size:14px;">建议大小：620*390
+                                            ，在比例不变的情况下，最大宽度不超过900px</span>
+                                    </span>
+                                </span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">概述</span>
+                                <span class="c-content">
+                                    <textarea id="summarys" v-model="news_info.news_summary" name="summary" rows="3"
+                                        maxlength="200">test</textarea>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="c">
+                            <!-- <div class="about-edit"> -->
+                            <textarea class="ckeditor form-control" id="newsContents" name="newsContent" rows="6"
+                                data-error-container="#editor2_error"
+                                style="visibility: hidden; display: none;"></textarea>
+                            <textarea id="editor_id" name="content" style="width:100%;height:300px;">
+                                        </textarea>
+                            <!-- </div> -->
+                            <p class="c text-center" style="margin-top: 10px;">
+                                <!-- <a href="javascript:history.go(-1);" class="btn btn-sm btn-default">取消</a> -->
+                                <a href="javascript:void(0);" id="prviewBtn" @click="yulan(news_info)" class="btn btn-sm btn-default">预览</a>
+                                <a href="javascript:void(0);" class="btn btn-sm btn-primary" @click="bgun('未发布')"
+                                    id="baocun">保存</a>
+                                <a href="javascript:saveNews('saveAndOnsale');" @click="bgun('已发布')"
+                                    class="btn btn-sm btn-primary" id="baocunfabu">保存并发布</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script charset="utf-8" src="./kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="./kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="./kindeditor/plugins/code/prettify.js"></script>
+    <script>
+    </script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    imgSrc: 'http://image.yunduoketang.com/news/34270/20190717/3e5082df-c7e3-419a-ae33-c022dfa172b7.jpg',
+                    value1: '',
+                    value2: '',
+                    types: [],
+                    news_info: {
+                        "type_id": '',
+                        "news_status": "",
+                        "news_title": "",
+                        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "tf_comment": 1,
+                        "news_cover": "",
+                        "news_summary": "",
+                        "news_content": ""
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                KindEditor.ready(function (K) {
+                    window.editor = K.create('#editor_id');
+                });
+                console.log(localStorage.news_id)
+                if (localStorage.news_id != '') {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/findOneNewsById',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        data: {
+                            news_id: localStorage.news_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.news_info = data
+                            _this.imgSrc = _this.news_info.news_cover
+                            setTimeout(() => {
+                                editor.sync();
+                                html = document.getElementById('editor_id').value; // 原生API
+                                editor.html(_this.news_info.news_content)
+                            }, 20)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/operate/showNewsTypeList',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        // public_status: 1
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.types = data
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                file(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    let _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        var maxsize = 2 * 1024 * 1024
+                        if (type.indexOf("image/") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择图片上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            var form = document.getElementById("addFormOne");
+                            var formData = new FormData(form);
+                            console.log(item)
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            formData.set('multipartFile', item)
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/pse/uploadFile',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                // dataType: 'json',
+                                success: function (data) {
+                                    _this.$message({
+                                        title: '提示',
+                                        message: '上传图片成功',
+                                        duration: 2000
+                                    });
+                                    _this.news_info.news_cover = data
+                                    // if(_this.editor_jie_label == 1){
+                                    //     item.c_recourses_id = c_recourses_id
+                                    // }
+                                    // item.HTC = data
+                                    // item.c_recourses_id = ''
+                                    // console.log(item)
+                                    // _this.file_con.push(item)
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            reader.onloadend = function (e) {
+                                _this.imgSrc = e.target.result
+                                console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    $(e.target).val('')
+                },
+                bgun(num) {
+                    let _this = this
+                    console.log(1)
+                    html = editor.html();
+
+                    // 同步数据后可以直接取得textarea的value
+                    editor.sync();
+                    editor_idhtml = document.getElementById('editor_id').value; // 原生API
+                    // html = K('#').val(); // KindEditor Node API
+                    html = $('#editor_id').val(); // jQuery
+
+                    // 设置HTML内容
+                    // editor.html('');
+                    console.log(html)
+                    _this.news_info.news_content = html
+                    _this.news_info.news_status = num
+                    console.log(_this.news_info)
+                    obj = _this.news_info
+                    if (localStorage.news_id == "") {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/operate/addNews',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "success") {
+                                    // if(localStorage.news_id == ""){
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '新建成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    // }else{
+                                    //     _this.$message.success({
+                                    //         type: 'info',
+                                    //         message: '修改成功',
+                                    //         // position: 'bottom-left',
+                                    //         duration: '2000'
+                                    //     });
+                                    // }
+                                }
+                                // _this.changeKecheng()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }else{
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/operate/updateNews',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "success") {
+                                    // if(localStorage.news_id == ""){
+                                    // _this.$message.success({
+                                    //     type: 'info',
+                                    //     message: '新建成功',
+                                    //     // position: 'bottom-left',
+                                    //     duration: '2000'
+                                    // });
+                                    // }else{
+                                        _this.$message.success({
+                                            type: 'info',
+                                            message: '修改成功',
+                                            // position: 'bottom-left',
+                                            duration: '2000'
+                                        });
+                                    // }
+                                }
+                                // _this.changeKecheng()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }
+
+                    // console.log(1)setTimeout(() => {
+
+                    // }, timeout);
+                },
+                yulan(info){
+                    console.log(info)
+                    localStorage.news_info = JSON.stringify(info)
+                    window.open('motionNewsGGYL.html')
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

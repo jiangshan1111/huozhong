@@ -1,0 +1,964 @@
+/*
+* @Author: baocheng
+* @Date:   2017-07-26 17:57:38
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-12-14 20:25:23
+*/
+/*------*/
+
+i,
+em {
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+    font-weight: normal;
+}
+
+
+
+
+/*---------------*/
+
+.tab-htr th {
+    font-size: 14px;
+    color: #333;
+    background-color: #f0f0f0;
+    font-weight: normal;
+}
+
+.tab-dtr td {
+    font-size: 12px;
+    color: #666;
+}
+
+.cashrecord-tab {
+    line-height: 22px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.tab-dtr .Withdraw i {
+    cursor: pointer;
+    color: #00aaff;
+}
+.tab-dtr .Withdraw em {
+    margin: 0 5px;
+    color: #00aaff;
+}
+
+.tab-dtr .dateTime em {
+    margin-right: 5px;
+}
+
+
+
+
+
+/*---------------*/
+
+.headingImp .h5 {
+    color: #000;
+    font-size: 16px;
+}
+
+.headingImp .line {
+    margin-left: -9px;
+    bottom: -7px;
+    border-width: 1px;
+}
+
+
+.headingImp a.btn-primary {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #00aaff;
+    margin-left: 5px;
+}
+
+.headingImp a.btn-primary:hover {
+    background-color: #009eed;
+    border: 0;
+}
+
+.nopadding .impotrArea {
+    padding-top: 25px;
+    min-height: 380px;
+}
+
+.u-wrap .mainbackground.livePadd {
+    padding: 15px 32px;
+}
+
+/*---------------*/
+
+.proxySearch .secondSel {
+    display: none;
+}
+
+
+
+.timeSearch {
+    font-size: 0;
+}
+
+.timeSearch div.fl {
+    max-width: 93%;
+}
+
+.timeSearch em {
+    display: inline-block;
+    width: 70px;
+    font-size: 14px;
+    color: #999;
+    padding-right: 10px;
+    line-height: 26px;
+    text-align: right;
+}
+
+.timeSearch .btn {
+    font-size: 12px;
+    padding: 6px 12px;
+    margin-right: 12px;
+    margin-bottom: 20px;
+}
+
+.timeSearch input {
+    width: 138px;
+    height: 26px;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #999;
+    box-sizing: border-box;
+}
+
+.timeSearch .dataSel {
+    display: none;
+    font-size: 12px;
+    vertical-align: 2px;
+    margin-right: 12px;
+}
+
+.dataSel input {
+    width: 86px;
+}
+
+.dataSel i {
+    font-size: 12px;
+    color: #999;
+    margin: 0 6px;
+}
+
+.timeSearch .namemob {
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: 2px;
+    margin-bottom: 30px;
+}
+
+.namemob input {
+    margin-right: 12px;
+}
+
+.namemob .curinp {
+    width: 168px;
+}
+
+.timeSearch button {
+
+    padding: 7px 11px;
+    background-color: #00aaff;
+    font-size: 12px;
+    color: #fff;
+    line-height: 12px;
+    border: none;
+    outline: none;
+    vertical-align: top;
+    border-radius: 4px;
+}
+
+.timeSearch button:hover {
+    background-color: #009eed;
+}
+
+
+
+
+/*直播记录开始*/
+
+.proxyBox .liveList li {
+    position: relative;
+    height: 80px;
+    padding: 23px 30px 23px 0;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.liveList .liveTit {
+    /*position: absolute;*/
+    position: relative;
+    /*  left: 0;
+      top: 23px;*/
+    width: 112px;
+    height: 80px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1;
+    padding: 0 20px;
+    text-align: center;
+    border-right: 1px solid #eee;
+
+}
+.liveList .onlive{
+    color: #00aaff;
+}
+
+.liveList .liveTit h2{
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+}
+.liveList .liveTit em {
+    display: block;
+    line-height: 1;
+    font-size: 14px;
+
+}
+.liveTit .over{
+    color: #999;
+}
+.liveList .liveTit b {
+    display: block;
+    line-height: 1;
+    padding-top: 22px;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.liveList .liveCur {
+    width: 62%;
+    padding-left: 26px;
+}
+
+.liveList .liveCur p {
+    /*width: 650px;*/
+    font-size: 14px;
+    color: #999;
+    line-height: 1.3;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.liveCur .addPad{
+    padding: 19px 0;
+}
+.liveList .liveCur span{
+    display: inline-block;
+    margin-right: 27px;
+}
+
+.liveCur .stuNum{
+    width: 120px;
+}
+.liveList .liveCur em {
+    color: #333;
+    margin-left: 10px;
+}
+
+.liveList .goClass {
+
+    width: 80px;
+    height: 74px;
+
+    line-height: 74px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 3px;
+    background-color: #00aaff;
+    margin-left: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.liveList .goClass:hover {
+    background-color: #009eed;
+}
+
+.liveList .uploadArea {
+    position: relative;
+    margin-left: 10px;
+}
+
+.liveList .uploadArea span {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #00aaff;
+    background-color: #00aaff;
+    margin-bottom: 8px;
+}
+
+.liveList .uploadArea span:hover {
+    border: 1px solid #009eed;
+    background-color: #009eed;
+}
+
+.liveList .uploadArea span:hover  .optionList{
+    display: block;
+}
+.getmore .optionArea{
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 72px;
+    height: 36px;
+    /*padding-right: 2px;*/
+    /*background-color: pink;*/
+}
+.uploadArea .optionList{
+    display: none;
+    position: absolute;
+    z-index:101;
+    left: 72px;
+    top: 14px;
+    width: 60px;
+    padding: 0 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.uploadArea .optionList dd{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.uploadArea .optionList dd:last-child{
+    border-bottom: none;
+}
+
+
+.uploadArea .optionList a{
+    padding: 0 5px;
+    color: #666;
+    font-size: 12px;
+}
+
+.uploadArea .optionList a:hover{
+    color: #00aaff;
+}
+
+
+/*.optionList .upfile a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.optionList .upfile input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}*/
+
+/*.liveList .uploadArea .modify{
+    width: 80px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #999;
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+}
+
+.liveList .uploadArea .modify:hover {
+    background-color: #f5f5f5;
+}*/
+
+
+/*.uploadArea .cancle {
+    margin-top: 10px;
+    color: #999;
+    border: 1px solid #cccccc;
+}
+
+.uploadArea .cancle:hover {
+    background-color: #f5f5f5;
+}*/
+
+.liveList .playback {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 3px;
+
+    margin-left: 10px;
+    /* margin-top: 15px;*/
+    cursor: pointer;
+    background-color: #1ebb90;
+}
+
+
+.liveList .playback:hover {
+    background-color: #1ca983;
+}
+
+.liveList .playback span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+    margin-top: -26px;
+    line-height: 26px;
+    max-width: 30px;
+    white-space: normal;
+}
+
+
+/*
+.liveList .downLoad {
+    background-color: #1ebb90;
+}
+
+.liveList .downLoad:hover {
+    background-color: #1ca983;
+}*/
+
+
+
+
+/*直播记录结束*/
+
+
+/*收支 开始*/
+
+.dataview .datav-name {
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+    padding-bottom: 5px;
+}
+
+.dataview strong {
+    margin-right: 30px;
+}
+
+
+
+/*收支 结束*/
+
+
+/*弹框开始*/
+
+.materialAlert {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.materialAlert h3 {
+    font-size: 14px;
+    color: #333;
+    line-height: 30px;
+}
+
+.materialAlert select {
+    font-size: 12px;
+    color: #666;
+    line-height: 26px;
+    border: 1px solid #d7d7d7;
+    width: 150px;
+    height: 28px;
+}
+
+.materialAlert select,
+.materialAlert input {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.materialAlert li {
+    margin-bottom: 20px;
+}
+
+.materialAlert li:last-child {
+    margin-bottom: 0;
+}
+
+.rightLoadCon {
+    margin-left: 10px;
+    text-align: left;
+}
+
+.rightLoadCon button {
+    font-size: 14px;
+    color: #666;
+    line-height: 28px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    position: relative;
+    background: -webkit-linear-gradient(top, #f8f8f8, #e6e6e6);
+    background: -moz-linear-gradient(top, #f8f8f8, #e6e6e6);
+    background: -ms-linear-gradient(top, #f8f8f8, #e6e6e6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#f8f8f8, endcolorstr=#e6e6e6, gradientType=0);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#f8f8f8, endcolorstr=#e6e6e6, gradientType=0);
+    overflow: hidden;
+}
+
+.rightLoadCon input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.rightLoadCon span {
+    font-size: 14px;
+    color: #00aaff;
+    line-height: 30px;
+    margin-right: 10px;
+}
+
+.rightLoadCon .success {
+    color: #1ebb90;
+}
+
+.rightLoadCon p {
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+    margin-top: 6px;
+}
+
+.updataList {
+    max-width: 340px;
+    max-height: 260px;
+    overflow: auto;
+}
+
+.updataList dd p {
+    max-width: 252px;
+    font-size: 14px;
+    color: #666;
+    line-height: 36px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.updataList dd i {
+    font-size: 20px;
+    color: #999;
+    line-height: 36px;
+    margin-right: 42px;
+}
+
+.updataList dd b {
+    font-size: 12px;
+    color: #fe5151;
+    line-height: 36px;
+}
+/*弹框结束*/
+.chioceDateTime{
+    /*text-align: left;*/
+}
+.chioceDateTime span{
+    color:#333;
+    font-size: 14px;
+}
+.chioceDateTime input{
+    width: 223px;
+}
+/*课件管理弹框开始*/
+.pubConfirm{
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.3);
+}
+.courseWare {
+    display: none;
+    z-index: 100;
+    width: 756px;
+    background-color: #fff;
+}
+.courseWare h2{
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 16px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+}
+.courseWare h2 i{
+    position: absolute;
+    right: 12px;
+    top: 0;
+    font-size: 14px;
+    color: #949494;
+    cursor: pointer;
+}
+
+
+.courseWare .wareChoice{
+    padding: 20px 20px 18px;
+}
+.courseWare .wareChoice .btn{
+    padding: 7px 9px;
+    margin-right: 14px;
+}
+.wareChoice span{
+    font-size: 14px;
+    color: #666;
+    padding-left: 13px;
+    margin-right:12px;
+}
+
+.wareChoice input{
+    border: 1px solid #d7d7d7;
+    width: 186px;
+    height: 26px;
+    padding: 0;
+    padding-left: 10px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.wareChoice input::-moz-placeholder {
+    font-size: 12px;
+    color: #bbb;
+}
+
+.wareChoice input:-moz-placeholder {
+    font-size: 12px;
+    color: #bbb;
+}
+
+.wareChoice input::-webkit-input-placeholder {
+    font-size: 12px;
+    color: #bbb;
+}
+
+.wareChoice input:-ms-input-placeholder {
+    font-size: 12px;
+    color: #bbb;
+}
+.wareChoice button{
+    background: #00aaff;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    border:none;
+}
+.wareChoice button:hover{
+    background-color: #009eed;
+}
+.courseWare .wareArea{
+
+    padding:0 20px;
+}
+.wareArea .wareTab {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    border-collapse: collapse;
+    margin-top: 2px;
+}
+
+.wareArea .wareTab input{
+    cursor: pointer;
+}
+
+.wareArea .wareTab th{
+    height: 40px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    font-weight:normal;
+    text-align: center;
+}
+
+.wareArea .wareTab td{
+    height: 34px;
+    font-size: 12px;
+    color: #666;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+.wareTab td i{
+    cursor: pointer;
+}
+
+/*-----*/
+.pages-find {
+    margin: 20px 0  0;
+}
+
+.pages-find li {
+    color: #707070;
+    border-color: #aaa;
+}
+
+.pages-find li:nth-child(1) {
+    display: none;
+}
+
+.pages-find li a {
+    padding: 5px 10px;
+    color: #707070;
+}
+
+.pages-find li span {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.pages-find li:hover,
+.pages-find li.active {
+    color: #fff;
+    border-color: #07bbee;
+    background-color: #07bbee;
+}
+
+.pages-find li.disabled:hover {
+    border-color: #d8d8d8;
+}
+
+/*-----*/
+.courseWare .wareBut{
+    padding: 30px 0 30px;
+    text-align: center;
+}
+.courseWare .wareBut button{
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 14px;
+    color: #999;
+    border: 1px solid #e0e0e0;
+    margin: 0 8px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+.courseWare .wareBut button:hover{
+    background-color: #f5f5f5;
+}
+.courseWare .wareBut .success{
+    color: #fff;
+    background: #07bbee;
+    border-color: #07bbee;
+}
+.courseWare .wareBut .success:hover{
+    background-color: #01aadd;
+    border-color: #01aadd;
+}
+
+
+.courseWare .wareUp{
+    display: none;
+    padding:0 20px;
+}
+
+.courseWare .wareUp dt {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 17px;
+}
+.courseWare .wareUp dd{
+    margin-bottom: 17px;
+}
+.courseWare .wareUp h3 {
+    width: 80px;
+    line-height: 1;
+    font-size: 14px;
+    color: #999;
+}
+
+.fileAttr .detaCon{
+    font-size: 14px;
+    color: #333;
+}
+.wareUp .fileAttr input{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+}
+.wareUp .fileAttr span{
+    display: inline-block;
+    line-height: 1;
+    vertical-align: 2px;
+    margin-left: 5px;
+}
+
+.detaFile .fileLimt{
+    width: 600px;
+    font-size: 14px;
+    color: #333;
+}
+.detaFile .fileLimt .file{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: #00b7ee;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+.detaFile .fileLimt a{
+    color: #00aaff;
+    text-decoration: underline;
+
+}
+.fileLimt .file i{
+    font-size: 16px;
+}
+.fileLimt .file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.wareUp .fileName div.fl {
+    line-height: 1;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 600px;
+}
+
+.detaFile .fileLimt b{
+    display: block;
+    font-size: 12px;
+    color: #999;
+}
+.wareUp .upProgress strong{
+    display: inline-block;
+    line-height: 1;
+    font-size: 14px;
+    color: #1ebb90;
+    margin-right: 20px;
+}
+.courseWare .wareUp .upProgress{
+    margin-bottom: 0;
+}
+.wareUp .upProgress i{
+    display: inline-block;
+    line-height: 1;
+    font-size: 14px;
+    color: #999;
+}
+#cal_up{
+    cursor: pointer;
+}
+.fl select{
+    border: 1px solid #bbb;
+    height: 26px;
+    width: 140px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #666;
+    vertical-align: baseline;
+    border-radius: 2px;
+    margin-right: 14px;
+}
+
+
+/*课件管理弹框结束*/
+/*6.1.3.1新增 开始*/
+.u-wrap.personLive .mainbackground.nopadding{padding:28px 20px;}
+/*.personLive .personLiveTitle{margin-top:38px;padding:0 8px;margin-left:10px;}*/
+/*.personLive .personLiveTitle .h5{font-size:16px;color:#2a2a2a;line-height: 16px;}*/
+.personLive .personLiveTitle .h5 span{font-size:12px;color:#93999f;margin-left:8px;}
+/*.personLive .personLiveTitle .line{left:-10px;bottom:-12px;}*/
+.personLive .liveMessage{margin:28px 0;font-size:14px;}
+.personLive .liveMessage .leftList{float: left;margin-left:6%;}
+.personLive .liveMessage .rightList{float: right;margin-right:8%;}
+.personLive .liveMessage li{line-height: 40px;}
+.personLive .liveMessage .liveClassName{width:100px;text-align:right;display:inline-block;color:#999;margin-right:10px;}
+.personLive .liveMessage .classCont{color:#666;display:inline-block;}
+.personLive .personLiveTitle .exportBtn{width:90px;height:30px;line-height:30px;text-align:center;position: absolute;right:0;top:-10px;
+    text-decoration: none;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;background:#00aaff;color:#fff;font-size:12px;}
+.personLive .personLiveStudy{position:relative;margin:30px 0 12px;}
+.personLive .attendClass{float:left;}
+.personLive .attendClass li{float:left;position: relative;margin-right:40px;color:#93999f;ine-height: 28px;}
+.personLive .attendClass li p{display: inline-block;}
+.personLive .attendClass li p i{font-size:16px;}
+.personLive .attendClass li p i:hover .tips{display: block;}
+.personLive .attendClass .tips{position: absolute;padding:4px 12px 0;line-height: 20px;border-radius:4px;background:rgba(0,0,0,0.6);
+    color:#fff;font-size:12px;white-space: nowrap;top:24px;right:-44px;display: none;}
+.personLive .attendClass .tips em{width:0;height:0;border-width:6px;border-style:solid;position: absolute;top:-10px;right:40%;
+    border-color:transparent transparent rgba(0,0,0,0.6) transparent;}
+.personLive .personLiveStudy .fileChoseCont{position:absolute;right:0;top:0;}
+.personLive .personLiveStudy .fileChoseCont p{width:140px;height:28px;border:1px solid #d7d7d7;border-radius:4px;cursor: pointer;background:#fff;}
+.personLive .fileChoseCont p span{font-size:12px;color:#999;line-height: 28px;width:110px;margin-left:10px;float: left;}
+.personLive .fileChoseCont p i{float:left;color:#999;margin-top:6px;}
+.personLive .fileChoseCont dl{border:1px solid #d7d7d7;background:#fff;margin-top:-1px;display: none;}
+.personLive .fileChoseCont dl dd{line-height: 30px;font-size:12px;color:#999;padding-left:10px;border-bottom:1px solid #d7d7d7;cursor: pointer;}
+.personLive .fileChoseCont dl dd:last-child{border-bottom:0;}
+.personLive .fileChoseCont dl dd:hover{color:#fff;background:#00aaff;border-bottom:1px solid #00aaff;}
+.personLive .personLiveStudy{position:relative;}
+.personLive .liveTable table{width:100%;border-collapse: collapse;table-layout: fixed;}
+.personLive .liveTable table th,.personLive .liveTable table td{border:1px solid #e0e0e0;text-align: center;background: #fff;font-size:12px;color:#333;padding:0;}
+.personLive .liveTable table th{font-weight: normal;line-height: 38px;background:#f0f0f0;white-space: nowrap;padding:0 16px;}
+.personLive .liveTable table td{line-height: 36px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+/*6.1.3.1新增 结束*/

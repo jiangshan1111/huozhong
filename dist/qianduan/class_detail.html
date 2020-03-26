@@ -1,0 +1,639 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/classbag-detail.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <link href="css/coursedetail.css" rel="stylesheet" type="text/css">
+    <link href="css/element-ui.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/newHomeIndex.css"> -->
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix">
+
+    </div>
+    <!-- register-end-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <div id="content" v-cloak class="content clear share" style="height: auto;">
+        <!--顶部课程详情,未购买-->
+        <div    v-if="state == 2" style="padding-bottom: 30px;border-bottom: 1px solid #f2f1f1;margin-bottom: 20px;" id="classPackage">
+
+            <div class="crumbs-box">
+                <span><a id="classPackageName" href="/classPackage/findAll">课程包</a></span>
+                <em>&gt;</em>
+                <span class="active class_package_name">{{class_info.cp_name}}</span>
+            </div>
+
+            <div class="detail-show clear">
+                <div class="fl buydetail-show-pic">
+                    <div class="fl padsheet"><img :src="class_info.cover" alt="" width="390px" height="210px"></div>
+                    <div class="fl menus">
+                        <div>
+                            <p>阶段</p><span>{{class_info.jds}}</span>
+                        </div>
+                        <div>
+                            <p>课程</p><span>{{class_info.kcs}}</span>
+                        </div>
+                        <div>
+                            <p>学员</p><span>{{class_info.rs}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="fr buydetail-show-cont">
+                    <div class="top-detail-title">
+                        <div class="fl class_package_name ">{{class_info.cp_name}}</div>
+                    </div>
+                    <p style="height: 63px;word-break: break-all;" id="description">{{class_info.describe}}</p>
+                    <div
+                        style="height: 16px;line-height: 16px;font-size: 14px;color: #666;margin-bottom: 4px;margin-top: 4px;color: #666;">
+                        <span style="color: #999;" id="end_time">课程包有效期至：{{class_info.effictive_date}}</span></div>
+                    <div class="total-price clear"><i
+                            class="nameText">打包价格：</i><span>￥{{class_info.favorable_price}}</span><del
+                            style="display: block;">￥{{class_info.total_price}}</del>
+                        <ul class="vipListBox" id="coursePackage-vip-list"></ul>
+                        <ul class="vipListBox" id="coursePackage-vip-list-hide-area"
+                            style="display:none;width: 120px; height: auto; overflow: visible; position: relative;">
+                            <li id="008" class="overDian" style="width:100%;"> <i class="iconfont"
+                                    style="cursor:pointer;"></i>
+                                <ul class="hideListBox" style="display: none;" id="coursePackage-vip-list-hide"> </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: 14px;" class="clear">
+                        <div class="fl detail-buy-btn" @click="goOrder">立即购买</div>
+                        <div class="fr top-detail-right "><span class="collect" >
+                            <em class="iconfont"  @click="change_status(class_info.tf_collection)">{{class_info.tf_collection == 1?'':''}}</em><s
+                                class="word">{{class_info.tf_collection == 1?'已收藏':'收藏'}}</s>
+                            
+                            <i class="em-num">{{class_info.shoucang_rs}}</i>
+                            </span>
+                                    <!-- <s
+                                class="line">|</s><span>分享</span>
+                                <b class="iconfont b2 qq-icon" style=""></b><b
+                                class="iconfont b3 weibo-icon" style="font-size: 28px;"></b> -->
+                            </div>
+                        <!-- <div class="weixin">
+                            <div class="weixin-head"><span>分享到微信朋友圈</span><a href="javascript:;"
+                                    class="weixin-head-close">×</a></div>
+                            <div class="content">
+                                <div class="img"></div>
+                            </div>
+                            <div class="weixin-foot">打开微信，点击底部的“发现”，<br>使用“扫一扫”即可将网页分享至朋友圈。</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <ul class="StageChoice clear">
+                <li @click="activeIndex(0)" :class="activeIndexa==0? 'stateOn StateAc':'stateOn'">详情</li>
+                <li @click="activeIndex(1)" :class="activeIndexa==1? 'StageCourse StateAc':'StageCourse'"> 阶段课程</li>
+            </ul>
+        </div>
+        <div  v-if="state == 1" style="padding-bottom: 30px;border-bottom: 1px solid #f2f1f1;margin-bottom: 20px;" id="classPackage">
+
+            <div class="crumbs-box">
+                <span><a id="classPackageName" href="/classPackage/findAll">课程包</a></span>
+                <em>&gt;</em>
+                <span class="active class_package_name">{{class_info.cp_name}}</span>
+            </div>
+
+            <div class="detail-show clear">
+                <div class="fl detail-show-pic"><img :src="class_info.cover" alt="" width="100%" height="100%"></div>
+                <div class="fr detail-show-cont">
+                    <div class="top-detail-title">
+                        <div id="packageName" class="fl class_package_name" style="line-height:48px;">
+                            {{class_info.cp_name}}</div>
+                        <div class="fr top-detail-right"><span class="collect" >
+                            <em class="iconfont"  @click="change_status(class_info.tf_collection)">{{class_info.tf_collection == 1?'':''}}</em><s
+                                class="word">{{class_info.tf_collection == 1?'已收藏':'收藏'}}</s>
+                            
+                            <i class="em-num">{{class_info.shoucang_rs}}</i>
+                            </span>
+                            <!-- <s
+                                class="line">|</s><span>分享</span><b class="iconfont b2 qq-icon" style=""></b><b
+                                class="iconfont b3 weibo-icon" style="font-size: 28px;"></b> -->
+                            </div>
+                        <!-- <div class="weixin">
+                            <div class="weixin-head"><span>分享到微信朋友圈</span><a href="javascript:;"
+                                    class="weixin-head-close">×</a></div>
+                            <div class="content">
+                                <div class="img"></div>
+                            </div>
+                            <div class="weixin-foot">打开微信，点击底部的“发现”，<br>使用“扫一扫”即可将网页分享至朋友圈。</div>
+                        </div> -->
+                    </div>
+                    <div style="position: absolute;bottom: 80px;font-size: 14px;color: #999;" id="end_time">
+                        课程包有效期：{{class_info.effictive_date}}</div>
+                    <div class="study-info">
+                        <div class="course-box">
+                            <div>课程(<span id="class-type-count">{{class_info.kcs}}</span>)</div>
+                            <div id="class-type-lessiones" class="class-kind">
+                                <span>录播课<em>{{class_info.luboshu}}</em></span><span>直播课<em>{{class_info.zhiboshu}}</em></span><span>面授课<em>{{class_info.mianshoushu}}</em></span>
+                            </div>
+                        </div>
+                        <div class="study-box">
+                            <div>学习</div>
+                            <p><em id="student-count">{{class_info.rs}}</em>人</p>
+                        </div>
+                        <div class="progres-box">
+                            <div>学习进度</div>
+                            <div class="progress">
+                                <div class="exp-txt"><span class="exp-per">{{kcbRate}}</span></div>
+                                <div class="exp-bar"><span class="progress-inner" id="totalPercentImg"
+                                        :style="'width:'+kcbRate"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="StageChoice clear">
+                <li @click="activeIndex(0)" :class="activeIndexa==0? 'stateOn StateAc':'stateOn'">详情</li>
+                <li @click="activeIndex(1)" :class="activeIndexa==1? 'StageCourse StateAc':'StageCourse'"> 阶段课程</li>
+            </ul>
+        </div>
+        <div class="classDetail clear StateAcLi" v-show="activeIndexa == 0" style="display: none;">
+            <div class="DetailLeft" id="courseDetailContents" v-html="class_info.details">
+            </div>
+            <div class="DetailRight right">
+                <div class="teacher">
+                    <div class="title-wrap clear">
+                        <span class="title" style="margin-top: 0px;">名师</span>
+                        <!-- <span class="page"><i class="now">1</i><i class="split-line">/</i><i class="page-num">2</i><img
+                                src="./image/jiantou_01.png" class="prev" alt=""><img src="./image/jiantou_02.png"
+                                class="next" alt=""></span> -->
+                    </div>
+                    <div class="wrap-box clear" style="width: 246px;">
+                        <div class="teacher-introduce-wrap">
+                            <div class="teacher-introduce">
+                                <div v-for="(item,index) in teachers" @click="go_teacher(item.user_id)">
+                                        <div class="name clear" data-id="89730"> <span class="headpic"><img class="goDetails"
+                                            data-id="89730"
+                                            :src="item.head"
+                                            alt="" width="100%" height="100%"> </span><span class="goDetails"
+                                        data-id="89730">{{item.true_name}}</span></div>
+                                <p class="content" v-html="item.introduction"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="StageClass StateAcLi" v-show="activeIndexa == 1" style="display: block;">
+            <!-- 独立阶段外的课程 -->
+            <div id="outStageClasses"></div>
+            <!--阶段-->
+            <div id="allStages">
+
+
+
+
+
+
+
+                <div v-for="(item,index) in jieduans" class="stage-line" id="22113" data-buy="">
+                    <div class="stag-title clear">
+                        <div class="fl">
+                            {{item.stage_name}}
+                        </div>
+                        <div class="fr"  v-if="state == 1">
+                            <div class="fr push-btn">
+                                <img :src="item.edit == true?'./image/B1V1_05.png':'./image/B1V1_03.png'" @click="change_edit(item)" style="margin-top: 15px;">
+                            </div>
+
+
+
+                            <div class="fr buying-btn"><em class="iconfont"></em>已购买</div>
+                            <div class="progress fr">
+                                <div class="exp-txt">
+                                    <span class="exp-per">{{item.rate}}</span>
+                                </div>
+                                <div class="exp-bar"><span class="progress-inner progress-inner22113"
+                                        :style="'width: '+item.rate"></span></div>
+                            </div>
+                            <div class="fr" style="color: #949494;font-size: 12px">学习进度</div>
+
+
+
+
+                        </div>
+                        <div class="fr" v-if="state == 2">
+                            <div class="fr push-btn">
+                                <img :src="item.edit == true?'./image/B1V1_05.png':'./image/B1V1_03.png'" @click="change_edit(item)" style="margin-top: 15px;">
+                            </div>
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="stag-cont clear" v-show="item.edit == true">
+
+                        <div v-for="(item1,index1) in item.kcs" class="stag-detail fl " id="22113-900247">
+                            <div class="detail-pic-box">
+                                <a href="/sysConfigItem/selectDetail/919786?pId=14644&amp;isBuyType=0" target="_blank">
+
+                                    <img :src="item1.cover"
+                                        alt="" width="100%" height="100%">
+
+
+                                </a>
+                            </div>
+                            <div class="detail-cont-box">
+                                <div class="detailcont-top">
+                                    <a href="/sysConfigItem/selectDetail/919786?pId=14644&amp;isBuyType=0"
+                                        target="_blank">
+                                        {{item1.course_name}}
+                                    </a>
+                                </div>
+                                <div class="detailcont-sec">
+                                        {{item1.course_describe}}
+                                </div>
+
+                                <div class="detailcont-bottom">
+
+
+
+
+
+
+
+                                    <span>{{item1.course_type == '直播,录播'?'混合':item1.course_type}}</span>
+
+
+                                    <em class="not-finish">￥{{item1.special_price}}</em>
+                                    <b class="fr"><i class="iconfont"></i>{{item1.kechengrs}}</b>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
+
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <form method="post" id="myForm">
+            <input type="hidden" name="type" id="typeValue">
+        </form>
+        <!-- footer end -->
+
+
+
+    </div>
+    <form method="post" id="myForm">
+        <input type="hidden" name="type" id="typeValue">
+    </form>
+    <!-- footer end -->
+    <!--百度统计代码-->
+
+
+
+
+
+
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<script src="js/vue.min.js"></script>
+<script src="js/element-ui.js"></script>
+<script>
+    new Vue({
+        el: '#content',
+        data() {
+            return {
+                currentPage: 1, //初始页
+                activeIndexa: 0,
+                pagesize: 10, //    每页的数据
+                model: 0,
+                value2: '',
+                stu_id: localStorage.stu_id,
+                kcbRate:0,
+                teachers:[],
+                jieduans:[],
+                state:2,
+                class_info: {
+
+                }
+            }
+        },
+        created() {
+            let _this = this
+            console.log('stuid'+localStorage.stu_id)
+            $(document).ready(function(){ 
+            $("#header").load("header.html"); 
+            }); 
+            if(_this.stu_id == 0 || _this.stu_id == undefined){
+                obj = {
+                    "course_package_id": window.location.href.split('=')[1]
+                }
+            }else{
+                obj = {
+                    "course_package_id": window.location.href.split('=')[1],
+                    "stu_id":_this.stu_id
+                }
+            }
+            
+            $.ajax({
+                url: 'http://192.168.10.166:8080/stu/Discovery/queryCoursePackageInfo',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify(obj),
+                dataType: 'json',
+                success: function (data) {
+                    _this.class_info = data.kechengbaoxiangqing[0]
+                    _this.state = data.state
+                    _this.jieduans =  data.jieduan
+                    for (let i = 0; i < _this.jieduans.length; i++) {
+                        _this.jieduans[i].kcs = []
+                        _this.jieduans[i].edit = true
+                        data.kecheng.map((item)=>{
+                            if(item.stage_id == _this.jieduans[i].stage_id){
+                                _this.jieduans[i].kcs.push(item)
+                            }
+                        })
+                    }
+                    console.log(_this.class_info)
+                    if (_this.class_info.effictive_days_type == "有效天数") {
+                        _this.class_info.effictive_date = _this.getNowFormatDate(new Date(new Date(
+                                _this.class_info.create_time).getTime() + _this.class_info
+                            .effictive_days * 24 * 3600 * 1000))
+                    } else {
+                        _this.class_info.effictive_date = _this.class_info.effictive_date
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/Discovery/queryStudentRateOfLearning',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "course_package_id": window.location.href.split('=')[1],
+                            "stu_id":_this.stu_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcbRate = (isNaN(data.kcbzjd)?0:(Math.floor(data.kcbzjd*100,2)))+'%'
+                            for (let i = 0; i < _this.jieduans.length; i++) {
+                                _this.jieduans[i].rate = 0
+                                for(var k in data.jdzjd){
+                                    if(k == _this.jieduans[i].stage_id){
+                                        _this.jieduans[i].rate = Math.floor(data.jdzjd[k]*10000/100)+'%'
+                                    }
+                                }
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                error: function () {
+
+                }
+            })
+            
+            $.ajax({
+                url: 'http://192.168.10.166:8080/stu/home/FamousTeacher',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                }),
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    _this.teachers = data
+                },
+                error: function () {
+
+                }
+            })
+        },
+        methods: {
+            goOrder(){
+                console.log(1)
+                let _this = this
+                if(_this.stu_id == 0 || _this.stu_id == undefined){
+                    _this.$message.error({
+                        type: 'info',
+                        message: "请先登录",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/order/pay',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "CPC_id": _this.class_info.course_package_id,
+                        "stu_id": _this.stu_id,
+                        "tf_course": "课程包",
+                        "order_resource":"PC端"
+                    }),
+                    // dataType: 'json',
+                    success: function (data) {
+                        localStorage.order_num = data.data
+                        localStorage.order_type = "课程包"
+                        localStorage.order_info = JSON.stringify(_this.class_info)
+                        window.open('order.html')
+                        // if(data == 1){
+                        //    _this.class_info.tf_collection = tf_collection == 1?2:1 
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            change_status(tf_collection){
+                let _this = this
+                if(_this.stu_id == 0 || _this.stu_id == undefined){
+                    _this.$message.error({
+                        type: 'info',
+                        message: "请先登录",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/Discovery/collectionCourse',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "course_package_id":window.location.href.split('=')[1],
+                        "stu_id":_this.stu_id,
+                        "collection_status":tf_collection == 1?2:1
+                    }),
+                    // dataType: 'json',
+                    success: function (data) {
+                        if(data == 1){
+                           _this.class_info.tf_collection = tf_collection == 1?2:1 
+                           _this.$message.success({
+                               type:'提示',
+                               message:tf_collection == 2?'收藏成功':'取消收藏成功'
+                           })
+                        }else{
+                            _this.$message.error({
+                               type:'提示',
+                               message:tf_collection == 2?'收藏失败':'取消收藏失败'
+                           })
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                               type:'提示',
+                               message:'服务器错误'
+                           })
+                    }
+                })
+            },
+            change_edit(item){
+                obj = JSON.parse(JSON.stringify(this.jieduans))
+                for (let i = 0; i < obj.length; i++) {
+                    console.log(obj[i].stage_id == item.stage_id)
+                    if(obj[i].stage_id == item.stage_id){
+                        if(obj[i].edit == true){
+                            obj[i].edit = false 
+                        }else{
+                            obj[i].edit = true 
+                        }
+                    }
+                }
+                this.jieduans = obj
+            },
+            getNowFormatDate(date) {
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                if (hour >= 0 && hour <= 9) {
+                    hour = "0" + hour;
+                }
+                if (minute >= 0 && minute <= 9) {
+                    minute = "0" + minute;
+                }
+                if (second >= 0 && second <= 9) {
+                    second = "0" + second;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                    " " + hour + seperator2 + minute +
+                    seperator2 + second;
+                return currentdate;
+            },
+            go_teacher(user_id) {
+                window.open('teacherDetail.html?teacher_id=' + user_id)
+            },
+            activeIndex(num) {
+                this.activeIndexa = num
+            }
+        }
+    })
+</script>
+
+</html>

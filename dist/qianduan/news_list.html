@@ -1,0 +1,334 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/news.css">
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix"> </div>
+    <!-- register-end-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <div class="wrap public-content news" style="margin-top:60px;overflow: hidden;" id="app" v-cloak>
+        <div class="place">
+            <a href="/">首页</a> &gt; <span>新闻公告</span>
+        </div>
+        <div class="news-type-2">
+            <div class="types">
+                <ul>
+                    <li class="classStatus" @click="alltype" :class="btnindex === 0 ? 'active' : ''"><a
+                            href="javascript:void(0);">全部类别</a></li>
+                    <li @click="changeBtn(btn.public_id)" v-for="(btn,i) in typeBtnList"
+                        :class="btnindex === btn.public_id ? 'active' : ''" class="classStatus">
+                        <a href="javascript:void(0);">{{btn.public_name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 加载推荐文章 -->
+        <div class="unsilde unsildeTwo" id="recomm" v-if="!noData">
+            <div class="preview" @click="goDetail(recommended[0].news_id)">
+                <img alt=""
+                    :src="recommended[0].news_cover"
+                    newsid="910513">
+                <div class="caption">
+                    <p newsid="910513">{{recommended[0].news_title}}</p>
+                </div>
+            </div>
+            <div class="thumbs">
+                <ul id="recommendNews">
+                    <li class="first"@click="goDetail(rec.news_id)" v-for="(rec,i) in recommended" v-if="i !== 0">
+                        <img alt=""
+                            :src="rec.news_cover"
+                            newsid="872910">
+                        <div>
+                            <p newsid="872910">{{rec.news_title}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 加载推荐文章结束 -->
+        <div class="main" id="newsList">
+            <div class="main-left">
+                <div class="title">
+                    <h6>最新文章</h6>
+                </div>
+                <!-- 加载 最新文章-->
+                <div class="content">
+                    <ul id="currentNews">
+                        <li v-for="news in newNews">
+                            <h2 class="rowTitle tt" newsid="910513" @click="goDetail(news.news_id)">
+                                {{news.news_title}}</h2>
+                            <div class="row clear">
+                                <div class="pic">
+                                    <img :src="news.news_cover" newsid="910513"></div>
+                                <div class="text" style="height:auto">
+                                    <p class="cc">{{news.news_summary}}</p>
+                                </div>
+                            </div>
+                            <div class="time"><span>{{news.create_time | formatDate}}</span><span><i
+                                        class="iconfont2"></i><i>{{news.visit_num}}</i></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 加载最新文章结束 -->
+                <!-- 加载更多最新文章 -->
+                <div v-if="noData" class="noData" style="text-align: center;color: #ccc;">
+                    <p style="font-size: 26px;font-weight: 900;">到底啦!</p>
+                </div>
+                <div class="load-more" v-else>
+                    <p id="loadMoreData" pageno="1" @click="more"><i class="iconfont3"></i>加载更多</p>
+                </div>
+            </div>
+            <div class="main-right">
+                <div class="title">
+                    <h6>热门文章</h6>
+                </div>
+                <!-- 加载热门文章 -->
+                <div class="content">
+                    <ul id="hotNews" class="hotNewsList">
+                        <li v-for="hot in hotNews">
+                            <h3 class="cc" newsid="463642">{{hot.news_title}}</h3>
+                            <div class="time">
+                                <span>{{hot.create_time | formatDate}}</span>
+                                <span>
+                                    <i class="iconfont2"></i>
+                                    <i>{{hot.visit_num}}</i>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 加载热门文章结束 -->
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
+
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <!-- footer end -->
+    </div>
+    <!-- footer end -->
+    <!--百度统计代码-->
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<script src="js/vue.min.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                domain: 'http://192.168.10.166:8080',
+                newNews: [],
+                pageStart: 0,
+                endNum: 5,
+                hotNews: [],
+                typeBtnList: [],
+                nowTypeId: '',
+                btnindex: 0,
+                noData: false,
+                recommended: []
+            }
+        },
+        created() {
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+            // 初始化最新文章
+            this.initArticle(this.pageStart)
+            // 热门文章
+            $.ajax({
+                type: 'post',
+                url: this.domain + '/stu/newInfo/hotArticles',
+                data: JSON.stringify({}),
+                contentType: 'application/json',
+                success: res => {
+                    this.hotNews = res
+                }
+            })
+            // 分类按钮
+            $.ajax({
+                type: 'post',
+                url: this.domain + '/stu/newInfo/leibie',
+                data: JSON.stringify({}),
+                contentType: 'application/json',
+                success: res => {
+                    this.typeBtnList = res
+                }
+            })
+        },
+        methods: {
+            //  最新文章 （分页）
+            initArticle(start, id = '') {
+                start = start * this.endNum
+                $.ajax({
+                    type: 'post',
+                    url: this.domain + '/stu/newInfo/latestArticles',
+                    data: JSON.stringify({
+                        "start": start,
+                        "end": this.endNum,
+                        "type_id": id
+                    }),
+                    contentType: 'application/json',
+                    success: res => {
+                        if (res.length === 0) {
+                            this.noData = true
+                        } else {
+                            this.recommended = res.slice(0,5)
+                            console.log(this.recommended)
+                            this.noData = false
+                            this.newNews = this.newNews.concat(res)
+                        }
+                    }
+                })
+            },
+            more() {
+                this.pageStart++
+                this.initArticle(this.pageStart, this.nowTypeId)
+            },
+            goDetail(id) {
+                window.location.href = 'news_detail.html?newid=' + id
+            },
+            changeBtn(id) {
+                if (this.nowTypeId === id) return
+                this.btnindex = this.nowTypeId = id
+                this.pageStart = 0
+                this.newNews = []
+                this.initArticle(0, id)
+            },
+            alltype() {
+                if (this.nowTypeId === '') return
+                this.nowTypeId = '',
+                this.btnindex = 0
+                this.pageStart = 0
+                this.newNews = []
+                this.initArticle(0, this.nowTypeId)
+            }
+        },
+        filters: {
+            formatDate(date) {
+                date = new Date(date)
+                let format = "yyyy-MM-dd"
+                if (!date) return;
+                if (!format)
+                    format = "yyyy-MM-dd";
+                switch (typeof date) {
+                    case "string":
+                        date = new Date(date.replace(/-/, "/"));
+                        break;
+                    case "number":
+                        date = new Date(date);
+                        break;
+                }
+                if (!date instanceof Date) return;
+                var dict = {
+                    "yyyy": date.getFullYear(),
+                    "M": date.getMonth() + 1,
+                    "d": date.getDate(),
+                    "H": date.getHours(),
+                    "m": date.getMinutes(),
+                    "s": date.getSeconds(),
+                    "MM": ("" + (date.getMonth() + 101)).substr(1),
+                    "dd": ("" + (date.getDate() + 100)).substr(1),
+                    "HH": ("" + (date.getHours() + 100)).substr(1),
+                    "mm": ("" + (date.getMinutes() + 100)).substr(1),
+                    "ss": ("" + (date.getSeconds() + 100)).substr(1)
+                };
+                return format.replace(/(yyyy|MM?|dd?|HH?|ss?|mm?)/g, function () {
+                    return dict[arguments[0]];
+                });
+            }
+        }
+    })
+</script>
+
+</html>

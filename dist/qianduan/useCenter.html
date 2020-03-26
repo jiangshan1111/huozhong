@@ -1,0 +1,2647 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" type="text/css" href="css/person.css">
+    <link rel="stylesheet" href="css/my-class-bag.css">
+    <link rel="stylesheet" href="css/classbag-detail.css">
+    <link rel="stylesheet" href="css/coupon.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/myIndent.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/my-classtable.css">
+    <link rel="stylesheet" href="css/newPay.css">
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="//unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
+
+
+    <style>
+        .pages li {
+            float: initial;
+        }
+    </style>
+
+
+    <style type="text/css">
+        .xz {
+            color: #3ec0ef;
+        }
+
+        li:hover {
+            cursor: pointer;
+        }
+    </style>
+
+
+    <style type="text/css">
+        .right-box .chapter-stitle button.cancelbtn {
+            /*    width: 78px;*/
+            /*    height: 28px;*/
+            /*    line-height: 28px;*/
+            color: #93999f;
+            /*    font-size: 14px;*/
+            /*    margin-left: 20px;*/
+            border-radius: 3px;
+            border: 1px solid #e0e4e5;
+            /*    padding: 0;*/
+            /*    border: 0;*/
+            /*    vertical-align: middle;*/
+            background: #fff;
+        }
+
+        .cengbg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 99;
+            display: none;
+        }
+
+        .cancelclass_tk {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            position: absolute;
+            padding: 40px 30px;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            display: none;
+        }
+
+        .message-content .message-list ul li .btnMenu {
+            display: none
+        }
+
+        .message-content .message-list ul li:hover .btnMenu {
+            display: block
+        }
+
+        .copyclass_tit {
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 30px;
+            clear: both;
+        }
+
+        .copyclass_tit h3 {
+            color: #2a2a2a;
+            font-size: 24px;
+            height: 30px;
+            line-height: 30px;
+            float: left;
+        }
+
+        .copyclass_tit em {
+            display: block;
+            font-size: 40px;
+            color: #bbb;
+            cursor: pointer;
+            float: right;
+        }
+
+        .cancelclass_tk .txttx {
+            font-size: 14px;
+            color: #707478;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 20px;
+        }
+
+
+        .selectbox p {
+            font-size: 14px;
+            color: #707478;
+            margin: 20px 0 10px;
+        }
+
+
+        .selectbox ul li {
+            float: left;
+            padding: 10px 15px;
+            color: #707478;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 20px;
+            background-color: #f1f1f1;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .selectbox ul li.clickcur {
+            background-color: #0099ff;
+            color: #fff;
+        }
+
+        .selectbox textarea {
+            width: 378px;
+            height: 96px;
+            outline: none;
+            resize: none;
+            border: 1px solid #dadee0;
+            padding: 12px 10px;
+            margin-top: 10px;
+        }
+
+
+        .endingbox {
+            width: 216px;
+            margin: 30px auto 0;
+        }
+
+        .endingbox button {
+            height: 34px;
+            line-height: 34px;
+            padding: 0;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+
+        .endingbox button.endingbox_cancel {
+            color: #93999f;
+            border: 1px solid #dadee0;
+            width: 96px;
+            background-color: #fff;
+            float: left;
+        }
+
+        .endingbox button.endingbox_submit {
+            color: #fff;
+            background-color: #0099ff;
+            width: 100px;
+            border: none;
+            float: right;
+        }
+    </style>
+    <style>
+        .potocol:HOVER em {
+            color: #00b2ea;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="background-cyan" data-personhomepage="" style="    margin-top: 60px;">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix">
+
+    </div>
+    <!-- register-end-->
+    <div id="app" v-cloak class="content-box" v-loading="loading"
+        style="margin-top:90px;min-height: 600px;height: auto;">
+        <div class="content-left" style="height: auto;">
+            <div class="headpic">
+
+                <div class="pic" onclick="location.href='/usersCenter/userConfig?url=hPic'"
+                    style="background-image:url('http://image.yunduoketang.com/headpic/34270/20190919/a0b664f9-50eb-4254-9769-d65952ab54cc.jpg')">
+
+
+                    <div class="setup" onclick="location.href='/usersCenter/userConfig?url=hPic'"
+                        style="display: none;">设置</div>
+                    <div class="maskpic" style="display: none;">
+                        <img src="./image/semic.png" alt="">
+                    </div>
+                </div>
+                <div class="headtit">
+
+
+                    {{sub_stu_info.tel}}
+
+
+
+
+                </div>
+                <div class="headlabel static" v-show="write_label == false"
+                    style="text-align: center;word-break: break-all;">
+                    <span class="qm" style="word-break: break-word;max-height: 38px;display: block;overflow: hidden;">
+
+                        {{sub_stu_info.autograph == null?'这家伙很懒，什么都没有留下。。。':sub_stu_info.autograph}}
+
+
+                    </span>
+                    <span class="iconfont" style="cursor: pointer;" @click="change_write"></span>
+                </div>
+                <div class="headlabel2 write" :style="write_label == true?'display:block':''">
+                    <textarea ref="textarea" name="" cols="30" rows="2" maxlength="40" @blur="submit_infomation"
+                        v-model="sub_stu_info.autograph == null?'这家伙很懒，什么都没有留下。。。':sub_stu_info.autograph"></textarea>
+                    <!-- <span class="font-num"><em class="inCount">12</em>/40</span> -->
+                </div>
+            </div>
+            <ul class="rightMenu">
+                <li @click="activeA(1)"
+                    :class="(activeIndexa == 1 || activeIndexa == 11)?'uncheck label-active':'uncheck'"
+                    data-url="usersFront/toMyCourse" num="5">
+                    <span class="iconfont" style=""></span>
+                    <span class="choiceBtn myCourse" style="">我的课程</span>
+                </li>
+
+                <li @click="activeA(2)" :class="activeIndexa == 2?'uncheck label-active':'uncheck'"
+                    data-url="classPackage/myClassPackage" num="6">
+                    <span class="iconfont"></span>
+                    <span class="my-class-bag choiceBtn">我的课程包</span>
+                </li>
+
+                <li @click="activeA(3)" :class="activeIndexa == 3?'uncheck label-active':'uncheck'"
+                    data-url="classFav/collectClasses" num="7">
+                    <span class="iconfont"></span>
+                    <span class="choiceBtn">我的收藏</span>
+                </li>
+                <div class="dashed"></div>
+
+
+
+
+
+
+
+                <li @click="activeA(4)" :class="activeIndexa == 4?'uncheck label-active':'uncheck'"
+                    data-url="usersCenter/myTiku" num="8">
+                    <span class="iconfont"></span>
+                    <span class="choiceBtn">我的题库</span>
+                </li>
+
+
+
+
+
+                <!-- <li @click="activeA(5)" :class="activeIndexa == 5?'uncheck label-active':'uncheck'"
+                    data-url="tikuExamUserRelation/ajaxFindUserExam" num="9">
+                    <span class="iconfont"></span>
+                    <span class="choiceBtn">我的考试</span>
+                </li> -->
+
+
+
+
+
+
+                <div class="dashed"></div>
+
+
+
+
+
+                <li @click="activeA(6)" :class="activeIndexa == 6?'uncheck label-active':'uncheck'"
+                    data-url="question/findMyQuestion" num="10">
+                    <span class="iconfont"></span>
+
+
+
+                    <span class="choiceBtn">我的问答</span>
+
+
+                </li>
+
+
+                <!-- <li @click="activeA(7)" :class="activeIndexa == 7?'uncheck label-active':'uncheck'"
+                    data-url="usersCenter/myNote" num="11">
+                    <span class="iconfont"></span>
+                    <span class="choiceBtn">我的笔记</span>
+                </li> -->
+
+
+                <div class="dashed"></div>
+
+
+
+
+
+                <li @click="activeA(8)" :class="activeIndexa == 8?'uncheck label-active':'uncheck'"
+                    data-url="usersFrontMyCoupons/findBySearch" num="14">
+                    <span class="iconfont"></span>
+                    <span class="choiceBtn">我的优惠券</span>
+                </li>
+
+
+
+                <li @click="activeA(9)" :class="activeIndexa == 9?'uncheck label-active':'uncheck'"
+                    data-url="student/toInfoCenter" num="16">
+                    <span class="iconfont"></span>
+                    <span class="choiceBtn">我的消息</span>
+                </li>
+
+                <li @click="activeA(10)"
+                    :class="(activeIndexa == 10 || activeIndexa == 12)?'uncheck label-active':'uncheck'"
+                    data-url="payOrder/findOrderList" num="17">
+                    <span class="iconfont"></span>
+                    <span class="choiceBtn">我的订单</span>
+                </li>
+
+            </ul>
+        </div>
+        <div class="content-right my-invite" style="overflow: auto;min-height: 594px">
+
+
+
+
+
+
+
+
+            <div class="right-box" v-if="activeIndexa == 1">
+                <div class="my_course">
+                    <div class="mynote-title">我的课程
+                        <div class="tab">
+
+                            <a href="javascript:;" class="active btn-myclatab" data-url="usersCenter/myClassTable"
+                                @click="activeA(11)">课程表</a>
+                        </div>
+                    </div>
+                    <div class="mark"></div>
+                    <div class="clear"></div>
+                    <ul id="info" class="clear" style="min-height: 480px;width: 930px;">
+
+
+
+
+                        <li class="fl" style="height: 260px;" v-for="(item,index) in courses">
+                            <div class="coures-box">
+                                <div class="pic-box">
+                                    <a :href="'open_classDetail.html?course_id='+item.course_id" target="_blank">
+
+                                        <img alt="" style="height:100%;width:100%" :src="item.cover">
+
+
+
+                                    </a>
+                                </div>
+                                <div class="coures-title">
+                                    <a :href="'open_classDetail.html?course_id='+item.course_id" target="_blank">
+
+
+                                        {{item.course_name}}
+
+                                    </a>
+                                </div>
+
+
+
+
+
+
+
+
+
+                                <div class="state-btn">{{item.course_type == '直播,录播'?'混合':item.course_type}}</div>
+
+
+
+
+                                <div class="clear"></div>
+                                <div class="coures-bottom">
+
+
+                                    <span v-if="item.agreement_id != null" class="potocol coures-font fl coures-color"
+                                        @click="goAgreement(item.agreement_id)"><em
+                                            href="javascript:void(0)">查看协议</em></span>
+                                    <span class="coures-font fr">{{item.rs}}人</span>
+                                    <span class="iconfont fr"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <input type="hidden" id="userid" value="2338779">
+                <div class="layerContent layerAssignment" style="display:none;z-index: 29891015">
+                    <p style="width:80%;margin:0 auto;padding:10px 10px;">您的个人资料还不完善，完善后才能上课哦。</p>
+                </div>
+
+
+
+
+
+            </div>
+            <div class="box" v-if="activeIndexa == 2">
+                <div class="today-class" v-if="jinri.length>0">
+                    <div class="mynote-title">今日课程</div>
+                    <ul class="chapter-stitle">
+                        <li class="clear now " @click="view_zb(item)" v-for="(item,index) in jinri"
+                            style="cursor:pointer"><span
+                                class="left">{{item.cp_name}}-{{item.course_name}}-{{item.ct_name}}</span><span
+                                class="right"><i
+                                    class="time">{{getNowFormatDate(new Date(item.begin_class_date)).split(' ')[1].substring(0,5)}}-{{getNowFormatDate(new Date(item.end_time_datess)).split(' ')[1].substring(0,5)}}</i><span
+                                    class="state soon"><i class="icon">&nbsp;</i><i>
+                                        {{
+                                                (new Date(item.begin_class_date)>new Date())?'即将开始':((new Date(item.end_time_datess) > new Date())?'正在进行':'已经结束')
+                                                
+                                            }}</i></span></span></li>
+                    </ul>
+                </div>
+                <div class="class-bag class-bag-my">
+                    <div class="mynote-title">我的课程包</div>
+                    <div id="loadData">
+
+
+
+
+
+
+
+
+                        <ul class="list">
+
+                            <li v-for="(item,index) in course_packages" class="clear cpdLi" id="14644">
+                                <a href="javscript:void(0)" @click="go_coursePackage(item.course_package_id)"
+                                    class="pic-wrap">
+
+                                    <img :src="item.cover" alt="">
+
+
+                                </a>
+                                <div class="word">
+                                    <h1><a href="javscript:void(0)"
+                                            @click="go_coursePackage(item.course_package_id)">{{item.cp_name}}</a></h1>
+
+                                    <p v-html="item.details"></p>
+                                    <div class="progress clear">
+                                        <div class="exp-txt fl">
+                                            <span>学习进度</span>
+                                        </div>
+                                        <span class="exp-per">{{isNaN(item.kcbzjd)?0:(Math.floor(item.kcbzjd*100,2))}}%</span>
+                                        <div class="exp-bar fl">
+                                            <span class="progress-inner exp-bar14644"
+                                                :style="'width:' +isNaN(item.kcbzjd)?0:(Math.floor(item.kcbzjd*100,2))+'%'"></span>
+                                        </div>
+                                    </div>
+                                    <div class="info clear">
+                                        <ul class="clear">
+                                            <li>阶段<i>{{item.stage_num}}</i></li>
+                                            <li>课程<i>{{item.course_num}}</i></li>
+                                            <li>学员<i>{{item.rs}}</i></li>
+                                        </ul>
+
+                                        <div v-if="item.agreement_id != null"
+                                            style="    background: white;cursor:pointer" class="protocol label details"
+                                            @click="goAgreement(item.agreement_id)">查看协议</div>
+
+                                        <div v-if="item.mingri == true" class="label">明日有课</div>
+                                        <div v-if="item.jinri == true" class="label today">今日有课</div>
+                                    </div>
+                                    <button class="leancp" data-id="14644"
+                                        @click="go_coursePackage(item.course_package_id)">进入学习</button>
+                                </div>
+                            </li>
+
+
+                        </ul>
+
+
+
+
+                        <!-- <div class="pages">
+                            <ul class="pagination">
+                                <li><span>共9条</span></li>
+                                <li class="disabled prev"><a>上一页</a></li>
+                                <li class="active"><a>1</a></li>
+                                <li><a href="javascript:void(0)">2</a></li>
+                                <li class="next"><a href="javascript:void(0)">下一页</a></li>
+                            </ul>
+                        </div> -->
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="right-box" v-if="activeIndexa == 3">
+                <div class="mynote-title">我的收藏
+                    <div class="tab">
+                        <a href="javascript:;" @click="activeB(1)" :class="activeIndexb == 1?'active':''"
+                            data-type="class">课程</a>
+
+                        <a href="javascript:;" @click="activeB(2)" :class="activeIndexb == 2?'active':''"
+                            data-type="classPackage">
+
+                            课程包
+                        </a>
+
+                    </div>
+                </div>
+                <div id="content-wrap" class="content-wrap" style="overflow: hidden;" v-if="activeIndexb == 1">
+                    <div class="order-right-nav">
+                        <div class="drop-box">
+                            <div @click="chenge_sc_course(0)"
+                                :class="sc_course_lebel == 0?'classify-active order-state fl':'order-state fl'"
+                                datavalue="all">全部</div>
+                            <div @click="chenge_sc_course(1)"
+                                :class="sc_course_lebel == 1?'classify-active order-state fl':'order-state fl'"
+                                datavalue="TEACH_METHOD_LIVE">
+                                直播{{sc_courses_zb.length == 0?'':'（'+sc_courses_zb.length+'）'}}</div>
+                            <div @click="chenge_sc_course(2)"
+                                :class="sc_course_lebel == 2?'classify-active order-state fl':'order-state fl'"
+                                datavalue="TEACH_METHOD_VIDEO">
+                                录播{{sc_courses_lb.length == 0?'':'（'+sc_courses_lb.length+'）'}}</div>
+                            <div @click="chenge_sc_course(3)"
+                                :class="sc_course_lebel == 3?'classify-active order-state fl':'order-state fl'"
+                                datavalue="TEACH_METHOD_FACE">
+                                混合{{sc_courses_hh.length == 0?'':'（'+sc_courses_hh.length+'）'}}</div>
+                        </div>
+                    </div>
+                    <div class="transline"></div>
+                    <div class="clear"></div>
+                    <ul id="info" style="min-height: 480px;margin-top: 0" class="content">
+                        <li class="fl" style="margin-top: 0" v-for="(item,index) in sc_courses">
+                            <div class="coures-box">
+                                <div class="cancel-btn" @click="cancel_collection('course',item.course_id)" style="">
+                                    取消收藏</div>
+                                <input class="comStatus" value="1" type="hidden">
+                                <input value="1401614" type="hidden" class="ucId">
+                                <div class="pic-box">
+                                    <a href="javascript:void(0)" @click="go_course(item.course_id)" target="_blank">
+                                        <img :src="item.cover" width="100%" height="100%">
+                                    </a>
+                                </div>
+                                <div class="coures-title">
+                                    <a href="javascript:void(0)" @click="go_course(item.course_id)" target="_blank">
+                                        {{item.course_name}}
+                                    </a>
+                                </div>
+                                <div class="state-btn">{{item.course_type == '直播,录播'?'混合':item.course_type}}</div>
+                                <div class="clear"></div>
+                                <div class="coures-bottom">
+                                    <span class="free-course fl">
+                                        <span
+                                            class="price">{{item.special_price == 0?'免费':'￥'+item.special_price+'元'}}</span>
+                                    </span> <span class="coures-font fr" style="margin-top: 2px;">
+                                        {{item.rs}}
+
+                                        人</span>
+                                    <span class="iconfont fr"></span>
+                                </div>
+                            </div>
+                        </li>
+
+                        <input type="hidden" value="" id="countCondition">
+                    </ul>
+                </div>
+                <div class="content-wrap" v-if="activeIndexb == 2">
+                    <ul class="content clear">
+
+                        <li v-for="(item,index) in sc_course_packages">
+                            <div class="cancel-btn" @click="cancel_collection('courseP',item.course_package_id)"
+                                data-id="1401613">取消收藏</div>
+                            <div class="class-item-bg">
+                                <a href="javascript:void(0)" @click="go_coursePackage(item.course_package_id)">
+
+                                    <img :src="item.cover" alt="">
+
+
+                                </a>
+
+                                <h1>
+                                    <a href="javascript:void(0)" @click="go_coursePackage(item.course_package_id)">
+
+
+                                        {{item.cp_name}}
+
+                                    </a>
+                                </h1>
+
+                                <p>
+
+                                    {{item.describe}}
+
+
+                                </p>
+
+                                <div class="info-wrap clear">
+                                    <ul class="left-info fl">
+                                        <li>
+                                            阶段<i>{{item.jds}}</i>
+                                            <em class="border">|</em>
+                                        </li>
+                                        <li>
+                                            课程<i>{{item.kcs}}</i>
+                                        </li>
+                                    </ul>
+                                    <div class="people-num fr">
+                                        <i class="iconfont"></i>
+                                        <span>{{item.rs}}</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="price">￥{{item.total_price}}</div>
+
+                            </div>
+                            <div class="class-bg-layer"></div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div id="rightClassPackageContent"></div>
+            </div>
+            <div class="right-box" v-if="activeIndexa == 4">
+                <div class="mynote-title">我的题库</div>
+                <div class="mark"></div>
+
+                <!--6.6.0版本改版 添加已做题库和可做题库  hxs  2019-08-12-->
+                <div class="order-right-nav">
+                    <span @click="change_tikus_label('al')" class="active order-state"
+                        :style="tikus_label == 'al'?' color: #0af!important;':''">已做题库<i
+                            id="alreadyQueBankCount">（{{already_tikus.length}}）</i></span>
+                    <span @click="change_tikus_label('not_al')" class="active order-state"
+                        :style="tikus_label == 'not_al'?' color: #0af!important;':''">可做题库<i
+                            id="canQueBankCount">（{{not_already_tikus.length}}）</i></span>
+                </div>
+                <div class="bank-box">
+
+
+                    <div class="question-item" v-for="(item,index) in tikus">
+                        <div class="quest-title">{{item.item_bank_name}}</div>
+                        <div class="secondtit" v-html="item.brief_introduction"></div>
+                        <div v-for="(item1,index1) in item.datalist">
+
+                            <div class="fl course-ball" subid="22522" :style="
+                            index1 % 5 == 0?'border: 2px solid rgb(0, 183, 238)':
+                            index1 % 5 == 1?'border: 2px solid rgb(166, 125, 110)':
+                            index1 % 5 == 2?'border: 2px solid rgb(47, 196, 143)':
+                            index1 % 5 == 3?'border: 2px solid rgb(196, 144, 191)':
+                            'border: 2px solid rgb(241, 148, 77)'
+                            
+                            
+                            ">
+
+                                <div class="quest-title" @click="goTiku(item1.ibs_id)" :title="item1.ibs_name">
+                                    {{item1.ibs_name}} </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="pages">
+                    <ul class="pagination"></ul>
+                </div>
+            </div>
+            <div class="right-box" v-if="activeIndexa == 5">
+                <div class="mynote-title">我的考试</div>
+                <!-- 5.2.7 start -->
+
+
+
+                <div class="bigpic-box">
+                    <div class="bigpic"></div>
+                    <div class="no-note">暂无数据</div>
+                </div>
+
+
+
+                <!-- 5.2.7 end -->
+                <div class="pages">
+                    <ul class="pagination"></ul>
+                </div>
+                <!-- ajax加载中div开始 -->
+                <div class="loading lp-units-loading" style="display: none">
+                    <p>
+                        <i></i>加载中,请稍后...
+                    </p>
+                </div>
+                <div class="loading-bg lp-units-loading-bg" style="display: none"></div>
+                <!--  ajax加载中div结束 -->
+            </div>
+            <div class="box" v-if="activeIndexa == 6">
+                <div class="mynote-title">我的问答</div>
+                <div class="order-right-nav">
+                    <span @click="change_answer_label('tiwen')" class="active order-state"
+                        :style="answer_label == 'tiwen'?' color: #0af!important;':''">我的提问<i
+                            id="alreadyQueBankCount">（{{tiwen.length}}）</i></span>
+                    <span @click="change_answer_label('huida')" class="active order-state"
+                        :style="answer_label == 'huida'?' color: #0af!important;':''">我的回答<i
+                            id="canQueBankCount">（{{huida.length}}）</i></span>
+                </div>
+                <ul id="ulContent" v-if="answer_label == 'tiwen'">
+                    <li class="clear" v-for="(item,index) in tiwen" style="padding: 20px 0 13px 0;
+                    width: 100%;
+                    border-bottom: 1px solid #f0f0f0;
+                    font-size: 0;">
+                        <div class="left-content">
+                            <h2 class="clear" style="    padding-left: 0;
+                            font-size: 14px;
+                            color: #616161;
+                            position: relative;
+                            margin-bottom: 20px;">
+
+
+                                <i class="iconfont nofinish"></i>
+
+                                <a href="javascript:void(0)" alt=""
+                                    @click="goAnswer(item.questions_id)">{{item.title}}</a>
+                            </h2>
+
+                            <div class="foot">
+                                <p>
+                                    <em style="color: #939ca5;
+                                    margin-right: 20px;
+font-size: 12px;">提问时间：{{getNowFormatDate(new Date(item.creation_time))}}</em>
+
+                                    <span class="kanNumber" style="    margin-left: 32px;
+                                    color: #939ca5;"><i class="iconfont"></i><b>{{item.visit_num}}</b></span>
+
+                                    <span class="messageNumber" style="    margin-left: 32px;
+                                    color: #939ca5;"><i class="iconfont"></i><b>{{item.wen_rs}}</b></span>
+
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul id="ulContent" v-if="answer_label == 'huida'">
+                    <li class="clear" v-for="(item,index) in huida" style="padding: 20px 0 13px 0;
+                    width: 100%;
+                    border-bottom: 1px solid #f0f0f0;
+                    font-size: 0;">
+                        <div class="left-content">
+                            <h2 class="clear" style="    padding-left: 0;
+                            font-size: 14px;
+                            color: #616161;
+                            position: relative;
+                            margin-bottom: 20px;">
+                                <i class="iconfont nofinish"></i>
+                                <a href="javascript:void(0)" alt="" @click="goAnswer(item.questions_id)"
+                                    alt="">{{item.title}}</a>
+                            </h2>
+                            <p class="huiDaText" style="margin-bottom: 16px;
+                            font-size: 14px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;">
+                                <span class="answerMask" style="    color: #00a9ee;">[我的回答]：</span>
+                                <b><span style="font-size:14px" v-html="item.content"></span></b>
+                            </p>
+                            <div class="foot">
+                                <p>
+                                    <em style="color: #939ca5;
+                                        margin-right: 20px;
+    font-size: 12px;">提问时间：{{getNowFormatDate(new Date(item.creation_time))}}</em>
+                                    <span class="kanNumber" style="    margin-left: 32px;
+                                    color: #939ca5;"><i class="iconfont"></i><b>{{item.visit_num}}</b></span>
+                                    <span class="messageNumber" style="    margin-left: 32px;
+                                    color: #939ca5;"><i class="iconfont"></i><b>{{item.huida_rs}}</b></span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+            <div class="right-box" v-if="activeIndexa == 7">
+                <div class="mynote-title">我的笔记</div>
+                <div class="right-nav">
+                    <div class="drop-box">
+                        <div class="all-course fl" style="width:54px"><span>全部</span></div>
+                        <div class="dropdown iconfont fl"></div>
+                        <ul class="pop" style="display: none;">
+                            <li data-id=""><span>全部</span></li>
+
+                            <li data-id="900247"><span>2020技术实务</span></li>
+
+                        </ul>
+                    </div>
+                    <div class="fr search">
+                        <input type="text" id="notesel" placeholder="请输入搜索内容" onkeydown="javascript:keydown(event);">
+                        <span class="iconfont glass"></span>
+                    </div>
+                </div>
+                <div class="mark" style="display: none;">
+                    <div class="mark-active fl">
+                        <a href="javascript:;" data-id=""></a>
+                        <a href="javascript:;" class="iconfont lecClose"></a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="notecontent">
+
+
+
+
+
+                    <div class="mynotes mouseen" data-id="101588" style="background-color: rgb(255, 255, 255);">
+                        <a href="javascript:;" data-source="942362/900247/3822085/20/101588" data-id="3822085"
+                            class="player-time" target="_blank">
+                            <div class="player iconfont"></div>
+                            <div class="time">00:00:20</div>
+                        </a>
+                        <div class="note-content">21321321321</div>
+                        <div class="note-bottom">
+                            <span class="noteday fl">
+                                2019-11-18 10:40:45
+                            </span>
+                            <span class="moment fl classname" data-id="900247">源自：<span>2020技术实务</span></span>
+                            <a href="javascript:;" class="fl chapterlink"
+                                data-id="3822085">章节：<span>第一讲（上）防火框架</span></a>
+                            <a href="javascript:;" class="delete fr none" data-id="101588">
+                                <span class="iconfont"></span>
+                                <span>删除</span>
+                            </a>
+                            <a href="javascript:;" class="edit fr none">
+                                <span class="iconfont"></span>
+                                <span>编辑</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mynotes mynote-active" data-id="101588" style="display:none">
+                        <a href="javascript:;" data-source="942362/900247/3822085/20/101588" data-id="3822085"
+                            class="player-time" target="_blank">
+                            <div class="player iconfont"></div>
+                            <div class="time">00:00:20</div>
+                        </a>
+                        <textarea cols="40" rows="2" class="note-content active-text">21321321321</textarea>
+                        <div class="note-bottom">
+                            <span class="noteday fl">
+                                2019-11-18 10:40:45
+                            </span>
+                            <span class="moment fl classname" data-id="900247">源自：<span>2020技术实务</span></span>
+                            <a href="javascript:;" class="fl chapterlink"
+                                data-id="3822085">章节：<span>第一讲（上）防火框架</span></a>
+                            <a href="javascript:;" class="cancel fr">
+                                取消
+                            </a>
+                            <a href="javascript:;" class="save fr" data-id="101588">
+                                保存
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="mynotes mouseen" data-id="101587" style="background-color: rgb(255, 255, 255);">
+                        <a href="javascript:;" data-source="942362/900247/3822085/20/101587" data-id="3822085"
+                            class="player-time" target="_blank">
+                            <div class="player iconfont"></div>
+                            <div class="time">00:00:20</div>
+                        </a>
+                        <div class="note-content">23214514232321顶顶顶顶</div>
+                        <div class="note-bottom">
+                            <span class="noteday fl">
+                                2019-11-18 10:40:42
+                            </span>
+                            <span class="moment fl classname" data-id="900247">源自：<span>2020技术实务</span></span>
+                            <a href="javascript:;" class="fl chapterlink"
+                                data-id="3822085">章节：<span>第一讲（上）防火框架</span></a>
+                            <a href="javascript:;" class="delete fr none" data-id="101587">
+                                <span class="iconfont"></span>
+                                <span>删除</span>
+                            </a>
+                            <a href="javascript:;" class="edit fr none">
+                                <span class="iconfont"></span>
+                                <span>编辑</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mynotes mynote-active" data-id="101587" style="display:none">
+                        <a href="javascript:;" data-source="942362/900247/3822085/20/101587" data-id="3822085"
+                            class="player-time" target="_blank">
+                            <div class="player iconfont"></div>
+                            <div class="time">00:00:20</div>
+                        </a>
+                        <textarea cols="40" rows="2" class="note-content active-text">23214514232321顶顶顶顶</textarea>
+                        <div class="note-bottom">
+                            <span class="noteday fl">
+                                2019-11-18 10:40:42
+                            </span>
+                            <span class="moment fl classname" data-id="900247">源自：<span>2020技术实务</span></span>
+                            <a href="javascript:;" class="fl chapterlink"
+                                data-id="3822085">章节：<span>第一讲（上）防火框架</span></a>
+                            <a href="javascript:;" class="cancel fr">
+                                取消
+                            </a>
+                            <a href="javascript:;" class="save fr" data-id="101587">
+                                保存
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="mynotes mouseen" data-id="101586" style="background-color: rgb(255, 255, 255);">
+                        <a href="javascript:;" data-source="942362/900247/3822085/20/101586" data-id="3822085"
+                            class="player-time" target="_blank"
+                            style="color: rgb(174, 168, 163); border: 1px solid rgb(174, 168, 163);">
+                            <div class="player iconfont" style="border-right: 1px solid rgb(174, 168, 163);"></div>
+                            <div class="time">00:00:20</div>
+                        </a>
+                        <div class="note-content">23123213213</div>
+                        <div class="note-bottom">
+                            <span class="noteday fl">
+                                2019-11-18 10:40:39
+                            </span>
+                            <span class="moment fl classname" data-id="900247">源自：<span>2020技术实务</span></span>
+                            <a href="javascript:;" class="fl chapterlink"
+                                data-id="3822085">章节：<span>第一讲（上）防火框架</span></a>
+                            <a href="javascript:;" class="delete fr none" data-id="101586">
+                                <span class="iconfont"></span>
+                                <span>删除</span>
+                            </a>
+                            <a href="javascript:;" class="edit fr none">
+                                <span class="iconfont"></span>
+                                <span>编辑</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mynotes mynote-active" data-id="101586" style="display:none">
+                        <a href="javascript:;" data-source="942362/900247/3822085/20/101586" data-id="3822085"
+                            class="player-time" target="_blank">
+                            <div class="player iconfont"></div>
+                            <div class="time">00:00:20</div>
+                        </a>
+                        <textarea cols="40" rows="2" class="note-content active-text">23123213213</textarea>
+                        <div class="note-bottom">
+                            <span class="noteday fl">
+                                2019-11-18 10:40:39
+                            </span>
+                            <span class="moment fl classname" data-id="900247">源自：<span>2020技术实务</span></span>
+                            <a href="javascript:;" class="fl chapterlink"
+                                data-id="3822085">章节：<span>第一讲（上）防火框架</span></a>
+                            <a href="javascript:;" class="cancel fr">
+                                取消
+                            </a>
+                            <a href="javascript:;" class="save fr" data-id="101586">
+                                保存
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="mynotes mouseen" data-id="101585" style="background-color: rgb(255, 255, 255);">
+                        <a href="javascript:;" data-source="942362/900247/3822085/20/101585" data-id="3822085"
+                            class="player-time" target="_blank">
+                            <div class="player iconfont"></div>
+                            <div class="time">00:00:20</div>
+                        </a>
+                        <div class="note-content">1112323231</div>
+                        <div class="note-bottom">
+                            <span class="noteday fl">
+                                2019-11-18 10:40:36
+                            </span>
+                            <span class="moment fl classname" data-id="900247">源自：<span>2020技术实务</span></span>
+                            <a href="javascript:;" class="fl chapterlink"
+                                data-id="3822085">章节：<span>第一讲（上）防火框架</span></a>
+                            <a href="javascript:;" class="delete fr none" data-id="101585">
+                                <span class="iconfont"></span>
+                                <span>删除</span>
+                            </a>
+                            <a href="javascript:;" class="edit fr none">
+                                <span class="iconfont"></span>
+                                <span>编辑</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mynotes mynote-active" data-id="101585" style="display:none">
+                        <a href="javascript:;" data-source="942362/900247/3822085/20/101585" data-id="3822085"
+                            class="player-time" target="_blank">
+                            <div class="player iconfont"></div>
+                            <div class="time">00:00:20</div>
+                        </a>
+                        <textarea cols="40" rows="2" class="note-content active-text">1112323231</textarea>
+                        <div class="note-bottom">
+                            <span class="noteday fl">
+                                2019-11-18 10:40:36
+                            </span>
+                            <span class="moment fl classname" data-id="900247">源自：<span>2020技术实务</span></span>
+                            <a href="javascript:;" class="fl chapterlink"
+                                data-id="3822085">章节：<span>第一讲（上）防火框架</span></a>
+                            <a href="javascript:;" class="cancel fr">
+                                取消
+                            </a>
+                            <a href="javascript:;" class="save fr" data-id="101585">
+                                保存
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+
+                    <div class="prompt-box">
+                        <div class="prompt">
+                            <div class="prompt-text">你是否确定删除此条笔记？</div>
+                            <div class="prompt-btn">
+                                <a href="javascript:;" class="prompt-yes delnote">确认</a>
+                                <a href="javascript:;" class="prompt-cancel">取消</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pages">
+                    <ul class="pagination"></ul>
+                </div>
+            </div>
+            <div class="box" v-if="activeIndexa == 8">
+                <div class="mynote-title">我的优惠券
+                    <div class="title-tab">
+                        <button @click="change_ex_change(false)" :class="ex_change == false?'active':''"
+                            mark="my-coupon">我的优惠券</button>
+                        <button @click="change_ex_change(true)" :class="ex_change == true?'active':''"
+                            mark="change-coupon">换取优惠券</button>
+                    </div>
+                </div>
+                <div class="coupon-cont my-coupon" :style="ex_change == false?'display:block':'display:none'">
+                    <div class="tap-chose">
+                        <span @click="change_coupon_label('all')" :class="coupon_label == 'all'?'active':''"
+                            data-type="0">全部</span>
+                        <span @click="change_coupon_label('use_is')" :class="coupon_label == 'use_is'?'active':''"
+                            data-type="1">已使用（<i>{{coupon.use_num}}</i>）</span>
+                        <span @click="change_coupon_label('un_use_is')" :class="coupon_label == 'un_use_is'?'active':''"
+                            data-type="2">未使用（<i>{{coupon.un_use_num}}</i>）</span>
+                        <span @click="change_coupon_label('die_is')" :class="coupon_label == 'die_is'?'active':''"
+                            data-type="3">已失效（<i>{{coupon.die_num}}</i>）</span>
+                    </div>
+                    <div id="loadData" class="coupon-tiket-wrap">
+                        <ul class="clear ticket-cont">
+                            <li class="coupon-tiket-h out-used invalid"
+                                v-if="coupon_label == 'all' || coupon_label == 'die_is'"
+                                v-for="(item,index) in coupon.die_is">
+                                <div class="coupon-tiket used">
+                                    <h2>优惠券</h2>
+                                    <h3 v-if="item.preferential_way == '抵现'">￥<i>{{item.dc_denomination}}</i></h3>
+                                    <h3 v-if="item.preferential_way == '满减'">
+                                        ￥<i>{{item.dc_denomination.split(',')[1]}}</i><b>满{{item.dc_denomination.split(',')[0]}}元可用</b>
+                                    </h3>
+                                    <h3 v-if="item.preferential_way == '折扣'"><i>{{item.dc_denomination}}</i>折</h3>
+                                    <p>有效期截止：<i>{{item.service_life_end_time}}</i></p>
+                                    <div class="use-range"><a title=""> 使用范围:{{item.preferential_scope}}</a></div>
+                                    <div class="used-icon"></div>
+                                </div>
+                                <div class="delete-icon" @click="delete_coupon(item)"><i class="iconfont"
+                                        data-id="248577"></i></div>
+                            </li>
+                            <li class="coupon-tiket-h out-used" v-if="coupon_label == 'all' || coupon_label == 'use_is'"
+                                v-for="(item,index) in coupon.use_is">
+                                <div class="coupon-tiket used">
+                                    <h2>优惠券</h2>
+                                    <h3 v-if="item.preferential_way == '抵现'">￥<i>{{item.dc_denomination}}</i></h3>
+                                    <h3 v-if="item.preferential_way == '满减'">
+                                        ￥<i>{{item.dc_denomination.split(',')[1]}}</i><b>满{{item.dc_denomination.split(',')[0]}}元可用</b>
+                                    </h3>
+                                    <h3 v-if="item.preferential_way == '折扣'"><i>{{item.dc_denomination}}</i>折</h3>
+                                    <p>有效期截止：<i>{{item.service_life_end_time}}</i></p>
+                                    <div class="use-range"><a title=""> 使用范围:{{item.preferential_scope}}</a></div>
+                                    <div class="used-icon"></div>
+                                </div>
+                            </li>
+                            <li class="coupon-tiket-h" v-if="coupon_label == 'all' || coupon_label == 'un_use_is'"
+                                v-for="(item,index) in coupon.un_use_is">
+                                <div class="coupon-tiket used">
+                                    <h2>优惠券</h2>
+                                    <h3 v-if="item.preferential_way == '抵现'">￥<i>{{item.dc_denomination}}</i></h3>
+                                    <h3 v-if="item.preferential_way == '满减'">
+                                        ￥<i>{{item.dc_denomination.split(',')[1]}}</i><b>满{{item.dc_denomination.split(',')[0]}}元可用</b>
+                                    </h3>
+                                    <h3 v-if="item.preferential_way == '折扣'"><i>{{item.dc_denomination}}</i>折</h3>
+                                    <p>有效期截止：<i>{{item.service_life_end_time}}</i></p>
+                                    <div class="use-range"><a title=""> 使用范围:{{item.preferential_scope}}</a></div>
+                                    <div class="used-icon"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pages">
+                    </div>
+                </div>
+                <div class="coupon-cont change-coupon" :style="ex_change == true?'display:block':'display:none'">
+                    <img src="./image/ticket.png" class="ticket-img" alt="">
+                    <div class="fl">输入您的优惠码：</div>
+                    <div class="fl">
+                        <input type="text" id="code" v-model="dh_coupon_num">
+                        <div>
+                            <button id="cansle" @click="change_ex_change(false)">取消</button>
+                            <button class="sure-btn" @click="dh_coupon">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-if="activeIndexa == 9">
+                <div class="wrap user-main" style="padding: 20px 0 0px;width: 970px;">
+                    <div class="contents" style="margin-top: -10px;">
+                        <span style="padding-left: 30px;font-size: 18px;position: relative;">我的消息</span>
+                        <div class="line" style="width: 920px;margin-left: 30px;"></div>
+                        <div class="types"
+                            style="padding: 0px;border: 0px;margin-left: 30px;width: 920px;background-color: #f3f3f3;">
+                            <ul>
+                                <li @click="change_news_label('all')" :class="news_label == 'all'?'notice xz':'notice'"
+                                    status="" style="border-bottom: none;">全部</li>
+                                <li @click="change_news_label('un')" :class="news_label == 'un'?'notice xz':'notice'"
+                                    status="noRead" style="border-bottom: none;">
+                                    未读通知&nbsp;&nbsp;&nbsp;(<span class="wd">{{un_news.length}}</span>)</li>
+                                <li @click="change_news_label('al')" :class="news_label == 'al'?'notice xz':'notice'"
+                                    status="read" style="border-bottom: none;">
+                                    已读通知&nbsp;&nbsp;&nbsp;(<span class="yd">{{al_news.length}}</span>)</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <input type="hidden" id="userId" value="2338779">
+                <div class="wrap message-content nospace" style="padding: 0px 30px;min-height: 440px;width: 920px;">
+                    <div class="message-list">
+                        <ul id="info" style="min-height: 480px;">
+                            <li v-for="(item,index) in news">
+                                <h3 class="h6 lookContent" read="2440991">
+
+                                    <span class="lookTitle" style="color: #474747;">{{item.title}}</span>
+
+
+
+
+                                    <span v-if="item.tf_read == 2" style="color: red;font-size: small;">
+
+                                        未读
+
+                                    </span>
+                                </h3>
+
+                                <div class="msg-content" style="min-height: 44px;overflow:hidden">
+                                    <!-- <p class="content"></p> -->
+                                    <div class="content" style="min-height: 28px;line-height: 21px;width: auto;margin: 0;
+                                        overflow: hidden;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 2;
+                                        -webkit-box-orient: vertical;" v-html="item.content"></div>
+                                    <div class="btnMenu">
+                                        <a href="javascript:;" class="btn btn-sm btn-primary lookContentS"
+                                            read="2440991"
+                                            style="top: 34px;right:85px;color:white;background-color: #00baee;border-color: #00baee;"
+                                            @click="view_news(item)">查看</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default delMessage"
+                                            delid_c="1171457" delid_u="2440991" readflag="0" style="top: 34px;"
+                                            @click="delete_news(item)">删除</a>
+                                    </div>
+
+                                </div>
+                                <div class="message-time">{{getNowFormatDate(new Date(item.time))}}</div>
+                            </li>
+
+
+                            <input id="yd" type="hidden" value="3">
+                            <input id="wd" type="hidden" value="1">
+                        </ul>
+                    </div>
+                    <div class="pages" style="margin-top: 40px;">
+                        <ul class="pagination"></ul>
+                    </div>
+                </div>
+                <input id="status" type="hidden">
+                <div class="prompt-box">
+                    <div class="prompt">
+                        <div class="prompt-text">你是否确定删除此条消息？</div>
+                        <div class="prompt-btn">
+                            <a href="javascript:void(0)" class="prompt-yes">确认</a>
+                            <a href="javascript:void(0)" class="prompt-cancel">取消</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- content end -->
+                <div class="msg-layer none" style="left: 50%;">
+                    <i class="close"></i>
+                    <div class="msg-title">
+                        <h2 class="h5 detailTitle"></h2>
+                    </div>
+                    <div class="msg-content">
+                        <p class="detailContent"></p>
+                    </div>
+                </div>
+                <div class="msg-layer-bg none"></div>
+            </div>
+            <div class="right-box" v-if="activeIndexa == 10">
+                <div class="mynote-title">我的订单</div>
+                <div class="order-right-nav">
+                    <div class="drop-box">
+                        <div @click="change_orders_label('all')"
+                            :class="orders_label == 'all'?'order-state fl classify-active':'order-state fl'"
+                            datavalue="">全部</div>
+                        <div @click="change_orders_label('al')"
+                            :class="orders_label == 'al'?'order-state fl classify-active':'order-state fl'"
+                            datavalue="PAY_SUCCESS">
+                            支付完成（<span class="successNo">{{al_orders.length}}</span>）
+                        </div>
+                        <div @click="change_orders_label('un')"
+                            :class="orders_label == 'un'?'order-state fl classify-active':'order-state fl'"
+                            datavalue="PAY_NON">
+                            未支付（<span class="failNo">{{un_orders.length}}</span>）
+                        </div>
+                        <div @click="change_orders_label('timeout')"
+                            :class="orders_label == 'timeout'?'order-state fl classify-active':'order-state fl'"
+                            datavalue="PAY_CANCLE">
+                            已失效（<span class="cancleNo">{{timeout_orders.length}}</span>）
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="indentBox">
+                    <div class="indentList clear" v-for="(item,index) in orders">
+                        <div class="shopDetail">
+                            <h3 class="classesName"><span>{{item.product_name}}</span></h3>
+                            <ul class="clear detailList">
+                                <li>
+                                    <h4>下单时间</h4>
+                                    <p class="orderTime">
+                                        <span>{{getNowFormatDate(new Date(item.order_time))}}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>商品价</h4>
+                                    <p class="realPrice">
+                                        <span>￥</span>
+                                        <span>{{item.product_price}}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>减免金额</h4>
+                                    <p class="JMPrice">
+                                        <span>￥</span>
+                                        <span>{{item.product_price-item.refund_payment_money}}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>实付款</h4>
+                                    <p class="orderPrice">
+                                        <span>￥</span>
+                                        <span>{{item.refund_payment_money == null ? 0 : item.refund_payment_money}}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <h4>支付方式</h4>
+                                    <p class="payType">
+                                        <span>{{item.budget_way}}</span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="indentStatus">
+                            <div class="indentCen">
+                                <h4>
+                                    <span class="orderNum">订单号：<b>{{item.order_num}}</b></span>
+                                </h4>
+                                <span class="indentTime"
+                                    :style="item.order_status != '未支付'?'display: none;':'display: block'"><i></i><em>{{item.countDownList}}</em></span>
+                                <span v-if="item.order_status != '未支付'" class="status">{{item.order_status}}</span>
+                                <span v-if="item.order_status == '未支付'" style="cursor:pointer" class="status"
+                                    @click="cancel_order(item.order_num)">取消订单</span>
+                            </div>
+                        </div>
+                        <div class="butHor">
+                            <div class="butHorcen">
+                                <button class="toPay" @click="go_pay(item,'支付宝网页')" v-if="item.order_status == '未支付'"
+                                    style="margin-bottom: 0;">支付宝</button>
+                                <button class="toPay" @click="go_pay(item,'微信网页')" v-if="item.order_status == '未支付'"
+                                    style="margin-bottom: 0;">微信</button>
+                                <button class="toDetail" @click="go_order_detail(item)" data-id="8437705">订单详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ajax加载中div开始 -->
+                <div class="loading lp-units-loading" style="display: none">
+                    <p>
+                        <i></i>加载中,请稍后...
+                    </p>
+                </div>
+                <div class="loading-bg lp-units-loading-bg" style="display: none"></div>
+                <!-- ajax加载中div结束 -->
+            </div>
+            <div class="box" v-if="activeIndexa == 11">
+                <div class="my-classtable clear">
+                    <div class="mynote-title">课程表
+                        <div class="tab">
+                            <a href="javascript:;" class="active btn-myclass" data-url="usersFront/toMyCourse"
+                                @click="activeA(1)">课程</a>
+                        </div>
+                    </div>
+                    <el-calendar>
+                        <!-- 这里使用的是 2.5 slot 语法，对于新项目请使用 2.6 slot 语法-->
+                        <template slot="dateCell" slot-scope="{date, data}">
+                            <p :class="data.isSelected ? 'is-selected' : ''">
+                                {{ data.day.split('-').slice(1).join('-') }}
+                                <span style="overflow:hidden;
+                            text-overflow:ellipsis;
+                            white-space:nowrap;     width: 100%;
+    display: block;"
+                                    @click="view_zb(Cltimes[getNowFormatDate(date).split(' ')[0]][0])"
+                                    :title="(Cltimes[getNowFormatDate(date).split(' ')[0]] == undefined)?'':(getNowFormatDate(new Date(Cltimes[getNowFormatDate(date).split(' ')[0]][0].begin_class_date)).split(' ')[1] + '-' + getNowFormatDate(new Date(Cltimes[getNowFormatDate(date).split(' ')[0]][0].end_time_datess)).split(' ')[1] +'  '+Cltimes[getNowFormatDate(date).split(' ')[0]][0].ct_name)">
+                                    {{(Cltimes[getNowFormatDate(date).split(' ')[0]] == undefined)?'':Cltimes[getNowFormatDate(date).split(' ')[0]][0].ct_name}}
+                                </span>
+                                <span @click="viewMore(getNowFormatDate(date).split(' ')[0])"
+                                    v-if="Cltimes[getNowFormatDate(date).split(' ')[0]] != undefined && Cltimes[getNowFormatDate(date).split(' ')[0]].length>1"
+                                    style="
+                                color:rgb(210,210,210);">查看更多
+                                </span>
+                            </p>
+                        </template>
+                    </el-calendar>
+                </div>
+            </div>
+            <div class="right-box" v-if="activeIndexa == 12">
+                <div class="mynote-title clear">我的订单<a id="back" class="fr" href="javascript:void(0)"
+                        style="right:0;background-color: #00aaff; color: #fff; font-size: 14px;text-align: center; padding: 8px 11px; line-height: 1; border-radius: 3px;"
+                        @click="activeIndexa = 10">返回</a></div>
+                <div class="indentBox">
+                    <div class="myIndentCon">
+                        <h4 class="clear indentTitle">
+                            <b class="fl">{{detail_order.product_name}}</b>
+                            <span class="fr">订单号：<b>{{detail_order.order_num}}</b></span>
+                        </h4>
+                        <ul class="oderTime clear">
+                            <li>
+                                <h5>下单时间</h5>
+                                <span>{{getNowFormatDate(new Date(detail_order.order_time))}}</span>
+                            </li>
+                            <li>
+                                <h5>商品金额</h5>
+                                <span>{{detail_order.product_price}}</span>
+                            </li>
+                            <li>
+                                <h5>支付方式</h5>
+                                <span>{{detail_order.budget_way}}</span>
+                            </li>
+                            <li>
+                                <h5>订单状态</h5>
+                                <span class="paid">{{detail_order.order_status}}</span>
+                            </li>
+                            <li>
+                                <h5>支付时间</h5>
+                                <span>{{detail_order.refund_payment_time == null?'':getNowFormatDate(new Date(detail_order.refund_payment_time))}}</span>
+                            </li>
+                        </ul>
+
+                        <div class="payDetail clear" v-if="detail_order.order_status == '支付成功'">
+                            <h3 class="fl">
+                                支付明细：<span>商品价￥<em>{{detail_order.product_price}}</em></span><b>=</b>
+                            </h3>
+                            <p class="fl">
+
+                                <span>(实付款：￥<b>{{detail_order.refund_payment_money == null?0:detail_order.refund_payment_money}}</b>)</span>
+
+
+
+                                <span>+(优惠券折扣：￥<b>{{detail_order.product_price-detail_order.refund_payment_money}}</b>)</span>
+
+
+
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="pages">
+                    <ul class="pagination"></ul>
+                </div>
+                <!-- ajax加载中div开始 -->
+                <div class="loading lp-units-loading" style="display: none">
+                    <p>
+                        <i></i>加载中,请稍后...
+                    </p>
+                </div>
+                <div class="loading-bg lp-units-loading-bg" style="display: none"></div>
+                <!--  ajax加载中div结束 -->
+            </div>
+
+
+
+
+        </div>
+        <div class="mask-bg" :style="model != 0?'display: block':'display: none;'"></div>
+        <div id="bbit-cal-buddle" class="bubble" :style="model == 1?'display: block':'display: none;'">
+
+            <div class="alert-cont">
+                <div class="alert-title">
+                    <span>课表</span>
+                    <span id="bbit-cal-buddle-timeshow">{{selected_time}}</span>
+
+                    <div id="bubbleClose1" class="bubble-closebutton" @click="model = 0"></div>
+                </div>
+                <div class="alert-word">
+                    <ul>
+                        <li v-for="(item,index) in selected_Cltimes" @click="view_zb(item)"
+                            style="cursor: pointer" commid="655195">
+                            <em> {{getNowFormatDate(new Date(item.begin_class_date)).split(' ')[1]}} -
+                                {{getNowFormatDate(new Date(item.end_time_datess)).split(' ')[1]}}</em>
+                            <i>&nbsp;&nbsp;</i><i>{{item.ct_name}}</i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="msg-layer none"
+            :style="model == 2?'z-index: 999;left: 50%;display: block':'left: 50%;display: none;'">
+            <i class="close" @click="model = 0"></i>
+            <div class="msg-title">
+                <h2 class="h5 detailTitle">{{news_selected.title}}</h2>
+            </div>
+            <div class="msg-content">
+                <p class="detailContent" v-html="news_selected.content">
+                    <span>江山</span><br>
+                </p>
+            </div>
+        </div>
+        <div class="tishiAlert" v-show="model == 3" style="display: block;">
+            <div>
+                <i class="iconfont"></i>
+            </div>
+            <h1>请您在打开的网页中进行支付</h1>
+            <p>支付完成前请不要关闭该窗口</p>
+            <div class="btns">
+                <button class="failBtn" @click="pay_search()">支付遇到问题</button>
+                <button class="successBtn"  @click="pay_search()">支付成功</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <form method="post" id="myForm">
+            <input type="hidden" name="type" id="typeValue">
+        </form>
+        <!-- footer end -->
+
+
+
+    </div>
+    <form method="post" id="myForm">
+        <input type="hidden" name="type" id="typeValue">
+    </form>
+    <!-- footer end -->
+    <!--百度统计代码-->
+
+
+
+
+
+
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+<script src="js/vue.min.js"> </script>
+<script src="//unpkg.com/element-ui@2.13.0/lib/index.js"> </script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                currentPage: 1, //初始页
+                activeIndexa: 11,
+                activeIndexb: 1,
+                pagesize: 10, //    每页的数据
+                model: 0,
+                stu_id: localStorage.stu_id,
+                value2: '',
+                write_label: false,
+                sub_stu_info: {},
+                //我的课程相关
+                courses: [],
+                Cltimes: [],
+                selected_Cltimes: [],
+                selected_time: '',
+                //我的课程包相关
+                today_course: {
+
+                },
+                jinri: [],
+                mingri: [],
+                course_packages: [],
+                //我的收藏相关
+                sc_courses: [],
+                sc_courses_qb: [],
+                sc_courses_zb: [],
+                sc_courses_lb: [],
+                sc_courses_hh: [],
+                sc_course_packages: [],
+                sc_course_lebel: 0,
+                //我的题库相关
+                tikus: [],
+                not_already_tikus: [],
+                already_tikus: [],
+                tikus_label: 'al',
+                loading: false,
+                //我的问答相关
+                huida: [],
+                tiwen: [],
+                answer_label: 'tiwen',
+                //我的优惠相关
+                coupons: [],
+                coupon: {},
+                coupon_label: 'all',
+                ex_change: false,
+                dh_coupon_num: '',
+                //我的消息相关
+                news: [],
+                al_news: [],
+                all_news: [],
+                un_news: [],
+                news_label: 'all',
+                news_selected: {},
+                //我的订单相关
+                orders: [],
+                al_orders: [],
+                all_orders: [],
+                un_orders: [],
+                timeout_orders: [],
+                orders_label: 'all',
+                detail_order: {},
+            }
+        },
+        created() {
+            let _this = this
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+            // _this.activeA(1)
+            if (localStorage.CenterIndex == undefined) {
+                _this.activeA(1)
+            } else {
+                _this.activeA(parseInt(localStorage.CenterIndex))
+            }
+            //获取学员信息
+            $.ajax({
+                url: 'http://192.168.10.166:8080/stu/queryStuInfo',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    stu_id: _this.stu_id
+                }),
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    _this.sub_stu_info = JSON.parse(JSON.stringify(data))
+                },
+                error: function () {
+
+                }
+            })
+        },
+        methods: {
+            //时，分，秒<10时转化
+            timeFormat(param) {
+                return param < 10 ? '0' + param : param;
+            },
+            view_zb(item) {
+                console.log(item)
+                let _this = this
+                if (_this.stu_id == 0 || _this.stu_id == undefined) {
+                    _this.$message.error({
+                        type: 'info',
+                        message: "请先登录",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+                if (_this.state == 2) {
+                    _this.$message.error({
+                        type: 'info',
+                        message: "请先购买",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+                //判断该课次是直播还是回放
+                if (new Date(item.begin_class_date) > new Date()) {
+                    _this.$message.error({
+                        type: 'info',
+                        message: "直播还未开始",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                } else if (new Date(item.end_time_datess) > new Date()) {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/Discovery/stuCourseAccess',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "course_times_id": item.course_times_id,
+                            "stu_id": _this.stu_id
+                        }),
+                        // dataType: 'json',
+                        success: function (data) {
+                            // window.open(data.liveUrl)
+                            if (data.code == 200) {
+                                window.open(data.data.liveUrl)
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message
+                                })
+                            }
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                } else {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/Discovery/stuCourseAccessPlayback',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "course_times_id": item.course_times_id,
+                            "stu_id": _this.stu_id
+                        }),
+                        // dataType: 'json',
+                        success: function (data) {
+                            // window.open(data.liveUrl)
+                            if (data.code == 200) {
+                                window.open(data.data.playbackUrl)
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message
+                                })
+                            }
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                }
+
+            },
+            view_zb(item) {
+                console.log(item)
+                let _this = this
+                if (_this.stu_id == 0 || _this.stu_id == undefined) {
+                    _this.$message.error({
+                        type: 'info',
+                        message: "请先登录",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+                //判断该课次是直播还是回放
+                if (new Date(item.begin_class_date) > new Date()) {
+                    _this.$message.error({
+                        type: 'info',
+                        message: "直播还未开始",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                } else if (new Date(item.end_time_datess) > new Date()) {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/Discovery/stuCourseAccess',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "course_times_id": item.course_times_id,
+                            "stu_id": _this.stu_id
+                        }),
+                        // dataType: 'json',
+                        success: function (data) {
+                            // window.open(data.liveUrl)
+                            if (data.code == 200) {
+                                window.open(data.data.liveUrl)
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message
+                                })
+                            }
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                } else {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/Discovery/stuCourseAccessPlayback',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "course_times_id": item.course_times_id,
+                            "stu_id": _this.stu_id
+                        }),
+                        // dataType: 'json',
+                        success: function (data) {
+                            // window.open(data.liveUrl)
+                            if (data.code == 200) {
+                                window.open(data.data.playbackUrl)
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message
+                                })
+                            }
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                }
+
+            },
+            go_pay(item, way) {
+                let _this = this
+                obj = {
+                    "outTradeNo": item.order_num,
+                    "stu_id": _this.stu_id,
+                    // "small_discount_id":item.selected_coupon.small_discount_id,
+                    "type": way,
+                    price: item.refund_payment_money
+                }
+                localStorage.pay_way_info = JSON.stringify(obj)
+                this.model = 3
+                window.open('order_next.html')
+                console.log(item, way)
+            },
+             //查询是否支付成功
+             pay_search(){
+                let _this = this
+                $.ajax({
+                url: 'http://192.168.10.166:8080/order/Verification ',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "order_num":"S_48C_1T_1583389558783",
+                    "stu_id":_this.stu_id
+                }),
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    if(data.code == 200){
+                        window.location.href="order_success.html"
+                    }else{
+                        window.location.href="order_error.html"
+                    }
+                    // _this.sub_stu_info = JSON.parse(JSON.stringify(data))
+                },
+                error: function () {
+
+                }
+            })
+            },
+            //未支付订单倒计时
+            countDown() {
+                obj1 = JSON.parse(JSON.stringify(this.orders))
+                obj1.map((item) => {
+                    // 获取当前时间，同时得到活动结束时间数组
+                    let newTime = new Date().getTime();
+                    // 对结束时间进行处理渲染到页面
+                    let endTime = new Date(item.actEndTime).getTime();
+                    let obj = null;
+                    // 如果活动未结束，对时间进行处理
+                    if (endTime - newTime > 0) {
+                        let time = (endTime - newTime) / 1000;
+                        // 获取天、时、分、秒
+                        let hou = parseInt(time % (60 * 60 * 24) / 3600);
+                        let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+                        let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+                        obj = {
+                            hou: this.timeFormat(hou),
+                            min: this.timeFormat(min),
+                            sec: this.timeFormat(sec)
+                        };
+                    } else { // 活动已结束，全部设置为'00'
+                        obj = {
+                            hou: '00',
+                            min: '00',
+                            sec: '00'
+                        };
+                        // 　　　　　　　　　　clearInterval(interval);
+                    }
+                    item.countDownList = obj.hou + ':' + obj.min + ':' + obj.sec;
+                })
+                this.orders = obj1
+            },
+            //查看消息
+            view_news(item) {
+                let _this = this
+                this.model = 2
+                this.news_selected = item
+                if (item.tf_read == 1) {
+                    return
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/readMyNews',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "student_information_id": item.student_information_id,
+                        "tf_read": 1
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        if (data == 1) {
+                            _this.activeA(9)
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            //编写个人签名
+            change_write() {
+                this.write_label = true
+                this.$refs.textarea.focus()
+            },
+            //取消收藏
+            cancel_collection(type, id) {
+                let _this = this
+                if (type == "course") {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/cancelFavoriteCourse',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "stu_id": _this.stu_id,
+                            "course_id": id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '取消成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/stu/queryMyCourse',
+                                    type: 'post',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify({
+                                        "stu_id": _this.stu_id
+                                    }),
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        _this.sc_courses = data
+                                        _this.sc_courses_qb = data
+                                        _this.sc_courses_zb = []
+                                        _this.sc_courses_lb = []
+                                        _this.sc_courses_hh = []
+                                        _this.sc_courses.map((item) => {
+                                            if (item.course_type == '直播') {
+                                                _this.sc_courses_zb.push(item)
+                                            } else if (item.course_type ==
+                                                '录播') {
+                                                _this.sc_courses_lb.push(item)
+                                            } else if (item.course_type ==
+                                                '直播,录播') {
+                                                _this.sc_courses_hh.push(item)
+                                            }
+                                        })
+                                        _this.chenge_sc_course(_this.sc_course_lebel)
+                                    },
+                                    error: function () {
+
+                                    }
+                                })
+                            } else {
+
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                } else {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/cancelFavoriteCoursePackage',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "stu_id": _this.stu_id,
+                            "course_package_id": id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '取消成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/stu/queryMyCoursePackage',
+                                    type: 'post',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify({
+                                        "stu_id": _this.stu_id
+                                    }),
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        _this.sc_course_packages = data
+                                    },
+                                    error: function () {
+
+                                    }
+                                })
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '取消失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                }
+            },
+            //查看课程表里课次详细信息
+            viewMore(date) {
+                let _this = this
+                console.log(date, _this.Cltimes[date])
+                _this.selected_time = date
+                _this.selected_Cltimes = _this.Cltimes[date]
+                _this.model = 1
+            },
+            //查看订单详情
+            go_order_detail(item) {
+                console.log(item)
+                this.detail_order = item
+                this.activeIndexa = 12
+            },
+            //删除优惠券
+            delete_coupon(item) {
+                let _this = this
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/stuDeleteCoupons',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "stu_id": _this.stu_id,
+                        "small_discount_id": item.small_discount_id
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data == 1) {
+                            _this.$message.success({
+                                type: 'info',
+                                message: '删除成功',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.coupon.die_is = _this.coupon.die_is.filter((i) => {
+                                return i.small_discount_id != item.small_discount_id
+                            })
+                            _this.coupon.die_num -= 1
+                        } else {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '删除失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            //删除消息
+            delete_news(item) {
+                let _this = this
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/deleteMyNews',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "student_information_id": item.student_information_id,
+                        "tf_delete": 1
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data == 1) {
+                            _this.$message.success({
+                                type: 'info',
+                                message: '删除成功',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.activeA(9)
+                        } else {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '删除失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            //兑换优惠码
+            dh_coupon() {
+                let _this = this
+                console.log(_this.dh_coupon_num)
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/RedeemCoupons',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "discount_code_value": _this.dh_coupon_num,
+                        "stu_id": _this.stu_id
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        if (data == 1) {
+                            _this.$message.success({
+                                type: 'info',
+                                message: '兑换成功',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.activeA(8)
+                        } else {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '兑换失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            change_ex_change(label) {
+                this.ex_change = label
+            },
+            change_coupon_label(label) {
+                this.coupon_label = label
+            },
+            change_tikus_label(label) {
+                this.tikus_label = label
+                if (label == 'al') {
+                    this.tikus = this.already_tikus
+                } else {
+                    this.tikus = this.not_already_tikus
+                }
+            },
+            change_orders_label(label) {
+                this.orders_label = label
+
+                clearInterval(interval)
+                if (label == 'all') {
+                    this.orders = this.all_orders
+                    var interval = setInterval(() => {
+                        this.countDown()
+                    }, 1000);
+                } else if (label == 'al') {
+                    this.orders = this.al_orders
+                } else if (label == 'un') {
+                    this.orders = this.un_orders
+                    var interval = setInterval(() => {
+                        this.countDown()
+                    }, 1000);
+                } else if (label == 'timeout') {
+                    this.orders = this.timeout_orders
+                }
+            },
+            change_news_label(label) {
+                this.news_label = label
+                if (label == 'al') {
+                    this.news = this.al_news
+                } else if (label == 'un') {
+                    this.news = this.un_news
+                } else {
+                    this.news = this.all_news
+                }
+            },
+            cancel_order(order_num) {
+                console.log(order_num)
+            },
+            change_answer_label(label) {
+                this.answer_label = label
+            },
+            //提交学员信息
+            submit_infomation() {
+                let _this = this
+                console.log(_this.sub_stu_info)
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/changePassword',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(_this.sub_stu_info),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        if (data == 1) {
+                            _this.$message.success({
+                                type: 'info',
+                                message: '修改成功',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.write_label = false
+                        } else {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '修改失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            //改变收藏课程标签
+            chenge_sc_course(num) {
+                console.log(1)
+                let _this = this
+                _this.sc_course_lebel = num
+                switch (_this.sc_course_lebel) {
+                    case 0:
+                        _this.sc_courses = _this.sc_courses_qb
+                        break;
+                    case 1:
+                        _this.sc_courses = _this.sc_courses_zb
+                        break;
+                    case 2:
+                        _this.sc_courses = _this.sc_courses_lb
+                        break;
+                    case 3:
+                        _this.sc_courses = _this.sc_courses_hh
+                        break;
+                    default:
+                        break;
+                }
+            },
+            getNowFormatDate(date) {
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                if (hour >= 0 && hour <= 9) {
+                    hour = "0" + hour;
+                }
+                if (minute >= 0 && minute <= 9) {
+                    minute = "0" + minute;
+                }
+                if (second >= 0 && second <= 9) {
+                    second = "0" + second;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                    " " + hour + seperator2 + minute +
+                    seperator2 + second;
+                return currentdate;
+            },
+            activeA(num) {
+                let _this = this
+                this.activeIndexa = num
+                localStorage.CenterIndex = num
+                switch (this.activeIndexa) {
+                    //我的课程
+                    case 1:
+                        console.log(1)
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/myCourse',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                _this.courses = data.datalist1
+                                obj = {
+
+                                }
+                                data.datalist2.map((item) => {
+                                    time = _this.getNowFormatDate(new Date(item
+                                        .begin_class_date)).split(' ')[0]
+                                    if (obj[time] == undefined) {
+                                        obj[time] = []
+                                        obj[time].push(item)
+                                    } else {
+                                        obj[time].push(item)
+                                    }
+                                })
+                                _this.Cltimes = obj
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                        //我的课程包
+                    case 2:
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/myCoursePackage',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                _this.course_packages = data
+                                _this.jinri = data[data.length - 1].jinri
+                                _this.mingri = data[data.length - 1].mingri
+
+                                _this.course_packages.length = _this.course_packages.length - 1
+                                _this.course_packages.map((item1) => {
+                                    item1.jinri = false
+                                    item1.mingri = false
+                                    _this.jinri.map((item) => {
+                                        if (item1.course_package_id == item
+                                            .course_package_id) {
+                                            item1.jinri = true
+                                        }
+                                    })
+                                    _this.mingri.map((item) => {
+                                        if (item1.course_package_id == item
+                                            .course_package_id) {
+                                            item1.mingri = true
+                                        }
+                                    })
+                                })
+
+                                console.log(_this.course_packages)
+
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    case 3:
+                        //我的收藏
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/queryMyCourse',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.sc_courses = data
+                                _this.sc_courses_qb = data
+                                _this.sc_courses_zb = []
+                                _this.sc_courses_lb = []
+                                _this.sc_courses_hh = []
+                                _this.sc_courses.map((item) => {
+                                    if (item.course_type == '直播') {
+                                        _this.sc_courses_zb.push(item)
+                                    } else if (item.course_type == '录播') {
+                                        _this.sc_courses_lb.push(item)
+                                    } else if (item.course_type == '直播,录播') {
+                                        _this.sc_courses_hh.push(item)
+                                    }
+                                })
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/queryMyCoursePackage',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.sc_course_packages = data
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    case 4:
+                        //我的题库
+                        console.log(1)
+                        _this.loading = true
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/queryMyItemBank',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id,
+                                "DND": "Done"
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.loading = false
+                                _this.already_tikus = data
+                                _this.tikus = data
+
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/queryMyItemBank',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id,
+                                "DND": "Do1ne"
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.not_already_tikus = data
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    case 6:
+                        //我的问答
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/queryMyQuestion',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id,
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.huida = data.huida
+                                _this.tiwen = data.tiwen
+
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    case 8:
+                        //我的优惠
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/queryMyCoupon',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id,
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.coupon = data
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    case 9:
+                        //我的消息
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/queryMyNews',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id,
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.news = data
+                                _this.al_news = []
+                                _this.all_news = data
+                                _this.un_news = []
+                                data.map((item) => {
+                                    if (item.tf_read == 2) {
+                                        _this.un_news.push(item)
+                                    } else {
+                                        _this.al_news.push(item)
+                                    }
+                                })
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    case 10:
+                        //我的订单
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/queryMyOrder',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "stu_id": _this.stu_id,
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.all_orders = data
+                                _this.orders = data
+                                data.map((item) => {
+                                    item['countDownList'] = "00:00:00"
+                                    item['actEndTime'] = new Date(new Date(item.order_time)
+                                        .getTime() + 100 * 24 * 3600 * 1000)
+                                    if (item.order_status == '支付成功') {
+                                        _this.al_orders.push(item)
+                                    } else if (item.order_status == '未支付') {
+                                        _this.un_orders.push(item)
+                                    } else if (item.order_status == '已失效') {
+                                        _this.timeout_orders.push(item)
+                                    }
+                                })
+
+                                var interval = setInterval(() => {
+                                    _this.countDown()
+                                }, 1000);
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    default:
+                        break;
+                }
+            },
+            //课程详情
+            go_course(course_id) {
+                window.open('open_classDetail.html?course_id=' + course_id)
+            },
+            //题库详情
+            goTiku(ibs_id) {
+                window.open('tiku_detail.html?ibs_id=' + ibs_id)
+            },
+            //问答详情
+            goAnswer(questions_id) {
+                window.open('answer_communityDetail.html?questions_id=' + questions_id)
+            },
+            //课程包详情
+            go_coursePackage(course_package_id) {
+                window.open('class_detail.html?course_package_id=' + course_package_id)
+            },
+            //协议详情
+            goAgreement(agreement_id) {
+                console.log(agreement_id)
+                if (agreement_id != null) {
+                    window.open('agreement.html?agreement_id=' + agreement_id)
+                }
+            },
+            activeB(num) {
+                this.activeIndexb = num
+            },
+        }
+    })
+</script>
+
+</html>

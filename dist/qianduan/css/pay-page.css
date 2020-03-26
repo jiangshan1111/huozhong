@@ -1,0 +1,1099 @@
+@charset: 'utf-8';
+.background-gray.bg-fff {
+    background: #fff;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+    text-decoration: none;
+}
+
+.user-item .down-content a:hover {
+    color: #00b7ee;
+}
+
+.clear:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
+.pl30 {
+    padding-left: 30px;
+}
+
+
+/*֧��ҳ��*/
+
+body.bg-color {
+    background: #fff;
+}
+
+.pay-page {
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+.pay-info {
+    width: 100%;
+    /*box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*-webkit-box-sizing: border-box;*/
+    height: 160px;
+    background: #f6f6f6;
+    margin-top: 30px;
+}
+
+.pay-icon {
+    margin: 35px 30px;
+}
+
+.pay-word {
+    margin-top: 38px;
+}
+
+.pay-word p {
+    font-size: 14px;
+    line-height: 28px;
+    color: #474747;
+}
+
+.pay-style h1 {
+    font-size: 18px;
+    color: #474747;
+    margin: 30px 0;
+}
+
+.pay-style-wrap {
+    font-size: 0;
+    display: inline-block;
+}
+
+.style-box {
+    float: left;
+}
+
+.pay-style-wrap input {
+    vertical-align: middle;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.pay-style-itm {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+    width: 140px;
+    height: 40px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #f2f1f1;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.pay-style-itm em {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(102, 102, 102, 0.1);
+    z-index: 10;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#19666666, endColorstr=#19666666);
+    display: none;
+}
+
+
+/*.pay-style-itm:hover em {
+    display: block;
+}*/
+
+.zhifubao {
+    background-image: url("../images/points/zhifubao.png");
+}
+
+.zhifubao.else {
+    background-image: url("../images/points/alipay_1.png");
+}
+
+.weixin {
+    background-image: url("../images/points/wechat.png");
+}
+
+.pay-style-wrap.one .pay-style-itm:last-child {
+    border-right-color: #f2f1f1;
+}
+
+.l-line {
+    border-bottom: 1px solid #f2f1f1;
+}
+
+.pay-style-wrap.second {
+    width: 1080px;
+    padding-right: 50px;
+    height: 70px;
+    overflow: hidden;
+    position: relative;
+}
+
+.second .style-box {
+    margin-top: 30px;
+}
+
+.second .pay-style-itm {
+    background-image: url("../images/points/bank_logo.png");
+}
+
+.bank1,bank_CMB {
+    background-position: 0px 0px;
+}
+
+.bank2,.bank_CCB {
+    background-position: 0px -76px;
+}
+
+.bank3,.bank_ICBC {
+    background-position: 0px -38px;
+}
+
+.bank4,.bank_ABC {
+    background-position: 0px -114px;
+}
+
+.bank5,.bank_BOC {
+    background-position: 0px -152px;
+}
+
+.bank6,.bank_SPDB {
+    background-position: 0px -190px;
+}
+
+.bank7,.bank_CIB {
+    background-position: 0px -228px;
+}
+
+.bank8 {
+    background-position: 0px -456px;
+}
+
+.bank9,.bank_SHB {
+    background-position: 0px -380px;
+}
+.bank9-2 {
+    background-position: 0px -342px;
+}
+
+.bank10,.bank_PSBC {
+    background-position: 0px -494px;
+}
+
+.bank11 {
+    background-position: 0 -266px;
+}
+
+.bank12 {
+    background-position: 0 -380px;
+}
+
+.bank13 {
+    background-position: 0 -332px;
+}
+
+.bank13-2 {
+    background-position: 0 -304px;
+}
+.bank_NBCB{
+    background-position: 0 -418px;
+}
+.bank_GDB{
+    background-position: 0 -1092px;
+}
+.bank_JSBC{
+    background-position: 0 -1057px;
+}
+.second .pay-style-itm.bank14 {
+    background: url("../images/points/shou-bank.jpg");
+}
+
+.zhifubao1 {
+    background: url("../images/points/zhifubao1.png");
+}
+
+.load-more {
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    right: 0px;
+    top: 28px;
+}
+
+.load-more a {
+    color: #3c8fcf;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.load-more .iconfont {
+    font-size: 12px;
+}
+
+.third .pay-style-itm {
+    background-image: url("../images/points/bank_logo.png");
+}
+
+.third .pay-style-itm,
+.fourth .pay-style-itm {
+    border: 1px solid #f2f1f1;
+;
+}
+
+.pay-style-itm.bank-blank {
+    background-image: url("../images/points/blank-bank.png");
+}
+
+.pay-style-wrap p {
+    font-size: 14px;
+    color: #474747;
+    margin-top: 20px;
+}
+
+.pay-style-wrap p em {
+    font-size: 12px;
+    color: #ccc;
+}
+
+.pay-style-wrap p em.ewm {
+    color: #616161;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+p.ewm-wrap {
+    position: relative;
+    /*display: inline-block;*/
+}
+
+span.ewm-show {
+    display: inline-block;
+    width: 170px;
+    height: 210px;
+    position: absolute;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    bottom: 0;
+    left: 400px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.ewm-img-wrap {
+    display: block;
+    text-align: center;
+}
+
+.ewm-img-wrap img {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+}
+
+.ewm-word-wrap {
+    width: 100%;
+    text-align: center;
+    height: 42px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.ewm-word-wrap.zfb {
+    background: #ff8639;
+}
+
+.ewm-word-wrap.wx {
+    background: #86c666;
+}
+
+
+/*�Ż�ȯ*/
+
+.coupon {
+    background: #f8fafc;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.coupon .use-itm-title {
+    font-size: 14px;
+    color: #009dee;
+    line-height: 34px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.coupon .use-itm-title.color {
+    color: #fe5151;
+}
+
+.coupon .use-itm-title img {
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-top: -5px;
+}
+
+.use-itm {
+    display: none;
+    width: 700px;
+}
+
+.use-itm h1 {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    top: 1px;
+    height: 44px;
+    padding: 0 15px;
+    line-height: 44px;
+    background: #fff;
+    font-size: 14px;
+    color: #fe5151;
+    border-right: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.use-itm .coupon-tab-title {
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    border-right: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.use-itm .coupon-tab-title h1 {
+    position: relative;
+    float: left;
+    border: 0;
+    border-bottom: 1px solid #e0e0e0;
+    background: #f6f6f6;
+    cursor: pointer;
+}
+
+.use-itm .coupon-tab-title h1.line {
+    padding: 0;
+    border-right: 1px solid #e0e0e0;
+}
+
+.use-itm .coupon-tab-title h1.active {
+    border-bottom-color: #fff;
+    background: #fff;
+}
+
+.coupon-cord {
+    display: none;
+}
+
+.coupon-cont.active {
+    display: block;
+}
+
+.use-itm h1 em {
+    font-size: 16px;
+    color: #474747;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.use-itm-ctn {
+    background: #fff;
+    padding: 10px 15px 20px 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.use-coupon .use-itm-ctn {
+    padding-bottom: 150px;
+    position: relative;
+}
+
+.use-coupon-buttom {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-top: 0;
+}
+
+.bkf6 {
+    background-color: #f6f6f6;
+}
+
+.use-itm .use-coupon-buttom .rules h3 {
+    font-style: normal;
+    font-size: 14px;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #474747;
+}
+
+.use-itm .use-coupon-buttom .rules p {
+    font-size: 12px;
+    line-height: 24px;
+    color: #949494;
+}
+
+.use-itm .use-coupon-buttom p {
+    font-size: 14px;
+    color: #474747;
+    padding-left: 20px;
+    line-height: 40px;
+    margin: 0;
+}
+
+.use-coupon p span {
+    display: inline-block;
+    width: 30%;
+    text-align: left;
+}
+
+.use-itm .use-coupon-buttom p em {
+    color: #fe5151;
+}
+
+.use-itm p {
+    font-size: 14px;
+    line-height: 32px;
+    color: #949494;
+    margin-bottom: 5px;
+}
+
+.use-itm p.use-coupon-cord {
+    margin-bottom: 15px;
+}
+
+.use-itm p i {
+    margin-left: 50px;
+}
+
+.use-itm p input {
+    border-radius: 0;
+    margin: 0 10px;
+}
+
+.use-itm p.use-coupon-cord input {
+    width: 208px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.use-itm p.use-coupon-cord a {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border: 0;
+    border-radius: 3px;
+    color: #616161;
+    background: #e0e0e0;
+    margin-left: 20px;
+    padding: 0;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.use-itm p.use-coupon-cord a.btn-true {
+    background: #00b7ee;
+    color: #fff;
+}
+
+.use-coupon input {
+    margin-right: 25px;
+    vertical-align: middle;
+}
+
+
+/*֧���ܼ�*/
+
+.total-wrap {
+    text-align: right;
+    color: #616161;
+    font-size: 14px;
+    margin-top: 60px;
+}
+
+.total {
+    display: inline-block;
+    width: 220px;
+    text-align: left;
+}
+
+.total-wrap p {
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.total-wrap p i {
+    color: #ff6604;
+}
+
+.total-wrap button {
+    font-size: 18px;
+    background: #ff6604;
+    color: #fff;
+    width: 130px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+
+/*֧������*/
+
+.pay-alert {
+    width: 540px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 380px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -190px;
+    margin-left: -270px;
+    background: #fff;
+    z-index: 101;
+    text-align: center;
+    padding-top: 40px;
+    display: none;
+}
+
+.pay-alert .iconfont {
+    font-size: 60px;
+    color: #fe5151;
+}
+
+.pay-alert h1 {
+    font-size: 18px;
+    color: #474747;
+    margin-top: 30px;
+}
+
+.pay-alert p {
+    font-size: 14px;
+    color: #949494;
+    margin-top: 20px;
+}
+
+.pay-alert .btns button {
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    margin: 0 15px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+.pay-alert .fail-btn {
+    background: #ccc;
+}
+
+.pay-alert .success-btn {
+    background: #ff6604;
+}
+
+.pay-alert a {
+    display: block;
+    padding-left: 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #949494;
+    margin-top: 20px;
+    padding-left: 125px;
+}
+
+
+/*������δ��ɸ���*/
+
+.pay-no {
+    text-align: center;
+}
+
+.pay-no-content {
+    display: inline-block;
+}
+
+.pay-no h1 {
+    color: #ff6604;
+    font-size: 24px;
+    margin: 130px 0 20px;
+    text-align: left;
+}
+
+.pay-no p {
+    color: #949494;
+    font-size: 14px;
+    line-height: 36px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.l-btns {
+    margin-top: 50px;
+}
+
+.l-btns button {
+    width: 130px;
+    height: 36px;
+    padding: 0;
+    line-height: 36px;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.l-btns .left-btn {
+    background: #bbbbbb;
+}
+
+.l-btns .right-btn {
+    background: #ff6604;
+}
+
+
+/*΢��֧��*/
+
+.pay-weixin .pay-info {
+    height: 160px;
+    padding: 30px 30px 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.pay-weixin .pay-info h2 {
+    font-size: 14px;
+    color: #474747;
+    margin-bottom:5px;
+}
+
+.pay-weixin .pay-info h1 {
+    font-size: 18px;
+    color: #474747;
+    margin-bottom: 40px;
+}
+
+.pay-weixin .pay-info .word {
+    font-size: 14px;
+    color: #949494;
+}
+
+.pay-weixin .pay-info p em {
+    color: #fe5151;
+}
+
+.pay-weixin .pay-info span{
+	font-size:16px;
+	color:#949494;
+}
+
+.pay-weixin .pay-info span em {
+    font-size: 24px;
+    color: #ff6604;
+    margin: 0 8px;
+    font-weight:bold;
+}
+
+.pay-weixin-style {
+    width: 100%;
+    background: #f7f7f7;
+    padding: 75px 0 60px;
+    text-align: center;
+}
+
+.l-ewm-wrap {
+    padding: 20px;
+    background: #fff;
+}
+
+.l-ewm-wrap p {
+    font-size: 16px;
+    color: #939ca5;
+    margin-bottom: 10px;
+}
+
+.l-ewm-wrap p img {
+    margin: 0 10px;
+    vertical-align: -6px;
+}
+
+.l-ewm-wrap p em {
+    color: #ff941a;
+}
+
+.pay-weixin-style {
+    margin-top: 10px;
+}
+
+.pay-weixin-style>div {
+    display: inline-block;
+    vertical-align: top;
+    margin-right:60px;
+}
+.bg_gray{
+	background:#fefefe;
+}
+
+.img-wrap img {
+    width: 220px;
+    height: 220px;
+}
+
+.ewm-cont {
+    width: 240px;
+    height: 300px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+    margin-top: 26px;
+}
+
+.ewm-cont>span {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.img-wrap>div {
+    display: inline-block;
+}
+
+.word-wrap {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    padding-top: 10px;
+    line-height: 20px;
+    width: 100%;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    background: #f5f5f5;
+}
+
+.word-wrap em {
+    color: #fe5151;
+    margin: 0 4px;
+}
+
+
+/*����*/
+
+.mask-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: rgba(0, 0, 0, .3);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, endColorstr=#4C000000);
+}
+
+.alert-box {
+    width: 600px;
+    height: 380px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -190px;
+    margin-left: -300px;
+}
+
+.alert-box .title {
+    height: 40px;
+    padding: 0 20px;
+    width: 100%;
+    line-height: 40px;
+    color: #949494;
+    font-size: 16px;
+    background: #f4f6f9;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.alert-box .close {
+    cursor: pointer;
+}
+
+.input-point {
+    padding: 80px 60px;
+}
+
+.input-point h3 {
+    color: #474747;
+    font-size: 14px;
+    line-height: 40px;
+}
+
+.input-point p {
+    font-size: 12px;
+    color: #949494;
+    margin-top: 32px;
+}
+
+.input-point input {
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    line-height: 40px;
+    border-radius: 0;
+    padding: 0 6px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0 4px;
+}
+
+.button-wrap {
+    text-align: center;
+}
+
+.button-wrap button {
+    width: 100px;
+    height: 34px;
+    border-radius: 4px;
+    color: #fff;
+    border: 0;
+    background: #ff6604;
+    font-size: 16px;
+}
+
+.total input {
+    vertical-align: middle;
+}
+
+.total b {
+    font-size: 12px;
+    line-height: 32px;
+    color: #999;
+    font-weight: normal;
+}
+
+.warn {
+    font-size: 12px;
+    line-height: 12px;
+    color: #fe5151;
+    margin-bottom: -12px;
+}
+
+
+/*民生银行*/
+
+.bank15,.bank_CMBC {
+    background-position: 0px -684px;
+}
+
+
+/*北京银行*/
+
+.bank16,.bank_BCCB {
+    background-position: 0px -722px;
+}
+
+
+/*华夏银行*/
+
+.bank17,.bank_HX {
+    background-position: 0px -760px;
+}
+
+
+/*交通银行*/
+
+.bank18 {
+    background-position: 0px -798px;
+}
+
+
+/*光大银行 */
+
+.bank19,.bank_CEB {
+    background-position: 0px -836px;
+}
+
+
+/*北农商银行 */
+
+.bank20,.bank_BJRCB {
+    background-position: 0px -872px;
+}
+
+
+/*渤海银行*/
+
+.bank21 {
+    background-position: 0px -902px;
+}
+
+
+/*中信银行 */
+
+.bank22,.bank_ECITIC {
+    background-position: 0px -940px;
+}
+
+
+/*银联支付 */
+
+.bank23 {
+    background-position: 0px -978px;
+}
+
+
+/*支付宝支付 */
+
+.bank24 {
+    background-position: 0px -646px;
+}
+
+
+/* 微信支付 */
+
+.bank25 {
+    background-position: 0px -1016px;
+}
+
+
+/**/
+
+.pay-word p em {
+    color: #00c392;
+    margin: 0 2px;
+}
+
+.pay-word p .priceM {
+    color: #ff6604;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.pay-word .priceM i {
+    font-size: 16px;
+}
+
+.aval-balance {
+    height: 60px;
+    padding-left: 10px;
+    line-height: 60px;
+    background-color: #f6f6f6;
+    margin: 16px 0;
+}
+
+.avalBalbox li {
+    font-size: 0;
+    height: 60px;
+}
+
+.avalBalbox li span {
+    font-size: 14px;
+    color: #333;
+}
+
+.avalBalbox li .alavCh {
+    position: relative;
+    top: 2px;
+    margin: 0;
+    margin-right: 6px;
+    width: 14px;
+    height: 14px;
+}
+
+.avalBalbox .priMon {
+    margin-right: 34px;
+}
+
+.priMon em {
+    font-size: 14px;
+    color: #ff1515;
+    /*margin-left: 6px;*/
+}
+
+.avalBalbox li input[type="text"] {
+    width: 86px;
+    height: 26px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+}
+
+.avalBalbox li b {
+    font-weight: normal;
+    font-size: 14px;
+    color: #333;
+    margin-left: 8px;
+    margin-right: 12px;
+}
+
+.avalBalbox .warnTip {
+    font-size: 12px;
+    color: #ff1515;
+}
+
+.pay-style-itm:hover {
+    border-color: #00b7ee;
+}
+
+/* 支付 */
+.payment{background:#f6f6f6;width:100%;height:auto;overflow:hidden;}
+.pay-weixin .pay-info{background:#fff;}
+.pay-weixin-style{background:#fff;}

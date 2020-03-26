@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>火种教育</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="stylesheet" href="assets/css/element-ui.css">
+        <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+        <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+        <!-- <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" /> -->
+        <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+        <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+        <!-- <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" /> -->
+        <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+        <!--<link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/company.css" rel="stylesheet" type="text/css" /> -->
+        <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/system.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="./kindeditor/themes/default/default.css" />
+        <link rel="stylesheet" href="./kindeditor/plugins/code/prettify.css" />
+        <style>
+            body {
+                color: black;
+            }
+    
+            .classComment {
+                width: auto;
+                margin: 20px auto;
+                padding: 22px 15px 15px;
+                background: #f7f7f7;
+            }
+    
+            .wrapper {
+                padding-top: 60px;
+            }
+    
+            .navbar-custom .nav-link {
+                padding: 0;
+                line-height: 60px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+    
+            .el-input__icon {
+                line-height: 30px;
+            }
+    
+            .el-message-box {
+                width: 80%
+            }
+    
+            .form-control-sm {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.875rem;
+                line-height: 1.5;
+                border-radius: 0.2rem;
+            }
+    
+            .navbar-custom {
+                border-radius: 0;
+                min-height: 60px;
+                color: #fff;
+                z-index: 2;
+            }
+    
+            select.form-control:not([size]):not([multiple]) {
+                height: auto;
+            }
+    
+            @media (min-width: 992px) {
+                #topnav .topbar-menu {
+                    padding-bottom: 0;
+                }
+            }
+    
+            .container-fluid {
+                max-width: 95%;
+            }
+    
+            /* .el-pagination {
+                white-space: nowrap;
+                padding: 2px 5px;
+                color: #303133;
+                overflow: auto;
+                font-weight: 700;
+            } */
+    
+            .el-table td,
+            .el-table th {
+                text-align: center;
+                padding: .2rem 0;
+            }
+    
+            .el-pagination {
+                text-align: center;
+                margin: .2rem 0;
+            }
+    
+            .title_bar {
+                margin: 5px 0 24px 0;
+                position: relative
+            }
+    
+            .title_bar h6 {
+                width: 200px;
+                font-size: 16px;
+                position: relative;
+                border-left: 3px solid #fa6900;
+                padding: 2px 8px;
+                line-height: 18px
+            }
+    
+            .title_bar .type_button {
+                width: 300px;
+                height: auto;
+                position: absolute;
+                top: 0;
+                left: 120px;
+                font-size: 12px
+            }
+    
+            .title_bar .updateTime {
+                font-style: normal;
+                line-height: 30px;
+                margin-right: 40px
+            }
+    
+            .title_bar .updateTime b {
+                font-weight: 400
+            }
+    
+            .title_bar .space {
+                width: 300px;
+                height: auto;
+                position: absolute;
+                top: 0;
+                left: 200px;
+                font-size: 12px
+            }
+    
+            .title_bar .space .zi_space {
+                margin-right: 120px
+            }
+    
+            .title_bar .space .zi_space i {
+                color: #33c
+            }
+    
+            .title_bar .space b {
+                font-weight: 400
+            }
+    
+            .title_bar .ttle_bar_btn {
+                position: absolute;
+                top: -6px;
+                right: 0
+            }
+    
+            .title_bar .ttle_bar_btn a {
+                font-size: 12px;
+                margin-right: 0;
+                margin-left: 15px;
+            }
+    
+            .title_bar .ttle_bar_btn a i {
+                font-size: 12px;
+            }
+    
+            .title_bar .ttle_bar_btn .input_search {
+                width: 262px;
+                height: 30px;
+                float: left;
+                position: relative;
+            }
+    
+            .title_bar .ttle_bar_btn .input_search input {
+                width: 230px;
+                height: 30px;
+                float: left;
+                border-radius: 3px 0 0 3px;
+                padding: 0;
+                text-indent: 1em;
+            }
+    
+            .title_bar .ttle_bar_btn .input_search i {
+                display: inline-block;
+                width: 32px;
+                height: 30px;
+                background: #f6f6f6;
+                position: absolute;
+                top: 0;
+                right: 0;
+                border: 1px solid #ddd;
+                border-left: none;
+                border-radius: 0 3px 3px 0;
+                cursor: pointer
+            }
+    
+            .title_bar .ttle_bar_btn .input_search i img {
+                display: block;
+                margin: 7px auto 0
+            }
+    
+            .title_bar .ttle_bar_btn i.tips {
+                position: absolute;
+                top: -35px;
+                padding: 5px 10px;
+                color: red;
+                background-color: #000;
+                font-style: normal;
+                border: 1px solid #000;
+                border-radius: 5px;
+                font-size: 12px
+            }
+    
+            .title_bar .ttle_bar_btn .tips:after {
+                content: '\20';
+                position: absolute;
+                left: 10px;
+                bottom: -10px;
+                width: 0;
+                height: 0;
+                border: 5px solid transparent;
+                border-top-color: #000
+            }
+    
+            .title_bar .ttle_bar_btn .input-ctrl {
+                padding: 0;
+                padding-left: 10px;
+                width: 160px;
+                height: 25px;
+                font-size: 12px;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                vertical-align: middle;
+                margin-right: 2px
+            }
+    
+            .title_bar .dynamics {
+                position: absolute;
+                top: -4px;
+                right: 0
+            }
+    
+            .title_bar .dynamics input {
+                width: 175px;
+                height: 25px;
+                padding: 0;
+            }
+    
+            .title_bar .add_user a i {
+                font-size: 12px
+            }
+    
+            .title_bar span {
+                position: absolute;
+                right: 0;
+                bottom: -10px;
+                left: -5px;
+                height: 0
+            }
+    
+            .title_bar span.line {
+                border-bottom: 1px solid #ddd
+            }
+    
+            .title_bar span.line2 {
+                border-bottom: 2px solid #ddd
+            }
+    
+            .button {
+                display: inline-block;
+                border-radius: 3px;
+                cursor: pointer;
+                text-decoration: none;
+                margin-right: 4px;
+                font-size: 12px;
+                padding: 7px 18px;
+                border: 1px solid #ccc;
+                color: #FFF !important;
+                background: #0af;
+                border: none;
+            }
+    
+            .button:hover {
+                text-decoration: none;
+                background: #009eed;
+            }
+    
+            .proxyBox .liveList li {
+                height: auto;
+            }
+    
+            .page-ul {
+                width: 65%;
+                display: inline-flex;
+                margin: 0;
+                margin-left: 10%;
+            }
+        </style>
+    </head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='motion.html'">问答</li>
+                        
+                        <li onclick="window.location.href='motionPinglun.html'">课程评论</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='motionNews.html'">新闻资讯</li>
+                        <li onclick="window.location.href='motionCuxiao.html'">促销</li>
+                        <li onclick="window.location.href='motionStudent.html'">学员心声</li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap set-system">
+                <div class="mainbackground nopadding">
+                    <div class="heading">
+                        <h2 class="h5">编辑新闻公告</h2>
+                        <span class="line"></span>
+                    </div>
+                    <div class="add-news">
+                        <div class="add-infos">
+                            <p class="c">
+                                <span class="c-title">标题</span>
+                                <span class="c-content">
+                                    <input type="text" class="long-title" id="titles" name="newsTitle" maxlength="40"
+                                        value="test">
+                                </span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">分类</span>
+
+
+                                <select id="typeList">
+
+                                </select>
+
+
+
+                            </p>
+                            <p class="c">
+                                <span class="c-title">是否推荐</span>
+                                <span class="c-content">
+
+
+
+                                    <input type="radio" value="1" name="recommendFlag" checked="checked">是
+                                    <input type="radio" value="0" name="recommendFlag">否
+
+
+
+
+
+                                </span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">封面图片</span>
+                                <span class="c-content">
+                                    <span class="view">
+
+
+
+                                        <img id="imgObject" ids="" width="280" height="160"
+                                            src="http://image.yunduoketang.com/news/34270/20190717/3e5082df-c7e3-419a-ae33-c022dfa172b7.jpg"
+                                            alt="">
+
+
+                                    </span>
+                                    <span class="btns">
+                                        <input type="file" accept="image/*" id="imgData" name="imgData"
+                                            onchange="Form.uploadPic()" class="c-up">
+                                        <a href="javascript:;" class="btn btn-default" id="c-up">点击上传</a>
+                                        <span style="padding:0 10px;color:#999;font-size:14px;">建议大小：620*390
+                                            ，在比例不变的情况下，最大宽度不超过900px</span>
+                                    </span>
+                                </span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">概述</span>
+                                <span class="c-content">
+                                    <textarea id="summarys" name="summary" rows="3" maxlength="200">test</textarea>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="c">
+                            <!-- <div class="about-edit"> -->
+                                <textarea class="ckeditor form-control" id="newsContents" name="newsContent" rows="6"
+                                    data-error-container="#editor2_error"
+                                    style="visibility: hidden; display: none;"></textarea>
+                                    <textarea id="editor_id" name="content" style="width:100%;height:300px;">
+                                        </textarea>
+                            <!-- </div> -->
+                            <p class="c text-center" style="margin-top: 10px;">
+                                <a href="javascript:history.go(-1);" class="btn btn-sm btn-default">取消</a>
+                                <a href="javascript:void(0);" id="prviewBtn" class="btn btn-sm btn-default">预览</a>
+                                <a href="javascript:void(0);" class="btn btn-sm btn-primary" @click="bgun()" id="baocun">保存</a>
+                                <a href="javascript:saveNews('saveAndOnsale');" class="btn btn-sm btn-primary"
+                                    id="baocunfabu">保存并发布</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+    <!-- <script src="assets/libs/jquery/jquery.min.js"></script> -->
+
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/vue.min.js"></script>
+        <script charset="utf-8" src="./kindeditor/kindeditor-all-min.js"></script> 
+        <script charset="utf-8" src="./kindeditor/lang/zh-CN.js"></script>
+        <script charset="utf-8" src="./kindeditor/plugins/code/prettify.js"></script>
+        <script>
+        </script>
+    <script>
+// KindEditor.ready(function(K) {
+//                 window.editor = K.create('#editor_id');
+//         });
+// KindEditor.ready(function(K) {
+//                         window.editor = K.create('#editor_id');
+//                     });
+//                     console.log($('.btn-send'))
+//                     $('.btn-send').click(()=>{
+//                         html = editor.html();
+
+//                         // 同步数据后可以直接取得textarea的value
+//                         editor.sync();
+//                         html = document.getElementById('editor_id').value; // 原生API
+//                         // html = K('#editor_id').val(); // KindEditor Node API
+//                         html = $('#editor_id').val(); // jQuery
+//                         console.log(html)
+//                     })
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    projects:[],
+                    kemus:[],
+                    kcb_kemus:[],
+                    kc_nums:0,
+                    kcb_nums:0,
+                    wbm_nums:0,
+                    kechengs:[],
+                    kcb_kechengs:[],
+                    Add_notice:{
+        "notice_title": null, 
+        "type_name": null,
+        "notice_way": null,
+        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id),
+        "notice_status":null,
+        "notice_people_num": null,
+        "notice_type": null,
+        "project_id":null,
+        "subject_id":null,
+        "notice_content":null,
+        "course_id":null,
+        "email_tel":null,
+        "course_package_id":null,
+        "cp_stage":null,
+        "email_title":null
+},
+notice:{
+    email_title:'',
+    notice_content:''
+},
+                    kc:{
+                        project_id:'',
+                        subject_id:'',
+                        course_id:'',
+                        checked:false
+                    },
+                    kcb:{
+                        project_id:'',
+                        course_package_id:'',
+                        stage_id:''
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                KindEditor.ready(function(K) {
+                        window.editor = K.create('#editor_id');
+                    });
+               
+                _this.initb()
+            },
+            methods: {
+                activeb(num) {
+                    this.activeIndexb = num
+                    this.initb()
+                },
+                kc_give_num(){
+                    _this=this
+                    console.log(this.kc)
+                    switch (_this.activeIndexb) {
+                        case 0:
+                        obj = {p_id:'',type:'',c_status:''}
+                            obj.p_id = _this.kc.course_id
+                            obj.type = "课程"
+                            obj.c_status =  _this.kc.checked == true?1:0
+                            $.ajax({
+                            url: 'http://192.168.10.166:8080//student/studentNoticeOfStudentList',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.kc_nums = data.length
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                            break;
+                            case 4:
+                        obj = {}
+                        if(_this.kcb.stage_id == ""){
+                            obj.type = "课程包"
+                            obj.p_id = _this.kcb.course_package_id
+                        }else{
+                            obj.type = "阶段"
+                            obj.p_id = _this.kcb.stage_id
+                        }
+                            $.ajax({
+                            url: 'http://192.168.10.166:8080//student/studentNoticeOfStudentList',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.kcb_nums = data.length
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                            break;
+                            case 5:
+                        // obj = {}
+                        //     obj.p_id = _this.kc.course_id
+                        //     obj.type = "课程"
+                        //     obj.c_status =  _this.kc.checked == true?1:0
+                            $.ajax({
+                            url: 'http://192.168.10.166:8080/student/unEnrollStudentList',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            // data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                
+                                _this.wbm_nums = data.length
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                submit_notice(){
+                    _this = this
+                    if(this.Add_notice.notice_title == "" ||this.Add_notice.notice_title ==null  ){
+                        _this.$message.info({
+                                    type: 'info',
+                                    message: '请填写通知标题',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                    }
+                        this.Add_notice.user_id=1
+                        this.Add_notice.notice_status=1
+                    switch (this.activeIndexb) {
+                        case 0:
+                        if(this.kc.course_id == "" ||this.kc.course_id ==null  ){
+                        _this.$message.info({
+                                    type: 'info',
+                                    message: '请选择课程',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                        }
+                        for (let i = 0; i < this.kechengs.length; i++) {
+                            if(this.kc.course_id == this.kechengs[i].course_id){
+                                this.Add_notice.type_name=this.kechengs[i].course_name
+                            }
+                        }
+                        
+                        this.Add_notice.notice_people_num=_this.kc_nums
+                        this.Add_notice.notice_type="课程通知"
+                        this.Add_notice.project_id=_this.kc.project_id
+                        this.Add_notice.subject_id=_this.kc.subject_id
+                        this.Add_notice.course_id=_this.kc.course_id
+                        this.Add_notice.email_tel=null
+                        this.Add_notice.course_package_id=null
+                        this.Add_notice.cp_stage=null
+                            break;
+                        case 1:
+                            
+                        this.Add_notice.type_name=null
+                        this.Add_notice.notice_people_num=null
+                        this.Add_notice.notice_type="指定通知"
+                        this.Add_notice.project_id=null
+                        this.Add_notice.subject_id=null
+                        this.Add_notice.course_id=null
+                        this.Add_notice.email_tel="13432323232"
+                        this.Add_notice.course_package_id=null
+                        this.Add_notice.cp_stage=null
+                            break;
+                        case 4:
+                        if(this.kcb.stage_id != "" ){
+                            for (let i = 0; i < this.kcb_kechengs.length; i++) {
+                                if(this.kcb.stage_id == this.kcb_kechengs[i].stage_id){
+                                    this.Add_notice.type_name=this.kcb_kechengs[i].stage_name
+                                }
+                            }
+                        }else{
+                        console.log(11222222)
+                            for (let i = 0; i < this.kcb_kemus.length; i++) {
+                                if(this.kcb.course_package_id == this.kcb_kemus[i].course_package_id){
+                                    this.Add_notice.type_name=this.kcb_kemus[i].cp_name
+                                }
+                            }
+                        }
+                        this.Add_notice.notice_people_num=_this.kcb_nums
+                        this.Add_notice.notice_type="课程包通知"
+                        this.Add_notice.project_id=_this.kcb.project_id
+                        this.Add_notice.subject_id=null
+                        this.Add_notice.course_id=null
+                        this.Add_notice.email_tel=null
+                        this.Add_notice.course_package_id=_this.kcb.course_package_id
+                        this.Add_notice.cp_stage=_this.kcb.stage_id
+                            break;
+                        case 5:
+                        this.Add_notice.type_name=null
+                        this.Add_notice.notice_people_num=_this.wbm_nums
+                        this.Add_notice.notice_type="未报名学员通知"
+                        this.Add_notice.project_id=null
+                        this.Add_notice.subject_id=null
+                        this.Add_notice.course_id=null
+                        this.Add_notice.email_tel=null
+                        this.Add_notice.course_package_id=null
+                        this.Add_notice.cp_stage=null
+                            break;
+                        default:
+                            break;
+                    }
+                    switch (this.activeIndexa) {
+                        case 0:
+                        this.Add_notice.notice_way="短信通知"
+                        this.Add_notice.notice_content=this.notice.notice_content
+                        this.Add_notice.email_title=null
+                            break;
+                            case 1:
+                            this.Add_notice.notice_way="站内信通知"
+                        this.Add_notice.notice_content="短信通知"
+                        this.Add_notice.email_title=null
+                            break;
+                            case 2:
+                            this.Add_notice.notice_way="邮件通知"
+                        this.Add_notice.notice_content="短信通知"
+                        if(this.notice.email_title == ""){
+                            _this.$message.info({
+                                    type: 'info',
+                                    message: '请输入邮件标题',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                return
+                        }else{
+
+                            this.Add_notice.email_title=this.notice.email_title
+                        }
+                            break;
+                        default:
+                            break;
+                    }
+                    setTimeout(()=>{
+                        html = editor.html();
+
+                    // 同步数据后可以直接取得textarea的value
+                    editor.sync();
+                    html = document.getElementById('editor_id').value; // 原生API
+                    // html = K('#editor_id').val(); // KindEditor Node API
+                    html = $('#editor_id').val(); // jQuery
+                    console.log(html)
+                    console.log($('#editor_id'))
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/student/addStudentNotices',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(_this.Add_notice),
+                            dataType: 'json',
+                            success: function (data) {
+                                _this.$message.info({
+                                    type: 'info',
+                                    message: data,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$message.info({
+                                    type: 'info',
+                                    message: '请输入邮件标题',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    },20)
+                },
+                changeKecheng(){
+                    _this = this;
+                        // _this.stu.exam_id = ''
+                        $.ajax({
+                        url: 'http://192.168.10.166:8080/course/selectCourseByProjectAndSubject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {project_id:_this.kc.project_id,subject_id:_this.kc.subject_id},
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kechengs = data
+                            _this.kc.course_id = _this.kechengs[0].course_id
+                            _this.kc_give_num()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                chenge_num(){
+                    this.kc_give_num()
+                },
+                kcb_changeKecheng(){
+                    _this = this;
+                        // _this.stu.exam_id = ''
+                        $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/selectStageByCoursePackageId',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {course_package_id:_this.kcb.course_package_id},
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcb_kechengs = data
+                            _this.kcb.stage_id = ''
+                            
+                            _this.kc_give_num()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                kcb_changeKemu(){
+                    _this = this;
+                        // _this.stu.exam_id = ''
+                        $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/selectCourserPackageByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {project_id:_this.kcb.project_id},
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcb_kemus = data
+                        _this.kcb.course_package_id = _this.kcb_kemus[0].course_package_id
+                        _this.kcb_changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                changeKemu(){
+                    _this = this;
+                        // _this.stu.exam_id = ''
+                        $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {project_id:_this.kc.project_id},
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+                        _this.kc.subject_id = _this.kemus[0].pse_id
+                        _this.changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                bgun(){
+                    console.log(1)
+                    html = editor.html();
+
+// 同步数据后可以直接取得textarea的value
+editor.sync();
+html = document.getElementById('editor_id').value; // 原生API
+// html = K('#editor_id').val(); // KindEditor Node API
+html = $('#editor_id').val(); // jQuery
+
+// 设置HTML内容
+// editor.html('');
+console.log(html)
+                    // console.log(1)setTimeout(() => {
+                        
+                    // }, timeout);
+                },
+                initb(){
+                    _this = this
+                    switch (this.activeIndexb) {
+                        case 0:
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                            type: 'get',
+                            // contentType: 'application/json',
+                            // data: JSON.stringify(_this.stu),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.projects = data
+                                _this.kc.project_id = _this.projects[0].pse_id
+                                _this.changeKemu()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                            break;
+                            case 4:
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                            type: 'get',
+                            // contentType: 'application/json',
+                            // data: JSON.stringify(_this.stu),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.projects = data
+                                _this.kcb.project_id = _this.projects[0].pse_id
+                                _this.kcb_changeKemu()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                            break;
+                            case 5:
+                            _this.kc_give_num()
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

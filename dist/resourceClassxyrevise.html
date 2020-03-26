@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <!-- <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newSource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newresource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toProtocolList.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/agreement-3.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+        .dropdown {
+    position: inherit;
+}
+        body {
+            overflow-x: initial;
+        }
+
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .resource .mainbackground .r-list {
+            padding-bottom: 0;
+        }
+
+        .u-wrap .mainbackground.nopadding {
+            padding: 1px 20px 10px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 资源
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='resource.html'">学科</li>
+                        <li onclick="window.location.href='resourceSchool.html'">校区</li>
+                        <li onclick="window.location.href='resourceKu.html'">资源库</li>
+                        <li style="color: rgb(250, 105, 0); border-bottom: 2px solid rgb(250, 105, 0);"
+                            onclick="window.location.href='resourceClassxy.html'">课程协议</li>
+                        <li onclick="window.location.href='resourceTeacher.html'">教师课时</li>
+                        <li onclick="window.location.href='resourceClassdy.html'">课程单元</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground nopadding">
+                    <div class="heading">
+                        <h2 class="h5">修改协议</h2>
+                        <div class="search searchAdmin">
+                        </div>
+                        <span class="line"></span>
+                    </div>
+
+                    <div class="content">
+                        <input type="hidden" class="hiddenProtocolId" value="3153">
+                        <div class="inp-1">
+                            <span>名称</span>&nbsp;
+                            <input type="text" v-model="xieyi_info.agreement_name" maxlength="50" id="name" name="name">
+                        </div>
+                        <div class="inp-2">
+                            <span>协议标题</span>&nbsp;
+                            <input type="text" v-model="xieyi_info.agreement_title" maxlength="50" id="title"
+                                name="title">
+                        </div>
+                        <div class="inp-3" v-if="cids == 'null' || cids == ''">
+                            <span>协议类型</span>&nbsp;
+
+
+                            <select name="type" v-model="xieyi_info.agreement_type" id="schoolId">
+
+                                <option value="1" selected="selected">课程协议</option>
+
+
+                                <option value="2">课程包协议</option>
+
+                            </select>
+
+
+                        </div>
+                        <div class="inp-3">
+                            <span>协议模式</span>&nbsp;
+                            <select name="type" v-model="xieyi_info.agreement_pattern">
+                                <option value="1">普通协议</option>
+                                <option value="2">电子协议</option>
+
+                            </select>
+                        </div>
+                        <div class="inp-4">
+                            <span>签署方式</span>&nbsp;
+
+
+                            <select name="useTime" v-model="xieyi_info.agreement_way">
+                                <option value="1">购买前</option>
+                                <option value="2">学习前</option>
+                            </select>
+
+
+                        </div>
+                        <div class="inp-5">
+                            <span style="display: block; float: left;line-height: 20px;">签署学员</span>&nbsp;
+                            <div class="c-content" style="width: 64%;display: inline-block;">
+                                <div class="joininfo protocol"
+                                    style="display: inline-block;float: left;margin-right: 15px;position: relative;">
+
+
+                                    <input value="新学员" id="joininp" v-model="xieyi_info.sign_student_mode" type="radio"
+                                        name="join" checked="checked">
+
+
+
+                                    <label for="joininp" style="display: inline-block;">新学员</label>
+                                    <!-- <i class="iconfont askicon newStudent"></i>
+                                            <div class="blackbgtxt newStudentBgtxt">
+            
+                                        签署判断条件：在此协议关联课程且协议完成更新后报名课程的学员需签署此协议<br>
+                                        切换签署方式：切换后原需签署协议的学员将根据新条件进行判断，可能造成未签署协议的学员不再签署
+            
+                                            </div> -->
+                                </div>
+                                <div class="nojoininfo protocol"
+                                    style="display: inline-block;float: left;position: relative;">
+
+
+
+                                    <input id="nojoininp" value="未签署协议的学员" v-model="xieyi_info.sign_student_mode"
+                                        type="radio" name="join">
+
+
+                                    <label for="nojoininp" style="display: inline-block;">未签署协议的学员</label>
+                                    <!-- <i class="iconfont askicon notSignStudent"></i>
+                                            <div class="blackbgtxt notSignStudentBgtxt">
+                                                未签署协议的所有学员需要签署此协议
+                                            </div> -->
+                                </div>
+                            </div>
+                            <!-- <p style="color: red;font-size: 12px;margin-top: 15px;">注：此判断逻辑仅面向PC及H5学习的学员，APP购买前协议默认为新学员签署，学习前协议默认为所有未签署学员签署（近期版本APP升级后将同步逻辑）</p> -->
+                        </div>
+                        <div class="inp-5">协议详情</div>
+                        <div class="inp-3">说明：编辑协议内容时，将下列变量复制到协议内容中，学员在前台签署协议时系统将自动填写变量信息。</div>
+                        <div class="inp-6 clear">
+                            <div class="left">变量说明：</div>
+                            <div class="right">
+                                <div class="right-1">
+                                    <div class="right-l right-test">[username]学员名称</div>
+                                    <div class="right-r">[coursename]课程名称/课程包名称</div>
+                                </div>
+                                <div class="right-2">
+                                    <div class="right-l right-test">[cardtype]证件类型</div>
+                                    <div class="right-r">[StudentIDcardnumber]学员证件号码</div>
+                                </div>
+                                <div class="right-3">
+                                    <div class="right-l right-test">[Studentcellphonenumber]学员电话号码</div>
+                                    <div class="right-r">[coursecost]课程原价</div>
+                                </div>
+                                <div class="right-4">
+                                    <div class="right-l right-test">[PreferentiaIpriceofcourse]课程优惠价</div>
+                                    <div class="right-r">[current date]签署日期</div>
+                                </div>
+                                <div class="right-4">
+                                    <div class="right-l right-test">[Course subject]课程所属学科/课程包所属分类</div>
+                                    <div class="right-r">[coursepay]实付款</div>
+                                </div>
+                                <div class="right-6">
+                                    <div class="right-l right-test">[courseupperpay]实付款大写</div>
+                                    <div class="right-r">[sex]性别</div>
+                                </div>
+                                <div class="right-7">
+                                    <div class="right-l right-test">[education]学历</div>
+                                    <div class="right-r">[address]邮寄地址</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div style="margin-left: 100px;margin-bottom: 20px; width: 70%;">
+                        <textarea id="editor_id" name="content" style="width:100%;height:300px;">
+                            </textarea>
+                    </div>
+                    <div class="t-btns">
+                        <p class="text-center">
+                            <a href="javascript:history.go(-1);" class="btn btn-default">取消</a>
+                            <a href="javascript:;" class="btn btn-primary previewProtocol" @click="go_yulan">预览</a>
+                            <a href="javascript:;" class="btn btn-primary saveProtocol" @click="submit_xieyi">保存</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script charset="utf-8" src="./kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="./kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="./kindeditor/plugins/code/prettify.js"></script>
+    <script>
+        for (let i = 0; i < 7; i++) {
+            a = i;
+        }
+
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        KindEditor.ready(function (K) {
+            window.editor = K.create('#editor_id', {
+                // items:['media'],
+                // afterTab:function(){
+                //     console.log(1)
+                // }
+            });
+        });
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    cids: "",
+                    xieyi_info: {
+                        "agreement_name": "",
+
+                        "agreement_title": "",
+                        "agreement_type": 1,
+                        "agreement_pattern": 1,
+                        "agreement_way": 1,
+                        "sign_student_mode": "新学员",
+                        "agreement_content": "",
+                        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                if (localStorage.add_xieyi_status == 'false') {
+                    _this.cids = localStorage.cIds
+                    _this.xieyi_info = JSON.parse(localStorage.edit_xieyi_info)
+                    setTimeout(() => {
+                        editor.sync();
+                        html = document.getElementById('editor_id').value; // 原生API
+                        editor.html(_this.xieyi_info.agreement_content)
+                    }, 20)
+                } else {
+                    _this.xieyi_info = {
+                        "agreement_name": "",
+
+                        "agreement_title": "",
+                        "agreement_type": 1,
+                        "agreement_pattern": 1,
+                        "agreement_way": 1,
+                        "sign_student_mode": "新学员",
+                        "agreement_content": "",
+                        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                    }
+                }
+            },
+            mounted() {
+                setTimeout(function () {
+                    console.log($("div.block"))
+                    // $("div.block").on("click",function () {
+                    //     console.log($(this))
+                    //                 $(this).find(".manageGL").show();
+                    //             });
+                    $("div.block").on("mouseenter ", "div.hidden", function () {
+                        console.log($(this))
+                        $(this).find(".manageGL").show();
+                    });
+                    $("div.block").on("mouseleave ", "div.hidden", function () {
+                        $(this).find(".manageGL").hide();
+                    });
+                }, 20)
+            },
+            methods: {
+                active() {
+
+                },
+                go_yulan() {
+                    html = editor.html();
+                    // 同步数据后可以直接取得textarea的value
+                    editor.sync();
+                    html = document.getElementById('editor_id').value; // 原生API
+                    // html = K('#editor_id').val(); // KindEditor Node API
+                    html = $('#editor_id').val(); // jQuery
+                    console.log(html)
+                    localStorage.Yulan = html
+                    window.open('resourceClassxyYulan.html')
+                },
+                activea(num) {
+
+                },
+                submit_xieyi() {
+                    let _this = this
+                    html = editor.html();
+                    // 同步数据后可以直接取得textarea的value
+                    editor.sync();
+                    html = document.getElementById('editor_id').value; // 原生API
+                    // html = K('#editor_id').val(); // KindEditor Node API
+                    html = $('#editor_id').val(); // jQuery
+                    console.log(html)
+                    _this.xieyi_info.agreement_content = html
+                    console.log(_this.xieyi_info)
+                    if (localStorage.add_xieyi_status == 'false') {
+                        obj = JSON.parse(JSON.stringify(_this.xieyi_info))
+                        delete obj.agreement_type1
+                        delete obj.agreement_pattern1
+                        delete obj.agreement_way1
+                        delete obj.agreement_status1
+                        if (localStorage.cIds != 'null') {
+                            delete obj.agreement_id
+                            obj.cIds = _this.cids.split(',')
+                           for (let i = 0; i < obj.cIds.length; i++) {
+                            obj.cIds[i] = parseInt(obj.cIds[i])
+                               
+                           }
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/resources/addAgreement',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    if (data.message = 'success') {
+                                        _this.$notify.success({
+                                            title: '提示',
+                                            message: '修改成功',
+                                            duration: 2000
+                                        });
+                                    } else {
+                                        _this.$notify.error({
+                                            title: '提示',
+                                            message: '修改失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$notify.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                                }
+                            })
+                        } else {
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/resources/editAgreement',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    if (data.message = 'success') {
+                                        _this.$notify.success({
+                                            title: '提示',
+                                            message: '修改成功',
+                                            duration: 2000
+                                        });
+                                    } else {
+                                        _this.$notify.error({
+                                            title: '提示',
+                                            message: '修改失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$notify.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                                }
+                            })
+                        }
+                    } else {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/addAgreement',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(_this.xieyi_info),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message = 'success') {
+                                    _this.$notify.success({
+                                        title: '提示',
+                                        message: '新增成功',
+                                        duration: 2000
+                                    });
+                                } else {
+                                    _this.$notify.error({
+                                        title: '提示',
+                                        message: '新增失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '提示',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                Next() {
+                    this.activeIndexa = 1;
+                    setTimeout(() => {
+                        console.log($('.nextRight'))
+                        $('.nextRight').css('background-position', '0 -32px')
+                    }, 20)
+                },
+                returnf() {
+                    this.activeIndexa = 0;
+                    setTimeout(() => {
+                        console.log($('.nextRight'))
+                        $('.nextRight').css('background-position', '0 0px')
+                    }, 20)
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+Db::select('select uid,user_name,project,`group`,sector from user_info where manager in (777,776,775,774) and is_work=1');
+Db::select('select uid,user_name,project,`group`,sector from user_info where project=? and is_work=1 and manager in (777,776,775,774)', [session('project')]);

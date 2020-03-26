@@ -1,0 +1,281 @@
+.box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.indentBox,
+.indentList {
+  width: 100%;
+}
+.indentList {
+  position: relative;
+   padding-right: 313px;
+  margin-top: 30px;
+  border: 1px solid #ececec;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fbfbfb;
+}
+.shopDetail {
+  min-width: 565px;
+  border-right: 1px solid #ececec;
+}
+.detailList li {
+  float: left;
+  border-right: 1px solid #f0f0f0;
+  min-width: 104px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.detailList li:last-child {
+  border: none;
+}
+.detailList {
+  padding-bottom: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.detailList li h4 {
+  font-size: 12px;
+  color: #939ca5;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+.detailList li p {
+  font-size: 12px;
+  color: #333;
+  line-height: 24px;
+}
+.classesName {
+  font-size: 16px;
+  line-height: 20px;
+  color: #333;
+  padding: 18px 14px 21px;
+}
+b {
+  font-weight: normal;
+}
+.indentStatus {
+  position: absolute;
+  top: 50%;
+  right: 126px;
+  width: 186px;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  /* height: 130px; */
+  /* border-left: 1px solid #ececec; */
+  /* border-right: 1px solid #ececec; */
+  padding-top: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.indentStatus h4,
+.indentStatus p {
+  font-size: 12px;
+  text-align: center;
+}
+.indentStatus h4 {
+  font-size: 12px;
+  color: #939ca5;
+  line-height: 18px;
+}
+.indentTime,
+span.status {
+  font-size: 0;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 14px;
+}
+span.status {
+  font-size: 12px;
+  color: #858c94;
+}
+span.status b {
+  cursor: pointer;
+}
+.indentTime i {
+  font-family: iconfont !important;
+  font-size: 12px;
+  color: #fe2525;
+  line-height: 14px;
+  margin-right: 6px;
+  vertical-align: top;
+}
+.indentTime em {
+  font-size: 12px;
+  color: #fe2525;
+  line-height: 14px;
+}
+.butHor {
+  position: absolute;
+  top: 0;
+  right:  0;
+  text-align: center;
+  width: 126px;
+  /* height: 130px; */
+  height: 100%;
+  border-left: 1px solid #ececec;
+}
+.butHor .butHorcen{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.butHor button {
+  width: 70px;
+  height: 30px;
+  margin:8px 0;
+  border: 1px solid transparent;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 0;
+  text-align: center;
+  line-height: 28px;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+/*.butHor button:last-child {
+  margin-top: 16px;
+}*/
+.butHor .toPay {
+  border-color: #ff6604;
+  color: #ff6604;
+}
+.butHor .toPay:hover{
+  background-color: #ff6604;
+  color: #fff;
+}
+.butHor .toDetail {
+  border-color: #00aaff;
+  color: #00aaff;
+}
+.butHor .toDetail:hover{
+  background-color: #00aaff;
+  color: #fff;
+}
+.status .noDefult {
+  color: #333;
+  font-size: 14px;
+}
+.myIndentCon {
+  width: 100%;
+  margin-top: 30px;
+  border: 1px solid #ececec;
+}
+.indentTitle {
+  font-size: 14px;
+  line-height: 40px;
+  background-color: #f0f0f0;
+  padding: 0 20px 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.indentTitle span {
+  color: #999;
+}
+.indentTitle b {
+  color: #333;
+  width: 70%;
+  word-break: break-all;
+  margin-top: 8px;
+  line-height: 24px;
+}
+.oderTime li {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding-top: 20px;
+  min-height: 88px;
+  border-right: 1px solid #ececec;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.oderTime li:last-child {
+  border: none;
+}
+.oderTime li h5 {
+  font-size: 12px;
+  color: #999;
+  line-height: 18px;
+  margin-bottom: 12px;
+}
+.oderTime li span {
+  font-size: 14px;
+  color: #333;
+  line-height: 20px;
+  margin: 0 5px;
+}
+.oderTime li .paid {
+  color: #00aaff;
+}
+.oderTime li .paid {
+  color: #00aaff;
+}
+.oderTime li .paid {
+  color: #00aaff;
+}
+.oderTime li .error {
+  color: #fb4d55;
+}
+.payDetail {
+  border-top: 1px solid #ececec;
+  padding: 0 16px;
+}
+.payDetail h3,
+.payDetail p {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 12px 0;
+}
+.payDetail h3 {
+  color: #999;
+  max-width: 23%;
+}
+.payDetail h3 span {
+  color: #fe5151;
+}
+.payDetail h3 b {
+  color: #333;
+}
+.payDetail p {
+  color: #333;
+  max-width: 77%;
+}
+/*ipad 样式*/
+@media screen and (min-width:768px) and (max-width:1024px){
+    .detailList li{min-width:70px;}
+    .shopDetail{min-width:420px;}
+    .indentBox, .indentList{width:97%;}
+}
+
+
+
+
+

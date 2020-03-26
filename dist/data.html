@@ -1,0 +1,2171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/stuCount.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student_static.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/balanceBox.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/distrib.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+        .dropdown {
+    position: inherit;
+}
+        .el-date-editor .el-range-separator {
+            width: 24px;
+        }
+
+        .el-date-editor .el-range-input {
+            width: 46%;
+        }
+        .listBox {
+            position: fixed;
+            width: 870px;
+            left: 50%;
+            top: 70px;
+            margin-left: -375px;
+            background-color: #fff;
+        }
+        .pages li.disabled {
+            padding: 0px;
+        }
+
+        #dateList a {
+            margin-right: 15px
+        }
+
+        #keyword {
+            display: inline-block;
+            width: 70px;
+            font-size: 14px;
+            color: #999;
+            padding-right: 10px;
+            line-height: 26px;
+            text-align: right;
+            float: left;
+        }
+
+        #schoolIds {
+            width: 148px;
+            height: 26px;
+            border: 1px solid #d7d7d7;
+            border-radius: 2px;
+            margin-right: 15px;
+            font-size: 12px;
+            color: #666;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .balanceTable td {
+            line-height: 22px;
+            padding: 0px 5px !important;
+        }
+
+        #export {
+            margin-right: 15px;
+            margin-bottom: 8px;
+        }
+
+        .nopadding .impotrArea {
+            padding-top: 0;
+            min-height: 380px;
+        }
+
+        .heading {
+            margin-bottom: 20px;
+        }
+
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .resource .mainmbackground .r-list {
+            padding-bottom: 0;
+        }
+
+        .u-wrap .mainbackground.nopadding {
+            padding: 1px 20px 10px;
+        }
+
+        .proxySearch {
+            font-size: 0;
+            margin-bottom: 20px;
+        }
+
+        .proxySearch span {
+            width: 80px;
+        }
+
+        .timeSearch em {
+            width: 80px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        /* .timeSearch .btn {
+            font-size: 12px;
+            padding: 6px 12px;
+            margin-right: 12px;
+            margin-bottom: 5px;
+        } */
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 数据
+                    <ul class="lrow page-ul">
+                        <li style="color: rgb(250, 105, 0); border-bottom: 2px solid rgb(250, 105, 0);"
+                            onclick="window.location.href='data.html'">统计</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap query overflow">
+
+
+
+
+
+
+
+
+
+
+                <!-- 二级导航 -->
+                <div class="left-side">
+                    <div class="left-side-title">
+                        <em>统计</em>
+                        <!-- <span class="iconfont return-pic hcancle">&#xe650;</span> -->
+                    </div>
+                    <ul id="course_manage" class="system_managelist">
+
+                        <li :class="activeIndexb == 0?'subentry active':'subentry'" @click="activea(0)"
+                            code="student_count">学员统计</li>
+
+
+
+
+                        <li :class="activeIndexb == 1?'subentry active':'subentry'" @click="activea(1)"
+                            code="teacher_hour">教师课时</li>
+
+
+
+                        <li id="live_AttendanceRate" @click="activea(2)"
+                            :class="activeIndexb == 2?'subentry active':'subentry'" code="live_AttendanceRate">
+                            直播到课率统计</li>
+
+
+                    </ul>
+                </div>
+
+                <div class="right-side" v-if="activeIndexb == 0">
+                    <div>
+                        <div class="title-box">
+                            <div class="tit-font">
+                                <span class="t">学员统计</span>
+                            </div>
+                        </div>
+                        <div class=" impotrArea">
+                            <div class="proxySearch">
+                                <div class="proxySearch_lable">
+                                    <span>筛选条件 :</span>
+                                </div>
+                                <div class="proxySearch_span">
+
+
+
+                                    <select name="resource" v-model="stu_tj_info.registration_source" id="resource"
+                                        style="margin-left: 20px;">
+                                        <option value="">请选择来源</option>
+                                        <option value="官网注册">官网注册</option>
+                                        <option value="线下录入">线下录入</option>
+                                        <option value="手机端">手机端</option>
+
+
+                                    </select>
+                                    <select class="oneSel" v-model="stu_tj_info.stu_type" name="type" id="type">
+                                        <option value="">选择用户类型</option>
+                                        <option value="收费">收费用户</option>
+                                        <option value="免费">免费用户</option>
+                                    </select>
+                                    <input class="scrinp" type="text" v-model="stu_tj_info.stu_name" placeholder="姓名"
+                                        name="stuName" id="stuName">
+                                    <input class="scrinp" type="text" v-model="stu_tj_info.tel" placeholder="手机号"
+                                        name="username" id="username">
+                                    <input class="scrinp" type="text" v-model="stu_tj_info.wechat" placeholder="微信号"
+                                        name="username" id="username">
+                                </div>
+
+                            </div>
+                            <div class="timeSearch clear">
+                                <em class="fl">日期 :</em>
+                                <div class="fl" id="dateList">
+                                    <a href="javascript:void(0);" @click="activec(0)"
+                                        :class="activeIndexc == 0?'btn btn-mini btn-success':'btn btn-mini btn-default'">今天</a>
+                                    <a href="javascript:void(0);" @click="activec(1)"
+                                        :class="activeIndexc == 1?'btn btn-mini btn-success':'btn btn-mini btn-default'">昨天</a>
+                                    <a href="javascript:void(0);" @click="activec(2)"
+                                        :class="activeIndexc == 2?'btn btn-mini btn-success':'btn btn-mini btn-default'">7天</a>
+                                    <a href="javascript:void(0);" @click="activec(3)"
+                                        :class="activeIndexc == 3?'btn btn-mini btn-success':'btn btn-mini btn-default'">当月</a>
+                                    <a href="javascript:void(0);" @click="activec(4)"
+                                        :class="activeIndexc == 4?'btn btn-mini btn-success':'btn btn-mini btn-default'">三个月</a>
+                                    <a href="javascript:void(0);" @click="activec(5)"
+                                        :class="activeIndexc == 5?'btn btn-mini btn-success':'btn btn-mini btn-default'">指定时间</a>
+                                    <template v-if="activeIndexc == 5">
+                                        <el-date-picker v-model="value1" type="datetimerange" range-separator="至"
+                                            start-placeholder="开始日期" style="width: 350px;margin-bottom: 30px;    vertical-align: middle;
+                                                    height:30px" end-placeholder="结束日期">
+                                        </el-date-picker>
+                                    </template>
+                                    <button id="btnSearch" @click="search_stu_tj">搜索</button>
+                                </div>
+                            </div>
+                            <div class="timeSearch" style="display:none">
+                                <div class="census">
+                                    <a class="btn btn-default btn-success btn-detail" href="javascript:;">统计表</a>
+                                    <a style="display:none" class="btn btn-default btn-chart"
+                                        href="javascript:;">趋势图</a>
+                                </div>
+                            </div>
+                            <div class="dataview clear">
+                                    <span class="fl datav-name">
+                                        <strong>
+                                            手机端&nbsp;:
+                                            <em>{{stu_tj_data.mb}}人</em>
+                                        </strong>
+                                        <strong>
+                                            线下录入&nbsp;&nbsp;:
+                                            <em>{{stu_tj_data.outline}}人</em>
+                                        </strong>
+                                        <strong>
+                                            官网注册&nbsp;&nbsp;:
+                                            <em>{{stu_tj_data.public}}人</em>
+                                        </strong>
+
+                                        <strong>
+                                            合计新增学员&nbsp;&nbsp;:
+                                            <em>{{userList.length}}人</em>
+                                        </strong>
+
+
+                                    </span>
+                                </div>
+                            <div class="panel" style="padding-bottom: 20px;">
+                                
+                                <div class="table-wrap">
+                                    <template>
+                                        <el-table border
+                                            :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                            :data="tableData" style="overflow: auto;">
+                                            <el-table-column prop="branch_school_name" label="所属分校"
+                                                :width="flexColumnWidth(12)" style="text-align: center">
+                                            </el-table-column>
+                                            <el-table-column prop="tel" label="手机号" :width="flexColumnWidth(12)">
+                                            </el-table-column>
+                                            <el-table-column prop="stu_name" label="姓名" :width="flexColumnWidth(12)">
+                                            </el-table-column>
+                                            <el-table-column prop="wechat" label="用户名" :width="flexColumnWidth(12)">
+                                            </el-table-column>
+                                            <el-table-column prop="email" label="邮箱" :width="flexColumnWidth(12)">
+                                            </el-table-column>
+                                            <el-table-column prop="create_time" label="注册时间"
+                                                :width="flexColumnWidth(15)">
+                                            </el-table-column>
+                                            <el-table-column prop="stu_type" label="用户类型" :width="flexColumnWidth(12)">
+                                            </el-table-column>
+                                            <el-table-column prop="registration_source" label="来源"
+                                                :width="flexColumnWidth(12)">
+                                            </el-table-column>
+                                        </el-table>
+                                        <el-pagination @size-change="handleSizeChange"
+                                            @current-change="handleCurrentChange" :current-page="currentPage"
+                                            :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                            layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                                        </el-pagination>
+                                    </template>
+                                </div>
+                                <div class="chars none"
+                                    style="width: 100%; height: 500px; background: rgb(255, 255, 255); -webkit-tap-highlight-color: transparent; user-select: none;"
+                                    _echarts_instance_="1570583041108">
+                                    <div style="position: relative; overflow: hidden; width: 100px; height: 500px;">
+                                        <div data-zr-dom-id="bg"
+                                            style="position: absolute; left: 0px; top: 0px; width: 100px; height: 500px; user-select: none;">
+                                        </div><canvas width="100" height="500" data-zr-dom-id="0"
+                                            style="position: absolute; left: 0px; top: 0px; width: 100px; height: 500px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas><canvas
+                                            width="100" height="500" data-zr-dom-id="1"
+                                            style="position: absolute; left: 0px; top: 0px; width: 100px; height: 500px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas><canvas
+                                            width="100" height="500" data-zr-dom-id="_zrender_hover_"
+                                            style="position: absolute; left: 0px; top: 0px; width: 100px; height: 500px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-side wxRight-side" v-if="activeIndexb == 1">
+                    <div>
+                        <div class="title-box">
+                            <div class="tit-font">
+                                <span class="t">教师课时</span>
+                            </div>
+                        </div>
+                        <!-- 5.2版本开始 -->
+                        <div class=" impotrArea">
+                            <div class="proxySearch">
+                                <span>筛选条件 :</span>
+                                <select name="schoolIds" id="schoolIds" v-model="teacher_class.branch_school_id">
+                                    <option value="1">默认分校</option>
+                                </select>
+                                <input class="scrinp" type="text" v-model="teacher_class.user_name" placeholder="教师姓名"
+                                    name="teacherName" id="teacherName">
+                                <input class="scrinp" type="text" v-model="teacher_class.tel" placeholder="手机号"
+                                    name="mobile" id="mobile">
+                            </div>
+                            <div class="timeSearch clear">
+                                <em class="fl">日期 :</em>
+                                <div class="fl" id="dateList">
+                                    <a href="javascript:void(0);" @click="actived(0)"
+                                        :class="activeIndexd == 0?'btn btn-mini btn-success':'btn btn-mini btn-default'">今天</a>
+                                    <a href="javascript:void(0);" @click="actived(1)"
+                                        :class="activeIndexd == 1?'btn btn-mini btn-success':'btn btn-mini btn-default'">昨天</a>
+                                    <a href="javascript:void(0);" @click="actived(2)"
+                                        :class="activeIndexd == 2?'btn btn-mini btn-success':'btn btn-mini btn-default'">7天</a>
+                                    <a href="javascript:void(0);" @click="actived(3)"
+                                        :class="activeIndexd == 3?'btn btn-mini btn-success':'btn btn-mini btn-default'">当月</a>
+                                    <a href="javascript:void(0);" @click="actived(4)"
+                                        :class="activeIndexd == 4?'btn btn-mini btn-success':'btn btn-mini btn-default'">三个月</a>
+                                    <a href="javascript:void(0);" @click="actived(5)"
+                                        :class="activeIndexd == 5?'btn btn-mini btn-success':'btn btn-mini btn-default'">指定时间</a>
+                                    <template v-if="activeIndexd == 5">
+                                        <el-date-picker v-model="value2" type="datetimerange" range-separator="至"
+                                            start-placeholder="开始日期" style="width: 300px;margin-bottom: 30px;    vertical-align: middle;
+                                                    height:30px" end-placeholder="结束日期">
+                                        </el-date-picker>
+                                    </template>
+                                    <button id="btnSearch" @click="search_teacher_tj">搜索</button>
+                                    <button id="btnSearch" @click="search_teacher_export">导出</button>
+                                </div>
+                            </div>
+                            <div class="panel" style="padding-bottom: 20px;">
+                                <!-- 统计表 -->
+                                <div class="dataview clear" style="    padding: 0 0 10px 10px;">
+                                    <span class="fl datav-name">
+                                        <strong>
+                                            总课时&nbsp;:
+                                            <em id="totalHoursCount">{{total_hours}}课时</em>
+                                        </strong>
+                                    </span>
+                                </div>
+                                <div class="proxyBox">
+                                    <template>
+                                        <el-table border
+                                            :data="userList1.slice((currentPage1-1)*pagesize1,currentPage1*pagesize1)"
+                                            :data="tableData" style="overflow: auto;">
+                                            <el-table-column prop="branch_school_name" label="所属分校"
+                                                :width="flexColumnWidth(20)" style="text-align: center">
+                                            </el-table-column>
+                                            <el-table-column prop="user_name" label="姓名" :width="flexColumnWidth(20)">
+                                            </el-table-column>
+                                            <el-table-column prop="tel" label="手机号" :width="flexColumnWidth(20)">
+                                            </el-table-column>
+                                            <el-table-column prop="allhours" label="课时" :width="flexColumnWidth(15)">
+                                            </el-table-column>
+                                            <el-table-column label="详情" :width="flexColumnWidth(25)">
+                                                <template slot-scope="scope">
+                                                    <el-button type="text" size="small"
+                                                        @click="teacher_detail(scope.row)">
+                                                        详情
+                                                    </el-button>
+                                                    <el-button type="text" size="small"
+                                                        @click="login_detail(scope.row)">
+                                                        登录记录
+                                                    </el-button>
+                                                    <el-button type="text" size="small"
+                                                        @click="shouke_detail(scope.row)">
+                                                        授课记录
+                                                    </el-button>
+                                                </template>
+                                            </el-table-column>
+                                        </el-table>
+                                        <el-pagination @size-change="handleSizeChange1"
+                                            @current-change="handleCurrentChange1" :current-page="currentPage1"
+                                            :page-sizes="[5, 10, 20, 40]" :page-size="pagesize1"
+                                            layout="total, sizes, prev, pager, next, jumper" :total="userList1.length">
+                                        </el-pagination>
+                                    </template>
+                                    <div class="pages" style="margin:30px 0;">
+                                        <ul class="pagination"></ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- 5.2版本结束 -->
+                    </div>
+                </div>
+                <div class="right-side" v-if="activeIndexb == 2">
+                    <div>
+                        <div class="title-box">
+                            <div class="tit-font">
+                                <span class="t">直播到课率统计</span>
+                            </div>
+                        </div>
+                        <div class="points-check" style="width:auto; margin:0; padding:0 30px;">
+                            <div id="integralForm">
+                                <div class="search-cnt balanceSearch" style="margin: 0;">
+                                    <select name="oneItem" id="oneItem" v-model="class_dk_tj.project_id"
+                                        @change="dk_change_subjects">
+                                        <option value="">学科</option>
+                                        <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}
+                                        </option>
+                                    </select>
+
+                                    <select name="twoItem" id="twoItem" v-model="class_dk_tj.subject_id"
+                                        @change="dk_change_courses">
+                                        <option value="">学科小类</option>
+                                        <option v-for="(item,index) in dk_subjects" :value="item.pse_id">
+                                            {{item.pse_name}}</option>
+
+                                    </select>
+                                    <select name="twoItem" id="twoItem" v-model="class_dk_tj.course_id"
+                                        @change="dk_change_units">
+                                        <option value="">课程</option>
+                                        <option v-for="(item,index) in dk_courses" :value="item.course_id">
+                                            {{item.course_name}}</option>
+
+                                    </select>
+                                    <select id="class_module" name="class_module" v-model="class_dk_tj.course_unit_id"
+                                        @change="dk_change_times">
+                                        <option value="">课程单元</option>
+                                        <option v-for="(item,index) in dk_units" :value="item.course_unit_id">
+                                            {{item.cu_name}}</option>
+                                    </select>
+                                    <select name="class_lesson" id="class_lesson" v-model="class_dk_tj.course_times_id">
+                                        <option value="">课次</option>
+                                        <option v-for="(item,index) in dk_times" :value="item.course_times_id">
+                                            {{item.ct_name}}</option>
+                                    </select>
+                                </div>
+                                <div class="search-cnt balanceSearch" style="margin: 0;">
+                                    <template>
+                                        <el-date-picker v-model="value4" type="datetimerange" range-separator="至"
+                                            start-placeholder="开始日期" style="width: 360px;vertical-align: middle;
+                                                    height:30px" end-placeholder="结束日期">
+                                        </el-date-picker>
+                                    </template>
+                                    <button class="searchIntegralList" style="" @click="search_class_rate">搜索</button>
+                                </div>
+                            </div>
+                            <button id="export" @click="pl_export">批量导出</button>
+                            <div class="table-wrap">
+                                <template>
+                                    <el-table border
+                                        :data="userList3.slice((currentPage3-1)*pagesize3,currentPage3*pagesize3)"
+                                        :data="tableData" style="overflow: auto;">
+                                        <el-table-column prop="project_name" label="学科" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="subject_name" label="学科小类" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="course_name" label="课程" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="cu_name" label="单元" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="ct_name" label="课次" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="time" label="课程时间" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="dkl" label="到课率" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="wcl" label="完成率" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column label="操作" :width="flexColumnWidth(10)">
+                                            <template slot-scope="scope">
+                                                <el-button type="text" size="small"
+                                                    @click="dk_class_detail(scope.row)">
+                                                    查看详情
+                                                </el-button>
+                                            </template>
+                                        </el-table-column>
+                                    </el-table>
+                                    <el-pagination @size-change="handleSizeChange3"
+                                        @current-change="handleCurrentChange3" :current-page="currentPage3"
+                                        :page-sizes="[5, 10, 20, 40]" :page-size="pagesize3"
+                                        layout="total, sizes, prev, pager, next, jumper" :total="userList3.length">
+                                    </el-pagination>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+        <div class="detail-Parent teacherHourDetail" v-if="model == 2"
+            style="z-index: 99; overflow-y: hidden; display: block;">
+            <div class="detail-Par" style="position: fixed; left: 50%; top: 70px; margin-left: -480px;">
+                <div class="tips-spetitle">
+                    课时详情 <i class="iconfont spe-close" @click="model = 0"></i>
+                </div>
+                <div class="detailsPop">
+
+                    <div class="screenList formpost">
+                        <span style="vertical-align:  inherit;">关键词：</span>
+                        <select name="itemOneId" id="itemOneId" v-model="teacher_class_detail.project_id"
+                            @change="inita" style="vertical-align: inherit;width: 100px;">
+                            <option value="">选择学科</option>
+                            <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}</option>
+                        </select>
+                        <select name="itemTwoId" id="itemTwoId" v-model="teacher_class_detail.subject_id"
+                            style="vertical-align: inherit;width: 100px;">
+                            <option value="">选择学科小类</option>
+                            <option v-for="(item,index) in subjects" :value="item.pse_id">{{item.pse_name}}</option>
+                        </select>
+                        <template>
+                            <el-date-picker v-model="value3" type="datetimerange" range-separator="至"
+                                start-placeholder="开始日期" style="width: 300px;vertical-align: top;
+                                        height:28px" end-placeholder="结束日期">
+                            </el-date-picker>
+                        </template>
+                        <a class="btn btn-mini check" style="vertical-align: super;margin-left: 10px"
+                            href="javascript:;" @click="search_teacher_detail" id="detailSearch">搜索</a>
+                        <a class="btn btn-mini check" style="vertical-align: super;" href="javascript:;"
+                            id="exportDetail" @click="export_teacher_detail">导出</a>
+                    </div>
+                    <ul class="showList showList-det clear">
+                        <li class="fr">
+                            <span>总课时 :</span>
+                            <em id="detailHoursCount">{{s_total_hours}}课时</em>
+                        </li>
+                    </ul>
+                    <template>
+                        <el-table border :data="userList2.slice((currentPage2-1)*pagesize2,currentPage2*pagesize2)"
+                            :data="tableData" style="overflow: auto;max-height: 211px">
+                            <el-table-column prop="pse_name" label="学科小类" :width="flexColumnWidth2(20)">
+                            </el-table-column>
+                            <el-table-column prop="course_name" label="课程名称" :width="flexColumnWidth2(20)">
+                            </el-table-column>
+                            <el-table-column prop="ct_name" label="课次名称" :width="flexColumnWidth2(20)">
+                            </el-table-column>
+                            <el-table-column prop="begin_class_date" label="获取时间" :width="flexColumnWidth2(20)">
+                            </el-table-column>
+                            <el-table-column prop="allhour" label="课时" :width="flexColumnWidth2(18)">
+                            </el-table-column>
+                        </el-table>
+                        <el-pagination @size-change="handleSizeChange2" @current-change="handleCurrentChange2"
+                            :current-page="currentPage2" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize2"
+                            layout="total, sizes, prev, pager, next, jumper" :total="userList2.length">
+                        </el-pagination>
+                    </template>
+
+                    <div class="pages pages-invit">
+                        <ul class="pagination2"></ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="detail-Parent teacherHourDetail" v-if="model == 3"
+            style="z-index: 99; overflow-y: hidden; display: block;">
+            <div class="detail-Par" style="position: fixed; left: 50%; top: 70px; margin-left: -480px;">
+                <div class="tips-spetitle">
+                    登录记录 <i class="iconfont spe-close" @click="model = 0"></i>
+                </div>
+                <div class="detailsPop">
+                    <template>
+                        <el-table border :data="userList5.slice((currentPage5-1)*pagesize5,currentPage5*pagesize5)"
+                            :data="tableData" style="overflow: auto;max-height: 211px">
+                            <el-table-column prop="date_time" label="进入时间" :width="flexColumnWidth2(20)">
+                            </el-table-column>
+                            <el-table-column prop="last_time" label="离开时间" :width="flexColumnWidth2(20)">
+                            </el-table-column>
+                            <el-table-column prop="duration_time" label="上课时长" :width="flexColumnWidth2(10)">
+                            </el-table-column>
+                            <el-table-column prop="isp" label="运营商" :width="flexColumnWidth2(8)">
+                            </el-table-column>
+                            <el-table-column prop="ip" label="ip" :width="flexColumnWidth2(20)">
+                            </el-table-column>
+                            <el-table-column prop="location" label="物理地址" :width="flexColumnWidth2(20)">
+                                </el-table-column>
+                        </el-table>
+                        <el-pagination @size-change="handleSizeChange5" @current-change="handleCurrentChange5"
+                            :current-page="currentPage5" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize5"
+                            layout="total, sizes, prev, pager, next, jumper" :total="userList5.length">
+                        </el-pagination>
+                    </template>
+
+                    <div class="pages pages-invit">
+                        <ul class="pagination2"></ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="detail-Parent teacherHourDetail" v-if="model == 4"
+            style="z-index: 99; overflow-y: hidden; display: block;">
+            <div class="detail-Par" style="position: fixed; left: 50%; top: 70px; margin-left: -480px;">
+                <div class="tips-spetitle">
+                    授课记录 <i class="iconfont spe-close" @click="model = 0"></i>
+                </div>
+                <div class="detailsPop">
+                    <template>
+                        <el-table border :data="userList6.slice((currentPage6-1)*pagesize6,currentPage6*pagesize6)"
+                            :data="tableData" style="overflow: auto;max-height: 211px">
+                            <el-table-column prop="startTime" label="开始时间" :width="flexColumnWidth2(30)">
+                            </el-table-column>
+                            <el-table-column prop="endTime" label="结束时间" :width="flexColumnWidth2(30)">
+                            </el-table-column>
+                            <el-table-column prop="title" label="课程名称" :width="flexColumnWidth2(30)">
+                            </el-table-column>
+                        </el-table>
+                        <el-pagination @size-change="handleSizeChange6" @current-change="handleCurrentChange6"
+                            :current-page="currentPage6" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize6"
+                            layout="total, sizes, prev, pager, next, jumper" :total="userList6.length">
+                        </el-pagination>
+                    </template>
+
+                    <div class="pages pages-invit">
+                        <ul class="pagination2"></ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="alertListBg" v-if="model==1" >
+            <div class="listBox" style="">
+                <h5 class="listTitle clear">
+                    <span id="stu_ingte_Name"></span>
+                    <i class="close fr" @click="model=0"></i>
+                </h5>
+                <div class="searchCriteria">
+                    <div class="searchForm">
+                        <form class="butList">
+                            <select id="completeStatus" v-model="class_dk_detail.completion_status">
+                                <option value="">完成情况</option>
+                                <option value="完成">完成</option>
+                                <option value="未完成">未完成</option>
+                            </select>
+                            <select id="studyType" v-model="class_dk_detail.study_style">
+                                <option value="">学习方式</option>
+                                <option value="看直播">看直播</option>
+                                <option value="看回放">看回放</option>
+                            </select>
+                            <input type="text" id="userName" v-model="class_dk_detail.wechat" placeholder="微信号">
+                            <input type="text" id="mobile" v-model="class_dk_detail.tel" placeholder="手机号">
+                        </form>
+                        <button lessonid="937147" classtypeid="239407"
+                            class="searchIntegral_detail"
+                            style="border: none; background-color: #00aaff;color: #fff;margin-left: 5px;"
+                            classmoduleid="856899" classmodulenoid="212402" @click="search_dk_detail">搜索</button>
+                    </div>
+                    <template>
+                        <el-table border :data="userList4.slice((currentPage4-1)*pagesize4,currentPage4*pagesize4)"
+                            :data="tableData" style="overflow: auto;max-height: 211px">
+                            <el-table-column prop="mobile_wechat" label="微信号/手机号" :width="flexColumnWidth4(25)">
+                            </el-table-column>
+                            <el-table-column prop="completion_status" label="完成情况" :width="flexColumnWidth4(25)">
+                            </el-table-column>
+                            <el-table-column prop="study_style" label="学习方式" :width="flexColumnWidth4(25)">
+                            </el-table-column>
+                            <el-table-column prop="begin_class_time" label="上课时间" :width="flexColumnWidth4(23)">
+                            </el-table-column>
+                        </el-table>
+                        <el-pagination @size-change="handleSizeChange4" @current-change="handleCurrentChange4"
+                            :current-page="currentPage4" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize4"
+                            layout="total, sizes, prev, pager, next, jumper" :total="userList4.length">
+                        </el-pagination>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    currentPage1: 1, //初始页
+                    currentPage2: 1, //初始页
+                    currentPage3: 1, //初始页
+                    currentPage4: 1, //初始页
+                    currentPage5: 1, //初始页
+                    currentPage6: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: localStorage.TJ_activeIndexb == undefined ? 0 : localStorage.TJ_activeIndexb,
+                    activeIndexc: 0, //学员统计 时间的跳转值
+                    activeIndexd: 2, //教师课时 时间的默认值
+                    pagesize: 10, //    每页的数据
+                    pagesize1: 10, //    每页的数据
+                    pagesize2: 10, //    每页的数据
+                    pagesize3: 10, //    每页的数据
+                    pagesize4: 10, //    每页的数据
+                    pagesize5: 10, //    每页的数据
+                    pagesize6: 10, //    每页的数据
+                    model: 0,
+                    value1: [], //学员统计 指定时间的跳转值
+                    value2: [], //教师课时 指定时间的默认值
+                    value3: [], //教师课时详情 指定时间的默认值
+                    value4: [], //直播到课率统计 指定时间的默认值
+                    userList: [],
+                    userList1: [],
+                    userList2: [],
+                    userList3: [],
+                    userList4: [],
+                    userList5: [],
+                    userList6: [],
+                    projects: [],
+                    subjects: [],
+                    dk_subjects: [],
+                    dk_courses: [],
+                    dk_units: [],
+                    dk_times: [],
+                    s_total_hours: 0,
+                    total_hours: 0,
+                    stu_tj_data: {
+                        mb: 0,
+                        outline: 0,
+                        public: 0,
+                    },
+                    stu_tj_info: {
+                        "branch_school_id": 1,
+                        "wechat": '',
+                        "registration_source": "",
+                        "stu_type": "",
+                        "stu_name": "",
+                        "tel": '',
+                        "start_time": "",
+                        "end_time": ""
+                    },
+                    teacher_class: {
+                        "branch_school_id": 1,
+                        "user_name": "",
+                        "tel": '',
+                        "begin_class_date": "",
+                        "end_time_datess": ""
+                    },
+                    teacher_class_detail: {
+                        "project_id": '',
+                        "subject_id": '',
+                        "user_id": 1,
+                        "begin_class_date": "",
+                        "end_time_datess": ""
+                    },
+                    //直播到课率统计
+                    class_dk_tj: {
+                        "project_id": '',
+                        "subject_id": '',
+                        "course_id": '',
+                        "course_unit_id": '',
+                        "course_times_id": '',
+                        "begin_class_date": "2019-09-05 09:00:00",
+                        "end_time_datess": "2019-09-05 12:00:00"
+                    },
+                    //直播到课率详情
+                    class_dk_detail: {
+                        "completion_status": "",
+                        "study_style": "",
+                        "wechat": '',
+                        "tel": '',
+                        course_times_id:1
+                    },
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.activea(_this.activeIndexb)
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        // _this.inita()
+                        // _this.searchClass()
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            mounted() {
+
+            },
+            methods: {
+                active() {
+
+                },
+                search_dk_detail(){
+                    let _this = this
+                    console.log(_this.class_dk_detail)
+                    obj = JSON.parse(JSON.stringify(_this.class_dk_detail))
+                    for(var k in obj){
+                        if(obj[k] == '' || obj[k] == null){
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/data/StatisticsOfLiveDetails',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item)=>{
+                                item.mobile_wechat = item.wechat+'/'+item.tel
+                                item.begin_class_time = _this.getNowFormatDate(new Date(item.begin_class_time))
+                            })
+                            _this.userList4 = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                search_class_rate(){
+                    let _this = this
+                    if (_this.value4 != '' && _this.value4 != null && _this.value4.length != 0) {
+                        _this.class_dk_tj.begin_class_date = _this.getNowFormatDate(new Date(_this
+                            .value4[0]))
+                        _this.class_dk_tj.end_time_datess = _this.getNowFormatDate(new Date(_this
+                            .value4[1]))
+                    } else {
+                        _this.class_dk_tj.begin_class_date = ''
+                        _this.class_dk_tj.end_time_datess = ''
+                    }
+                    obj = JSON.parse(JSON.stringify(_this.class_dk_tj))
+                    for(var k in obj){
+                        if(obj[k] == '' || obj[k] == null){
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/data/StatisticsOfLive',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            data.datalist1.map((item) => {
+                                obj = {}
+                                item.time = _this.getNowFormatDate(new Date(item.begin_class_date))+'至'+_this.getNowFormatDate(new Date(item.end_time_datess))
+                                data.datalist2.map((item1) => {
+                                    if(item1.course_times_id == item.course_times_id){
+                                       item.wcl = item1.wcl
+                                       item.dkl = item1.dkl
+                                    }
+                                })
+                            })
+                            console.log(data)
+                            _this.userList3 = data.datalist1
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                dk_change_subjects() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.class_dk_tj.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.dk_subjects = data
+                            _this.class_dk_tj.subject_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                dk_change_courses() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/courseSearchBox',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.class_dk_tj.project_id,
+                            subject_id: _this.class_dk_tj.subject_id,
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.dk_courses = data
+                            _this.class_dk_tj.course_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                dk_change_units() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/queryCourseUnitList',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            course_id: _this.class_dk_tj.course_id,
+                            subject_id: _this.class_dk_tj.subject_id,
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.dk_units = data.in
+                            _this.class_dk_tj.course_unit_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                dk_change_times() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/queryCourseTimesFromOneCourseUnit',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            course_id: _this.class_dk_tj.course_id,
+                            course_unit_id: _this.class_dk_tj.course_unit_id,
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.dk_times = data
+                            _this.class_dk_tj.course_times_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                inita() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.teacher_class_detail.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.subjects = data
+                            _this.teacher_class_detail.subject_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                dk_class_detail(scope){
+                    console.log(scope)
+                    this.class_dk_detail.course_times_id = scope.course_times_id
+                    this.search_dk_detail()
+                    this.model = 1
+                },
+                //教师课时详情
+                teacher_detail(scope) {
+                    let _this = this
+                    console.log(scope)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/data/TeacherHoursDetails',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            user_id: scope.user_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item) => {
+                                item.begin_class_date = _this.getNowFormatDate(new Date(item
+                                    .begin_class_date))
+                            })
+                            _this.userList2 = data
+                            _this.s_total_hours = scope.allhours
+                            _this.teacher_class_detail.user_id = scope.user_id
+                            _this.model = 2
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                //登录记录详情
+                login_detail(scope) {
+                    let _this = this
+                    console.log(scope)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/user/courseZhuboLoginInfo',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "page":1,
+                            "size":1000,
+                            "accountType":2,
+                            user_id: scope.user_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.data.map((item) => {
+                                item.date_time = _this.getNowFormatDate(new Date(item
+                                    .date_time))
+                                    item.last_time = _this.getNowFormatDate(new Date(item
+                                    .last_time))
+                            })
+                            _this.userList5 = data.data
+                            _this.model = 3
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                //授课记录详情
+                shouke_detail(scope) {
+                    let _this = this
+                    console.log(scope)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/user/courseZhuboClassRecord',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "page":1,
+                            "size":1000,
+                            "accountType":2,
+                            user_id: scope.user_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.data.map((item) => {
+                                item.startTime = _this.getNowFormatDate(new Date(item
+                                    .startTime))
+                                    item.endTime = _this.getNowFormatDate(new Date(item
+                                    .endTime))
+                            })
+                            _this.userList6 = data.data
+                            _this.model = 4
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                pl_export(){
+                    _this = this
+                    console.log(_this.userList3)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出统计直播到课率表【'+_this.userList3.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    str = "学科,学科小类,课程,单元,课次,课程时间,到课率,完成率" + '\r\n'
+                    for (let k = 0; k < _this.userList3.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList3[k].project_name + ','
+                        stra += _this.userList3[k].subject_name + ','
+                        stra += _this.userList3[k].course_name + ','
+                        stra += _this.userList3[k].cu_name + ','
+                        stra += _this.userList3[k].ct_name + ','
+                        stra += _this.userList3[k].time + ','
+                        stra += _this.userList3[k].dkl == undefined?'':_this.userList3[k].dkl + ','
+                        stra += _this.userList3[k].wcl == undefined?'':_this.userList3[k].wcl + ','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "统计直播到课率表".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                export_teacher_detail() {
+                    _this = this
+                    console.log(_this.userList2)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出教师课时详情表【'+_this.userList2.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    str = "学科小类,课程名称,课次名称,获取时间,课时" + '\r\n'
+                    for (let k = 0; k < _this.userList2.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList2[k].pse_name + ','
+                        stra += _this.userList2[k].course_name + ','
+                        stra += _this.userList2[k].ct_name + ','
+                        stra += _this.userList2[k].begin_class_date + ','
+                        stra += _this.userList2[k].allhour + ','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "教师课时详情表".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                search_teacher_detail() {
+                    let _this = this
+                    if (_this.value3 != '' && _this.value3 != null && _this.value3.length != 0) {
+                        _this.teacher_class_detail.begin_class_date = _this.getNowFormatDate(new Date(_this
+                            .value3[0]))
+                        _this.teacher_class_detail.end_time_datess = _this.getNowFormatDate(new Date(_this
+                            .value3[1]))
+                    } else {
+                        _this.teacher_class_detail.begin_class_date = ''
+                        _this.teacher_class_detail.end_time_datess = ''
+                    }
+                    obj = JSON.parse(JSON.stringify(_this.teacher_class_detail))
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/data/TeacherHoursDetails',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.s_total_hours = 0
+                            data.map((item) => {
+                                item.begin_class_date = _this.getNowFormatDate(new Date(item
+                                    .begin_class_date))
+                                _this.s_total_hours += item.allhour
+                            })
+                            _this.userList2 = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].cu_statusa = _this.userList[i]
+                            //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                            //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                search_teacher_export() {
+                    _this = this
+                    console.log(_this.userList1)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出教师课时表【'+_this.userList1.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    str = "所属分校,姓名,手机号,课时" + '\r\n'
+                    for (let k = 0; k < _this.userList1.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList1[k].branch_school_name + ','
+                        stra += _this.userList1[k].user_name + ','
+                        stra += _this.userList1[k].tel + ','
+                        stra += _this.userList1[k].allhours + ','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "教师课时表".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                getLastThreeMonthYestdy(date) {
+                    var daysInMonth = new Array([0], [31], [28], [31], [30], [31], [30], [31], [31], [30], [31],
+                        [30], [31]);
+                    var strYear = date.getFullYear();
+                    var strDay = date.getDate();
+                    var strMonth = date.getMonth() + 1;
+                    if (strYear % 4 == 0 && strYear % 100 != 0) {
+                        daysInMonth[2] = 29;
+                    }
+                    if (strMonth < 4) {
+                        strYear -= 1;
+                        if (strMonth == 1) {
+                            strMonth = 10
+                        } else if (strMonth == 2) {
+                            strMonth = 11;
+                        } else if (strMonth == 3) {
+                            strMonth = 12;
+                        }
+                    } else {
+                        strMonth -= 3;
+                    }
+                    strDay = daysInMonth[strMonth] >= strDay ? strDay : daysInMonth[strMonth];
+                    if (strMonth < 10) {
+                        strMonth = "0" + strMonth;
+                    }
+                    if (strDay < 10) {
+                        strDay = "0" + strDay;
+                    }
+                    var dataStr = strYear + "-" + strMonth + "-" + strDay;
+                    return dataStr;
+                },
+                getLastSixMonthYestdy(date) {
+                    var daysInMonth = new Array([0], [31], [28], [31], [30], [31], [30], [31], [31], [30], [31],
+                        [30], [31]);
+                    var strYear = date.getFullYear();
+                    var strDay = date.getDate();
+                    var strMonth = date.getMonth() + 1;
+                    if (strYear % 4 == 0 && strYear % 100 != 0) {
+                        daysInMonth[2] = 29;
+                    }
+                    if (strMonth < 4) {
+                        strYear -= 1;
+                        if (strMonth == 1) {
+                            strMonth = 10
+                        } else if (strMonth == 2) {
+                            strMonth = 11;
+                        } else if (strMonth == 3) {
+                            strMonth = 12;
+                        }
+                    } else {
+                        strMonth -= 6;
+                    }
+                    strDay = daysInMonth[strMonth] >= strDay ? strDay : daysInMonth[strMonth];
+                    if (strMonth < 10) {
+                        strMonth = "0" + strMonth;
+                    }
+                    if (strDay < 10) {
+                        strDay = "0" + strDay;
+                    }
+                    var dataStr = strYear + "-" + strMonth + "-" + strDay;
+                    return dataStr;
+                },
+                search_stu_tj() {
+                    let _this = this
+                    var oneday = 1000 * 60 * 60 * 24,
+                        today = new Date();
+                    getday = today.getDay() == 0 ? 7 : today.getDay();
+                    obj = JSON.parse(JSON.stringify(_this.stu_tj_info))
+                    switch (_this.activeIndexc) {
+                        case 0:
+                            obj.start_time = _this.getNowFormatDate(new Date()).split(' ')[0] + ' 00:00:00'
+                            obj.end_time = _this.getNowFormatDate(new Date()).split(' ')[0] + ' 23:59:59'
+                            break;
+                        case 1:
+                            obj.end_time = _this.getNowFormatDate(new Date(new Date().getTime() - 24 * 3600 *
+                                1000)).split(' ')[0] + ' 23:59:59'
+                            obj.start_time = _this.getNowFormatDate(new Date(new Date().getTime() - 24 * 3600 *
+                                1000)).split(' ')[0] + ' 00:00:00'
+                            break;
+                        case 2:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.start_time = _this.getNowFormatDate(new Date(new Date().getTime() - 7 * 24 *
+                                3600 * 1000))
+                            break;
+                        case 3:
+                            console.log(1)
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.start_time = _this.getNowFormatDate(new Date(new Date(new Date(new Date()
+                                .toLocaleDateString()).getTime() - oneday * (today.getDate() -
+                                1))))
+
+                            break;
+                        case 4:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.start_time = _this.getLastThreeMonthYestdy(new Date()) + ' ' + _this
+                                .getNowFormatDate(new Date()).split(' ')[1]
+                            break;
+                        case 5:
+                            obj.end_time = _this.getNowFormatDate(new Date(_this.value1[1]))
+                            obj.start_time = _this.getNowFormatDate(new Date(_this.value1[0]))
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log(obj)
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/data/CadetStatistics',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.stu_tj_data = {
+                                mb: 0,
+                                outline: 0,
+                                public: 0,
+                            }
+                            data.map((item) => {
+                                switch (item.registration_source) {
+                                    case '线下录入':
+                                        _this.stu_tj_data.outline += 1
+                                        break;
+                                    case '手机端':
+                                        _this.stu_tj_data.mb += 1
+                                        break;
+                                    case '官网注册':
+                                        _this.stu_tj_data.public += 1
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                item.create_time = _this.getNowFormatDate(new Date(item
+                                    .create_time))
+                            })
+                            _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].cu_statusa = _this.userList[i]
+                            //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                            //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                search_teacher_tj() {
+                    let _this = this
+                    var oneday = 1000 * 60 * 60 * 24,
+                        today = new Date();
+                    getday = today.getDay() == 0 ? 7 : today.getDay();
+                    obj = JSON.parse(JSON.stringify(_this.teacher_class))
+                    switch (_this.activeIndexd) {
+                        case 0:
+                            obj.begin_class_date = _this.getNowFormatDate(new Date()).split(' ')[0] +
+                                ' 00:00:00'
+                            obj.end_time_datess = _this.getNowFormatDate(new Date()).split(' ')[0] + ' 23:59:59'
+                            break;
+                        case 1:
+                            obj.end_time_datess = _this.getNowFormatDate(new Date(new Date().getTime() - 24 *
+                                3600 *
+                                1000)).split(' ')[0] + ' 23:59:59'
+                            obj.begin_class_date = _this.getNowFormatDate(new Date(new Date().getTime() - 24 *
+                                3600 *
+                                1000)).split(' ')[0] + ' 00:00:00'
+                            break;
+                        case 2:
+                            obj.end_time_datess = _this.getNowFormatDate(new Date())
+                            obj.begin_class_date = _this.getNowFormatDate(new Date(new Date().getTime() - 7 *
+                                24 *
+                                3600 * 1000))
+                            break;
+                        case 3:
+                            console.log(1)
+                            obj.end_time_datess = _this.getNowFormatDate(new Date())
+                            obj.begin_class_date = _this.getNowFormatDate(new Date(new Date(new Date(new Date()
+                                .toLocaleDateString()).getTime() - oneday * (today.getDate() -
+                                1))))
+
+                            break;
+                        case 4:
+                            obj.end_time_datess = _this.getNowFormatDate(new Date())
+                            obj.begin_class_date = _this.getLastThreeMonthYestdy(new Date()) + ' ' + _this
+                                .getNowFormatDate(new Date()).split(' ')[1]
+                            break;
+                        case 5:
+                            obj.end_time_datess = _this.getNowFormatDate(new Date(_this.value2[1]))
+                            obj.begin_class_date = _this.getNowFormatDate(new Date(_this.value2[0]))
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log(obj)
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/data/TeacherHours',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.total_hours = 0
+                            data.map((item) => {
+                                _this.total_hours += item.allhours
+                            })
+                            _this.userList1 = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].cu_statusa = _this.userList[i]
+                            //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                            //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activea(num) {
+                    let _this = this
+                    this.activeIndexb = num;
+                    switch (this.activeIndexb) {
+                        case '0':
+                            _this.search_stu_tj()
+                            break;
+                        case '1':
+                            _this.search_teacher_tj()
+                            break;
+                        case '2':
+                            _this.search_class_rate()
+                            break;
+                        default:
+                            break;
+                    }
+                    localStorage.TJ_activeIndexb = num
+                },
+                activec(num) {
+                    this.activeIndexc = num;
+                },
+                actived(num) {
+                    this.activeIndexd = num;
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleSizeChange1: function (size) {
+                    this.pagesize1 = size;
+                },
+                handleSizeChange2: function (size) {
+                    this.pagesize2 = size;
+                },
+                handleSizeChange3: function (size) {
+                    this.pagesize3 = size;
+                },
+                handleSizeChange4: function (size) {
+                    this.pagesize4 = size;
+                },
+                handleSizeChange5: function (size) {
+                    this.pagesize5 = size;
+                },
+                handleSizeChange6: function (size) {
+                    this.pagesize6 = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                handleCurrentChange1: function (currentPage) {
+                    this.currentPage1 = currentPage;
+                },
+                handleCurrentChange2: function (currentPage) {
+                    this.currentPage2 = currentPage;
+                },
+                handleCurrentChange3: function (currentPage) {
+                    this.currentPage3 = currentPage;
+                },
+                handleCurrentChange4: function (currentPage) {
+                    this.currentPage4 = currentPage;
+                },
+                handleCurrentChange5: function (currentPage) {
+                    this.currentPage5 = currentPage;
+                },
+                handleCurrentChange6: function (currentPage) {
+                    this.currentPage6 = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+                flexColumnWidth2(num) {
+
+                    return $('.detailsPop').width() > 600 ? $('.detailsPop')
+                        .width() / 100 * num : 12 * num
+                },
+                flexColumnWidth4(num) {
+
+                return $('.searchForm').width() > 600 ? $('.searchForm')
+                    .width() / 100 * num : 12 * num
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

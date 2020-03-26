@@ -1,0 +1,321 @@
+/*
+* @Author: baocheng
+* @Date:   2017-05-11 18:07:45
+* @Last Modified by:   baocheng
+* @Last Modified time: 2017-05-23 18:07:36
+*/
+
+/*表格*/
+.tab-htr th {
+	font-size: 14px;
+	color: #333;
+	background-color: #f0f0f0;
+	font-weight: normal;
+}
+
+.tab-htr th em {
+	color: #fe5151;
+}
+
+.tab-dtr td {
+	font-size: 12px;
+	color: #666;
+}
+
+.tab-dtr td em {
+	color: #07bbee;
+	cursor: pointer;
+}
+
+.cashrecord-tab {
+	line-height: 22px;
+	background-color: #fff;
+	margin-bottom: 20px;
+}
+
+.tab-dtr .Withdraw {
+	cursor: pointer;
+	color: #07bbee;
+}
+
+.table .option {
+	font-style: normal;
+	color: #07bbee;
+}
+
+.table .option i {
+	margin: 0 1px;
+	font-style: normal;
+	cursor: pointer;
+}
+
+/*------*/
+.headingImp .h5 {
+	color: #000;
+	font-size: 16px;
+}
+
+.headingImp .line {
+	margin-left: -9px;
+	bottom: -7px;
+}
+
+.headingImp a.btn-primary {
+	padding: 9px 13px;
+}
+
+.nopadding .impotrArea {
+	padding-top: 20px;
+	min-height: 380px;
+}
+
+/* 规则说明*/
+.impotrArea .ruleArea {
+	margin-bottom: 20px;
+}
+
+.ruleArea h3 {
+	width: 64px;
+	font-size: 14px;
+	color: #333;
+	line-height: 1;
+	margin-right: 15px;
+}
+
+.ruleData dd {
+	font-size: 12px;
+	color: #666;
+	line-height: 1;
+	margin-bottom: 10px;
+}
+
+.ruleData dd em {
+	color: #cc0000;
+}
+
+.ruleData dd b {
+	font-weight: normal;
+	margin-right: 10px;
+}
+
+.ruleArea .ruleSel {
+	font-size: 0;
+}
+
+.ruleArea .ruleSel em {
+	font-size: 14px;
+	color: #333;
+	line-height: 1;
+	margin-right: 15px;
+}
+
+.ruleArea .ruleSel select {
+	width: 160px;
+	height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	padding: 0 10px;
+	font-size: 12px;
+	color: #000;
+	line-height: 28px;
+	margin-right: 30px;
+	vertical-align: baseline;
+	border-radius: 2px;
+}
+
+.ruleArea .ruleSel .tiques {
+	width: 130px;
+	border-radius: 3px;
+	margin-right: 4px;
+}
+
+.ruleArea .temDown {
+	display: inline-block;
+	font-size: 12px;
+	line-height: 12px;
+	color: #07bbee;
+	text-decoration: underline;
+	vertical-align: top;
+}
+
+/*导入文件*/
+.ruleArea-imp h3 {
+	height: 30px;
+	line-height: 30px;
+}
+
+.ruleArea-imp .selfile {
+	position: relative;
+	display: inline-block;
+	width: 90px;
+	height: 30px;
+	margin-right: 10px;
+	line-height: 30px;
+	text-align: center;
+	box-sizing: border-box;
+	border: 1px solid #e0e0e0;
+	font-size: 14px;
+	color: #666;
+	border-radius: 2px;
+	overflow: hidden;
+	text-decoration: none;
+	background: -webkit-linear-gradient(#f8f8f8, #f0f0f0);
+	background: -o-linear-gradient(#f8f8f8, #f0f0f0);
+	background: -moz-linear-gradient(#f8f8f8, #f0f0f0);
+	background: linear-gradient(#f8f8f8, #f0f0f0);
+}
+
+.ruleArea-imp .selfile:hover {
+	background: -webkit-linear-gradient(#f0f0f0, #f0f0f0);
+	background: -o-linear-gradient(#f0f0f0, #f0f0f0);
+	background: -moz-linear-gradient(#f0f0f0, #f0f0f0);
+	background: linear-gradient(#f0f0f0, #f0f0f0);
+}
+
+.selfile input {
+	position: absolute;
+	font-size: 100px;
+	right: 0;
+	top: 0;
+	opacity: 0;
+}
+
+.ruleArea-imp .inpnBox {
+	margin-right: 20px;
+}
+
+.ruleArea-imp .inpName {
+	position: relative;
+	top: 1px;
+	width: 249px;
+	height: 28px;
+	border: 1px solid #ccc;
+	padding-left: 7px;
+	box-sizing: border-box;
+	line-height: 28px;
+	font-size: 12px;
+	color: #333;
+	border-radius: 0;
+}
+
+.ruleArea a.checkbtn {
+	display: inline-block;
+	font-size: 14px;
+	color: #fff;
+	background-color: #07bbee;
+	cursor: pointer;
+	padding: 7px 11px;
+}
+
+.ruleArea .checkbtn:hover {
+	background-color: #01aadd;
+}
+
+.inpnBox .warnCon {
+	display: block;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 12px;
+	color: #cc0000;
+	margin-top: 14px;
+}
+
+/* 导入异常 start*/
+.ruleArea .abnormal {
+	padding-top: 10px;
+	padding-left: 80px;
+	/*width: 368px;*/
+	width: 450px;
+	text-align: right;
+}
+
+.ruleArea .abnormal-check {
+	padding-top: 0px;
+	padding-left: 0px;
+	/* width: 368px; */
+	width: 366px;
+	text-align: right;
+}
+
+.abnormal .abtit {
+	text-align: left;
+	font-size: 14px;
+	color: #333;
+	line-height: 1;
+	margin-bottom: 18px;
+}
+
+/* 导入异常 end*/
+
+/* 导入积分信息*/
+.pages-find {
+	margin: 30px 0 15px;
+}
+
+.pages-find li:nth-child(1) {
+	display: none;
+}
+
+.headingImp .btnContinue {
+	margin-right: 5px;
+}
+
+/*弹框 start*/
+.delwarnBox {
+	max-width: 420px;
+	padding: 0 36px;
+	box-sizing: border-box;
+}
+
+.delwarnBox .delM {
+	max-width: 288px;
+	margin: 0 auto;
+}
+
+/*弹框 end*/
+
+.starImg{
+	width: 960px;
+	margin: 0 auto;
+}
+.starImg .titleImg {
+	width: 960px;
+	height: 230px;
+	border: 1px solid #ccc;
+	text-align: center;
+	line-height: 180px;
+	background-color: #fff;
+}
+.starImg img {
+	vertical-align: middle;
+}
+.uploadImg {
+	margin-top: 10px;
+	position: relative;
+	height: 42px;
+}
+.uploadImg button {
+	width: 120px;
+	height: 40px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 14px;
+	color: #999;
+	border: 1px solid #ccc;
+	vertical-align: top;
+}
+.uploadImg .intFile {
+	width: 122px;
+	height: 42px;
+	border: none;
+	outline: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
+.uploadImg span {
+	font-size: 12px;
+	line-height: 40px;
+	color: #999;
+}

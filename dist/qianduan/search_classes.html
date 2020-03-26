@@ -1,0 +1,511 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/class-bag.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <link href="css/element-ui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/allclass.css">
+    <link rel="stylesheet" href="css/findCourse.css">
+    <link rel="stylesheet" href="css/class.css">
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+    <style>
+        .sreach-find input.sreachfind-in {
+            width: 140px;
+            height: 24px;
+            line-height: 14px;
+            /* display: -webkit-inline-box; */
+            padding-top: 6px;
+        }
+    </style>
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix">
+
+    </div>
+    <!-- register-end-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <div id="app" style="    margin-top: 60px;">
+        <div class="wrap class-menu" style="width: 1200px;    margin-top: 20px;" data-item-one-id=""
+            data-item-two-id="">
+            <div class="class-menu-box class-menu-boxfind">
+                <div class="clear"></div>
+                <div class="all-class-list all-class-listfind">
+                    <div class="sub-list sub-listfind">
+                        <div class="list-title list-title-find" style="height:auto">
+
+                            学科 :
+
+
+                        </div>
+                        <div class="list-right">
+                            <ul id="itemOneLists">
+                                <li @click="activea(item.pse_id)" v-for="(item,index) in projects" ids="128040"
+                                    :class="activeIndexa == item.pse_id?' course-active':''">{{item.pse_name}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sub-list sub-listfind none" id="itemTwoListChoose" style="display: block;">
+                        <div class="list-title list-title-find titPtop" style="height:auto">
+
+                            课程 :
+
+
+                        </div>
+                        <div class="list-right">
+                            <ul id="itemSecondLists">
+                                <li @click="activeb('')" :class="activeIndexb == ''?'titPtop course-active':'titPtop'"
+                                    ids="">全部</li>
+                                <li v-for="(item,index) in kemus" @click="activeb(item.pse_id)"
+                                    :class="activeIndexb == item.pse_id?'titPtop course-active':'titPtop'" ids="249698">
+                                    {{item.pse_name}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sub-list sub-listfind itemtagLists titPtop none">
+                        <div class="list-title list-title-find titPtop" style="height:auto">
+
+
+
+
+
+
+                            课程标签 :
+
+
+
+
+                        </div>
+                        <div class="list-right">
+                            <ul id="courseLables"></ul>
+                        </div>
+                    </div>
+                    <div class="sub-list sub-listfind itemtagSecondLists titPtop none">
+                        <div class="list-title list-title-find titPtop" style="height:auto">
+
+
+
+
+
+
+                            二级标签 :
+
+
+
+
+                        </div>
+                        <div class="list-right">
+                            <ul id="courseSecondLables"></ul>
+                        </div>
+                    </div>
+
+                    <div class="sub-list sub-listfind">
+                        <div class="list-title list-title-find titPtop" style="height:auto">授课方式 :</div>
+                        <div class="list-right">
+                            <ul id="list-type">
+                                <li @click="activec('')" :class="activeIndexc == ''?'titPtop course-active':'titPtop'"
+                                    ids="all">全部</li>
+
+                                <li @click="activec('直播')"
+                                    :class="activeIndexc == '直播'?'titPtop course-active':'titPtop'" ids="live">直播</li>
+                                <li @click="activec('录播')"
+                                    :class="activeIndexc == '录播'?'titPtop course-active':'titPtop'" ids="video">录播</li>
+                                <li @click="activec('直播,录播')"
+                                    :class="activeIndexc == '直播,录播'?'titPtop course-active':'titPtop'" ids="face">混合
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="newclass newclass-find" style="width: 1200px;">
+            <ul id="courseTypes">
+
+
+
+                <li @click="actived(1)" :class="activeIndexd == 1?'aacc statefind-active':'aacc'" ids="newest">最新</li>
+                <li @click="actived(2)" :class="activeIndexd == 2?'aacc statefind-active':'aacc'" ids="hottest">最热</li>
+                <li @click="actived(3)" :class="activeIndexd == 3?'aacc statefind-active':'aacc'" ids="composite">综合
+                </li>
+
+
+            </ul>
+            <div class="sreach sreach-find">
+                <div method="post" id="searchForms">
+                    <span><input class="sreach-in sreachfind-in" v-model="course_name" id="searchContent"
+                            placeholder="请输入搜索关键词" name="name" type="text" @keyup.13="searchClass(1)"></span>
+                    <span class="fr icon">
+                        <i class="iconfont searchbtn" @click="searchClass(1)" style="cursor: pointer;"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="classList" style="height: auto;">
+
+
+
+
+
+
+
+
+            <div class="class-list classfind-list">
+                <ul class="clear">
+
+                    <li data-id="929371" v-for="(item,index) in kcs" @click="goCourse(item)">
+                        <div class="parcel-box">
+                            <div class="picture" :style="'background-image:url('+item.cover+')'">
+                            </div>
+                            <div>
+                                <div class="stageMove">
+                                    <h5>{{item.course_name}}</h5>
+                                    <p class="stage-con">{{item.course_describe}}</p>
+                                </div>
+
+                                <div class="stage-price">
+                                    <div class="allsta-bot">
+                                        <div class="clear">
+                                            <span class="rmb fl">
+                                                <!--V6.7 添加隐藏定价和不对外售卖-->
+
+
+                                                <strong>{{item.special_price == 0?'免费':'￥'+item.special_price}}</strong>
+
+
+                                            </span>
+
+                                            <span class="people fr"><i class="iconfont"></i><em>{{item.rs}}</em></span>
+
+                                        </div>
+                                        <p class="pattern"> 授课模式：
+
+
+
+
+
+
+
+
+
+                                            {{item.course_type}}
+
+
+
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="pages pages-find" style="display: none;">
+                <ul class="pagination"></ul>
+            </div>
+
+
+
+
+
+            <input type="hidden" id="secondeItemId" value="">
+        </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
+
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <form method="post" id="myForm">
+            <input type="hidden" name="type" id="typeValue">
+        </form>
+        <!-- footer end -->
+
+
+
+    </div>
+    <form method="post" id="myForm">
+        <input type="hidden" name="type" id="typeValue">
+    </form>
+    <!-- footer end -->
+    <!--百度统计代码-->
+
+
+
+
+
+
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<script src="js/vue.min.js"></script>
+<script src="js/element-ui.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                currentPage: 1, //初始页
+                activeIndexa: 0,
+                activeIndexb: '',
+                activeIndexc: '',
+                activeIndexd: 1,
+                pagesize: 10, //    每页的数据
+                model: 0,
+                value2: '',
+                course_name: '',
+                projects: [],
+                kemus: [],
+                kcs: [{
+                    //     "cover": 封面,
+                    // "course_id": 课程id,
+                    // "course_describe":课程描述
+                    // "course_type": 课程类型（直播、录播……）
+                    // "course_name": 课程名称
+                    // "special_price": 课程优惠价
+                    //course_status: "未上架",
+                    // "price": 课程定价
+                    // "stu_num": 多少人学习,
+                    // "course_status":课程状态（招生中、未上架……）
+                    // "tf_recommended": 是否被推荐（1代表是，2代表否）
+                }]
+            }
+        },
+        created() {
+            let _this = this
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+            $.ajax({
+                url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                type: 'get',
+                // contentType: 'application/json',
+                // data: JSON.stringify(_this.stu),
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    _this.projects = data
+                    _this.activeIndexa = _this.projects[0].pse_id
+                    _this.inita()
+                    _this.searchClass()
+                    // _this.kc.project_id = _this.projects[0].pse_id
+                    // _this.changeKemu()
+                    // _this.userList = data
+                    // for (let i = 0; i < _this.userList.length; i++) {
+                    //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                    //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                    //     _this.userList[i].enrollment_status = _this.userList[i]
+                    //         .enrollment_status == 1 ? '已报名' : '未报名'
+                    // }
+                },
+                error: function () {
+
+                }
+            })
+        },
+        methods: {
+            searchClass(num) {
+
+                _this = this
+                if (num == 1) {
+                    obj = {
+                        course_name: _this.course_name,
+                    };
+                } else {
+                    obj = {
+                        project_id: _this.activeIndexa,
+                        subject_id: _this.activeIndexb,
+                        course_type: _this.activeIndexc,
+                        paixu: _this.activeIndexd
+                    };
+                    for (var k in obj) {
+                        if (obj[k] === '') {
+                            delete obj[k]
+                        }
+                    }
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/Discovery/queryCourse',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(obj),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.kcs = data
+                        for (let k = 0; k < _this.kcs.length; k++) {
+                            _this.kcs[k].mouse_status = 'false'
+                        }
+                    },
+                    error: function () {
+
+                    }
+                })
+
+            },
+            goCourse(item) {
+                window.open('open_classDetail.html?course_id=' + item.course_id)
+            },
+            inita() {
+                _this = this
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    data: {
+                        project_id: _this.activeIndexa
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.kemus = data
+                        // _this.activeIndexb = _this.kemus[0].pse_id
+                        // _this.userList = data
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                        //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                        //     _this.userList[i].enrollment_status = _this.userList[i]
+                        //         .enrollment_status == 1 ? '已报名' : '未报名'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            getNowFormatDate(date) {
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                if (hour >= 0 && hour <= 9) {
+                    hour = "0" + hour;
+                }
+                if (minute >= 0 && minute <= 9) {
+                    minute = "0" + minute;
+                }
+                if (second >= 0 && second <= 9) {
+                    second = "0" + second;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                    " " + hour + seperator2 + minute +
+                    seperator2 + second;
+                return currentdate;
+            },
+            activea(num) {
+                this.activeIndexa = num
+                this.inita()
+                this.searchClass()
+            },
+            activec(jj) {
+                this.activeIndexc = jj
+                this.searchClass()
+            },
+            actived(jj) {
+                this.activeIndexd = jj
+                this.searchClass()
+            },
+            activeb(num) {
+                this.activeIndexb = num
+                this.searchClass()
+            },
+        }
+    })
+</script>
+
+</html>

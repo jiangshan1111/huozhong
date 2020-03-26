@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+        .table-noline td{
+            width: 40%;
+        }
+        .table-noline tr td:last-of-type{
+            width: 20%;
+        }
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+             margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+
+        </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap classes">
+                <div class="mainbackground nopadding">
+                    <div class="heading">
+                        <h2 class="h5">课程详情</h2>
+                        <span class="line"></span>
+                    </div>
+                    <div class="c-main">
+                        <div class="s-title"><h2 class="h6">基本信息</h2></div>
+                        <div class="c-content">
+                            <p class="c">
+                                <span class="c-title">学科</span>
+                                <span class="c-content"><input type="text" class="readonly" value="基金从业资格考试" readonly="" style="width: inherit;"></span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">学科小类</span>
+                                <span class="c-content"><input type="text" class="readonly" value="科目二证券基础" readonly="" style="width: inherit;"></span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">课程名称</span>
+                               
+                                      <span class="c-content">
+                                    <input type="text" class="readonly" id="courseName" value="基金考试科目二：高校取证班" readonly="" style="width: inherit;">
+                                </span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">定价</span>
+                                <span class="c-content"><input type="text" class="readonly" value="500.0" readonly=""></span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">优惠价</span>
+                                <span class="c-content"><input type="text" class="readonly" value="500.0" readonly=""></span>
+                            </p>
+                            <p class="c">
+                                <span class="c-title">类型</span>
+                                <span class="c-content"><input type="text" class="readonly" value="常规班型" readonly=""></span>
+                            </p>
+                            
+                        </div>
+                        
+                        <div class="s-title" id="kcdyInfo"><h2 class="h6">课程单元信息</h2></div>
+                        <div class="c-content">
+                            <ul>
+                             
+                                 
+                                <li>
+                                    <table class="table table-noline">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科</span>
+                                                <span class="c-content">基金从业资格考试</span>
+                                            </td>
+                                            <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">
+                                                <span class="c-title" style="color:#999;">班号</span>
+                                                <span class="c-content">2019年6月考期：考前答疑课-20190620</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">校区</span>
+                                                <span class="c-content"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科小类</span>
+                                                <span class="c-content">科目一法律法规</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">授课方式</span>
+                                                <span class="c-content">直播</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">已招生</span>
+                                                <span class="c-content">0</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </li>
+                               
+                              
+                                 
+                                <li>
+                                    <table class="table table-noline">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科</span>
+                                                <span class="c-content">基金从业资格考试</span>
+                                            </td>
+                                            <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">
+                                                <span class="c-title" style="color:#999;">班号</span>
+                                                <span class="c-content">2019年6月考期：科二精讲课</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">校区</span>
+                                                <span class="c-content"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科小类</span>
+                                                <span class="c-content">科目二证券基础</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">授课方式</span>
+                                                <span class="c-content">直播</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">已招生</span>
+                                                <span class="c-content">0</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </li>
+                               
+                              
+                                 
+                                <li>
+                                    <table class="table table-noline">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科</span>
+                                                <span class="c-content">基金从业资格考试</span>
+                                            </td>
+                                            <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">
+                                                <span class="c-title" style="color:#999;">班号</span>
+                                                <span class="c-content">2019年6月考期：科二串讲课</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">校区</span>
+                                                <span class="c-content"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科小类</span>
+                                                <span class="c-content">科目二证券基础</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">授课方式</span>
+                                                <span class="c-content">直播</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">已招生</span>
+                                                <span class="c-content">0</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </li>
+                               
+                              
+                                 
+                                <li>
+                                    <table class="table table-noline">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科</span>
+                                                <span class="c-content">基金从业资格考试</span>
+                                            </td>
+                                            <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">
+                                                <span class="c-title" style="color:#999;">班号</span>
+                                                <span class="c-content">2019年6月考期：科二计算题专题课</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">校区</span>
+                                                <span class="c-content"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科小类</span>
+                                                <span class="c-content">科目二证券基础</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">授课方式</span>
+                                                <span class="c-content">直播</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">已招生</span>
+                                                <span class="c-content">0</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </li>
+                               
+                              
+                                 
+                                <li>
+                                    <table class="table table-noline">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科</span>
+                                                <span class="c-content">基金从业资格考试</span>
+                                            </td>
+                                            <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">
+                                                <span class="c-title" style="color:#999;">班号</span>
+                                                <span class="c-content">2019年5月考期：科二精讲课1-直播-20190422</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">校区</span>
+                                                <span class="c-content"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科小类</span>
+                                                <span class="c-content">科目二证券基础</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">授课方式</span>
+                                                <span class="c-content">直播</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">已招生</span>
+                                                <span class="c-content">0</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </li>
+                               
+                              
+                                 
+                                <li>
+                                    <table class="table table-noline">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科</span>
+                                                <span class="c-content">基金从业资格考试</span>
+                                            </td>
+                                            <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">
+                                                <span class="c-title" style="color:#999;">班号</span>
+                                                <span class="c-content">2019年5月考期：科二精讲课2-直播-20190506</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">校区</span>
+                                                <span class="c-content"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科小类</span>
+                                                <span class="c-content">科目二证券基础</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">授课方式</span>
+                                                <span class="c-content">直播</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">已招生</span>
+                                                <span class="c-content">0</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </li>
+                               
+                              
+                                 
+                                <li>
+                                    <table class="table table-noline">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科</span>
+                                                <span class="c-content">基金从业资格考试</span>
+                                            </td>
+                                            <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">
+                                                <span class="c-title" style="color:#999;">班号</span>
+                                                <span class="c-content">2019年5月考期：科二串讲课-直播-20190521</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">校区</span>
+                                                <span class="c-content"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科小类</span>
+                                                <span class="c-content">科目二证券基础</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">授课方式</span>
+                                                <span class="c-content">直播</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">已招生</span>
+                                                <span class="c-content">0</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </li>
+                               
+                              
+                                 
+                                <li>
+                                    <table class="table table-noline">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科</span>
+                                                <span class="c-content">基金从业资格考试</span>
+                                            </td>
+                                            <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">
+                                                <span class="c-title" style="color:#999;">班号</span>
+                                                <span class="c-content">2019年5月考期：科二计算题专题课-直播-20190519</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">校区</span>
+                                                <span class="c-content"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科小类</span>
+                                                <span class="c-content">科目二证券基础</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">授课方式</span>
+                                                <span class="c-content">直播</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">已招生</span>
+                                                <span class="c-content">0</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </li>
+                               
+                              
+                                 
+                                <li>
+                                    <table class="table table-noline">
+                                        <tbody><tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科</span>
+                                                <span class="c-content">基金从业资格考试</span>
+                                            </td>
+                                            <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">
+                                                <span class="c-title" style="color:#999;">班号</span>
+                                                <span class="c-content">2019年5月考期：考前答疑课-直播-20190523</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">校区</span>
+                                                <span class="c-content"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">学科小类</span>
+                                                <span class="c-content">科目一法律法规</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">授课方式</span>
+                                                <span class="c-content">直播</span>
+                                            </td>
+                                            <td>
+                                                <span class="c-title" style="color:#999;">已招生</span>
+                                                <span class="c-content">0</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </li>
+                               
+                              
+                            </ul>
+                        </div>
+                        
+                        
+                            <p class="c">
+                                <span class="c-title">&nbsp;</span>
+                                <span class="c-content">
+            
+            <!--                     		 <a href="javascript:onsale();" class="btn btn-primary">上架</a> -->
+            
+                                    <!-- <a href="javascript:history.go(-1)" class="btn btn-default">返回</a> -->
+                                </span>
+                            </p>
+                        </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+    
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script src="assets/js/notice.js"></script>
+    <script src="http://manage.yunduoketang.com/javascripts/common/utils.js?version=1563474866721"></script>
+    <script type="text/javascript"
+        src="http://manage.yunduoketang.com/plugins/ckeditor/ckeditor.js?version=1563474866721"></script>
+    <script type="text/javascript">
+        var classMoreStatus = '1'; //多班号是否开启
+
+        var editor = CKEDITOR.replace('newsContents');
+        editor.config.width = "570px";
+        editor.config.toolbar = [
+            ['mode', 'document', 'doctools'],
+            ['Source', '-', 'NewPage'],
+            ['basicstyles', 'cleanup'],
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript',
+                'Superscript'
+            ],
+            ['list', 'indent', 'blocks', 'align', 'bidi'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight',
+                'JustifyBlock'
+            ],
+            ['Link', 'Unlink'],
+            ['Image', 'Table'],
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['Maximize'],
+            ['-']
+        ];
+        editor.config.baseFloatZIndex = 10100;
+        editor.config.customConfig = 'config.js';
+
+
+
+        var email_editor = CKEDITOR.replace('email_newsContents');
+        email_editor.config.width = "570px";
+        email_editor.config.toolbar = [
+            ['mode', 'document', 'doctools'],
+            ['Source', '-', 'NewPage'],
+            ['basicstyles', 'cleanup'],
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript',
+                'Superscript'
+            ],
+            ['list', 'indent', 'blocks', 'align', 'bidi'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight',
+                'JustifyBlock'
+            ],
+            ['Link', 'Unlink'],
+            ['Image', 'Table'],
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['Maximize'],
+            ['-']
+        ];
+        email_editor.config.baseFloatZIndex = 10100;
+        email_editor.config.customConfig = 'config.js';
+    </script>
+    <script type="text/javascript">
+        var rootPath = '';
+        var dependentDomain = '';
+        $(document).ready(function () {
+            $("header.full-wrap").find("li").click(function () {
+                if (typeof window.sessionStorage != 'undefined') {
+                    window.sessionStorage.removeItem("COURSE_SEARCH_DATA");
+                }
+            });
+            $(".logout").on("click.btn.index", function () {
+                if (dependentDomain) {
+                    $.ajax({
+                        url: rootPath + "/ajaxlogout",
+                        type: "post",
+                        success: function (data) {
+                            location.href = rootPath + "/";
+                        }
+                    });
+                } else {
+                    location.href = rootPath + "/logout";
+                }
+            });
+            $.ajax({
+                url: rootPath + "/company/shushuoData",
+                type: "post",
+                success: function (data) {
+                    // console.log(data);
+                    $("#shushuo").html(data);
+                }
+            });
+            //判断是否为管理员
+            $.ajax({
+                url: rootPath + "/authRole/authAdmin2",
+                type: "post",
+                success: function (data) {
+                    if (data && data == "1") {
+                        $(".dropdown").append(
+                            '<li class="subli"><a href="javascript:void(0)" class="updatePwd">修改密码</a></li><li class="subli"><a href="javascript:void(0)" class="accInfo">账户信息</a></li>'
+                            );
+                    } else if (data && data == "2") {
+                        $(".dropdown").append(
+                            '<li class="subli"><a href="javascript:void(0)" class="updatePwd">修改密码</a></li><li class="subli"><a href="javascript:void(0)" class="accInfo2">账户信息</a></li>'
+                            );
+                    } else {
+                        $(".dropdown").append(
+                            '<li class="subli"><a href="javascript:void(0)" class="updatePwd">修改密码</a></li>'
+                            )
+                    }
+                }
+            });
+            $(".uInfo")
+                .on('mouseenter.index', function () {
+                    $(".dropdown").show();
+                    $(this).find('.dropdown').stop().animate({
+                        height: "74px"
+                    });
+                })
+                .on('mouseleave.index', function (e) {
+                    $(this).find('.dropdown').stop().animate({
+                        height: "0px"
+                    });
+
+                });
+            /* $(".nav-right").on("click",".subli",function(){
+                $('.add-subs-layer-bg').fadeIn(200,function(){
+                    $('.edit-pwd').fadeIn(200);
+                });
+            }); */
+
+            /* $(".cancle").click(function(){
+                $('.edit-pwd').fadeOut(200,function(){
+                    $('.add-subs-layer-bg').fadeOut(200);
+                });
+            }); */
+            $(".uInfo").on("click", ".updatePwd", function () {
+                location.href = rootPath + "/companyMemberService/toUpdatePwd";
+            });
+            $(".uInfo").on("click", ".accInfo", function () {
+                location.href = rootPath + "/users/accountInfo";
+            });
+            $(".uInfo").on("click", ".accInfo2", function () {
+                location.href = rootPath + "/users/teacherAccountInfo";
+            });
+            $(".save").click(function () {
+                var oldPwd = $.trim($("#oldPwd").val());
+                var newPwd = $.trim($("#newPwd").val());
+                var nextPwd = $.trim($("#nextPwd").val());
+                var userId = $("#userId").val();
+                if (!oldPwd) {
+                    $(".old").html("请输入旧密码");
+                    return;
+                } else {
+                    $(".old").html("");
+                }
+                if (!newPwd) {
+                    $(".new").html("请输入新密码");
+                    return;
+                } else {
+                    $(".new").html("");
+                }
+                if (!nextPwd) {
+                    $(".next").html("请输入重复密码");
+                    return;
+                } else {
+                    $(".next").html("");
+                }
+                if (newPwd != nextPwd) {
+                    $(".next").html("两次密码不一致");
+                    return;
+                } else {
+                    $(".next").html("");
+                }
+                if (newPwd.length < 6) {
+                    $(".new").html("密码长度不能小于6位");
+                    return;
+                } else {
+                    $(".new").html("");
+                }
+                if (nextPwd.length < 6) {
+                    $(".next").html("密码长度不能小于6位");
+                    return;
+                } else {
+                    $(".next").html("");
+                }
+                //将原密码加密
+                $.ajax({
+                    url: rootPath + "/users/md5Pwd",
+                    data: {
+                        "pwd": oldPwd
+                    },
+                    type: "post",
+                    success: function (md5Pwd) {
+                        //返回加密后的密码与原密码相比
+                        $.ajax({
+                            url: rootPath + "/users/checkPwd",
+                            data: {
+                                "password": md5Pwd
+                            },
+                            type: "post",
+                            success: function (data) {
+                                if (data) {
+                                    $.ajax({
+                                        url: rootPath +
+                                            "/users/upCurrPwd",
+                                        data: {
+                                            "pwd": newPwd
+                                        },
+                                        type: "post",
+                                        success: function (data) {
+
+                                            if (data == "success") {
+                                                $('<div class="c-fa">' +
+                                                        "修改成功" +
+                                                        '</div>')
+                                                    .appendTo(
+                                                        'body')
+                                                    .fadeIn(100)
+                                                    .delay(1000)
+                                                    .fadeOut(200,
+                                                        function () {
+                                                            $(this)
+                                                                .remove();
+                                                            $(".old")
+                                                                .html(
+                                                                    ""
+                                                                    );
+                                                            $("#oldPwd")
+                                                                .val(
+                                                                    ""
+                                                                    );
+                                                            $("#newPwd")
+                                                                .val(
+                                                                    ""
+                                                                    );
+                                                            $("#nextPwd")
+                                                                .val(
+                                                                    ""
+                                                                    );
+                                                            $('.edit-pwd')
+                                                                .fadeOut(
+                                                                    200,
+                                                                    function () {
+                                                                        $('.add-subs-layer-bg')
+                                                                            .fadeOut(
+                                                                                200
+                                                                                );
+                                                                    }
+                                                                    );
+                                                        });
+                                            }
+                                        }
+                                    });
+
+
+                                } else {
+                                    $(".old").html("旧密码与原密码不符");
+                                    return;
+                                }
+                            }
+                        });
+                    }
+                });
+
+            });
+            //查询消息
+            $.ajax({
+                url: rootPath + "/company/getNum",
+                type: "post",
+                success: function (num) {
+                    if (num > 0) {
+                        $("#msgNum").html("").html(num).css("display", "block");
+                    }
+                }
+            });
+            //点击跳到消息中心
+            $(".message").on('click', function () {
+                $("#msgNum").css("display", "none");
+                location.href = rootPath + "/company/messageCenter";
+            });
+            //提示条
+            (function ($) {
+                //不再提醒标记
+                var neveralert = getCookie("neveralert");
+
+                if (neveralert) {
+                    return;
+                } else {
+
+                    var status = "3"; //认证状态
+                    var buy_flag = "1"; //购买标记
+                    var try_flag = "-322"; //试用标记
+
+                    if (buy_flag == "1") {
+                        if (status == "2" || status == "3" || location.href.indexOf(
+                            "companyAuthority/show") != -1) {
+                            return;
+                        } else {
+                            var html =
+                                '您还没有提交公司认证，为了给您提供更好的服务，请尽快认证.&nbsp;&nbsp;<a href="#" style="color:#1b6fbd">现在去认证</a>';
+                            $(".alert-dismissable").find(".contant").html(html);
+                            $(".alert-dismissable").find(".contant a").attr("href", rootPath +
+                                "/companyAuthority/show");
+                            $(".alert-dismissable").find(".noalert").hide();
+                            setTimeout(function () {
+                                $(".alert-dismissable").slideDown(300);
+                            }, 500);
+
+                        }
+                    } else {
+                        if (try_flag > 0) {
+                            return;
+                        } else {
+                            var html =
+                                '您当前使用的是<font color="#1b6fbd">试用版</font>，还可以试用<span>0</span>天，试用期间上传的视频不会被长期保留.&nbsp;&nbsp;开通正式版本需联系技术支持完成自主域名更替（域名可在万网进行购买、域名备案需在阿里云进行资质备案）&nbsp;&nbsp;<a href="#" style="color:#1b6fbd">马上开通正式版</a>';
+                            $(".alert-dismissable").find(".contant").html(html);
+                            $(".alert-dismissable").find(".contant span").html(try_flag * -1);
+                            $(".alert-dismissable").find(".contant a").attr("href", rootPath +
+                                "/companyMemberService/showFace");
+                            setTimeout(function () {
+                                $(".alert-dismissable").slideDown(300);
+                            }, 500);
+                        }
+                    }
+
+                }
+                $(".alert-dismissable").on("click.btn.close", ".cloze", function () {
+                    $(".alert-dismissable").slideUp(300);
+                })
+                $(".alert-dismissable").on("click.btn.close", ".noalert", function () {
+                    $(".alert-dismissable").slideUp(300);
+                    setCookie("neveralert", true);
+                })
+            })(jQuery)
+        })
+
+        function getCookie(c_name) {
+            if (window.localStorage) {
+                return localStorage.getItem(c_name);
+            }
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=")
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1
+                    c_end = document.cookie.indexOf(";", c_start)
+                    if (c_end == -1)
+                        c_end = document.cookie.length
+                    return document.cookie.substring(c_start, c_end);
+                }
+            }
+            return ""
+        }
+
+        //两个参数，一个是cookie的名子，一个是值
+        function setCookie(name, value) {
+            if (window.localStorage) {
+                localStorage.setItem(name, value);
+            } else {
+                var Days = 30; //此 cookie 将被保存 30 天
+                var exp = new Date(); //new Date("December 31, 9998");
+                exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+                document.cookie = name + "=" + value + ";expires=" +
+                    exp.toGMTString();
+            }
+
+
+        }
+
+        function $selectMenu(code) {
+            if ($(".header").find("ul").find("li")) {
+                $(".header").find("ul").find("li").removeClass("active");
+                $(".header").find("ul").find("li").each(function () {
+                    if ($(this).attr("code") == code) {
+                        $(this).find("a").addClass("active");
+                    }
+                })
+            } else {
+                setTimeOut(function () {
+                    selectMenu(code);
+                }, 1000)
+            }
+        }
+
+        function $selectSubMenu(code) {
+            $(".smbar").find(".nav").find("li").find("a").removeClass("active");
+            $(".smbar").find(".nav").find("li").each(function () {
+                if ($(this).attr("code") == code) {
+                    $(this).find("a").addClass("active");
+                }
+            })
+        }
+    </script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: ''
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){ 
+            $("#topnav").load("header.html"); 
+            }); 
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

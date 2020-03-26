@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+            height: 100%;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 运营
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='motion.html'">问答</li>
+                        
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='motionPinglun.html'">课程评论
+                        </li>
+                        <li onclick="window.location.href='motionNews.html'">新闻资讯</li>
+                        <li onclick="window.location.href='motionCuxiao.html'">促销</li>
+                        <li onclick="window.location.href='motionStudent.html'">学员心声</li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="classComment" style="height: auto;">
+                <div class="title"><span></span>课程评论</div>
+                <ul class="commentTabTitle clear">
+                    <li @click="activea(1)" :class="activeIndexa == 1?'active':''" code="show">展示评论</li>
+
+                    <li code="audit" @click="activea(2)" :class="activeIndexa == 2?'active':''">审核评论</li>
+
+                </ul>
+                <div class="commentTabCont" v-show="activeIndexa == 1">
+
+                    <div id="showComment" class="commentTabContList">
+                        <div class="filterBox clear">
+                            <select id="firstItems" v-model="pinglun_info.course_id">
+                                <option value="">请选择课程</option>
+                                <option v-for="(item,index) in courses" :value="item.course_id">{{item.course_name}}
+                                </option>
+                            </select>
+                            <select name="" id="secondTeather" tabindex="-1" class="select2-hidden-accessible"
+                                aria-hidden="true" v-model="pinglun_info.teacher_id">
+                                <option value="">请选择教师</option>
+                                <option v-for="(item,index) in teachers" :value="item.user_id">{{item.user_name}}
+                                </option>
+                            </select>
+                            <button class="buttonsearch" @click="search_comment">搜索</button>
+                        </div>
+                        <dl id="pingfen" class="gradeBox clear" v-if="comments.length > 0">
+                            <dt><span>{{ave_score}}分</span> <i></i></dt>
+
+
+
+                            <dd>课程评分：{{ave_score}}</dd>
+                        </dl>
+
+                        <ul class="publicCont" style="margin-top: 0;">
+                            <li class="commentList" v-for="(item,index) in comments">
+                                <div class="personPic"><img src="http://manage.yunduoketang.com/images/teachers.png"
+                                        style="width:50px;height:50px;background:no-repeat center/cover;-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%;">
+                                </div>
+                                <div class="infoShow">
+                                    <p class="personCommentText"><span>{{item.stu_name}}：</span>{{item.content}}</p>
+                                    <div class="gradeShow"><span>课程评分：<em>{{item.score}}</em></span></div>
+                                    <dl class="clear time">
+                                        <dd>{{getNowFormatDate(new Date(item.creation_time))}}</dd>
+                                        <dd>课程：{{item.course_name}}</dd>
+                                        <dd>课次：技术实务精讲课第十六讲（中）</dd>
+                                        <dd>授课教师：{{item.user_name}}</dd>
+                                    </dl><span class="delComment" id="29903" @click="delete_comment(item.comment_id)"><i
+                                            class="iconfont"></i>删除评论</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="commentTabCont" v-show="activeIndexa == 2">
+                    <div id="reviewComment" class="commentTabContList reviewComment" style="display: block;">
+                        <dl class="gradeBox clear">
+                            <dt>
+                                <button class="reviewBtn" v-if="activeIndexb != 1" style="display: inline-block;line-height: 1"
+                                    @click="change_pl_status(1)">一键审核</button>
+                                <button class="lowerBtn" v-if="activeIndexb != 2" style="display: inline-block;line-height: 1"
+                                    @click="model = 1">低分屏蔽</button>
+                            </dt>
+                            <dd code="all" @click="activeb('')" :class="activeIndexb === ''?'active':''">全部
+                                <span></span>
+                            </dd>
+                            <dd code="waitaudit" @click="activeb(0)" :class="activeIndexb === 0?'active':''">
+                                未审核<span></span></dd>
+                            <dd code="pass" @click="activeb(1)" :class="activeIndexb == 1?'active':''">已通过<span></span>
+                            </dd>
+                            <dd code="nopass" @click="activeb(2)" :class="activeIndexb == 2?'active':''">
+                                未通过<span></span></dd>
+                        </dl>
+                        <ul class="publicCont" style="margin-top: 0;">
+                            <li class="commentList" v-for="(item,index) in commentss">
+                                <div class="personPic"><img src="/images/teachers.png"
+                                        style="width:50px;height:50px;background:no-repeat center/cover;-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%;">
+                                </div>
+                                <div class="infoShow">
+                                    <p class="personCommentText"><span>{{item.stu_name}}：</span>{{item.content}}</p>
+                                    <div class="gradeShow"><span>课程评分：<em>{{item.score}}</em></span></div>
+                                    <dl class="clear time">
+                                        <dd>{{getNowFormatDate(new Date(item.creation_time))}}</dd>
+                                        <dd>课程：2019技术实务</dd>
+                                        <dd></dd>
+                                        <dd>授课教师：朱磊老师</dd>
+                                        <dd>展示时间：2019-12-05 15:51:54</dd>
+                                    </dl><span class="delComment" id="34781" @click="delete_comment(item.comment_id)"><i
+                                            class="iconfont"></i>删除评论</span>
+                                    <div class="passThrough"><button style="width: auto;"
+                                            :class="item.audit_status == 1?'pass active':'pass'" ids="34781"
+                                            @click="change_status(item.audit_status == 1,1,item.comment_id)">通过</button><button
+                                            :class="item.audit_status == 2?'noPass active':'noPass'" style="width: auto;" ids="34781"
+                                            @click="change_status(item.audit_status == 2,2,item.comment_id)">不通过</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+        <div class="bg-layer-tips" style="display: block;" v-show="model == 1"></div>
+        <div class="shieldAlert" v-show="model == 1" style="display: block;top: 0;margin-top: 60px;height: 370px;">
+            <p class="alertHead">低分屏蔽 <i class="iconfont" @click="model = 0"></i></p>
+            <dl class="choseLevel">
+                <dt>选择屏蔽星级</dt>
+                <template>
+                    <el-checkbox-group @change="change_checkbox" v-model="checkedCities" style="margin-top:30px">
+                        <el-checkbox v-for="city in cities" :label="city.value" :value="city.value" :key="city.value">
+                            {{city.label}}</el-checkbox>
+                    </el-checkbox-group>
+                </template>
+            </dl>
+            <p class="tipsText">说明：勾选上述条件将对符合条件的评论生效，屏蔽的评论全部列为未<br>通过评论。</p>
+            <div class="shieldButton" style="margin-top: 22px;">
+                <button class="cancel" @click="model = 0">取消</button>
+                <button class="shield" @click="change_pl_status(2)">一键屏蔽</button>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 1,
+                    activeIndexb: '',
+                    activeIndexc: 0,
+                    checkedCities: [],
+                    cities: [{
+                        label: '一星评论',
+                        value: 1,
+                    }, {
+                        label: '二星评论',
+                        value: 2,
+                    }, {
+                        label: '三星评论',
+                        value: 3,
+                    }],
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    courses: [],
+                    teachers: [],
+                    comments: [],
+                    commentss: [],
+                    pinglun_info: {
+                        course_id: '',
+                        teacher_id: '',
+                        audit_status: '',
+                    },
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/comment/queryComment',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify({}),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.teachers = data.datalist2
+                        _this.courses = data.datalist1
+                        if (_this.activeIndexa == 1) {
+                            _this.comments = data.datalist3
+                            _this.total_score = 0
+                            _this.comments.map((item1) => {
+                                data.datalist1.map((item) => {
+                                    if (item.course_id == item1.course_id) {
+                                        item1.course_name = item.course_name
+                                    }
+                                })
+                                data.datalist2.map((item) => {
+                                    if (item.user_id == item1.teacher_id) {
+                                        item1.user_name = item.user_name
+                                    }
+                                })
+                                item1.score = item1.score / 10
+                            })
+                        } else if (_this.activeIndexa == 2) {
+                            _this.commentss = data.datalist3
+                            _this.commentss.map((item1) => {
+                                data.datalist1.map((item) => {
+                                    if (item.course_id == item1.course_id) {
+                                        item1.course_name = item.course_name
+                                    }
+                                })
+                                data.datalist2.map((item) => {
+                                    if (item.user_id == item1.teacher_id) {
+                                        item1.user_name = item.user_name
+                                    }
+                                })
+                                item1.score = item1.score / 10
+                            })
+                        }
+                        // _this.tikus = data
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            computed: {
+                ave_score() {
+                    let _this = this
+                    total_score = 0
+                    _this.comments.map((item) => {
+                        total_score += item.score
+                    })
+                    return Math.floor(total_score*10 / _this.comments.length)/10
+                }
+            },
+            methods: {
+                active() {
+
+                },
+                change_pl_status(num) {
+                    let _this = this
+                    console.log(_this.commentss)
+                    arr = []
+                    switch (num) {
+                        case 1:
+                            _this.commentss.map((item) => {
+                                if (item.audit_status == 0) {
+                                    obj = {}
+                                    obj.comment_id = item.comment_id
+                                    obj.audit_status = 1
+                                    arr.push(obj)
+                                }
+                            })
+                            console.log(arr)
+                            this.$confirm(`确认通过全部未审核评论吗？`, '提示', {
+                                confirmButtonText: '确定',
+                                cancelButtonText: '取消',
+                                dangerouslyUseHTMLString: true,
+                                type: 'warning'
+                            }).then(() => {
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/comment/plupdateComment',
+                                    type: 'post',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(arr),
+                                    // dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: data,
+                                            duration: 2000
+                                        });
+                                        _this.search_comment()
+                                    },
+                                    error: function () {
+                                        _this.$notify.error({
+                                            title: '错误',
+                                            message: '服务器错误',
+                                            duration: 2000
+                                        });
+                                    }
+                                })
+                            }).catch(() => {
+                                this.$message({
+                                    type: 'info',
+                                    message: '已取消'
+                                });
+                            });
+                            break;
+                        case 2:
+                            console.log(_this.checkedCities)
+                            _this.commentss.map((item) => {
+                                console.log(item.score)
+                                if (item.audit_status == 0) {
+                                    if (_this.checkedCities.indexOf(item.score) > -1) {
+                                        obj = {}
+                                        obj.comment_id = item.comment_id
+                                        obj.audit_status = 2
+                                        arr.push(obj)
+                                    }
+                                }
+                            })
+                            $.ajax({
+                                    url: 'http://192.168.10.166:8080/comment/plupdateComment',
+                                    type: 'post',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(arr),
+                                    // dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: data,
+                                            duration: 2000
+                                        });
+                                        _this.search_comment()
+                                    },
+                                    error: function () {
+                                        _this.$notify.error({
+                                            title: '错误',
+                                            message: '服务器错误',
+                                            duration: 2000
+                                        });
+                                    }
+                                })
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                change_checkbox() {
+                    console.log(this.checkedCities)
+                },
+                change_status(boolen, num, comment_id) {
+                    let _this = this
+                    console.log(boolen, num)
+                    if (boolen == false) {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/comment/updateComment',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: {
+                                comment_id: comment_id,
+                                audit_status: num,
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                                _this.search_comment()
+                                // _this.tikus = data
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }
+                },
+                search_comment() {
+                    let _this = this
+                    if (_this.activeIndexa == 1) {
+                        obj = JSON.parse(JSON.stringify(_this.pinglun_info))
+                        delete obj.audit_status
+                        for (var k in obj) {
+                            if (obj[k] == '') {
+                                delete obj[k]
+                            }
+                        }
+                        _this.search_comments(obj)
+                    } else if (_this.activeIndexa == 2) {
+                        obj = {}
+                        if (_this.activeIndexb !== '') {
+                            obj.audit_status = _this.activeIndexb
+                        }
+                        _this.search_comments(obj)
+                    }
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                activea(num) {
+                    let _this = this
+                    this.activeIndexa = num
+                    _this.search_comment()
+                },
+                activeb(num) {
+                    let _this = this
+                    this.activeIndexb = num
+                    _this.search_comment()
+                },
+                search_comments(obj) {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/comment/queryComment',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        data: obj,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (_this.activeIndexa == 1) {
+                                _this.comments = data.datalist3
+                                _this.comments.map((item1) => {
+                                    data.datalist1.map((item) => {
+                                        if (item.course_id == item1.course_id) {
+                                            item1.course_name = item.course_name
+                                        }
+                                    })
+                                    data.datalist2.map((item) => {
+                                        if (item.user_id == item1.teacher_id) {
+                                            item1.user_name = item.user_name
+                                        }
+                                    })
+                                    item1.score = item1.score / 10
+                                })
+                            } else if (_this.activeIndexa == 2) {
+                                _this.commentss = data.datalist3
+                                _this.commentss.map((item1) => {
+                                    data.datalist1.map((item) => {
+                                        if (item.course_id == item1.course_id) {
+                                            item1.course_name = item.course_name
+                                        }
+                                    })
+                                    data.datalist2.map((item) => {
+                                        if (item.user_id == item1.teacher_id) {
+                                            item1.user_name = item.user_name
+                                        }
+                                    })
+                                    item1.score = item1.score / 10
+                                })
+                            }
+                            // _this.tikus = data
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                delete_comment(comment_id) {
+                    let _this = this
+                    console.log(comment_id)
+                    this.$confirm(`您确定要删除此评论？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        dangerouslyUseHTMLString: true,
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/comment/deleteComment',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: {
+                                comment_id: comment_id,
+                                tf_delete: 1
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除成功',
+                                        duration: 2000
+                                    });
+                                    if (_this.activeIndexa == 1) {
+                                        _this.comments = _this.comments.filter((item) => {
+                                            return item.comment_id != comment_id
+                                        })
+                                    } else if (_this.activeIndexa == 2) {
+                                        _this.commentss = _this.commentss.filter((item) => {
+                                            return item.comment_id != comment_id
+                                        })
+                                    }
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 0
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '已取消'
+                        });
+                    });
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

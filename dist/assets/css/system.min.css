@@ -1,0 +1,937 @@
+.header .navbar-brand span {
+	text-indent: 0
+}
+
+.open_service {
+	width: 96%;
+	background: #f6f6f6;
+	margin: 10px auto 5px;
+	font-size: 12px
+}
+
+.open_service .service_company {
+	padding: 10px 25px 15px
+}
+
+.open_service .service_company .service_company_fl {
+	width: 25%
+}
+
+.open_service .service_company .service_company_fl span {
+	vertical-align: top;
+	line-height: 34px
+}
+
+.open_service .service_company .service_company_fl i {
+	font-size: 42px;
+	vertical-align: middle;
+	color: #1cbdef;
+	margin-left: 6px;
+	line-height: 1
+}
+
+.open_service .service_company .service_company_fc {
+	width: 37.5%
+}
+
+.open_service .service_company .service_company_fc .service_company_fc_img
+	{
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	background-position: 0 -310px;
+	margin-left: 34px;
+	vertical-align: middle
+}
+
+.open_service .service_company .service_company_fc span {
+	padding: 7px
+}
+
+.open_service .service_company .service_company_fc span em,
+	.open_service .service_company .service_company_fc span i {
+	font-style: normal;
+	font-weight: 400
+}
+
+.open_service .service_company .service_company_fc span i {
+	font-size: 14px;
+	color: #1cbdef;
+	width: 85px
+}
+
+.open_service .service_company .service_company_fc span em {
+	color: #ccc
+}
+
+.open_service .service_company .service_company_fc a {
+	text-decoration: underline;
+	color: #333;
+	margin-left: 12px
+}
+
+.open_service .service_company .service_company_fc, .open_service .service_company .service_company_fl,
+	.open_service .service_company .service_company_fr {
+	border-right: 1px solid #dfe1e6;
+	height: 30px;
+	line-height: 30px
+}
+
+.open_service .service_company .service_company_fr {
+	width: 37.5%;
+	padding-left: 1.2%;
+	border-right: none
+}
+
+.open_service .service_company .service_company_fr a {
+	color: #333
+}
+
+.open_service .service_company .service_company_fr a:nth-child(3) {
+	padding-left: 10px
+}
+
+.open_service .service_company .service_company_fr a:nth-child(3) {
+	padding-left: 10px;
+	text-decoration: underline
+}
+
+.open_service .service_company .service_company_fr a:hover {
+	text-decoration: none
+}
+
+.open_service .service_company .service_company_fr a:nth-child(2):hover,
+	.open_service .service_company .service_company_fr a:nth-child(3):hover
+	{
+	color: #03f;
+	text-decoration: underline
+}
+
+.containers_main .small_title {
+	border-bottom: 1px solid #ececec;
+	line-height: 23px;
+	height: 35px;
+	width: 100%;
+	padding-bottom: 10px
+}
+
+.containers_main .school_management li {
+	background: #f6f6f6;
+	padding: 20px 20px 15px;
+	min-height: 115px;
+	width: 455px;
+	margin: 25px 20px 0 0;
+	float: left
+}
+
+.containers_main .school_management li .school_management_top {
+	width: 415px;
+	height: 75px
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_l .school_management_icon
+	{
+	width: 52px;
+	height: 52px;
+	background-position: 0 0;
+	background-position: -10px 98px;
+	margin-right: 15px
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_l p.management_title
+	{
+	display: inline
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_l p.management_title a
+	{
+	color: #333
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_l p.management_title a:hover
+	{
+	color: #00b7ee;
+	text-decoration: none
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_l p.management_title i
+	{
+	color: #ddd;
+	margin-left: 8px;
+	position: relative
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_l p.management_title i b
+	{
+	width: 10px;
+	height: 10px;
+	display: block;
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background-position: -64px -310px
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_l p.management_video
+	{
+	color: #fa6900;
+	font-size: 12px
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_r p
+	{
+	font-size: 12px;
+	margin-top: 5px;
+	color: #999
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_r div
+	{
+	font-size: 12px
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_r div span
+	{
+	color: #1cbdef;
+	padding-right: 10px;
+	width: 90px;
+	text-align: right;
+	display: inline-block
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_r div b
+	{
+	font-weight: 400;
+	color: #999
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_r div i
+	{
+	color: #999
+}
+
+.containers_main .school_management li .school_management_bot {
+	height: 24px;
+	font-size: 12px;
+	margin-top: 8px
+}
+
+.containers_main .school_management li .school_management_bot span {
+	min-width: 48px;
+	border-radius: 2px;
+	padding: 3px 5px;
+	border: 1px solid #ccc;
+	text-align: center;
+	margin-right: 3px;
+	color: #898989
+}
+
+.containers_main .school_management li .school_management_bot span:hover
+	{
+	background: #00b7ee;
+	cursor: pointer;
+	border-color: transparent;
+	color: #fff
+}
+
+.containers_main .school_management li .school_management_bot a {
+	border-radius: 2px;
+	text-decoration: none;
+	background: #00b7ee;
+	color: #fff;
+	margin-right: 2px;
+	padding: 3px 8px
+}
+
+.containers_main .school_management li .school_management_bot a:hover {
+	background: #01aadd
+}
+
+.containers_main .school_management li:nth-child(3n) {
+	margin-right: 0
+}
+
+.containers_main .user_right {
+	margin-top: 20px
+}
+
+.containers_main .user_right .type_bar {
+	padding: 0;
+	margin-top: 10px
+}
+
+.containers_main .user_right .type_bar .user_search {
+	position: relative
+}
+
+.containers_main .user_right .type_bar .user_search .btns {
+	padding: 5px 17px;
+	margin-bottom: 8px
+}
+
+.containers_main .user_right .type_bar .user_search .user_search_main {
+	position: absolute;
+	top: 0;
+	right: 0
+}
+
+.containers_main .user_right .type_bar .user_search .user_search_main input
+	{
+	width: 168px;
+	height: 28px;
+	margin-right: 5px;
+	font-size: 12px
+}
+
+.containers_main .institution_order li {
+	padding-top: 10px;
+	font-size: 12px;
+	background: #fff
+}
+
+.containers_main .institution_order li table {
+	width: 100%
+}
+
+.containers_main .institution_order li table tbody tr td {
+	font-size: 14px !important
+}
+
+.containers_main .institution_order li table tbody tr td i {
+	font-style: normal
+}
+
+.containers_main .institution_order li table tbody tr td i.invalid {
+	color: red
+}
+
+.containers_main .institution_order li table tbody tr td a {
+	padding: 5px 19px;
+	border: 1px solid #ccc;
+	border-radius: 2px
+}
+
+.containers_main .institution_order li table tbody tr td a.btn_invalid {
+	color: #898989
+}
+
+.containers_main .institution_order li table tbody tr td a.btn_success {
+	color: #fff;
+	background: #1ebb90;
+	border: 1px solid transparent
+}
+
+.containers_main .institution_order li table tbody tr td a:hover {
+	text-decoration: none
+}
+
+.containers_main .institution_order li table tbody tr td a.btn_invalid:hover
+	{
+	background-color: #f3f3f3
+}
+
+.containers_main .institution_order li table tbody tr td a.btn_success:hover
+	{
+	background-color: #1ca983
+}
+
+.containers_main .user_search {
+	margin-bottom: 5px
+}
+
+.containers_main .new_user {
+	width: 80%;
+	margin: 15px auto 0
+}
+
+.containers_main .new_user h5 {
+	padding: 15px 0 8px 15px;
+	border-bottom: 1px solid #dfe1e6
+}
+
+.containers_main .new_user .new_user_main .new_user_box {
+	width: 300px;
+	height: auto;
+	margin: 20px auto 10px;
+	overflow: hidden
+}
+
+.containers_main .new_user .new_user_main .new_user_box label {
+	width: 95px;
+	line-height: 23px;
+	text-align: right;
+	padding-right: 15px
+}
+
+.containers_main .new_user .new_user_main .new_user_box label i {
+	color: red
+}
+
+.containers_main .new_user .new_user_main .new_user_box select {
+	padding: .45em 8px .35em;
+	border: 1px solid #ddd;
+	border-radius: 3px
+}
+
+.containers_main .new_user .new_user_main .new_user_box input[type=text]
+	{
+	width: 192px;
+	height: 25px
+}
+
+.containers_main .new_user .rose_chose a {
+	margin-bottom: 10px
+}
+
+.containers_main .return_btn {
+	width: 100%;
+	margin-top: 15px;
+	text-align: center
+}
+
+.containers_main .return_btn a {
+	font-size: 14px
+}
+
+.containers_main .input_search {
+	width: 100%;
+	margin: 26px 0 20px 0
+}
+
+.containers_main .input_search input {
+	width: 228px;
+	height: 34px;
+	border: 1px solid #ccc;
+	display: block;
+	border-radius: 3px 0 0 3px;
+	font-size: 14px
+}
+
+.containers_main .input_search b {
+	display: block;
+	width: 35px;
+	height: 34px;
+	border: 1px solid #ccc;
+	border-left: none;
+	cursor: pointer;
+	border-radius: 0 3px 3px 0
+}
+
+.containers_main .input_search b img {
+	width: 19px;
+	height: 18px;
+	display: block;
+	margin-top: 7px;
+	margin-left: 7px
+}
+
+.containers_main .role_btn {
+	text-align: center;
+	margin: 30px 0 20px
+}
+
+.containers_main .width_percent {
+	width: 100% !important
+}
+
+.containers_main .improve_teacher {
+	width: 1000px;
+	margin: 0 auto
+}
+
+.containers_main .improve_teacher h5 {
+	margin-top: 42px;
+	border-bottom: 1px solid #e0e0e0;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px
+}
+
+.containers_main .improve_teacher .improve_box {
+	width: 100%;
+	margin-top: 25px;
+	position: relative
+}
+
+.containers_main .improve_teacher .improve_box .box {
+	width: 50%
+}
+
+.containers_main .improve_teacher .improve_box .icon_img .improve_box_l
+	{
+	margin-top: 30px
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l {
+	width: 100%
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_title
+	{
+	width: 186px;
+	text-align: right;
+	padding-right: 10px;
+	line-height: 28px;
+	display: block;
+	float: left;
+	color: #999;
+	position: relative;
+	vertical-align: top;
+	font-size: 14px
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_title label
+	{
+	font-size: 14px;
+	cursor: default;
+	display: inline
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_title .asterisk
+	{
+	color: #fe5151
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_title i
+	{
+	position: absolute;
+	color: #cecece;
+	font-size: 18px;
+	vertical-align: middle
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .relation
+	{
+	margin-left: 120px
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main
+	{
+	display: block;
+	float: left;
+	width: 300px;
+	height: auto
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main input[type=text],
+	.containers_main .improve_teacher .improve_box .improve_box_l .improve_main select
+	{
+	width: 200px;
+	height: 31px;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	color: #666;
+	font-size: 14px;
+	padding: 0;
+	padding-left: 5px
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main .sex
+	{
+	margin-left: 10px;
+	margin-right: 40px
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main textarea
+	{
+	width: 780px;
+	height: 160px;
+	background: #fff
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main .head_img
+	{
+	display: inline-block;
+	width: 116px;
+	height: 158px;
+	border: 1px solid #dadada;
+	border-radius: 3px;
+	vertical-align: top;
+	background: #fff;
+	position: relative;
+	background-image: url(./images/head_img.jpg)
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main .head_img img
+	{
+	display: block;
+	width: 100%;
+	height: 100%;
+	border:none
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main .upload_img
+	{
+	width: 80px;
+	height: 31px;
+	display: block;
+	background: linear-gradient(#f8f8f8, #e7e7e7);
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	position: absolute;
+	top: 125px;
+	left: 138px;
+	font-weight: 400;
+	line-height: 32px;
+	text-align: center;
+	z-index: 99;
+	font-size: 14px;
+	color: #666
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main input[type=file]
+	{
+	width: 74px;
+	vertical-align: bottom;
+	background: 0 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main .improve_main_detial
+	{
+	color: #999;
+	line-height: 28px
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main_all
+	{
+	width: 78%;
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main_subject
+	{
+	width: 800px;
+	display: block;
+	float: left
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main_subject select
+	{
+	width: 260px;
+	height: 28px;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	margin-bottom: 22px;
+	color: #666;
+	font-size: 14px;
+	padding: 0
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main_subject .add_subject
+	{
+	text-decoration: underline;
+	margin-left: 20px
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .improve_main_subject i
+	{
+	color: #cecece;
+	margin-left: 20px;
+	font-size: 24px;
+	vertical-align: middle;
+	display: inline-block;
+    width: 21px;
+    height: 21px;
+    background: no-repeat;
+	background-image: url(../../images/curriculum.min.png);
+	
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .error_prompt i
+	{
+	font-size: 12px;
+	margin-left: 10px
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .error_prompt i span
+	{
+	margin-left: 10px;
+	font-size: 12px
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .way0 {
+	color: #6cbe7e
+}
+
+.containers_main .improve_teacher .improve_box .improve_box_l .way1 {
+	color: #fe5151
+}
+
+.containers_main .improve_teacher .improve_box .adduser_main_button {
+	width: 78%;
+	display: inline-block
+}
+
+.containers_main .improve_teacher .improve_box .adduser_main_button .roles
+	{
+	padding: 3px 9.5px 2.5px;
+	display: inline-block;
+	background: linear-gradient(#f8f8f8, #e7e7e7);
+	line-height: 22px
+}
+
+.containers_main .improve_teacher .improve_box .adduser_main_button .roles i
+	{
+	color: #0af
+}
+
+.containers_main .improve_teacher .improve_box .adduser_main_button a {
+	margin-bottom: 20px
+}
+
+.containers_main .improve_teacher .improve_box .roles_btn {
+	padding: 1.5px 6.5px 1px !important;
+	font-size: 14px
+}
+
+.containers_main .role_bar .role_bar_box {
+	width: 100%;
+	margin-top: 24px
+}
+
+.containers_main .role_bar .role_bar_box span {
+	width: 80px;
+	display: inline-block;
+	color: #666;
+	text-align: center;
+	font-size: 14px
+}
+
+.containers_main .role_bar .role_bar_box input {
+	display: inline-block;
+	width: 322px;
+	height: 34px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	font-size: 14px
+}
+
+.containers_main .roles_rotes {
+	font-size: 12px;
+	color: #aaa
+}
+
+.containers_main .roles_rotes dt {
+	text-indent: 1em;
+	margin: 20px 0 25px 0
+}
+
+.containers_main .roles_rotes dd {
+	background: #f1f1f1;
+	margin-bottom: 0;
+	line-height: 18px;
+	text-indent: 2em;
+	margin-left: 12px
+}
+
+.containers_main .roles_rotes .one_dd {
+	padding-top: 18px
+}
+
+.containers_main .roles_rotes .last_dd {
+	padding-bottom: 18px
+}
+
+.containers_main .ztrre_describe {
+	font-size: 16px;
+	color: #666;
+	margin-top: 62px;
+	text-indent: 1em
+}
+
+.containers_main .tree_shape {
+	height: auto;
+	overflow: hidden;
+	min-width: 1024px;
+	position: relative;
+	padding-top: 62px
+}
+
+.containers_main .tree_shape .shape_cover {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #fff
+}
+
+.containers_main .tree_shape .shape_cover .shape {
+	float: left
+}
+
+.containers_main .tree_shape .shape_cover .shape .tree_shape_top {
+	width: 100%;
+	height: 82px;
+	text-align: center;
+	line-height: 82px;
+	font-size: 16px;
+	color: #8c8c8c;
+	border-bottom: 1px solid #f6f6f6;
+	border-right: 1px solid #f6f6f6
+}
+
+.containers_main .tree_shape .shape_cover .shape .tree_shape_bot {
+	width: 100%;
+	height: 100%;
+	border-right: 1px solid #f6f6f6;
+	padding-top: 20px;
+	padding-left: 10px
+}
+
+.dom_tree {
+	padding-bottom: 60px
+}
+
+.dom_tree li {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.dom_tree li span {
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	vertical-align: middle;
+	margin-right: 10px
+}
+
+.dom_tree li span.on {
+	border: none;
+	background-position: -32px -310px
+}
+
+.dom_tree li a {
+	color: #999;
+	display: inline;
+	line-height: 30px;
+	font-size: 14px
+}
+
+.dom_tree li .no_check {
+	color: #d6d6d6
+}
+
+.dom_tree li ul {
+	text-indent: 2em;
+	display: inline
+}
+
+.dom_tree li ul li {
+	line-height: 30px
+}
+
+.dom_tree li ul li ul {
+	text-indent: 4em;
+	display: inline
+}
+
+.dom_tree li ul li ul li ul {
+	text-indent: 6em;
+	display: inline
+}
+
+.dom_tree li ul li ul li ul li ul {
+	text-indent: 8em;
+	display: inline
+}
+
+.dom_tree li ul li ul li ul li ul li ul {
+	text-indent: 10em;
+	display: inline
+}
+
+.fixed_layer {
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0);
+	position: absolute;
+	top: 0;
+	left: 0
+}
+
+.fixed_layer_main {
+	display: none;
+	position: absolute;
+	top: 38px;
+	width: 288px;
+	height: auto;
+	background: #fff;
+	z-index: 999;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .2)
+}
+
+.fixed_layer_main .tree_shape_top {
+	border-top: 5px solid #0af;
+	height: 100px;
+	width: 100%;
+	border-bottom: 1px solid #f6f6f6;
+	font-size: 24px;
+	color: #333;
+	text-align: center;
+	line-height: 100px
+}
+
+.fixed_layer_main .tree_shape_bot {
+	padding-top: 20px;
+	padding-left: 10px
+}
+
+.fixed_layer_main .tree_shape_bot a {
+	color: #333;
+	line-height: 30px;
+	font-size: 14px
+}
+
+.fixed_layer_main .tree_shape_bot .no_check {
+	color: #d6d6d6
+}
+
+.fixed_layer_main .tree_shape_bot span.on {
+	border: none;
+	background-position: -48px -310px
+}
+
+.containers_main .school_management li .school_management_top .school_management_top_l .school_management_icon,
+	.containers_main .school_management li .school_management_top .school_management_top_l p.management_title i b,
+	.dom_tree li span.on, .fixed_layer_main .tree_shape_bot span.on,
+	.open_service .service_company .service_company_fc .service_company_fc_img
+	{
+	background-image: url(images/system.min.png?20180524170529)
+}
+.navbar .navbar-brand{
+	text-indent:0em;
+}
+.containers_main .tree_shape .shape_cover .shape .tree_shape_top.no_check{
+	color: #d6d6d6;
+}
+.fixed_layer_main .tree_shape_top.no_check{
+	color: #d6d6d6;
+}
+.containers_main .role_name {
+  font-size: 16px;
+  color: #666;
+  text-indent: 1em;
+  margin-top: 30px;
+}
+.containers_main .role_name p {
+  line-height: 40px;
+  font-size:16px;
+}
+.containers_main .role_name ul li {
+  color: #333;
+  float: left;
+  line-height: 40px;
+  font-size:14px;
+}
+.containers_main .preview {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+  text-indent: 1em;
+}

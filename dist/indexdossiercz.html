@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/queStyle.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="queContainer">
+
+            <div class="que_container w1200">
+                <div class="que_title clearfix" style="    height: 60px;
+                        line-height: 60px;">
+                    <span class="que_t1 fl que_btn que_t1_fast" style="padding:10px">试题解析</span>
+
+
+                    <span class="que_t5 fl">概述</span>
+
+                </div>
+                <div class="que_main clearfix">
+
+                    <div class="que_l fl" style="    float: left;">
+
+
+
+                        <div class="que_answer_infor">
+                            <div class="que_answer_hd">共<span>3</span>题，错误<span>2</span>题</div>
+                            <div class="que_answer_icon clearfix">
+                                <span><i class="que_noanswer"></i>未答</span>
+                                <span><i class="que_yesanswer"></i>正确</span>
+                                <span><i class="que_erroranswer"></i>错误</span>
+                            </div>
+                        </div>
+                        <div class="que_quenumber que_zuo">
+
+                            <div class="que_quenumber_cell" v-if="answers.danxuan.length>0">
+                                <div class="que_quenumber_title" data-type="TOPIC_TYPE_RADIO">
+                                    单选题（{{answers.danxuan.length}}题）</div>
+                                <div class="que_quenumber_main">
+                                    <ul class="clearfix">
+                                        <li v-for="(item,index) in answers.danxuan" @click="select_question(item)"
+                                            style="cursor:pointer"
+                                            :class="item.tf == '错'?'que_no que_left':item.tf == '对'?'que_yes que_left':'que_default que_left'"
+                                            data-id="14239196" page="1" data-type="TOPIC_TYPE_RADIO">{{item.paixu}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="que_quenumber_cell" v-if="answers.duoxuan.length>0">
+                                <div class="que_quenumber_title active" data-type="TOPIC_TYPE_MULTIPLE">
+                                    多选题（{{answers.duoxuan.length}}题）</div>
+                                <div class="que_quenumber_main">
+                                    <ul class="clearfix">
+                                        <li v-for="(item,index) in answers.duoxuan" @click="select_question(item)"
+                                            style="cursor:pointer"
+                                            :class="item.tf == '错'?'que_no que_left':item.tf == '对'?'que_yes que_left':'que_default que_left'"
+                                            data-id="14239196" page="1" data-type="TOPIC_TYPE_RADIO">{{item.paixu}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="que_quenumber_cell" v-if="answers.jianda.length>0">
+                                <div class="que_quenumber_title active" data-type="TOPIC_TYPE_MULTIPLE">
+                                    简答题（{{answers.jianda.length}}题）</div>
+                                <div class="que_quenumber_main">
+                                    <ul class="clearfix">
+                                        <li v-for="(item,index) in answers.jianda" @click="select_question(item)"
+                                            style="cursor:pointer"
+                                            :class="item.tf == '错'?'que_no que_left':item.tf == '对'?'que_yes que_left':'que_default que_left'"
+                                            data-id="14239196" page="1" data-type="TOPIC_TYPE_RADIO">{{item.paixu}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="que_quenumber_cell" v-if="answers.cailiao.length>0">
+                                <div class="que_quenumber_title active" data-type="TOPIC_TYPE_MULTIPLE">
+                                    材料题（{{answers.cailiao.length}}题）</div>
+                                <div class="que_quenumber_main">
+                                    <ul class="clearfix">
+                                        <li v-for="(item,index) in answers.cailiao" @click="select_question(item)"
+                                            style="cursor:pointer"
+                                            :class="item.tf == '错'?'que_no que_left':item.tf == '对'?'que_yes que_left':'que_default que_left'"
+                                            data-id="14239196" page="1" data-type="TOPIC_TYPE_RADIO">{{item.paixu}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="que_r fl detail">
+
+
+                        <div class="que_answer_infor">
+
+
+                            <div class="que_answer_hd"><span>{{
+                                answer_select.question_type == 1?'单选题':answer_select.question_type == 2?'多选题':answer_select.question_type == 4?'简答题':'材料题'  
+                            }}</span>
+                            </div>
+                            <div class="que_answer_bd">
+                                &nbsp; </div>
+
+
+
+
+
+
+                        </div>
+                        <div class="que_question">
+                            <div class="que_question_number">第{{answer_select.paixu}}题
+                                <span class="que_start_box">
+                                    <span class="que_start"></span>
+                                </span>
+                                <span v-if="answer_select.tf == '错'" class="que_result_false"></span>
+                            </div>
+                            <div v-if="answer_select.question_type == 7" class="que_question_introduce">
+                                {{answer_select.question_name}}</div>
+                            <div v-if="answer_select.question_type != 7">
+                                <div class="que_question_introduce">{{answer_select.question_name}}</div>
+                                <div class="que_question_option que_question_explain" style="min-height: 0px;">
+
+                                    <div class="que_option_cell" v-if="answer_select.question_type != 4" v-for="(item,index) in answer_options">
+                                        <span>{{item.split('#')[1]}}&nbsp;&nbsp;{{item.split('#')[3]}}</span>
+                                    </div>
+                                    <div class="que_option_cell" v-if="answer_select.question_type == 4">
+                                            <span>{{answer_options[0]}}</span>
+                                        </div>
+                                </div>
+                                <div class="que_option_forme" style="min-height: 0px;">
+                                    <div class="que_goodinfor">
+                                        <div class="que_goodinfor_item">
+                                            <span class="que_goodinfor_title">学员答案</span>
+                                            <span class="clred">
+                                                {{answer_select.daan == null?'':answer_select.daan}}
+
+                                            </span>
+                                        </div>
+                                        <div class="que_goodinfor_item" v-if="answer_select.question_type != 4">
+                                            <span class="que_goodinfor_title">正确答案</span>
+                                            <span class="clgreen">{{true_answer}}</span>
+                                        </div>
+                                        <div class="que_goodinfor_item">
+                                            <span class="que_goodinfor_title">解析</span>
+                                            <span class="que_explain_true right_answer"
+                                                style="padding-left: 15px;margin-top: 0px;"
+                                                v-html="answer_select.question_analysis"></span>
+                                        </div>
+                                        <!-- <div class="que_goodinfor_item">
+                                        <span class="que_goodinfor_title">语音解析</span>
+                                        <span class="que_voice"></span>
+                                    </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div v-if="answer_select.question_type == 7" v-for="(item,index) in answer_select.question_sub_id" style="margin-top:20px">
+                                <div class="que_question_introduce">{{item.question_name}}</div>
+                                <div class="que_question_option que_question_explain" style="min-height: 0px;">
+
+                                    <div class="que_option_cell" v-if="item.question_type!='14' " v-for="(item1,index1) in item.optionanswer1">
+                                        <span>{{item1.split('#')[1]}}&nbsp;&nbsp;{{item1.split('#')[3]}}</span>
+                                    </div>
+                                    <div class="que_option_cell" v-if="item.question_type=='14' ">
+                                            <span>{{item.optionanswer1[0]}}</span>
+                                        </div>
+                                </div>
+                                <div class="que_option_forme" style="min-height: 0px;">
+                                    <div class="que_goodinfor">
+                                        <div class="que_goodinfor_item">
+                                            <span class="que_goodinfor_title">学员答案</span>
+                                            <span class="clred">
+                                                {{item.daan == null?'':item.daan}}
+
+                                            </span>
+                                        </div>
+                                        <div v-if="item.question_type!='14'" class="que_goodinfor_item">
+                                            <span class="que_goodinfor_title">正确答案</span>
+                                            <span class="clgreen">{{item.true_answer}}</span>
+                                        </div>
+                                        <div class="que_goodinfor_item">
+                                            <span class="que_goodinfor_title">解析</span>
+                                            <span class="que_explain_true right_answer"
+                                                style="padding-left: 15px;margin-top: 0px;"
+                                                v-html="item.question_analysis"></span>
+                                        </div>
+                                        <!-- <div class="que_goodinfor_item">
+                                            <span class="que_goodinfor_title">语音解析</span>
+                                            <span class="que_voice"></span>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="que_option_forme" style="min-height: 0px;">
+                                <div class="que_option_ft que_explain_ft">
+                                    <a href="javascript:;" class="que_btn queNextBtn fr" @click="goNext(answer_select)">查看下一题</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    answer_select: {
+                    },
+                    answers:{
+                        danxuan:[{
+                            optionanswer:''
+                        }],
+                        duoxuan:[],
+                        jianda:[],
+                        cailiao:[],
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                // console.log(this.answers)
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/ItemBank/queryIBA',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+    "answer_id": parseInt(window.location.href.split('=')[1])
+}),
+                    dataType: 'json',
+                    success: function (data) {
+                        
+                for (var k in data) {
+                    data[k].sort((a, b) => {
+                        if (a.paixu > b.paixu) {
+                            return 1
+                        } else {
+                            return -1
+                        }
+                    })
+                }
+                _this.answers = data
+                _this.answer_select = _this.answers['danxuan'][0]
+                        // _this.userList = []
+
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            computed: {
+                answer_options() {
+                    let _this = this
+                    console.log( _this.answer_select.optionanswer)
+                    if( _this.answer_select.optionanswer != undefined){
+                        arr = _this.answer_select.optionanswer.split(';')
+                        if (arr[arr.length - 1] != '') {
+                            return arr
+                        } else {
+                            arr.length = arr.length - 1
+                            return arr
+                        }
+                    }
+                },
+                true_answer() {
+                    let _this = this
+                    str = ''
+                    if( _this.answer_select.optionanswer != undefined){
+                        arr = _this.answer_select.optionanswer.split(';')
+                    if (arr[arr.length - 1] != '') {
+                        // return arr
+                    } else {
+                        arr.length = arr.length - 1
+                        // return arr
+                    }
+                    arr.map((item) => {
+                        if (item.split('#')[2] == '是') {
+                            str += item.split('#')[1]
+                        }
+                    })
+                    return str
+                    }
+                    
+                }
+            },
+            methods: {
+                goNext(answer_select){
+                    console.log(answer_select)
+                    arr = this.answers.danxuan.concat(this.answers.duoxuan).concat(this.answers.jianda).concat(this.answers.cailiao)
+                    console.log(arr,arr[arr.indexOf(answer_select)+1])
+                    index = arr.indexOf(answer_select) == arr.length-1?0:arr.indexOf(answer_select)+1
+                    this.select_question(arr[index])
+                },
+                select_question(item) {
+                    let _this = this
+                    console.log(item)
+                    if(item.question_type == '7'){
+                        item.question_sub_id.map((i)=>{
+                            arr = i.optionanswer.split(';')
+                            if (arr[arr.length - 1] != '') {
+                                i.optionanswer1 = arr
+                            } else {
+                                arr.length = arr.length - 1
+                                i.optionanswer1 = arr
+                            }
+                            str = ''
+                            arr.map((item1) => {
+                                if (item1.split('#')[2] == '是') {
+                                    str += item1.split('#')[1]
+                                }
+                            })
+                            i.true_answer = str
+                        })
+                    }
+                    console.log(item)
+                    _this.answer_select = item
+                },
+                active() {
+                    this.activeIndexb = 2
+                    console.log(1)
+                    let _this = this
+                    $.ajax({
+                        url: './cn.json',
+                        type: 'get',
+                        // data:'',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.userList = data
+                            // _this.userList = []
+
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                    this.init()
+                    let _this = this
+                    $.ajax({
+                        url: './cn.json',
+                        type: 'get',
+                        // data:'',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.userList = data
+                            _this.userList1 = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                flexColumnWidth() {
+                    return $('.el-table__header-wrapper').width() / 100 * 25
+                },
+                flexColumnWidthc() {
+                    return $('.el-table__header-wrapper').width() / 100 * 3
+                },
+                flexColumnWidthd() {
+                    return $('.el-table__header-wrapper').width() / 3
+                },
+                flexColumnWidthe() {
+                    return $('.el-table__header-wrapper').width() / 6
+                },
+                flexColumnWidthf() {
+                    return $('.el-table__header-wrapper').width() / 9
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

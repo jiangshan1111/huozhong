@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        body .el-table th.gutter {
+            display: table-cell !important;
+        }
+        .page-ul {
+    width: 65%;
+    display: inline-flex;
+    margin: 0;
+    margin-left: 5%;
+}
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .colRow .coll input {
+            width: 90%;
+            height: 30px;
+            border: 1px solid #dcdfe6;
+            color: #dcdfe6;
+            height: 32px;
+            border-radius: 5px;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        }
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .colRow .coll {
+            float: left;
+            width: 17%;
+            margin: 20px .1% 0 0;
+            height: 20px;
+        }
+
+        .colRow .coll select {
+            width: 57%;
+            height: 30px;
+            border: 1px solid #dcdfe6;
+            height: 32px;
+            color: rgb(110, 110, 110);
+            border-radius: 5px;
+        }
+        .company .service-list ul li p.btns{
+		margin-top: 34px;
+		position: absolute;
+		bottom: 15px;
+		width: 88%;
+    }
+    .company .service-list ul li {
+    width: 348px;
+    width: auto;
+    margin-bottom: 25px;
+    height: 150px;
+}
+	.company .service-list ul li p.btns .right-btn{
+		float: right;
+	}
+	.left  .add_text{
+		color:red;
+		font-size:12px;
+	}
+	.company .service-list ul li p.btns a{cursor:pointer;}
+	.open-service li em.new{
+		display: inline-block;
+		background: url(/images/new-icon.png) left top no-repeat;
+		width: 24px;
+		height: 11px;
+		margin-left: 90px;
+		margin-top: 8px;
+	}
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-account"></i> 系统
+                    <ul class="row page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;width: 20%">开通服务</li>
+                        <li onclick="window.location.href='systemLimit.html'" style="width: 20%">用户权限</li>
+                        <li onclick="window.location.href='systemLimitrizhi.html'" style="width: 20%">操作日志</li>
+                        <li style="width: 20%">机构订单</li>
+                        <li style="width: 20%">下载任务</li>
+
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+
+            <div class="u-wrap company">
+                <div class="mainbackground u-content" style="padding:0">
+                    <div class="wrap" style="margin:0;">
+                        <div class="row" style="width:1140px;padding:5px 0;">
+                            <div class="col-4">
+                                <div class="box">
+                                    <h6 class="welcome" style="font-size:14px;">Hi，
+
+
+                                        北京智汇火种教育科技有限公司
+
+                                    </h6>
+                                    <span class="go-rz">
+
+                                        <a href="javascript:;" class="btn-authen" style="text-decoration: none;"><em
+                                                class="iconfont" style="color:#1cbdef;cursor:pointer;"></em></a>
+
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-4 leave" style="line-height:30px;">
+                                <div class="box clear">
+                                    <div class="left">
+                                        <span class="icons">
+
+
+
+
+
+
+
+
+                                            <img src="http://manage.yunduoketang.com/images/iconfont-canpinhuihuiyuanv5.png"
+                                                alt="">
+
+
+                                            <span class="leave-text">企业专业版</span>
+
+
+
+                                        </span>
+
+
+                                        <span style="color:#ccc;">
+                                            <em style="font-size:14px; width: 85px;color:#1cbdef">2033/2300</em> 在线学员
+                                        </span>
+
+                                        <input type="hidden" id="status" value="3">
+                                        <input type="hidden" id="level" value="51">
+                                        <input type="hidden" id="buyflag" value="1">
+                                        <span style="color:#ccc;">
+                                            <em style="font-size:14px;width: 85px;color:#1cbdef">
+
+                                                2020-06-05
+                                            </em>服务到期
+                                        </span>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-4" style="margin-top:4px;line-height:30px;">
+                                <div class="box noborder">
+                                    <p class="c clear">
+                                        <input type="hidden" value="34270" id="companyId">
+                                        <span class="a-title">网校地址：</span>
+                                        <span
+                                            style="max-width: 200px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+
+
+
+
+
+
+
+                                            <a href="http://ketang.huozhongedu.com"
+                                                target="_blank">ketang.huozhongedu.com</a>
+
+
+
+
+
+                                        </span>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="u-wrap company">
+                <div class="mainbackground u-content clear q-mainbackground"  style="padding:0">
+                    <div class="service-list open-service">
+                        <div class="q-ucont">
+                            <div class="inter-set q-text">
+                                <p><i class="iconfont"></i>网校功能管理</p>
+                            </div>
+                            <ul class="clear">
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px">
+                                        <div>
+                                            <i class="icons i2 active" style="cursor: pointer;"
+                                                onclick="forwardnetSchool();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardnetSchool();"> 网校设置 </a>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">网校模板配置</p>
+                                        <p class="infos">网校页面优化</p>
+                                        <p class="infos">网校推广管理</p>
+                                    </div>
+
+                                    <p class="btns isok">
+
+
+
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="sysPageHeadFoot/showHead">页头导航</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="companyHeadFootConfig/showFootTemplete">页尾导航</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="sysBody/show">首页模板</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="sysConfigIco/showIco">SEO设置</a>
+
+
+                                        <a href="javascript:;" class="btn btn-sm btn-default right-btn more"
+                                            data-url="sysPageHeadFoot/showHead">更多</a>
+                                    </p>
+
+                                </li>
+
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i14 active" style="cursor: pointer;"
+                                                onclick="forwardSchool();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardSchool();"
+                                                    style="text-decoration: none;">分校管理</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">
+                                            <em style="font-size:14px; width: 85px;margin-top: 3px;">1</em>分校数量
+                                        </p>
+                                    </div>
+
+                                    <p class="btns isok" style="height:28px">
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="companyMemberService/openSchool">分校设置</a>
+                                    </p>
+
+                                </li>
+
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px">
+                                        <div>
+                                            <i class="icons i22 active" style="cursor: pointer;"
+                                                onclick="forwardMicroSchool();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardMicroSchool();"> 微网校
+                                                    <!--<i class="icon-red"></i>--> </a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_MICROSCHOOL"></i>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <!-- 										 <p class="infos">导航配置</p> -->
+                                        <!-- 										 <p class="infos">页尾设置</p> -->
+                                        <!-- 										 <p class="infos">轮播图设置</p> -->
+                                        <p class="infos">首页设置</p>
+
+                                    </div>
+                                    <p class="btns isok">
+                                        <!-- 										 <a data-url="microSchool/gotoNavigationConfig" class="btn btn-sm btn-default micro-set" >导航配置</a> -->
+                                        <!-- 										 <a data-url="microSchool/gotoFooterConfig" class="btn btn-sm btn-default micro-set" >页尾设置</a> -->
+                                        <!-- 										 <a data-url="microSchool/gotoCarouselFigureConfig" class="btn btn-sm btn-default micro-set" >轮播图设置</a> -->
+                                        <a data-url="microSchool/gotoIndexConfig"
+                                            class="btn btn-sm btn-default micro-set">首页设置</a>
+                                    </p>
+                                </li>
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i20 active" style="cursor: pointer;"
+                                                onclick="forwardApp();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);">APP</a>
+
+                                                <!-- 									<i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务" data-type="SERVICE_APP">&#xe635;</i> -->
+
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">APP网校</p>
+                                        <p class="infos">APP题库</p>
+                                    </div>
+
+                                    <input type="hidden" value="1" id="appServicePri">
+                                    <p class="btns isok" style="height:28px">
+                                        <a data-url="companyAppBarConfig/configBaseInfo"
+                                            class="btn btn-sm btn-default">设置</a>
+                                    </p>
+
+                                </li>
+
+
+
+
+
+
+                            </ul>
+                        </div>
+                        <div class="q-ucont">
+                            <div class="inter-set q-text">
+                                <p><i class="iconfont"></i>教学功能管理</p>
+                            </div>
+                            <ul class="clear">
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px">
+                                        <div>
+                                            <i class="icons i3 active" style="cursor: pointer;"
+                                                onclick="forwardLive();"></i>
+                                            <p class="s-name">
+
+
+
+                                                <a href="javascript:void(0);" onclick="forwardLive();">云朵直播</a>
+
+
+
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_LIVE"></i>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+
+                                        <p class="infos">
+                                            <em style="font-size:14px; width: 85px;margin-top: 3px;margin-top: 3px;">
+                                                1000
+                                            </em>当月可用并发<i class="iconfont ask" title="当月可用并发"></i>
+                                        </p>
+                                        <p class="infos">
+                                            <em style="font-size:14px; width: 85px;margin-top: 3px;">
+
+                                                933
+
+                                            </em>当月已用并发<i class="iconfont ask" title="当月已用并发"></i>
+                                        </p>
+                                        <p class="infos">
+                                            <em style="font-size:14px; width: 85px;margin-top: 3px;">0</em>下月可用并发<i
+                                                class="iconfont ask" title="下月可用并发"></i>
+                                        </p>
+
+
+                                    </div>
+
+                                    <p class="btns isok">
+
+
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="companyMemberService/buyFlow">购买并发数</a>
+
+
+
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="companyMemberService/prestoreLive">预存分配</a>
+
+
+
+                                    </p>
+
+                                </li>
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div>
+                                        <div class="left" style="width: 200px;">
+                                            <div>
+
+                                                <i class="icons i4 active" style="cursor: pointer;"
+                                                    onclick="forwardVideo();"></i>
+                                                <p class="s-name">
+
+
+
+                                                    <a href="javascript:void(0);" onclick="forwardVideo();">云朵存储</a>
+
+
+
+                                                    <i class="iconfont btn-colse-ser" style="color:#dddddd;"
+                                                        title="点击关闭服务" data-type="SERVICE_VIDEO"></i>
+
+                                                    <span class="q-tip">(录播+文件)</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="right server-infos">
+                                            <p class="infos">
+                                                流量<em style="font-size:14px; width: 85px;margin-top: 4px;">
+
+                                                    27000
+                                                </em>GB<i class="iconfont ask" title="流量"></i>
+                                            </p>
+                                            <p class="infos">
+                                                空间<em style="font-size:14px; width: 85px;margin-top: 3px;">
+
+                                                    530
+                                                </em>GB<i class="iconfont ask" title="总空间"></i>
+                                            </p>
+                                            <p class="infos">
+
+                                                <em
+                                                    style="font-size:14px;width: 85px; margin-top:3px;">2020-05-29</em>空间到期时间
+
+
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <p class="btns isok">
+
+
+                                        <a href="javascript:;" class="btn btn-sm btn-default" data-type="1"
+                                            data-url="companyMemberService/showByVideo">续费</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default" data-type="2"
+                                            data-url="companyMemberService/showByVideo">升级空间</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default" data-type="2"
+                                            data-url="companyMemberService/showByVideoTwo">购买流量</a>
+
+                                        <a data-url="company/marqueeOption" class="btn btn-sm btn-default"
+                                            data-type="2">跑马灯设置</a>
+                                    </p>
+
+                                </li>
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i5 active" style="cursor: default;"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:;"
+                                                    style="cursor: default;text-decoration: none;">面授服务</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_FACE"></i>
+
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos"> </p>
+
+
+
+
+
+
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+                                </li>
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i28 active" style="cursor: pointer;"
+                                                onclick="forwardClassTypeMeet();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);"
+                                                    onclick="forwardClassTypeMeet();">一对一约课</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_MEET"></i>
+
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">
+                                            <em style="font-size:14px; width: 85px;margin-top: 3px;">
+                                                60
+                                            </em>单课时时长/分钟<i class="iconfont ask" title="单课时时长/分钟"></i>
+                                        </p>
+                                        <p class="infos">
+                                            <em style="font-size:14px; width: 85px;margin-top: 3px;"></em>可预约天数<i
+                                                class="iconfont ask" title="可预约天数"></i>
+                                        </p>
+                                    </div>
+
+                                    <p class="btns isok">
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="companyFunctionSet/configClassTypeMeetTime">预约天数配置</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="companyFunctionSet/configClassTypeMeetOperateTime">运营时间配置</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="companyFunctionSet/configClassTypeMeetAuth">约课权限设置</a>
+                                    </p>
+
+
+                                </li>
+
+
+
+
+
+
+
+
+
+
+
+                            </ul>
+                        </div>
+                        <div class="q-ucont">
+                            <div class="inter-set q-text">
+                                <p><i class="iconfont"></i>课程功能管理</p>
+                            </div>
+                            <ul class="clear">
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px">
+                                        <div>
+                                            <i class="icons i1 active" style="cursor: pointer;"
+                                                onclick="forwardCourse();"><i class="icon-red"></i></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardCourse();"> 课程 </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">课程设置</p>
+                                        <p class="infos">课程权限</p>
+                                        <p class="infos">课程管理</p>
+                                    </div>
+
+                                    <p class="btns isok">
+
+
+
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="classManage/manageCourseValidaty">课程有效期</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="classManage/signup_news">报名通知</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="classManage/manage_classpl">课程评论</a>
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="Question/queAnsSet">课程问答</a>
+
+
+                                        <a href="javascript:;" class="btn btn-sm btn-default right-btn more"
+                                            data-url="classManage/manageCourseValidaty">更多</a>
+                                    </p>
+
+                                </li>
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i17 active" style="cursor: pointer;"
+                                                onclick="forwardclassPackage();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardclassPackage();">课程包</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_CLASS_PACKAGE"></i>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">课程阶段</p>
+                                        <p class="infos">打包售卖</p>
+                                        <p class="infos">学习计划</p>
+                                    </div>
+
+                                    <p class="btns isno">
+                                        <a href="javascript:;" class="btn btn-sm btn-default btn-open-ser"
+                                            data-type="SERVICE_CLASS_PACKAGE">开通</a>
+                                    </p>
+
+
+                                    <input type="hidden" value="1" id="classPackageServicePri">
+                                    <p class="btns isok" style="height:28px">
+                                        <a data-url="classPackageCategory/addClassPackageCategory"
+                                            class="btn btn-sm btn-default">添加分类</a>
+                                        <a data-url="classPackageCategory/SetClassPackageCategory"
+                                            class="btn btn-sm btn-default">设置</a>
+                                    </p>
+
+                                </li>
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i29 active" style="cursor: pointer;"
+                                                onclick="forwardOpenCourse();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardOpenCourse();"
+                                                    style="text-decoration: none;">公开课</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_OPENCLASS"></i>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">公开课列表</p>
+                                        <p class="infos">公开课轮播图</p>
+                                        <p class="infos">公开课模板</p>
+                                    </div>
+
+                                    <p class="btns isok" style="height:28px">
+                                        <a data-url="liveOpenCourse/showLiveOpenClassSetting"
+                                            class="btn btn-sm btn-default">公开课设置</a>
+                                        <a data-url="sysBody/openClassOption" class="btn btn-sm btn-default">公开课模板</a>
+                                        <a data-url="liveOpenCourse/showBannerPic"
+                                            class="btn btn-sm btn-default">公开课轮播图</a>
+                                    </p>
+
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                        <div class="q-ucont">
+                            <div class="inter-set q-text">
+                                <p><i class="iconfont"></i>运营功能管理</p>
+                            </div>
+                            <ul class="clear">
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i8 active" style="cursor:pointer;"
+                                                onclick="forwardPaySet();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardPaySet();"
+                                                    style="cursor:pointer; text-decoration: none;margin-right: 10px;">支付
+                                                    <i></i></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">
+                                        </p>
+                                        <p class="infos">
+
+
+                                            <em></em><span>已开通</span>
+
+
+                                        </p>
+                                        <p class="infos">
+                                        </p>
+                                    </div>
+
+                                    <p class="btns isok">
+                                        <a href="javascript:;" class="btn btn-sm btn-default">设置支付信息</a>
+                                    </p>
+
+                                </li>
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i10 active" style="cursor: pointer;"
+                                                onclick="forwardQuest();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardQuest();"
+                                                    style="text-decoration: none;">问答社区</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_QUESTION_ANSWER"></i>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">学员提问</p>
+                                        <p class="infos">社区运营</p>
+                                        <p class="infos">问答管理</p>
+                                    </div>
+
+                                    <p class="btns isok" style="height:28px">
+                                        <a href="javascript:;" onclick="window.location.href='systemanswer.html'" class="btn btn-sm btn-default"
+                                            data-url="Question/questionSetIndex">设置</a>
+
+                                    </p>
+
+                                </li>
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i12 active" style="cursor: pointer;"
+                                                onclick="forwardMarking();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardMarking();">营销工具</a>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">公众号运营</p>
+                                        <p class="infos">在线客服</p>
+                                        <p class="infos">QQ运营</p>
+                                    </div>
+
+                                    <p class="btns isok" style="height:28px">
+                                        <a data-url="companyMarketSet/showCompanyMarket"
+                                            class="btn btn-sm btn-default">营销QQ</a>
+                                        <a data-url="companyMarketSet/CompanyMarket_wx"
+                                            class="btn btn-sm btn-default">微信</a>
+                                        <a data-url="companyMarketSet/CompanyMarket_wb"
+                                            class="btn btn-sm btn-default">新浪微博</a>
+                                        <a data-url="companyMarketSet/CompanyMarket_kf"
+                                            class="btn btn-sm btn-default">客服电话</a>
+                                        <a data-url="companyMarketSet/showCompanyMarket"
+                                            class="btn btn-sm btn-default right-btn more">更多</a>
+                                    </p>
+
+                                </li>
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i15 active" style="cursor: pointer;"
+                                                onclick="forwardSms();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardSms();">短信</a>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">
+                                            <em style="font-size:14px; width: 85px;margin-top: 3px;">
+
+                                                18400
+                                            </em>短信总量<i class="iconfont ask" title="短信总量"></i>
+                                        </p>
+                                        <p class="infos">
+
+                                            <em style="font-size:14px; width: 85px;margin-top: 3px;">16571</em>已使用量<i
+                                                class="iconfont ask" title="已使用短信量"></i>
+                                        </p>
+                                        <p class="infos">
+
+                                            <em style="font-size:14px; width: 85px;margin-top: 3px;">1829</em>条剩余
+                                        </p>
+                                    </div>
+
+                                    <p class="btns isok">
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="companyMemberService/buyMessage">购买短信</a>
+                                    </p>
+
+                                </li>
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i16 active" style="cursor: pointer;"
+                                                onclick="forwardEmail();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardEmail();">邮件</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">
+                                            <em style="font-size:14px; margin-top: 3px;">
+
+                                                3001
+                                            </em>封总量<i class="iconfont ask" title="邮件总量"></i>
+                                        </p>
+                                        <p class="infos">
+                                            <em style="font-size:14px;margin-top: 3px;">0</em>已使用
+                                        </p>
+                                        <p class="infos">
+                                            <em style="font-size:14px;margin-top: 3px;">3001</em>封剩余
+                                        </p>
+                                    </div>
+
+                                    <p class="btns isok">
+                                        <a href="javascript:;" class="btn btn-sm btn-default"
+                                            data-url="companyMemberService/buyEmail">购买邮件</a>
+                                    </p>
+
+                                </li>
+
+
+
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i21 active" style="cursor: pointer;"
+                                                onclick="forwardpromotion();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardpromotion();"
+                                                    style="margin-right: 10px;">促销</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_PROMOTION"></i>
+
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">优惠码</p>
+                                        <p class="infos">邀请他人</p>
+                                    </div>
+                                    <p class="btns isok" style="height:28px">
+                                        <input type="hidden" value="1" id="promotionServicePri">
+                                        <a data-url="companyInvitConfig/toCompanyInviteCofig"
+                                            class="btn btn-sm btn-default">邀请码</a>
+                                        <a data-url="company/setCouponService" class="btn btn-sm btn-default">优惠码</a>
+                                        <a data-url="companyRechargePatch/gotoRechargeCardOpenFlagPage"
+                                            class="btn btn-sm btn-default">充值卡</a>
+                                    </p>
+                                </li>
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i9 active" style="cursor: default;"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:;"
+                                                    style="cursor: default;text-decoration: none;">名师专题</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_TEACHER"></i>
+
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">名师动态</p>
+                                        <p class="infos">名师评论</p>
+                                        <p class="infos">名师个人主页</p>
+                                    </div>
+                                    <p class="btns isok" style="height:28px">
+
+
+                                        <a data-url="teacherSettle" class="btn btn-sm btn-default">教师入驻</a>
+                                    </p>
+                                </li>
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i13 active" style="cursor: default;"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:;"
+                                                    style="cursor: default;text-decoration: none;">分期缴费服务</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_STAGE"></i>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">分期缴费</p>
+                                        <p class="infos">补费</p>
+                                        <p class="infos">催缴</p>
+                                    </div>
+                                    <p class="btns isok" style="height:28px">
+                                        <!--
+                                                <a href="javascript:;" class="btn btn-sm btn-default" data-type="SYS_CONFIG_SERVICE_STAGE">开通</a>
+                                                <a href="javascript:;" class="btn btn-sm btn-default" data-type="studetail">详情</a> -->
+                                    </p>
+                                </li>
+
+
+
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i26 active" style="cursor: pointer;"
+                                                onclick="forwardStudentAspirations();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardStudentAspirations();"
+                                                    style="cursor: pointer;text-decoration: none;">学员心声</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_STUDENT_ASPIRATIONS"></i>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">学员心声展示</p>
+                                    </div>
+                                    <p class="btns isok" style="height:28px">
+                                        <a data-url="studentStar/showImg" class="btn btn-sm btn-default"
+                                            data-type="SYS_CONFIG_SERVICE_STAGE">展示图</a>
+                                    </p>
+                                </li>
+
+
+
+
+
+
+
+
+
+                            </ul>
+                        </div>
+                        <div class="q-ucont">
+                            <div class="inter-set q-text">
+                                <p><i class="iconfont"></i>学员功能管理</p>
+                            </div>
+                            <ul class="clear">
+
+
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons stud active" style="cursor: pointer;"
+                                                onclick="forwardStudentSet();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardStudentSet();"
+                                                    style="text-decoration: none;">学员设置 <i></i></a>
+
+                                                <!-- 											<i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务" data-type="SERVICE_MEMBER">&#xe635;</i> -->
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">登录设置</p>
+                                        <p class="infos" style="width:108px;">注册设置</p>
+                                    </div>
+                                    <p class="btns isok" style="height:28px">
+
+
+
+                                        <a data-url="companyFunctionSet/stuRegister"
+                                            class="btn btn-sm btn-default stu-set">学员注册设置</a>
+                                        <a data-url="companyFunctionSet/stuLogin"
+                                            class="btn btn-sm btn-default stu-set">学员登录设置</a>
+
+                                        <a data-url="studentGroup/setStudentGroup"
+                                            class="btn btn-sm btn-default stu-set">学员分组</a>
+
+
+                                    </p>
+                                </li>
+
+
+
+
+
+
+
+                            </ul>
+                        </div>
+                        <div class="q-ucont">
+                            <div class="inter-set q-text">
+                                <p><i class="iconfont"></i>题库功能管理</p>
+                            </div>
+                            <ul class="clear">
+
+
+                                <li class="" style="width: 30%;">
+                                    <div class="left" style="width: 200px;">
+                                        <div>
+                                            <i class="icons i7 active" style="cursor:pointer;"
+                                                onclick="forwardTiku();"></i>
+                                            <p class="s-name">
+                                                <a href="javascript:void(0);" onclick="forwardTiku();"
+                                                    style="text-decoration: none;">题库</a>
+
+                                                <i class="iconfont btn-colse-ser" style="color:#dddddd;" title="点击关闭服务"
+                                                    data-type="SERVICE_TIKU"></i>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right server-infos">
+                                        <p class="infos">专业题库</p>
+                                        <p class="infos">随堂考试</p>
+                                        <p class="infos">模拟真实考题</p>
+                                    </div>
+
+                                    <p class="btns isok" style="height:28px">
+                                        <a data-url="tikuSet/toSet/stuFree" class="btn btn-sm btn-default">题库设置</a>
+                                    </p>
+
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <!-- 资料共享功能管理-->
+
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value2: '',
+                    sousuo_info: {
+                        notice_type: '',
+                        notice_way: '',
+                        notice_title: '',
+                    },
+                    userList: []
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/student/queryAllStudentNotice',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.userList = data
+                        // _this.userList = data
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                        //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                        //     _this.userList[i].enrollment_status = _this.userList[i]
+                        //         .enrollment_status == 1 ? '已报名' : '未报名'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                },
+                activea() {
+
+                    this.activeIndexb = num
+                },
+                chakan(scope) {
+                    console.log(scope)
+                    window.open('studentNoticer.html?notice_id=' + scope.notice_id)
+                },
+                sousuo() {
+                    _this = this
+                    obj = _this.sousuo_info
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/student/studentNoticeSearchBox',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            _this.userList = data
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                addnotice() {
+                    window.location.href = "studentNoticerAdd.html"
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                flexColumnWidth(num) {
+                    return $('.el-table__header-wrapper').width() / 100 * num
+                },
+                flexColumnWidthc() {
+                    return $('.el-table__header-wrapper').width() / 100 * 3
+                },
+                dangan(scope) {
+                    window.location.href = "studentNoticer.html"
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/manger.css">
+    <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/coupon.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+     <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/company.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger-screen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/inviteRecord.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/distrib.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="./kindeditor/plugins/code/prettify.css" />
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <style>
+        body {
+            color: black;
+        }
+
+        /* .s_box tbody tr td, .s_box tbody tr {
+    border: none;
+    background-color: #ffffff;
+    color: #949494;
+    padding:0;
+} */
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .s_box {
+            width: 1100px;
+        }
+
+        .s_box .conserve {
+            padding: 10px 0 10px;
+            text-align: center;
+        }
+
+        .coupon-block select {
+            border-color: #bbbbbb;
+            width: 120px;
+        }
+
+        .el-range-editor.el-input__inner {
+            padding: 0 10px;
+            height: 30px;
+        }
+
+        .el-date-editor .el-range__icon {
+            line-height: 30px;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 30px;
+            width: 30px;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        .system_managelist .subentry span,
+        .system_managelist .subentry em {
+            vertical-align: middle;
+        }
+
+        .system_managelist .subentry em {
+            display: inline-block;
+            background: url("/images/new-icon.png") left top no-repeat;
+            width: 24px;
+            height: 11px;
+            margin-left: 10px;
+        }
+
+        .screenList .btn {
+            margin-right: 15px;
+            border-radius: 3px;
+            padding: 6px 12px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 运营
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='motion.html'">问答</li>
+                        
+                        <li onclick="window.location.href='motionPinglun.html'">课程评论</li>
+                        <li onclick="window.location.href='motionNews.html'">新闻资讯</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='motionCuxiao.html'">促销</li>
+                        <li onclick="window.location.href='motionStudent.html'">学员心声</li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company overflow coupon-page" style="margin: 0;width: auto">
+
+
+
+
+
+
+
+
+
+
+                <!-- 二级导航 -->
+                <div class="left-side">
+                    <div class="left-side-title">
+                        <em>促 销</em>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <ul class="system_managelist">
+
+
+
+                        <li :class="activeIndexa == 3?'subentry member_flaging active':'subentry member_flaging'"
+                            code="coupon_manage" @click="active(3)"><span style="font-size: 14px;">优惠码管理</span></li>
+
+
+                    </ul>
+                </div>
+                <div class="screen-right">
+                    <div class="screen-right-cont">
+                        <div class="screen-right-title">
+                            <h3>
+                                <i>
+
+
+
+                                    {{edit_discount == 'true'?'修改优惠码':'创建优惠码'}}
+
+
+                                </i>
+                            </h3>
+                        </div>
+                        <input type="hidden" value="" id="coupsPatchId">
+                        <div class="coupon-title-tab coupon_types">
+                            <span @click="activeb(0)" :class="activeIndexb == 0?'tab-itm active':'tab-itm'" ids="0"
+                                mark="coupon-online">线上发放</span>
+
+                            <span @click="activeb(1)" :class="activeIndexb == 1?'tab-itm active':'tab-itm'" ids="1"
+                                mark="coupon-downline">线下发放</span>
+
+
+                        </div>
+                        <div class="coupon-out-type coupon-online">
+                            <div class="coupon-block clear">
+                                <div class="t-label fl">
+                                    <i class="iconfont"></i>
+                                    优惠名称
+                                </div>
+                                <div class="fl">
+                                    <input type="text" value="" v-model="send_info.discount_code_name"
+                                        id="onLine_couponseName" class="w210" maxlength="10" placeholder="最多只能输入10个汉字">
+                                </div>
+                            </div>
+                            <div class="coupon-block clear">
+                                <div class="t-label fl">
+                                    优惠说明
+                                </div>
+                                <div class="fl">
+                                    <input type="text" v-model="send_info.discount_code_explain" id="onLine_desciprtion"
+                                        value="" class="w310" maxlength="20" placeholder="最多只能输入20个汉字">
+                                </div>
+                            </div>
+                            <div class="coupon-block clear">
+                                <div class="t-label fl">
+                                    <i class="iconfont"></i>
+                                    产品类型
+                                </div>
+                                <div class="fl coupon-type product-type limitEdit">
+                                    <span><input v-model="send_info.product_type" type="radio" name="product-type"
+                                            value="课程" data-type="0">课程</span>
+
+
+                                    <span><input v-model="send_info.product_type" type="radio" name="product-type"
+                                            value="课程包" data-type="1">课程包</span>
+
+
+                                </div>
+                            </div>
+                            <div class="coupon-block clear">
+                                <div class="t-label fl">
+                                    <i class="iconfont"></i>
+                                    优惠方式
+                                </div>
+                                <div class="fl coupon-type limitEdit" id="onLine_conTypeslist">
+                                    <span><input type="radio" v-model="send_info.preferential_way" name="type"
+                                            value="抵现" mark="type-a">抵现</span>
+                                    <span><input type="radio" v-model="send_info.preferential_way" name="type"
+                                            value="满减" mark="type-b">满减</span>
+                                    <span><input type="radio" v-model="send_info.preferential_way" name="type"
+                                            value="折扣" mark="type-c">打折</span>
+                                    <div class="coupon-type-cont" style="display: block;">
+                                        <p class="type-a" v-show="send_info.preferential_way == '抵现'"
+                                            style="display: block;">面额 <input v-model="discount1" type="text"
+                                                class="prices" value="" id="onLine_insCashNum" maxlength="9">元<span
+                                                id="onLine_insCashNum_msg">当课程原价或优惠后的价格低于抵现金额时,抵现金额不能用.</span></p>
+
+                                        <p class="type-b" v-show="send_info.preferential_way == '满减'"
+                                            style="display: block;">满 <input v-model="discount2" type="text"
+                                                class="prices" value="" id="onLine_overNum" maxlength="9">减 <input
+                                                v-model="discount3" type="text" value="" class="prices" maxlength="9"
+                                                id="onLine_overCutNum"><span>"减"的金额必须大于0</span></p>
+
+                                        <p class="type-c" v-show="send_info.preferential_way == '折扣'"
+                                            style="display: block;">折扣 <input v-model="discount4" type="text" value=""
+                                                class="print_prices" id="onLine_discountNum">折</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coupon-block clear" v-show="activeIndexb == 0">
+                                <div class="t-label fl">
+                                    <i class="iconfont"></i>
+                                    优惠对象
+                                </div>
+                                <div class="fl p-relative">
+                                    <!-- <div class="user-chose-wrap" style="display: inline-block;" id="">
+                                        
+                                    </div> -->
+                                    <div id="courseSelectId" style="vertical-align: text-bottom; display: inline-block;"
+                                        class="limitEdit">
+                                        <span class="coupon-set  ">
+                                            <select class="itemOne2 " v-model="send_info.concession_object"
+                                                @change="change_example">
+                                                <option value="">请选择</option>
+                                                <option value="所有注册用户">所有注册用户</option>
+                                                <option value="所有购买过课程的学员">所有购买过课程的学员</option>
+                                                <option value="指定课程">指定课程</option>
+                                                <option value="指定用户">指定用户</option>
+                                            </select>
+                                        </span>
+                                        <span class="coupon-set" v-show="send_info.concession_object == '指定课程'">
+                                            <select class="itemOne2" v-model="object_kc.project_id"
+                                                @change="change_kemus">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in projects" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+                                                <!-- <option value="86683">基金从业资格考试</option>
+                                                <option value="287810">工程师职称评审</option> -->
+                                            </select>
+                                        </span>
+                                        <span class="coupon-set " v-show="send_info.concession_object == '指定课程'">
+                                            <select class="itemTwo2" v-model="object_kc.subject_id"
+                                                @change="change_kcs">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in kemus" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+                                            </select>
+                                        </span>
+                                        <span class="coupon-set " v-show="send_info.concession_object == '指定课程'">
+                                            <select class="classes_course2" tabindex="-1" title="" @change="search_nums"
+                                                v-model="object_kc.course_id">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in kcs" :value="item.course_id">
+                                                    {{item.course_name}}</option>
+                                            </select>
+                                        </span>
+                                    </div>
+
+
+
+                                    <span class="give-out-nume" style="right: -190px;">发放<input id="tiketsNums"
+                                            type="text" disabled="disabled" v-bind:value="send_info.quantity_issued"
+                                            style="border-radius: 0;width: 80px;margin: 0 10px">个</span>
+                                    <p class="l-note">说明：支持最多生成10000个优惠码</p>
+                                    <div class="member-p member_lists_chose1" style="width: 600px; display: none;">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="coupon-block clear limitEdit" v-show="activeIndexb == 1">
+                                <div class="t-label fl">
+                                    <i class="iconfont"></i>
+                                    发放数量
+                                </div>
+                                <div class="fl">
+                                    <span>发放<input type="text" v-model="nums" value="" id="offLine_tiketsNums"
+                                            style="border-radius: 0;width: 80px;margin: 0 10px">个</span>
+
+                                    <p class="l-note">说明：支持最多生成10000个优惠码</p>
+                                </div>
+                            </div>
+                            <div class="coupon-block clear">
+                                <div class="t-label fl">
+                                    <i class="iconfont"></i>
+                                    使用期限
+                                </div>
+                                <div class="fl">
+                                    <template>
+                                        <!-- <div class="block"> -->
+                                        <el-date-picker v-model="value2" type="daterange" range-separator="至"
+                                            start-placeholder="开始日期" end-placeholder="结束日期">
+                                        </el-date-picker>
+                                        <!-- </div> -->
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="coupon-block clear">
+                                <div class="t-label fl">
+                                    <i class="iconfont"></i>
+                                    优惠范围
+                                </div>
+                                <div class="fl coupon-name comm_useRanges limitEdit" id="onLine_userRanges">
+                                    <p v-show="send_info.product_type == '课程'"><input type="radio"
+                                            v-model="send_info.preferential_scope" value="全部课程" name="coupon-name">全部课程
+                                    </p>
+                                    <p v-show="send_info.product_type == '课程包'"><input type="radio"
+                                            v-model="send_info.preferential_scope" value="全部课程包"
+                                            name="coupon-name">全部课程包
+                                    </p>
+                                    <p class="item_list_choose" v-show="send_info.product_type == '课程'">
+                                        <input class="class-choose" type="radio" v-model="send_info.preferential_scope"
+                                            name="coupon-name" value="指定范围">指定范围
+                                        <span class="coupon-set"
+                                            v-show="send_info.preferential_scope == '指定范围' && send_info.product_type == '课程'">
+                                            <select class="itemOne range_kc_project" v-model="range_kc.project_id"
+                                                @change="range_kemus">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in projects" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+                                            </select>
+                                        </span>
+                                        <span class="coupon-set"
+                                            v-show="send_info.preferential_scope == '指定范围' && send_info.product_type == '课程'">
+                                            <select class="itemTwo range_kc_subject" v-model="range_kc.subject_id">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in kemus1" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                    <p class="item_list_choose" v-show="send_info.product_type == '课程包'">
+                                        <input class="class-choose" type="radio" v-model="send_info.preferential_scope"
+                                            name="coupon-name" value="指定范围1">指定范围
+                                        <span class="coupon-set" v-show="send_info.preferential_scope == '指定范围1'">
+                                            <select class="itemOne range_kcb_project" v-model="range_kcb.project_id">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in projects" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                    <p class="item_course_choose" v-show="send_info.product_type == '课程包'"><input
+                                            class="class-choose" type="radio" name="coupon-name"
+                                            v-model="send_info.preferential_scope" value="指定课程包">指定课程包
+                                        <span class="coupon-set" v-show="send_info.preferential_scope == '指定课程包'">
+                                            <select class="itemOne zhiding_kcb_project" v-model="zhiding_kcb.project_id"
+                                                @change="zhiding_kcbs">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in projects" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+                                            </select>
+                                        </span>
+                                        <span class="coupon-set" v-show="send_info.preferential_scope == '指定课程包'">
+                                            <select class="itemTwo zhiding_kcb_package"
+                                                v-model="zhiding_kcb.course_package_id">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in kcbs" :value="item.course_package_id">
+                                                    {{item.cp_name}}</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                    <p class="item_course_choose" v-show="send_info.product_type == '课程'"><input
+                                            class="class-choose" type="radio" name="coupon-name"
+                                            v-model="send_info.preferential_scope" value="指定课程">指定课程
+                                        <span class="coupon-set" v-show="send_info.preferential_scope == '指定课程'">
+                                            <select class="itemOne zhiding_kc_project" v-model="zhiding_kc.project_id"
+                                                @change="zhiding_kemus">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in projects" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+                                            </select>
+                                        </span>
+                                        <span class="coupon-set" v-show="send_info.preferential_scope == '指定课程'">
+                                            <select class="itemTwo zhiding_kc_subject" v-model="zhiding_kc.subject_id"
+                                                @change="zhiding_kcs">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in kemus2" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+                                            </select>
+                                        </span>
+                                        <span class="coupon-set" v-show="send_info.preferential_scope == '指定课程'">
+                                            <select class="itemTwo zhiding_kc_course" v-model="zhiding_kc.course_id">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in kcs2" :value="item.course_id">
+                                                    {{item.course_name}}</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="coupon-block send_message_type clear" v-show="activeIndexb == 0">
+                                <div class="t-label fl">
+                                    发放通知
+                                </div>
+                                <div class="fl coupon-notice limitEdit">
+                                    <p>
+
+
+
+                                        <input type="checkbox" name="coupon-notice" v-model="msg_code" id="sms_info"
+                                            value="1">
+
+                                        短信</p>
+
+                                    <p v-show="msg_code == true" class="message_showMsg" style="display: block;">发送内容
+                                    </p>
+
+                                    <div v-show="msg_code == true" class="msg-content message_showMsg"
+                                        style="display: block;">
+
+
+
+                                        <textarea id="message_Info" maxlength="140"
+                                            v-model="send_info.send_content_short_msg">亲爱的【username】学员，您好，为感谢您对我校的支持，请登录您的个人中心，查收您的专属福利！</textarea>
+
+
+                                    </div>
+
+                                    <p>
+
+
+                                        <input type="checkbox" name="coupon-notice" v-model="msgs_code"
+                                            id="website_info">
+
+                                        站内信</p>
+                                    <div v-show="msgs_code == true">
+                                        <textarea id="editor_id" style="width:100%;height:300px;">
+                                                    </textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="bnts-wrap" style="padding:0">
+                                <!-- <button class="manage-btn manage-btn-cancel cancle_ing">取消</button> -->
+                                <button v-if="send_info.concession_object != '指定用户'" class="manage-btn manage-btn-success mr20 save_info" mark="save"
+                                    @click="submit_youhui('否')">保存</button>
+
+                                <button v-show="activeIndexb == 0"
+                                    class="manage-btn manage-btn-success btn-give-out save_info" mark="saveAndSend"
+                                    @click="submit_youhui('是')">保存并发放</button>
+                                <button v-show="activeIndexb == 1"
+                                    class="manage-btn manage-btn-success btn-give-out save_info" mark="saveAndSend"
+                                    @click="submit_youhui('导出')">保存并导出</button>
+
+                            </div>
+                        </div>
+                        <!-- 第三部分 完-->
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- end container -->
+
+        <div class="add-alert-content point-user layer-tips-bg" style="display:initial" v-if="model == 1">
+            <div class="s_box" style="    margin-top: 50px;">
+                <div class="top">
+                    <h3 style="margin-top: 0;">指定用户</h3>
+                    <i class="s_right iconfont" @click="model = 0"></i>
+                </div>
+                <div class="s_cont">
+                    <form method="post" id="searchForm">
+                        <div class="inputCont " style="padding:0">
+                            <select name="status" class="registStatus" v-model="stu.fontdesk_account_status"
+                                id="before1" style="width: 113px;">
+                                <option value="">前台账号状态</option>
+                                <option value="1">启用</option>
+                                <option value="2">禁用</option>
+                            </select>
+                            <!-- <select name="registType" class="registMethods" id="before2" style="width: 112px;">
+                                <option value="" selected="selected">前台登录账号</option>
+                                <option value="1">已开通</option>
+                                <option value="0">未开通</option>
+                            </select> -->
+                            <select name="payStatus" class="payStatus" v-model="stu.enrollment_status" id="before3"
+                                style="width: 88px;">
+                                <option value="">报名状态</option>
+                                <option value="1">已报名</option>
+                                <option value="2">未报名</option>
+                            </select>
+                            <input type="text" placeholder="手机号" v-model="stu.tel" id="stuMobile" maxlength="11"
+                                style="width: 80px; margin-left: 10px;    padding: 0 10px;">
+                            <input type="text" placeholder="微信号" v-model="stu.wechat" id="username"
+                                style="width: 80px;    padding: 0 10px;">
+                            <input type="text" placeholder="姓名" v-model="stu.stu_name" id="stuName"
+                                style="width: 80px;    padding: 0 10px;">
+                            <input type="text" placeholder="证件号码" v-model="stu.ID_number" id="sfzh"
+                                style="width: 100px;    padding: 0 10px;">
+                            <a href="JavaScript:void(0);" class="searchContents" @click="initstu">搜索</a>
+                            <b>
+                                <input type="checkbox" id="only" class="is_member" value="1">
+                                <label for="only">只显示会员</label>
+                            </b>
+                        </div>
+                    </form>
+                    <div class="tabCont" style="    background: white;
+                        margin-top: 10px;">
+                        <template>
+                            <el-table border :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                :data="tableData" style="overflow: auto;max-height: 300px;"
+                                @selection-change="handleSelectionChange">
+                                <el-table-column type="selection" :width="flexColumnWidth(6)">
+                                </el-table-column>
+                                <el-table-column prop="tel" label="手机号" :width="flexColumnWidth(12)"
+                                    style="text-align: center">
+                                </el-table-column>
+                                <el-table-column prop="wechat" label="微信号" :width="flexColumnWidth(14)">
+                                </el-table-column>
+                                <el-table-column prop="stu_name" label="姓名" :width="flexColumnWidth(8)">
+                                </el-table-column>
+                                <el-table-column prop="ID_number" label="证件号码" :width="flexColumnWidth(16)">
+                                </el-table-column>
+                                <el-table-column prop="create_time" label="创建时间" :width="flexColumnWidth(16)">
+                                </el-table-column>
+                                <el-table-column prop="fontdesk_account_status" label="前台账号状态"
+                                    :width="flexColumnWidth(12)">
+                                </el-table-column>
+                                <!-- <el-table-column prop="fontdesk_account_status" label="前台登录账号"
+                                    :width="flexColumnWidth(12)">
+                                </el-table-column> -->
+                                <el-table-column prop="enrollment_status" label="报名状态" :width="flexColumnWidth(8)">
+                                </el-table-column>
+                                <el-table-column prop="enrollment_status" label="会员等级" :width="flexColumnWidth(8)">
+                                </el-table-column>
+                            </el-table>
+                            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                            </el-pagination>
+                        </template>
+                        <!-- <div class="pages pagination"><span class="current prev">上一页</span><span class="current">1</span><a href="javascript:void(0)">2</a><a href="javascript:void(0)">3</a><a href="javascript:void(0)">4</a><a href="javascript:void(0)">5</a><a href="javascript:void(0)">6</a><a href="javascript:void(0)">7</a><a href="javascript:void(0)">8</a><span class="dot">...</span><a href="javascript:void(0)">2390</a><a href="javascript:void(0)" class="next">下一页</a><span class="page_sum">共23895条</span><span class="search-input">跳至<input id="pagevalue" size="1" value="1" type="text">页</span><a id="search" class="search" href="javascript:;">跳转</a></div>
+                            <div class="toggle" id="toggle">
+                                <span href="JavaScript:void(0)"><i class="iconfont"></i></span>
+                            </div> -->
+                    </div>
+                    <div class="conserve">
+                        <button class="con" @click="submit_stu">保存</button>
+                        <button class="delet" @click="model = 0">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add-alert-content lead-out-code layer-tips-bg" style="display: inherit;" v-show="model == 2">
+            <div class="s_box" style="top:60px">
+                <div class="top">
+                    <h3>导出优惠码</h3>
+                    <i class="s_right iconfont" @click="model = 0"></i>
+                </div>
+                <div class="cont" style="padding-top:0">
+                    <div class="tabCont" style="    background: white;padding:0">
+                        <table class="table table-center coupons_libs_List">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="30%">
+                                <col width="30%">
+                                <col width="10%">
+                            </colgroup>
+                            <tbody>
+                                <tr class="tr1">
+                                    <td>优惠码</td>
+                                    <td>优惠范围</td>
+                                    <td>使用期限</td>
+                                    <td>数量</td>
+                                </tr>
+
+                                <tr class="export_tr">
+                                    <td>{{export_tr.num}}</td>
+                                    <td>{{export_tr.range}}</td>
+                                    <td>{{export_tr.time}}</td>
+                                    <td>{{export_tr.nums}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--                 <p class="q_page"> -->
+                        <!--                     <input type="text"> -->
+                        <!--                     <span><i>/</i>100</span> -->
+                        <!--                     <a class="prev" href="javascript:void(0);"><i class="iconfont">&#xe6c0;</i>上一页</a> -->
+                        <!--                     <a class="next" href="javascript:void(0);">下一页<i class="iconfont">&#xe6bf;</i></a> -->
+                        <!--                 </p> -->
+                    </div>
+                </div>
+                <div class="right" style="">
+
+                    <span></span>
+                    <input type="hidden" id="totalRecords" value="1">
+                    <a href="javascript:;" class="manage-button export_coupons_data" @click="exportYouhui">导出Excel文件
+                        <span class="manage-button-mask"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script charset="utf-8" src="./kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="./kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="./kindeditor/plugins/code/prettify.js"></script>
+
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 3,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    discount1: "",
+                    discount2: "",
+                    discount3: "",
+                    discount4: "",
+                    edit_discount: localStorage.edit_discount,
+                    multipleSelection1: [],
+                    userList: [],
+                    projects: [],
+                    kemus: [],
+                    kemus1: [],
+                    kemus2: [],
+                    kcs: [],
+                    kcs2: [],
+                    kcbs: [],
+                    youhuima: '',
+                    msg_code: false,
+                    msgs_code: false,
+                    nums: '',
+                    object_kc: {
+                        project_id: '',
+                        subject_id: '',
+                        course_id: '',
+                    },
+                    range_kc: {
+                        project_id: '',
+                        subject_id: '',
+                    },
+                    range_kcb: {
+                        project_id: '',
+                    },
+                    zhiding_kc: {
+                        project_id: '',
+                        subject_id: '',
+                        course_id: '',
+                    },
+                    zhiding_kcb: {
+                        project_id: '',
+                        course_package_id: '',
+                    },
+                    stu: {
+                        'tel': '',
+                        'wechat': '',
+                        'stu_name': '',
+                        'nickname': '',
+                        'ID_number': '',
+                        'fontdesk_account_status': '',
+                        'enrollment_status': '',
+                        'project_id': 'null',
+                        'exam_id': 'null',
+                        'time': ''
+                    },
+                    export_tr: {
+                        num: '1',
+                        range: '2',
+                        time: '3',
+                        nums: '4',
+                    },
+                    send_info: {
+                        "discount_code_name": "",
+                        "discount_code_explain": "",
+                        "product_type": "课程",
+                        "preferential_way": "抵现",
+                        "dc_denomination": "0.01元",
+                        "concession_object": "",
+                        "quantity_issued": '',
+                        "service_life_start_time": "",
+                        "service_life_end_time": "",
+                        "preferential_scope": "全部课程",
+                        "create_discount_code_method": "线上发放",
+                        "release_status": "是",
+                        // 根据条件才会有的：
+                        "send_notice_way": "",
+                        "send_content_short_msg": "",
+                        "send_content_mail": "",
+                        "user_id": null,
+                        "stu_ids": [],
+                        "discount_code_value": ""
+                        // "project_id":1,项目id 优惠范围是指定范围的时候才会有这个参数，或者是指定课程（课程包同理）
+                        // "subject_id":0,	优惠范围是指定范围的时候才会有这个参数，或者是指定课程，当指定范围只表明项目id的时候，这个科目id的值是0，代表所有科目（课程包同理）
+                        // course_package_id`,产品类型是课程包时，所有课程包的时候这个值是0，代表所有，或者指定课程包的时候这个值就是那个课程包的id
+                        // `stage_id`,阶段id，当选择了所有阶段的时候这个值就是0
+                        // "course_id":0,课程id 产品类型是课程时，所有课程的时候这个值是0，代表所有，或者指定课程的时候这个值就是那个课程的id
+                        // `course_id2` 这个是优惠对象中指定课程下的所有学员的时候那个课程id，用于以后去找到limit哪个课程下的那些人
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                KindEditor.ready(function (K) {
+                    window.editor = K.create('#editor_id');
+                });
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                _this.initstu()
+                if (localStorage.edit_discount == 'true') {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/editQueryDiscountCode',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "discount_code_id": JSON.parse(localStorage.edit_discount_info)
+                                .discount_code_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            _this.send_info = data
+                            _this.activeIndexb = _this.send_info.create_discount_code_method ==
+                                '线上发放' ? 0 : 1
+                            if (_this.send_info.preferential_scope == '指定范围') {
+                                if (_this.send_info.product_type == '课程') {
+                                    _this.range_kc.project_id = _this.send_info.project_id
+                                    _this.range_kemus()
+                                    _this.range_kc.subject_id = _this.send_info.subject_id
+                                } else {
+                                    _this.send_info.preferential_scope = '指定范围1'
+                                    _this.range_kcb.project_id = _this.send_info.project_id
+                                }
+                            }
+                            if (_this.send_info.preferential_scope == '指定课程') {
+                                _this.zhiding_kc.course_id = _this.send_info.course_id
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/operate/selectProjectOrSubjectId',
+                                    type: 'post',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify({
+                                        "c_id": _this.zhiding_kc.course_id,
+                                        "type": "课程"
+                                    }),
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        _this.zhiding_kc.project_id = data.project_id
+                                        _this.zhiding_kc.subject_id = data.subject_id
+                                        _this.zhiding_kemus()
+                                        _this.zhiding_kcs()
+                                        // _this.kemus = data
+                                        // _this.kcs = []
+                                        // _this.object_kc.subject_id = ''
+                                    },
+                                    error: function () {
+
+                                    }
+                                })
+                            }
+                            if (_this.send_info.preferential_scope == '指定课程包') {
+                                _this.zhiding_kcb.course_package_id = _this.send_info
+                                    .course_package_id
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/operate/selectProjectOrSubjectId',
+                                    type: 'post',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify({
+                                        "c_id": _this.zhiding_kcb.course_package_id,
+                                        "type": "课程包"
+                                    }),
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        _this.zhiding_kcb.project_id = data.project_id
+                                        _this.zhiding_kcbs()
+                                        // _this.kemus = data
+                                        // _this.kcs = []
+                                        // _this.object_kc.subject_id = ''
+                                    },
+                                    error: function () {
+
+                                    }
+                                })
+                            }
+                            if (_this.send_info.concession_object == '指定课程') {
+                                _this.object_kc.course_id = _this.send_info.course_id2
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/operate/selectProjectOrSubjectId',
+                                    type: 'post',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify({
+                                        "c_id": _this.object_kc.course_id,
+                                        "type": "课程"
+                                    }),
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data)
+                                        _this.object_kc.project_id = data.project_id
+                                        _this.object_kc.subject_id = data.subject_id
+                                        _this.change_kemus()
+                                        _this.change_kcs()
+                                        // _this.kemus = data
+                                        // _this.kcs = []
+                                        // _this.object_kc.subject_id = ''
+                                    },
+                                    error: function () {
+
+                                    }
+                                })
+                            }
+                            if (_this.send_info.create_discount_code_method == '线下发放') {
+                                _this.nums = _this.send_info.quantity_issued
+                            }
+                            if (_this.send_info.send_notice_way != undefined) {
+                                _this.msg_code = _this.send_info.send_notice_way.indexOf('短信') > -
+                                    1 ?
+                                    true : false
+                                _this.msgs_code = _this.send_info.send_notice_way.indexOf('站内信') > -
+                                    1 ? true : false
+                            }
+                            switch (_this.send_info.preferential_way) {
+                                case '折扣':
+                                    _this.discount4 = _this.send_info.dc_denomination
+                                    break;
+                                case '满减':
+                                    _this.discount2 = _this.send_info.dc_denomination.split(',')[0]
+                                    _this.discount3 = _this.send_info.dc_denomination.split(',')[1]
+                                    break;
+                                case '抵现':
+                                    _this.discount1 = _this.send_info.dc_denomination
+                                    break;
+                                default:
+                                    break;
+                            }
+                            _this.value2 = [_this.send_info.service_life_start_time, _this.send_info
+                                .service_life_end_time
+                            ]
+                            setTimeout(() => {
+                                editor.sync();
+                                html = document.getElementById('editor_id').value; // 原生API
+                                editor.html(_this.send_info.send_content_mail)
+                            }, 20)
+                            // _this.kemus = data
+                            // _this.kcs = []
+                            // _this.object_kc.subject_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    // this.send_info = JSON.parse(localStorage.edit_discount_info)
+
+
+                } else {
+                    this.send_info = {
+                        "discount_code_name": "",
+                        "discount_code_explain": "",
+                        "product_type": "课程",
+                        "preferential_way": "抵现",
+                        "dc_denomination": "",
+                        "concession_object": "",
+                        "quantity_issued": '',
+                        "service_life_start_time": "",
+                        "service_life_end_time": "",
+                        "preferential_scope": "全部课程",
+                        "create_discount_code_method": "线上发放",
+                        "release_status": "是",
+                        // 根据条件才会有的：
+                        "send_notice_way": "",
+                        "send_content_short_msg": "",
+                        "send_content_mail": "",
+                        "user_id": null,
+                        "stu_ids": [],
+                        "discount_code_value": ""
+                        // "project_id":1,项目id 优惠范围是指定范围的时候才会有这个参数，或者是指定课程（课程包同理）
+                        // "subject_id":0,	优惠范围是指定范围的时候才会有这个参数，或者是指定课程，当指定范围只表明项目id的时候，这个科目id的值是0，代表所有科目（课程包同理）
+                        // course_package_id`,产品类型是课程包时，所有课程包的时候这个值是0，代表所有，或者指定课程包的时候这个值就是那个课程包的id
+                        // `stage_id`,阶段id，当选择了所有阶段的时候这个值就是0
+                        // "course_id":0,课程id 产品类型是课程时，所有课程的时候这个值是0，代表所有，或者指定课程的时候这个值就是那个课程的id
+                        // `course_id2` 这个是优惠对象中指定课程下的所有学员的时候那个课程id，用于以后去找到limit哪个课程下的那些人
+                    }
+                }
+
+
+
+
+            },
+            methods: {
+                active(num) {
+                    this.activeIndexa = num
+                },
+                change_kemus() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.object_kc.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+                            // _this.kcs = []
+                            // _this.object_kc.subject_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                range_kemus() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.range_kc.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus1 = data
+                            // _this.range_kc.subject_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                zhiding_kemus() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.zhiding_kc.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus2 = data
+                            // _this.kcs2 = []
+                            // _this.zhiding_kc.subject_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                zhiding_kcs() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/courseSearchBox',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            subject_id: _this.zhiding_kc.subject_id,
+                            project_id: _this.zhiding_kc.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcs2 = data
+                            // _this.zhiding_kc.course_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                zhiding_kcbs() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/queryCursePackage',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.zhiding_kcb.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcbs = data
+                            // _this.zhiding_kcb.course_package_id = ''
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                change_kcs() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/courseSearchBox',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            subject_id: _this.object_kc.subject_id,
+                            project_id: _this.object_kc.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcs = data
+                            // _this.object_kc.course_id = ''
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                search_nums() {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/getStuByParam',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            concession_object: "指定课程",
+                            course_id: _this.object_kc.course_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.send_info.quantity_issued = data.length
+                            _this.send_info.stu_ids = []
+                            data.map((item) => {
+                                _this.send_info.stu_ids.push(item.stu_id)
+                            })
+                            console.log(_this.send_info.stu_ids)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                submit_stu() {
+                    let _this = this
+                    console.log(_this.multipleSelection1)
+                    data = []
+                    _this.multipleSelection1.map((i) => {
+                        data.push(i.stu_id)
+                    })
+                    console.log(data)
+                    _this.send_info.quantity_issued = _this.multipleSelection1.length
+                    _this.send_info.stu_ids = data
+                    _this.model = 0
+                },
+                change_example() {
+                    let _this = this
+                    console.log(_this.send_info.concession_object)
+                    switch (_this.send_info.concession_object) {
+                        case '':
+                            _this.send_info.quantity_issued = 0
+                            _this.send_info.stu_ids = []
+                            break;
+                        case '所有注册用户':
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/operate/getStuByParam',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    concession_object: "所有注册用户"
+                                }),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    _this.send_info.quantity_issued = data.length
+                                    _this.send_info.stu_ids = []
+                                    data.map((item) => {
+                                        _this.send_info.stu_ids.push(item.stu_id)
+                                    })
+                                    console.log(_this.send_info.stu_ids)
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case '所有购买过课程的学员':
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/operate/getStuByParam',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    concession_object: "所有购买过课程的学员"
+                                }),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    _this.send_info.quantity_issued = data.length
+                                    _this.send_info.stu_ids = []
+                                    data.map((item) => {
+                                        _this.send_info.stu_ids.push(item.stu_id)
+                                    })
+                                    console.log(_this.send_info.stu_ids)
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case '指定课程':
+
+                            break;
+                        case '指定用户':
+                            _this.model = 1
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+                handleSelectionChange(val) {
+
+                    this.multipleSelection1 = val;
+                    console.log(this.multipleSelection1.length)
+                    $('.sPan').text(this.multipleSelection1.length)
+                    if (this.multipleSelection1.length > 0) {
+                        $('.genggai').css('display', 'block')
+                    } else {
+                        $('.genggai').css('display', 'none')
+                    }
+                    let ids = []
+                    this.multipleSelection1.map((item) => {
+                        ids.push(item.stu_id)
+                    })
+                    this.selectedIDs = ids
+                    console.log('多选', this.selectedIDs)
+                },
+                initstu() {
+                    let _this = this
+                    obj = JSON.parse(JSON.stringify(_this.stu))
+                    obj.enrollment_status = parseInt(obj.enrollment_status)
+                    obj.fontdesk_account_status = parseInt(obj.fontdesk_account_status)
+                    obj.project_id = parseInt(obj.project_id)
+                    obj.exam_id = parseInt(obj.exam_id)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/student/studentSearchBox',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.userList = data
+                            for (let i = 0; i < _this.userList.length; i++) {
+                                _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                    .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                _this.userList[i].enrollment_status = _this.userList[i]
+                                    .enrollment_status == 1 ? '已报名' : '未报名'
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                submit_youhui(numa) {
+                    let _this = this
+                    delete _this.send_info.service_life_start_time
+                    delete _this.send_info.service_life_end_time
+                    delete _this.send_info.discount_code_value
+                    delete _this.send_info.release_status
+                    _this.send_info.user_id = null
+                    delete _this.send_info.project_id
+                    delete _this.send_info.subject_id
+                    delete _this.send_info.course_id
+                    delete _this.send_info.course_package_id
+                    delete _this.send_info.course_id2
+                    delete _this.send_info.send_notice_way
+                    delete _this.send_info.send_content_mail
+                    obj = JSON.parse(JSON.stringify(_this.send_info))
+                    console.log(_this.value2)
+                    obj.service_life_start_time = _this.getNowFormatDate(new Date(_this.value2[0]))
+                        .split(' ')[0]
+                    obj.service_life_end_time = _this.getNowFormatDate(new Date(_this.value2[1]))
+                        .split(' ')[0]
+                    obj.create_discount_code_method = this.activeIndexb == 0 ? '线上发放' : '线下发放'
+                    switch (obj.preferential_way) {
+                        case '抵现':
+                            obj.dc_denomination = _this.discount1
+                            break;
+                        case '满减':
+                            obj.dc_denomination = _this.discount2 + ',' + _this.discount3
+                            break;
+                        case '折扣':
+                            obj.dc_denomination = _this.discount4
+                            break;
+                        default:
+                            break;
+                    }
+                        arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+                            'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I',
+                            'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N',
+                            'M', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+                        ];
+                        str = '';
+                        for (let i = 0; i < 16; i++) {
+                            num = Math.floor(Math.random(0, 1) * arr.length)
+                            str += arr[num]
+                        }
+                        obj.discount_code_value = str
+                    
+                    obj.release_status = numa
+                    if (numa == '是') {
+                        obj.user_id = parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                    }
+
+                    if (obj.preferential_scope == '指定范围') {
+                        if (obj.product_type == '课程') {
+                            obj.project_id = _this.range_kc.project_id
+                            obj.subject_id = _this.range_kc.subject_id
+                        }
+                    }
+                    if (obj.preferential_scope == '指定范围1') {
+
+                        obj.project_id = _this.range_kcb.project_id
+                        obj.preferential_scope = '指定范围'
+                    }
+                    if (obj.preferential_scope == '指定课程') {
+                        obj.course_id = _this.zhiding_kc.course_id
+                    }
+                    if (obj.preferential_scope == '指定课程包') {
+                        obj.course_package_id = _this.zhiding_kcb.course_package_id
+                    }
+                    if (obj.preferential_scope == '全部课程') {
+                        obj.course_id = 0
+                    }
+                    if (obj.preferential_scope == '全部课程包') {
+                        obj.course_package_id = 0
+                    }
+                    if (obj.concession_object == '指定课程') {
+                        obj.course_id2 = _this.object_kc.course_id
+                    }
+                    string = ''
+                    _this.msg_code == true ? string += ',短信' : string += ''
+                    _this.msgs_code == true ? string += ',站内信' : string += ''
+                    obj.send_notice_way = string.substring(1)
+                    html = editor.html();
+
+                    // 同步数据后可以直接取得textarea的value
+                    editor.sync();
+                    html = document.getElementById('editor_id').value; // 原生API
+                    // html = K('#editor_id').val(); // KindEditor Node API
+                    html = $('#editor_id').val(); // jQuery
+                    if (_this.msg_code == false) {
+                        delete obj.send_content_short_msg
+                    }
+                    if (_this.msgs_code == false) {
+                        delete obj.send_content_mail
+                    }
+                    if (_this.msgs_code == true) {
+                        obj.send_content_mail = html
+                    }
+                    console.log(obj)
+                    if (_this.edit_discount == 'true') {
+                        obj.date_of_collection = _this.getNowFormatDate(new Date())
+                        obj.grant_time = _this.getNowFormatDate(new Date())
+                        if (obj.create_discount_code_method == "线上发放") {
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/operate/editDiscountCode',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.message == "success") {
+                                        _this.$message.success({
+                                            title: '提示',
+                                            message: '修改成功',
+                                            duration: 2000
+                                        });
+                                    } else {
+                                        _this.$message.error({
+                                            title: '提示',
+                                            message: '修改失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$message.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                                }
+                            })
+                        } else if (obj.create_discount_code_method == "线下发放") {
+                            delete objsend_content_mail
+                            delete obj.send_content_short_msg
+                            delete obj.send_notice_way
+                            delete obj.concession_object
+                            delete obj.stu_ids
+                            delete obj.quantity_issued
+                            delete obj.course_id2
+                            obj.release_status = '是'
+                            obj.user_id = parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                            obj.quantity_issued = parseInt(_this.nums)
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/operate/editDiscountCode',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    if (data.message == "success") {
+                                        _this.$message.success({
+                                            title: '提示',
+                                            message: '修改成功',
+                                            duration: 2000
+                                        });
+                                        if (numa == '导出') {
+                                            _this.export_tr.num = obj.discount_code_value
+                                            console.log(obj.preferential_scope, obj.product_type)
+                                            if (obj.preferential_scope == "全部课程") {
+                                                _this.export_tr.range = '全部课程'
+                                            }
+                                            if (obj.preferential_scope == "全部课程包") {
+                                                _this.export_tr.range = '全部课程包'
+                                            }
+                                            if (obj.preferential_scope == "指定范围" && obj
+                                                .product_type ==
+                                                '课程') {
+                                                _this.export_tr.range = $(
+                                                        '.range_kc_project :selected')
+                                                    .text().trim() + '-' + $(
+                                                        '.range_kc_subject :selected').text().trim()
+                                            }
+                                            if (obj.preferential_scope == "指定范围" && obj
+                                                .product_type ==
+                                                '课程包') {
+                                                _this.export_tr.range = $(
+                                                    '.range_kcb_project :selected').text()
+                                                .trim()
+                                            }
+                                            if (obj.preferential_scope == "指定课程") {
+                                                _this.export_tr.range = $(
+                                                        '.zhiding_kc_project :selected').text()
+                                                    .trim() +
+                                                    '-' + $('.zhiding_kc_subject :selected').text()
+                                                    .trim() + '-' + $(
+                                                        '.zhiding_kc_course :selected')
+                                                    .text().trim()
+                                            }
+                                            if (obj.preferential_scope == "指定课程包") {
+                                                _this.export_tr.range = $(
+                                                        '.zhiding_kcb_project :selected').text()
+                                                    .trim() + '-' + $(
+                                                        '.zhiding_kcb_package :selected')
+                                                    .text().trim()
+                                            }
+                                            _this.export_tr.time = '从' + obj
+                                                .service_life_start_time +
+                                                '到' + obj.service_life_end_time
+                                            _this.export_tr.nums = obj.quantity_issued
+                                            console.log(_this.export_tr)
+                                            _this.model = 2
+                                        }
+                                    } else {
+                                        _this.$message.error({
+                                            title: '提示',
+                                            message: '修改失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$message.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                                }
+                            })
+                        }
+                    } else {
+                        if (obj.create_discount_code_method == "线上发放") {
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/operate/createDiscountCodeOnline',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.message == "success") {
+                                        _this.$message.success({
+                                            title: '提示',
+                                            message: '保存成功',
+                                            duration: 2000
+                                        });
+                                    } else {
+                                        _this.$message.error({
+                                            title: '提示',
+                                            message: '保存失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$message.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                                }
+                            })
+                        } else if (obj.create_discount_code_method == "线下发放") {
+                            delete objsend_content_mail
+                            delete obj.send_content_short_msg
+                            delete obj.send_notice_way
+                            delete obj.concession_object
+                            delete obj.stu_ids
+                            delete obj.quantity_issued
+                            delete obj.course_id2
+                            obj.release_status = '是'
+                            obj.user_id = parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                            obj.quantity_issued = parseInt(_this.nums)
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/operate/createDiscountCodeOffline',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    if (data.message == "success") {
+                                        _this.$message.success({
+                                            title: '提示',
+                                            message: '保存成功',
+                                            duration: 2000
+                                        });
+                                        if (numa == '导出') {
+                                            _this.export_tr.num = obj.discount_code_value
+                                            console.log(obj.preferential_scope, obj.product_type)
+                                            if (obj.preferential_scope == "全部课程") {
+                                                _this.export_tr.range = '全部课程'
+                                            }
+                                            if (obj.preferential_scope == "全部课程包") {
+                                                _this.export_tr.range = '全部课程包'
+                                            }
+                                            if (obj.preferential_scope == "指定范围" && obj
+                                                .product_type ==
+                                                '课程') {
+                                                _this.export_tr.range = $(
+                                                        '.range_kc_project :selected')
+                                                    .text().trim() + '-' + $(
+                                                        '.range_kc_subject :selected').text().trim()
+                                            }
+                                            if (obj.preferential_scope == "指定范围" && obj
+                                                .product_type ==
+                                                '课程包') {
+                                                _this.export_tr.range = $(
+                                                        '.range_kcb_project :selected').text()
+                                                    .trim()
+                                            }
+                                            if (obj.preferential_scope == "指定课程") {
+                                                _this.export_tr.range = $(
+                                                        '.zhiding_kc_project :selected').text()
+                                                    .trim() +
+                                                    '-' + $('.zhiding_kc_subject :selected').text()
+                                                    .trim() + '-' + $(
+                                                        '.zhiding_kc_course :selected')
+                                                    .text().trim()
+                                            }
+                                            if (obj.preferential_scope == "指定课程包") {
+                                                _this.export_tr.range = $(
+                                                        '.zhiding_kcb_project :selected').text()
+                                                    .trim() + '-' + $(
+                                                        '.zhiding_kcb_package :selected')
+                                                    .text().trim()
+                                            }
+                                            _this.export_tr.time = '从' + obj
+                                                .service_life_start_time +
+                                                '到' + obj.service_life_end_time
+                                            _this.export_tr.nums = obj.quantity_issued
+                                            console.log(_this.export_tr)
+                                            _this.model = 2
+                                        }
+                                    } else {
+                                        _this.$message.error({
+                                            title: '提示',
+                                            message: '保存失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$message.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                                }
+                            })
+                        }
+                    }
+
+                },
+                activeb(num) {
+                    this.activeIndexb = num
+                },
+                exportYouhui() {
+                    _this = this
+                    console.log(_this.userList)
+                    setTimeout(() => {
+                        console.log($('.export_tr td'))
+                        $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出线下发放优惠码列表【'+_this.userList.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                        str = "优惠码,优惠范围,使用期限,数量" + '\r\n'
+                        stra = ''
+                        for (let i = 0; i < $('.export_tr td').length; i++) {
+                            stra += ',' + $('.export_tr td')[i].innerHTML
+                        }
+                        str = str + stra.substring(1)
+                        var fileName = "";
+                        fileName += "线下发放优惠码列表".replace(/ /g, "_");
+                        var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                        var link = document.createElement("a");
+                        link.href = uri;
+                        link.style = "visibility:hidden";
+                        link.download = fileName + ".CSV";
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }, 20)
+                    // for (let k = 0; k < _this.userList.length; k++) {
+
+                    // stra = ""
+                    // stra += _this.userList[k].ct_name+','
+                    // stra += _this.userList[k].study_style+','
+                    // stra += _this.userList[k].begin_class_time+','
+                    // stra += _this.userList[k].tel+','
+                    // stra += _this.userList[k].wechat+','
+                    // stra += _this.userList[k].stu_name+','
+                    // stra += _this.userList[k].email+','
+                    // str += stra + '\r\n';
+                    // // const element = array[k];
+
+                    // }
+                    // console.log(str)
+
+                },
+                changeModel() {
+                    console.log(222)
+                    this.model = 1
+
+                    console.log(this.model)
+                },
+                exportModel() {
+                    this.model = 2
+                },
+                activea(num) {
+
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

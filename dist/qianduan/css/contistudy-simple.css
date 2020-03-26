@@ -1,0 +1,509 @@
+/*
+* @Author: baocheng
+* @Date:   2017-02-20 13:55:47
+* @Last Modified by:   baocheng
+* @Last Modified time: 2017-09-25 11:29:33
+*/
+
+.top-tit {
+    padding: 28px 0 24px 0;
+}
+
+.top-titU li {
+    font-size: 12px;
+    color: #333;
+    line-height: 1;
+    display: inline-block;
+}
+
+.top-titU .titSelect {
+    color: #a1a1a1;
+}
+.top-con{
+    position: relative;
+}
+.top-conL {
+    width: 368px;
+    height: 207px;
+    padding: 4px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.top-conC {
+    margin-left: 36px;
+    max-width: 550px;
+}
+
+.topconL-n {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid #f6f6f6;
+    background: url("../../images/zhifu.png") no-repeat center;
+    background-size: cover;
+    border-radius: 3px;
+}
+
+.coursename span {
+    font-size: 28px;
+    display: inline-block;
+    line-height: 1;
+    word-break: break-all;
+}
+
+.coursename .codezhi {
+    font-weight: bold;
+    color: #333;
+}
+
+.coursename i {
+    font-size: 20px;
+    position: relative;
+    top: -5px;
+    margin-left: 14px;
+    color: #666;
+}
+
+.coursename i:hover {
+    cursor: pointer;
+}
+
+.detmod {
+    position: relative;
+    padding-top: 16px;
+}
+
+.detmod .detmodP {
+    /*display: inline-block;*/
+    line-height: 1;
+    color: #999;
+    margin-right: 34px;
+}
+.detmod .detmodP em{
+    color: #dd0000;
+}
+.detmod .detmodnew{
+    margin-bottom: 10px;
+}
+/*.detmodP span {
+    display: inline-block;
+    line-height: 1;
+    font-size: 12px;
+    color: #999;
+    margin-right: 11px;
+}*/
+
+.detpri {
+    padding-top: 24px;
+}
+
+.detmodP .monred {
+    display: inline-block;
+    line-height: 1;
+    color: #ee1207;
+    font-size: 24px;
+    margin-right: 11px;
+    font-weight: bold;
+}
+
+.detmodP .monlast {
+    display: inline-block;
+    line-height: 1;
+    color: #666666;
+    font-size: 16px;
+    margin-right: 11px;
+}
+
+.detmodP .baba {
+    display: inline-block;
+    line-height: 1;
+    font-size: 12px;
+    color: #999;
+}
+
+.vipmod .vipmodP {
+    display: inline-block;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.vipmod .vipmodPL {
+    padding-left: 14px;
+    padding-bottom: 10px;
+}
+
+.vipmod .vipmodP-img {
+    width: 44px;
+    height: 12px;
+    background-image: url("../../images/vip_yellow.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto;
+    position: relative;
+    top: 2px;
+}
+
+.vipmodP .vipmodP-per {
+    color: #fcb326;
+}
+
+.vipmodP .vipmodP-mon {
+    color: #999999;
+}
+
+.stuProgress {
+    padding-top: 10px;
+}
+
+.stuProgress .joinstudy {
+    margin-right: 25px;
+}
+
+.stuProgress .joinstudy .btn {
+    display: block;
+    width: 148px;
+    height: 48px;
+    padding: 0px;
+    line-height: 48px;
+    text-align: center;
+    border: 0px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    background: #07bbee;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.stuProgress .joinstudy .btn:hover {
+    background-color: #01aadd;
+}
+
+
+/*V6.7 添加不可以点击购买的按钮   */
+.stuProgress .joinstudy .disableBtn{
+    background-color: #f3f3f3!important;
+    color: #999;
+    cursor: default!important;
+}
+.stuProgress .joinstudy .disableBtn:hover {
+    background-color: #f3f3f3;
+}
+
+.stuProgress .joinstudy-full .btn {
+    background-color: #b5b9bc;
+    cursor: default;
+}
+
+.stuProgress .joinstudy-full .btn:hover {
+    background-color: #b5b9bc;
+}
+
+.stuProgress .progress {
+    width: 350px;
+    position: relative;
+    top: 2px;
+}
+
+.stuProgress .exp-txt .exp-per {
+    font-size: 18px;
+    color: #ee1207;
+    font-weight: normal;
+}
+
+.stuProgress .exp-time {
+    font-size: 12px;
+    color: #999;
+    margin-left: 10px;
+}
+
+.stuProgress .progress-inner {
+    background-color: #07bbee;
+    border-radius: 5px;
+}
+
+.top-conR {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.top-conR .top-conRR {
+    padding-left: 25px;
+}
+
+.top-conR .conrimg {
+    margin-right: 7px;
+}
+
+.top-conRL i {
+    margin-right: 6px;
+}
+
+.top-conRL .iconfont {
+    cursor: pointer;
+    color: #bbb;
+}
+
+.top-conRL .ired {
+    color: #d80a25;
+}
+
+.top-conRL .iconfont:hover {
+    color: #d80a25;
+}
+
+.top-conRR {
+    position: relative;
+}
+
+/*.top-conRR .conrimg {
+    display: inline-block;
+    width: 16px;
+    height: 17px;
+    background: url("../../images/share.png") no-repeat center;
+    background-size: 100% auto;
+    color: #cecece;
+}*/
+
+.top-conRR .iconfont{
+    color: #bbb;
+}
+
+.top-conRR .sharen {
+    display: inline-block;
+    /*    position: relative;
+        top: -3px;*/
+}
+
+.top-conRR .sharebox {
+    width: 100px;
+    height: 30px;
+    padding: 5px 11px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 0 4px 0 rgba(0,0,0, .2);
+    position: relative;
+    left: -12px;
+    top: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+.top-conRR .hoverbox {
+    width: 100px;
+    height: 50px;
+}
+
+.top-conRR .hoverbox:hover .sharebox {
+    display: block;
+}
+
+.sharebox .shaboxp {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.top-conRR .sharebox1 {
+    background-image: url(../../images/weixin-front.png);
+}
+
+.top-conRR .sharebox2 {
+    background-image: url(../../images/qq-front.png);
+    background-size: auto 100%;
+    margin-left: 9px;
+}
+
+.top-conRR .sharebox3 {
+    background-image: url(../../images/weibo-front.png);
+}
+
+.code-box .code {
+    position: absolute;
+    left: -25px;
+    top: 40px;
+    width: 100px;
+    padding: 10px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+    -o-box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+    z-index: 1;
+}
+
+/*约课记录开始*/
+.abclassBox .abclassList li{
+    margin-bottom: 12px;
+
+}
+
+.abclassList .abclassTit{
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    background-color: #f5f7f9;
+
+}
+
+.abclassList .abclassTit i{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../../../images/5.2/abclass_01.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+
+    vertical-align: sub;
+    margin-right: 6px;
+}
+
+.abclassList .abclassTit .drop{
+
+    background-position: 0 -60px;
+}
+.abclassList .abclassTit strong{
+    font-size: 16px;
+    color: #666;
+}
+
+.abclassList .abclassRec{
+    display: none;
+}
+.abclassList .abclassRec dd{
+    height: 49px;
+    line-height: 49px;
+    padding-left: 47px;
+    padding-right: 20px;
+    font-size: 14px;
+    color: #333;
+}
+.abclassList .abclassRec .hr{
+    width: 100%;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #f5f7f9;
+}
+.abclassRec dd .fr{
+    font-size: 14px;
+}
+.abclassRec dd b{
+    display: inline-block;
+    width: 45px;
+    margin-right: 45px;
+    font-weight: normal;
+}
+
+.abclassRec dd em{
+    margin-right: 45px;
+}
+
+.abclassRec dd a{
+    display: inline-block;
+    padding: 7px 9px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1;
+    background-color: #07bbee;
+    text-decoration: none;
+}
+.abclassRec dd a:hover{
+    background-color: #01aadd;
+}
+
+.abclassRec dd i{
+    font-size: 20px;
+    color: #07bbee;
+    margin: 2px 22px;
+    cursor: pointer;
+
+}
+/*约课记录结束*/
+
+
+/*修改开始*/
+/*.meta-n span {
+    display: inline-block;
+    line-height: 12px;
+    margin-right: 10px;
+}*/
+.memberMore{
+    position: relative;
+}
+
+.memberMore:hover .othermemBox{
+    display: block;
+}
+.memberMore i {
+    cursor: pointer;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+.goldcol {
+    color: #fcb200;
+}
+.memberMore .othermemBox {
+    display: none;
+    position: absolute;
+    left: -51px;
+    top: 26px;
+    z-index: 2;
+    width: 128px;
+    padding: 7px 10px;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px 2px rgba(221,221,221,.75);
+    background-color: #fff;
+}
+
+.memberMore .othermemBox h4 {
+    position: relative;
+    font-size: 12px;
+    color: #fcb200;
+    padding: 5px 0 8px;
+}
+
+.othermemBox h4:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 16px;
+    height: 2px;
+    background-color: #fcb200;
+}
+.othermemBox .memberList {
+    padding-top: 8px;
+    font-size: 12px;
+    line-height: 28px;
+}
+
+.othermemBox .memberList em {
+    color: #666;
+}
+
+.othermemBox .memberList b {
+    color: #999;
+    font-weight: normal;
+}
+/*修改结束*/
+.top-titU li a:hover {
+    color: #07bbee;
+}
+
+/*ipad 样式*/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .top-conC{width:58%;}
+    .top-conL{width:34%;}
+    .coursename .codezhi{width:58%;}
+    .left .content .chapter a.chapter-btitle span.word{width:90%!important;}
+    .left .content .chapter a.chapter-btitle span.word i.chapterNew{width:90%!important;}
+    .top-tit {padding: 28px 20px 24px 20px;}
+
+}

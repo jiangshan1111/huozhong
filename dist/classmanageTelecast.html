@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/addTitle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classNum.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/nanoScroller.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/layer.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        /* .el-message-box {
+            width: 80%
+        } */
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+
+        select,
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"] {
+            margin: 7px 2px;
+        }
+
+        i.editer {
+            background: url(./assets/images/bianji.svg) no-repeat;
+            width: 16px;
+            height: 16px;
+            border: none;
+            top: 27px;
+            display: -webkit-inline-box;
+            vertical-align: sub;
+        }
+
+        i.delete {
+            background: url(./assets/images/delete.svg) no-repeat;
+            width: 16px;
+            height: 16px;
+            border: none;
+            top: 27px;
+            display: -webkit-inline-box;
+            vertical-align: sub;
+        }
+
+        i.move_into {
+            background: url(./assets/images/movein.svg) no-repeat;
+            width: 16px;
+            height: 16px;
+            border: none;
+            top: 27px;
+            display: -webkit-inline-box;
+            vertical-align: sub;
+        }
+
+        i.move_out {
+            background: url(./assets/images/moveout.svg) no-repeat;
+            width: 16px;
+            height: 16px;
+            border: none;
+            top: 27px;
+            display: -webkit-inline-box;
+            vertical-align: sub;
+        }
+
+        /* .q-btn-primary {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #00b7ee;
+    color: #fff;
+    padding: 0;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+} */
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper q-box" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li style="color:e #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company">
+                <div class="block clear">
+
+
+
+                    <div class="labels classStatus else1">
+                        <s id="statusText">{{course_info.course_status}}</s>
+                        <div class="sanjiao"></div>
+                    </div>
+
+
+
+                    <div class="class-title">课程名称 ： {{course_info.course_name}}</div>
+                    <input type="hidden" value="832295" id="classTypeId">
+                    <div class="sum">
+
+
+
+
+
+
+
+                        <span>授课类型：{{course_info.course_type}}</span>
+
+
+                    </div>
+
+                    <div class="price">
+                        价格：{{course_info.special_price}}元
+                    </div>
+
+
+
+
+
+                    
+
+
+
+
+                </div>
+            </div>
+            <div class="u-wrap company overflow points-use-class  content_main" style="    margin-top: 20px;padding:0">
+
+                <div class="left-side">
+                    <div class="left-sides-title courseCancle">
+                        <!-- <em>返回</em> -->
+                    </div>
+                    <div class="left-sides-title pop">
+                        <em class="iconfont" style="font-size:13px">| |</em>
+                    </div>
+                    <ul class="menuList_choose">
+                            <li class="subentry" @click="goManage" code="baseCode" mark="/editClass/editClassBaseInfo/832295/togther">
+                                <i class="mdi mdi-information"></i><em>基本信息</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '直播'" @click="goVideo" code="videoCode" mark="/editClass/editClassVideoInfo/832295/togther">
+                                    <i class="mdi mdi-television-classic"></i><em>视频课</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '录播'" code="moduleLive" @click="goZhibo" mark="/editClass/editClassModuleLive/832295/togther">
+                                    <i class="mdi mdi-television"></i><em><em>直播课</em></li>
+                                <!-- <li class="subentry" code="moduleFace" mark="/editClass/editClassModuleFace/832295/togther">
+                                    <i class="mdi mdi-worker"></i><em>面授课</em></li> -->
+        
+                                <li class="subentry" v-if="course_info.course_type != '录播'" @click="goClassTable" code="listCode" mark="/editClass/editCourseList/832295/togther">
+                                    <i class="mdi mdi-equal-box"></i><em>排课表</em></li>
+                            <li class="lines"></li>
+                            <li class="subentry t1" @click="goClassStu" code="studentsCode" mark="/classStu/studentList/832295/togther">
+                                <i class=" mdi mdi-human-male"></i><em>学员管理</em></li>
+                            <li class="subentry" code="classResource" @click="goClassZL"
+                                mark="/classModuleLesson/classesResource/832295/togther">
+                                <i class=" mdi mdi-database-plus"></i><em>课程资料</em></li>
+                            <li class="subentry t1" code="statisticsCode" @click="goClassTJ" 
+                                mark="/companyLiveStaticDetail/companyLiveStaticDetailList/832295/togther">
+                                <i class=" mdi mdi-table-of-contents"></i><em>直播上课统计</em></li>
+                    </ul>
+                </div>
+                <input type="hidden" id="courseUseMethod" value="simple">
+                <div class="information_side_r fr">
+                    <div class="title-box" style="height: 38px;">
+                        <div class="tit-font"><span>直播课</span></div>
+                    </div>
+                    <div class="liveList clearfloat">
+                        <div class="liveList_main clearfloat">
+                            <div class="liveList_l fl" style="overflow: hidden">
+                                <div class="liveList_title">
+                                    <h6> <span>总课程单元数：</span><i>{{course_units.length}}</i><b>个</b></h6>
+
+                                    <p class="fr module_add" @click="add_cu"><i class="iconfont" style="    background: url(./assets/images/addT.svg) no-repeat;
+                                width: 16px;
+                                height: 16px;
+                                border: none;
+                                top:27px;">&nbsp;</i><span style="margin-top: 3px">新增 </span></p>
+                                    <p class="fr manage" @click="manage_cu"><i class="iconfont" style="    background: url(./assets/images/guanli.svg) no-repeat;
+                                width: 16px;
+                                height: 16px;
+                                border: none;">&nbsp;</i><span style="margin-top: 3px">管理</span></p>
+                                    <p class="fr screen" style=" "><i class="iconfont" style="    background: url(./assets/images/shaixuan.svg) no-repeat;
+                                width: 16px;
+                                height: 16px;
+                                border: none;
+                                top:27px;">&nbsp;</i><span style="margin-top: 3px">筛选</span></p>
+                                </div>
+                                <div class="liveList_content" style="    overflow: auto;
+                          width: 100%;">
+                                    <div class="nano has-scrollbar">
+                                        <div class="nano-content" tabindex="0" style="right: -17px;">
+                                            <div class="liveList_search"><span>选择学科：</span>
+                                                <select class="itemOneId" v-model="project_id" @change="change_kemu">
+
+
+                                                    <option value=0>请选择学科</option>
+                                                    <option v-for="(item,index) in projects" :value="item.pse_id">
+                                                        {{item.pse_name}}</option>
+
+
+
+                                                </select>
+                                                <select class="itemSecondId" v-model="subject_id" @change="change_dy">
+                                                    <option value=0>请选择学科小类</option>
+                                                    <option v-for="(item,index) in kemus" :value="item.pse_id">
+                                                        {{item.pse_name}}</option>
+                                                </select>
+                                            </div>
+                                            <ul class="moduleList">
+                                                <li v-for="(item,index) in course_units" id="li856909"
+                                                    :ids="item.course_unit_id" :ij="index" types="TEACH_METHOD_LIVE"
+                                                    :title="item.cu_name">
+                                                    <p class="liveList_li_l fl">{{item.cu_name}}</p>
+                                                    <p class="liveList_li_r fr"><i title="编辑" class="iconfont editer"
+                                                            @click="editer(item)">&nbsp;</i><i title="删除"
+                                                            class="iconfont delete"
+                                                            @click="delete_cu(item)">&nbsp;</i><i title="移入"
+                                                            class="iconfont move_into">&nbsp;</i></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="nano-pane" style="display: block;">
+                                            <div class="nano-slider"
+                                                style="height: 21px; transform: translate(0px, 0px);"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="liveList_r fl">
+                                <div class="liveList_title">
+                                    <span>已加入</span><i>{{al_course_units.length}}</i><span>个</span></div>
+                                <div class="liveList_content">
+                                    <div class="nano has-scrollbar">
+                                        <div class="nano-content" tabindex="0" style="right: -17px;">
+                                            <ul class="moduleIds">
+                                                <li v-for="(item,index) in al_course_units" id="li832875"
+                                                    :ids="item.course_unit_id" types="TEACH_METHOD_LIVE" title="test"
+                                                    class="on" style="width: 100%; height: 42px;">
+                                                    <p class="liveList_li_l fl">{{item.cu_name}}</p>
+                                                    <p class="liveList_li_r fr"><i title="移出"
+                                                            class="iconfont move_out">&nbsp;</i></p>
+                                                </li>
+
+
+
+
+
+
+
+
+
+
+                                            </ul>
+                                        </div>
+                                        <div class="nano-pane" style="display: none;">
+                                            <div class="nano-slider"
+                                                style="height: 414px; transform: translate(0px, 0px);"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="save_button">
+                            <!-- <a class="btn btn-default btn-lg">取消</a> -->
+                            <a
+                                href="javascript:void(0)" class="btn btn-primary btn-lg" @click="submit_ids">保存</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+        <div v-show="model != 0" class="layui-layer-shade" id="layui-layer-shade3" times="3"
+            style="display:none;z-index: 52; background-color: rgb(0, 0, 0); opacity: 0.3;"></div>
+        <div v-show="model == 1" class="layui-layer layui-layer-dialog  dialog" id="layui-layer3" type="dialog"
+            times="3" showtime="0" contype="string"
+            style="display:none;z-index: 53; width: 680px; height: 350px;margin-left:-340px;margin-top:-175px; top:50%; left: 50%;">
+            <div class="layui-layer-title" style="cursor: move;">修改课程单元</div>
+            <div id="" class="layui-layer-content add_unit" style="padding: 40px 20px 0px 20px !important;">
+                <div class="course_box">
+                    <div class="course_title">课程单元名称：</div>
+                    <div class="course_main"><input id="courseName" v-model="editer_name" type="text"
+                            placeholder="最多70个字符" class="unit_name">
+                    </div>
+                </div>
+                <div class="course_box">
+                    <div class="course_title">课程单元简介：</div>
+                    <div class="course_main"> <textarea class="unit_brief" v-model="editer_introduction"
+                            style="resize: none;" id="courseDe"></textarea></div>
+                </div>
+            </div><span class="layui-layer-setwin" @click="model = 0"><a
+                    class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a></span>
+            <div class="layui-layer-btn layui-layer-btn-c">
+                <!-- <a class="layui-layer-btn0 btn"
+                    style="color: #8c8c8c;">取消</a> -->
+                    <a class="layui-layer-btn1"
+                    style="background-color: #00aaff;color:white" @click="editer_submit">确定</a></div><span
+                class="layui-layer-resize"></span>
+        </div>
+        <div v-show="model == 2" class="layui-layer layui-layer-dialog  dialog" id="layui-layer2" type="dialog" times="2" showtime="0"
+            contype="string" style="display:none;z-index: 53; width: 680px; height: 400px;margin-left:-340px;margin-top:-200px; top: 50%; left: 50%;">
+            <div class="layui-layer-title" style="cursor: move;">新增课程单元</div>
+            <div id="" class="layui-layer-content add_unit" style="padding: 40px 20px 0px 20px !important;">
+                <div id="courseDalog">
+                    <div class="course_box" style="margin-bottom: 12px;">
+                        <div class="course_title">选择学科：</div>
+                        <div class="course_main"><select class="courseUnitSelect itemOneId" id="itemOneIdNew"
+                                style="width: 160px; height: 30px;margin-right: 30px" v-model="insert_info.project_id" @click="change_add_kemus">
+                                <option value="">请选择学科</option>
+                                <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}</option>
+                            </select><select class="courseUnitSelect" v-model="insert_info.subject_id" id="itemSecondIdNew"
+                                style="width: 160px; height: 30px;">
+                                <option value="">请选择学科小类</option>
+                                <option v-for="(item,index) in ke_mus" :value="item.pse_id">{{item.pse_name}}</option>
+                            </select></div>
+                    </div>
+                    <!-- <div class="course_box" style="margin-bottom: 12px;">
+                        <div class="course_title">授课方式：</div>
+                        <div class="course_main courseType courseTypeMethod"><i class="on"
+                                name="TEACH_METHOD_LIVE"></i><span class="chose_status"
+                                style="margin-right: 30px">直播</span><i name="TEACH_METHOD_FACE"></i><span
+                                class="chose_status">面授</span></div>
+                    </div> -->
+                    <div class="course_box">
+                        <div class="course_title">课程单元名称：</div>
+                        <div class="course_main"><input id="courseName" v-model="insert_info.cu_name" type="text" placeholder="最多70个字符"
+                                class="unit_name"></div>
+                    </div>
+                    <div class="course_box">
+                        <div class="course_title">课程单元简介：</div>
+                        <div class="course_main"> <textarea class="unit_brief" v-model="insert_info.introduction" style="resize: none;"
+                                id="courseDe"></textarea></div>
+                    </div>
+                </div>
+            </div><span class="layui-layer-setwin" @click="model = 0"><a class="layui-layer-ico layui-layer-close layui-layer-close1"
+                    href="javascript:;"></a></span>
+            <div class="layui-layer-btn layui-layer-btn-c">
+                <!-- <a class="layui-layer-btn0 btn" style="color: #8c8c8c;">取消</a> -->
+                <a
+                    class="layui-layer-btn1" style="background-color: #00aaff;color:white" @click="submit_add">确定</a></div><span
+                class="layui-layer-resize"></span>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script src="assets/js/jquery.ui.js"></script>
+    <script src="assets/js/nanoscroller.js"></script>
+    <script>
+        // .disableSelection();
+        console.log(1)
+
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    user_id:parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+                    value2: '',
+                    editer_name: '',
+                    editer_introduction: '',
+                    editer_id: '',
+                    insert_info:{
+                        project_id:'',
+                        subject_id:'',
+                        cu_type:'直播',
+                        cu_name:'',
+                        introduction:'',
+                        user_id:parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                    },
+                    class_info: {},
+                    projects: [],
+                    project_id: 0,
+                    subject_id: 0,
+                    kemus: [],
+                    ke_mus: [],
+                    al_course_units: [],
+                    al_course_units_copy: [],
+                    course_units: [],
+                    course_info:{}
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.course_info = JSON.parse(localStorage.course_info)
+                course_id = window.location.href.split('=')[1]
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        // _this.project_id = _this.projects[0].pse_id
+                        _this.inita()
+                        _this.change_add_kemus()
+                        // _this.changeKemu()
+                        // _this.userList = data
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                        //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                        //     _this.userList[i].enrollment_status = _this.userList[i]
+                        //         .enrollment_status == 1 ? '已报名' : '未报名'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/course/singleCourseInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    data: {
+                        course_id
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.class_info = data
+                        obj = {
+                            course_id: parseInt(course_id),
+                            subject_id: _this.class_info.subject_id
+                        }
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/queryCourseUnitList',
+                            type: 'post',
+                            // contentType: 'application/json',
+                            data: obj,
+                            dataType: 'json',
+                            success: function (data) {
+                                // _this.al_course_units = data
+                                // for(var k in data){
+                                //     
+                                //     console.log(k,data[k])
+                                //     console.log(JSON.parse(k),data[k])
+                                // }
+                                console.log(data)
+                                _this.course_units = data.notin
+                                _this.al_course_units = data.in
+                                _this.al_course_units_copy = data.in
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    },
+                    error: function () {
+
+                    }
+                })
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/course/queryCourseUnitList',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        // _this.xieyis = data
+                        // _this.course_units = data
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            mounted() {
+                let _this = this
+                console.log($('.base-sort'))
+                // $('.base-sort').sortable({
+                //     placeholder: "ui-state-highlight",
+                //     update: function (event, ui) {
+                //         // $this.sort(ui.item);
+                //     },
+                //     delay: 200,
+                //     // start: $this.collapseAll
+                // })
+                // .disableSelection();
+                console.log($('.base-sort').find(".sortable"))
+                $('.base-sort').find(".sortable").sortable({
+                    placeholder: "ui-state-highlight",
+                    items: '.ui-sortable-handle',
+                    // update: function (event, ui) {
+                    //     $this.sort(ui.item.siblings());
+                    //     $this.sort(ui.item);
+                    // },
+                    // receive: function (event, ui) {
+                    //     $this.mvLecture(ui.sender, $(event.target).parents(".dis"), ui.item);
+                    // },
+                    delay: 200,
+                    // connectWith: ".son"
+                })
+                // $(function() {
+                paging(),
+                    li_length(),
+                    $(".screen").click(
+                        function () {
+                            if ($(this).hasClass("on")) {
+                                $(this).removeClass("on").parents(".liveList_l").find(".liveList_search")
+                                    .slideUp();
+                                $(".nano").nanoScroller({
+                                    scroll: 'top'
+                                });
+                            } else {
+                                $(this).addClass("on").parents(".liveList_l").find(".liveList_search")
+                                    .slideDown();
+                                $(".nano").nanoScroller({
+                                    scroll: 'top'
+                                });
+                            }
+                        }),
+                    $(document)
+                    .on(
+                        "click",
+                        ".liveList_l ul li .move_into",
+                        function () {
+                            // console.log(1)
+                            var i = $(this).parents("li").find(
+                                ".liveList_li_l").html();
+                            var id = $(this).parents("li").attr("id");
+                            var ids = $(this).parents("li").attr("ids");
+                            var types = $(this).parents("li").attr("types");
+                            var title = $(this).parents("li").attr("title");
+                            var index = $(this).parents("li").attr("ij");
+                            // console.log(index,ids)
+                            // $(this).parents("li").animate({
+                            //     width: 0,
+                            //     height: 0
+                            // }, 100, function () {
+                            // });
+                            obj = JSON.parse(JSON.stringify(_this.course_units.filter((item) => item
+                                .course_unit_id == ids)))
+                            console.log(obj)
+                            // $(this).remove()
+                            _this.al_course_units = obj.concat(_this.al_course_units)
+                            _this.course_units = _this.course_units.filter((item) => item.course_unit_id != ids)
+                            console.log(_this.course_units, _this.al_course_units)
+                            // var l = '<li id=' + id + ' ids=' + ids + ' types=' + types + ' title=' + title +
+                            //     '><p class="liveList_li_l fl">' +
+                            //     i +
+                            //     '</p><p class="liveList_li_r fr"><i title="移出" class="iconfont move_out">&nbsp;</i></p></li>';
+                            // $(".liveList_r ul").prepend(l),
+                            //     $(".liveList_r ul li").eq(0).css({
+                            //         width: 0,
+                            //         height: 0
+                            //     }),
+                            //     $(".liveList_l ul li").eq(0)
+                            //     .removeClass("on"),
+                            //     $(".liveList_r ul li").eq(0).addClass(
+                            //         "on").siblings("li")
+                            //     .removeClass("on"),
+                            //     $(".liveList_r ul li").eq(0).animate({
+                            //         width: "100%",
+                            //         height: "42px"
+                            //     }, 400),
+                            //     $(".liveList_l .liveList_title h6 i")
+                            //     .html(
+                            //         $(".liveList_l ul li").length - 1),
+                            //     $(".liveList_r .liveList_title i").html(parseInt($(
+                            //         ".liveList_r .liveList_title i").html()) + 1),
+                            //     paging()
+                        }),
+                    $(document)
+                    .on(
+                        "click",
+                        ".liveList_r ul li .move_out",
+                        function () {
+                            if ($(".liveList_r .liveList_title i").html() == "1") {
+                                $.msg("至少保留一个课程单元");
+                                return false;
+                            }
+
+                            // var _this = $(this);
+                            // if ($(this).attr("data-type") && $(this).attr("data-type") == 'shareModule') {
+                            //     var moduleId = $(this).parent().closest("li").attr("ids");
+                            //     $("#li" + moduleId).attr("style", "border: 1px solid red;");
+
+                            //     $.confirm("确定取消关联？", function (result) {
+                            //         if (result) {
+                            //             $(".liveList_r .liveList_title i").html(parseInt($(
+                            //                 ".liveList_r .liveList_title i").html()) - 1);
+                            //             _this.parents("li").remove();
+                            //         } else {
+                            //             $("#li" + moduleId).attr("style", "border: 1px solid #e0e0e0;");
+                            //         }
+                            //     })
+
+                            //     $(document).on('click', '.Confirm_Close', function () {
+                            //         $("#li" + moduleId).attr("style", "border: 1px solid #e0e0e0;");
+                            //     })
+                            //     return false;
+                            // }
+
+                            var i = $(this).parents("li").find(
+                                ".liveList_li_l").html();
+                            // $(this).parents("li").animate({
+                            //     width: 0,
+                            //     height: 0
+                            // }, 400, function () {
+                            //     $(this).remove()
+                            // });
+                            var id = $(this).parents("li").attr("id");
+                            var ids = $(this).parents("li").attr("ids");
+                            var types = $(this).parents("li").attr("types");
+                            var title = $(this).parents("li").attr("title");
+
+                            obj = JSON.parse(JSON.stringify(_this.al_course_units.filter((item) => item
+                                .course_unit_id == ids)))
+                            console.log(obj)
+                            // $(this).remove()
+                            _this.course_units = obj.concat(_this.course_units)
+                            _this.al_course_units = _this.al_course_units.filter((item) => item
+                                .course_unit_id != ids)
+                            console.log(_this.course_units, _this.al_course_units)
+                            // var l = '<li id=' + id + ' ids=' + ids + ' types=' + types + ' title=' + title +
+                            //     '><p class="liveList_li_l fl">' +
+                            //     i +
+                            //     '</p><p class="liveList_li_r fr"><i title="编辑" class="iconfont editer">&nbsp;</i><i title="删除" class="iconfont delete">&nbsp;</i><i title="移入" class="iconfont move_into">&nbsp;</i></p></li>';
+
+                            // $(".liveList_l ul").prepend(l);
+                            // $(".liveList_l ul li").eq(0).css({
+                            //     width: 0,
+                            //     height: 0
+                            // });
+                            // $(".liveList_r ul li").eq(0)
+                            //     .removeClass("on"),
+                            //     $(".liveList_l ul li").eq(0).addClass(
+                            //         "on").siblings("li")
+                            //     .removeClass("on"),
+                            //     $(".liveList_l ul li").eq(0).animate({
+                            //         width: "100%",
+                            //         height: "42px"
+                            //     }, 400);
+                            // $(".liveList_l .liveList_title h6 i").html($(".liveList_l ul li").length);
+                            // $(".liveList_r .liveList_title i").html(parseInt($(".liveList_r .liveList_title i")
+                            //     .html()) - 1);
+                            // paging()
+                        })
+
+                function paging() {
+                    $(".nano").nanoScroller()
+                }
+
+                function li_length() {
+                    // var length = 0;
+                    // if ($(".liveList_r ul li").length > 0) {
+                    //     $(".liveList_r ul li").each(function (i, o) {
+                    //         if (!$(this).is(":hidden")) {
+                    //             length++;
+                    //         }
+                    //     });
+                    // }
+                    // $(".liveList_r .liveList_title i").html(length);
+                }
+
+                // });
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+
+                },
+                inita() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                change_add_kemus(){
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.insert_info.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.ke_mus = data
+                            _this.insert_info.subject_id = ""
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                editer(item) {
+                    this.editer_name = item.cu_name
+                    this.editer_introduction = item.introduction
+                    this.editer_id = item.course_unit_id
+                    this.model = 1
+                },
+                delete_cu(item) {
+                    _this = this
+                    console.log(item)
+                    _this.$confirm(`课程单元删除后，购买此包含此课程单元课程的学员将无法学习此课程单元内的课次，是否确定删除？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        dangerouslyUseHTMLString: true,
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/deleteCourseUnit',
+                            type: 'get',
+                            // contentType: 'application/json',
+                            data: {
+                                course_unit_id: item.course_unit_id,
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "删除成功") {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除成功',
+                                        duration: 0
+                                    });
+
+                                    _this.course_units = _this.course_units.filter((i) => i
+                                        .course_unit_id != item.course_unit_id)
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除失败',
+                                        duration: 0
+                                    });
+                                }
+
+                                // _this.kemus = data
+                                // _this.activeIndexb = _this.kemus[0].pse_id
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '服务器错误',
+                                    duration: 0
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '已取消'
+                        });
+                    });
+                },
+                editer_submit() {
+                    _this = this
+                    console.log(this.editer_name, this.editer_introduction, this.editer_id)
+                    obj = {
+                        cu_name: _this.editer_name,
+                        introduction: _this.editer_introduction,
+                        course_unit_id: _this.editer_id
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/updateCourseUnit',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            // _this.al_course_units = data
+                            // for(var k in data){
+                            //     
+                            //     console.log(k,data[k])
+                            //     console.log(JSON.parse(k),data[k])
+                            // }
+                            console.log(data)
+                            if (data.message == "修改成功") {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '修改成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.course_units = [obj].concat(_this.course_units.filter((
+                                    item) => item.course_unit_id != obj.course_unit_id))
+                            } else {
+                                _this.$message.info({
+                                    type: 'info',
+                                    message: '修改失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                change_dy() {
+                    _this = this
+                    console.log(this.subject_id, this.project_id)
+                    obj = {
+                        project_id: parseInt(_this.project_id),
+                        subject_id: parseInt(_this.subject_id),
+                        inParam: _this.al_course_units,
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/screenCourseUnit',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            // _this.al_course_units = data
+                            // for(var k in data){
+                            //     
+                            //     console.log(k,data[k])
+                            //     console.log(JSON.parse(k),data[k])
+                            // }
+                            console.log(data)
+                            _this.course_units = data.notin
+                            // if(data.message == "修改成功"){
+                            //     _this.$message.success({
+                            //         type: 'info',
+                            //         message: '修改成功',
+                            //         // position: 'bottom-left',
+                            //         duration: '2000'
+                            //     });
+                            //     _this.course_units = [obj].concat(_this.course_units.filter((item) => item.course_unit_id != obj.course_unit_id))
+                            // }else{
+                            //     _this.$message.info({
+                            //         type: 'info',
+                            //         message: '修改失败',
+                            //         // position: 'bottom-left',
+                            //         duration: '2000'
+                            //     });
+                            // }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                add_cu() {
+                    this.model = 2
+                },
+                change_kemu() {
+                    this.inita()
+                    this.subject_id = 0
+                    this.change_dy()
+                },
+                goZhibo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageTelecast.html?course_id='+course_id)
+                    }
+                },
+                goClassStu(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageStu.html?course_id='+course_id)
+                    }
+                },
+                goClassZL(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageziliao.html?course_id='+course_id)
+                    }
+                },
+                goClassTJ(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanagezhibo.html?course_id='+course_id)
+                    }
+                },
+                goVideo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageVideo.html?course_id='+course_id)
+                    } 
+                },
+                goManage(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanage.html?course_id='+course_id)
+                    } 
+                },
+                goClassTable(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageClasstable.html?course_id='+course_id)
+                    }
+                },
+                submit_add(){
+                    _this = this
+                    console.log(this.insert_info)
+                    obj = {
+                        cu_name: _this.insert_info.cu_name,
+                        introduction: _this.insert_info.introduction,
+                        course_unit_id: _this.insert_info.course_unit_id
+                    }
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/course/insertCourseUnit',
+                            type: 'get',
+                            // contentType: 'application/json',
+                            data: _this.insert_info,
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "添加课程单元成功") {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '添加课程单元成功',
+                                        duration: 0
+                                    });
+                                    obj.course_unit_id = data.primary_key_id
+                                    _this.course_units = [obj].concat(_this.course_units)
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '添加课程单元失败',
+                                        duration: 0
+                                    });
+                                }
+
+                                // _this.kemus = data
+                                // _this.activeIndexb = _this.kemus[0].pse_id
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '服务器错误',
+                                    duration: 0
+                                });
+                            }
+                        })
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                submit_ids(){
+                    _this = this;
+                    console.log(_this.al_course_units,this.al_course_units_copy)
+                    // old_ids = [];
+                    // _this.al_course_units_copy.map((item)=>{old_ids.push(item.course_unit_id)})
+                    // ids = [];
+                    // _this.al_course_units.map((item)=>{ids.push(item.course_unit_id)})
+
+                    obj = {
+                        course_id:parseInt(course_id),
+                        newList:_this.al_course_units,
+                        oldList:_this.al_course_units_copy,
+                        oldList_copy:_this.al_course_units_copy,
+                        user_id:_this.user_id
+                    }
+                    console.log(obj)
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/course/insertCourseUnitToCourse',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "success") {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '保存成功',
+                                        duration: 2000
+                                    });
+                                    window.reload()
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: data.message,
+                                        duration: 2000
+                                    });
+                                }
+
+                                // _this.kemus = data
+                                // _this.activeIndexb = _this.kemus[0].pse_id
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '服务器错误',
+                                    duration: 0
+                                });
+                            }
+                        })
+                },
+                manage_cu(){
+                    window.open('resourceClassdy.html')
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

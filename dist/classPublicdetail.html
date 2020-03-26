@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/openclass.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li onclick="window.location.href='index.html'">课程</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground">
+                    <div class="heading">
+                        <h2 class="h5">
+
+
+                            修改
+
+                            直播公开课
+                        </h2>
+                        <span class="line"></span>
+                    </div>
+                    <form id="conForm"  method="post" novalidate="novalidate" enctype="multipart/form-data">
+                        <input type="hidden" value="24674" id="couId">
+                        <div class="mark-more">
+                            <div class="main-content">
+                                <ul class="list-infos clear">
+                                    <li style="height: 58px; margin-left: -80px;">
+                                        <p class="c">
+                                            <span class="c-title">学科</span> <span class="c-content">
+                                                <select  v-model="class_info.project_id" id="itemOneList"
+                                                @change="change_kemus">
+
+
+
+                                                <option v-for="(item,index) in projects" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+
+
+                                            </select>
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li style="height: 58px; margin-left: 70px;">
+                                        <p class="c">
+                                            <span class="c-title">学科小类</span> <span class="c-content">
+                                                <select v-model="class_info.subject_id"
+                                                id="itemSecondList" style="display: block;">
+                                                <option v-for="(item,index) in kemus" :value="item.pse_id">
+                                                    {{item.pse_name}}</option>
+                                            </select>
+ <input type="hidden" value="131352" id="twoId">
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li style="height: 58px; margin-left: -80px;">
+                                        <p class="c">
+                                            <span class="c-title">课程名称</span> <span class="c-content">
+                                                <input type="text" v-model="class_info.pc_name" 
+                                                    id="openCourseName">
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li style="height: 58px; margin-left: 70px;">
+                                        <p class="c">
+                                            <span class="c-title">课程封面</span> <span class="c-content poAbso">
+
+
+                                                <img class="img" id="commdotityPic"
+                                                :src="imgSrc == ''?'assets/images/AAAAAA&text=no+image.png':imgSrc">
+
+                                                    <label class="control-label btn" for="uploadform-excelfiles"
+                                                    style="    border: 1px solid rgb(200,200,200);">上传封面</label><input
+                                                    type="file" id="uploadform-excelfiles" @change="file"
+                                                     multiple class="attachment-upload"
+                                                    style="left:-9999px;position:absolute;">
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li style="height: 58px; margin-left: -80px;">
+                                        <p class="c">
+                                            <span class="c-title">名师</span>
+                                            
+                                            <select name="" id="" v-model="class_info.js_user_id">
+                                                <option value="">请选择</option>
+                                                <option v-for="(item,index) in js_teachers" :value="item.user_id">{{item.true_name}}</option>
+                                            </select>
+                                        </p>
+                                    </li>
+                                    <li style="height: 58px; margin-left: 70px;"></li>
+                                    <li style="height: 58px; margin-left: -80px;">
+                                        <p class="c">
+                                            <span class="c-title">教务</span> 
+                                            <select name="" id=""  v-model="class_info.jw_user_id">
+                                                    <option value="">请选择</option>
+                                                    <option v-for="(item,index) in jw_teachers" :value="item.user_id">{{item.true_name}}</option>
+                                                </select>
+                                        </p>
+                                    </li>
+                                    <li style="height: 58px; margin-left: 70px;"></li>
+                                    <li id="time1" style="height: 58px; margin-left: -80px;width: 100%;">
+                                        <p class="c">
+                                            <template>
+                                                <!-- <div class="block"> -->
+                                                  <span class="demonstration c-title">默认</span>
+                                                  <el-date-picker
+                                                    v-model="value1"
+                                                    type="datetimerange"
+                                                    range-separator="至"
+                                                    start-placeholder="开始日期"
+                                                    end-placeholder="结束日期">
+                                                  </el-date-picker>
+                                                <!-- </div> -->
+                                              </template>
+                                        </p>
+                                    </li>
+
+
+
+
+
+
+
+
+                                    <li id="time3" style="height: 58px; margin-left: -80px;">
+                                        <p class="c">
+                                            <span class="c-title">弹幕</span>
+                                            <span class="c-content">
+
+
+                                                <input type="radio" v-model="class_info.tf_barrage"  value="1">支持
+                                                <input type="radio" v-model="class_info.tf_barrage"  value="2" 
+                                                    style="margin-left: 20px;">不支持
+
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li id="time3" style="height: 58px; margin-left: 70px;">
+                                            <p class="c">
+                                                <span class="c-title">虚拟用户数量</span>
+                                                <span class="c-content">
+    
+    
+                                                    <input type="text" v-model="class_info.robotNumber" id="">
+    
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li id="time3" style="height: 58px; margin-left: -80px;">
+                                            <p class="c">
+                                                <span class="c-title">虚拟用户昵称类型</span>
+                                                <span class="c-content">
+    
+    
+                                                    <input type="radio" v-model="class_info.robotType" value="0">真实姓名
+                                                    <input type="radio" v-model="class_info.robotType" value="1"
+                                                        style="margin-left: 20px;">网络昵称
+    
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li id="time3" style="height: 58px; margin-left: 70px;">
+                                            <p class="c">
+                                                <span class="c-title">老师助教是否显示虚拟用户</span>
+                                                <span class="c-content">
+    
+    
+                                                    <input type="radio" v-model="class_info.adminNotShow" value="0">显示
+                                                    <input type="radio" v-model="class_info.adminNotShow" value="1"
+                                                        style="margin-left: 20px;">不显示
+    
+                                                </span>
+                                            </p>
+                                        </li>
+                                    <li id="time3" style="height: 58px; margin-left: -80px;">
+                                        <p class="c">
+                                            <span class="c-title">模式</span>
+                                            <span class="c-content">
+                                                <select id="modetype" v-model="class_info.pc_pattern">
+
+
+
+                                                    <option value="1" >大班课</option>
+
+
+                                                </select>
+                                            </span>
+                                        </p>
+                                    </li>
+
+
+
+
+
+
+
+                                    <li style="height: 100px; margin-left: 70px;">
+                                        <p class="c">
+                                            <span class="c-title">课程详情</span>
+                                            <span class="c-content poAbso">
+                                                <textarea rows="5" cols="60" v-model="class_info.pc_detail" id="detailDesc" placeholder="字数限制在0～120范围内"
+                                                    ></textarea>
+                                            </span>
+                                        </p>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="m-bo text-center" style="margin-top: 80px;">
+                                <a href="javascript:void(0)" class="btn btn-sm btn-primary saveInfo" @click="submit_public('未上架')">保存并退出</a>
+                                <a href="javascript:void(0)" class="btn btn-sm btn-primary saveInfo" @click="submit_public('招生中')">保存并发布</a>
+                                <!-- <a href="/liveOpenCourse/toLiveShow" class="btn btn-sm btn-default">取消</a> -->
+                                <input type="hidden" id="publishStatus" value="1">
+                            </div>
+                        </div>
+                    </form>
+                    <input type="hidden" value="image.yunduoketang.com" id="imgUrl">
+                    <input type="hidden" id="ysTime" value="2019-5-22">
+                    <!-- ajax加载中div开始 -->
+                    <div class="loading lp-units-loading" style="display: none">
+                        <p>
+                            <i></i>加载中,请稍后...
+                        </p>
+                    </div>
+                    <div class="loading-bg lp-units-loading-bg" style="display: none"></div>
+
+                    <!--  ajax加载中div结束 -->
+                    <div class="upload-layer none" id="chooseDiv" style="width: 1080px;display: none">
+                        <div class="upload-title">
+                            <h2 class="h5">上传课程封面</h2>
+                            <i class="iconfont close"></i>
+                        </div>
+                        <div class="types">
+                            <a href="javascript:queryConditionPics('');" marks="privatePic"
+                                class="btn btn-default btn-success">私有云</a>
+                            <a href="javascript:queryConditionPics('');" marks="publicPic"
+                                class="btn btn-default">公有云</a>
+                        </div>
+                        <div class="types-list">
+                            <a href="javascript:queryAll(1,'');" class="btn btn-mini btn-link active">全部</a>
+                            <a href="javascript:queryPicByItemOneId(1,86683);"
+                                class="btn btn-mini btn-link">基金从业资格考试</a><a
+                                href="javascript:queryPicByItemOneId(1,128040);"
+                                class="btn btn-mini btn-link">注册消防工程师</a></div>
+                        <div id="tlist">
+
+
+
+                            <div class="pic-list">
+                                <ul id="ulList">
+                                    <li class="add"><i class="iconfont"></i></li>
+
+                                    <li>
+                                        <div class="mark none">
+                                            <a href="javascript:chooseOnePic('http://image.yunduoketang.com/course/34270/20190628/d52d996f-2a40-433a-8145-ecab2fc0a0aa.png','course/34270/20190628/d52d996f-2a40-433a-8145-ecab2fc0a0aa.png')"
+                                                class="btn btn-mini btn-warning">使用此封面</a>
+                                        </div>
+                                        <img
+                                            src="http://image.yunduoketang.com/course/34270/20190628/d52d996f-2a40-433a-8145-ecab2fc0a0aa.png">
+                                    </li>
+
+                                    <li>
+                                        <div class="mark none">
+                                            <a href="javascript:chooseOnePic('http://image.yunduoketang.com/course/34270/20190628/fcf3fb49-6fd3-4e23-b749-7662e18016c8.png','course/34270/20190628/fcf3fb49-6fd3-4e23-b749-7662e18016c8.png')"
+                                                class="btn btn-mini btn-warning">使用此封面</a>
+                                        </div>
+                                        <img
+                                            src="http://image.yunduoketang.com/course/34270/20190628/fcf3fb49-6fd3-4e23-b749-7662e18016c8.png">
+                                    </li>
+
+                                    <li>
+                                        <div class="mark none">
+                                            <a href="javascript:chooseOnePic('http://image.yunduoketang.com/course/34270/20190628/c289bc13-9931-47e0-8ee3-e184c1f70c9c.png','course/34270/20190628/c289bc13-9931-47e0-8ee3-e184c1f70c9c.png')"
+                                                class="btn btn-mini btn-warning">使用此封面</a>
+                                        </div>
+                                        <img
+                                            src="http://image.yunduoketang.com/course/34270/20190628/c289bc13-9931-47e0-8ee3-e184c1f70c9c.png">
+                                    </li>
+
+                                    <li>
+                                        <div class="mark none">
+                                            <a href="javascript:chooseOnePic('http://image.yunduoketang.com/course/34270/20190628/8fbb7e27-5d9b-458d-a794-3bc4c870c8e4.png','course/34270/20190628/8fbb7e27-5d9b-458d-a794-3bc4c870c8e4.png')"
+                                                class="btn btn-mini btn-warning">使用此封面</a>
+                                        </div>
+                                        <img
+                                            src="http://image.yunduoketang.com/course/34270/20190628/8fbb7e27-5d9b-458d-a794-3bc4c870c8e4.png">
+                                    </li>
+
+                                    <li>
+                                        <div class="mark none">
+                                            <a href="javascript:chooseOnePic('http://image.yunduoketang.com/course/34270/20190619/4ab2e63e-7706-46d4-a14b-d9f587f38516.png','course/34270/20190619/4ab2e63e-7706-46d4-a14b-d9f587f38516.png')"
+                                                class="btn btn-mini btn-warning">使用此封面</a>
+                                        </div>
+                                        <img
+                                            src="http://image.yunduoketang.com/course/34270/20190619/4ab2e63e-7706-46d4-a14b-d9f587f38516.png">
+                                    </li>
+
+                                    <li>
+                                        <div class="mark none">
+                                            <a href="javascript:chooseOnePic('http://image.yunduoketang.com/course/34270/20190619/37ce7ef8-6a15-4bde-a076-cedae0e8cd00.png','course/34270/20190619/37ce7ef8-6a15-4bde-a076-cedae0e8cd00.png')"
+                                                class="btn btn-mini btn-warning">使用此封面</a>
+                                        </div>
+                                        <img
+                                            src="http://image.yunduoketang.com/course/34270/20190619/37ce7ef8-6a15-4bde-a076-cedae0e8cd00.png">
+                                    </li>
+
+                                    <li>
+                                        <div class="mark none">
+                                            <a href="javascript:chooseOnePic('http://image.yunduoketang.com/course/34270/20190619/5d2feebf-d646-4d3c-a47c-c55f907ce669.png','course/34270/20190619/5d2feebf-d646-4d3c-a47c-c55f907ce669.png')"
+                                                class="btn btn-mini btn-warning">使用此封面</a>
+                                        </div>
+                                        <img
+                                            src="http://image.yunduoketang.com/course/34270/20190619/5d2feebf-d646-4d3c-a47c-c55f907ce669.png">
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="pages pagination" id="picPages"><span class="current prev">上一页</span><span
+                                    class="current">1</span><a href="javascript:void(0)">2</a><a
+                                    href="javascript:void(0)">3</a><a href="javascript:void(0)">4</a><a
+                                    href="javascript:void(0)">5</a><a href="javascript:void(0)">6</a><a
+                                    href="javascript:void(0)">7</a><a href="javascript:void(0)">8</a><span
+                                    class="dot">...</span><a href="javascript:void(0)">14</a><a
+                                    href="javascript:void(0)" class="next">下一页</a><span
+                                    class="page_sum">共98条</span><span class="search-input">跳至<input id="pagevalue"
+                                        size="1" value="1" type="text">页</span><a id="search" class="search"
+                                    href="javascript:;">跳转</a></div>
+                        </div>
+                        <div class="pic-upload none">
+                            <p class="tips">
+                                <input type="file" class="btn btn-mini btn-primary" name="imgData"
+                                    accept=".jpg,.png,.gif" id="imgData" onchange="Forms.savePic()" value="重新选择文件">
+                                <span>建议上传的图片尺寸为：516*282 </span>
+                            </p>
+                            <div class="upload-content" style="padding: 10px;">
+                                <div class="attributes none">
+                                    <input type="hidden" id="x" name="x" value="0">
+                                    <input type="hidden" id="y" name="y" value="0">
+                                    <input type="hidden" id="w" name="w" value="0">
+                                    <input type="hidden" id="h" name="h" value="0">
+                                    <input type="hidden" id="x2" name="x2" value="0">
+                                    <input type="hidden" id="y2" name="y2" value="0">
+                                </div>
+                                <div class="pic" style="width: 516px; height: 282px; background-color: #f2f2f2;">
+                                    <img id="target" src="">
+                                </div>
+                                <div class="upload-big p1" style="width: 456px;">
+                                    <div class="preview-container" style="margin: 0 auto;">
+                                        <img src="">
+                                    </div>
+                                </div>
+                                <div class="upload-sm p2" style="left: 733px;">
+                                    <div class="preview-container">
+                                        <img src="">
+                                    </div>
+                                </div>
+                                <div class="upload-mini p3" style="left: 540px;">
+                                    <div class="preview-container">
+                                        <img src="">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-center">
+                                <a href="javascript:Forms.saveCutPic();" class="btn btn-primary">确定</a>
+                                <!-- <a href="javascript:;" class="btn btn-default btn-cancel close">取消</a> -->
+                            </p>
+                        </div>
+                    </div>
+                    <div class="add-layer-bg none" id="stopDiv"></div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script> -->
+    <!-- <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script> -->
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <!-- <script src="assets/js/notice.js"></script>
+    <script src="http://manage.yunduoketang.com/javascripts/common/utils.js?version=1563474866721"></script>
+    <script type="text/javascript"
+        src="http://manage.yunduoketang.com/plugins/ckeditor/ckeditor.js?version=1563474866721"></script> -->
+
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: [new Date(new Date().getTime()-24*3600*1000), new Date()],
+                    value2: '',
+                    class_info:{
+                    "subject_id": 1,
+                    "pc_name": '',
+                    "pc_detail": '',
+                    "pc_pattern": 1,
+                    "js_user_id": 1,
+                    "end_time": '',
+                    "begin_time": '',
+                    "tf_barrage": 2,
+                    "project_id": 1,
+                    "pc_cover": '',
+                    "pc_status":'',
+                    "jw_user_id": 2,
+                    },
+                    projects:[],
+                    kemus:[],
+                    js_teachers:[],
+                    jw_teachers:[],
+                    imgSrc:'',
+                }
+            },
+            created() {
+                public_class_id = window.location.href.split('=')[1]
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                obj = {public_class_id:public_class_id}
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/PublicClass/queryPublicClassByid',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(obj),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.class_info = data.data
+                        _this.imgSrc = _this.class_info.pc_cover
+                        // delete _this.class_info.pc_cover
+                        console.log(new Date(_this.class_info.begin_time),_this.value1[0])
+                        _this.value1 = [new Date(_this.class_info.begin_time),new Date(_this.class_info.end_time)]
+                        
+                        _this.change_teachers()
+                        // _this.value1[1] = 
+                    },
+                    error: function () {
+
+                    }
+                })
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        _this.change_kemus()
+                    },
+                    error: function () {
+
+                    }
+                })
+                
+            },
+            methods: {
+                active() {
+
+                },
+                file(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        var maxsize = 2 * 1024 * 1024
+                        if (type.indexOf("image/") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择图片上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            _this.class_info.pc_cover = item
+                            console.log(item)
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                _this.imgSrc = e.target.result
+                                console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    $(e.target).val('')
+                },
+                activea(num) {
+
+                },
+                change_teachers(){
+                    obj = {
+                            project_id: _this.class_info.project_id,
+                            power_name:'教师'
+                        }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/PublicClass/queryUser',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.js_teachers = data
+                            // _this.class_info.subject_id = _this.kemus[0].pse_id
+                            // _this.changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    obj1 = {
+                            project_id: _this.class_info.project_id,
+                            power_name:'教务'
+                        }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/PublicClass/queryUser',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj1),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.jw_teachers = data
+                            // _this.class_info.subject_id = _this.kemus[0].pse_id
+                            // _this.changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                getNowFormatDate1(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate+' '+ hour + seperator2 + minute;
+                    return currentdate;
+                },
+                submit_public(status){
+                    _this = this
+                    console.log(_this.class_info,status)
+                    _this.class_info.begin_time = _this.getNowFormatDate1(new Date(_this.value1[0]))
+                    _this.class_info.end_time = _this.getNowFormatDate1(new Date(_this.value1[1]))
+                    _this.class_info.pc_status = status
+                    setTimeout(()=>{
+                    var form = document.getElementById("conForm");
+                    console.log(form)
+  var formData = new FormData(form);
+  console.log('string' == typeof(_this.class_info.pc_cover))
+  if('string' == typeof(_this.class_info.pc_cover)){
+    _this.class_info.string_pc_cover = _this.class_info.pc_cover
+    delete _this.class_info.pc_cover
+    delete _this.class_info.file_pc_cover
+  }else{
+    _this.class_info.file_pc_cover = _this.class_info.pc_cover
+    delete _this.class_info.pc_cover
+    delete _this.class_info.string_pc_cover
+  }
+  for(var k in _this.class_info){
+                    // if(k != 'pc_cover'){
+                        formData.set(k,_this.class_info[k])
+                    // }
+                }
+        // formData.set('pc_cover',_this.class_info['cover'])
+        
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/PublicClass/updatePublicClass',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        data: formData,
+                        processData: false,
+                    contentType: false,
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data.code == 200){
+                                _this.$notify.info({
+                                                    title: '提示',
+                                                    message: "保存成功",
+                                                    duration: 2000
+                                                });
+                            }else{
+                                _this.$notify.info({
+                                                    title: '提示',
+                                                    message: "保存失败",
+                                                    duration: 2000
+                                                });
+                            }
+                            
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                                    title: '提示',
+                                                    message: "服务器错误",
+                                                    duration: 2000
+                                                });
+                        }
+                    })
+                },20)
+                    
+                },
+                change_kemus() {
+                    _this = this;
+                        _this.change_teachers()
+                    // _this.stu.exam_id = ''
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.class_info.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+                            _this.class_info.subject_id = _this.kemus[0].pse_id
+                            // _this.changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

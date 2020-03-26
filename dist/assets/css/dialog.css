@@ -1,0 +1,230 @@
+.dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+}
+.dialog .course_information {
+    width: 490px;
+    height: 440px;
+    padding: 0 20px 0 22px;
+}
+.dialog .prompt {
+    box-sizing: content-box;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 6px;
+    padding: 0 78px;
+}
+.dialog i.closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    color: #bbbbbb;
+    font-size: 20px;
+    z-index:999;
+}
+.dialog h5 {
+    text-align: left;
+}
+.dialog h5 {
+    line-height: 1;
+    margin-top: 35px;
+    margin-bottom: 28px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+.dialog .course_information_main .nano {
+    width: 100%;
+    height: 264px;
+}
+.dialog .course_box {
+    position: relative;
+}
+.dialog .course_box .course_title {
+    font-size: 14px;
+    color: #999;
+    display: block;
+    float: left;
+    line-height: 34px;
+    left: 0;
+    position: absolute;
+    width: 80px;
+    text-align: right;
+}
+.dialog .course_box .course_main {
+    display: block;
+    padding-left: 80px;
+}
+.dialog .course_box .course_main select {
+    width: 172px;
+    margin-bottom: 12px;
+}
+.dialog .course_box .course_main .upload {
+    position: relative;
+    text-decoration: underline;
+    line-height: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+.dialog .course_box .course_main input[type=file] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 28px;
+    width: 73px;
+    display: none;
+}
+.dialog .course_box .course_main .upload_explain {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+.clearfloat {
+    zoom: 1;
+}
+.dialog .course_box .course_main ul li {
+    width: 100%;
+    display: block;
+    float: left;
+    position: relative;
+    height: 36px;
+}
+.dialog .course_box .course_main ul li span {
+    display: block;
+    max-width: 80%;
+    height: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 36px;
+    color: #333;
+    float: left;
+}
+.dialog .course_box .course_main ul li i {
+    color: #bdbbbc;
+    position: absolute;
+    margin-left: 4px;
+    top: 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+.clearfloat {
+    zoom: 1
+}
+.dialog .save_btn {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    margin-top: 12px;
+    left: 50%;
+    margin-left: -84px;
+}
+.dialog .save_btn a {
+    margin: 0 11px;
+    font-size: 14px;
+}
+
+element.style {
+}
+.dialog .save_btn a {
+    margin: 0 11px;
+    font-size: 14px;
+}
+/*.btn.btn-default {*/
+    /*color: #898989;*/
+    /*border: 1px solid #d7d7d7;*/
+/*}*/
+.btn.btn-lg {
+    padding: 10px 16px;
+}
+.btn.btn-primary {
+    color: #fff;
+    background-color: #0af;
+    border: 1px solid #0af;
+}
+.heading .btn.btn-mini.btn-primary.btn-upload:hover{
+    background-color: #009dec;
+    border: 1px solid #009dec;
+}
+.btn-primary:hover, a.btn-primary:hover{
+    background-color: #009dec;
+    border: 1px solid #009dec;
+}
+.dialog h5 {
+    text-align: left;
+    width: 80%;
+}
+
+.dialog .course_information {
+    width: 490px;
+    height: 440px;
+    padding: 0 20px 0 22px
+}
+.dialog .course_box .course_main ul li {
+    width: 100%;
+    display: block;
+    float: left;
+    position: relative;
+    height: 36px
+}
+.dialog .course_box .course_main ul li span {
+    display: block;
+    max-width: 80%;
+    height: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 36px;
+    color: #333;
+    float: left
+}
+.dialog .course_box .course_main ul li i {
+    color: #bdbbbc;
+    position: absolute;
+    margin-left: 4px;
+    top: 0px;
+    font-size: 18px;
+    cursor: pointer
+}
+.dialog .course_box .course_main ul li b {
+    color: #00c08b;
+    font-size: 14px;
+    display: block;
+    font-weight: 400;
+    line-height: 36px;
+    float: left
+}
+.save_btn a{
+    cursor: pointer;
+}

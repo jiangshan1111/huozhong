@@ -1,0 +1,516 @@
+<div id="header-app" v-cloak>
+    <header class="header header-fix" style="height: 60px;" data-personhomepage="">
+
+        <div class="page-container" id="headContents">
+            <div class="logo"><a href="./index.html" class="brand-logo-flag default" target="_self"
+                    style="background-image: url(&quot;http://image.yunduoketang.com/company/34270/20190612/c48ef988-f04f-4161-9c48-f485583aa1a1.png&quot;); background-repeat: no-repeat; background-position: center center;"></a>
+            </div>
+
+            <div class="select-place-wrap">
+                <a href="javascript:void(0);" class="select-place none"></a>
+            </div>
+
+            <ul class="nav-item head_lists" id="head_nav_list" style="max-width: 1063px;">
+                <li code="SYS_PAGE_HEAD_HOME"><a href="index.html">首页</a></li>
+                <li code="SYS_PAGE_HEAD_CLASS_PACKAGE"><a href="search_class.html" target="_blank">发现课程</a></li>
+                <li code="SYS_PAGE_HEAD_TIKU"><a href="tiku.html">实战题库</a></li>
+                <li code="SYS_PAGE_HEAD_QUESTION"><a href="answer_community.html">问答社区</a></li>
+                <li code="SYS_PAGE_HEAD_OPENCLASS"><a href="open_class.html" target="_blank">公开课</a></li>
+                <li code="SYS_PAGE_HEAD_TEACHER"><a href="teacher.html" target="_blank">讲师专栏</a></li>
+                <li code="SYS_PAGE_HEAD_NEWS"><a href="news_list.html">新闻公告</a></li>
+                <li code="SERVICE_STUDENT_ASPIRATIONS"><a href="student_star.html" target="_blank">学员心声</a></li>
+            </ul>
+
+            <div class="login-area" v-if="stu_id == 0">
+                <ul class="header-unlogin clear">
+                    <li class="header-app">
+
+                    </li>
+                    <li class="header-signin">
+                        <a href="javascript:void(0);" @click="login_lebel = true;register_lebel = false">登录</a>
+
+                    </li>
+                    <li class="header-signup">
+                        <a href="javascript:void(0);" @click="login_lebel = false;register_lebel = true">注册</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="login-area" v-if="stu_id != 0">
+                <ul class="header-unlogin clear">
+                    <li class="header-app">
+
+                    </li>
+
+
+
+
+                    <li class="my_message" id="message_em" style="cursor: pointer;">
+
+
+                        <a onclick="window.open('useCenter.html');localStorage.CenterIndex = 9" href="javascript:void(0)">
+                            <i class="iconfont"></i>
+                            <em style="" v-if="un_news_num > 0">{{un_news_num}}</em>
+                        </a>
+
+
+
+                    </li>
+                    <li class="set_btn user-card-box">
+                        <div class="dropdown setting ">
+                            <div class="user">
+                                <div class="head-img-wrap">
+                                    <a href="javascript:void(0)" class="head-img myHead">
+                                        <img src="./image/head_top.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="user-item">
+                                <div class="up-content">
+                                    <div class="fl">
+                                        <div class="head-img fl">
+                                            <img src="./image/head_top.png" alt="">
+                                        </div>
+                                        <div class="fl">
+                                            <h3>{{stu_info.tel}}</h3>
+                                            <p class="clear">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="down-content clear">
+
+                                    <a href="./useSetting.html" class="fl mr30">个人设置</a>
+
+
+                                    <a href="javascript:void(0);" onclick="window.location.href='./useCenter.html';localStorage.CenterIndex = 1" class="fl">个人中心</a>
+
+                                    <a href="javascript:;" @click="logout" class="fr">退出</a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="places school_place" id="divOne" style="z-index: 998;">
+
+        </div>
+
+    </header>
+    <div class="q_alert">
+        <div id="login" class="register login codeview none" v-if="login_lebel == true" style="display:block">
+            <form id="loginForm" name="loginForm" action="" novalidate="novalidate">
+                <span class="reg-close" @click="login_lebel = false"></span>
+                <div class="reg-title">
+                    <h2 class="h5">登录</h2>
+                </div>
+                <div class="reg-main">
+                    <div class="reg-form">
+                        <ul>
+                            <li class="q_user">
+                                <span class="icon user"><i class="q_sprit"></i></span>
+                                <input type="text" placeholder="用户名/手机号/邮箱" class="input-ctrol" name="account"
+                                    v-model="login_info.tel" id="login_account">
+                            </li>
+                            <li class="reg_pwd">
+                                <span class="icon password"><i class="q_sprit"></i></span>
+                                <input type="password" placeholder="请输入密码" class="input-ctrol" name="password"
+                                    v-model="login_info.stu_pass" id="login_password">
+                            </li>
+                            <li class="pro r">
+                                <p><input id="remember" type="checkbox" @change="change_cook"
+                                        v-model="oRemember"><span>记住我</span>
+
+
+                                    <!-- <label for="remember"><input id="remember" type="checkbox">
+                                                        记住我  -->
+                                    <a href="forget_psd.html" class="forgetpwd">忘记密码？</a>
+                                    <!-- </label> -->
+                                </p>
+                            </li>
+                            <li class="reg-btn q_btn q_btn1">
+                                <input id="login_submit" type="button" class="btn btn-block btn-warning btn-bigger"
+                                    value="登录" @click="loginin">
+
+                                <p class="one">还没有账号？马上<a href="javascript:;" class="sign"
+                                        @click="login_lebel = false;register_lebel = true">注册</a></p>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="reg-bottom reg-form">
+
+                        <p class="two third_login">合作账号直接登录
+
+                            <i class="q_sprit q_1" data-type="weixin"></i>
+                        </p>
+
+                    </div> -->
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- login end -->
+    <!-- register begin -->
+    <div class="q_alert" v-if="register_lebel == true">
+        <div id="register" class="register regemail " style="display:block">
+            <span class="reg-close" @click="register_lebel = false"></span>
+            <div class="reg-title">
+                <h2 class="h5">新用户注册</h2>
+            </div>
+            <div class="reg-main">
+                <div class="reg-form tab2">
+                    <div action="" id="registerForm2" novalidate="novalidate" class="q_form index-register">
+                        <ul>
+
+                            <li class="mobile" style="margin-top:15px;">
+                                <span class="icon telphone"><i class="q_sprit"></i></span>
+                                <input type="text" v-model="register_info.tel" placeholder="请输入手机号" class="input-ctrol"
+                                    id="register_mobile" name="mobile" maxlength="11">
+                            </li>
+
+
+
+                            <li>
+                                <span class="icon password"><i class="q_sprit"></i></span>
+                                <input type="password" placeholder="请输入密码" class="input-ctrol" id="register_password2"
+                                    name="password" v-model="register_info.stu_pass">
+                            </li>
+
+
+                            <!-- <li class="codes">
+                                <span class="icon identify"><i class="q_sprit"></i></span>
+                                <input type="text" placeholder="验证码" class="input-ctrol codenum" id="register_captcha2"
+                                    name="captcha" v-model="register_info.img_code">
+                                <span class="codeimg">
+                                    <img id="register_img" src="http://192.168.10.166:8080/stu/verifyImg" alt=""
+                                        srcset="">
+                                </span>
+                                <i class="iconfont"
+                                    onclick="document.querySelector('#register_img').src='http://192.168.10.166:8080/stu/verifyImg?'+new Date().getTime();"></i>
+                            </li> -->
+
+
+
+                            <li class="msg-code">
+                                <span class="icon q_message"><i class="q_sprit"></i></span>
+                                <input style="width: 85px;
+                                padding: 0 10px;
+                                padding-left: 65px;" type="text" placeholder="短信验证码" class="input-ctrol"
+                                    id="register_sms" name="sms" v-model="register_info.sms_code">
+                                <input id="btn-sms" v-if="disabled_label == true" style="background:#00b7ee"
+                                    type="button" class="btn btn-primary btn-gray" value="免费获得验证码" @click="getMsgcode">
+                                <input id="btn-sms" v-if="disabled_label == false" type="button"
+                                    class="btn btn-primary btn-gray send" :value="'('+time_top+'s)后重试'"
+                                    style="background-color: rgb(0, 168, 255);" disabled="disabled">
+                                <p class="tips"></p>
+                            </li>
+
+
+                            <li class="L-registerAgreementFlag">
+                                <div>
+                                    <input type="checkbox" id="registerAgreementFlag" checked="true"
+                                        style="vertical:middle;">
+                                    <span class="registerAgreementFlag" style="vertical:middle;">我已经接受 <a
+                                            href="http://ketang.huozhongedu.com/showRegisterAgreement"
+                                            target="_blank">《注册协议》</a></span>
+                                </div>
+                                <div class="registerAgreement" id="registerAgreement"
+                                    style="position: relative; _top: 5px; color: red;display:none;">
+                                    <span>请接受注册协议</span>
+                                </div>
+                            </li>
+
+                            <li class="reg-btn">
+                                <input id="register_submit2" type="button" class="btn btn-block btn-success btn-bigger"
+                                    @click="register_go" value="注册">
+                            </li>
+                        </ul>
+                        </d>
+                    </div>
+
+                    <div class="reg-bottom reg-form">
+                        <p class="one">已有账号？请直接<a href="javascript:;" @click="login_lebel = true;register_lebel = false"
+                                class="sign2 to_login">登录</a></p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="./css/element-ui.css">
+    <script src="./js/element-ui.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#header-app',
+            data() {
+                return {
+                    stu_id: localStorage.stu_id,
+                    login_lebel: false,
+                    register_lebel: false,
+                    oRemember: false,
+                    login_info: {
+                        "tel": '',
+                        "stu_pass": ''
+                    },
+                    time_top: 60,
+                    stu_info: {
+
+                    },
+                    un_news_num:0,
+                    disabled_label: true,
+                    register_info: {
+                        "tel": '',
+                        "stu_pass": '',
+                        // "img_code": "",
+                        "sms_code": ''
+                    },
+                    register_img: ''
+                }
+            },
+            created() {
+                let _this = this
+                _this.stu_id = localStorage.stu_id == undefined?0:parseInt(localStorage.stu_id)
+                if (this.getCookie('hz_user') && this.getCookie('hz_pswd')) {
+                    this.login_info.tel = this.getCookie('hz_user');
+                    this.login_info.stu_pass = this.getCookie('hz_pswd');
+                    this.oRemember = true;
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/queryMyNews',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "stu_id": _this.stu_id,
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        _this.un_news_num = 0
+                        data.map((item) => {
+                            if (item.tf_read == 2) {
+                                _this.un_news_num+=1
+                            } 
+                        })
+                    },
+                    error: function () {
+
+                    }
+                })
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/queryStuInfo',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        stu_id: _this.stu_id
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.stu_info = data
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                logout() {
+                    let _this = this
+                    localStorage.stu_id = 0
+                    window.location.href = "./index.html"
+                },
+                change_cook() {
+                    if (!this.oRemember) {
+                        this.delCookie('hz_user');
+                        this.delCookie('hz_pswd');
+                    }
+                },
+                setCookie(name, value, day) {
+                    var date = new Date();
+                    date.setDate(date.getDate() + day);
+                    document.cookie = name + '=' + value + ';expires=' + date;
+                },
+                getCookie(name) {
+                    var reg = RegExp(name + '=([^;]+)');
+                    var arr = document.cookie.match(reg);
+                    if (arr) {
+                        return arr[1];
+                    } else {
+                        return '';
+                    }
+                },
+                delCookie(name) {
+                    this.setCookie(name, null, -1);
+                },
+                register_go() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/regStu',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        data: _this.register_info,
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        crossDomain: true,
+                        // dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '注册成功,请登录',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.login_lebel = true
+                                _this.register_lebel = false
+                                _this.login_info = {
+                                    "tel": _this.register_info.tel,
+                                    "stu_pass": ''
+                                }
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '注册失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                loginin() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/login',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(_this.login_info),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.code == 200) {
+                                _this.stu_id = data.stu_id
+                                localStorage.stu_id = data.stu_id
+                                if (_this.oRemember) {
+                                    _this.setCookie('hz_user', _this.login_info.tel,
+                                    7); //保存帐号到cookie，有效期7天
+                                    _this.setCookie('hz_pswd', _this.login_info.stu_pass,
+                                    7); //保存密码到cookie，有效期7天
+                                }
+                                window.location.href = "useCenter.html"
+                                localStorage.CenterIndex = 1
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '登录失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                localStorage.stu_id = 0
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            localStorage.stu_id = 0
+                        }
+                    })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                activeA(num) {
+                    this.activeIndexa = num
+                },
+                setTime() {
+                    let _this = this
+                    this.time_top = 60
+                    timer = setInterval(() => {
+                        if (this.time_top == 1) {
+                            clearInterval(timer)
+                            _this.disabled_label = true
+                        } else {
+                            this.time_top -= 1
+                        }
+                    }, 1000)
+                },
+                getMsgcode() {
+                    let _this = this
+                    _this.disabled_label = false
+                    _this.setTime()
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/SendSms',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        data: {
+                            "tel": _this.register_info.tel,
+                        },
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        crossDomain: true,
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                openTdetail() {
+                    window.open('teacherDetail.html')
+                },
+                activeB(num) {
+                    this.activeIndexb = num
+                },
+            }
+        })
+    </script>

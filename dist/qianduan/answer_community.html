@@ -1,0 +1,433 @@
+<html lang="zh-cn">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+	<link rel="icon"
+		href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+		type="image/x-icon">
+	<link rel="shortcut icon"
+		href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+		type="image/x-icon">
+	<script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/head.css">
+	<link data-id="header-theme" rel="stylesheet" href="css/header.css">
+	<link data-id="theme-header" rel="stylesheet" href="css/black.css">
+	<link rel="stylesheet" href="css/head-case.css">
+	<link rel="stylesheet" href="css/app-icon1.css">
+	<link rel="stylesheet" href="css/register_thirdLogin.css">
+	<link rel="stylesheet" href="css/element-ui.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+	<link href="css/newIndex.css" rel="stylesheet" type="text/css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/newHomeIndex.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/ask.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<meta name="keywords"
+		content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+	<meta name="description"
+		content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+	<title>火种教育−火种教你考证书</title>
+	<link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+	<link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+	<div id="header" class="header header-fix"> </div>
+	<!-- register-end-->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+	<script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+	<!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+	<script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+	<script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+	<div class="w clear newAsk" style="margin-top: 60px;" id="app" v-cloak>
+		<!-- 左侧-->
+		<div class="left-box">
+			<div class="home-page">
+				<div class="askClassTitle clear">
+					<span class="fl">全部分类</span>
+					<span class="fr" onclick="window.open('answer_communityNew.html')">我要提问</span>
+				</div>
+				<div class="classify">
+					<!-- 课程分类 -->
+
+					<ul class="clear">
+						<li class="classLei" v-for="(nav,i) in classification">
+							<p @click="changeNav(nav,i)" :class="navIndex === i ? 'active':''">{{nav.modify_name}}</p>
+						</li>
+					</ul>
+
+					<!-- 自定义分类 -->
+
+					<p class="askPull">
+						<i class="xiala iconfont1" style="display: none;"></i>
+					</p>
+				</div>
+				<h4>
+					<!-- 表示评论的等级 0是普通评论 1是精华评论 2置顶评论 3是精华加置顶评论 -->
+					<span class="isHot" :class="typeIndex === 0 ? 'active' : ''" ishot=""
+						@click="changeType(0,0)">全部</span>
+					<span class="isHot" :class="typeIndex === 1 ? 'active' : ''" @click="changeType(1,1)">热门</span>
+					<span class="isHot" :class="typeIndex === 2 ? 'active' : ''" @click="changeType(2,2)">精华</span>
+					<div class="L-search">
+						<input type="text" name="" v-model="searchValue" id="L-value" placeholder="请输入搜索关键词">
+						<em class="iconfont L-iSear" id="L-searBt"></em>
+					</div>
+				</h4>
+				<div class="all-answer" id="info">
+					<div v-if="allAnswer.length">
+						<div class="r-answer" v-for="ans in allAnswer">
+							<div class="row clear">
+								<div class="r-left" data-uid="2505160">
+									<img alt=""
+										:src="ans.head ? ans.head : 'http://ketang.huozhongedu.com/images/user/iconfont-danxiantouxiangline.png'"
+										width="40" height="40">
+									<p>
+										<span>
+											{{ans.nicename}}
+										</span>
+									</p>
+								</div>
+								<div class="r-middle">
+									<h2 class="clear quetitle">
+										<i class="iconfont nofinish"></i>
+										<b class="ding" v-if="ans.state === 1 || ans.state === 3"></b>
+										<b class="jing" v-if="ans.state === 2 || ans.state === 3"></b>
+										<a
+											:href="'answer_communityDetail.html?questions_id=' + ans.questions_id">{{ans.title}}</a>
+									</h2>
+									<div class="answerText">
+										<div v-html="ans.content"></div>
+									</div>
+									<div class="cont-answer">
+										<i class="iconfont"></i>
+										<div style="display: inline-block;" v-if="ans.huida_st_state !== 3">
+											<span class="replysign t-answer">
+												[{{ans.huida_st_state === 2 ? '老师回答' : '最新回答'}}]
+											</span>
+											<span>
+												{{ans.huida_content}}
+											</span>
+										</div>
+									</div>
+									<div class="foot">
+										<p>
+											<em>提问时间：{{getNowFormatDate(ans.creation_time)}}</em>
+											<em>最后回答：{{getNowFormatDate(ans.maxtime)}}</em>
+											<i class="iconfont"></i>
+											<i>{{filterSubjet(ans.subject_id)}} &nbsp;</i>
+										</p>
+									</div>
+								</div>
+								<div class="r-right">
+									<span class="static-item"> <b class="val">{{ans.visit_num}}</b> <span
+											class="key">浏览</span>
+									</span> <span class="static-item answer"> <b class="val">{{ans.rs}}</b> <span
+											class="key">回答</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="myPagination" style="text-align: center">
+							<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+								:current-page.sync="currentPage1" :page-size="10" layout="total, prev, pager, next"
+								:total="pageTotal">
+							</el-pagination>
+						</div>
+					</div>
+					<div v-else class="noAnswer">
+						<h2>没有问答</h2>
+					</div>
+					<!-- <div class="pages pages-find" style="margin-top:50px;margin-bottom: 50px;">
+						<ul class="pagination">
+							<li class="disabled prev"><a>上一页</a></li>
+							<li class="active"><a>1</a></li>
+							<li><a href="javascript:void(0)">2</a></li>
+							<li><a href="javascript:void(0)">3</a></li>
+							<li><a href="javascript:void(0)">4</a></li>
+							<li><a href="javascript:void(0)">5</a></li>
+							<li><a href="javascript:void(0)">6</a></li>
+							<li><a href="javascript:void(0)">7</a></li>
+							<li><a href="javascript:void(0)">8</a></li><span>...</span>
+							<li><a href="javascript:void(0)">335</a></li>
+							<li class="next"><a href="javascript:void(0)">下一页</a></li>
+							<li><span>共3344条</span></li>
+						</ul>
+					</div> -->
+				</div>
+			</div>
+
+		</div>
+		<!-- 右侧-->
+		<div class="right-box">
+			<!-- 自定义分类 -->
+			<div class="r-answers">
+				<div class="title-wrap">
+					<span class="title">一周热门问题</span>
+				</div>
+				<div class="content">
+					<ul>
+						<li v-for="week in weekData">
+							<i></i>
+							<a v-html="week.content"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="class" id="hotClass">
+				<div class="title-wrap">
+					<span class="title">相关课程</span>
+				</div>
+				<div class="content">
+					<ul class="margTp">
+						<li class="clear" v-for="cur in curriculum" style="cursor:pointer"
+							@click="go_course(cur.course_id)">
+							<a>
+								<img :src="cur.cover" width="100px" height="60px">
+							</a>
+							<div class="detail">
+								<a>
+									<span class="p1">{{cur.course_name}}</span>
+								</a>
+								<p>讲师：{{cur.true_name}}老师</p>
+								<p>{{cur.price}}</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footerContents">
+
+
+		<!-- footer start -->
+		<div class="c-footer c-footer-3">
+			<div class="footer-content clear content-3">
+				<div class="f-3-left record3 recordt">
+					<div>
+						<p class="l-word" id="show_logo">火种教育</p>
+						<p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+						<p id="companyAddressNode" class="record3-top"></p>
+						<p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+								class="footer_beian" href="http://www.beian.miit.gov.cn/"
+								target="_blank">京ICP备16043550号-1</a></p>
+					</div>
+				</div>
+				<div class="f-3-middle recordt">
+					<div id="foot_showContents"><a
+							href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+							target="_blank">关于我们</a><a
+							href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+							target="_blank">联系我们</a></div>
+				</div>
+				<div class="f-3-right recordt">
+					<div class="clear">
+						<div>
+							<p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+							<p style="margin-top: -10px;position: relative;margin-left: -5px;"
+								class="img-hover qimg_hover">
+								<span id="tengxuns" style="cursor: pointer;display: none;">
+									<i class="iconfont"></i>
+								</span>
+								<span id="wbUrl" style="">
+									<i class="iconfont"></i>
+								</span>
+								<span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+									<i class="iconfont"></i>
+								</span>
+								<!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+							</p>
+						</div>
+						<div class="erwm wxPic" id="show_wxPic"><img
+								src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+								alt="" width="85" height="85"><span class="opcMask"></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" value="sys_middle" id="showPageType">
+		<!-- footer end -->
+	</div>
+
+</body>
+<script src="https://unpkg.com/swiper/js/swiper.js"> </script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+<script src="js/vue.min.js"></script>
+<script src="js/element-ui.js"></script>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data() {
+			return {
+				domain: 'http://192.168.10.166:8080',
+				classification: [], // 分类导航
+				navIndex: 0, // 切换分类
+				savePseId: '%', // 保存分类id当前
+				weekData: [], // 一周热门
+				curriculum: [], // 相关课程
+				searchValue: '', // 模糊查询
+				typeIndex: 0, // 全部 热门 精华
+				allAnswer: [], // 全部问答
+				currentPage1: 1,
+				pageTotal: 0,
+				pagesize: 10, //    每页的数据
+			}
+		},
+		created() {
+			$(document).ready(function () {
+				$("#header").load("header.html");
+			});
+			// 一周热门
+			$.ajax({
+				type: 'post',
+				url: this.domain + '/stu/Question/oneWeekHotTopics',
+				data: JSON.stringify({}),
+				contentType: 'application/json',
+				success: res => {
+					// console.log('一周数据', res)
+					this.weekData = res
+				}
+			})
+			// 全部分类导航栏
+			$.ajax({
+				type: 'post',
+				url: this.domain + '/stu/Question/queryClassificationName',
+				data: JSON.stringify({}),
+				contentType: 'application/json',
+				success: res => {
+					// console.log('全部分类导航栏',res)
+					this.classification = res
+					this.classification.unshift({
+						modify_name: '全部',
+						pse_id: 0
+					})
+				}
+			})
+
+			this.initCurriculum()
+		},
+		filters: {},
+		methods: {
+			//分页
+			handleSizeChange(val) {
+				console.log(`每页 ${val} 条`);
+			},
+			handleCurrentChange(val) {
+				console.log(val)
+				this.initAnswer(this.savePseId,'',val - 0)
+				// this.search_kcs(val - 0)
+			},
+			// 推荐课程 
+			initCurriculum(id = 6) {
+				$.ajax({
+					type: 'post',
+					url: this.domain + '/stu/Question/relatedCourses',
+					data: JSON.stringify({
+						'subject_id': id
+					}),
+					contentType: 'application/json',
+					success: res => {
+						// console.log('推荐课程', res)
+						this.curriculum = res
+						this.initAnswer(this.savePseId, 0,1)
+					}
+				})
+			},
+			initAnswer(id = '%', type = '',num) {
+				// 全部问答
+				obj = {
+					"subject_id": id,
+					"content": this.searchValue,
+					"state": type,
+					pageNum: num,
+					pageSize: 10
+				}
+				if (this.searchValue == '') {
+					delete obj.content
+				}
+				$.ajax({
+					type: 'post',
+					url: this.domain + '/stu/Question/queryQuestion',
+					data: JSON.stringify(obj),
+					contentType: 'application/json',
+					success: res => {
+						this.allAnswer = res.list
+						this.pageTotal = res.total
+						this.currentPage1 = num
+					}
+				})
+			},
+			changeNav(nav, i) {
+				if (this.navIndex === i) return
+				this.navIndex = i
+				this.typeIndex = 0
+				if (!nav.pse_id) {
+					this.initCurriculum(6)
+				} else {
+					this.savePseId = nav.pse_id
+					this.initCurriculum(nav.pse_id)
+				}
+			},
+			changeType(index, typeId) {
+				if (this.typeIndex === index) return
+				this.typeIndex = index
+				typeId ? this.initAnswer(this.savePseId, typeId,1) : this.initAnswer(this.savePseId,null,1)
+			},
+			filterSubjet(subject_id) {
+				let type = ''
+				subject_id = subject_id.replace(/;/g, '').split('')
+				subject_id.forEach(itm => {
+					this.classification.forEach(el => {
+						if (el.pse_id.toString() === itm.toString()) {
+							type += el.modify_name + ' '
+						}
+					})
+				})
+				return type
+			},
+			go_course(course_id) {
+				window.open('open_classDetail.html?course_id=' + course_id)
+			},
+			getNowFormatDate(date) {
+				if (!date) {
+					return
+				}
+				date = new Date(date)
+				var seperator1 = "-";
+				var seperator2 = ":";
+				var month = date.getMonth() + 1;
+				var strDate = date.getDate();
+				var hour = date.getHours();
+				var minute = date.getMinutes();
+				var second = date.getSeconds();
+				if (month >= 1 && month <= 9) {
+					month = "0" + month;
+				}
+				if (strDate >= 0 && strDate <= 9) {
+					strDate = "0" + strDate;
+				}
+				if (hour >= 0 && hour <= 9) {
+					hour = "0" + hour;
+				}
+				if (minute >= 0 && minute <= 9) {
+					minute = "0" + minute;
+				}
+				if (second >= 0 && second <= 9) {
+					second = "0" + second;
+				}
+				var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+					" " + hour + seperator2 + minute +
+					seperator2 + second;
+				return currentdate;
+			}
+		}
+	})
+</script>
+
+</html>

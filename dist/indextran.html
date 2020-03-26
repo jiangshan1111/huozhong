@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .el-input__icon {
+            line-height: 30px;
+        }
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-account"></i> 学员
+                    <ul class="row page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;">学员管理</li>
+                        <li  onclick="window.location.href='studentNotice.html'">学员通知</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="row student">
+                <div class="mainbackground" style="width: 100%">
+                    <div class="heading">
+                        <h2 class="h5">异动</h2>
+                        <!-- <div class="search">
+                             <i class="tips">没有查到相关信息!</i>
+                            <input type="text" id="mb" class="input-ctrl">
+                            <input type="button" class="btn btn-sm" value="搜索" onclick="search();">
+                        </div> -->
+                        <span class="line"></span>
+                    </div>
+                    <div id="allMessage">
+                    <div class="mark-more">
+                        <div class="main-content" id="oldMessage">
+                            <div class="m-title">
+                                <h2 class="h6">基本信息</h2>
+                                <!-- <span class="more">
+                                    <a href="javascript:;" class="m">更多</a>
+                                    <a href="javascript:;" class="edit" onclick="edit();">编辑</a>
+                                </span> -->
+                            </div>
+                            <ul class="list-infos clear">
+                               <li>
+                                    <p class="c">
+                                        <span class="c-title">微信号</span>
+                                        <span class="c-content cc" v-html="stu.wechat"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">姓名</span>
+                                        <span class="c-content cc" v-html="stu.stu_name" style="width: 50%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">付瑞</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">性别</span>
+                                        <span class="c-content" v-html="stu.sex">女</span>
+                                    </p>
+                                </li>
+                                <li id="more-tel">
+                                    <p class="c">
+                                        <span class="c-title">手机号</span>
+                                        <span class="c-content cc"><em id="mobile" v-html="stu.tel">18219916300</em></span>
+                                    </p>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                        <!-- <div class="main-content none" id="contractMsg" style="display: none">
+                            <div class="m-title">
+                                <h2 class="h6">联系信息</h2>
+                            </div>
+                            <ul class="list-infos clear">
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">手机号</span>
+                                        <span class="c-content"><em>18219916300</em></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">家庭电话</span>
+                                        <span class="c-content"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">办公电话</span>
+                                        <span class="c-content"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">紧急联系人</span>
+                                        <span class="c-content"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">紧急人电话</span>
+                                        <span class="c-content"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">邮箱</span>
+                                        <span class="c-content"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">QQ号</span>
+                                        <span class="c-content"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">微信</span>
+                                        <span class="c-content"></span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div> -->
+                    </div>
+                    <form action="" method="post" id="studentMessage">
+                    <input type="hidden" name="id" value="2450054">
+                    <div class="mark-more none" id="editMessage" style="display: none">
+                        <div class="main-content">
+                            <div class="m-title">
+                                <h2 class="h6">基本信息</h2>
+                                <span class="more">
+                                    <a href="javascript:;" class="e" onclick="save();">保存</a>
+                                </span>
+                            </div>
+                            
+                            <ul class="list-infos clear">
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">用户名</span>
+                                        <span class="c-content">
+                                            <input type="text" name="username" value="" disabled="disabled">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">姓名</span>
+                                        <span class="c-content"><input type="text" name="name" maxlength="100" value="付瑞"></span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">性别</span>
+                                        <span class="c-content">
+                                            <input type="radio" name="sex" value="MALE"> 男
+                                            <input type="radio" name="sex" value="FEMALE" checked=""> 女
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">出生日期</span>
+                                        <span class="c-content">
+                                            <input type="text" class="datetime-picker date-picker" name="birthday" value="1994-7-7">
+                                        </span>
+                                    </p>
+                                </li>                    
+                                <li style="display: none;">
+                                    <p class="c">
+                                        <span class="c-title">年龄</span>
+                                        <span class="c-content">
+                                            <input type="text" name="age" value="25">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">户口所在地</span>
+                                        <span class="c-content">
+                                            <input type="text" name="hkAddress" value="">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">最高学历</span>
+                                        <span class="c-content">
+                                            <select name="educationCode">
+                                                <option value="UNDER_JUNIOR">大专以下</option>
+                                                <option value="JUNIOR">大专</option>
+                                                <option value="BECHELOR">本科</option>
+                                                <option value="POSTGRADUATE">研究生</option>
+                                                <option value="DOCTOR">博士生及以上</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">证件类型</span>
+                                        <span class="c-content">
+                                        
+                                            <select name="identityTypeCode" id="">
+                                                <option value="ID_IDCARD" selected="">身份证</option>
+                                                <option value="ID_PASSPORT">护照</option>
+                                                <option value="ID_HMP">港澳通行证</option>
+                                                <option value="ID_TCP">台胞证</option>
+                                                <option value="ID_OFFICERS">军官证</option>
+                                                <option value="ID_SERGEANTS">士官证</option>
+                                                <option value="ID_UNCONFM_ID">其他</option>
+                                            </select>
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">证件号码</span>
+                                        <span class="c-content">
+                                            <input type="text" name="identityId" value="622826199407071720">
+                                        </span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="main-content">
+                            <div class="m-title">
+                                <h2 class="h6">联系信息</h2>
+                            </div>
+                            <ul class="list-infos clear">
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">手机号</span>
+                                        <span class="c-content">
+                                            <input type="text" name="mobile" value="18219916300" disabled="disabled">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">家庭电话</span>
+                                        <span class="c-content">
+                                            <input type="text" name="homePhone" value="" onkeyup="this.value=this.value.replace(/[^\d-]/g,'')">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">办公电话</span>
+                                        <span class="c-content">
+                                            <input type="text" name="officePhone" value="">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">紧急联系人</span>
+                                        <span class="c-content">
+                                            <input type="text" name="emergencyContact" value="">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">紧急人电话</span>
+                                        <span class="c-content">
+                                            <input type="text" name="emergencyPhone" value="">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">邮箱</span>
+                                        <span class="c-content">
+                                            <input type="text" name="email" value="">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">QQ号</span>
+                                        <span class="c-content">
+                                            <input type="text" name="qq" value="">
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="c">
+                                        <span class="c-title">微信</span>
+                                        <span class="c-content">
+                                            <input type="text" name="weixinId" value="">
+                                        </span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </form>
+                    </div>
+                    <div class="main-content">
+                        <div class="m-title">
+                            <h2 class="h6">报名信息</h2>
+                        </div>
+                        <div class="m-b-m">
+            
+             
+            
+            
+            
+            
+               
+            
+                <div class="m-b-p clear" v-for="(item,index) in yidongs" style="height:156px">
+                    <div class="m-b-p-left" style="height:156px">
+                        <p class="h c">
+                            <span class="p-title">学科</span>
+                            <span class="p-content" v-html="item.project_name">注册消防工程师</span>
+                        </p>
+                        <p class="h c">
+                            <span class="p-title">学费</span>
+                            <span class="p-content" v-html="item.special_price">100.0</span>
+                        </p>
+                        <p class="h c">
+                            <span class="p-title">学科小类</span>
+                            <span class="p-content" v-html="item.subject_name">开学典礼</span>
+                        </p>
+                        <p class="h c">
+                            <span class="p-title">已缴</span>
+                            <span class="p-content" v-html="item.refund_payment_money">100.0</span>
+                        </p>
+                        <p class="h c">
+                            <span class="p-title">课程</span>
+                            <span class="p-content" v-html="item.course_name">注册消防工程师开学典礼20190718</span>
+                        </p>
+                        
+                             <p class="h c important">
+                                <span class="p-title">欠缴</span>
+                                <span class="p-content" v-html="item.overdue_payment">0.0</span>
+                            </p>
+                        
+                       
+                        <p class="h c">
+                            <span class="p-title">报名时间</span>
+                            <span class="p-content" v-html="item.order_time">2019-7-16</span>
+                        </p>
+                     
+                        <p class="h c">
+                            <span class="p-title">来源</span>
+                            <span class="p-content" v-html="item.order_resource">线下报名</span>
+                        </p>
+                          <p class="h c">
+                            <span class="p-title">状态</span>
+                            <span class="p-content" v-html="item.order_status">已支付</span>
+                        </p>
+                    </div>
+                   
+                    <div class="m-b-p-right
+                     
+                    " style="clear: both">
+                        <div class="btns">
+                            
+                            <a v-if="index == yidongs.length - 1" href="javascript:void(0);" @click="goReturnfee(item)" class="m-btn">退费</a>
+                            
+                            <a v-if="index == yidongs.length - 1" href="javascript:void(0);" @click="changeClass(item)" class="m-btn">转班</a>
+                            
+                            
+                            <!-- <a href="javascript:void(0);" onclick="changeStudent(5690649,'CHANNEL_OFFLINE')" class="m-btn m-mb">转人</a> -->
+                            
+                            <a href="javascript:void(0);" @click="goOrderdetail(item)" class="m-btn m-mb">详情</a>
+                            
+                            <!-- <a href="javascript:void(0);" onclick="changeClassNo(5690649,'CHANNEL_OFFLINE')" class="m-btn m-mb change">更换班号</a> -->
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <form action="/student/full/selectEntryDetail" id="toDetailForm" method="post">
+                <input type="hidden" id="payMasterId" name="payMasterId">
+                 <input type="hidden" value="" name="lable">
+                </form>
+            
+            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    stu:{
+                    "stu_id": 1,
+                    "sex": "男",
+                    "wechat": "11111",
+                    "stu_name": "秀秀秀",
+                    "tel": "18800428784"
+                    },
+                    yidongs:[]
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                stu_id = window.location.href.split('=')[1]
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/student/queryMiniBasicInfo',
+                    type: 'post',
+                    // contentType:'application/json',
+                    // data:JSON.stringify(_this.stu),
+                    data:{stu_id:stu_id},
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(1)
+                        _this.stu = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/student/queryEnrollInfoById',
+                    type: 'post',
+                    // contentType:'application/json',
+                    // data:JSON.stringify(_this.stu),
+                    data:{stu_id:stu_id},
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(1)
+                        _this.yidongs = data
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                active() {
+                    this.activeIndexb = 2
+                    console.log(1)
+                    let _this = this
+                    $.ajax({
+                        url: './cn.json',
+                        type: 'get',
+                        // data:'',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.userList = data
+                            // _this.userList = []
+
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                    this.init()
+                    let _this = this
+                    $.ajax({
+                        url: './cn.json',
+                        type: 'get',
+                        // data:'',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.userList = data
+                            _this.userList1 = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                init(){
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                flexColumnWidth() {
+                    return $('.el-table__header-wrapper').width() / 100 * 25
+                },
+                flexColumnWidthc() {
+                    return $('.el-table__header-wrapper').width() / 100 * 3
+                },
+                flexColumnWidthd() {
+                    return $('.el-table__header-wrapper').width() / 3
+                },
+                flexColumnWidthe() {
+                    return $('.el-table__header-wrapper').width() / 6
+                },
+                goOrderdetail(item){
+                    console.log(item)
+                    localStorage.detail = JSON.stringify(item)
+                    localStorage.stu = JSON.stringify(this.stu)
+                    window.open('indextranDetail.html')
+                },
+                changeClass(item){
+                    localStorage.detail = JSON.stringify(item)
+                    localStorage.stu = JSON.stringify(this.stu)
+                    window.open('indextranChange.html')
+                },
+                goReturnfee(item){
+                    console.log(item)
+                    localStorage.detail = JSON.stringify(item)
+                    localStorage.stu = JSON.stringify(this.stu)
+                    window.open('indexReturnfee.html')
+                },
+                flexColumnWidthf() {
+                    return $('.el-table__header-wrapper').width() / 9
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

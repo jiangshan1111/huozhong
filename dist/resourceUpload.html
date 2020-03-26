@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <!-- <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/uploadVideo.css" rel="stylesheet" type="text/css" /> -->
+    <style>
+        body {
+            color: black;
+        }
+        html,body,#app{
+            height: 100%;
+        }
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        #videoList .infoPanel .thumbnail>img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-right: 50px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            width: 200px;
+            height: 112.5px;
+        }
+
+        #videoList .infoPanel .btnGroup {
+            overflow: auto;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .save_ {
+            padding-left: 7px;
+        }
+
+        .loading-bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 777;
+            background-color: #000;
+            opacity: 0.2;
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+    <style>
+        .tabs-nav {
+            font-size: 14px;
+        }
+
+        .tabs-nav:after,
+        .tabs-nav:before {
+            display: table;
+            content: " ";
+        }
+
+        .tabs-nav:after {
+            clear: both;
+        }
+
+        .tabs-nav:after,
+        .tabs-nav:before {
+            display: table;
+            content: " ";
+        }
+
+        #root {
+            padding: 10px 30px 30px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .ui-tabs.show-nav .tabs-content {
+            padding-top: 20px;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .tabs-nav>.tabs-active {
+            border-bottom: 2px solid #00c49f;
+            color: #00c49f;
+            cursor: default;
+        }
+
+        .tabs-nav>.tabs-tab {
+            float: left;
+            list-style: none;
+            padding: 0 20px;
+            line-height: 38px;
+            height: 38px;
+            text-decoration: none;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .btn-upload>input {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        #uploadList .btn-group>.btn-group-element {
+            margin-right: 5px;
+        }
+
+        .btn-upload {
+            display: inline-block;
+            position: relative;
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
+            line-height: 30px;
+            text-align: center;
+            vertical-align: top;
+            text-decoration: none;
+            color: #fff;
+            background: none;
+            background-color: #4f94fa;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .btn-upload,
+        .button>input[type=file] {
+            min-width: 4em;
+            padding: 0 1em;
+            height: 30px;
+        }
+
+        #uploadList .btn-group .upload {
+            float: right;
+        }
+
+        #uploadList .btn-group>.btn-group-element {
+            margin-right: 5px;
+        }
+
+        .button.default {
+            background-color: #4f94fa;
+        }
+
+        .button {
+            box-sizing: border-box;
+            border: 1px solid #4f94fa;
+            border-radius: 3px;
+            min-width: 4em;
+            padding: 0 1em;
+            height: 30px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            position: relative;
+            font-size: 14px;
+            overflow: hidden;
+        }
+
+        #videoList .listPanel tbody .thumbnail>img {
+            width: 100px;
+            height: 60px;
+        }
+
+        #videoList .infoPanel .section_1 .thumbnail {
+            position: relative;
+            width: 30%;
+            height: 165px;
+        }
+
+        #videoList .infoPanel .section_1>div {
+            float: left;
+        }
+
+        #videoList .infoPanel .msg {
+            width: 70%;
+        }
+
+        #videoList .infoPanel dd,
+        #videoList .infoPanel dt {
+            display: inline-block;
+            max-width: 550px;
+            font-size: 14px;
+            line-height: 1.7em;
+            vertical-align: top;
+            word-wrap: break-word;
+            word-break: normal;
+            color: #666;
+        }
+
+        #videoList .infoPanel .btn-wrap {
+            position: absolute;
+            top: 25px;
+            right: 10px;
+        }
+
+        #videoList .infoPanel .tabs-panel {
+            overflow: auto;
+            width: 100%;
+            font-size: 0;
+            max-height: 122px;
+        }
+
+        #videoList .infoPanel .tabs-panel>div {
+            width: 16.66%;
+            display: inline-block;
+            height: 0;
+            padding-top: 9.375%;
+            position: relative;
+        }
+
+        #videoList .infoPanel .tabs-panel img {
+            display: inline-block;
+            overflow: auto;
+            box-sizing: border-box;
+            padding: 2px 3px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            vertical-align: middle;
+        }
+
+        /* #uploadList i.fa-pencil {
+    float: left;
+    width: 15%;
+    text-align: center;
+} */
+        /* #uploadList .btn-group {
+    font-size: 14px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+} */
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app" v-loading="loading">
+        <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data">
+            <div class="container-fluid" style="margin-bottom: 60px">
+
+                <!-- Page title box -->
+                <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                    <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 资源
+                        <ul class="lrow page-ul">
+                            <li onclick="window.location.href='resource.html'">学科</li>
+                            <li onclick="window.location.href='resourceSchool.html'">校区</li>
+                            <li style="color: rgb(250, 105, 0); border-bottom: 2px solid rgb(250, 105, 0);"
+                                onclick="window.location.href='resourceKu.html'">资源库</li>
+                            <li onclick="window.location.href='resourceClassxy.html'">课程协议</li>
+                            <li onclick="window.location.href='resourceTeacher.html'">教师课时</li>
+                            <li onclick="window.location.href='resourceClassdy.html'">课程单元</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- End page title box -->
+                <div class="u-wrap operate">
+                    <div class="mainbackground">
+                        <div class="heading L-heading">
+                            <h2 class="h5" style="width:200px;">上传资源</h2>
+                            <span class="line"></span>
+                        </div>
+                        <div id="navBar" class="operate_main operate_vedio_main L-video-con clear">
+                            <ul class="L-ul">
+                                <li name="video" for="video" class="L-ac">视频</li>
+                            </ul>
+                            <div id="content" class="L-operate_vedio">
+                                <div name="video">
+                                    <div>
+                                        <a href="javascript:;" @click="activeb(1)"
+                                            :class="activeIndexb == 1?'btn btn-success btn-mini btn-method':'btn btn-default btn-mini btn-method'"
+                                            data-type="0">本地视频</a>
+                                        <a href="javascript:;" @click="activeb(2)"
+                                            :class="activeIndexb == 2?'btn btn-success btn-mini btn-method':'btn btn-default btn-mini btn-method'"
+                                            data-type="1">网络视频</a>
+
+                                    </div>
+                                    <div name="ff">
+                                        <div v-show="activeIndexb == 1" class="operate_vedio_title">
+                                            <a id="addVideoBtn" href="javascript:;"
+                                                class="btn btn-bigger btn-success addVideoBtn" style="width:auto"
+                                                @click="model = 1">上传文件 </a>
+                                        </div>
+                                        <div v-show="activeIndexb == 2" class="operate_vedio_title">
+                                            <a id="addVideoBtn" href="javascript:;"
+                                                class="btn btn-bigger btn-success addVideoBtn" style="width:auto"
+                                                @click="model = 4">插入链接 </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 资源上传 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end container -->
+            <div class="tcBg" v-show="model != 0"
+                style="width: 100%; height: 100%; position: fixed; background: rgb(0, 0, 0); opacity: 0.5; z-index: 98; left: 0px; top: 0px;">
+            </div>
+            <div class="addVideoTc" v-show="model == 1"
+                style="height: 330px;
+                top: 41.5px;
+                margin-top: 80px;
+                position: fixed;
+                z-index: 99;
+                left: 50%;
+                margin-left: -350px;
+                display: block;">
+                <div class="check_student_hd">设置视频上传信息<i class="close iconfont" style="    top: 14px;"
+                        @click="model = 0"></i></div>
+                <div class="check_student_bd">
+                    <div class="operate_video_ft">
+                        <div class="w">
+                            <span class="class_number_name"><span class="sp_red">*</span>学科：</span>
+                            <select id="itemOneId" name="itemOneId" @change="change_kemus(1)"
+                                v-model="upload_info.project_id" class="subj-sel itemOneClass">
+                                <option value="">请选择</option>
+                                <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}</option>
+                            </select>
+                            <span class="class_number_name"><span class="sp_red">*</span>学科小类：</span>
+                            <select id="itemSecondId" v-model="upload_info.subject_id" name="itemSecondId"
+                                class="subj-sel">
+                                <option value="">请选择</option>
+                                <option v-for="(item,index) in kemus" :value="item.pse_id">{{item.pse_name}}</option>
+                            </select>
+                            <span class="tips-msg item_msg"></span>
+                        </div>
+                        <div class="w">
+                            <span class="class_number_name">标签：</span>
+
+
+                            <select class="ccTag" v-model="upload_info.type_id" style="width: 138px;color:#000;"
+                                id="tag">
+                                <option value="">请选择标签</option>
+                                <option v-for="(item,index) in tips" :value="item.public_id">{{item.public_name}}
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="w w-video" style="display: none;">
+                            <span class="class_number_name"><span class="sp_red">*</span>视频网址：</span>
+                            <input type="text" id="videourl" size="61" placeholder="请确保输入的视频地址打开后即可播放视频">
+                            <!-- placeholder="支持优酷、土豆、腾讯，将视频页面网址复制到这里点击增加即可" -->
+                            <a href="javascript:;" class="btn btn-primary btn-mini btn-add-url">增加</a>
+                        </div>
+                        <div class="w w-video" style="display: none;">
+                            <span class="class_number_name"></span>
+                            <span style="color:darkgrey">tip:视频会增加到您的视频库，不会丢失哦~ 所以为了便于您选择，建议您给视频增加标签</span>
+                        </div>
+                        <div class="w w-video" style="display: none;">
+                            <span class="class_number_name"><span class="sp_red">*</span>视频名称：</span>
+                            <input type="text" id="videoname" size="45">
+                        </div>
+                        <div class="w">
+                            <span class="agree"><input type="checkbox" checked="" id="protocol"
+                                    style="    vertical-align: text-bottom;"><a href="/fonts/protocol.html"
+                                    target="_blank">同意上传协议</a></span>
+                            <span class="tips-msg protocol_msg"></span>
+                        </div>
+                        <div class="w">
+                            <span class="agree" style="padding:0"></span>
+                            <span class="tips-msg tips-ff" id="localVideo"
+                                style="    margin-left: 10%;width:90%; display: inline-block;">视频大小必须介于1-2048M之间，否则上传不成功。每次最多选中10个文件。<br>
+
+
+                                支持上传文件属性包含：avi、、mp4、f4v、mpg、flv、wmv、mov、3gp、mkv、asf、264、ts、mts、dat、vob、MP3、wav、m4v
+
+
+
+
+
+                            </span>
+                            <span class="tips-msg tips-ff" style="margin-left: 44px;display: none;" id="scormTip">
+                                上传scorm课件，格式为 .zip压缩格式; 上传过程可能需要几分钟，请耐心等待
+                            </span>
+                        </div>
+                        <div class="w last_w" style="display: block;">
+                            <input type="button" class="btn btn-big btn-primary" id="btn-save" @click="model = 2"
+                                value="选择本地文件">
+                        </div>
+                        <div class="w last_v" style="text-align: center; display: none;">
+                            <input type="button" class="btn btn-big btn-primary" id="btn-save" value="保存">
+                            <!-- <input type="button" class="btn btn-big btn-default" id="btn-cancel" value="取消"> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="addVideoTc" v-show="model == 4"
+                style="height: auto;
+                top: 41.5px;
+                margin-top: 80px;
+                position: fixed;
+                z-index: 99;
+                left: 50%;
+                margin-left: -350px;
+                display: block;">
+                <div class="check_student_hd">设置视频上传信息<i class="close iconfont" @click="model = 0"
+                        style="top: 12px;"></i></div>
+                <div class="check_student_bd">
+                    <div class="operate_video_ft">
+                        <div class="w">
+                            <span class="class_number_name"><span class="sp_red">*</span>学科：</span>
+                            <select id="itemOneId" @change="change_kemus(2)" v-model="upload_online.project_id"
+                                name="itemOneId" class="subj-sel itemOneClass">
+                                <option value="">请选择</option>
+                                <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}</option>
+                            </select>
+                            <span class="class_number_name"><span class="sp_red">*</span>学科小类：</span>
+                            <select id="itemSecondId" name="itemSecondId" v-model="upload_online.subject_id"
+                                class="subj-sel">
+                                <option value="">请选择</option>
+                                <option v-for="(item,index) in kemus1" :value="item.pse_id">{{item.pse_name}}</option>
+                            </select>
+                            <span class="tips-msg item_msg"></span>
+                        </div>
+                        <div class="w">
+                            <span class="class_number_name">标签：</span>
+
+
+                            <select class="ccTag" v-model="upload_online.type_id" style="width: 138px;color:#000;"
+                                id="tag">
+                                <option value="">请选择标签</option>
+                                <option v-for="(item,index) in tips" :value="item.public_id">{{item.public_name}}
+                            </select>
+
+                        </div>
+                        <div class="w w-video" style="display: block;">
+                            <span class="class_number_name"><span class="sp_red">*</span>视频网址：</span>
+                            <input type="text" v-model="upload_online.net_url" id="videourl" size="61"
+                                placeholder="请确保输入的视频地址打开后即可播放视频">
+                            <!-- placeholder="支持优酷、土豆、腾讯，将视频页面网址复制到这里点击增加即可" -->
+                            <!-- <a href="javascript:;" class="btn btn-primary btn-mini btn-add-url">增加</a> -->
+                        </div>
+                        <div class="w w-video" style="display: block;">
+                            <span class="class_number_name"></span>
+                            <span style="color:darkgrey">tip:视频会增加到您的视频库，不会丢失哦~ 所以为了便于您选择，建议您给视频增加标签</span>
+                        </div>
+                        <div class="w w-video" style="display: block;">
+                            <span class="class_number_name"><span class="sp_red">*</span>视频名称：</span>
+                            <input type="text" v-model="upload_online.resourse_name" id="videoname" size="45">
+                        </div>
+                        <div class="w">
+                            <span class="agree"><input type="checkbox" checked="" id="protocol"><a
+                                    href="/fonts/protocol.html" target="_blank">同意上传协议</a></span>
+                            <span class="tips-msg protocol_msg"></span>
+                        </div>
+                        <div class="w last_w" style="display: none;">
+
+
+                            <input type="button" class="btn btn-big btn-primary" id="blvsloadvideo" value="选择本地文件">
+
+
+                        </div>
+                        <div class="w last_s" style="text-align: center; display: none;">
+                            <input type="button" class="btn btn-big btn-primary" id="scromupload" value="选择本地文件">
+                        </div>
+                        <div class="w last_v" style="text-align: center; display: block;">
+                            <input type="button" class="btn btn-big btn-primary" id="btn-save" @click="submit_online"
+                                value="保存">
+                            <input type="button" class="btn btn-big btn-default" id="btn-cancel" @click="model = 0"
+                                value="取消">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="polyv-wrapAll" style="display: block;" v-show="model == 2">
+
+                <div
+                    style="display: block; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 1001; background-color: rgb(0, 0, 0); opacity: 0.5;">
+                </div>
+                <div
+                    style="display: block; position: fixed; left: 0px; top: 0px; bottom: 0px; right: 0px; width: 1000px; height: 600px; margin: auto; z-index: 1002; box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 25px; border-radius: 10px;">
+                    <div id="root" style="background:white;height: 100%;width:100%">
+                        <span
+                            style="width: 26px; height: 26px; position: absolute; top: 0px; right: 0px; cursor: pointer; background: rgb(238, 238, 238); text-align: center; line-height: 26px; color: rgb(102, 102, 102); font-size: 16px; border-radius: 0px 10px 0px 0px;"
+                            @click="model = 0">×</span>
+                        <div>
+                            <div class=" ui-tabs show-nav">
+                                <div class="tabs-bar" role="tablist">
+                                    <ul class="tabs-nav">
+                                        <li role="tab" aria-disabled="false" @click="activea(1)" aria-selected="false"
+                                            :class="activeIndexa == 1?'tabs-tab tabs-active':'tabs-tab'">上传列表
+                                        </li>
+                                        <li role="tab" aria-disabled="false" @click="activea(2)" aria-selected="true"
+                                            :class="activeIndexa == 2?'tabs-tab tabs-active':'tabs-tab'">视频列表</li>
+                                    </ul>
+                                </div>
+                                <div class="tabs-content" v-show="activeIndexa == 1">
+                                    <div role="tabpanel" class="tabs-panel" aria-hidden="true">
+                                        <div id="uploadList">
+                                            <div class="btn-group"
+                                                style="    padding-bottom: 15px;width:100%;border-bottom: 1px solid #eee;">
+                                                <span class="btn-upload default btn-group-element"
+                                                    style="display: inline-block;">选择文件
+                                                    <input type="file" name="selectFiles"
+                                                        accept="video/avi,.avi,.f4v,video/mpeg,.mpg,video/mp4,.mp4,video/x-flv,.flv,video/x-ms-wmv,.wmv,video/quicktime,.mov,video/3gpp,.3gp,.rmvb,video/x-matroska,.mkv,.asf,.264,.ts,.mts,.dat,.vob,audio/mpeg,.mp3,audio/x-wav,.wav,video/x-m4v,.m4v,video/webm,.webm,.mod"
+                                                        multiple="" id="selectFiles" @change="file"></span>
+                                                <input style="position:absolute;right:5px;line-height: 1;"
+                                                    class="button default btn-group-element upload"
+                                                    @click="submit_upload" type="button" value="上传"
+                                                    style="display: inline-block;line-height: 1;">
+                                            </div>
+                                            <div class="fileList" style="margin-top:20px">
+                                                <div>
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr></tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="" v-for="(item,index) in upload_videos">
+                                                                <td class="fileName"
+                                                                    style="width:30%;position: relative;">
+                                                                    <div class="">
+                                                                        <div v-show="item.edit == false">
+                                                                            <div class="fileTitle"
+                                                                                v-html="item.resourse_name">a</div><i
+                                                                                class="fa fa-pencil"
+                                                                                @click="item.edit = true"
+                                                                                aria-hidden="true"
+                                                                                style="    visibility: visible;
+                                                                            position: absolute;
+                                                                            width: 20px;
+                                                                            height: 20px;
+                                                                            right: 40px;
+                                                                            top: 50%;
+                                                                            margin-top: -10px;
+                                                                            background: url(./assets/images/pen.svg) center no-repeat;cursor: pointer"></i>
+                                                                        </div>
+                                                                        <input v-show="item.edit == true"
+                                                                            @blur="item.edit = false" type="text"
+                                                                            v-model="item.resourse_name">
+                                                                    </div>
+                                                                </td>
+                                                                <td class="description" style="width:50%"><textarea
+                                                                        v-model="item.resources_describe" rows="2"
+                                                                        cols="20" placeholder="添加描述"
+                                                                        style="width:80%"></textarea></td>
+                                                                <td class="deleteBtn" style="text-align:center">
+                                                                    <a href="javascript:void(0)"
+                                                                        @click="delete_videos(index)">删除</a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="confirmWrap" style="display: none;">
+                                                <div class="confirm">
+                                                    <div class="confirm-title">
+                                                        <p>系统提示</p>
+                                                    </div>
+                                                    <div class="confirm-content"><span>确认清空上传列表？</span></div>
+                                                    <div class="confirm-btn-group"><input class="button default"
+                                                            type="button" value="确认"
+                                                            style="display: inline-block;">
+                                                            <!-- <input
+                                                            class="button default cancel" type="button" value="取消"
+                                                            style="display: inline-block;"> -->
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="sysInfoWrap" style="display: none;">
+                                                <div class="sysInfo">
+                                                    <div class="sysInfo-cont"><span class="sysInfo-close">×</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tabs-panel tabs-active" aria-hidden="false">
+                                        <div id="videoList">
+                                            <!-- <div class="search" style="display: block;">
+                                            <div class=" searchBar"><input type="text" placeholder="Search for..."
+                                                    class="inputBox" value=""><input type="submit" class="searchBtn"
+                                                    value="搜索"></div><input class="button default" type="button"
+                                                value="返回" style="display: none;">
+                                        </div> -->
+                                            <div class="panel">
+                                                <div class="loading" style="display: none;"><img
+                                                        src="./assets/images/loading.gif" alt="加载中..."></div>
+                                                <div class="videoListSysInfo" style="display: none;">
+                                                    <p></p>
+                                                </div>
+                                                <!-- <div class="listPanel" style="display: block;">
+                                                <div class="tableWrap">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th data-name="thumbnail" class="thumbnail">缩略图</th>
+                                                                <th data-name="title" class="title">标题</th>
+                                                                <th data-name="duration" class="duration">时长</th>
+                                                                <th data-name="status" class="status">状态</th>
+                                                                <th data-name="formatPtime" class="formatPtime">创建时间
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                </div>
+                                                <div id="pageControl" style="display: none;"><input
+                                                        class="button default disabled" disabled="" type="button"
+                                                        value="上一页" style="display: inline-block;"><input
+                                                        class="button default disabled" disabled="" type="button"
+                                                        value="下一页" style="display: inline-block;"></div>
+                                            </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tabs-content" v-show="activeIndexa == 2">
+                                    <div role="tabpanel" class="tabs-panel tabs-active" aria-hidden="false">
+                                        <div id="videoList">
+                                            <div class="search" style="display: block;">
+                                                <div class=" searchBar" style="    position: relative;
+                                            margin: 0 8px;
+                                            width: 20em;
+                                            height: 30px;"><input type="text" placeholder="Search for..."
+                                                        class="inputBox" value="" v-model="Search_input"><input style="display: inline-block;
+                                                    position: absolute;
+                                                    top: 0;
+                                                    right: 0;
+                                                    border: 1px solid #4f94fa;
+                                                    border-radius: 0 3px 3px 0;
+                                                    width: 4em;
+                                                    height: 100%;
+                                                    font-size: 14px;
+                                                    color: #fff;
+                                                    background-color: #4f94fa;    line-height: 1;height: 100%;"
+                                                        type="button" class="searchBtn" value="搜索"
+                                                        @click="search_video"></div>
+                                            </div>
+                                            <div class="panel">
+                                                <div class="loading" style="display: none;"><img
+                                                        src="./assets/images/loading.gif" alt="加载中..."></div>
+                                                <div class="videoListSysInfo" style="display: none;">
+                                                    <p></p>
+                                                </div>
+                                                <div class="listPanel" style="display: block;">
+                                                    <div class="tableWrap" style="max-height: 447px;
+                                                    overflow-x: hidden;overflow-y: auto;">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th data-name="thumbnail" class="thumbnail">缩略图</th>
+                                                                    <th data-name="title" class="title">标题</th>
+                                                                    <th data-name="duration" class="duration">时长</th>
+                                                                    <th data-name="status" class="status">状态</th>
+                                                                    <th data-name="formatPtime" class="formatPtime">创建时间
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="clickable" v-for="(item,index) in videos"
+                                                                    style="cursor:pointer" @click="view_detail(item)">
+                                                                    <td class="thumbnail"><img :src="item.cover_url"
+                                                                            alt=""></td>
+                                                                    <td class="title">
+                                                                        <div class="titleWrap"
+                                                                            :title="item.resourse_name">
+                                                                            {{item.resourse_name}}</div>
+                                                                    </td>
+                                                                    <td class="duration">{{item.Duration}}</td>
+                                                                    <td class="status">{{item.resourse_status}}</td>
+                                                                    <td class="formatPtime">{{item.create_time}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- <div id="pageControl" style="        text-align: center;
+                                                line-height: 1;
+                                                position: absolute;
+                                                bottom: 2px;
+                                                width: 94%;"><input class="button default" type="button" value="上一页"
+                                                            style="display: inline-block;"><input class="button default"
+                                                            type="button" value="下一页" style="display: inline-block;">
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sysInfoWrap" style="display: none;">
+                                <div class="sysInfo">
+                                    <div class="sysInfo-cont"><span class="sysInfo-close">×</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="polyv-wrapAll" style="display: block;" v-show="model == 3">
+                <div
+                    style="display: block; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 1001; background-color: rgb(0, 0, 0); opacity: 0.5;">
+                </div>
+                <div
+                    style="display: block; position: fixed; left: 0px; top: 0px; bottom: 0px; right: 0px; width: 1000px; height: 600px; margin: auto; z-index: 1002; box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 25px; border-radius: 10px;">
+                    <div id="root" style="padding:  30px 30px;
+                    background-color: #fff;
+                    position: relative;
+                    border-radius: 10px;height: 100%">
+                        <span
+                            style="width: 26px; height: 26px; position: absolute; top: 0px; right: 0px; cursor: pointer; background: rgb(238, 238, 238); text-align: center; line-height: 26px; color: rgb(102, 102, 102); font-size: 16px; border-radius: 0px 10px 0px 0px;"
+                            @click="model = 0">×</span>
+                        <div>
+                            <div class="tabs-content">
+                                <div role="tabpanel" class="tabs-panel tabs-active" aria-hidden="false">
+                                    <div id="videoList">
+                                        <div class="panel">
+                                            <p></p>
+                                        </div>
+                                        <div class="infoPanel" style="display: block;">
+                                            <div class="sysInfoWrap" style="display: none;">
+                                                <div class="sysInfo">
+                                                    <div class="sysInfo-cont"><span class="sysInfo-close">×</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="btn-wrap">
+                                                <input class="button default" type="button" value="保存"
+                                                    style="display: none;"><input class="button default" type="button"
+                                                    value="取消并关闭" style="display: none;">
+                                                <!-- <input class="button default" type="button" value="获取视频信息"
+                                                    style="display: inline-block;"> -->
+                                                <input @click="model = 2;activeIndexa = 2" class="button default"
+                                                    type="button" value="返回视频列表" style="display: inline-block;">
+                                            </div>
+                                            <section class="section_1" style="overflow: hidden;">
+                                                <div class="thumbnail"><img :alt="video_detail.resourse_name"
+                                                        :src="video_detail.cover_url">
+                                                    <div class="btnGroup" style="overflow:hidden"><span
+                                                            class="btn-upload default"
+                                                            style="display: inline-block;">上传图片<input type="file"
+                                                                @change="file1" name="uploadPic" accept="image/*"
+                                                                id="uploadPic"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="msg">
+                                                    <dl>
+                                                        <dt>标题：</dt>
+                                                        <dd>{{video_detail.resourse_name}}</dd><br>
+                                                        <dt>时长：</dt>
+                                                        <dd>{{video_detail.Duration}}</dd><br>
+                                                        <dt>上传时间：</dt>
+                                                        <dd>{{video_detail.create_time}}</dd><br>
+                                                        <dt>vid：</dt>
+                                                        <dd>{{video_detail.video_id}}</dd><br>
+                                                        <div  v-for="(item,index) in PlayInfoList">
+                                                            <dt>播放器地址{{index+1}}：</dt>
+                                                            <dd style="max-height:28px;overflow: auto">
+                                                                {{item.PlayURL}}
+                                                            </dd><br>
+                                                        </div>
+                                                    </dl>
+                                                </div>
+                                            </section>
+                                            <section class="section_3">
+                                                <div class="tabs-bar ui-tabs show-nav">
+                                                    <div class="tabs-bar" role="tablist">
+                                                        <ul class="tabs-nav">
+                                                            <li role="tab" aria-disabled="false" aria-selected="true"
+                                                                class="tabs-tab tabs-active">
+                                                                视频截图</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="tabs-content">
+                                                        <div role="tabpanel" class="screenshot tabs-panel tabs-active"
+                                                            aria-hidden="false">
+                                                            <div v-for="(item,index) in videoScreenshotList"><img
+                                                                    :src="item" :alt="'视频截图_'+index"></div>
+                                                        </div>
+                                                        <div role="tabpanel" class="uploadPic tabs-panel"
+                                                            aria-hidden="true"></div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sysInfoWrap" style="display: none;">
+                            <div class="sysInfo">
+                                <div class="sysInfo-cont"><span class="sysInfo-close">×</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 1,
+                    activeIndexb: 1,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    tips: [],
+                    userList: [],
+                    loading: false,
+                    projects: [],
+                    kemus: [],
+                    kemus1: [],
+                    videos: [],
+                    Search_input: '',
+                    upload_videos: [],
+                    value1: '',
+                    upload_online: {
+                        "resourse_name": "",
+                        "net_url": "",
+                        // "resources_describe":"测试程序网络上传描述描述",资源描述
+                        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "project_id": '',
+                        "subject_id": '',
+                        "resourse_format": "video",
+                        "type_id": '',
+                        "resourse_source": "火种教育资源"
+                    },
+                    value2: '',
+                    videoScreenshotList: [],
+                    PlayInfoList: [{
+                        PlayURL: ''
+                    }, {
+                        PlayURL: ''
+                    }],
+                    video_detail: {
+                        resouces_id: 28,
+                        cover_url: "http://outin-c077d1f01a3811eaa77300163e1c35d5.oss-cn-shanghai.aliyuncs.com/6496a82583ee4e7cb6ff88a663b535fe/snapshots/c7b5f2a082164d2185e8a0bbaa52a701-00003.jpg?Expires=1576808765&OSSAccessKeyId=LTAI3DkxtsbUyNYV&Signature=pWGPjegSCG7D%2FFKIf0LTJPcxgVs%3D",
+                        create_time: "2019-12-20T09:26:05.000+0800",
+                        resourse_status: "正常",
+                        resourse_name: "测试程序网络上传1",
+                        Duration: 30,
+                        video_id: "6496a82583ee4e7cb6ff88a663b535fe",
+                    },
+                    upload_info: {
+                        "resourse_name": "",
+                        "local_url": "",
+                        "resources_describe": "",
+                        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "project_id": '',
+                        "subject_id": '',
+                        "resourse_format": "video",
+                        "type_id": '',
+                        "resourse_source": "火种教育资源"
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/resources/showAllTips',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({}),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.tips = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify({}),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                _this.search_video()
+            },
+            mounted() {
+
+            },
+            methods: {
+                activea(num) {
+                    let _this = this
+                    this.activeIndexa = num
+                    if (num == 2) {
+                        _this.search_video()
+                    }
+                    console.log(num)
+                },
+                delete_videos(index) {
+                    let _this = this
+                    _this.upload_videos = _this.upload_videos.filter((item, i) => {
+                        return i != index
+                    })
+                },
+                submit_online() {
+                    let _this = this
+                    console.log(this.upload_online)
+                    _this.loading = true
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resourcesBank/uploadFileNetwork',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(_this.upload_online),
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.message == 'success') {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '上传成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '上传失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                            _this.loading = false
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '上传失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.loading = false
+                        }
+                    })
+                },
+                activeb(num) {
+                    let _this = this
+                    this.activeIndexb = num
+                },
+                search_video() {
+                    let _this = this
+                    if (_this.Search_input != '') {
+                        obj = {
+                            resourse_name: _this.Search_input
+                        }
+                    } else {
+                        obj = {}
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resourcesBank/showVideoList',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item) => {
+                                item.create_time = _this.getNowFormatDate(new Date(item
+                                    .create_time))
+                            })
+                            _this.videos = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                submit_upload() {
+                    let _this = this
+                    console.log(_this.upload_videos)
+                    arr = JSON.parse(JSON.stringify(_this.upload_videos))
+                    _this.loading = true
+                    // return
+                    arr.map((item) => {
+                        delete item.edit
+                    })
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resourcesBank/plUploadFileNetwork',
+                        type: 'post',
+                        // async: false,
+                        contentType: 'application/json',
+                        data: JSON.stringify(arr),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.message == 'success') {
+                                                    _this.$message.success({
+                                    type: 'info',
+                                    message: '上传成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '上传失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                                                _this.loading = false
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                                                _this.loading = false
+                        }
+                    })
+
+
+                },
+                file(e) {
+
+                    // var allFile = [];
+                    console.log($(e.target).val())
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        var maxsize = 50 * 1024 * 1024
+                        if (fileEnd.indexOf("avi") < 0 && fileEnd.indexOf("f4v") < 0 && fileEnd.indexOf(
+                                "video/avi") < 0 &&
+                            fileEnd.indexOf("video/mpeg") < 0 && fileEnd.indexOf("mpg") < 0 && fileEnd
+                            .indexOf("mp4") < 0 &&
+                            fileEnd.indexOf("flv") < 0 && fileEnd.indexOf("wmv") < 0 && fileEnd
+                            .indexOf("mov") < 0 &&
+                            fileEnd.indexOf("3gpp") < 0 && fileEnd.indexOf("rmvb") < 0 && fileEnd
+                            .indexOf("3gp") < 0 &&
+                            fileEnd.indexOf("mkv") < 0 && fileEnd.indexOf("asf") < 0 && fileEnd
+                            .indexOf("264") < 0 &&
+                            fileEnd.indexOf("ts") < 0 && fileEnd.indexOf("mts") < 0 && fileEnd
+                            .indexOf("dat") < 0 &&
+                            fileEnd.indexOf("vob") < 0 && fileEnd.indexOf("mp3") < 0 && fileEnd
+                            .indexOf("wav") < 0 &&
+                            fileEnd.indexOf("m4v") < 0 && fileEnd.indexOf("webm") < 0 && fileEnd
+                            .indexOf("mod") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择正确的格式上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '视频大小不能超过50MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            console.log(item)
+                            obj = {
+                                "resourse_name": item.name.split('.')[0],
+                                "local_url": "E:/upload111/a1577267492098.mp4",
+                                "resources_describe": "",
+                                "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                                "project_id": _this.upload_info.project_id,
+                                "subject_id": _this.upload_info.subject_id,
+                                "resourse_format": "video",
+                                "type_id": _this.upload_info.type_id,
+                                "resourse_source": "火种教育资源",
+                                edit: false
+                            }
+                            // _this.upload_videos.push(obj)
+                            var form = document.getElementById("addFormOne");
+                            var formData = new FormData(form);
+                            formData.set('multipartFile', item)
+                            _this.loading = true
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/pse/uploadFile',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                // dataType: 'json',
+                                success: function (data) {
+                                    obj.net_url = 'http://www.huozhongedu.com.cn/a.mp4'
+                                    _this.upload_videos.push(obj)
+                                    _this.loading = false
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                console.log(e.target)
+                            };
+                        }
+                        // 
+                    });
+                    $(e.target).val('')
+                },
+                file1(e) {
+
+                    // var allFile = [];
+                    console.log($(e.target).val())
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        var maxsize = 50 * 1024 * 1024
+                        if (type.indexOf("image/") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择图片上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '视频大小不能超过50MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            _this.video_detail.cover_url =
+                                'http://chuantu.xyz/t6/709/1577448043x2073530529.jpg'
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/resourcesBank/uploadCover',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    "cover_url": _this.video_detail.cover_url,
+                                    "video_id": _this.video_detail.video_id
+                                }),
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.message == 'success') {
+                                        _this.$notify.success({
+                                            title: '提示',
+                                            message: '上传成功',
+                                            duration: 2000
+                                        });
+                                    } else {
+                                        _this.$notify.error({
+                                            title: '提示',
+                                            message: '上传失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$notify.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                                }
+                            })
+                            // var form = document.getElementById("addFormOne");
+                            // var formData = new FormData(form);
+                            // formData.set('multipartFile', item)
+                            // $.ajax({
+                            //     url: 'http://192.168.10.166:8080/pse/uploadFile',
+                            //     type: 'post',
+                            //     // contentType: 'application/json',
+                            //     data: formData,
+                            //     processData: false,
+                            //     contentType: false,
+                            //     // dataType: 'json',
+                            //     success: function (data) {
+                            //         _this.stu_info.stu_head = data
+                            //     },
+                            //     error: function () {
+
+                            //     }
+                            // })
+                            // var reader = new FileReader();
+                            // reader.readAsDataURL(item);
+                            // reader.onloadend = function (e) {
+                            //     _this.head = e.target.result
+                            //     console.log(e.target.result)
+                            // };
+                        }
+                        // 
+                    });
+                    $(e.target).val('')
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                view_detail(item) {
+                    let _this = this
+                    _this.video_detail = item
+                    _this.loading = true
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resourcesBank/showVideoDetail',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            video_id: _this.video_detail.video_id
+                        }),
+                        timeout:'10000',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.$message.success({
+                                type: 'info',
+                                message: '获取信息成功',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.PlayInfoList = data.PlayInfoList
+                            _this.videoScreenshotList = data.videoScreenshotList
+                            // _this.kemus = data
+                            _this.loading = false
+
+                            _this.model = 3
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '上传失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                            _this.loading = false
+                        }
+                    })
+                },
+                change_kemus(num) {
+                    _this = this
+                    if (num == 1) {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                            type: 'get',
+                            // contentType: 'application/json',
+                            data: {
+                                project_id: _this.upload_info.project_id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.kemus = data
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    } else if (num == 2) {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                            type: 'get',
+                            // contentType: 'application/json',
+                            data: {
+                                project_id: _this.upload_online.project_id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.kemus1 = data
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }
+
+                },
+                // activea(num) {
+
+                // },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

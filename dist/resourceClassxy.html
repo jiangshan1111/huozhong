@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="asseets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newSource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/newresource.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toProtocolList.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/layer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/coupon.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/agreement-4.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+        .dropdown {
+    position: inherit;
+}
+        .mintitle {
+            float: right;
+            margin-right: 40px;
+            margin-top: -14px;
+            line-height: 16px;
+        }
+
+        .resource .mainbackground .r-list {
+            padding-bottom: 0;
+        }
+
+        .u-wrap .mainbackground.nopadding {
+            padding: 1px 20px 10px;
+        }
+
+        .tiku .table-list .table tr td.btns .btn {
+            width: 60px;
+        }
+
+        .table th,
+        .table td {
+            /* padding: 0.95rem; */
+            vertical-align: middle;
+            border-top: none;
+        }
+
+        .tiku {
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+
+        div.u-wrap {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .page-ul li {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 资源
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='resource.html'">学科</li>
+                        <li onclick="window.location.href='resourceSchool.html'">校区</li>
+                        <li onclick="window.location.href='resourceKu.html'">资源库</li>
+                        <li style="color: rgb(250, 105, 0); border-bottom: 2px solid rgb(250, 105, 0);"
+                            onclick="window.location.href='resourceClassxy.html'">课程协议</li>
+                        <li onclick="window.location.href='resourceTeacher.html'">教师课时</li>
+                        <li onclick="window.location.href='resourceClassdy.html'">课程单元</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground nopadding">
+                    <div class="heading">
+                        <h2 class="h5" style="font-weight: normal;">课程协议</h2>
+                        <div class="search searchAdmin">
+
+                            <a href="javascript:;" @click="addXieyi" class="btn btn-mini btn-primary addProtocol"><em
+                                    class="iconfont">+</em>添加协议</a>
+
+                        </div>
+                        <span class="line"></span>
+                    </div>
+                    <div class="proxySearch">
+                        <span>关键词:</span>
+
+                        <select name="" v-model="search_info.agreement_type" id="categoryList">
+                            <option value="">请选择协议类型</option>
+                            <option value="1">课程协议</option>
+                            <option value="2">课程包协议</option>
+                        </select>
+                        <select name="" v-model="search_info.agreement_pattern" id="protocolType">
+                            <option value="">请选择协议模式</option>
+                            <option value="1">普通协议</option>
+                            <option value="2">电子协议</option>
+                        </select>
+
+                        <select id="useTime" v-model="search_info.agreement_way">
+                            <option value="">请选择签署方式</option>
+                            <option value="1">购买前</option>
+                            <option value="2">学习前</option>
+                        </select>
+                        <input type="text" v-model="search_info.agreement_name" maxlength="50" id="name"
+                            placeholder="搜索协议名称" style="font-size: 12px;vertical-align: top;width: 160px;height: 26px;">
+                        <input class="proto-search" @click="init" type="button" id="search" value="搜索">
+                    </div>
+                    <div id="loadData">
+                        <div class="r-list L-r-list">
+                            <div class="r-list L-r-list-table" id="teacherContent"
+                                style="min-height: 350px;position: relative;">
+                                <template>
+                                    <el-table border
+                                        :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                        :data="tableData" style="overflow: auto; margin-top: 20px">
+                                        <el-table-column prop="agreement_name" label="协议名称" :width="flexColumnWidth(11)"
+                                            style="text-align: center">
+                                        </el-table-column>
+                                        <el-table-column prop="agreement_title" label="协议标题"
+                                            :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="agreement_type1" label="类型" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="agreement_pattern1" label="协议模式"
+                                            :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="agreement_way1" label="签署方式"
+                                            :width="flexColumnWidth(10)">
+                                        </el-table-column>
+                                        <el-table-column prop="agreement_status1" label="状态"
+                                            :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column prop="create_time" label="	创建时间" :width="flexColumnWidth(12)">
+                                        </el-table-column>
+                                        <el-table-column prop="user_name" label="创建人" :width="flexColumnWidth(11)">
+                                        </el-table-column>
+                                        <el-table-column label="操作" :width="flexColumnWidth(11)">
+                                            <template slot-scope="scope">
+                                                <el-button type="text" style="  margin-left: 0;" size="small"
+                                                    @click="edit_xieyi(scope.row)">
+                                                    编辑
+                                                </el-button>
+                                                <el-button type="text" style="  margin-left: 0;" size="small"
+                                                    @click="change_xy(scope.row)">
+                                                    {{scope.row.agreement_status == 1?'停用':'启用'}}
+                                                </el-button>
+                                                <el-dropdown style="    margin-left: 0;">
+                                                    <el-button type="text" size="small" @click="">更多</el-button>
+                                                    <el-dropdown-menu>
+                                                        <el-dropdown-item command="a"
+                                                            @click.native="goDetail(scope.row,1)">协议详情
+                                                        </el-dropdown-item>
+                                                        <el-dropdown-item command="b"
+                                                            @click.native="go_course(scope.row)">
+                                                            {{scope.row.agreement_type1 == '课程协议'?'关联课程':'关联课程包'}}
+                                                        </el-dropdown-item>
+                                                        <el-dropdown-item command="c"
+                                                            @click.native="go_record(scope.row)">
+                                                            {{scope.row.agreement_type1 == '课程协议'?'关联课程记录':'关联课程包记录'}}
+                                                        </el-dropdown-item>
+                                                        <el-dropdown-item command="c"
+                                                            @click.native="already_stu(scope.row)">已签署学员
+                                                        </el-dropdown-item>
+                                                    </el-dropdown-menu>
+                                                </el-dropdown>
+                                            </template>
+                                        </el-table-column>
+                                    </el-table>
+                                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                        :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                        layout="total, sizes, prev, pager, next, jumper" :total="userList.length">
+                                    </el-pagination>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+        <div class="layui-layer-shade" v-if="model != 0" id="layui-layer-shade2" times="2"
+            style="z-index: 51; background-color: rgb(0, 0, 0); opacity: 0.3;"></div>
+        <div class="layui-layer layui-layer-dialog" v-if="model == 1" id="layui-layer1" type="dialog" times="1"
+            showtime="0" contype="string"
+            style="z-index: 51; width: 980px;margin-left: -490px;height: 520px; top: 60px; left: 50%;">
+            <div class="layui-layer-title" style="cursor: move;">关联课程</div>
+            <div id="" class="layui-layer-content" style="height: 481px;">
+                <div>
+                    <select class="itemOneId" name="project_id" id="relatedItemOneId"
+                        style="width: 160px; height: 30px;margin-right: 15px;padding: 0 0 0 12px;">
+                        <option value="">请选择学科</option>
+
+                        <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}
+                    </select>
+                    <select class="bindCourseProtocolType" name="bindingRelationship" id="bindCourseProtocolType"
+                        style="width: 160px; height: 30px;margin-right: 15px;padding: 0 0 0 12px;">
+                        <option value="绑定此协议">绑定此协议</option>
+                        <option value="未绑定协议">未绑定协议</option>
+                        <option value="已绑定协议">已绑定协议</option>
+                    </select>
+                    <input type="text" id="relatedCourseName" placeholder="课程名称" name="course_name"
+                        style="width: 158px; height: 28px; padding: 0px; padding-left: 8px;"> <a
+                        id="searchRelatedCourse" class="btn btn-primary searchContents newsearCon" style="color:white"
+                        @click="search_course">搜索</a>
+                </div>
+
+                <div style="height: 390px;">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <div class="user-list" style="margin-top: 20px">
+                                <template>
+                                    <el-table border height="340" :data="userList1" style="overflow: auto;"
+                                        ref="multipleTable" @select="handleSelectionChange">
+                                        <el-table-column type="selection" :width="flexColumnWidth1(6)">
+                                        </el-table-column>
+                                        <el-table-column prop="course_name" label="课程名称" :width="flexColumnWidth1(30)"
+                                            style="text-align: center">
+                                        </el-table-column>
+                                        <el-table-column prop="project_name" label="学科名称" :width="flexColumnWidth1(30)">
+                                        </el-table-column>
+                                        <el-table-column label="操作" :width="flexColumnWidth1(30)">
+                                            <template slot-scope="scope">
+                                                <el-button type="text" size="small" @click="goDetail(scope.row,2)">
+                                                    {{search_c_info.bindingRelationship == '未绑定协议'?'--':'查看详情'}}
+
+                                                </el-button>
+                                            </template>
+                                        </el-table-column>
+                                    </el-table>
+                                    <!-- <el-pagination @size-change="handleSizeChange1"
+                                        @current-change="handleCurrentChange1" :current-page="currentPage1"
+                                        :page-sizes="[5, 10, 20, 40]" :page-size="pagesize1"
+                                        layout="total, sizes, prev, pager, next, jumper" :total="userList1.length">
+                                    </el-pagination> -->
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1"
+                    href="javascript:;" @click="model = 0"></a></span>
+            <!-- <div class="layui-layer-btn layui-layer-btn-c"><a class="layui-layer-btn0 btn">取消</a><a
+                    class="layui-layer-btn1" style="background-color: #00aaff;color:white">确定</a></div><span
+                class="layui-layer-resize"></span> -->
+        </div>
+        <div class="layui-layer layui-layer-dialog" v-if="model == 2" id="layui-layer1" type="dialog" times="1"
+            showtime="0" contype="string"
+            style="z-index: 51; width: 980px;margin-left: -490px;height: 520px; top: 60px; left: 50%;">
+            <div class="layui-layer-title" style="cursor: move;">关联课程包</div>
+            <div id="" class="layui-layer-content" style="height: 481px;">
+                <div>
+                    <select class="itemOneId" name="project_id1" id="relatedItemOneId"
+                        style="width: 160px; height: 30px;margin-right: 15px;padding: 0 0 0 12px;">
+                        <option value="">请选择学科</option>
+
+                        <option v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}
+                    </select>
+                    <select class="bindCourseProtocolType" name="bindingRelationship1" id="bindCourseProtocolType"
+                        style="width: 160px; height: 30px;margin-right: 15px;padding: 0 0 0 12px;">
+                        <option value="绑定此协议">绑定此协议</option>
+                        <option value="未绑定协议">未绑定协议</option>
+                        <option value="已绑定协议">已绑定协议</option>
+                    </select>
+                    <input type="text" id="relatedCourseName" placeholder="课程包名称" name="cp_name"
+                        style="width: 158px; height: 28px; padding: 0px; padding-left: 8px;"> <a
+                        id="searchRelatedCourse" class="btn btn-primary searchContents newsearCon" style="color:white"
+                        @click="search_cp">搜索</a>
+                </div>
+
+                <div style="height: 390px;">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <div class="user-list" style="margin-top: 20px">
+                                <template>
+                                    <el-table border height="340" :data="userList2" style="overflow: auto;"
+                                        ref="multipleTable1" @select="handleSelectionChange1">
+                                        <el-table-column type="selection" :width="flexColumnWidth1(6)">
+                                        </el-table-column>
+                                        <el-table-column prop="cp_name" label="课程包名称" :width="flexColumnWidth1(30)"
+                                            style="text-align: center">
+                                        </el-table-column>
+                                        <el-table-column prop="project_name" label="学科名称" :width="flexColumnWidth1(30)">
+                                        </el-table-column>
+                                        <el-table-column label="操作" :width="flexColumnWidth1(30)">
+                                            <template slot-scope="scope">
+                                                <el-button type="text" size="small" @click="goDetail(scope.row,2)">
+                                                    {{search_c_info.bindingRelationship == '未绑定协议'?'--':'查看详情'}}
+
+                                                </el-button>
+                                            </template>
+                                        </el-table-column>
+                                    </el-table>
+                                    <!-- <el-pagination @size-change="handleSizeChange1"
+                                        @current-change="handleCurrentChange1" :current-page="currentPage1"
+                                        :page-sizes="[5, 10, 20, 40]" :page-size="pagesize1"
+                                        layout="total, sizes, prev, pager, next, jumper" :total="userList1.length">
+                                    </el-pagination> -->
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1"
+                    href="javascript:;" @click="model = 0"></a></span>
+            <!-- <div class="layui-layer-btn layui-layer-btn-c"><a class="layui-layer-btn0 btn">取消</a><a
+                    class="layui-layer-btn1" style="background-color: #00aaff;color:white">确定</a></div><span
+                class="layui-layer-resize"></span> -->
+        </div>
+        <div class="layer-tips coupon-code-detail" v-if="model == 3" id="coursePackageDetail"
+            style="display: block;top: 60px;margin-top: 0;    height: 500px;position: fixed">
+            <div class="layer-tips-title">
+                <span id="currentPackage">关联课程{{record_info.agreement_type == 1?'':'包'}}记录</span><i
+                    class="close iconfont confirm_close" @click="model = 0">x</i>
+            </div>
+            <div class="coupon-use-detail" style="margin-top:30px">
+                <div class="ctr-alert" style="max-height:380px;overflow:auto">
+                    <table class="table table-center coursePackageList">
+                        <tbody>
+                            <tr>
+                                <th width="25%">课程{{record_info.agreement_type == 1?'':'包'}}名称</th>
+                                <th width="26%">添加时间</th>
+                                <th width="25%">创建人</th>
+                                <th width="25%">协议绑定人数</th>
+                            </tr>
+                            <tr v-for="(item,index) in records">
+                                <td width="25%">{{record_info.agreement_type == 1?item.course_name:item.cp_name}}</td>
+                                <td width="25%">{{getNowFormatDate(new Date(item.add_time))}} </td>
+                                <td width="25%">{{item.user_name}} </td>
+                                <td width="25%">{{item.num}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pages pagination2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    currentPage1: 1, //初始页
+                    currentPage2: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    pagesize1: 10, //    每页的数据
+                    pagesize2: 10, //    每页的数据
+                    model: 0,
+                    projects: [],
+                    value1: '',
+                    value2: '',
+                    userList: [],
+                    userList1: [],
+                    userList2: [],
+                    multipleSelection1: [],
+                    multipleSelection2: [],
+                    search_c_info: {
+                        "agreement_id": 2,
+                        "bindingRelationship": "绑定此协议",
+                        "agreement_type": 1,
+                        "project_id": '',
+                        "course_name": ""
+                    },
+                    search_cp_info: {
+                        "agreement_id": 4,
+                        "bindingRelationship": "绑定此协议",
+                        "agreement_type": 2,
+                        "project_id": '',
+                        "cp_name": "课程包"
+                    },
+                    search_info: {
+                        "agreement_type": '',
+                        "agreement_pattern": '',
+                        "agreement_way": '',
+                        "agreement_name": ""
+                    },
+                    record_info: {
+                        "agreement_id": 4,
+                        "agreement_type": 2
+                    },
+                    records: []
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify({}),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                _this.init()
+            },
+            mounted() {
+                let _this = this
+                // obj = JSON.parse(JSON.stringify(_this.search_c_info))
+                //     for(var k in obj){
+                //         if(obj[k] == '' || obj[k] == null){
+                //             delete obj[k]
+                //         }
+                //     }
+                // })
+
+            },
+            methods: {
+                active() {
+
+                },
+                already_stu(scope) {
+                    localStorage.already_stu_info = JSON.stringify(scope)
+                    window.open('resourceClassxyStu.html')
+                },
+                go_record(scope) {
+                    let _this = this
+                    console.log(scope)
+                    _this.model = 3
+                    _this.record_info = {
+                        "agreement_id": scope.agreement_id,
+                        "agreement_type": scope.agreement_type
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resources/queryAssociatedrecordsFromOneAgreement',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(_this.record_info),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.records = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                go_course(scope) {
+                    let _this = this
+                    console.log(scope)
+                    if (scope.agreement_type1 == '课程协议') {
+                        _this.model = 1
+                        _this.search_c_info.agreement_id = scope.agreement_id
+                        _this.search_course()
+                    } else {
+                        _this.model = 2
+                        _this.search_cp_info.agreement_id = scope.agreement_id
+                        _this.search_cp()
+                    }
+                },
+                toggleSelection(rows) {
+                    console.log(this.$refs.multipleTable)
+                    if (rows) {
+                        rows.forEach(row => {
+                            this.$refs.multipleTable.toggleRowSelection(row);
+                        });
+                    } else {
+                        this.$refs.multipleTable.clearSelection();
+                    }
+                },
+                toggleSelection1(rows) {
+                    console.log(this.$refs.multipleTable1)
+                    if (rows) {
+                        rows.forEach(row => {
+                            this.$refs.multipleTable1.toggleRowSelection(row);
+                        });
+                    } else {
+                        this.$refs.multipleTable1.clearSelection();
+                    }
+                },
+                handleSelectionChange(val) {
+
+                    this.multipleSelection1 = val;
+                    console.log('多选', this.multipleSelection1)
+                },
+                handleSelectionChange1(val) {
+
+                    this.multipleSelection2 = val;
+                    console.log('多选', this.multipleSelection2)
+                },
+                search_course() {
+                    setTimeout(() => {
+                        console.log()
+                        let _this = this
+                        console.log(_this.search_c_info)
+                        _this.search_c_info.bindingRelationship = $(
+                            'select[name = bindingRelationship]').val()
+                        _this.search_c_info.project_id = $('select[name = project_id]').val()
+                        _this.search_c_info.course_name = $('input[name = course_name]').val()
+                        obj = JSON.parse(JSON.stringify(_this.search_c_info))
+
+                        for (var k in obj) {
+                            if (obj[k] == '' || obj[k] == null) {
+                                delete obj[k]
+                            }
+                        }
+                        var data1 = []
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/queryListAlreadyAssociated',
+                            type: 'post',
+                            contentType: 'application/json',
+                            // async: false,
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                        }).then(function (data) {
+                            console.log(data)
+                            _this.userList1 = data.result
+                            if (obj.bindingRelationship == "绑定此协议") {
+                                data1 = data.result
+                            } else if (obj.bindingRelationship == "已绑定协议") {
+                                // data.result1.map((item)=>{
+                                data.result.map((item1) => {
+                                    if (item1.agreement_id == obj.agreement_id) {
+                                        data1.push(item1)
+                                    }
+                                })
+                                // })
+                            }
+
+                            // data1 = data.result1
+                            setTimeout(() => {
+                                _this.toggleSelection(data1)
+                            }, 20)
+                        })
+                    }, 20)
+
+
+                    // _this.toggleSelection(data1)
+                },
+                search_cp() {
+                    setTimeout(() => {
+                        console.log()
+                        let _this = this
+                        console.log(_this.search_cp_info)
+                        _this.search_cp_info.bindingRelationship = $(
+                            'select[name = bindingRelationship1]').val()
+                        _this.search_cp_info.project_id = $('select[name = project_id1]').val()
+                        _this.search_cp_info.cp_name = $('input[name = cp_name]').val()
+                        obj = JSON.parse(JSON.stringify(_this.search_cp_info))
+
+                        for (var k in obj) {
+                            if (obj[k] == '' || obj[k] == null) {
+                                delete obj[k]
+                            }
+                        }
+                        var data2 = []
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/queryListAlreadyAssociated',
+                            type: 'post',
+                            contentType: 'application/json',
+                            // async: false,
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                        }).then(function (data) {
+                            console.log(data)
+                            _this.userList2 = data.result
+                            if (obj.bindingRelationship == "绑定此协议") {
+                                data2 = data.result
+                            } else if (obj.bindingRelationship == "已绑定协议") {
+                                // data.result1.map((item)=>{
+                                data.result.map((item1) => {
+                                    if (item1.agreement_id == obj.agreement_id) {
+                                        data2.push(item1)
+                                    }
+                                })
+                                // })
+                            }
+
+                            console.log(data2)
+                            // data1 = data.result1
+                            setTimeout(() => {
+                                _this.toggleSelection1(data2)
+                            }, 20)
+                        })
+                    }, 20)
+
+
+                    // _this.toggleSelection(data1)
+                },
+                activea(num) {
+
+                },
+                goDetail(scope, num) {
+                    if (num == 2) {
+                        if (this.search_c_info.bindingRelationship == '未绑定协议') {
+                            return
+                        }
+                    }
+                    window.open('resourceClassxyDetail.html?id=' + scope.agreement_id)
+                    console.log(scope)
+                    // search_c_info.bindingRelationship == '未绑定协议'?'--':'查看详情'
+                },
+                addXieyi() {
+                    localStorage.add_xieyi_status = true
+                    window.open('resourceClassxyrevise.html')
+                },
+                edit_xieyi(scope) {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resources/checkAgreementOfStudents',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "agreement_id": scope.agreement_id,
+                            "agreement_type": scope.agreement_type
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.cIds != null) {
+                                _this.$confirm(
+                                    `该协议已绑定课程（课程包），且已经有学员签署，编辑后原学员签署合同不变，后续学员签署新合同，是否确认继续？`,
+                                    '提示', {
+                                        confirmButtonText: '确定',
+                                        cancelButtonText: '取消',
+                                        dangerouslyUseHTMLString: true,
+                                        type: 'warning'
+                                    }).then(() => {
+                                    localStorage.cIds = data.cIds
+                                    localStorage.add_xieyi_status = false
+                                    localStorage.edit_xieyi_info = JSON.stringify(scope)
+                                    window.open('resourceClassxyrevise.html')
+                                }).catch(() => {
+                                    _this.$message({
+                                        type: 'info',
+                                        message: '已取消'
+                                    });
+                                });
+                            } else {
+                                localStorage.cIds = data.cIds
+                                localStorage.add_xieyi_status = false
+                                localStorage.edit_xieyi_info = JSON.stringify(scope)
+                                window.open('resourceClassxyrevise.html')
+                            }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                    // localStorage.add_xieyi_status = false
+                    // localStorage.edit_xieyi_info = JSON.stringify(scope)
+                    // window.open('resourceClassxyrevise.html')
+                },
+                change_xy(scope) {
+                    let _this = this
+                    if (scope.agreement_status == 1) {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/disableProtocolPromptBox',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "agreement_id": scope.agreement_id,
+                                "agreement_type": scope.agreement_type
+                            }),
+                            // dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 'ok') {
+                                    $.ajax({
+                                        url: 'http://192.168.10.166:8080/resources/enableDisableAgreement',
+                                        type: 'post',
+                                        contentType: 'application/json',
+                                        data: JSON.stringify({
+                                            "agreement_id": scope.agreement_id,
+                                            "agreement_status": scope
+                                                .agreement_status == 1 ? 2 : 1
+                                        }),
+                                        dataType: 'json',
+                                        success: function (data) {
+                                            console.log(data)
+                                            if (data.code == '200') {
+                                                _this.$message.success({
+                                                    type: 'info',
+                                                    message: '修改成功',
+                                                    // position: 'bottom-left',
+                                                    duration: '2000'
+                                                });
+                                                scope.agreement_status1 = scope
+                                                    .agreement_status == 1 ? '停用' :
+                                                    '启用'
+                                                scope.agreement_status = scope
+                                                    .agreement_status == 1 ? 2 : 1
+                                            } else {
+                                                _this.$message.error({
+                                                    type: 'info',
+                                                    message: '修改失败',
+                                                    // position: 'bottom-left',
+                                                    duration: '2000'
+                                                });
+                                            }
+                                        },
+                                        error: function () {
+                                            _this.$message.error({
+                                                type: 'info',
+                                                message: '服务器错误',
+                                                // position: 'bottom-left',
+                                                duration: '2000'
+                                            });
+                                        }
+                                    })
+                                } else {
+                                    _this.$confirm(
+                                        `该协议已绑定课程（课程包），若想停用该协议，请先解除与之关联的所有课程（课程包），可在关联课程（课程包）中查看`,
+                                        '提示', {
+                                            // confirmButtonText: '确定',
+                                            cancelButtonText: '取消',
+                                            dangerouslyUseHTMLString: true,
+                                            type: 'warning'
+                                        }).then(() => {
+                                        _this.$message({
+                                            type: 'info',
+                                            message: '已取消'
+                                        });
+                                    }).catch(() => {
+                                        _this.$message({
+                                            type: 'info',
+                                            message: '已取消'
+                                        });
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+
+                    } else {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/resources/enableDisableAgreement',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "agreement_id": scope.agreement_id,
+                                "agreement_status": scope.agreement_status == 1 ? 2 : 1
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.code == '200') {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    scope.agreement_status1 = scope.agreement_status == 1 ? '停用' :
+                                        '启用'
+                                    scope.agreement_status = scope.agreement_status == 1 ? 2 : 1
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }
+                },
+                init() {
+                    let _this = this
+                    obj = JSON.parse(JSON.stringify(_this.search_info))
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    console.log(obj)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resources/agreementSearchBox',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item) => {
+                                item.create_time = _this.getNowFormatDate(new Date(item
+                                    .create_time))
+                                item.agreement_type1 = item.agreement_type == 1 ? '课程协议' :
+                                    '课程包协议'
+                                item.agreement_pattern1 = item.agreement_pattern == 1 ?
+                                    '普通协议' : '电子协议'
+                                item.agreement_way1 = item.agreement_way == 1 ? '购买前' :
+                                    '学习前'
+                                item.agreement_status1 = item.agreement_status == 1 ? '启用' :
+                                    '停用'
+                            })
+                            _this.userList = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleSizeChange1: function (size) {
+                    this.pagesize1 = size;
+                },
+                handleSizeChange2: function (size) {
+                    this.pagesize2 = size;
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+                flexColumnWidth1(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.user-list')
+                        .width() / 100 * num : 12 * num
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                handleCurrentChange1: function (currentPage) {
+                    this.currentPage1 = currentPage;
+                },
+                handleCurrentChange2: function (currentPage) {
+                    this.currentPage2 = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

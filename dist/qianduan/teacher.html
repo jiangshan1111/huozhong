@@ -1,0 +1,304 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/teacher2.css">
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix">
+
+    </div>
+    <!-- register-end-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <div class="low1" style="height: auto;margin-top: 60px" id="app"  v-cloak>
+        <div class="famous-teach">
+            <div class="teachtit">
+                <span class="allt">全部老师</span>
+
+
+                <span class="ke-allt">
+                    <a href="javascript:;" @click="change_teacher_label('综合')" :class="teacher_label == '综合'?'fambtn btn btn-active':'fambtn btn'" mark="all">综合</a>
+                    <a href="javascript:;" @click="change_teacher_label('人气')" :class="teacher_label == '人气'?'fambtn btn btn-active':'fambtn btn'" mark="hot">人气 </a>
+                    <a href="javascript:;" @click="change_teacher_label('好评')" :class="teacher_label == '好评'?'fambtn btn btn-active':'fambtn btn'" mark="good">好评</a>
+                </span>
+
+
+
+            </div>
+            <ul class="mingshow-box clear" id="teacherData">
+                <li :class="index%4 != 3? 'mingshow fl':'mingshow fl mingshow-spe'" v-for="(item,index) in teachers">
+                    <div class="showTop"><input type="hidden" class="hid" value="113649">
+                        <p class="showimg"
+                            :style="'background:url('+(item.head == null?'../assets/images/head_big.png':item.head)+') no-repeat center;background-size: 100% auto'">
+                        </p>
+                        <p class="showname">{{item.true_name}}老师</p>
+                        <p class="showstar"><span>
+                            <i class="noChose"><i :class="item.pingfen > 0?'nochoseStar':''"></i></i>
+                            <i class="noChose"><i :class="item.pingfen > 10?'nochoseStar':''"></i></i>
+                            <i class="noChose"><i :class="item.pingfen > 20?'nochoseStar':''"></i></i>
+                            <i class="noChose"><i :class="item.pingfen > 30?'nochoseStar':''"></i></i>
+                            <i class="noChose"><i :class="item.pingfen > 40?'nochoseStar':''"></i></i> </span><span
+                                class="fract">&nbsp;{{item.pingfen/10}}分</span></p>
+                        <div class="clear">
+                            <p class="curstar fl"><span>开课：</span><span>{{item.kknum}}</span></p>
+                            <p class="curstar fr"> <span>招生：</span> <span>{{item.rs}}</span></p>
+                        </div>
+                    </div>
+                    <div class="showBot">
+                        <p class="showBotp" v-html="item.introduction">
+                        </p>
+                        <p class="showBotp showBotps"><a class="ta-btn fambtn btn btn-active homepage"
+                                href="javascript:void(0);" id="113649" @click="openTdetail(item)">Ta的主页</a></p>
+                    </div>
+                </li>
+            </ul>
+            <div class="pages pages-find"></div>
+        </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
+
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <form method="post" id="myForm">
+            <input type="hidden" name="type" id="typeValue">
+        </form>
+        <!-- footer end -->
+
+
+
+    </div>
+    <form method="post" id="myForm">
+        <input type="hidden" name="type" id="typeValue">
+    </form>
+    <!-- footer end -->
+    <!--百度统计代码-->
+
+
+
+
+
+
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<script src="https://unpkg.com/swiper/js/swiper.js"> </script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+<script src="js/vue.min.js"> </script>
+<script src="js/element-ui.js"> </script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                currentPage: 1, //初始页
+                activeIndexa: 0,
+                activeIndexb: 0,
+                pagesize: 10, //    每页的数据
+                model: 0,
+                value2: '',
+                teachers: [],
+                teacher_label:'综合',
+            }
+        },
+        created() {
+            let _this = this
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+            _this.init('综合')
+        },
+        methods: {
+            getNowFormatDate(date) {
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                if (hour >= 0 && hour <= 9) {
+                    hour = "0" + hour;
+                }
+                if (minute >= 0 && minute <= 9) {
+                    minute = "0" + minute;
+                }
+                if (second >= 0 && second <= 9) {
+                    second = "0" + second;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                    " " + hour + seperator2 + minute +
+                    seperator2 + second;
+                return currentdate;
+            },
+            activeA(num) {
+                this.activeIndexa = num
+            },
+            change_teacher_label(type){
+                this.teacher_label = type
+                this.init(type)
+            },
+            init(type) {
+                let _this = this
+                switch (type) {
+                    case '综合':
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/teacher/queryAllTeacher',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.teachers = data
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    case '人气':
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/teacher/queryAllTeacherByRs',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.teachers = data
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    case '好评':
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/stu/teacher/queryAllTeacherByHp',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.teachers = data
+                            },
+                            error: function () {
+
+                            }
+                        })
+                        break;
+                    default:
+                        break;
+                }
+            },
+            openTdetail(item) {
+                window.open('teacherDetail.html?teacher_id='+item.user_id)
+                localStorage.teacher_de_info=JSON.stringify(item)
+            },
+            activeB(num) {
+                this.activeIndexb = num
+            },
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,283 @@
+.themBlue .testTime strong,
+.themBlue .testTime strong,
+.themBlue .contTextBox i {
+  color: #00aaff;
+}
+.themBlue .actionButBox button:last-child {
+  background-color: #00aaff;
+}
+strong,
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+em,
+i {
+  font-style: normal;
+}
+.bgColor {
+  background-color: #f5f8fa;
+}
+.containerBox {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.boxShadow {
+  -webkit-box-shadow: 0px 1px 5px 0px #eeeeee;
+  -moz-box-shadow: 0px 1px 5px 0px #eeeeee;
+  box-shadow: 0px 1px 5px 0px #eeeeee;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.navHeadBox {
+  text-align: center;
+  height: 80px;
+  position: relative;
+  background-color: #fff;
+}
+.testTime {
+  font-size: 14px;
+  color: #999;
+  line-height: 24px;
+}
+.testTime strong {
+  font-size: 24px;
+  color: #07bbee;
+  line-height: 80px;
+}
+.actionButBox,
+.testTitleBox {
+  position: absolute;
+  font-size: 0;
+}
+.actionButBox {
+  top: 20px;
+  right: 30px;
+}
+.testTitleBox {
+  top: 0;
+  left: 30px;
+}
+.actionButBox button {
+  border: 1px solid #eee;
+  outline: none;
+  padding: 13px 27px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #666;
+  line-height: 16px;
+  margin-left: 14px;
+}
+.actionButBox button:last-child {
+  color: #fff;
+  border: none;
+  padding: 14px 27px;
+  background-color: #07bbee;
+}
+.testTitleBox i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-image: url("../../images/tiku/tikuImg.png");
+  background-position-y: -10px;
+  position: relative;
+  top: 2px;
+  margin-right: 6px;
+}
+.homework {
+  background-position-x: -210px;
+}
+.afterclass {
+  background-position-x: -180px;
+}
+.simulate {
+  background-position-x: -154px;
+}
+.question {
+  background-position-x: -126px;
+}
+.testTitleBox b {
+  font-size: 24px;
+  color: #333;
+  line-height: 80px;
+  margin-right: 18px;
+}
+.testTitleBox em {
+  font-size: 14px;
+  color: #666;
+  line-height: 80px;
+}
+.achieveBox .achieveTit {
+  height: 80px;
+  padding: 0 30px;
+  line-height: 80px;
+  box-shadow: 0 0 5px 1px rgba(238, 238, 238, 0.75);
+  background-color: #fff;
+}
+.achieveTit .markImg {
+  width: 50px;
+  height: 52px;
+  background-image: url(../image/tikuImg.png);
+  background-repeat: no-repeat;
+  margin-right: 15px;
+  margin-top: 14px;
+}
+.achieveTit .recimg-rec {
+  background-position: -274px -10px;
+}
+.achieveTit .recimg-hide {
+  background-position: -356px -10px;
+}
+.achieveTit .recimg-arror {
+  background-position: -298px -10px;
+}
+.achieveTit strong {
+  font-size: 24px;
+  margin-right: 28px;
+  font-weight: normal;
+}
+.achieveTit .strRec {
+  color: #00cc99;
+}
+.achieveTit .strHide {
+  color: #ff9933;
+}
+.achieveTit .strError {
+  color: #ff6666;
+}
+.achieveTit b {
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
+}
+.retQue {
+  margin: 0 17px;
+  padding: 13px 27px;
+  outline: none;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+  border: 1px solid #eee;
+  background-color: #fff;
+  color: #666;
+  margin-top: 18px;
+}
+.retQue:hover {
+  background-color: #f3f3f3;
+}
+.submitPagerBox,
+.bg-layer {
+  position: fixed;
+}
+.bg-layer {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.2;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  z-index: 111;
+}
+.submitPagerBox {
+  left: 50%;
+  top: 50%;
+  width: 522px;
+  height: 276px;
+  margin-top: -138px;
+  margin-left: -261px;
+  background-color: #fff;
+  z-index: 112;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.item,
+.contTextBox,
+.butBox {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.item {
+  font-size: 24px;
+  color: #333;
+  line-height: 24px;
+  padding-top: 40px;
+}
+.close {
+  font-family: iconfont !important;
+  font-size: 14px;
+  line-height: 14px;
+  color: #999;
+  right: 14px;
+  top: 14px;
+  position: absolute;
+  cursor: pointer;
+}
+.butBox button {
+  margin: 0 10px;
+  padding: 10px 34px;
+  font-size: 14px;
+  line-height: 14px;
+  border: none;
+}
+.butBox .cancel {
+  color: #999;
+  border: 1px solid #ddd;
+}
+.butBox .cancel:hover {
+  background-color: #F6F6F6;
+}
+.butBox .submit {
+  color: #fff;
+  padding: 11px 35px;
+  background-color: #07bbee;
+}
+.butBox .submit:hover {
+  background-color: #01aadd;
+}
+.contTextBox {
+  height: 136px;
+  text-align: center;
+  vertical-align: middle;
+}
+.contTextBox p {
+  font-size: 14px;
+  line-height: 24px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.contTextBox span {
+  display: block;
+}
+.contTextBox i {
+  color: #07bbee;
+  padding: 0 4px;
+}
+.contTextBox span:last-child {
+  color: #666;
+}
+.contTextBox span:first-child {
+  color: #333;
+}

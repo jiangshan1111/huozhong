@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/system.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/copyClassPackage.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 运营
+                    <ul class="lrow page-ul">
+                        <li onclick="window.location.href='motion.html'">问答</li>
+                        
+                        <li onclick="window.location.href='motionPinglun.html'">课程评论</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='motionNews.html'">新闻资讯</li>
+                        <li onclick="window.location.href='motionCuxiao.html'">促销</li>
+                        <li onclick="window.location.href='motionStudent.html'">学员心声</li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap set-system">
+                <div class="mainbackground nopadding">
+                    <div class="heading">
+                        <h2 class="h5">新闻类型</h2>
+                        <span class="line"></span>
+                        <span class="rb">
+                            <a href="javascript:void(0);" id="addNewsType" @click="addNewType"
+                                class="btn btn-mini btn-primary"><em class="iconfont"></em>添加新闻类型</a>
+                        </span>
+                    </div>
+                    <p id="schoolListP">
+
+
+                        <input type="hidden" id="schoolId" value="35112">
+                        <a href="javascript:void(0);" class="btn btn-sm btn-default btn-success" mark="35112">默认分校</a>
+
+
+
+
+                    </p>
+                    <div id="newsManagerList">
+                        <div class="user-list">
+                            <!-- <table class="table table-center">
+                                <tbody>
+                                    <tr>
+                                        <th>标题名</th>
+                                        <th>状态</th>
+                                        <th>创建时间</th>
+                                        <th>创建人</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </tbody>
+                            </table> -->
+                            <template>
+                                <el-table border :data="types.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                    :data="tableData" style="overflow: auto;">
+                                    <el-table-column prop="public_name" label="标题名" :width="flexColumnWidth(20)"
+                                        style="text-align: center">
+                                    </el-table-column>
+                                    <el-table-column prop="public_status" label="状态" :width="flexColumnWidth(20)">
+                                    </el-table-column>
+                                    <el-table-column prop="create_time" label="创建时间" :width="flexColumnWidth(20)">
+                                    </el-table-column>
+                                    <el-table-column prop="true_name" label="创建人" :width="flexColumnWidth(20)">
+                                    </el-table-column>
+                                    <el-table-column label="操作" :width="flexColumnWidth(20)">
+                                        <template slot-scope="scope">
+                                            <el-button type="text" size="small"
+                                                @click="change_status(scope.row.public_status,scope.row.public_id)">
+                                                {{scope.row.public_status == '启用'?'禁用':'启用'}}
+                                            </el-button>
+                                            <el-button type="text" size="small"
+                                                @click="review_newType(scope.row.public_name,scope.row.public_id)">修改
+                                            </el-button>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                    :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                    layout="total, sizes, prev, pager, next, jumper" :total="types.length">
+                                </el-pagination>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- end container -->
+        <div class="cengbg" style="display: none;" v-show="model == 1"></div>
+        <div class="copyclass_tk" style="height: auto;display: none;" v-show="model == 1">
+            <div class="copyclass_tit" style="position:relative">
+                <h3 class="fl" style="margin: 0px;">添加新闻类型</h3>
+                <em class="fr" style="position: absolute;
+                right: 0;
+                top: 0;" @click="model = 0">×</em>
+            </div>
+            <div class="formcont">
+                <div class="classname_box forminp classPackageName"><label style="width:100px">新闻类型名称</label> <input
+                        type="text" name="" id="packageName" v-model="public_name" placeholder="请输入新闻类型名称"
+                        style="margin-left: 0px;">
+                    <p class="tshi" style="margin-left: 94px;"></p>
+                </div>
+            </div>
+            <div class="endingbox"><button class="endingbox_submit fr" @click="submit_newType">确定</button>
+                <!-- <button
+                    class="endingbox_cancel fl">取消</button> -->
+                 </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: '',
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    types: [],
+                    userList: [],
+                    search_info: {
+                        "news_title": "",
+                        "begin_time": "",
+                        "end_time": "",
+                        "type_id": 1,
+                        "news_status": ""
+                    },
+                    public_name: '',
+                    public_id: '',
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.inita()
+            },
+            methods: {
+                activeb(num) {
+                    this.activeIndexb = num
+                },
+                addNewType() {
+                    this.public_name = ''
+                    this.public_id = ''
+                    this.model = 1
+                },
+                submit_newType() {
+                    let _this = this
+                    if (_this.public_id == '') {
+                        obj = {
+                            public_name: this.public_name,
+                            user_id: parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                            branch_school_id: 1,
+                        }
+                        console.log(this.public_name)
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/operate/AddNewsType',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    _this.$message({
+                                        title: '提示',
+                                        message: '新增新闻类型成功',
+                                        duration: 2000
+                                    });
+                                    _this.inita()
+                                }
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].cu_statusa = _this.userList[i]
+                                //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                                //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }else{
+                        obj = {
+                            public_name: this.public_name,
+                            public_id: this.public_id
+                        }
+                        console.log(this.public_name)
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/operate/modifyNewsType',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+                                    _this.$message({
+                                        title: '提示',
+                                        message: '修改新闻类型成功',
+                                        duration: 2000
+                                    });
+                                    _this.inita()
+                                }
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].cu_statusa = _this.userList[i]
+                                //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                                //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }
+
+                },
+                inita() {
+                    let _this = this
+                    obj = {}
+
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/showNewsTypeList',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item) => {
+                                item.create_time = _this.getNowFormatDate(new Date(item
+                                    .create_time))
+                                item.public_status = item.public_status == 1 ? "启用" : '禁用'
+                            })
+                            _this.types = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                getLastThreeMonthYestdy(date) {
+                    var daysInMonth = new Array([0], [31], [28], [31], [30], [31], [30], [31], [31], [30], [31],
+                        [30], [31]);
+                    var strYear = date.getFullYear();
+                    var strDay = date.getDate();
+                    var strMonth = date.getMonth() + 1;
+                    if (strYear % 4 == 0 && strYear % 100 != 0) {
+                        daysInMonth[2] = 29;
+                    }
+                    if (strMonth < 4) {
+                        strYear -= 1;
+                        if (strMonth == 1) {
+                            strMonth = 10
+                        } else if (strMonth == 2) {
+                            strMonth = 11;
+                        } else if (strMonth == 3) {
+                            strMonth = 12;
+                        }
+                    } else {
+                        strMonth -= 3;
+                    }
+                    strDay = daysInMonth[strMonth] >= strDay ? strDay : daysInMonth[strMonth];
+                    if (strMonth < 10) {
+                        strMonth = "0" + strMonth;
+                    }
+                    if (strDay < 10) {
+                        strDay = "0" + strDay;
+                    }
+                    var dataStr = strYear + "-" + strMonth + "-" + strDay;
+                    return dataStr;
+                },
+                getLastSixMonthYestdy(date) {
+                    var daysInMonth = new Array([0], [31], [28], [31], [30], [31], [30], [31], [31], [30], [31],
+                        [30], [31]);
+                    var strYear = date.getFullYear();
+                    var strDay = date.getDate();
+                    var strMonth = date.getMonth() + 1;
+                    if (strYear % 4 == 0 && strYear % 100 != 0) {
+                        daysInMonth[2] = 29;
+                    }
+                    if (strMonth < 4) {
+                        strYear -= 1;
+                        if (strMonth == 1) {
+                            strMonth = 10
+                        } else if (strMonth == 2) {
+                            strMonth = 11;
+                        } else if (strMonth == 3) {
+                            strMonth = 12;
+                        }
+                    } else {
+                        strMonth -= 6;
+                    }
+                    strDay = daysInMonth[strMonth] >= strDay ? strDay : daysInMonth[strMonth];
+                    if (strMonth < 10) {
+                        strMonth = "0" + strMonth;
+                    }
+                    if (strDay < 10) {
+                        strDay = "0" + strDay;
+                    }
+                    var dataStr = strYear + "-" + strMonth + "-" + strDay;
+                    return dataStr;
+                },
+                search_news() {
+                    console.log(this.getLastThreeMonthYestdy(new Date()))
+                    console.log(this.getLastSixMonthYestdy(new Date()))
+                    var oneday = 1000 * 60 * 60 * 24,
+                        today = new Date();
+                    getday = today.getDay() == 0 ? 7 : today.getDay();
+                    let _this = this
+                    obj = _this.search_info
+                    obj.news_status = _this.activeIndexa
+                    switch (_this.activeIndexb) {
+                        case 0:
+                            obj.end_time = ''
+                            obj.begin_time = ''
+                            break;
+                        case 1:
+                            obj.end_time = ''
+                            obj.begin_time = ''
+                            break;
+                        case 2:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date().getTime() - 7 * 24 *
+                                3600 * 1000))
+                            break;
+                        case 3:
+                            console.log(1)
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date(new Date(new Date()
+                                .toLocaleDateString()).getTime() - oneday * (today.getDate() -
+                                1))))
+
+                            break;
+                        case 4:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.begin_time = _this.getLastThreeMonthYestdy(new Date()) + ' ' + _this
+                                .getNowFormatDate(new Date()).split(' ')[1]
+                            break;
+                        case 5:
+                            obj.end_time = _this.getNowFormatDate(new Date())
+                            obj.begin_time = _this.getLastSixMonthYestdy(new Date()) + ' ' + _this
+                                .getNowFormatDate(new Date()).split(' ')[1]
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log(obj)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/operate/queryAllNewsInfo',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item) => {
+                                item.create_time = _this.getNowFormatDate(new Date(item
+                                    .create_time))
+                            })
+                            _this.userList = data
+
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].cu_statusa = _this.userList[i]
+                            //         .cu_status == 1 ? '已被课程使用' : _this.userList[i]
+                            //         .cu_status == 2 ? '未被课程使用' : '禁用'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                change_status(status, id) {
+                    let _this = this
+                    console.log(status)
+                    zhuangtai = status == `禁用` ? `启用` : `禁用`
+                    obj = {
+                        public_status: status == `禁用` ? 1 : 2,
+                        public_id: id,
+                    }
+                    this.$confirm(`是否确认` + zhuangtai + `新闻类型?`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/operate/modifyNewsStatus',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                if (data.message == 'success') {
+                                    console.log(_this.types)
+                                    for (let i = 0; i < _this.types.length; i++) {
+                                        if (_this.types[i].public_id == id) {
+                                            if (_this.types[i].public_status ==
+                                                '启用') {
+                                                _this.types[i].public_status =
+                                                    '禁用'
+                                            } else {
+
+                                                _this.types[i].public_status =
+                                                    '启用'
+                                            }
+                                        }
+                                    }
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改状态成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改状态失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                review_newType(name, id) {
+                    console.log(name, id)
+                    let _this = this
+                    _this.public_name = name
+                    _this.public_id = id
+                    _this.model = 1
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

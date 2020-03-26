@@ -1,0 +1,432 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/class-bag.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <link href="css/queCenter.css" rel="stylesheet" type="text/css">
+    <link href="css/pay.css" rel="stylesheet" type="text/css">
+    <link href="css/element-ui.css" rel="stylesheet" type="text/css">
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix">
+
+    </div>
+    <!-- register-end-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <div class="wrap space white forget" id="app" style="min-height: 450px;margin-top: 60px; height: auto;">
+        <div class="page-2" v-if="activeIndexa == 1">
+            <div class="title">
+                <h1 class="h4">通过手机号找回密码</h1>
+            </div>
+            <form id="phoneForm" name="phoneForm" action="/login/toResetPassword" method="post" novalidate="novalidate">
+                <input type="hidden" id="mobileError" value="">
+                <input type="hidden" id="codeErro" value="">
+                <input type="hidden" id="smsErro" value="">
+                <input type="hidden" id="time" value="">
+                <ul>
+                    <li>
+                        <label for="mobile">手机号：</label><input type="text" id="mobile" name="mobile"
+                            v-model="forget_info.tel">
+                        <p for="mobile" id="mobileTips" class="tips none"><i class="icons"></i>请输入有效电话号码</p>
+                    </li>
+                    <li>
+                        <label for="code">验证码：</label>
+                        <input type="text" id="code" name="code" v-model="forget_info.img_code" class="code">
+                        <span><img id="register_img" src="http://192.168.10.166:8080/stu/verifyImg" height="40"
+                                width="100" alt="点击更换验证码" id="img-captcha">
+                            <a href="javascript:;" class="txt"
+                                onclick="document.querySelector('#register_img').src='http://192.168.10.166:8080/stu/verifyImg?'+new Date().getTime();"
+                                id="btn-captcha">换一张</a></span>
+                        <p for="code" id="codeTips" class="tips none"><i class="icons"></i>验证码不正确</p>
+                    </li>
+                    <li>
+                        <label for="code">短信验证：</label>
+                        <input type="text" id="smsCode" name="smsCode" v-model="forget_info.sms_code" class="code">
+                        <span id="phoneCode">
+                            <!-- <a href="javascript:;" id="send" class="btn btn-success btn-code">免费获取验证码</a> -->
+                            <input id="btn-sms" v-if="disabled_label == true" style="background:#00b7ee;
+                            height: 45px;    padding: 8px 19px;    width: 130px;" type="button"
+                                class="btn btn-primary btn-gray" value="免费获得验证码" @click="getMsgcode">
+                            <input id="btn-sms" v-if="disabled_label == false" type="button"
+                                class="btn btn-primary btn-gray send" :value="'('+time_top+'s)后重试'" style="background-color: rgb(0, 168, 255);
+                                height: 45px;    padding: 8px 19px;    width: 130px;" disabled="disabled">
+                            <!-- <a href="javascript:;" id="wait" style="display:none" class="btn btn-gray btn-success btn-code">重新发送验证码（60s）</a> -->
+                        </span>
+                        <p for="smsCode" id="smsCodeError" class="tips none"><i class="icons"></i>验证码不正确,请重新输入!</p>
+
+                    </li>
+                    <li><input type="button" @click="nextStep" id="nextStep"
+                            class="btn btn-sky btn-bigger btn-block btn-padding" value="下一步"></li>
+                </ul>
+            </form>
+        </div>
+        <div class="page-2" v-if="activeIndexa == 2">
+            <div class="title">
+                <h1 class="h4">重置密码</h1>
+            </div>
+            <form action="/login/resetPassword" method="post" id="resetPassword">
+                <input type="hidden" name="mobile" value="13437259576">
+                <input type="hidden" name="email" value="">
+                <input type="hidden" name="code" value="y4my">
+                <input type="hidden" name="smsCode" value="572531">
+                <input type="hidden" id="pwdOpen" value="">
+                <input type="hidden" name="redisKey" value="">
+                <input type="hidden" name="type" value="1">
+                <ul>
+                    <li>
+                        <label for="password" style="cursor: default">新密码：</label><input type="password" id="password"
+                            v-model="reset_info.stu_pass" class="input-ctrol" name="password" maxlength="32">
+                        <p class="tips none" id="errmsg" style="padding-left: 0px;">请输入6-32位密码</p>
+                    </li>
+                    <li>
+                        <label for="repassword" style="cursor: default">确认密码：</label><input type="password"
+                            id="repassword" v-model="qr_stu_pass" class="input-ctrol" name="repassword"
+                            onblur="check()">
+                        <p class="tips" style="display:none;padding-left: 0px;">输入的密码不一致</p>
+                    </li>
+                    <li><input type="button" class="btn btn-sky btn-bigger btn-block btn-padding" value="确定"
+                            @click="reset_pwd"></li>
+                </ul>
+            </form>
+        </div>
+        <div class="page-2" v-if="activeIndexa == 3">
+            <div class="title">
+                <h1 class="h4">重置密码</h1>
+            </div>
+            <div class="forget-success">
+                <i class="icons"></i>
+                <h1 class="h4">重置密码成功</h1>
+                <p><span id="time">{{time_return}}</span>s后自动跳转到首页</p>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
+
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <form method="post" id="myForm">
+            <input type="hidden" name="type" id="typeValue">
+        </form>
+        <!-- footer end -->
+
+
+
+    </div>
+    <form method="post" id="myForm">
+        <input type="hidden" name="type" id="typeValue">
+    </form>
+    <!-- footer end -->
+    <!--百度统计代码-->
+
+
+
+
+
+
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<script src="js/vue.min.js"></script>
+<script src="js/element-ui.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                currentPage: 1, //初始页
+                activeIndexa: 1,
+                activeIndexb: 0,
+                pagesize: 10, //    每页的数据
+                model: 0,
+                time_top: 60,
+                time_return: 5,
+                value2: '',
+                disabled_label: true,
+                forget_info: {
+                    "tel": '',
+                    "img_code": "",
+                    "sms_code": ''
+                },
+                reset_info: {
+                    "stu_id": '',
+                    "tel": '',
+                    "stu_pass": ""
+                },
+                qr_stu_pass: '',
+            }
+        },
+        created() {
+            let _this = this
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+        },
+        methods: {
+            setTime() {
+                let _this = this
+                this.time_top = 60
+                timer = setInterval(() => {
+                    if (this.time_top == 1) {
+                        clearInterval(timer)
+                        _this.disabled_label = true
+                    } else {
+                        this.time_top -= 1
+                    }
+                }, 1000)
+            },
+            retrun_index() {
+                let _this = this
+                this.time_return = 5
+                timer = setInterval(() => {
+                    if (this.time_return == 1) {
+                        clearInterval(timer)
+                        window.location.href = "index.html"
+                    } else {
+                        this.time_return -= 1
+                    }
+                }, 1000)
+            },
+            reset_pwd() {
+                let _this = this
+                if (_this.reset_info.stu_pass != _this.qr_stu_pass) {
+                    _this.$message.error({
+                        type: 'info',
+                        message: "两次输入的密码不一致",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+                if (_this.reset_info.stu_pass == '' || _this.qr_stu_pass == '') {
+                    _this.$message.error({
+                        type: 'info',
+                        message: "有内容为空，无法提交",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/resetPassword',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    data: _this.reset_info,
+                    // dataType: 'json',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    crossDomain: true,
+                    success: function (data) {
+                        console.log(data)
+                        if (data == 1) {
+                            _this.time_return = 5
+                            _this.activeIndexa = 3
+                            _this.retrun_index()
+                        } else {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '密码重置失败',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            nextStep() {
+                let _this = this
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/retrievePassword',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    data: _this.forget_info,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    crossDomain: true,
+                    // dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        if (data > 0) {
+                            _this.reset_info.stu_id = data
+                            _this.reset_info.tel = _this.forget_info.tel
+                            _this.reset_info.stu_pass = ''
+                            _this.activeIndexa = 2
+                        } else {
+                            _this.$message.error({
+                                type: 'info',
+                                message: data,
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    },
+                    error: function () {
+                        _this.$message.error({
+                            type: 'info',
+                            message: '服务器错误',
+                            // position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    }
+                })
+            },
+            getMsgcode() {
+                let _this = this
+                _this.disabled_label = false
+                _this.setTime()
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/stu/SendSms',
+                    type: 'post',
+                    // contentType: 'application/json',
+                    data: {
+                        "tel": _this.forget_info.tel,
+                    },
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    crossDomain: true,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            getNowFormatDate(date) {
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                if (hour >= 0 && hour <= 9) {
+                    hour = "0" + hour;
+                }
+                if (minute >= 0 && minute <= 9) {
+                    minute = "0" + minute;
+                }
+                if (second >= 0 && second <= 9) {
+                    second = "0" + second;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                    " " + hour + seperator2 + minute +
+                    seperator2 + second;
+                return currentdate;
+            },
+            activeA(num) {
+                this.activeIndexa = num
+            },
+            activeB(num) {
+                this.activeIndexb = num
+            },
+            goNext() {
+                window.open('tiku_detail.html')
+            },
+        }
+    })
+</script>
+
+</html>

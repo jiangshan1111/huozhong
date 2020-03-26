@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/toTiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/tiku_manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classNum.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .onean {
+            width: 98%;
+        }
+
+        .onean.t-t {
+            margin-top: 5px;
+            /*border: solid 1px #eee;*/
+            border-top: none;
+        }
+
+        .onean .title-t {
+            width: 100px;
+            text-align: center;
+        }
+
+        .onean .title-t .title-hip {
+            width: 100%;
+            height: 60px;
+        }
+
+        .onean .title-t .title-name {
+            width: 100px;
+            position: relative;
+            font-size: 12px;
+        }
+
+        .onean .content {
+            padding-left: 10px;
+            word-wrap: break-word;
+            word-break: break all;
+        }
+
+        .onean .content-c .c-top {
+            font-size: 12px;
+            min-height: 47px;
+        }
+
+        .onean .content-c .c-bottom {
+            color: #999999;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .xzi {
+            margin-left: 5px;
+        }
+
+        .twoans .c {
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .h-text td {
+            padding-top: 20px;
+        }
+
+        .h-text .t {
+            width: 80%;
+        }
+
+        .h-text .t p {
+            padding-top: 10px;
+        }
+
+        .twoans {
+            margin-top: 10px;
+        }
+
+        .icons {
+            cursor: pointer;
+            ;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+            margin-top: 20px;
+        }
+
+        .register {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 999
+        }
+
+        .none {
+            display: none;
+        }
+
+        .register .reg-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../images/index-icons.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+        }
+
+        .register .reg-title {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .register .reg-form {
+            padding: 0 60px;
+        }
+
+        .register .reg-bottom {
+            padding: 2px 52px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .mark-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            opacity: .6 \9;
+            filter: alpha(opacity=60);
+        }
+
+        .content {
+            width: 87%;
+        }
+
+        .answerPictitle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .ques span p {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ques :nth-child(1) {
+            color: #858c94;
+            font-size: 12px;
+            line-height: 18px;
+            width: 90%;
+        }
+
+        .ans {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .plName {
+            font-size: 14px;
+        }
+
+        .title1 .iconfont {
+            font-size: 18px;
+        }
+
+        .plContent {
+            width: 78%;
+            border-top: 1px solid #e0e0e0;
+            padding: 0;
+            margin-left: 13%;
+        }
+
+        p {
+            word-break: break-all;
+        }
+
+        span {
+            word-break: break-all;
+        }
+
+        .title-name {
+            word-break: break-all;
+        }
+
+        .plName {
+            word-break: break-all;
+            word-break: break-all;
+            min-width: 100px;
+            max-width: 150px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 题库
+                    <ul class="lrow page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='question.html'">题库</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource" style="height: auto;    height: auto;
+            background: #f6f6f6;width:100%;">
+                <div class="mainbackground nopadding" style="    padding: 15px;">
+                    <div class="heading">
+                        <h2 class="h5">题库</h2>
+
+
+                        <span class="offlineLastTime">最后更新时间：2019-09-05 09:27</span>
+                        <button class="offlineBtn" onclick="offline()">生成离线文件</button>
+
+                        <span class="line"></span>
+                    </div>
+                    <div class="main-content" style="overflow: hidden;">
+                        <div id="info" class="clear" data-listidx="0">
+                            <div v-for="(item,index) in tikus" :class="item.tf_enable == 1?'block active':'block'"
+                                :style="item.tf_enable == 2?'background:#EEEEEE':'background:#ffffff'" data-type="start"
+                                data-tikuid="9079" data-itemidx="0">
+
+
+                                <div class="hidden">
+                                    <div class="b-title">
+                                        <div class="icon">
+                                            <i class="iconfont">
+                                                <img :src="item.icon">
+                                            </i>
+                                        </div>
+                                        <div class="tt">
+                                            <div class="h3">
+                                                <b>{{item.item_bank_name}}</b>
+                                                <span style="display: none;" class="manageGL">
+                                                    <i class="iconfont btn-del-pro delInfo" @click="delete_tiku(item)"
+                                                        tikuid="9079"></i>
+                                                    <i class="iconfont btn-edit-pro editInfo" @click="editor_tiku(item)"
+                                                        tikuid="9079"></i>
+                                                </span>
+                                            </div>
+                                            <div class="c">
+                                                <span>{{item.brief_introduction}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>
+                                    </div>
+                                    <div class="b-content">
+                                        <ul>
+                                            <li style="text-align: center;"><span class="r-subs-title">
+                                                    <em>共有{{item.sub_num}}个科目</em>
+                                                </span></li>
+                                            <li style="text-align: center;"><span class="r-subs-title">
+                                                    <em>共有{{item.shijuan_num}}套试卷</em>
+                                                </span></li>
+                                            <li style="text-align: center;"><span class="r-subs-title">
+                                                    <em>共有{{item.shiti_num}}道试题</em>
+                                                </span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="b-btns" style="text-align: center;">
+                                        <i v-if="item.tf_enable == 1" class="iconfont left btn-ok btn-switch jinYong"
+                                            style="    color: green;
+                                background: url(./assets/images/qiyong.svg) no-repeat;
+                                width: 24px;
+                                height: 24px;" title="已启用，点击停用" @click="change_status(item,2)" tikuid="9079"></i>
+                                        <i v-if="item.tf_enable == 2" class="iconfont left btn-ok btn-switch jinYong"
+                                            style="    color: red;
+                                background: url(./assets/images/tiyong.svg) no-repeat;
+                                width: 24px;
+                                height: 24px;
+                                cursor: pointer;" title="已停用，点击启用" @click="change_status(item,1)" tikuid="9079"></i>
+                                        <div class="btn-add glTiku" name="twoToCreate"
+                                            style="cursor: pointer"
+                                            title="管理题库" cvid="9079" @click="goTikudetail(item)">
+                                            管理</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="block active">
+                                <div class="b-btns" style="margin-left: -100px; margin-bottom: 120px;" id="addTiku">
+                                    <div class="btn-addss btn-pro" id="createPro" title="添加题库">
+                                        <i class="iconfont" style="font-size: 80px" @click="add_tiku"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- end container -->
+        <div class="dialog" id="addLessonDialog" v-show="model == 3" style="display: none;">
+            <div id="LessonSubmitForm" style="height: 430px" class="schedule clearfloat prompt dialog_schedule"><i
+                    @click="model = 0" class="iconfont" style="position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                font-size: 20px;">x</i>
+                <h5>修改题库</h5>
+                <div style="height: 400px;">
+                    <div class="">
+                        <div style="right: -17px;">
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">题库名称：</div>
+                                <div class="schedule_main">
+                                    <input type="text" class="shift_name" id="moduleLessonName"
+                                        name="moduleNo.moduleName" v-model="editor_info.item_bank_name">
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat" v-show="submit_type == 'update'">
+                                <div class="schedule_title">子题库：</div>
+                                <div class="schedule_main radiomain" style="    max-width: 550px;
+                                ">
+                                    <!-- <select name="" id="">
+                                        <option value="">学科</option>
+                                        <option value="1">1</option>
+                                    </select> -->
+                                    <!-- <span v-for="(item,index) in son_tiku">
+                                        {{item.ibs_name}}
+                                    </span> -->
+                                    <div style="max-height: 30px;
+                                    overflow: auto;">
+
+                                        <span v-for="(item,index) in son_tiku" style="    display: inline-block;
+                                        padding: 0 10px;">{{item.ibs_name}}</span>
+                                    </div>
+                                    <button v-show="add_bank == 0" class="btn btn-primary" style="    padding: 0 10px;
+                                    height: 25px;
+                                    line-height: 25px;" @click="add_bank = 1">添加科目</button>
+                                    <div v-show="add_bank == 1">
+                                        <input type="text" class="shift_name" id="moduleLessonName"
+                                            name="moduleNo.moduleName" v-model="add_bank_ibs">
+                                        <button class="btn btn-primary" style="        padding: 0px 10px;
+                                            height: 25px;
+                                            line-height: 25px;
+                                            vertical-align: super;" @click="add_bank_ibss">保存</button>
+                                        <button style="     padding: 0px 10px;
+                                            height: 25px;
+                                            line-height: 25px;
+                                            vertical-align: super;" @click="add_bank = 0">取消</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">绑定学科：</div>
+                                <div class="schedule_main radiomain">
+                                    <select class="itemOneId" v-model="editor_info.project_id" @change="change_kemu">
+
+
+                                        <option value=0>请选择学科</option>
+                                        <option v-for="(item,index) in projects" :value="item.pse_id">
+                                            {{item.pse_name}}</option>
+
+
+
+                                    </select>
+                                </div>
+                                <div class="schedule_main radiomain">
+                                    <select class="itemSecondId" v-model="editor_info.subject_id">
+                                        <option value=0>请选择学科小类</option>
+                                        <option v-for="(item,index) in kemus" :value="item.pse_id">
+                                            {{item.pse_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">题库描述：</div>
+                                <div class="schedule_main">
+                                    <input type="text" class="shift_name" id="moduleLessonName"
+                                        name="moduleNo.moduleName" v-model="editor_info.brief_introduction">
+                                </div>
+                            </div>
+                            <div class="schedule_box clearfloat">
+                                <div class="schedule_title">选择图标：</div>
+                                <div class="schedule_main">
+                                    <span v-for="(item,index) in icons" :style="
+                                    item.selected == true?
+                                    'display: inline-block;height:32px;width:32px;background: url(./assets/images/select.svg) no-repeat;background-position: 100% 100%;'
+                                    :
+                                    'display: inline-block;height:32px;width:32px;'
+                                    "><img @click="change_icon(item)" :src="item.src" alt=""
+                                            style="vertical-align: middle;cursor: pointer;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="save_btn clearfloat">
+                        <a class="btn btn-default btn-lg cancelDialog" @click="model = 0">取消</a>
+                        <a class="btn btn-primary btn-lg saveDialog" style="color:white" @click="submit_review">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    tikus: [],
+                    add_bank: 0,
+                    add_bank_ibs: '',
+                    projects: [],
+                    kemus: [],
+                    editor_info: {
+                        item_bank_id: 1,
+                        item_bank_name: '题库1',
+                        brief_introduction: '题库的介绍',
+                        icon: './assets/images/tiku.svg',
+                        project_id: 1,
+                        subject_id: 6,
+                        founder_id: parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                    },
+                    son_tiku: [],
+                    icons: [{
+                        src: './assets/images/tiku.svg',
+                        selected: false
+                    }, {
+                        src: './assets/images/tiku2.svg',
+                        selected: false
+                    }, {
+                        src: './assets/images/tiku3.svg',
+                        selected: false
+                    }, {
+                        src: './assets/images/tiku4.svg',
+                        selected: false
+                    }, {
+                        src: './assets/images/tiku5.svg',
+                        selected: false
+                    }, {
+                        src: './assets/images/tiku6.svg',
+                        selected: false
+                    }, {
+                        src: './assets/images/tiku7.svg',
+                        selected: false
+                    }, {
+                        src: './assets/images/tiku8.svg',
+                        selected: false
+                    }, {
+                        src: './assets/images/tiku9.svg',
+                        selected: false
+                    }],
+                    submit_type: 'insert',
+                    review_info: {
+                        "begin_class_date": "2020-12-31 9:00:00",
+                        "end_time_datess": "2020-12-31 11:00:00",
+                        "ct_name": "测试插入课次",
+                        "total_hours": 2,
+                        "tf_charge": 1,
+                        "tf_barrage": 2,
+                        "ct_pattern": "大班课",
+                        "js_user_id": 1,
+                        "jw_user_id": 1,
+                        "course_id": 1,
+                        "course_unit_id": 2
+                    }
+                }
+            },
+            created() {
+
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        _this.change_kemu()
+                    },
+                    error: function () {
+
+                    }
+                })
+                _this.init()
+            },
+            mounted() {
+
+            },
+            methods: {
+                active() {
+
+                },
+                change_icon(item) {
+                    console.log(item)
+                    let _this = this
+                    _this.icons.map((i) => {
+                        i.selected = false
+                    })
+                    if (item.selected == false) {
+                        _this.editor_info.icon = item.src
+                        item.selected = true
+                    } else {
+                        item.selected = false
+                    }
+                },
+                inita() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.editor_info.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                change_kemu() {
+                    this.inita()
+                    this.editor_info.subject_id = 0
+                },
+                add_bank_ibss() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/insertIBS',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            ibs_name: _this.add_bank_ibs,
+                            item_bank_id: _this.editor_info.item_bank_id,
+                            operator_id: 1,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            this.model = 3
+                            if (data == 1) {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '添加成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.editor_tiku(_this.editor_info)
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '添加失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                            // _this.tikus = data
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                activea(num) {
+
+                },
+                submit_review() {
+                    let _this = this
+                    console.log(this.editor_info)
+                    obj = JSON.parse(JSON.stringify(this.editor_info))
+                    delete obj.creation_time
+                    delete obj.tf_delete
+                    delete obj.tf_enable
+                    if (_this.submit_type == "update") {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/ItemBank/updateItemBank',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    _this.init()
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改错误',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                                // _this.tikus = data
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    } else {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/ItemBank/insertItemBank',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '新增成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    _this.init()
+                                } else {
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '新增失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                                // _this.tikus = data
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }
+                },
+                add_tiku(item) {
+                    let _this = this
+                    _this.add_bank = 1
+                    _this.submit_type = 'insert'
+                    _this.model = 3
+                    _this.editor_info = {
+                        item_bank_name: '',
+                        brief_introduction: '',
+                        icon: '',
+                        project_id: 0,
+                        subject_id: 0,
+                        founder_id: parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                    }
+                },
+                delete_tiku(item) {
+                    if (item.tf_enable == 1) {
+                        let _this = this
+                        this.$confirm(`您确定要删除此题库？`, '提示', {
+                            confirmButtonText: '确定',
+                            cancelButtonText: '取消',
+                            dangerouslyUseHTMLString: true,
+                            type: 'warning'
+                        }).then(() => {
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/ItemBank/deleteItemBank',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    item_bank_id: item.item_bank_id,
+                                    tf_delete: 1
+                                }),
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    if (data == 1) {
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '删除成功',
+                                            duration: 2000
+                                        });
+                                    } else {
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '删除失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                    _this.init()
+                                    // _this.kemus = data
+                                    // _this.activeIndexb = _this.kemus[0].pse_id
+                                    // _this.userList = data
+                                    // for (let i = 0; i < _this.userList.length; i++) {
+                                    //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                    //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                    //     _this.userList[i].enrollment_status = _this.userList[i]
+                                    //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                    // }
+                                },
+                                error: function () {
+                                    _this.$notify.error({
+                                        title: '错误',
+                                        message: data,
+                                        duration: 0
+                                    });
+                                }
+                            })
+                        }).catch(() => {
+                            this.$message({
+                                type: 'info',
+                                message: '已取消'
+                            });
+                        });
+                    }
+                },
+                goTikudetail(item) {
+                    // if (item.tf_enable == 1) {
+                        localStorage.ques_info = JSON.stringify(item)
+                        window.open('questionexam.html')
+                    // }
+                },
+                change_status(item, num) {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/startItemBank',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            item_bank_id: item.item_bank_id,
+                            tf_enable: num
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '修改状态成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                item.tf_enable = num
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '修改状态失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+
+                            }
+                            // _this.tikus = data
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                editor_tiku(item) {
+                    if (item.tf_enable == 1) {
+                        let _this = this
+                        console.log(item)
+                        _this.submit_type = 'update'
+                        _this.add_bank = 0
+                        _this.editor_info = JSON.parse(JSON.stringify(item))
+                        _this.icons.map((i) => {
+                            i.selected = false
+                            if (_this.editor_info.icon == i.src) {
+                                i.selected = true
+                            }
+                        })
+                        // _this.editor_info.rief_introduction = _this.editor_info.brief_introduction
+                        // delete _this.editor_info.brief_introduction
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/ItemBank/queryIBS',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                item_bank_id: item.item_bank_id
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.son_tiku = data
+                                _this.model = 3
+                                // _this.tikus = data
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }
+                },
+                init() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/queryItemBank',
+                        type: 'post',
+                        // contentType: 'application/json',
+                        // data: {},
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.tikus = data
+                            setTimeout(function () {
+                                $("div.block").on("mouseenter ", "div.hidden", function () {
+                                    console.log($(this))
+                                    $(this).find(".manageGL").show();
+                                });
+                                $("div.block").on("mouseleave ", "div.hidden", function () {
+                                    $(this).find(".manageGL").hide();
+                                });
+                            }, 20)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

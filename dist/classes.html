@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/manger.css">
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes-add.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/copyClassPackage.css">
+    <style>
+        body {
+            color: black;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        /* .el-message-box {
+            width: 80%
+        } */
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+
+        </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap classes">
+                <div class="mainbackground nopadding">
+                    <div class="classes-type">
+                        <p class="c">
+                            <span class="t-title">学科</span>
+                            <span class="t-content" id="itemOneList">
+
+
+                                <a href="javascript:;" ids="86683" v-for="(item,index) in projects"
+                                    @click="activea(item.pse_id)"
+                                    :class="activeIndexa == item.pse_id?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">{{item.pse_name}}</a>
+
+
+
+
+
+                                <!-- <a href="javascript:;" ids="128040"
+                                            class="btn btn-mini btn-default btn-success">注册消防工程师</a> -->
+
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="u-wrap classes">
+                <div class="mainbackground nopadding">
+                    <div id="packageLists">
+
+
+
+
+
+
+                        <div class="m-list clear">
+                            <ul class="clear" id="ulListss">
+
+                                <li class="add-class" @click="addClasses('no')"><a href="javascript:;"
+                                        class="checkStudent operate_btn btn-sel-stu"><i class="iconfont icons"></i></a>
+                                </li>
+
+
+
+                                <li id="commodityLi14805" v-for="(item,index) in kcbs">
+                                    <div class="bg">
+
+
+
+                                        <i class="tips"
+                                            :style="item.cp_status == '未发布'?'':'background-color: rgba(231,31,26,0.8);color: white;'">
+                                            {{item.cp_status}}
+
+
+                                        </i>
+
+
+                                        <i class="add-com" id="com14805" marks="1" style="display: none;">取消推荐</i>
+                                        <div class="infos-pic">
+                                            <a href="javascript:void(0);">
+
+
+                                                <img alt=""
+                                                    :src="item.cover == ''?'./assets/images/overview_demo.jpg':item.cover">
+
+                                            </a>
+                                        </div>
+                                        <div class="infos-title">
+                                            <h2 class="h5">
+
+
+
+                                                {{item.cp_name}}
+
+
+                                            </h2>
+                                            <!-- <div class="type" style="top:5px;">
+                                                共<span class="classNums" ids="14805">3</span>课程
+                                            </div> -->
+                                            <p class="descript" title="" v-html="item.describe">
+
+                                            </p>
+                                        </div>
+                                        <div class="infos-tips clear">
+                                            <p>
+                                                <!--V6.7 不对外售卖为1-->
+
+                                                <span class="price">售价:
+                                                    {{item.favorable_price}}</span><del>{{item.total_price}}</del>
+                                                <span style="float:right; color: gray;font-size: 10px;">{{item.rs}}人学习</span>
+                                            </p>
+                                        </div>
+                                        <div class="btns">
+                                            <el-dropdown>
+                                                <!-- <span class="el-dropdown-link">
+                                                                  下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+                                                                </span> -->
+                                                <a href="javascript:;" class="btn btn-sm btn-default moreEditBtn">操作</a>
+                                                <el-dropdown-menu slot="dropdown">
+                                                    <!-- <el-dropdown-item>关联课程包</el-dropdown-item> -->
+                                                    <el-dropdown-item v-if="item.cp_status != '招生中'"
+                                                        @click.native="shangjia(item.course_package_id,'招生中')">上架
+                                                    </el-dropdown-item>
+                                                    <el-dropdown-item v-if="item.cp_status == '招生中'"
+                                                        @click.native="shangjia(item.course_package_id,'已下架')">下架
+                                                    </el-dropdown-item>
+                                                    <el-dropdown-item v-if="item.cp_status != '未上架'"
+                                                        @click.native="copyClasss(item)">复制课程包
+                                                    </el-dropdown-item>
+                                                    <el-dropdown-item
+                                                        @click.native="deleteClass(item.course_package_id)">删除课程包
+                                                    </el-dropdown-item>
+                                                </el-dropdown-menu>
+                                            </el-dropdown>
+                                            <!-- <a href="javascript:;" class="btn btn-sm btn-default moreEditBtn">操作 -->
+
+                                            </a>
+
+                                            <a href="" class="btn btn-sm btn-primary"
+                                                @click="addClasses(item.course_package_id)">管理</a>
+
+                                        </div>
+                                    </div>
+                                    <div class="bg-layer"></div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+        <div class="cengbg" v-show="model == 1" style="display:none"></div>
+        <div class="copyclass_tk" v-show="model == 1" style="display:none">
+
+            <div class="copyclass_tit">
+                <h3 class="fl" style="margin:0">复制课程包</h3>
+                <em class="fr" @click="model = 0">×</em>
+            </div>
+
+            <div class="formcont">
+                <div class="classname_box forminp classPackageName">
+                    <label>课程包名称</label>
+                    <input type="text" v-model="copyClass.cp_name" name="" id="packageName" placeholder="请输入课程包名称"
+                        style="margin-left: 0;">
+                    <p class="tshi" style="margin-left:94px;"></p>
+                </div>
+                <div class="price_box forminp preferentialPrice">
+                    <label>优惠价</label>
+                    <input type="text" v-model="copyClass.favorable_price" class="prices" id="realPrice"
+                        name="realPrice" placeholder="请输入优惠价" style="margin-left: 0;">
+                    <p class="tshi" style="margin-left:94px;"></p>
+                </div>
+
+                <div class="join_box forminp recommend">
+                    <label>是否推荐</label>
+                    <div class="joininfo" style="width: 130px;">
+                        <input id="yesy" v-model="copyClass.tf_recommended" type="radio" name="recommendFlag"
+                            value="1"><label for="yesy">是</label>
+                    </div>
+                    <div class="nojoininfo" style="width: 130px;">
+                        <input id="nono" v-model="copyClass.tf_recommended" type="radio" name="recommendFlag"
+                            checked="checked" value="2"><label for="nono">否</label>
+                    </div>
+                    <p class="tshi" style="margin-left:94px;"></p>
+                </div>
+                <div class="sele_box forminp itemOne">
+                    <label>项目</label>
+                    <select id="copyCpItemOne" v-model="copyClass.project_id">
+                        <option>请选择</option>
+                        <option ids="4663"  v-for="(item,index) in projects" :value="item.pse_id">{{item.pse_name}}</option>
+                    </select>
+                    <p class="tshi" style="margin-left:94px;"></p>
+                </div>
+                <div class="join_box forminp yxq">
+                    <label>有效期</label>
+                    <div class="joininfo" style="width: 130px;">
+                        <input id="days" v-model="copyClass.effictive_days_type" type="radio" name="ddaty"
+                            class="validityFlag" value="有效天数" checked="checked"><label for="days">固定天数</label>
+                    </div>
+                    <div class="nojoininfo" style="position: relative;width: 130px;">
+                        <input id="dates" v-model="copyClass.effictive_days_type" type="radio" class="validityFlag"
+                            name="ddaty" value="有效日期"><label for="dates">固定日期</label>
+                    </div>
+                    <p class="tshi" style="margin-left:94px;"></p>
+                </div>
+                <div class="sele_box forminp yxq_days" v-show="copyClass.effictive_days_type == '有效天数'">
+                    <label>有效天数</label>
+                    <input type="text" v-model="copyClass.effictive_days" class="settingcount" id="validityDay"
+                        name="validityDay" placeholder="0或者不填为不限天数">
+                    <p class="tshi" style="margin-left:94px;"></p>
+                </div>
+                <div class="sele_box forminp yxq_date" v-show="copyClass.effictive_days_type == '有效日期'">
+                    <label>有效期至</label>
+                    <input type="text" v-model="copyClass.effictive_date" id="validityDate" name="validityDate"
+                        placeholder="不选择日期则默认为不限日期">
+                    <p class="tshi" style="margin-left:94px;"></p>
+                </div>
+
+            </div>
+            <input type="hidden" id="copyClassPakcageId" value="14644">
+            <div class="endingbox">
+                <button class="endingbox_cancel fl" @click="model == 0">取消</button>
+                <button class="endingbox_submit fr" @click="addCopyclass">生成</button>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    kcbs: [],
+                    projects: [],
+                    copyClass: {
+
+                    },
+                    value1: '',
+                    value2: ''
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){ 
+            $("#topnav").load("header.html"); 
+            }); 
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        _this.activeIndexa = _this.projects[0].pse_id
+                        _this.inita()
+                        // _this.searchClass()
+                        // _this.kc.project_id = _this.projects[0].pse_id
+                        // _this.changeKemu()
+                        // _this.userList = data
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                        //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                        //     _this.userList[i].enrollment_status = _this.userList[i]
+                        //         .enrollment_status == 1 ? '已报名' : '未报名'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+
+            },
+            methods: {
+                active() {
+
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                    this.inita()
+                },
+                addCopyclass(){
+                    _this = this
+                    obj = {}
+                    console.log(this.copyClass)
+                    obj.cp_name = this.copyClass.cp_name
+                    obj.course_package_id = this.copyClass.course_package_id
+                    obj.favorable_price = ''+this.copyClass.favorable_price
+                    obj.tf_recommended = ''+this.copyClass.tf_recommended
+                    obj.project_id = ''+this.copyClass.project_id
+                    obj.effictive_days_type = this.copyClass.effictive_days_type
+                    obj.effictive_days = ''+this.copyClass.effictive_days
+                    obj.effictive_date = this.copyClass.effictive_date
+                    if(obj.effictive_days_type == "有效天数"){
+                        delete obj.effictive_date
+                    }else{
+                        delete obj.effictive_days
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/copyCursePackage',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '复制成功',
+                                        duration: 2000
+                                    });
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '复制失败',
+                                        duration: 2000
+                                    });
+                                }
+                                _this.inita()
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                        }
+                    })
+                },
+                inita() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/queryCursePackage',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.activeIndexa
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcbs = data
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                addClasses(id) {
+                    console.log(id)
+                    if (id == 'no') {
+                        window.open('classesmanage.html')
+                    } else {
+                        window.open('classesmanage.html?course_package_id=' + id)
+                    }
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                deleteClass(id) {
+                    _this = this
+                    this.$confirm(`您确定要删除此课程？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        dangerouslyUseHTMLString: true,
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/coursePackage/CursePackageDelete',
+                            type: 'get',
+                            // contentType: 'application/json',
+                            data: {
+                                course_package_id: id,
+                                delete: 1
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除成功',
+                                        duration: 2000
+                                    });
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除失败',
+                                        duration: 2000
+                                    });
+                                }
+                                _this.inita()
+                                // _this.kemus = data
+                                // _this.activeIndexb = _this.kemus[0].pse_id
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 0
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '已取消'
+                        });
+                    });
+                },
+                shangjia(id, status) {
+                    console.log(id)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/coursePackage/CursePackageStatus',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            course_package_id: id,
+                            status: status
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '修改成功',
+                                    duration: 2000
+                                });
+                            } else {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '修改失败',
+                                    duration: 2000
+                                });
+                            }
+
+                            _this.inita()
+                            // _this.kemus = data
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: data,
+                                duration: 0
+                            });
+                        }
+                    })
+                },
+                copyClasss(item) {
+                    console.log(item)
+                    _this = this
+                    _this.copyClass = item
+                    _this.model = 1
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

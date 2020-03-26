@@ -1,0 +1,193 @@
+.iconfontH{color: red;}
+        .tipsH{color: red;}
+        .iii{
+            position: absolute;
+            top: 23px;
+            right: -8px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #ddd;
+        }
+        .cc{
+            height: 62px;
+            padding: 0 1%;
+            line-height: 1.5;
+        }
+        .alert {
+            padding: 15px;
+            border: 1px solid transparent;
+            margin:0 auto;
+        }
+    
+        .alert-warning {
+            color: #c09853;
+            background-color: #fcf8e3;
+            border-color: #fbeed5
+        }
+        .alert-dismissable .cloze {
+            position: relative;
+            right: 50px;
+            color: inherit;
+            font-size:1.6rem;
+            cursor:pointer;
+        }
+        .cloze {
+            float: right;
+            font-size: 21px;
+            font-weight: bold;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .2;
+            filter: alpha(opacity=20);
+            display: inline-block;
+            margin-top: 0px;
+            margin-right: 0px;
+            width: 9px;
+            height: 9px;
+            background-repeat: no-repeat !important;
+        }
+        
+        form{
+        	display: none;
+        }
+    
+        .noalert {
+            float: right;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .2;
+            filter: alpha(opacity=20);
+            display: inline-block;
+            margin: 1px -15px 0 15px;
+            width: 80px;
+            height: 9px;
+            background-repeat: no-repeat !important;
+            cursor:pointer;
+        }
+    
+        .cloze:hover,.cloze:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            opacity: .5;
+            filter: alpha(opacity=50)
+        }
+        button.cloze {
+            padding: 0;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            -webkit-appearance: none
+        }
+		#blv_uploader{
+			height: 36px; width: 138px;
+			position: fixed;
+			bottom: 10px;
+			left: -136px;
+			z-index: 100;
+			/*background-color: red;*/
+			/*display: none;*/
+			opacity: 0;
+		}
+		#blv_uploader-queue{
+			display: none;
+		}
+        a#addFlashBtn{
+            width: 60px;
+            border: none;
+            padding: 9px 10px;
+            font-size: 12px;
+            line-height: 12px;
+            text-align: center;
+        }
+        .iconfontH{color: red;}
+.tipsH{color: red;}
+.iii{
+  position: absolute;
+  top: 23px;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top-color: #ddd;
+}
+.cc{
+  height: 62px;
+  padding: 0 1%;
+  line-height: 1.5;
+}
+.alert {
+    padding: 15px;
+    border: 1px solid transparent;
+    margin:0 auto;
+}
+
+.alert-warning {
+    color: #c09853;
+    background-color: #fcf8e3;
+    border-color: #fbeed5
+}
+.alert-dismissable .cloze {
+    position: relative;
+    right: 50px;
+    color: inherit;
+    font-size:1.6rem;
+    cursor:pointer;
+}
+.cloze {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    filter: alpha(opacity=20);
+    display: inline-block;
+	margin-top: 0px;
+	margin-right: 0px;
+	width: 9px;
+	height: 9px;
+	background-repeat: no-repeat !important;
+}
+
+.noalert {
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    filter: alpha(opacity=20);
+    display: inline-block;
+	margin: 1px -15px 0 15px;
+	width: 80px;
+	height: 9px;
+	background-repeat: no-repeat !important;
+	cursor:pointer;
+}
+
+.cloze:hover,.cloze:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+button.cloze {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none
+}
+    .dropdown{
+        position: absolute;
+    }
+    

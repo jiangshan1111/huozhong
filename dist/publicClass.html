@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .el-date-editor--datetimerange.el-input__inner {
+            width: 80%;
+        }
+
+        .el-date-editor input {
+            height: 27px !important;
+        }
+
+        .el-date-editor input {
+            height: 27px !important;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        /* .el-message-box {
+            width: 80%
+        } */
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav"> </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app" v-cloak>
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li onclick="window.location.href='class.html'">课程</li>
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap operate">
+                <div class="mainbackground">
+                    <div class="select-option clear">
+                        <ul>
+                            <li>
+                                <span class="s-title">学科</span>
+                                <span class="s-list" id="one">
+                                    <a @click="activea('')"
+                                        :class="activeIndexa == ''?' btn btn-sm btn-default btn-success oneItem':'btn btn-sm btn-default oneItem'"
+                                        oneid="" href="javascript:;">全部</a>
+
+                                    <a href="javascript:;" ids="86683" v-for="(item,index) in projects"
+                                        @click="activea(item.pse_id)"
+                                        :class="activeIndexa == item.pse_id?' btn btn-sm btn-default btn-success oneItem':'btn btn-sm btn-default oneItem'">{{item.pse_name}}</a>
+
+                                    <!-- <a class="btn btn-sm btn-default oneItem" oneid="128040"
+                                        href="javascript:;">注册消防工程师</a> -->
+
+                                </span>
+                            </li>
+                            <li id="two">
+                                <span class="s-title">学科小类</span>
+                                <span class="s-list" id="twoItem">
+                                    <a href="javascript:;" ids="86683" @click="activeb('')"
+                                        :class="activeIndexb == ''?' btn btn-sm btn-default btn-success':'btn btn-sm btn-default'">全部</a>
+                                    <a href="javascript:;" ids="86683" v-for="(item,index) in kemus"
+                                        @click="activeb(item.pse_id)"
+                                        :class="activeIndexb == item.pse_id?' btn btn-sm btn-default btn-success':'btn btn-sm btn-default'">{{item.pse_name}}</a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="s-title">状态</span>
+                                <span class="s-list">
+                                    <a href="javascript:;" data-flag="all" @click="actived('')"
+                                        :class="activeIndexd == ''?'btn btn-sm btn-default btn-success pubStatus':'btn btn-sm btn-default pubStatus'">全部</a>
+                                    <a href="javascript:;" data-flag="live_flag" @click="actived('未上架')"
+                                        :class="activeIndexd == '未上架'?'btn btn-sm btn-default btn-success pubStatus':'btn btn-sm btn-default pubStatus'">未上架</a>
+                                    <a href="javascript:;" data-flag="video_flag" @click="actived('招生中')"
+                                        :class="activeIndexd == '招生中'?'btn btn-sm btn-default btn-success pubStatus':'btn btn-sm btn-default pubStatus'">招生中</a>
+                                    <a href="javascript:;" data-flag="blend_flag" @click="actived('已下架')"
+                                        :class="activeIndexd == '已下架'?'btn btn-sm btn-default btn-success pubStatus':'btn btn-sm btn-default pubStatus'">已下架</a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="s-title">时间</span>
+                                <span class="s-list">
+                                    <template>
+                                        <div class="block" style="display:inline-block;">
+                                            <!-- <span class="demonstration">默认</span> -->
+                                            <el-date-picker v-model="value1" type="date" style="    height: 27px;"
+                                                placeholder="选择日期">
+                                            </el-date-picker>
+                                        </div>
+                                    </template>
+                                    <a class="btn btn-sm btn-default seTime" href="javascript:;" @click="searchClass"
+                                        style="margin:0">查询</a>
+                                    <a class="btn btn-sm btn-default reSet" href="javascript:;" @click="resetTime"
+                                        style="margin:0">重置</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="u-wrap classes">
+                <div class="mainbackground nopadding">
+                    <div class="heading">
+                        <h2 class="h5">公开课列表<a href="classPublicAdd.html" class="btn btn-mini btn-primary create"
+                                style="float: right;">新建公开课</a></h2>
+
+
+
+                        <span class="line"></span>
+                    </div>
+                    <div id="info">
+                        <div class="m-list clear">
+                            <ul class="clear" id="ulListss">
+
+                                <li v-for="(item,index) in kcs">
+
+
+
+                                    <i class="tips">{{item.pc_status}}</i>
+
+
+                                    <div class="infos-pic">
+
+
+                                        <img alt="" src="file:///Z:/upload111/1573108704410.jpg">
+
+                                    </div>
+                                    <div class="infos-title">
+                                        <h2 class="h5" style="width: 100%;line-height: 1.4;"><a
+                                                href="">课程名称：{{item.pc_name}}</a>
+                                        </h2>
+                                        <h2 class="h5"
+                                            style="width: 100%;line-height: 1.4;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                            <a href="javascript:void(0)">讲师：{{item.js_user_name}}</a></h2>
+                                        <h2 class="h5" style="width: 100%;line-height: 1.4;">
+                                            <a href="javascript:void(0)">时间：
+                                                {{item.time}}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <div class="btns" style="padding:0px;">
+                                        <el-dropdown>
+                                            <!-- <span class="el-dropdown-link">
+                                                              下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+                                                            </span> -->
+                                            <a href="javascript:;" class="btn btn-sm btn-default moreEditBtn">操作</a>
+                                            <el-dropdown-menu slot="dropdown">
+                                                <!-- <el-dropdown-item>关联课程包</el-dropdown-item> -->
+                                                <el-dropdown-item
+                                                    @click.native="change_status(item.public_class_id,item.pc_status == '招生中'?'已下架':'招生中')">
+                                                    {{item.pc_status == '招生中'?'下架':'上架'}}
+                                                </el-dropdown-item>
+                                                <el-dropdown-item @click.native="delete_public(item.public_class_id)">删除
+                                                </el-dropdown-item>
+                                                <el-dropdown-item @click.native="bianji(item.public_class_id)">编辑
+                                                </el-dropdown-item>
+                                                <el-dropdown-item @click.native="into_class(item)">进入教室
+                                                </el-dropdown-item>
+                                                <el-dropdown-item
+                                                    @click.native="view_hf(item)">查看回放
+                                                </el-dropdown-item>
+                                            </el-dropdown-menu>
+                                        </el-dropdown>
+                                        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-default del" couid="24817"
+                                            @click="delete_public(item.public_class_id)">删除</a>
+
+
+
+
+                                        <a href="javascript:;" class="btn btn-sm btn-default on" couid="24817"
+                                            time="Tue May 28 00:00:00 CST 2019"
+                                            @click="change_status(item.public_class_id,item.pc_status == '招生中'?'已下架':'招生中')">{{item.pc_status == '招生中'?'下架':'上架'}}</a>
+
+
+
+                                        <a href="javascript:void(0)" @click="bianji(item.public_class_id)"
+                                            class="btn btn-sm btn-primary">编辑</a> -->
+
+                                        <a href="javascript:;" class="btn btn-sm btn-primary fz" couid="24817"
+                                            fztime="2019-05-28 19:30" fetime="2019-05-28 20:30" data-barrage="0"
+                                            data-modetype="3" data-ls="ht" @click="fuzhi(item)">复制</a>
+
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <input type="hidden" id="itemOneId" name="itemOneId" value="">
+                        <input type="hidden" id="searchName" value="">
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+        <div class="v-modal" tabindex="0" v-show="model != 0" style="z-index: 43;"></div>
+        <div tabindex="-1" role="dialog" v-show="model == 1" aria-modal="true" aria-label="提示"
+            class="el-message-box__wrapper" style="z-index: 44;">
+            <div class="el-message-box" style="width: 50%;">
+                <div class="el-message-box__header">
+                    <div class="el-message-box__title">
+                        <!----><span>提示</span></div><button type="button" aria-label="Close" @click="model = 0"
+                        class="el-message-box__headerbtn"><i class="el-message-box__close el-icon-close"></i></button>
+                </div>
+                <div class="el-message-box__content">
+                    <div class="el-message-box__status el-icon-warning"></div>
+                    <div class="el-message-box__message">
+                        <p>注：可将当前公开课信息复制到对应日期，请您选择您想选择的日期</p>
+                    </div>
+                </div>
+                <div class="el-message-box__content">
+
+                    <div class="el-message-box__input">
+                        <div class="el-input">
+                            <template>
+                                <!-- <div class="block"> -->
+                                <span class="demonstration c-title">公开课时间：</span>
+                                <el-date-picker v-model="value2" type="datetimerange" range-separator="至"
+                                    start-placeholder="开始日期" end-placeholder="结束日期">
+                                </el-date-picker>
+                                <!-- </div> -->
+                            </template>
+                        </div>
+                        <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
+                    </div>
+                </div>
+                <div class="el-message-box__btns"><button @click="model = 0" type="button"
+                        class="el-button el-button--default el-button--small">
+                        <!---->
+                        <!----><span>
+                            取消
+                        </span></button><button @click="change_fuzhi(1)" type="button"
+                        class="el-button el-button--default el-button--small el-button--primary ">
+                        <!---->
+                        <!----><span>
+                            不用修改
+                        </span></button><button @click="change_fuzhi(2)" type="button"
+                        class="el-button el-button--default el-button--small el-button--primary ">
+                        <!---->
+                        <!----><span>
+                            需要修改
+                        </span></button></div>
+            </div>
+        </div>
+        <div id="addLessonDialog" class="dialog" style="" v-show="model == 2">
+            <div class="upload-layer"
+                style="width: 580px; height: 300px; margin-left: -290px; top: 60%; background: rgb(255, 255, 255); box-shadow: rgb(153, 153, 153) 0px 0px 6px; border: none; border-radius: 5px;">
+                <div class="upload-title">
+                    <h2 class="h5">选择方式</h2> <i class="close iconfont" @click="model = 0"></i>
+                </div>
+                <div id="lsOne" class="main">
+                    <ul class="tabsn " style="margin: 40px 50px;">
+                        <li class="b1" style="    float: left;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    margin: 10px 10px 0 0;
+                    border: none;
+                    border-radius: 5px;
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    background: #33d5f9;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.protocol)">win电脑启动协议</li>
+                        <li class="b2" style="    float: left;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    margin: 10px 10px 0 0;
+                    border: none;
+                    border-radius: 5px;
+                    position: relative;
+                    color: #fff;
+                    background: #fb8800;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.protocolMac)">mac启动协议</li>
+                        <li class="b3" style="    float: left;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    margin: 10px 10px 0 0;
+                    border: none;
+                    border-radius: 5px;
+                    background: #06e289;
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.download)">win下载软件地址 </li>
+                        <li style="    float: left;
+                        width: 470px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    margin: 10px 10px 0 0;
+                    border: none;
+                    border-radius: 5px;
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;"><span style="    display: inline-block;
+                    display: inline-block;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    border: none;
+                    border-radius: 5px;
+                    margin: 10px 10px 0 0;
+                    background: #78e669;
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.downloadMac)">mac下载软件地址</span><span style="    display: inline-block;
+                    display: inline-block;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    border: none;
+                    border-radius: 5px;
+                    margin: 10px 10px 0 0;
+                    background: rgb(230, 203, 105);
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.url)">登录页地址</span></li>
+                        <!-- <li class="b5">混合</li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script> -->
+    <!-- <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script> -->
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <!-- <script src="assets/js/notice.js"></script>
+    <script src="http://manage.yunduoketang.com/javascripts/common/utils.js?version=1563474866721"></script>
+    <script type="text/javascript"
+        src="http://manage.yunduoketang.com/plugins/ckeditor/ckeditor.js?version=1563474866721"></script> -->
+
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: '',
+                    activeIndexb: '',
+                    activeIndexc: '',
+                    activeIndexd: '',
+                    user_id:parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    fuzhiid: '',
+                    projects: [],
+                    kemus: [],
+                    kcs: [],
+                    url_info: {},
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function () {
+                    $("#topnav").load("header.html");
+                });
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        // _this.activeIndexa = _this.projects[0].pse_id
+                        _this.inita()
+                        _this.searchClass()
+                        // _this.kc.project_id = _this.projects[0].pse_id
+                        // _this.changeKemu()
+                        // _this.userList = data
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                        //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                        //     _this.userList[i].enrollment_status = _this.userList[i]
+                        //         .enrollment_status == 1 ? '已报名' : '未报名'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                goNext(url){
+                    window.open(url)
+                },
+                //查看回放
+                view_hf(item) {
+                    console.log(this.user_id)
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/teaching/courseAccessPlayback',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "user_id": _this.user_id,
+                            "course_times_id": item.public_class_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.code == 200) {
+                                window.open(data.data.playbackOutUrl)
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                            // _this.kcs = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                into_class(item) {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/user/identificationPeople',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            user_id: _this.user_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data.indexOf('教师'))
+                            if (data.indexOf('教师') > -1) {
+                                _this.choose_zb_type(item)
+                            } else {
+                                _this.into_zb(item)
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                choose_zb_type(item) {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/teaching/startLive',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            user_id:_this.user_id,
+                            course_times_id:item.public_class_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.code != 200) {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            } else {
+                                _this.model = 2
+                                _this.url_info = data.data.data
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                into_zb(item) {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/teaching/courseAccess',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "user_id": _this.user_id,
+                            "course_times_id": item.public_class_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.code == 200) {
+                                window.open(data.data.liveUrl)
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                            // _this.kcs = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                active() {
+
+                },
+                delete_public(id) {
+                    _this = this
+                    obj = {
+                        "public_class_id": id,
+                        "tf_delete": 1
+                    }
+                    this.$confirm(`您确定要删除此公开课？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        dangerouslyUseHTMLString: true,
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/PublicClass/deletePublicClass',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: "删除成功",
+                                        duration: 2000
+                                    });
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: "删除失败",
+                                        duration: 2000
+                                    });
+                                }
+
+                                _this.searchClass()
+                                // _this.kemus = data
+                                // _this.activeIndexb = _this.kemus[0].pse_id
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 0
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '已取消'
+                        });
+                    });
+                },
+                go_add() {
+                    window.open('classPublicAdd.html')
+                },
+                resetTime() {
+                    this.value1 = ''
+                    this.activeIndexa = '';
+                    this.activeIndexb = '';
+                    this.activeIndexd = '';
+                },
+                searchClasses() {
+                    this.value1 = ''
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                    this.inita()
+                    this.activeIndexb = ''
+                    this.searchClass()
+                },
+                actived(jj) {
+                    this.activeIndexd = jj
+                    this.searchClass()
+                },
+                bianji(id) {
+                    window.open('classPublicdetail.html?public_class_id=' + id)
+                },
+                activeb(num) {
+                    this.activeIndexb = num
+                    this.searchClass()
+                },
+                fuzhi(item) {
+                    _this.value2 = [item.begin_time, item.end_time]
+                    _this.fuzhiid = item.public_class_id
+
+                    console.log(_this.value2, _this.fuzhiid)
+                    this.model = 1
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+                    return currentdate;
+                },
+                getNowFormatDate1(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + ' ' +
+                        hour + seperator2 + minute;
+                    return currentdate;
+                },
+                change_fuzhi(num) {
+                    _this = this
+                    if (num == 1) {
+                        obj = {
+                            public_class_id: _this.fuzhiid
+                        }
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/PublicClass/copyPublicClass',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            // data:obj,
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.code == 200) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: "操作成功",
+                                        duration: 2000
+                                    });
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: "操作失败",
+                                        duration: 2000
+                                    });
+                                }
+                                _this.searchClass()
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    } else if (num == 2) {
+                        console.log(_this.getNowFormatDate1(new Date(_this
+                            .value2[0])))
+                        obj = {
+                            public_class_id: _this.fuzhiid,
+                            begin_time: _this.getNowFormatDate1(new Date(_this
+                                .value2[0])),
+                            end_time: _this.getNowFormatDate1(new Date(_this
+                                .value2[1]))
+                        }
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/PublicClass/copyPublicClass',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            // data:obj,
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data == 1) {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: "操作成功",
+                                        duration: 2000
+                                    });
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: "操作失败",
+                                        duration: 2000
+                                    });
+                                }
+                                _this.searchClass()
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }
+                },
+                change_status(id, status) {
+                    _this = this
+                    obj = {
+                        public_class_id: id,
+                        pc_status: status
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/PublicClass/updatePublicClassStatus',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data == 1) {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: "操作成功",
+                                    duration: 2000
+                                });
+                            } else {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: "操作失败",
+                                    duration: 2000
+                                });
+                            }
+                            _this.searchClass()
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '服务器错误',
+                                duration: 0
+                            });
+                        }
+                    })
+                },
+                searchClass() {
+                    _this = this
+                    obj = {};
+                    if (this.activeIndexa != "") {
+                        obj.project_id = _this.activeIndexa
+                    }
+                    if (this.activeIndexb != "") {
+                        obj.subject_id = _this.activeIndexb
+                    }
+                    if (this.activeIndexd != "") {
+                        obj.pc_status = _this.activeIndexd
+                    }
+                    if (_this.value1 == "") {
+                        // begin_time = ""
+                    } else {
+                        obj.begin_time = _this.getNowFormatDate(new Date(_this.value1))
+                    }
+                    // begin_time = begin_time
+                    // obj = {
+                    //         project_id: _this.activeIndexa,
+                    //         subject_id: _this.activeIndexb,
+                    //         begin_time: begin_time,
+                    //         pc_status: _this.activeIndexd
+                    //     }
+                    console.log(this.activeIndexa, this.activeIndexb, this.activeIndexc, this.activeIndexd)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/PublicClass/queryPublicClass',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcs = data
+                            for (let k = 0; k < _this.kcs.length; k++) {
+                                _this.kcs[k].mouse_status = 'false'
+                                _this.kcs[k].begin_time = _this.getNowFormatDate1(new Date(_this
+                                    .kcs[k].begin_time))
+                                _this.kcs[k].end_time = _this.getNowFormatDate1(new Date(_this.kcs[
+                                    k].end_time))
+                                console.log(_this.kcs[k])
+                                _this.kcs[k].time = _this.kcs[k].begin_time + '-' + _this.kcs[k]
+                                    .end_time.split(' ')[1]
+                            }
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+
+                inita() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.activeIndexa
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

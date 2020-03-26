@@ -1,0 +1,919 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="s 9fantylesheet" href="css/black.css">
+    <link rel="stylesheet" type="text/css" href="css/element-ui.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/class-bag.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <!-- <link href="css/doRecord.css" rel="stylesheet" type="text/css"> -->
+    <link href="css/classesTitle.css" rel="stylesheet" type="text/css">
+    <link href="css/questionLeft.css" rel="stylesheet" type="text/css">
+    <link href="css/issueTypes.css" rel="stylesheet" type="text/css">
+    <!-- <link href="css/doRecord.css" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" type="text/css" href="css/newHomeIndex.css">
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix"> </div>
+    <!-- register-end-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <main id="app" style="margin-top:60px">
+        <div class="containerBox">
+            <div class="achieveBox centerBox">
+                <h2 class="achieveTit clear">
+                    <i class="fl markImg recimg-hide"></i>
+                    <strong class="fl strHide">我的收藏</strong>
+                    <b class="fl"> {{params.title}}</b>
+                    <button class="fr retQue" @click="goback">返回做题</button>
+                </h2>
+            </div>
+        </div>
+        <div class="containerBox">
+            <div class="questionLeft boxShadow">
+                <div class="questionTitle errorTitle">
+                    <h3>您的收藏：共<b>{{params.total}}</b>题</h3>
+                </div>
+                <div class="questionList" style="padding-left: 0;">
+                    <ul class="errorList">
+                        <!-- 单选 -->
+                        <li @click="changePage(0,'单选')" class="topicIndex radio" :class="leftIndex === 0 ? 'on':''"
+                            v-if="single.singleSelection.length">
+                            <span>单选题</span>
+                            <b><i>{{single.singleSelection.length}}</i>题</b>
+                        </li>
+                        <li @click="changePage(1,'多选')" class="topicIndex radio" :class="leftIndex === 1 ? 'on':''"
+                            v-if="multiple.multipleSelection.length">
+                            <span>多选题</span>
+                            <b><i>{{multiple.multipleSelection.length}}</i>题</b>
+                        </li>
+                        <li @click="changePage(2,'简答')" class="topicIndex radio" :class="leftIndex === 2 ? 'on':''"
+                            v-if="shortAnswer.shortAnswerSelection.length">
+                            <span>简答题</span>
+                            <b><i>{{shortAnswer.shortAnswerSelection.length}}</i>题</b>
+                        </li>
+                        <li @click="changePage(3,'材料')" class="topicIndex radio" :class="leftIndex === 3 ? 'on':''"
+                            v-if="materialQus.selection.length">
+                            <span>材料题</span>
+                            <b><i>{{materialQus.selection.length}}</i>题</b>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="questionLRight boxShadow">
+                <!-- 单选 -->
+                <div class="radio" v-if="single.singleSelection.length  && showLeftNav === 0">
+                    <div class="issueTypes errorCollect">
+                        <span>{{single.title}}</span>
+                    </div>
+                    <div class="issueBox">
+                        <h5 class="issueTitle">
+                            <b>{{single.singleNow.serialnumber}}.</b>{{single.singleNow.question_name}}</h5>
+                        <el-radio-group v-model="single.singleRadio" disabled>
+                            <el-radio @change="changeRadio(item.isTrue)" :label="item.title"
+                                v-for="(item,i) in single.singleNow.optionanswer" :key="i">{{item.value}}</el-radio>
+                        </el-radio-group>
+                    </div>
+                    <div class="resolveBox">
+                        <div class="">
+                            <dl class="resolveList">
+                                <dt>已选：{{single.singleRadio}}</dt>
+                                <dd>
+                                    <p>
+                                        <span class="selection"></span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <dl class="resolveList">
+                                <dt>难易程度：</dt>
+                                <dd>
+                                    <p>
+                                        <span class="diffculty">{{single.singleNow.difficulty | filterLevel}}</span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <div>
+                                <dl class="resolveList">
+                                    <dt>您的答案：</dt>
+                                    <dd class="">
+                                        <p><span>{{single.singleNow.singleRadio}}</span></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>正确答案：</dt>
+                                    <dd class="correct">
+                                        <p><span>{{single.singleNow.real}}</span></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>文字解析：</dt>
+                                    <dd class="analysis">
+                                        <div v-html="single.singleNow.question_analysis"></div>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>音频解析：</dt>
+                                    <dd class="musicAnalysis">
+                                        <div v-html="single.singleNow.audio_analysis"></div>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>视频解析：</dt>
+                                    <dd class="videoAnalysis">
+                                        <div v-html="single.singleNow.video_analysis"></div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonBox">
+                        <span class="collect" :class="single.singleNow.tf_collection === 1? 'active' : ''"
+                            @click="joinInCollection(single.singleNow.tf_collection, '单选')">
+                            <i></i>
+                            <b v-if="single.singleNow.tf_collection === 2">加入收藏</b>
+                            <b v-else>取消收藏</b>
+                        </span>
+                        <!-- <button style="background-color: #0af;" v-if="!single.show"
+                            @click="single.show = true">查看解析</button>
+                        <button style="background-color: #0af;" v-else @click="single.show = false">收起解析</button> -->
+                        <!-- <button class="submit" @click="submit('单选')">提交</button> -->
+                        <button class="prev" v-if="single.singleIndex > 1" @click="prevBtn('单选')">上一题</button>
+                        <button class="next" v-if="single.singleIndex < single.singleSelection.length"
+                            @click="nextBtn('单选')">下一题</button>
+                    </div>
+                </div>
+                <!-- 多选 -->
+                <div class="radio" v-if="multiple.multipleSelection.length  && showLeftNav === 1">
+                    <div class="issueTypes errorCollect">
+                        <span>{{multiple.title}}</span>
+                    </div>
+                    <div class="issueBox">
+                        <h5 class="issueTitle">
+                            <b>{{multiple.multipleNow.serialnumber}}.</b>{{multiple.multipleNow.question_name}}
+                        </h5>
+                        <el-checkbox-group v-model="multiple.multipleCheckbox" disabled>
+                            <el-checkbox @change="changeCheckbox" v-for="(item,i) in multiple.multipleNow.optionanswer"
+                                :key="i" :label="item.title">{{item.title + ' ' + item.value}}</el-checkbox>
+                        </el-checkbox-group>
+                    </div>
+                    <div class="resolveBox">
+                        <div class="resolve">
+                            <dl class="resolveList">
+                                <dt>已选：{{multiple.multipleCheckbox.join(',')}}</dt>
+                                <dd>
+                                    <p>
+                                        <span class="selection"></span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <dl class="resolveList">
+                                <dt>难易程度：</dt>
+                                <dd>
+                                    <p>
+                                        <span class="diffculty">{{multiple.multipleNow.difficulty | filterLevel}}</span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <div>
+                                <dl class="resolveList">
+                                    <dt>您的答案：</dt>
+                                    <dd class="">
+                                        <p><span>{{multiple.multipleCheckbox.join(',')}}</span></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>正确答案：</dt>
+                                    <dd class="correct">
+                                        <p><span>{{multiple.multipleNow.real.join(',')}}</span></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>文字解析：</dt>
+                                    <dd class="analysis">
+                                        <p v-html="multiple.multipleNow.question_analysis"></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>音频解析：</dt>
+                                    <dd class="musicAnalysis">
+                                        <p v-html="multiple.multipleNow.audio_analysis"></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>视频解析：</dt>
+                                    <dd class="videoAnalysis">
+                                        <p v-html="multiple.multipleNow.video_analysis"></p>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonBox">
+                        <span class="collect" :class="multiple.multipleNow.tf_collection === 1? 'active' : ''"
+                            @click="joinInCollection(multiple.multipleNow.tf_collection, '多选')">
+                            <i></i>
+                            <b v-if="multiple.multipleNow.tf_collection === 2">加入收藏</b>
+                            <b v-else>取消收藏</b>
+                        </span>
+                        <!-- <button style="background-color: #0af;" v-if="!multiple.show"
+                            @click="multiple.show = true">查看解析</button>
+                        <button style="background-color: #0af;" v-else @click="multiple.show = false">收起解析</button> -->
+                        <!-- <button class="submit" @click="submit('多选')">提交</button> -->
+                        <button class="prev" v-if="multiple.multipleIndex > 1" @click="nextBtn('多选')">上一题</button>
+                        <button class="next" v-if="multiple.multipleIndex < multiple.multipleSelection.length"
+                            @click="prevBtn('多选')">下一题</button>
+                    </div>
+                </div>
+                <!-- 简答 -->
+                <div class="radio" v-if="shortAnswer.shortAnswerSelection.length  && showLeftNav === 2">
+                    <div class="issueTypes errorCollect">
+                        <span>{{shortAnswer.title}}</span>
+                    </div>
+                    <div class="issueBox">
+                        <h5 class="issueTitle">
+                            <b>{{shortAnswer.shortAnswerNow.serialnumber}}.</b>{{shortAnswer.shortAnswerNow.question_name}}
+                        </h5>
+                        <textarea name="" readonly @change="changeText()" v-model="shortAnswer.shortAnswerValue" id=""
+                            style="width: 100%;" rows="10"></textarea>
+                    </div>
+                    <div class="resolveBox">
+                        <div class="resolve">
+                            <dl class="resolveList">
+                                <dt>难易程度：</dt>
+                                <dd>
+                                    <p>
+                                        <span
+                                            class="diffculty">{{shortAnswer.shortAnswerNow.difficulty | filterLevel}}</span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <div>
+                                <dl class="resolveList">
+                                    <dt>正确答案：</dt>
+                                    <dd class="correct">
+                                        <p><span v-html="shortAnswer.shortAnswerNow.optionanswer"></span></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>文字解析：</dt>
+                                    <dd class="analysis">
+                                        <p v-html="shortAnswer.shortAnswerNow.question_analysis"></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>音频解析：</dt>
+                                    <dd class="musicAnalysis">
+                                        <p v-html="shortAnswer.shortAnswerNow.audio_analysis"></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>视频解析：</dt>
+                                    <dd class="videoAnalysis">
+                                        <p v-html="shortAnswer.shortAnswerNow.video_analysis"></p>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonBox">
+                        <span class="collect" :class="shortAnswer.shortAnswerNow.tf_collection === 1? 'active' : ''"
+                            @click="joinInCollection(shortAnswer.shortAnswerNow.tf_collection, '简答')">
+                            <i></i>
+                            <b v-if="shortAnswer.shortAnswerNow.tf_collection === 2">加入收藏</b>
+                            <b v-else>取消收藏</b>
+                        </span>
+                        <!-- <button style="background-color: #0af;" v-if="!shortAnswer.show"
+                            @click="shortAnswer.show = true">查看解析</button>
+                        <button style="background-color: #0af;" v-else @click="shortAnswer.show = false">收起解析</button> -->
+                        <!-- <button class="submit" @click="submit('简答')">提交</button> -->
+                        <button class="prev" v-if="shortAnswer.shortAnswerIndex > 1" @click="nextBtn('简答')">上一题</button>
+                        <button class="next"
+                            v-if="shortAnswer.shortAnswerIndex < shortAnswer.shortAnswerSelection.length"
+                            @click="prevBtn('简答')">下一题</button>
+                    </div>
+                </div>
+                <!-- 材料 -->
+                <div class="radio" v-if="materialQus.selection.length  && showLeftNav === 3">
+                    <div class="issueTypes errorCollect">
+                        <span>{{materialQus.title}}</span>
+                    </div>
+                    <div class="issueBox">
+                        <div class="issueTitle">
+                            <b>{{materialQus.now.serialnumber}}.</b>
+                            <div style="display: inline-block;" v-html="materialQus.now.question_name"></div>
+                        </div>
+                        <textarea name="" readonly @change="changeMQtext()" v-model="materialQus.value" id=""
+                            style="width: 100%;" rows="10"></textarea>
+                    </div>
+                    <div class="resolveBox">
+                        <div class="resolve">
+                            <dl class="resolveList">
+                                <dt>难易程度：</dt>
+                                <dd>
+                                    <p>
+                                        <span class="diffculty">{{materialQus.now.difficulty | filterLevel}}</span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <div>
+                                <dl class="resolveList">
+                                    <dt>正确答案：</dt>
+                                    <dd class="correct">
+                                        <p><span v-html="materialQus.now.optionanswer"></span></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>文字解析：</dt>
+                                    <dd class="analysis">
+                                        <p v-html="materialQus.now.question_analysis"></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>音频解析：</dt>
+                                    <dd class="musicAnalysis">
+                                        <p v-html="materialQus.now.audio_analysis"></p>
+                                    </dd>
+                                </dl>
+                                <dl class="resolveList">
+                                    <dt>视频解析：</dt>
+                                    <dd class="videoAnalysis">
+                                        <p v-html="materialQus.now.video_analysis"></p>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonBox">
+                        <span class="collect" :class="materialQus.now.tf_collection === 1? 'active' : ''"
+                            @click="joinInCollection(materialQus.now.tf_collection, '材料')">
+                            <i></i>
+                            <b v-if="materialQus.now.tf_collection === 2">加入收藏</b>
+                            <b v-else>取消收藏</b>
+                        </span>
+                        <!-- <button style="background-color: #0af;" v-if="!materialQus.show"
+                            @click="materialQus.show = true">查看解析</button>
+                        <button style="background-color: #0af;" v-else @click="materialQus.show = false">收起解析</button> -->
+                        <!-- <button class="submit" @click="submit('材料')">提交</button> -->
+                        <button class="prev" v-if="materialQus.index > 1" @click="nextBtn('材料')">上一题</button>
+                        <button class="next" v-if="materialQus.index < materialQus.selection.length"
+                            @click="prevBtn('材料')">下一题</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
+
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <!-- footer end -->
+    </div>
+    <!-- footer end -->
+    <!--百度统计代码-->
+</body>
+<script src="js/vue.min.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                domain: 'http://192.168.10.166:8080',
+                params: {}, //url参数
+                leftIndex: 0, // 左侧下标
+                aId: '', // 保存当前题库记录 数据请求过来的
+                allList: '', // 所有题数
+                showLeftNav: 0, // 切换右边显示某个题的内容
+                single: { // 单选题所有数据
+                    singleSelection: [], // 所有数据
+                    singleIndex: 1, // 下标
+                    singleNow: {}, // 当前数据
+                    title: '单选题',
+                    singleRadio: '',
+                    show: false
+                },
+                multiple: { // 多选题所有数据
+                    multipleSelection: [], // 所有数据
+                    multipleIndex: 1, // 下标
+                    multipleNow: {}, // 当前数据
+                    title: '多选题',
+                    multipleCheckbox: [],
+                    show: false
+                },
+                shortAnswer: { // 简答题
+                    shortAnswerSelection: [], // 所有数据
+                    shortAnswerIndex: 1, // 下标
+                    shortAnswerNow: {}, // 当前数据
+                    title: '简答题',
+                    shortAnswerValue: '',
+                    show: false
+                },
+                materialQus: { // 材料题
+                    selection: [], // 所有数据
+                    index: 1, // 下标
+                    now: {}, // 当前数据
+                    title: '材料题',
+                    value: '',
+                    show: false
+                }
+            }
+        },
+        created() {
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+            let qs = window.location.search.substring(1)
+            qs = qs.split('&')
+            for (let i = 0; i < qs.length; i++) {
+                qs[i] = qs[i].split('=')
+                this.params[qs[i][0]] = decodeURIComponent(qs[i][1])
+            }
+
+            // 初始化 错题
+            $.ajax({
+                type: 'post',
+                url: this.domain + '/stu/ItemBank/queryErrorCollectionQuestions',
+                data: JSON.stringify({
+                    "student_id": localStorage.stu_id, // 用户id
+                    "type": 2, // 1 错题 2收藏
+                    "ibs_id": this.params.ibs_id
+                }),
+                contentType: 'application/json',
+                success: res => {
+                    if (!res.length) {
+                        this.$element.Message({
+                            message: '没有题目！',
+                            type: 'warning'
+                        });
+                        window.history.go(-1)
+                        return
+                    }
+                    // 题分类
+                    res.forEach(el => {
+                        if (el.question_type === 7) {
+                            this.materialQus.selection.push(el)
+                        }
+                        // 多选题
+                        if (el.question_type === 4) {
+                            this.shortAnswer.shortAnswerSelection.push(el)
+                        }
+                        // 多选题
+                        if (el.question_type === 2) {
+                            this.multiple.multipleSelection.push(el)
+                        }
+                        // 单选题
+                        if (el.question_type === 1) {
+                            this.single.singleSelection.push(el)
+                        }
+                    })
+                    // 材料
+                    if (this.materialQus.selection.length) {
+                        this.materialQus.selection = this.filterData(this.materialQus.selection,
+                            '材料')
+                        this.initData(0, '材料')
+                        this.showLeftNav = 3
+                        this.leftIndex = 3
+                    }
+                    // 简答
+                    if (this.shortAnswer.shortAnswerSelection.length) {
+                        this.shortAnswer.shortAnswerSelection = this.filterData(this.shortAnswer
+                            .shortAnswerSelection,
+                            '简答')
+                        this.showLeftNav = 2
+                        this.leftIndex = 2
+                        this.initData(0, '简答')
+                    }
+                    // 多选
+                    if (this.multiple.multipleSelection.length) {
+                        this.multiple.multipleSelection = this.filterData(this.multiple
+                            .multipleSelection, '多选')
+                        this.showLeftNav = 1
+                        this.leftIndex = 1
+                        this.initData(0, '多选')
+                    }
+                    // 单选
+                    if (this.single.singleSelection.length) {
+                        this.single.singleSelection = this.filterData(this.single.singleSelection,
+                            '单选')
+                        this.showLeftNav = 0
+                        this.leftIndex = 0
+                        this.initData(0, '单选')
+                    }
+                }
+            })
+        },
+        methods: {
+            goback() {
+                window.history.go(-1)
+            },
+            // 关闭解析
+            isShow() {
+                this.single.show = false
+                this.multiple.show = false
+                this.shortAnswer.show = false
+                this.materialQus.show = false
+            },
+            // 返回做题
+            goback() {
+                window.history.go(-1)
+            },
+            // 收藏（公用）
+            joinInCollection(i, type) {
+                i = i === 1 ? 2 : 1
+                let obj = {
+                    "student_id": localStorage.stu_id,
+                    "question_id": '',
+                    "tf_collection": '',
+                    "tf_marked": ''
+                }
+                switch (type) {
+                    case '单选':
+                        this.single.singleNow.tf_collection = i
+                        this.single.singleSelection[this.single.singleNow.serialnumber - 1].tf_collection = i
+                        obj.question_id = this.single.singleNow.question_id
+                        obj.tf_collection = i
+                        break;
+                    case '多选':
+                        this.multiple.multipleNow.tf_collection = i
+                        this.multiple.multipleSelection[this.multiple.multipleNow.serialnumber - 1]
+                            .tf_collection = i
+                        obj.question_id = this.multiple.multipleNow.question_id
+                        obj.tf_collection = i
+                        break;
+                    case '简答':
+                        this.shortAnswer.shortAnswerNow.tf_collection = i
+                        this.shortAnswer.shortAnswerSelection[this.shortAnswer.shortAnswerNow.serialnumber - 1]
+                            .tf_collection = i
+                        obj.question_id = this.shortAnswer.shortAnswerNow.question_id
+                        obj.tf_collection = i
+                        break;
+                    case '材料':
+                        this.materialQus.now.tf_collection = i
+                        this.materialQus.selection[this.materialQus.now.serialnumber - 1].tf_collection = i
+                        obj.question_id = this.materialQus.now.question_id
+                        obj.tf_collection = i
+                        break;
+                }
+                $.ajax({
+                    type: 'post',
+                    data: JSON.stringify(obj),
+                    url: this.domain + '/stu/ItemBank/AddToCancelCollection',
+                    contentType: 'application/json',
+                    success: res => {
+                        console.log(res)
+                    }
+                })
+            },
+            // 重构数据为需要的的数据结构(公用)
+            filterData(arr, type) {
+                switch (type) {
+                    case '多选':
+                        arr.forEach((item, i) => {
+                            // 修改答案结构
+                            arr[i].optionanswer = arr[i].optionanswer.split(';').map(el => {
+                                el = el.split('#').slice(1)
+                                return {
+                                    title: el[0],
+                                    isTrue: el[1],
+                                    value: el[2]
+                                }
+                            }).filter(itm => itm.title !== undefined)
+                            // 寻找真正答案
+                            arr[i].real = arr[i].optionanswer.map(itm => {
+                                if (itm.isTrue === '是') {
+                                    return itm.title
+                                }
+                            }).filter(real => real !== undefined)
+                            arr[i].myAnswer = arr[i].wrong_answer ? arr[i].wrong_answer.split(',') : []
+                            arr[i].isTrue = ''
+                            arr[i].serialnumber = i + 1
+                        })
+                        break;
+                    case '单选':
+                        arr.forEach((it, i) => {
+                            arr[i].optionanswer = arr[i].optionanswer.split(';').map(el => {
+                                el = el.split('#').slice(1)
+                                return {
+                                    title: el[0],
+                                    isTrue: el[1],
+                                    value: el[2]
+                                }
+                            }).filter(itm => itm.title !== undefined)
+                            arr[i].real = arr[i].optionanswer.find(item => item.isTrue === '是').title
+                            arr[i].myAnswer = arr[i].wrong_answer
+                            arr[i].isTrue = ''
+                            arr[i].serialnumber = i + 1
+                        })
+                        break
+                    case '简答':
+                        arr.forEach((item, i) => {
+                            arr[i].myAnswer = arr[i].wrong_answer
+                            arr[i].isTrue = ''
+                            arr[i].serialnumber = i + 1
+                        })
+                        break
+                    case '材料':
+                        arr.forEach((item, i) => {
+                            arr[i].myAnswer = arr[i].wrong_answer
+                            arr[i].isTrue = ''
+                            arr[i].serialnumber = i + 1
+                        })
+                        break
+                }
+                return arr
+            },
+            // 点击li切换对应题内容（公用）
+            changePage(i, type) {
+                this.leftIndex = i
+                this.showLeftNav = i
+                this.isShow()
+                this.initData(0, type)
+            },
+            // 切换右侧对应题种数据（公用）
+            initData(i, type) {
+                switch (type) {
+                    case '单选':
+                        this.single.singleNow = this.single.singleSelection[i]
+                        this.single.singleRadio = this.single.singleNow.myAnswer ? this.single.singleNow
+                            .myAnswer : ''
+                        break;
+                    case '多选':
+                        this.multiple.multipleNow = this.multiple.multipleSelection[i]
+                        this.multiple.multipleCheckbox = this.multiple.multipleNow.myAnswer ? this.multiple
+                            .multipleNow
+                            .myAnswer : []
+                        break;
+                    case '简答':
+                        this.shortAnswer.shortAnswerNow = this.shortAnswer.shortAnswerSelection[i]
+                        this.shortAnswer.shortAnswerValue = this.shortAnswer.shortAnswerNow.myAnswer ? this
+                            .shortAnswer
+                            .shortAnswerNow.myAnswer : ''
+                        break;
+                    case '材料':
+                        this.materialQus.now = this.materialQus.selection[i]
+                        this.materialQus.value = this.materialQus.now.myAnswer ? this.materialQus
+                            .now.myAnswer : ''
+                        break;
+                }
+            },
+            // 下一题（公用）
+            nextBtn(type) {
+                let i = 0
+                switch (type) {
+                    case '单选':
+                        this.single.singleIndex++
+                        this.single.singleIndex = this.single.singleIndex > this.single.singleSelection.length ?
+                            this.single
+                            .singleSelection.length : this.single.singleIndex
+                        this.showLeftNav = 0
+                        i = this.single.singleIndex - 1
+                        break;
+                    case '多选':
+                        this.multiple.multipleIndex++
+                        this.multiple.multipleIndex = this.multiple.multipleIndex > this.multiple
+                            .multipleSelection.length ?
+                            this.multiple.multipleSelection.length : this.multiple.multipleIndex
+                        this.showLeftNav = 1
+                        i = this.multiple.multipleIndex - 1
+                        break;
+                    case '简答':
+                        this.shortAnswer.shortAnswerIndex++
+                        this.shortAnswer.shortAnswerIndex = this.shortAnswer.shortAnswerIndex > this.shortAnswer
+                            .shortAnswerSelection
+                            .length ?
+                            this.shortAnswer.shortAnswerSelection.length : this.shortAnswer.shortAnswerIndex
+                        this.showLeftNav = 2
+                        i = this.shortAnswer.shortAnswerIndex - 1
+                        break;
+                    case '材料':
+                        this.materialQus.index++
+                        this.materialQus.index = this.materialQus.index > this.materialQus
+                            .selection
+                            .length ?
+                            this.materialQus.selection.length : this.materialQus.index
+                        this.showLeftNav = 2
+                        i = this.materialQus.index - 1
+                        break;
+                    default:
+                        break;
+                }
+                this.isShow()
+                this.initData(i, type)
+            },
+            // 上一题（公用）
+            prevBtn(type) {
+                let i = 0
+                switch (type) {
+                    case '单选':
+                        this.single.singleIndex--
+                        this.single.singleIndex = this.single.singleIndex < 1 ? 1 : this.single.singleIndex
+                        this.showLeftNav = 0
+                        i = this.single.singleIndex - 1
+                        break;
+                    case '多选':
+                        this.multiple.multipleIndex--
+                        this.multiple.multipleIndex = this.multiple.multipleIndex < 1 ? 1 : this.multiple
+                            .multipleIndex
+                        this.showLeftNav = 1
+                        i = this.multiple.multipleIndex - 1
+                        break;
+                    case '简答':
+                        this.shortAnswer.shortAnswerIndex--
+                        this.shortAnswer.shortAnswerIndex = this.shortAnswer.shortAnswerIndex < 1 ? 1 : this
+                            .shortAnswer
+                            .shortAnswerIndex
+                        this.showLeftNav = 2
+                        i = this.shortAnswer.shortAnswerIndex - 1
+                        break;
+                    case '材料':
+                        this.materialQus.index--
+                        this.materialQus.index = this.materialQus.index < 1 ? 1 : this.materialQus
+                            .index
+                        this.showLeftNav = 3
+                        i = this.materialQus.index - 1
+                        break;
+                    default:
+                        break;
+                }
+                this.isShow()
+                this.initData(i, type)
+            },
+            // 判断选中是否对错（多选）
+            successorerror() {
+                return this.multiple.multipleCheckbox.join(',') == this.multiple.multipleNow.real.join(',') ?
+                    '对' : '错'
+            },
+            // radio选择（单选）
+            changeRadio(istrue) {
+                // 将选择的radio保存到当前数据
+                this.single.singleNow.myAnswer = this.single.singleRadio
+                // 保存是与否字段
+                this.single.singleNow.isTrue = istrue
+                // 将当前数据保存到对应单选总数据里
+                this.single.singleSelection[this.single.singleNow.serialnumber - 1] = this.single.singleNow
+            },
+            // 复选框赋值（多选）
+            changeCheckbox() {
+                this.multiple.multipleNow.myAnswer = this.multiple.multipleCheckbox = this.multiple
+                    .multipleCheckbox.sort()
+                // 判断是否多选题选择正确
+                this.multiple.multipleNow.isTrue = this.successorerror()
+                // 将当前数据保存到对应总数据里
+                this.multiple.multipleSelection[this.multiple.multipleNow.serialnumber - 1] = this.multiple
+                    .multipleNow
+            },
+            // 简答题答题框（简答）
+            changeText() {
+                this.shortAnswer.shortAnswerNow.myAnswer = this.shortAnswer.shortAnswerValue
+                // 判断是否填写答案正确（只要写就是正确）
+                this.shortAnswer.shortAnswerNow.isTrue = this.shortAnswer.shortAnswerValue ? '对' : '错'
+                // 将当前数据保存到对应总数据里
+                this.shortAnswer.shortAnswerSelection[this.shortAnswer.shortAnswerNow.serialnumber - 1] = this
+                    .shortAnswer
+                    .shortAnswerNow
+            },
+            // 材料题答题框（材料）
+            changeMQtext() {
+                this.materialQus.now.myAnswer = this.materialQus.value
+                // 判断是否填写答案正确（只要写就是正确）
+                this.materialQus.now.isTrue = this.materialQus.value ? '对' : '错'
+                // 将当前数据保存到对应总数据里
+                this.materialQus.selection[this.materialQus.now.serialnumber - 1] = this.materialQus
+                    .now
+            },
+            // 交卷
+            submit(type) {
+                // 错题提交 选择错误的答案不能提交
+                let obj = {
+                    "student_id": localStorage.stu_id, // 用户id
+                    "question_id": 1, // 题id
+                    "tf_wrong": 2 // 
+                }
+                switch (type) {
+                    case '单选':
+                        if (this.single.singleNow.isTrue === '否') return alert('请选择正确答案提交！')
+                        obj.question_id = this.single.singleNow.question_id
+                        break;
+                    case '多选':
+                        if (this.multiple.multipleNow.isTrue === '否') return alert('请选择正确答案提交！')
+                        obj.question_id = this.multiple.multipleNow.question_id
+                        break;
+                    case '简答':
+                        if (this.shortAnswer.shortAnswerNow.isTrue === '否') return alert('请填写答案再提交！')
+                        obj.question_id = this.shortAnswer.shortAnswerNow.question_id
+                        break;
+                    case '材料':
+                        if (this.materialQus.now.isTrue === '否') return alert('请填写答案再提交！')
+                        obj.question_id = this.materialQus.now.question_id
+                    default:
+                        break;
+                }
+                $.ajax({
+                    type: 'post',
+                    data: JSON.stringify(obj),
+                    url: this.domain + '/stu/ItemBank/errorsCommit',
+                    contentType: 'application/json',
+                    success: res => {
+                        if (res === 1) alert('交卷成功')
+                    }
+                })
+            }
+        },
+        filters: {
+            filterLevel(level) {
+                level = level - 0
+                switch (level) {
+                    case 1:
+                        return '简单'
+                    case 2:
+                        return '一般'
+                    case 3:
+                        return '困难'
+                }
+            }
+        },
+    })
+    app.$element = ELEMENT
+</script>
+
+</html>

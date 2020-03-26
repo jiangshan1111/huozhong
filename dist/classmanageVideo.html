@@ -1,0 +1,2733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/addTitle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classNum.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .q-box .add-layer .layer-content .term-herv .term-title {
+            font-size: 14px;
+            color: #333;
+            vertical-align: middle;
+            width: 70px;
+            padding-right: 10px;
+        }
+
+        .q-box .right-side .c-content input[type=text] {
+            width: 141px;
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+
+        .el-table::before {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 0;
+        }
+
+        .el-pagination button,
+        .el-pagination span:not([class*=suffix]) {
+            display: inline-block;
+            font-size: 13px;
+            min-width: 35.5px;
+            height: 25px;
+            line-height: unset;
+            vertical-align: top;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+
+        select,
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"] {
+            /* margin: 7px 2px; */
+        }
+
+        /* .q-btn-primary {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #00b7ee;
+    color: #fff;
+    padding: 0;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+} */
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper q-box" id="app">
+        <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data"></form>
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li style="color:e #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company">
+                <div class="block clear">
+
+
+
+                    <div class="labels classStatus else1">
+                        <s id="statusText">{{course_info.course_status}}</s>
+                        <div class="sanjiao"></div>
+                    </div>
+
+
+
+                    <div class="class-title">课程名称 ： {{course_info.course_name}}</div>
+                    <input type="hidden" value="832295" id="classTypeId">
+                    <div class="sum">
+
+
+
+
+
+
+
+                        <span>授课类型：{{course_info.course_type}}</span>
+
+
+                    </div>
+
+                    <div class="price">
+                        价格：{{course_info.special_price}}元
+                    </div>
+
+
+
+
+
+                    
+
+
+
+
+                </div>
+            </div>
+            <div class="u-wrap company overflow points-use-class" style="    margin-top: 20px;">
+
+                <div class="left-side">
+                    <div class="left-sides-title courseCancle">
+                        <!-- <em>返回</em> -->
+                    </div>
+                    <div class="left-sides-title pop">
+                        <em class="iconfont" style="font-size:13px">| |</em>
+                    </div>
+                    <ul class="menuList_choose">
+                            <li class="subentry" @click="goManage" code="baseCode" mark="/editClass/editClassBaseInfo/832295/togther">
+                                <i class="mdi mdi-information"></i><em>基本信息</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '直播'" @click="goVideo" code="videoCode" mark="/editClass/editClassVideoInfo/832295/togther">
+                                    <i class="mdi mdi-television-classic"></i><em>视频课</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '录播'" code="moduleLive" @click="goZhibo" mark="/editClass/editClassModuleLive/832295/togther">
+                                    <i class="mdi mdi-television"></i><em><em>直播课</em></li>
+                                <!-- <li class="subentry" code="moduleFace" mark="/editClass/editClassModuleFace/832295/togther">
+                                    <i class="mdi mdi-worker"></i><em>面授课</em></li> -->
+        
+                                <li class="subentry" v-if="course_info.course_type != '录播'" @click="goClassTable" code="listCode" mark="/editClass/editCourseList/832295/togther">
+                                    <i class="mdi mdi-equal-box"></i><em>排课表</em></li>
+                            <li class="lines"></li>
+                            <li class="subentry t1" @click="goClassStu" code="studentsCode" mark="/classStu/studentList/832295/togther">
+                                <i class=" mdi mdi-human-male"></i><em>学员管理</em></li>
+                            <li class="subentry" code="classResource" @click="goClassZL"
+                                mark="/classModuleLesson/classesResource/832295/togther">
+                                <i class=" mdi mdi-database-plus"></i><em>课程资料</em></li>
+                            <li class="subentry t1" code="statisticsCode" @click="goClassTJ" 
+                                mark="/companyLiveStaticDetail/companyLiveStaticDetailList/832295/togther">
+                                <i class=" mdi mdi-table-of-contents"></i><em>直播上课统计</em></li>
+                    </ul>
+                </div>
+                <input type="hidden" id="courseUseMethod" value="simple">
+                <div class="right-side">
+                    <div class="u-wrap classes">
+                        <div class="mainbackground nopadding">
+
+                            <div class="teacher-content">
+                                <div class="teacher-btns">
+                                    <input type="hidden" id="moduleId" value="851676">
+                                    <input type="hidden" id="itemOneId" value="86683">
+                                    <input type="hidden" id="itemSecondId" value="220411">
+                                    <input type="hidden" id="classTypeId" value="832295">
+                                    <input type="hidden" id="classTypeName" value="test1111">
+
+                                    <a @click="add_Chapter" href="javascript:void(0);" style="margin-top: 10px;"
+                                        class="btn btn-mini btn-default btn-add-class"><i class=" dripicons-plus"
+                                            style="font-size:17px;vertical-align: sub;"></i>新增章节</a>
+
+                                    <!-- <a href="javascript:;" class="btn btn-mini btn-default">隐藏默认章节序号</a> -->
+                                </div>
+                                <div class="t-c clear">
+                                    <div class="t-c-l" style="height:600px;">
+                                        <ul class="sortable base-sort ui-sortable" id="addd">
+
+                                            <li v-for="(item,index) in userList" :id="item.chapter_id"
+                                                class="dis ui-sortable-handle" sort="0"
+                                                style="position: relative; left: 0px; top: 0px;">
+                                                <p  @click="pushJie(index,item.chapter_id,item.chapter_name)" class="father"><i class=" mdi mdi-format-list-bulleted"
+                                                    @click.stop="editorChapter(index,item.chapter_id,item.chapter_name)" style="font-size:20px;vertical-align: sub;float: right;    line-height: 20px;    cursor: pointer;"></i><i
+                                                        class=" mdi mdi-delete-forever"
+                                                        style="font-size:20px;vertical-align: sub;float: right;    line-height: 20px;    cursor: pointer;"
+                                                        @click.stop="delete_chapter(item.chapter_id)"></i>
+                                                    <el-dropdown style="float: right;">
+                                                        <i class=" dripicons-plus"
+                                                            style="font-size:20px;vertical-align: sub;float: right;    line-height: 20px;    cursor: pointer;"></i>
+                                                        <el-dropdown-menu>
+                                                            <el-dropdown-item command="a"
+                                                                @click.native="addJie(item.chapter_id)">新增小节
+                                                            </el-dropdown-item>
+                                                            <el-dropdown-item command="d"
+                                                                @click.native="addSection(item.chapter_id)">新增测验
+                                                            </el-dropdown-item>
+                                                        </el-dropdown-menu>
+                                                    </el-dropdown><a href="javascript:;"
+                                                        title="null">{{item.chapter_name}}&nbsp;&nbsp;<b></b></a>
+                                                </p>
+                                                <ul class="son sortable ui-sortable" v-show="item.check == true" style="display: none;">
+                                                    <li v-for="(item1,index1) in item.ceyan" :id="item1.test_id"
+                                                        class="class-son ui-sortable-handle" draggable="true"
+                                                        @click="editor_ceyan(item1.test_id)"><a
+                                                            style="display: inline-block;width: 92%;"
+                                                            href="javascript:;"><span class="iconfont add-ceyan"></span>{{item1.test_name}}&nbsp;&nbsp;<b></b></a><i
+                                                            class=" mdi mdi-delete-forever"
+                                                            style="font-size:20px;vertical-align: sub;    line-height: 20px;"
+                                                            @click.stop="delete_text(item1.test_id,item.chapter_id)"></i></li>
+                                                    <li v-for="(item1,index1) in item.jie" :id="item1.section_id"
+                                                        @click="editor_jie(item1.section_id,item.chapter_id)"
+                                                        class="class-son ui-sortable-handle" draggable="true"><a
+                                                            style="display: inline-block;width: 92%;"
+                                                            href="javascript:;"><span
+                                                                class="add-xiaojie"></span>{{item1.section_name}}&nbsp;&nbsp;<b></b></a><i
+                                                            class=" mdi mdi-delete-forever"
+                                                            style="font-size:20px;vertical-align: sub;    line-height: 20px;"
+                                                            @click="delete_section(item1.section_id,item.chapter_id)"></i></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="t-c-r right" style="height:600px;">
+                                        <!-- <div class="t-c-r-t chapter" value="2455496">
+                                            <p class="c"><span class="c-title">章的名称</span><span class="c-content"><input
+                                                        class="chapterName" type="text" maxlength="70" value=""
+                                                        placeholder="章的名称"></span></p>
+                                            <p class="c"><span class="c-title"></span><span class="c-content"><a
+                                                        href="javascript:;" class="btn q-btn-primary save"
+                                                        id="q-save">保存</a></span></p>
+                                        </div> -->
+                                        <div class="t-c-r-t chapter" v-show="activeIndexa == 0" style="display:none"
+                                            value="2748377">
+                                            <p class="c"><span class="c-title">章的名称</span><span class="c-content"><input
+                                                        class="chapterName" type="text" style="    margin: 0;"
+                                                        maxlength="70" value="" v-model="add_chapter_input"
+                                                        placeholder="章的名称"></span></p>
+                                            <p class="c"><span class="c-title"></span><span class="c-content"><a
+                                                        href="javascript:;" class="btn q-btn-primary save" id="q-save"
+                                                        @click="submit_chapter">保存</a></span></p>
+                                        </div>
+                                        <div class="ceshi-part" v-show="activeIndexa == 1" style="display:none">
+                                            <h3 class="add-title">测验信息</h3>
+
+                                            <div class="t-c-r-t test" value="6287" fathervalue="2455496">
+                                                <p class="c"><span class="c-title">类型：</span><span class="c-content"><a
+                                                            href="javascript:;"
+                                                            class="ceyan-choice1 bd-exam hasClick"><input type="radio"
+                                                                name="type-deb" v-model="test_info.test_type" class="radio" id="type-paper-ceyan"
+                                                                value="绑定试卷" checked="true"><label
+                                                                style="display:inline;"
+                                                                for="type-paper-ceyan">绑定试卷</label></a><a
+                                                            href="javascript:;" class="ceyan-choice2 bd-part"><input
+                                                                type="radio" name="type-deb" class="radio"
+                                                                id="type-paper2-ceyan" v-model="test_info.test_type" value="绑定章节"><label
+                                                                style="display:inline;"
+                                                                for="type-paper2-ceyan">绑定章节</label></a></span></p>
+                                                <p class="c"><span class="c-title">测验名称：</span><span
+                                                        class="c-content"><input v-model="test_info.test_name" class="lectureName q-text" type="text"
+                                                            placeholder="输入名称"></span></p>
+                                                <p class="c"><span class="c-title">达标比率：</span><span
+                                                        class="c-content"><input type="text" v-model="test_info.mark_up_score" class="video_name q-text1"
+                                                            placeholder="请输入正整数"></span></p>
+                                                <p class="c" style="color:#666666;font-size:12px;margin-top:-12px;">
+                                                    <span class="c-title"></span><span class="c-content"><input
+                                                            type="checkbox"  v-model="test_info.tf_allow_continue_learning" id="dabiaoxuexi"
+                                                            style="position:relative;top:2px;"><span
+                                                            id="cont-change">分数</span>未达标不允许继续学习</span></p>
+                                                <p v-show="test_info.test_type == '绑定章节'" class="c exam-number" style="display: none;"><span
+                                                        class="c-title">考试题目数：</span><span class="c-content"><input
+                                                            type="text" v-model="test_info.number_of_test" class="video_name q-text"
+                                                            id="kaoshinumber"></span></p>
+                                                <div v-show="test_info.test_type == '绑定试卷'" class="c" style="margin-bottom:20px;" id="q-chose"><span
+                                                        class="c-content" id="q-c-cont"><a href="javascript:void(0);"
+                                                            id="selectShiorZhang"
+                                                            class="q-btn btn btn-default choosePaper1"
+                                                            @click="select_pc">选择试卷</a></span>
+                                                </div>
+                                                <div v-show="test_info.test_type == '绑定章节'" class="c" style="margin-bottom:20px;" id="q-chose"><span
+                                                    class="c-content" id="q-c-cont"><a href="javascript:void(0);"
+                                                        id="selectShiorZhang"
+                                                        class="q-btn btn btn-default choosePaper1"
+                                                        @click="model = 5">选择章节</a></span>
+                                            </div>
+                                                <p  v-show="test_info.test_type == '绑定试卷'" class="c clear q-c" style="margin-top:-6px;"><span class="c-title"
+                                                        id="ziliaotitle">试卷列表：</span><span class="c-content"
+                                                        id="courseList7370"><b v-for="(item,index) in select_pc_infos"><i class="list-item"
+                                                                :title="item.name">{{item.name}}</i>
+                                                            <a class="del"
+                                                                mark1="31646"><strong @click="delete_info(index)">删除</strong></a></b>
+                                                                <!-- <b><i
+                                                                class="list-item"
+                                                                title="2019皇家内训班第二次摸底考试《技术实务》">2019皇家内训班第二次摸底考试《技术实务》</i>
+                                                            <a class="del"
+                                                                mark1="31842"><strong>删除</strong></a></b> -->
+                                                            </span></p>
+                                                <p  v-show="test_info.test_type == '绑定章节'" class="c clear q-c" style="margin-top:-6px;"><span class="c-title"
+                                                        id="ziliaotitle">章节列表：</span><span class="c-content"
+                                                        id="courseList7370"><b v-for="(item,index) in select_papers"><i class="list-item"
+                                                            :title="item.name">{{item.zhang}} {{item.jie}} {{item.kaodian}}</i>
+                                                        <a class="del"
+                                                            mark1="31646"><strong @click="delete_zj(index)">删除</strong></a></b></span></p>
+                                                <p class="c clear q-c" style="margin-top:-6px;"><span class="c-title"
+                                                        id="ziliaotitle"></span><span class="c-content"
+                                                        id="courseList6287"></span></p>
+                                                <p class="c" style="text-align:center;padding:30px;"><a
+                                                        href="javascript:;" class="btn btn-primary q-btn-primary"
+                                                        id="saveCeyan" @click="submit_ceyan">保存</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="project-part" v-show="activeIndexa == 2" style="display:none">
+                                            <h3 class="add-title">章节信息</h3>
+                                            <div class="t-c-r-t lecture" value="3379977" fathervalue="2455496">
+                                                <p class="c"><span class="c-title">类型：</span><span class="c-content"
+                                                        id="c-content-one"><a href="javascript:;"
+                                                            id="vedio-paper"><input type="radio" name="type-set"
+                                                                class="radio" id="type-paper"
+                                                                v-model="section_info.section_type" value="视频"
+                                                                checked="checked"><label style="display:inline;"
+                                                                for="type-paper">视频</label> </a><a href="javascript:;"
+                                                            class="q-type-choice"><input type="radio" name="type-set"
+                                                                class="radio" id="type-paper2"
+                                                                v-model="section_info.section_type" value="Flash"><label
+                                                                style="display:inline;"
+                                                                for="type-paper2">Flash</label></a><a
+                                                            href="javascript:;" class="q-type-choice"><input
+                                                                type="radio" name="type-set" class="radio"
+                                                                id="type-paper3" v-model="section_info.section_type"
+                                                                value="音频"><label style="display:inline;"
+                                                                for="type-paper3">音频</label></a><a href="javascript:;"
+                                                            class="q-type-choice"><input type="radio" name="type-set"
+                                                                class="radio" id="type-paper4"
+                                                                v-model="section_info.section_type" value="PPT"><label
+                                                                style="display:inline;"
+                                                                for="type-paper4">PPT</label></a><a href="javascript:;"
+                                                            class="q-type-choice"><input type="radio" name="type-set"
+                                                                class="radio" id="type-paper5"
+                                                                v-model="section_info.section_type" value="文档"><label
+                                                                style="display:inline;" for="type-paper5">文档</label>
+                                                        </a></span></p>
+                                                <p class="c"><span class="c-title">节的名称：</span><span
+                                                        class="c-content"><input class="lectureName"
+                                                            v-model="section_info.section_name" type="text"
+                                                            placeholder="输入名称"><span v-if="section_info.section_type != '视频'" id="free-sorce" class=""
+                                                            style="display:inline-block"><input type="checkbox"
+                                                                style="position:relative;top:2px;" v-model="isFree">免费资源</span></span>
+                                                </p>
+                                                <p v-show="section_info.section_type == '视频'" class="c" id="open-veido">
+                                                    <span class="c-title">是否免费：</span><span class="c-content"><input
+                                                            type="radio" v-model="section_info.tf_free_resources"
+                                                            name="open-set" class="radio" id="open-paper"
+                                                            value="1"><label style="display:inline;"
+                                                            for="open-paper">免费</label> <input type="radio"
+                                                            name="open-set" v-model="section_info.tf_free_resources"
+                                                            class="radio" id="open-paper2" value="2"><label
+                                                            style="display:inline;" for="open-paper2">试听</label></span>
+                                                </p>
+                                                <p class="c vedio-name"><span class="c-title">视频名称：</span><span
+                                                        class="c-content"><input type="text"
+                                                            v-model="section_info.s_resources_name"
+                                                            class="video_name q-text">
+                                                        <input type="hidden" class="video_id" value="339986"><input
+                                                            type="hidden" class="file_id"><input type="hidden"
+                                                            class="publishStatus"><input type="hidden"
+                                                            class="publishDate"><input type="button" @click="choose_video"
+                                                            class="btn btn-sm btn-primary chooseVideo"
+                                                            value="从库中选择"></span></p>
+                                                <div class="tab-cont">
+                                                    <div class="tab-list"><span
+                                                            :class="activeIndexb == 1?'tab-left':'tab-left active'"
+                                                            @click="activeb(0)">课程资料</span><span
+                                                            :class="activeIndexb == 0?'tab-right':'tab-right active'"
+                                                            @click="activeb(1)" id="ss2">课后练习</span></div>
+                                                    <div class="tab-item">
+                                                        <div class="q-item one " v-show="activeIndexb == 0">
+                                                            <p class="c">
+                                                                <span class="c-title">上传资料：</span><label
+                                                                    class="control-label btn"
+                                                                    style="    border: 1px solid rgb(200,200,200);"
+                                                                    @click="upLoadZl">上传资料</label>
+                                                            </p>
+                                                            <p class="c clear q-c" style="margin-top:-6px;"><span
+                                                                    id="spanlist" class="c-title">资料列表：</span>
+                                                                <span v-for="(item,index) in file_con_copy"
+                                                                    class="c-content" id="courseList13379977"><b><i
+                                                                            class="list-item"
+                                                                            :title="item.name">{{item.name}}</i><a
+                                                                            href="javascript:void(0);"
+                                                                            class="delresource" ids="208527"
+                                                                            @click="delresource(item.name,item.c_recourses_id)"><strong>删除</strong></a></b></span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="q-item two" v-show="activeIndexb == 1">
+                                                            <p class="c"><span class="c-title">课后练习：</span><span
+                                                                    class="c-content"><a href="javascript:;"
+                                                                        class="bd-exam hasClick"><input type="radio"
+                                                                            name="bind-set" class="radio"
+                                                                            id="bind-paper"
+                                                                            v-model="section_info.types_of_exercises_after_class"
+                                                                            value="绑定试卷" checked="true"><label
+                                                                            style="display:inline;"
+                                                                            for="bind-paper">绑定试卷</label></a><a
+                                                                        href="javascript:;" class="bd-part"><input
+                                                                            type="radio" name="bind-set" class="radio"
+                                                                            id="bind-chapter"
+                                                                            v-model="section_info.types_of_exercises_after_class"
+                                                                            value="绑定章节"><label style="display:inline;"
+                                                                            for="bind-chapter">绑定章节</label></a></span>
+                                                            </p>
+                                                            <div class="c"
+                                                                v-show="section_info.types_of_exercises_after_class == '绑定试卷'"
+                                                                style="margin-bottom:20px;" id="q-chose">
+                                                                <span class="c-content" id="q-c-cont"
+                                                                    @click="select_pc"><a href="javascript:void(0);"
+                                                                        class="q-btn btn btn-default choosePaper"
+                                                                        id="selectpc">选择试卷</a></span></div>
+                                                            <p v-show="section_info.types_of_exercises_after_class == '绑定试卷'"
+                                                                class="c clear q-c"><span class="c-title"
+                                                                    id="shiquanorzhangjiexinxi">试卷信息：</span><span
+                                                                    class="c-content n-list"><b><i class="list-item"
+                                                                            title="2019皇家内训班第一次摸底考试《综合能力》">{{select_paper.name}}</i>
+                                                                        <a class="del"></a></b></span>
+
+                                                            </p>
+                                                            <div class="c"
+                                                                v-show="section_info.types_of_exercises_after_class == '绑定章节'"
+                                                                style="margin-bottom:20px;" id="q-chose">
+                                                                <span class="c-content" id="q-c-cont"><a
+                                                                        href="javascript:;"
+                                                                        class="q-btn btn btn-default chooseChapter"
+                                                                        id="selectpc" @click="model = 5">选择章节</a></span>
+                                                            </div>
+                                                            <p v-show="section_info.types_of_exercises_after_class == '绑定章节'"
+                                                                class="c clear q-c"><span class="c-title"
+                                                                    id="shiquanorzhangjiexinxi">章节信息：</span><span
+                                                                    class="c-content n-list">{{zhang}} {{jie}}
+                                                                    {{kaodian}}</span> </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="c" style="text-align:center;padding:30px;"><a
+                                                        href="javascript:;" class="btn btn-primary q-btn-primary save"
+                                                        @click="submit_jie">保存</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="q-btns" style="text-align:center;">
+
+                            <!-- <a href="javascript:;" class="q-cancel q-cancel2">取消</a> -->
+                            <a href="javascript:void(0);" @click="submit" class="q-save next">保存</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+        <div class="add-layer-bg" v-show="choose_video_status == 1 || select_pc_status == 1 || model != 0" style="z-index: 1000; display: none;">
+        </div>
+        <div class="add-layer w900" v-if="select_pc_status == 1"
+            style="z-index: 1001; margin-top: -260px; display: block;">
+            <h3 class="add-layer-tit ">选择试卷</h3>
+            <i class="iconfont close q-close" @click="select_pc_status = 0">x</i>
+            <div class="layer-content q-layer-content">
+                <div class="term">
+                    <span class="term-title q-term-title">题库</span> <span class="term-title">
+                        <select name="" id="choose_tiku" style="" v-model="select_pc_info.item_bank_id"
+                            @change="search_son_tikus" class="q-select">
+                            <option value="">选择题库</option>
+                            <option v-for="(item,index) in tikus" :value="item.item_bank_id">{{item.item_bank_name}}
+                            </option>
+                        </select>
+                    </span> <span class="term-title q-term-title">子题库</span> <span class="term-title">
+                        <select name="" id="choose_item" class="q-select" v-model="select_pc_info.ibs_id">
+                            <option value="">选择子题库</option>
+                            <option v-for="(item,index) in son_tikus" :value="item.ibs_id">{{item.ibs_name}}</option>
+                        </select>
+                    </span> <span class="term-title q-term-title">试卷名称</span> <span class="term-title">
+                        <input type="text" v-model="select_pc_info.test_paper_name" id="choose_paper3" class="q-select">
+                    </span>
+                    <span class="btn btn-sm btn-default q-btn-primary q-btn-primary2" id="search_paper"
+                        @click="search_paper"> 搜索
+                    </span>
+                </div>
+
+                <div class="term-list q-term-list">
+                    <template>
+                        <el-table border :data="userListTable.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                            :data="tableData" style="overflow: auto;    max-height: 246px;
+                                    " @cell-click="caaa">
+                            <el-table-column prop="test_paper_name" label="试卷名称" :width="flexColumnWidth(24)"
+                                style="text-align: center">
+                            </el-table-column>
+                            <el-table-column prop="item_bank_name" label="所属题库" :width="flexColumnWidth(24)">
+                            </el-table-column>
+                            <el-table-column prop="ibs_name" label="所属科目" :width="flexColumnWidth(24)">
+                            </el-table-column>
+                            <el-table-column prop="test_paper_type" label="试卷类型" :width="flexColumnWidth(24)">
+                            </el-table-column>
+                        </el-table>
+                        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                            :current-page="currentPage" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                            layout="total, sizes, prev, pager, next, jumper" :total="userListTable.length">
+                        </el-pagination>
+                    </template>
+                </div>
+                <div class="pages pagination"></div>
+            </div>
+        </div>
+        <div class="add-layer w900" v-if="choose_video_status == 1"
+            style="z-index: 1001; margin-top: -260px; display: block;">
+            <h3 class="add-layer-tit ">选择资源</h3>
+            <i class="iconfont close q-close" @click="choose_video_status = 0">x</i>
+            <div class="layer-content q-layer-content" style="padding: 12px 20px 10px;">
+                <div class="term">
+                    <!-- <span class="term-title q-term-title">题库</span> <span class="term-title">
+                        <select name="" id="choose_tiku" style="" v-model="select_pc_info.item_bank_id"
+                            @change="search_son_tikus" class="q-select">
+                            <option value="">选择题库</option>
+                            <option v-for="(item,index) in tikus" :value="item.item_bank_id">{{item.item_bank_name}}
+                            </option>
+                        </select>
+                    </span> <span class="term-title q-term-title">子题库</span> <span class="term-title">
+                        <select name="" id="choose_item" class="q-select" v-model="select_pc_info.ibs_id">
+                            <option value="">选择子题库</option>
+                            <option v-for="(item,index) in son_tikus" :value="item.ibs_id">{{item.ibs_name}}</option>
+                        </select>
+                    </span> <span class="term-title q-term-title">试卷名称</span> <span class="term-title">
+                        <input type="text" v-model="select_pc_info.test_paper_name" id="choose_paper3" class="q-select">
+                    </span>
+                    <span class="btn btn-sm btn-default q-btn-primary q-btn-primary2" id="search_paper"
+                        @click="search_paper"> 搜索
+                    </span> -->
+                </div>
+
+                <div class="term-list q-term-list">
+                    <template>
+                        <el-table border :data="userListvideo.slice((currentPage1-1)*pagesize1,currentPage1*pagesize1)"
+                             style="overflow: auto;    max-height: 246px;
+                                    " @cell-click="choose_video_ziyuan">
+                            <el-table-column prop="resourse_name" label="资源名称" :width="flexColumnWidth(24)"
+                                style="text-align: center">
+                            </el-table-column>
+                            <el-table-column prop="resourse_format" label="资源格式" :width="flexColumnWidth(24)">
+                            </el-table-column>
+                            <el-table-column prop="project_name" label="学科" :width="flexColumnWidth(24)">
+                            </el-table-column>
+                            <el-table-column prop="type_name" label="标签" :width="flexColumnWidth(24)">
+                            </el-table-column>
+                        </el-table>
+                        <el-pagination @size-change="handleSizeChange1" @current-change="handleCurrentChange1"
+                            :current-page="currentPage1" :page-sizes="[5, 10, 20, 40]" :page-size="pagesize1"
+                            layout="total, sizes, prev, pager, next, jumper" :total="userListvideo.length">
+                        </el-pagination>
+                    </template>
+                </div>
+                <div class="pages pagination"></div>
+            </div>
+        </div>
+        <div class="dialog uploadDialog" v-show="model == 4" style="display: none;z-index: 1001;" id="class-resource">
+            <input type="hidden" id="moduleNoId" value="131022">
+            <div class="prompt course_information"><i class="iconfont closeBtn" @click="model = 0">x</i>
+                <h5>课程资料</h5>
+                <div class="course_information_main">
+                    <div class="nano">
+                        <div class="" style="right: -17px;">
+                            <div class="course_box">
+                                <div class="course_title">资料类型：</div><input type="file" id="doctype" lecid="549741"
+                                    style="border: none; display: none; position: relative; z-index: 1;" url="" mark=""
+                                    cname="" name="doc">
+                                <div class="course_main">
+                                    <select id="sourceType" v-model="ziliao_info.c_recourses_type">
+                                        <option value="教材">教材</option>
+                                        <option value="教辅">教辅</option>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="course_box">
+                                <div class="course_title">上传资料：</div>
+                                <div class="course_main">
+                                    <label class="control-label btn" for="uploadform-excelfiles"
+                                        style="    border: 1px solid rgb(200,200,200);">上传资料</label><input type="file"
+                                        id="uploadform-excelfiles" @change="file" multiple class="attachment-upload"
+                                        style="left:-9999px;position:absolute;">
+                                    <span
+                                        class="upload_explain">支持上传类型:doc,pdf,xls,ppt,docx,pptx,xlsx,zip,rar;文件不能大于1G</span>
+                                </div>
+                            </div>
+                            <div class="course_box">
+                                <div class="course_title">课程资料：</div>
+                                <div class="course_main">
+                                    <ul class="clearfloat courseSourceUl">
+                                        <li v-for="(item,index) in file_con" type="add"
+                                            id="o_1dpuhd9g9170616g31vndg8e126416" fileid="345435">
+                                            <span>{{item.name}}</span><i class="iconfont"
+                                                @click="closeFile(item.name)"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nano-pane" style="display: none;">
+                            <div class="nano-slider" style="height: 248px; transform: translate(0px, 0px);"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="save_btn">
+                    <!-- <a class="btn btn-default btn-lg closeUpload">取消</a> -->
+                    <a class="btn btn-primary btn-lg saveUpload" @click="submit_ziliao" style="color:white">确定</a>
+                </div>
+            </div>
+        </div>
+        <div class="add-layer w1000" v-show="model == 5" style="z-index: 1001; display: none;">
+            <h3 class="add-layer-title">选择章节</h3>
+            <i class="iconfont close" @click="model = 0">x</i>
+            <div class="layer-content clear">
+                <div class="term-herv term-herv-left">
+                    <span class="term-title">题库</span> <span class="term-content">
+                        <select name="" id="choose_tiku_2" v-model="chapter_sec_info.item_bank_id" @change="son1"
+                            style="width: 150px; height: 28px;">
+                            <option value="">选择题库</option>
+                            <option v-for="(item,index) in tikus" :value="item.item_bank_id">{{item.item_bank_name}}
+                            </option>
+                        </select>
+                    </span>
+                </div>
+                <div class="term-herv">
+                    <span class="term-title">子题库</span> <span class="term-content">
+                        <select name="" id="choose_subject_2" v-model="chapter_sec_info.ibs_id" @change="son2"
+                            style="width: 150px; height: 28px;">
+                            <option value="">选择子题库</option>
+                            <option v-for="(item,index) in son_tikus1" :value="item.ibs_id">{{item.ibs_name}}</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="term-herv term-herv-left">
+                    <span class="term-title">章</span> <span class="term-content">
+                        <select name="" class="zhang" id="choose_chapter_2"
+                            v-model="chapter_sec_info.chapter_test_point_id" @change="son3"
+                            style="width: 150px; height: 28px;">
+                            <option value="">选择章</option>
+                            <option v-for="(item,index) in son_tikus2" :value="item.chapter_test_point_id">{{item.name}}
+                            </option>
+                        </select>
+                    </span>
+                </div>
+                <div class="term-herv">
+                    <span class="term-title">节</span> <span class="term-content">
+                        <select name="" class="jie" id="choose_lecture_2"
+                            v-model="chapter_sec_info.chapter_test_point_id1" @change="son4"
+                            style="width: 150px; height: 28px;">
+                            <option value="">选择节</option>
+                            <option v-for="(item,index) in son_tikus3" :value="item.chapter_test_point_id">{{item.name}}
+                            </option>
+                        </select>
+                    </span>
+                </div>
+                <div class="term-herv">
+                    <span class="term-title">考点</span> <span class="term-content">
+                        <select name="" class="kaodian" id="choose_lecture_2"
+                            v-model="chapter_sec_info.chapter_test_point_id2" style="width: 150px; height: 28px;">
+                            <option value="">选择考点</option>
+                            <option v-for="(item,index) in son_tikus4" :value="item.chapter_test_point_id">{{item.name}}
+                            </option>
+                        </select>
+                    </span>
+                </div>
+                <div class="term-herv" v-if="activeIndexa == 2">
+                    <span class="term-title">做题数量</span> <span class="term-content">
+                        <input type="text" v-model="section_info.number_of_cs" id="choose_num_2"
+                            style="width: 150px; height: 28px; padding: 0;margin:0">
+                    </span>
+                </div>
+                <div class="term-sure" style="text-align: center;">
+                    <a href="javascript:;" class="btn btn-default q-btn-primary" @click="submit_zhangjie">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script> -->
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script src="assets/js/jquery.ui.js"></script>
+    <script>
+        // .disableSelection();
+        console.log(1)
+
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    currentPage1: 1, //初始页
+                    activeIndexa: -1,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    add_chapter_input: '',
+                    pagesize: 10, //    每页的数据
+                    pagesize1: 10, //    每页的数据
+                    model: 0,
+                    tikus: [],
+                    zhang: '',
+                    jie: '',
+                    isFree:false,
+                    kaodian: '',
+                    file_con: [],
+                    file_con_copy: [],
+                    selected_file: [],
+                    selected_file_cid: '',
+                    selected_file_id: '',
+                    ziliao_info: {
+                        c_recourses_type: "教材"
+                    },
+                    chapter_sec_infos: [{
+                        item_bank_id: '',
+                        ibs_id: '',
+                        chapter_test_point_id: '',
+                        chapter_test_point_id1: '',
+                        chapter_test_point_id2: '',
+                    }],
+                    chapter_sec_info: {
+                        item_bank_id: '',
+                        ibs_id: '',
+                        chapter_test_point_id: '',
+                        chapter_test_point_id1: '',
+                        chapter_test_point_id2: '',
+                    },
+                    son_tikus1: [],
+                    son_tikus2: [],
+                    son_tikus3: [],
+                    son_tikus4: [],
+                    select_papers: [],
+                    select_paper: {
+                        id: '',
+                        name: '',
+                    },
+                    test_info:{
+                        "test_name":"",
+                        'tf_allow_continue_learning':true,
+                        "user_id":parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "course_id":1,
+                        "chapter_id":2,
+                        "test_type":"绑定试卷",
+                        "mark_up_score":'',
+                        "test_paper_id":"",
+                        "chapter_section_id":[],
+	                    "number_of_test":'' 
+                    },
+                    section_info: {
+                        "section_name": "测试插入节2",
+                        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                        "course_id": 1,
+                        "chapter_id": 2,
+                        "section_type": "Flash",
+                        "resouces_id": '',
+                        "s_resources_name": "",
+                        "test_paper_id": null,
+                        "tf_free_resources": 1,
+                        "types_of_exercises_after_class": "",
+                        "chapter_section_id": null,
+                        "number_of_cs": null,
+                        "chapter_section_type": "",
+                        // "courseRecoursesInfos":
+                        // [{
+                        // 	"c_recourses_name":"课程资料（录播的）",
+                        // 	"c_recourses_size":"1M",
+                        // 	"user_id":2,
+                        // 	"c_recourses_source":"课次",
+                        // 	"c_recourses_type":"教辅",
+                        // 	"course_id":28,
+                        // 	"chapter_id":2,
+                        // 	"recourses_address":"E:/upload111/11.18-11.22任务列表~秀1574320196936.xlsx"
+                        // },
+                        // {
+                        // 	"c_recourses_name":"课程资料（录播的）1",
+                        // 	"c_recourses_size":"1M",
+                        // 	"user_id":2,
+                        // 	"c_recourses_source":"课次",
+                        // 	"c_recourses_type":"教辅",
+                        // 	"course_id":28,
+                        // 	"chapter_id":2,
+                        // 	"recourses_address":"E:/upload111/11.18-11.22任务列表~秀1574320196936.xlsx"
+                        // }
+                        // ]
+                    },
+                    select_pc_infos: [],
+                    select_pc_info: {
+                        "item_bank_id": '',
+                        "ibs_id": '',
+                        "test_paper_name": ""
+                    },
+                    editor_jie_label: 0,
+                    editor_ceyan_label: 0,
+                    editor_ceyan_id: 0,
+                    son_tikus: [],
+                    choose_video_status:0,
+                    select_pc_status: 0,
+                    value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+                    value2: '',
+                    userListTable: [],
+                    userListvideo: [],
+                    editor_chapter:0,
+                    editor_chapter_id:0,
+                    editor_chapter_index:0,
+                    userList: [
+                    ],
+                    course_info:{}
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.course_info = JSON.parse(localStorage.course_info)
+                course_id = parseInt(window.location.href.split('=')[1])
+                obj = {
+                    course_id: course_id
+                }
+                if (course_id == undefined) {
+
+                } else {
+                    _this.inita()
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/queryAllItemBanks',
+                        type: 'post',
+                        // contentType:'application/json',
+                        data: '',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.tikus = data
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                }
+            },
+            mounted() {
+                console.log($('.base-sort'))
+                var $this = this;
+                $this.loadData()
+            },
+            methods: {
+                activeb(num) {
+                    this.activeIndexb = num
+                },
+                inita(){
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/showOneVedioCourseChapterAndSectionAndTest',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            course_id: course_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            // _this.userList = data
+                            for (let i = 0; i < data[0].length; i++) {
+                                data[0][i].jie = []
+                                data[0][i].ceyan = []
+                                data[0][i].check = true
+                                for (let k = 0; k < data[1].length; k++) {
+                                    if (data[0][i].chapter_id == data[1][k].chapter_id) {
+                                        data[0][i].jie.push(data[1][k])
+                                    }
+                                }
+                                for (let j = 0; j < data[2].length; j++) {
+                                    if (data[0][i].chapter_id == data[2][j].chapter_id) {
+                                        data[0][i].ceyan.push(data[2][j])
+                                    }
+                                }
+                            }
+                            data[0][0].check = true
+                            console.log(data)
+                            _this.userList = data[0]
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                son1() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/selectSubLibraryByItemBankId',
+                        type: 'post',
+                        // contentType:'application/json',
+                        data: {
+                            item_bank_id: _this.chapter_sec_info.item_bank_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.son_tikus1 = data
+                            _this.chapter_sec_info.ibs_id = ''
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                son2() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/selectChapterBySubIibrary',
+                        type: 'post',
+                        // contentType:'application/json',
+                        data: {
+                            ibs_id: _this.chapter_sec_info.ibs_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.son_tikus2 = data
+                            _this.chapter_sec_info.chapter_test_point_id = ''
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                editorChapter(index,id,name){
+                    let _this = this
+                    obj = JSON.parse(JSON.stringify(_this.userList))
+                    if(obj[index].check == false){
+                        obj[index].check = true 
+                    }else{
+                        obj[index].check = false 
+                    }
+                    _this.userList = obj
+                    console.log(id,name)
+                },
+                pushJie(index,id,name){
+                    let _this = this
+                    console.log(id,name)
+                    _this.activeIndexa = 0
+                    _this.add_chapter_input = name
+                    _this.editor_chapter = 1
+                    _this.editor_chapter_id = id
+                    _this.editor_chapter_index = index
+                },
+                son3() {
+                    let _this = this
+                    obj = {
+                        "type": 2,
+                        "father_id": _this.chapter_sec_info.chapter_test_point_id
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/selectCtpByTypeAndFid',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.son_tikus3 = data
+                            _this.chapter_sec_info.chapter_test_point_id1 = ''
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                son4() {
+                    let _this = this
+                    obj = {
+                        "type": 3,
+                        "father_id": _this.chapter_sec_info.chapter_test_point_id1
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/selectCtpByTypeAndFid',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.son_tikus4 = data
+                            _this.chapter_sec_info.chapter_test_point_id2 = ''
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                delete_zj(content){
+                    _this = this
+                    _this.select_papers = _this.select_papers.filter((item,index)=>{
+                        return content != index
+                    })
+                },
+                delete_info(content){
+                    _this = this
+                    _this.select_pc_infos = _this.select_pc_infos.filter((item,index)=>{
+                        return content != index
+                    })
+                },
+                submit_ceyan(){
+                    _this = this
+                    _this.test_info.course_id = parseInt(window.location.href.split('=')[1])
+                    delete _this.test_info.test_pater_or_chapter_section_point_infos
+                    _this.test_info.test_paper_id = []
+                    for(var i=0;i<_this.select_pc_infos.length;i++){
+                        _this.test_info.test_paper_id.push(_this.select_pc_infos[i].id)
+                    }
+                    console.log(_this.test_info)
+                    if(_this.editor_ceyan_label == 1){
+                        _this.test_info.test_id = _this.editor_ceyan_id
+                        if(_this.test_info.test_type == '绑定试卷'){
+                        obj = JSON.parse(JSON.stringify(_this.test_info))
+                        obj.test_paper_id = obj.test_paper_id.join(',')
+                        obj.tf_allow_continue_learning = obj.tf_allow_continue_learning == true?'1':'2'
+                        delete obj.number_of_test
+                        delete obj.chapter_section_id
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/editTest',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if(data == 1){
+                                    _this.$message.info({
+                                        type: 'info',
+                                        message: '保存成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }else{
+                                    _this.$message.info({
+                                        type: 'info',
+                                        message: '保存失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                                // _this.changeKecheng()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                        type: 'info',
+                                        message: '服务器错误',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                            }
+                        })
+                    }else if(_this.test_info.test_type == '绑定章节'){
+
+                        obj = JSON.parse(JSON.stringify(_this.test_info))
+                        delete obj.test_paper_id
+                        obj.chapter_section_id = obj.chapter_section_id.join(',')
+                        obj.tf_allow_continue_learning = obj.tf_allow_continue_learning == true?'1':'2'
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/editTest',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if(data == 1){
+                                    _this.$message.info({
+                                        type: 'info',
+                                        message: '保存成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }else{
+                                    _this.$message.info({
+                                        type: 'info',
+                                        message: '保存失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                                // _this.changeKecheng()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                        type: 'info',
+                                        message: '服务器错误',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                            }
+                        })
+                    }
+                    }else{
+                        delete _this.test_info.test_id
+                        if(_this.test_info.test_type == '绑定试卷'){
+                        obj = JSON.parse(JSON.stringify(_this.test_info))
+                        obj.test_paper_id = obj.test_paper_id.join(',')
+                        obj.tf_allow_continue_learning = obj.tf_allow_continue_learning == true?'1':'2'
+                        delete obj.number_of_test
+                        delete obj.chapter_section_id
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/insertTest',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if(data.message == "success"){
+                                    _this.$message.info({
+                                        type: 'info',
+                                        message: '保存成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    _this.inita()
+                                }else{
+                                    _this.$message.info({
+                                        type: 'info',
+                                        message: '保存失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                                // _this.changeKecheng()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                        type: 'info',
+                                        message: '服务器错误',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                            }
+                        })
+                    }else if(_this.test_info.test_type == '绑定章节'){
+
+                        obj = JSON.parse(JSON.stringify(_this.test_info))
+                        delete obj.test_paper_id
+                        obj.chapter_section_id = obj.chapter_section_id.join(',')
+                        obj.tf_allow_continue_learning = obj.tf_allow_continue_learning == true?'1':'2'
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/insertTest',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if(data.message == "success"){
+                                    _this.$message.info({
+                                        type: 'info',
+                                        message: '保存成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }else{
+                                    _this.$message.info({
+                                        type: 'info',
+                                        message: '保存失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                                // _this.changeKecheng()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                        type: 'info',
+                                        message: '服务器错误',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                            }
+                        })
+                    }
+                    }
+                    
+                },
+                submit_jie() {
+                    _this = this
+                    if(_this.section_info.section_type != '视频'){
+                        _this.section_info.tf_free_resources = _this.isFree == true?'1':'2'
+                    }
+                    // console.log(_this.section_info.tf_free_resources)
+                    // return
+                    if (_this.editor_jie_label == 0) {
+                        _this.section_info.user_id = 1
+                        _this.section_info.course_id = parseInt(window.location.href.split('=')[1])
+                        _this.section_info.courseRecoursesInfos = []
+                        for (let i = 0; i < _this.file_con_copy.length; i++) {
+                            obj = {}
+                            obj.c_recourses_name = _this.file_con_copy[i].name
+                            obj.c_recourses_size = _this.change(_this.file_con_copy[i].size)
+                            obj.user_id = 1
+                            obj.c_recourses_source = "课次"
+                            obj.c_recourses_type = _this.ziliao_info.c_recourses_type
+                            obj.course_id = parseInt(window.location.href.split('=')[1])
+                            obj.chapter_id = _this.section_info.chapter_id
+                            obj.recourses_address = _this.file_con_copy[i].HTC
+                            _this.section_info.courseRecoursesInfos.push(obj)
+                        }
+                        // } else {
+                        //     _this.courseRecoursesInfos = []
+                        if (this.section_info.types_of_exercises_after_class == '绑定试卷') {
+                            _this.section_info.test_paper_id = _this.select_paper.id
+                            _this.section_info.chapter_section_type = null
+                            _this.section_info.chapter_section_id = null
+                            _this.section_info.number_of_cs = null
+                        } else if (this.section_info.types_of_exercises_after_class == '绑定章节') {
+                            index = 0;
+
+                            _this.section_info.test_paper_id = null
+                            for (var k in _this.chapter_sec_info) {
+                                if (_this.chapter_sec_info[k] != "") {
+                                    index += 1
+                                }
+                            }
+                            switch (index) {
+                                case 0:
+
+                                    break;
+                                case 1:
+
+                                    break;
+                                case 2:
+
+                                    break;
+                                case 3:
+
+                                    _this.section_info.chapter_section_type = "章"
+                                    _this.section_info.chapter_section_id = _this.chapter_sec_info
+                                        .chapter_test_point_id
+                                    break;
+                                case 4:
+
+                                    _this.section_info.chapter_section_type = "节"
+                                    _this.section_info.chapter_section_id = _this.chapter_sec_info
+                                        .chapter_test_point_id1
+                                    break;
+                                case 5:
+
+                                    _this.section_info.chapter_section_type = "考点"
+                                    _this.section_info.chapter_section_id = _this.chapter_sec_info
+                                        .chapter_test_point_id2
+
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }else{
+                            this.section_info.types_of_exercises_after_class =''
+                        }
+                        // }
+                        obj = _this.section_info
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/insertSection',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '保存成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.inita()
+                                _this.chapter_sec_info = {
+                                    item_bank_id: '',
+                                    ibs_id: '',
+                                    chapter_test_point_id: '',
+                                    chapter_test_point_id1: '',
+                                    chapter_test_point_id2: '',
+                                };
+                                // _this.changeKecheng()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    } else {
+                        obj = {}
+                        if (this.section_info.types_of_exercises_after_class == '绑定试卷') {
+                            _this.section_info.test_paper_id = _this.select_paper.id
+                            _this.section_info.chapter_section_type = null
+                            _this.section_info.chapter_section_id = null
+                            _this.section_info.number_of_cs = null
+                        } else if (this.section_info.types_of_exercises_after_class == '绑定章节') {
+                            index = 0;
+
+                            _this.section_info.test_paper_id = null
+                            for (var k in _this.chapter_sec_info) {
+                                if (_this.chapter_sec_info[k] != "") {
+                                    index += 1
+                                }
+                            }
+                            switch (index) {
+                                case 0:
+
+                                    break;
+                                case 1:
+
+                                    break;
+                                case 2:
+
+                                    break;
+                                case 3:
+
+                                    _this.section_info.chapter_section_type = "章"
+                                    _this.section_info.chapter_section_id = _this.chapter_sec_info
+                                        .chapter_test_point_id
+                                    break;
+                                case 4:
+
+                                    _this.section_info.chapter_section_type = "节"
+                                    _this.section_info.chapter_section_id = _this.chapter_sec_info
+                                        .chapter_test_point_id1
+                                    break;
+                                case 5:
+
+                                    _this.section_info.chapter_section_type = "考点"
+                                    _this.section_info.chapter_section_id = _this.chapter_sec_info
+                                        .chapter_test_point_id2
+
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        obj.section_id = _this.selected_file_id
+                        obj.section_name = _this.section_info.section_name
+                        obj.section_type = _this.section_info.section_type
+                        obj.test_paper_id = _this.section_info.test_paper_id
+                        obj.chapter_section_id = _this.section_info.chapter_section_id
+                        obj.s_resources_name = _this.section_info.s_resources_name
+                        obj.tf_free_resources = _this.section_info.tf_free_resources
+                        obj.resouces_id = _this.section_info.resouces_id
+                        obj.number_of_cs = _this.section_info.number_of_cs
+                        obj.types_of_exercises_after_class = _this.section_info.types_of_exercises_after_class
+                        obj.chapter_section_type = _this.section_info.chapter_section_type
+                        obj.c_recourses_ids = '[' + _this.section_info.c_recourses_ids.join(',') + ']'
+                        console.log(obj)
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/editSection',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '修改成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.chapter_sec_info = {
+                                    item_bank_id: '',
+                                    ibs_id: '',
+                                    chapter_test_point_id: '',
+                                    chapter_test_point_id1: '',
+                                    chapter_test_point_id2: '',
+                                };
+                                // _this.changeKecheng()
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }
+                    // if (_this.activeIndexb == 0) {
+                    //     _this.section_info.test_paper_id = null
+                    //     _this.section_info.chapter_section_id = null
+                    //     _this.section_info.chapter_section_type = null
+                    //     _this.section_info.number_of_cs = null
+
+                },
+                submit_zhangjie() {
+                    let _this = this
+                    if(this.activeIndexa == 2){
+                        setTimeout(() => {
+                            this.zhang = $('select[class = zhang]').val()==''?'':$('select[class = zhang] :selected').text().trim()
+                            this.jie = $('select[class = jie]').val()==''?'':$('select[class = jie] :selected').text().trim()
+                            this.kaodian =  $('select[class = kaodian]').val()==''?'':$('select[class = kaodian] :selected').text().trim()
+                        }, 20)
+                    }else if(this.activeIndexa == 1){
+                        obj = {
+                            zhang: $('select[class = zhang]').val()==''?'':$('select[class = zhang] :selected').text().trim(),
+                            jie: $('select[class = jie]').val()==''?'':$('select[class = jie] :selected').text().trim(),
+                            kaodian: $('select[class = kaodian]').val()==''?'':$('select[class = kaodian] :selected').text().trim()
+                        }
+                        _this.select_papers.push(obj)
+                        console.log(_this.test_info.chapter_section_id)
+                        _this.test_info.chapter_section_id.push(_this.chapter_sec_info.chapter_test_point_id2)
+                    }
+                    _this.model = 0
+                },
+                closeFile(index) {
+                    _this = this
+                    console.log(index)
+                    _this.file_con = _this.file_con.filter((i) => {
+                        return i.name != index
+                    })
+
+                },
+                submit_ziliao() {
+                    _this = this
+                    console.log(_this.editor_jie_label)
+                    if (_this.editor_jie_label == 0) {
+                        _this.file_con_copy = _this.file_con_copy.concat(_this.file_con)
+                    } else {
+                        console.log(_this.file_con)
+                        for (let i = 0; i < _this.file_con.length; i++) {
+                            obj = {}
+                            obj.c_recourses_name = _this.file_con[i].name
+                            obj.c_recourses_size = _this.change(_this.file_con[i].size)
+                            obj.user_id = 1
+                            obj.c_recourses_source = "课次"
+                            obj.suffix_type = _this.file_con[i].name.split('.')[1]
+                            obj.c_recourses_type = _this.ziliao_info.c_recourses_type
+                            obj.course_id = parseInt(window.location.href.split('=')[1])
+                            obj.chapter_id = _this.selected_file_cid
+                            obj.section_id = _this.selected_file_id
+                            obj.recourses_address = _this.file_con_copy[i].HTC
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/course/editSectionOfUploadFile',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.message == 'success') {
+                                        _this.section_info.c_recourses_ids.push(data.primary_key)
+                                        _this.file_con[i].c_recourses_id = data.primary_key
+                                        // console.log(i)
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '上传成功',
+                                            duration: 2000
+                                        });
+                                    } else {
+                                        _this.$notify.info({
+                                            title: '提示',
+                                            message: '上传失败',
+                                            duration: 2000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    _this.$notify.error({
+                                        title: '提示',
+                                        message: '服务器错误',
+                                        duration: 2000
+                                    });
+                                }
+                            })
+                        }
+                        
+                        _this.file_con_copy = _this.file_con_copy.concat(_this.file_con)
+                        console.log(_this.section_info.c_recourses_ids)
+                    }
+                },
+                file(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        console.log(type)
+                        var maxsize = 1024 * 1024 * 1024
+                        if (fileEnd.indexOf("doc") < 0 && fileEnd.indexOf("pdf") < 0 && fileEnd.indexOf(
+                                "xls") < 0 &&
+                            fileEnd.indexOf("ppt") < 0 && fileEnd.indexOf("docx") < 0 && fileEnd
+                            .indexOf("pptx") < 0 &&
+                            fileEnd.indexOf("xlsx") < 0 && fileEnd.indexOf("zip") < 0 && fileEnd
+                            .indexOf("rar") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择正确的格式上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            var form = document.getElementById("addFormOne");
+                            var formData = new FormData(form);
+                            // console.log(_this.file_con[0]==item)
+
+                            index = 0
+                            for (let i = 0; i < _this.file_con.length; i++) {
+                                if (_this.file_con[i].name == item.name) {
+                                    index += 1
+                                }
+                            }
+                            if (index == 0) {
+                                formData.set('multipartFile', item)
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/pse/uploadFile',
+                                    type: 'post',
+                                    // contentType: 'application/json',
+                                    data: formData,
+                                    processData: false,
+                                    contentType: false,
+                                    // dataType: 'json',
+                                    success: function (data) {
+                                        // if(_this.editor_jie_label == 1){
+                                        //     item.c_recourses_id = c_recourses_id
+                                        // }
+                                        item.HTC = data
+                                        item.c_recourses_id = ''
+                                        console.log(item)
+                                        _this.file_con.push(item)
+                                    },
+                                    error: function () {
+
+                                    }
+                                })
+                            } else {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '不能上传命名相同的文件',
+                                    duration: 2000
+                                });
+                            }
+                            // if(_this.file_con.indexOf(item) < 0){
+                            // _this.file_con.push(item)
+                            // }
+                            console.log(_this.file_con)
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                // _this.imgSrc = e.target.result
+                                // console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    // $(e.target).val('')
+                },
+                search_paper() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/selectTestPaperPage',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(_this.select_pc_info),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            for (let i = 0; i < data.length; i++) {
+                                switch (data[i].test_paper_type) {
+                                    case 1:
+                                        data[i].test_paper_type = '真题'
+                                        break;
+                                        case 2:
+                                        data[i].test_paper_type = '模拟题'
+                                        break;
+                                        case 3:
+                                        data[i].test_paper_type = '课后练习'
+                                        break;
+                                        case 4:
+                                        data[i].test_paper_type = '课后作业'
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            _this.userListTable = data
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                    console.log(this.select_pc_info)
+                },
+                search_son_tikus() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/selectSubLibraryByItemBankId',
+                        type: 'post',
+                        // contentType:'application/json',
+                        data: {
+                            item_bank_id: _this.select_pc_info.item_bank_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.son_tikus = data
+                            _this.select_pc_info.ibs_id = ''
+                            // if (data.message == "success") {
+                            //     _this.$message.success({
+                            //         type: 'info',
+                            //         message: '删除章成功',
+                            //         // position: 'bottom-left',
+                            //         duration: '2000'
+                            //     });
+                            //     console.log(id)
+                            //     obj = JSON.parse(JSON.stringify(_this.userList))
+                            //     _this.userList = obj.filter((i) => {
+                            //         return i.chapter_id != id
+                            //     })
+                            // } else {
+                            //     _this.$message.success({
+                            //         type: 'info',
+                            //         message: data.message,
+                            //         // position: 'bottom-left',
+                            //         duration: '2000'
+                            //     });
+                            // }
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                delresource(index,id) {
+                    _this = this
+                    console.log(index,id)
+                    if(_this.editor_jie_label == 1){
+                        $.ajax({
+                        url: 'http://192.168.10.166:8080/course/deleteCourseData',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            c_recourses_id: id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            // _this.userList = data
+                            if(data.code == 200){
+                                _this.$message.info({
+                                    type: 'info',
+                                    message: '删除此课程资料成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                                _this.section_info.c_recourses_ids = _this.section_info.c_recourses_ids.filter((item) => {
+                                    return item != id
+                                })
+                                _this.file_con_copy = _this.file_con_copy.filter((i) => {
+                                    return i.name != index
+                                })
+                            }else{
+                                _this.$message.info({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    }else{
+                        _this.file_con_copy = _this.file_con_copy.filter((i) => {
+                            return i.name != index
+                        })
+                    }
+                },
+                select_pc() {
+                    let _this = this
+
+                    this.select_pc_status = 1
+                    console.log(1)
+                },
+                choose_video(){
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/resourcesBank/queryAllResource',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.userListvideo = data
+                            _this.choose_video_status = 1
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                submit() {
+                    setTimeout(() => {
+                        arr = []
+                        for (let i = 0; i < $('#addd>li').length; i++) {
+                            arr[i] = {}
+                            arr[i].id = $($('#addd>li')[i]).attr('id')
+                            str = '#addd>#' + $($('#addd>li')[i]).attr('id') + ' li'
+                            arr[i].child = []
+                            console.log($(str))
+                            for (let k = 0; k < $(str).length; k++) {
+                                arr[i].child[k] = {}
+                                arr[i].child[k].id = $($(str)[k]).attr('id')
+                                console.log($($(str)[k]).attr('id'))
+                            }
+                        }
+                        console.log(arr)
+                    }, 20)
+                },
+                collapseAll() {
+                    $(".base-sort").find(".sortable").slideUp(200);
+                },
+                delete_chapter(id) {
+                    console.log(id)
+                    _this = this
+                    _this.$confirm(`是否确认删除章?`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/deleteChapter',
+                            type: 'post',
+                            // contentType:'application/json',
+                            data: {
+                                chapter_id: id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "success") {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '删除章成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    console.log(id)
+                                    obj = JSON.parse(JSON.stringify(_this.userList))
+                                    _this.userList = obj.filter((i) => {
+                                        return i.chapter_id != id
+                                    })
+                                } else {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: data.message,
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                        console.log(obj)
+                    }).catch(() => {
+                        this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                },
+                upLoadZl() {
+                    this.model = 4
+                },
+                submit_chapter() {
+                    _this = this
+                    console.log(this.add_chapter_input)
+                    chapter_name = _this.add_chapter_input
+                    if(_this.editor_chapter == 0){
+                        course_id = parseInt(window.location.href.split('=')[1])
+                        obj = {
+                            chapter_name: chapter_name,
+                            user_id: parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                            course_id: course_id
+                        }
+                        console.log(obj)
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/insertChapter',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "success") {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '新增章成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    obj = JSON.parse(JSON.stringify(_this.userList))
+                                    obj[obj.length - 1].chapter_name = _this.add_chapter_input
+                                    obj[obj.length - 1].chapter_id = data.primary_key
+                                    _this.userList = obj
+                                } else {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: data.message,
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }else{
+                        obj={
+                            chapter_name:chapter_name,
+                            chapter_id: _this.editor_chapter_id,
+                        }
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/editChapter',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "success") {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '编辑章成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    obj = JSON.parse(JSON.stringify(_this.userList))
+                                    obj[_this.editor_chapter_index].chapter_name = _this.add_chapter_input
+                                    _this.userList = obj
+                                } else {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: data.message,
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }
+                    
+                },
+                activea(num) {
+
+                },
+                loadData: function (moduleId) {
+                    var $this = this;
+                    if (!moduleId) {
+                        $('.base-sort').sortable({
+                            placeholder: "ui-state-highlight",
+                            update: function (event, ui) {
+                                // $this.sort(ui.item);
+                                console.log(ui)
+                            },
+                            delay: 200,
+                            // start: $this.collapseAll
+                        }).disableSelection();
+                        $('.base-sort').find(".sortable").sortable({
+                            placeholder: "ui-state-highlight",
+                            update: function (event, ui) {
+                                // $this.sort(ui.item.siblings());
+                                // $this.sort(ui.item);
+                                console.log(ui)
+                            },
+                            receive: function (event, ui) {
+                                // $this.mvLecture(ui.sender, $(event.target).parents(".dis"), ui.item);
+                            },
+                            delay: 200,
+                            connectWith: ".son"
+                        }).disableSelection();
+                        return;
+                    }
+
+                },
+                editor_ceyan(id) {
+                    _this = this
+                    _this.select_pc_infos.length = 0;
+                    _this.chapter_sec_infos.length = 0;
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/findOneTestInfo',
+                        type: 'post',
+                        // contentType:'application/json',
+                        data: {
+                            test_id: id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.editor_ceyan_label = 1
+                            _this.editor_ceyan_id = id
+                            _this.test_info = data
+                            console.log(_this.test_info.test_type)
+                            _this.select_papers = []
+                            _this.select_pc_infos = []
+                            if(data.test_type == "绑定试卷"){
+                                for (let i = 0; i < _this.test_info.test_pater_or_chapter_section_point_infos.length; i++) {
+                                    obj = {}
+                                    obj.id = data.test_pater_or_chapter_section_point_infos[i].test_paper_id
+                                    obj.name = data.test_pater_or_chapter_section_point_infos[i].test_name
+                                    _this.select_pc_infos.push(obj)
+                                    
+                                }
+                                if( _this.test_info.chapter_section_id == null){
+                                _this.test_info.chapter_section_id = []
+                                }else{
+                                _this.test_info.chapter_section_id = _this.test_info.chapter_section_id.split(',')
+                                }
+                            }else if(data.test_type == "绑定章节"){
+                                if( _this.test_info.chapter_section_id == null){
+                                _this.test_info.chapter_section_id = []
+                                }else{
+                                _this.test_info.chapter_section_id = _this.test_info.chapter_section_id.split(',')
+                                }
+                                for (let i = 0; i < _this.test_info.test_pater_or_chapter_section_point_infos.length; i++) {
+                                    obj = {}
+                                    obj.kaodian = data.test_pater_or_chapter_section_point_infos[i].name
+                                    _this.select_papers.push(obj)
+                                }
+                                // for (let i = 0; i < _this.text_info.test_pater_or_chapter_section_point_infos.length; i++) {
+                                //     obj = {}
+                                //     obj.id = data.test_pater_or_chapter_section_point_infos[i].test_paper_id
+                                //     obj.name = data.test_pater_or_chapter_section_point_infos[i].test_name
+                                //     _this.select_papers.push(obj)
+                                // }
+                            }
+                            _this.activeIndexa = 1
+                            
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                editor_jie(id, c_id) {
+                    _this = this
+                    _this.selected_file_id = id
+                    _this.selected_file_cid = c_id
+                    _this.select_pc_infos.length = 0;
+                    _this.chapter_sec_infos.length = 0;
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/findOneSection',
+                        type: 'post',
+                        // contentType:'application/json',
+                        data: {
+                            section_id: id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.section_info = data
+                            _this.editor_jie_label = 1
+                            console.log(data.test_paper_or_chapterSection_info)
+                            if(data.test_paper_or_chapterSection_info != undefined){
+                            _this.select_paper.id =  data.test_paper_or_chapterSection_info
+                                .test_paper_id
+                            _this.select_paper.name = data.test_paper_or_chapterSection_info
+                                .test_paper_name
+                            _this.zhang = data.test_paper_or_chapterSection_info
+                                .chapter_name
+                                _this.jie = data.test_paper_or_chapterSection_info.section_name
+                            _this.kaodian = data.test_paper_or_chapterSection_info.point_name
+                            }
+                            _this.tf_free_resources = data.tf_free_resources
+                            if(data.c_recourses_ids != ""){
+                            _this.section_info.c_recourses_ids = JSON.parse(data.c_recourses_ids)
+                            }else{
+                                _this.section_info.c_recourses_ids = []
+                            }
+                            _this.file_con_copy = []
+                            for (var i = 0; i < data.c_recourses_info.length; i++) {
+                                obj = {}
+                                obj.name = data.c_recourses_info[i].c_recourses_name
+                                obj.size = data.c_recourses_info[i].c_recourses_size
+                                obj.HTC = data.c_recourses_info[i].recourses_address
+                                obj.c_recourses_id =  data.c_recourses_info[i].c_recourses_id
+                                _this.file_con_copy.push(obj)
+                            }
+                            _this.activeIndexa = 2
+                        },
+                        error: function () {
+                            _this.$message.error({
+                                type: 'info',
+                                message: '服务器错误',
+                                // position: 'bottom-left',
+                                duration: '2000'
+                            });
+                        }
+                    })
+                },
+                add_Chapter() {
+                    _this = this;
+                    _this.editor_chapter = 0
+                    
+                    _this.add_chapter_input = ''
+                    console.log(1)
+                    if (JSON.stringify(_this.userList[_this.userList.length - 1]) != "{}") {
+                        _this.userList.push({})
+                    }
+                    _this.activeIndexa = 0
+                },
+                change(limit) {
+                    var size = "";
+                    if (limit < 0.1 * 1024) { //小于0.1KB，则转化成B
+                        size = limit.toFixed(2) + "B"
+                    } else if (limit < 0.1 * 1024 * 1024) { //小于0.1MB，则转化成KB
+                        size = (limit / 1024).toFixed(2) + "KB"
+                    } else if (limit < 0.1 * 1024 * 1024 * 1024) { //小于0.1GB，则转化成MB
+                        size = (limit / (1024 * 1024)).toFixed(2) + "MB"
+                    } else { //其他转化成GB
+                        size = (limit / (1024 * 1024 * 1024)).toFixed(2) + "GB"
+                    }
+
+                    var sizeStr = size + ""; //转成字符串
+                    var index = sizeStr.indexOf("."); //获取小数点处的索引
+                    var dou = sizeStr.substr(index + 1, 2) //获取小数点后两位的值
+                    if (dou == "00") { //判断后两位是否为00，如果是则删除00                
+                        return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2)
+                    }
+                    return size;
+                },
+                addSection(id) {
+                    _this = this;
+                    console.log(id)
+                    _this.editor_ceyan_label = 0
+                    _this.test_info.chapter_id = id
+                    _this.activeIndexa = 1
+                },
+                goZhibo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageTelecast.html?course_id='+course_id)
+                    }
+                },
+                goClassStu(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageStu.html?course_id='+course_id)
+                    }
+                },
+                goClassZL(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageziliao.html?course_id='+course_id)
+                    }
+                },
+                goClassTJ(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanagezhibo.html?course_id='+course_id)
+                    }
+                },
+                goVideo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageVideo.html?course_id='+course_id)
+                    } 
+                },
+                goManage(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanage.html?course_id='+course_id)
+                    } 
+                },
+                goClassTable(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageClasstable.html?course_id='+course_id)
+                    }
+                },
+                addJie(id) {
+                    _this = this;
+                    console.log(id)
+                    _this.section_info = {}
+                    _this.editor_jie_label = 0
+                    _this.section_info.chapter_id = id
+                    _this.section_info.s_resources_name = '资源名称2'
+                    _this.section_info.resouces_id = 2
+                    _this.activeIndexa = 2
+                },
+                delete_section(id, fid) {
+                    console.log(id, fid)
+                    _this = this
+                    _this.$confirm(`是否确认删除节?`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/deleteSection',
+                            type: 'post',
+                            // contentType:'application/json',
+                            data: {
+                                section_id: id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "success") {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '删除节成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+
+                                    for (let i = 0; i < _this.userList.length; i++) {
+                                        if (_this.userList[i].chapter_id == fid) {
+                                            _this.userList[i].jie = _this.userList[i].jie
+                                                .filter((k) => {
+                                                    return k.section_id != id
+                                                })
+                                        }
+                                    }
+                                } else {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: data.message,
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                        console.log(obj)
+                    }).catch(() => {
+                        this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                },
+                //选择资源，弹框消失
+                choose_video_ziyuan(row, column, event, cell){
+                    _this = this
+                        _this.section_info.resouces_id = row.resouces_id
+                        _this.section_info.s_resources_name = row.resourse_name
+                    _this.choose_video_status = 0
+                    console.log(row)
+                },
+                //选择试卷，弹框消失
+                caaa(row, column, event, cell) {
+                    _this = this
+                    if(_this.activeIndexa == 1){
+                        obj  =  {}
+                        obj.id = row.test_paper_id
+                        obj.name = row.test_paper_name
+                        _this.select_pc_infos.push(obj)
+                    }else if(_this.activeIndexa == 2){
+                        _this.select_paper.id = row.test_paper_id
+                        _this.select_paper.name = row.test_paper_name
+                    }
+                    _this.select_pc_status = 0
+                    console.log(row)
+
+                },
+                delete_text(id, fid) {
+                    console.log(id, fid)
+                    _this = this
+                    _this.$confirm(`是否确认删除节?`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/deleteTest',
+                            type: 'post',
+                            // contentType:'application/json',
+                            data: {
+                                test_id: id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == "success") {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '删除测验成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+
+
+                                    for (let i = 0; i < _this.userList.length; i++) {
+                                        if (_this.userList[i].chapter_id == fid) {
+                                            _this.userList[i].ceyan = _this.userList[i]
+                                                .ceyan.filter((k) => {
+                                                    return k.test_id != id
+                                                })
+                                        }
+                                    }
+                                } else {
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: data.message,
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '服务器错误',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                        console.log(obj)
+                    }).catch(() => {
+                        this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                handleSizeChange1: function (size) {
+                    this.pagesize1 = size;
+                },
+                handleCurrentChange1: function (currentPage) {
+                    this.currentPage1 = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

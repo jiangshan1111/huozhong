@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-account"></i> 学员
+                    <ul class="row page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;">学员管理</li>
+                        <li onclick="window.location.href='studentNotice.html'">学员通知</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="messageUp row" style="background: white">
+                        <div class="studyPic col-xl-2">
+                            <div class="bg1">
+                                <div class="bg2">
+
+
+                                    <i :style=`background-image:url(`+[stu_small.head]+`)`>
+
+                                    </i>
+
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="upCont col-xl-10" style="margin: 1.5rem 0">
+                            <li class="clear row">
+                                <div class="runk runk1 col-xl-3"><span>姓名：</span><strong
+                                        v-html="stu_small.stu_name">崔勇</strong></div>
+                                <div class="runk runk2 col-xl-3"><span>昵称：</span><strong
+                                        v-html="stu_small.nickname"></strong></div>
+                                <div class="runk runk3 col-xl-3"><span>微信号：</span><strong
+                                        v-html="stu_small.wechat"></strong></div>
+                                <div class="runk runk4 col-xl-3"><span>手机号：</span><strong
+                                        v-html="stu_small.tel">18636545934</strong></div>
+                            </li>
+                            <li class="clear row">
+                                <div class="runk runk1 col-xl-3"><span>最后登录时间：</span><strong
+                                        v-html="stu_small.last_login_time">2019-07-11
+                                        14:44:18</strong></div>
+                                <div class="runk runk2 col-xl-3"><span>余额：</span><strong
+                                        v-html="stu_small.balance_money">0</strong></div>
+                                <div class="runk runk4 col-xl-3"><span>优惠券：</span><strong
+                                        v-html="stu_small.discount_num">0</strong></div>
+                            </li>
+                            <li class="clear row">
+                                <div class="runk runk1 col-xl-3"><span class="titles">一级分组：</span><strong
+                                        v-html="stu_small.project_id">注册消防工程师考试</strong>
+                                </div>
+                                <div class="runk runk2 col-xl-3"><span class="titles">二级分组：</span><strong
+                                        v-html="stu_small.stu_name">201911考期</strong></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="messageDown row" style="background: white;margin-top: 20px;padding: 0 20px" style="">
+                        <ul class="headTitle clear">
+                            <li :class="activeIndexa == 0?'active':''" @click="activea(0)">基本信息</li>
+                            <li :class="activeIndexa == 1?'active':''" @click="activea(1)">消费记录</li>
+                            <li :class="activeIndexa == 2?'active':''" @click="activea(2)">学习记录</li>
+                            <li :class="activeIndexa == 3?'active':''" @click="activea(3)">做题记录</li>
+                        </ul>
+                        <div class="studyFilesBox col-xl-12" style="width: 100%;" v-if="activeIndexa == 0">
+                            <div class="studyList baseMessage clear row">
+                                <dl class="col-xl-12">
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">性别：</span>
+                                        <strong v-html="stu_big.sex">男</strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">年龄：</span>
+                                        <strong v-html="stu_big.age"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">证件类型：</span>
+                                        <strong v-html="stu_big.ID_type"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">证件号：</span>
+                                        <strong v-html="stu_big.ID_number"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">出生日期：</span>
+                                        <strong v-html="stu_big.birthday"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">户口所在地：</span>
+                                        <strong v-html="stu_big.hukou_address"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">最高学历：</span><strong v-html="stu_big.education"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">备注：</span><strong v-html="stu_big.remarks"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">办公电话：</span><strong v-html="stu_big.office_tel"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">紧急联系人：</span><strong
+                                            v-html="stu_big.urgent_people"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">联系人电话：</span><strong
+                                            v-html="stu_big.urgent_people_tel"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">邮箱：</span><strong v-html="stu_big.email"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">QQ号：</span><strong v-html="stu_big.qq"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">微信：</span><strong v-html="stu_big.wechat"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">注册来源：</span><strong
+                                            v-html="stu_big.registration_source"></strong>
+                                    </dd>
+                                    <dd class="col-xl-6">
+                                        <span class="col-xl-3">地址：</span><strong
+                                            v-html="stu_big.detail_address"></strong>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="studyList recordBox" style="width: 100%;" v-if="activeIndexa == 1">
+                            <div class="clear" style="overflow: hidden">
+                                <ul class="classifyBox clear" id="consumeType">
+                                    <li :class="activeIndexb == 0?'active':''" @click="active(0)"
+                                        data-type="COMMODITY_CLASS">课程</li>
+                                    <!-- <li :class="activeIndexb == 1?'active':''" @click="activeIndexb = 1" data-type="INTEGRAL" style="display: none">积分</li> -->
+                                    <li :class="activeIndexb == 1?'active':''" @click="active(1)"
+                                        data-type="COMMODITY_PACKAGE">课程包</li>
+                                    <li :class="activeIndexb == 2?'active':''" @click="active(2)" data-type="RECHARGE">
+                                        余额
+                                    </li>
+                                    <!-- <li :class="activeIndexb == 4?'active':''" @click="activeIndexb = 4" data-type="MEMBER" style="display: none">会员</li> -->
+                                    <li :class="activeIndexb == 3?'active':''" @click="active(3)"
+                                        data-type="transaction">异动</li>
+                                </ul>
+                                <p class="showClass" id="search_class_type">
+                                    <!-- <i class="iconfont boxChecked"></i> -->
+                                    <span>仅展示学习中课程</span>
+                                    <input type="checkbox" name="" id="">
+                                </p>
+                                <p class="showClass" id="search_class_package" style="display: none;">
+                                    <i class="iconfont boxChecked"></i>
+                                    <span>仅展示学习中课程包</span>
+                                </p>
+                            </div>
+                            <div class="switchBox">
+                                <dl class="switchCont recordListBox row" id="classListBox" v-if="activeIndexb == 0">
+                                    <div class="col-md-4" v-for="(item,index) in class_record">
+                                        <dd>
+                                            <!-- <i class="recordPic"
+                                                :style=`background-image:url(`+[item.banner]+`)`></i> -->
+                                            <ul class="listCont packageUlList" style="margin:0">
+                                                <li><span>商品名称：</span><b>{{item.course_name}}</b></li>
+                                                <li><span>商品价格：</span><b>¥{{item.special_price}}</b></li>
+                                                <li><span>支付时间：</span><b>{{getNowFormatDate(new Date(item.pay_time))}}</b>
+                                                </li>
+                                                <li><span>订单编号：</span><b>{{item.order_num}}</b></li>
+                                                <li><span>实付款：</span><b>¥{{item.refund_payment_money}}</b></li>
+                                                <li><span>支付方式：</span><b>{{item.budget_way}}</b></li>
+                                            </ul>
+                                            <p :class="'status_img '+[item.sc_status == '已删除'?'delete':'learning']"></p>
+                                        </dd>
+                                    </div>
+                                </dl>
+
+                                <div class="switchCont integralBox" id="integralBox" v-if="activeIndexb == 2">
+                                    <template>
+                                        <el-table border :data="surplus" :data="tableData"
+                                            style="overflow: auto;width: 100%">
+                                            <el-table-column prop="p_c_date" label="购买/消费日期" :width="flexColumnWidth()"
+                                                style="text-align: center">
+                                            </el-table-column>
+                                            <el-table-column prop="p_c_type" label="购买/消费类型" :width="flexColumnWidth()">
+                                            </el-table-column>
+                                            <el-table-column prop="money" label="购买/消费金额" :width="flexColumnWidth()">
+                                            </el-table-column>
+                                            <el-table-column prop="virtual_coin" label="剩余虚拟币"
+                                                :width="flexColumnWidth()">
+                                            </el-table-column>
+                                        </el-table>
+                                    </template>
+                                </div>
+                                <dl class="switchCont recordListBox row" id="packageListBox" v-if="activeIndexb == 1">
+                                    <div class="col-md-4" v-for="(item,index) in classes_record">
+                                        <dd>
+                                            <!-- <i class="recordPic"
+                                                :style=`background-image:url(`+[item.banner]+`)`></i> -->
+                                            <ul class="listCont packageUlList" style="margin:0">
+                                                <li><span>商品名称：</span><b>{{item.cp_name}}</b></li>
+                                                <li><span>阶段名称：</span><b>{{item.stage_name}}</b></li>
+                                                <li><span>商品价格：</span><b>¥{{item.total_price}}</b></li>
+                                                <li><span>支付时间：</span><b>{{item.refund_payment_time}}</b></li>
+                                                <li><span>订单编号：</span><b>{{item.order_num}}</b></li>
+                                                <li><span>实付款：</span><b>¥{{item.shifukuan}}</b></li>
+                                                <li><span>支付方式：</span><b>{{item.budget_way}}</b></li>
+                                            </ul>
+                                            <p :class="'status_img '+[item.cp_status == '已删除'?'delete':'learning']"></p>
+                                        </dd>
+                                    </div>
+                                </dl>
+                                <ul class="switchCont transactList" id="transactList" v-if="activeIndexb == 3">
+                                    <li class="clear" v-for="(item,index) in yidong">
+                                        <div class="tranpic">
+                                            <p><strong class="backMony"></strong> {{item.transaction_type}}</p>
+                                        </div>
+                                        <dl class="clear">
+                                            <dd class="clear fl goods spegood"><span class="fl">异动商品：</span><b
+                                                    class="fl ">{{item.course_id}}</b></dd>
+                                            <dd class="clear fl operback"><span class="fl">异动时间：</span><b
+                                                    class="fl">{{item.transaction_time}}</b></dd>
+                                            <dd class="clear fl operback"><span class="fl">操作人：</span><b
+                                                    class="fl">{{item.user_id}}</b></dd>
+                                        </dl>
+                                        <dl class="clear">
+                                            <dd class="clear fl goods"><span class="fl">商品金额：</span><b
+                                                    class="fl">￥{{item.price}}</b>
+                                            </dd>
+                                            <dd class="clear fl operback"><span class="fl">退费金额：</span><b
+                                                    class="fl">￥{{item.money}}</b></dd>
+                                            <dd class="clear fl operback"><span class="fl">退费方式：</span><b
+                                                    class="fl">{{item.money>0?'补缴':'退费'}}</b></dd>
+                                        </dl>
+                                        <dl class="clear">
+                                            <dd class="clear fl goods"><span class="fl">原因分类：</span><b
+                                                    class="fl">{{item.reason_id}}</b>
+                                            </dd>
+                                            <dd class="clear fl operback"><span class="fl">具体原因：</span><b
+                                                    class="fl">{{item.detail_reason_id}}</b>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dd class="clear fl goods"><span class="fl">责任部门：</span><b
+                                                    class="fl">{{item.duty_depart_id}}</b>
+                                            </dd>
+                                            <dd class="clear fl behind"><span class="fl">备注：</span><b
+                                                    class="fl ">{{item.remark}}</b>
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="studyList zhiBoBox" style="width: 100%;" v-if="activeIndexa == 2">
+                            <div class="contentTable ">
+                                <!-- <button :class="activeIndexc == 0?'active':''" @click="activeC(0)">直播</button>
+                                <button :class="activeIndexc == 1?'active':''" @click="activeC(1)">录播</button>
+                                <button :class="activeIndexc == 3?'active':''" @click="activeC(3)">混合课</button> -->
+                                <!-- <ul class="classifyBox clear" id="studyType"> -->
+                                <!-- <li class="" data-type="live">直播</li>
+                                    <li data-type="video" class="">录播</li>
+                                    <li data-type="meet" class="active">一对一</li>
+                                    <li data-type="blend" class="">混合课</li> -->
+                                <!-- </ul> -->
+                            </div>
+                            <div class="switchBox">
+                                <div class="switchCont integralBox" id="integralBox">
+                                    <template>
+                                        <el-table border
+                                            :data="userList1.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                            style="overflow: auto;width: 100%">
+                                            <el-table-column prop="course_name" label="课程名称" :width="flexColumnWidthd()"
+                                                style="text-align: center">
+                                            </el-table-column>
+                                            <el-table-column prop="rate" label="学习进度" :width="flexColumnWidthd()">
+                                            </el-table-column>
+                                        </el-table>
+                                        <el-pagination @size-change="handleSizeChange"
+                                            @current-change="handleCurrentChange" :current-page="currentPage"
+                                            :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                            layout="total, sizes, prev, pager, next, jumper" :total="userList1.length">
+                                        </el-pagination>
+                                    </template>
+                                    <div class="title">学习记录</div>
+                                    <div class="searchTerm clear">
+                                        <form method="post" id="exprotForm" action="">
+                                            <input type="text" hidden="hidden" name="stuId" value="888408">
+                                            <input type="text" hidden="hidden" name="commodityId">
+                                            <input type="text" hidden="hidden" name="commodityIds">
+                                            <!-- <select id="courseMessage2_select">
+                                                <option value="">------全部课程-----</option>
+                                                <option value="812928">注册消防工程师开学典礼20190711</option>
+                                                <option value="806668">注册消防工程师开学典礼20190703</option>
+                                                <option value="800184">注册消防工程师开学典礼20190627</option>
+                                                <option value="721971">201903火种教育前后端交流</option>
+                                                <option value="743210">格致学院消防练功房</option>
+                                                <option value="718983">消防工程师开学典礼20190328</option>
+                                                <option value="721228">201903考前复习攻略课</option>
+                                                <option value="701231">消防工程师开学典礼20190314</option>
+                                                <option value="685141">2019考期开学典礼20190218</option>
+                                                <option value="679713">2019考期开学典礼20190128</option>
+                                            </select> -->
+                                        </form>
+                                        <a href="javascript:;" class="outBtn lessonOut" @click="exportList">导出列表</a>
+                                    </div>
+                                    <template>
+                                        <el-table border
+                                            :data="userList2.slice((currentPage2-1)*pagesize2,currentPage2*pagesize2)"
+                                            style="overflow: auto;width: 100%">
+                                            <el-table-column prop="course_id" label="课程名称" :width="flexColumnWidthe()"
+                                                style="text-align: center">
+                                            </el-table-column>
+                                            <el-table-column prop="ct_name" label="课次名称" :width="flexColumnWidthe()">
+                                            </el-table-column>
+                                            <el-table-column prop="study_style" label="教学形式"
+                                                :width="flexColumnWidthe()">
+                                            </el-table-column>
+                                            <el-table-column prop="last_class_time" label="最后上课时间"
+                                                :width="flexColumnWidthe()">
+                                            </el-table-column>
+                                            <el-table-column prop="completion_status" label="完成情况"
+                                                :width="flexColumnWidthe()">
+                                            </el-table-column>
+                                            <el-table-column prop="max_class_time" label="最长上课时间"
+                                                :width="flexColumnWidthe()">
+                                            </el-table-column>
+                                            <el-table-column prop="rate_of_learning" label="课次学习进度"
+                                                :width="flexColumnWidthe()">
+                                            </el-table-column>
+                                        </el-table>
+                                        <el-pagination @size-change="handleSizeChange2"
+                                            @current-change="handleCurrentChange2" :current-page="currentPage2"
+                                            :page-sizes="[5, 10, 20, 40]" :page-size="pagesize2"
+                                            layout="total, sizes, prev, pager, next, jumper" :total="userList2.length">
+                                        </el-pagination>
+                                    </template>
+                                    <div class="title">课程包学习记录</div>
+                                    <template>
+                                        <el-table border
+                                            :data="userList3.slice((currentPage3-1)*pagesize3,currentPage3*pagesize3)"
+                                            style="overflow: auto;width: 100%">
+                                            <el-table-column prop="cp_name" label="课程包名称" :width="flexColumnWidthd()"
+                                                style="text-align: center">
+                                            </el-table-column>
+                                            <el-table-column prop="rate" label="学习进度" :width="flexColumnWidthd()">
+                                            </el-table-column>
+                                        </el-table>
+                                        <el-pagination @size-change="handleSizeChange3"
+                                            @current-change="handleCurrentChange3" :current-page="currentPage3"
+                                            :page-sizes="[5, 10, 20, 40]" :page-size="pagesize3"
+                                            layout="total, sizes, prev, pager, next, jumper" :total="userList3.length">
+                                        </el-pagination>
+                                    </template>
+                                    <div class="title">项目学习记录</div>
+                                    <template>
+                                        <el-table border
+                                            :data="userList4.slice((currentPage4-1)*pagesize4,currentPage*pagesize4)"
+                                            style="overflow: auto;width: 100%">
+                                            <el-table-column prop="project_name" label="项目名称"
+                                                :width="flexColumnWidthd()" style="text-align: center">
+                                            </el-table-column>
+                                            <el-table-column prop="rate" label="学习进度" :width="flexColumnWidthd()">
+                                            </el-table-column>
+                                        </el-table>
+                                        <el-pagination @size-change="handleSizeChange4"
+                                            @current-change="handleCurrentChange4" :current-page="currentPage4"
+                                            :page-sizes="[5, 10, 20, 40]" :page-size="pagesize4"
+                                            layout="total, sizes, prev, pager, next, jumper" :total="userList4.length">
+                                        </el-pagination>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="studyList writeRecord" style="width: 100%;" v-if="activeIndexa == 3">
+                            <div class="clear" style="overflow: hidden">
+                                <ul class="classifyBox clear" id="consumeType" style="    padding: 0;">
+                                    <li class="active" data-type="COMMODITY_CLASS">题库</li>
+                                </ul>
+                            </div>
+                            <div class="writeCont">
+                                <div class="writeList" style="overflow: hidden">
+                                    <div class="searchTerm clear">
+                                        <form id="exprotForm_exam">
+                                            <input type="hidden" value="888408" name="stuId">
+                                            <select id="tikuId_select" name="tiKuName"
+                                                v-model="search_question_record.item_bank_id"
+                                                @change="change_son_tikus">
+                                                <option value="">题库名称</option>
+                                                <option v-for="(item,index) in tikus" :value="item.item_bank_id">
+                                                    {{item.item_bank_name}}</option>
+                                            </select>
+                                            <select id="tikuSub_select" name="subjectName"
+                                                v-model="search_question_record.ibs_id">
+                                                <option value="">子题库名称</option>
+                                                <option v-for="(item,index) in son_tikus" :value="item.ibs_id">
+                                                    {{item.ibs_name}}</option>
+                                            </select>
+                                            <select v-model="search_question_record.type" id="stu_exerciseType"
+                                                name="exerciseType">
+                                                <option value="">类型名称</option>
+                                                <option value="1">快速做题</option>
+                                                <option value="2">章节练习</option>
+                                                <option value="3">模拟题/真</option>
+                                                <option value="4">课后练习</option>
+                                                <option value="5">章节测验</option>
+                                                <option value="6">课后作业</option>
+                                                <option value="7">每日一练</option>
+                                                <option value="8">智能组卷</option>
+                                                <option value="9">快速15道</option>
+                                            </select>
+                                            <template>
+                                                <div>
+                                                    <el-date-picker v-model="value1" type="date" placeholder="选择日期">
+                                                    </el-date-picker>
+                                                </div>
+                                            </template>
+                                            <a href="javascript:;" class="outBtn lessonOut" id="examOut" @click="export_tiku">导出列表</a>
+                                            <a href="javascript:;" class=" lessonOut" id="searchBtn"
+                                                @click="search_question_records">搜索</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="switchBox">
+                                <div class="switchCont integralBox" id="integralBox">
+                                    <template>
+                                        <el-table border
+                                            :data="userList5.slice((currentPage5-1)*pagesize5,currentPage5*pagesize5)"
+                                            style="overflow: auto;width: 100%">
+                                            <el-table-column prop="time" label="做题时间" :width="flexColumnWidthf()"
+                                                style="text-align: center">
+                                            </el-table-column>
+                                            <el-table-column prop="item_bank_name" label="题库" :width="flexColumnWidthf()">
+                                            </el-table-column>
+                                            <el-table-column prop="ibs_name" label="科目" :width="flexColumnWidthf()">
+                                            </el-table-column>
+                                            <el-table-column prop="type" label="类型" :width="flexColumnWidthf()">
+                                            </el-table-column>
+                                            <el-table-column prop="question_num" label="做题数" :width="flexColumnWidthf()">
+                                            </el-table-column>
+                                            <el-table-column prop="score" label="得分" :width="flexColumnWidthf()">
+                                            </el-table-column>
+                                            <el-table-column prop="zql" label="正确率" :width="flexColumnWidthf()">
+                                            </el-table-column>
+                                            <el-table-column prop="error_num" label="错题数" :width="flexColumnWidthf()">
+                                            </el-table-column>
+                                            <el-table-column label="操作" :width="flexColumnWidthf()">
+                                                <template slot-scope="scope">
+                                                    <el-button type="text" size="small" @click="dangan(scope.row)">查看
+                                                    </el-button>
+                                                </template>
+                                            </el-table-column>
+                                        </el-table>
+                                        <el-pagination @size-change="handleSizeChange5"
+                                            @current-change="handleCurrentChange5" :current-page="currentPage5"
+                                            :page-sizes="[5, 10, 20, 40]" :page-size="pagesize5"
+                                            layout="total, sizes, prev, pager, next, jumper" :total="userList5.length">
+                                        </el-pagination>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <!-- <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script> -->
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    userList: [{
+                        date: '2016-05-02',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1518 弄'
+                    }, {
+                        date: '2016-05-04',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1517 弄'
+                    }, {
+                        date: '2016-05-01',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1519 弄'
+                    }, {
+                        date: '2016-05-03',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1516 弄'
+                    }, {
+                        date: '2016-05-02',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1518 弄'
+                    }, {
+                        date: '2016-05-04',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1517 弄'
+                    }, {
+                        date: '2016-05-01',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1519 弄'
+                    }, {
+                        date: '2016-05-03',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1516 弄'
+                    }, {
+                        date: '2016-05-02',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1518 弄'
+                    }, {
+                        date: '2016-05-04',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1517 弄'
+                    }, {
+                        date: '2016-05-01',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1519 弄'
+                    }, {
+                        date: '2016-05-03',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1516 弄'
+                    }],
+                    //所有题库
+                    tikus: [],
+                    son_tikus: [],
+                    search_question_record: {
+                        "item_bank_id": '',
+                        "ibs_id": '',
+                        "type": '',
+                        "time": "",
+                        student_id: window.location.href.split('=')[1]
+                    },
+                    //课程的购买记录
+                    class_record: [
+                        // {
+                        // "stu_id": 1,
+                        // "budget_way": "线下支付",
+                        // "sc_status": "学习中",
+                        // "course_name": "测试课程",
+                        // "special_price": 66.00,
+                        // "order_num": "20190920105823",
+                        // "refund_payment_time": "2019-09-20 11:06:05",
+                        // "shifukuan": 8.00,
+                        // "banner":'http://image.yunduoketang.com/course/34270/20190829/11c506e7-d6f2-47c6-831c-9d19fa0b5c13.png',
+                        // },
+                        // {
+                        // "stu_id": 1,
+                        // "budget_way": "线下支付",
+                        // "sc_status": "已删除",
+                        // "course_name": "测试课程",
+                        // "special_price": 66.00,
+                        // "order_num": "20190920105823",
+                        // "refund_payment_time": "2019-09-20 11:06:05",
+                        // "shifukuan": 8.00,
+                        // "banner":'http://image.yunduoketang.com/course/34270/20190829/11c506e7-d6f2-47c6-831c-9d19fa0b5c13.png',
+                        // }
+                    ],
+
+                    //课程包的购买记录
+                    classes_record: [
+                        // {
+                        //     "stu_id": 2,
+                        //     "budget_way": "线下支付",
+                        //     "total_price": 8888.00,
+                        //     "stage_name": "精讲阶段",
+                        //     "cp_name": "课程包001",
+                        //     "order_num": "20190920105823",
+                        //     "refund_payment_time": "2019-09-20 11:06:05",
+                        //     "cp_status": "学习中",
+                        //     "shifukuan": 8.00,
+                        //     "banner":'http://image.yunduoketang.com/course/34270/20190829/11c506e7-d6f2-47c6-831c-9d19fa0b5c13.png',
+                        //     },
+                        //     {
+                        //     "stu_id": 2,
+                        //     "budget_way": "线下支付",
+                        //     "total_price": 8888.00,
+                        //     "stage_name": "精讲阶段",
+                        //     "cp_name": "课程包001",
+                        //     "order_num": "20190920105823",
+                        //     "refund_payment_time": "2019-09-20 11:06:05",
+                        //     "cp_status": "已删除",
+                        //     "shifukuan": 8.00,
+                        //     "banner":'http://image.yunduoketang.com/course/34270/20190829/11c506e7-d6f2-47c6-831c-9d19fa0b5c13.png',
+                        //     },
+                    ],
+                    //消费记录 余额
+                    surplus: [{
+                        "stu_id": 1,
+                        "p_c_type": 2,
+                        "p_c_date": "2019-09-15",
+                        "money": 2880.00,
+                        "virtual_coin": 2880
+                    }],
+
+                    //消费记录 异动
+                    yidong: [{
+                        "course_id": "测试课程",
+                        "course2_id": "",
+                        "remark": "没什么备注，测试的数据",
+                        "detail_reason_id": "难度大",
+                        "transaction_type": "退费",
+                        "tran_way": "其他",
+                        "reason_id": "学生",
+                        "stu_id": 1,
+                        "money": -100,
+                        "user_id": "qinyu",
+                        "price": 88.00,
+                        "duty_depart_id": "学生",
+                        "transaction_time": "2019-09-20 12:45:00"
+                    }],
+
+                    //学员基本信息（头部）
+                    stu_small: {
+                        // "last_login_time": "2019-09-18 20:21:06",
+                        // "wechat": "xudadadada",
+                        // "discount_num": 1,
+                        // "stu_id": 2,
+                        // "head": "http://thirdwx.qlogo.cn/mmopen/vi_32/0RPnUdGTLGxHQdUVDm5qfOKac2TYwS4JEWu5dQx2E06PocsIWKsNTvXY0VSTFETa2GUa7sy2rmZQnqKHp77pGQ/132",
+                        // "ID_number": "230827199802014828",
+                        // "balance_money": 6880,
+                        // "project_id": 2,
+                        // "fontdesk_account_status": 1,
+                        // "nickname": "释然狗2",
+                        // "stu_name": "测试2",
+                        // "tel": "13100870731",
+                        // "enrollment_status": 1,
+                        // "exam_id": 6,
+                    },
+
+                    //学员基本信息
+                    stu_big: {
+                        // "birthday": "1997-02-01",
+                        // "qq": "2623000107",
+                        // "registration_source": "线下注册",
+                        // "education": "研究生",
+                        // "detail_address": "木材街59号东北农业大学",
+                        // "sex": "女",
+                        // "urgent_people_tel": "13251699597",
+                        // "wechat": "11111",
+                        // "stu_id": 1,
+                        // "urgent_people": "爱玲",
+                        // "ID_number": "230827199702014827",
+                        // "office_tel": "0451-88888",
+                        // "age": null,
+                        // "hukou_address": "黑龙江省双鸭山市",
+                        // "remarks": null,
+                        // "email": "2623000107@qq.com",
+                        // "ID_type": "身份证" 
+                    },
+                    //课程学习进度
+                    userList1: [{
+                        "course_id": "测试课程",
+                        "rate_of_learning": "41.67%"
+                    }],
+                    userList2: [{
+                        "ct_name": "课次001",
+                        "course_id": "测试课程",
+                        "study_style": "直播",
+                        "max_class_time": 40,
+                        "last_class_time": "2019-09-04 19:20:00",
+                        "completion_status": "未完成",
+                        "rate_of_learning": "41.67%"
+                    }],
+                    userList3: [{
+                        "total_total_hours": 360,
+                        "course_package_id": 1,
+                        "cp_name": "课程包001",
+                        "total_sum_class_hour": 115
+                    }],
+                    userList4: [{
+                        "course_package_id": "课程包001",
+                        "rateOfCoursePackage": "45%"
+                    }],
+                    userList5:[],
+                    currentPage: 1, //初始页
+                    currentPage2: 1, //初始页
+                    currentPage3: 1, //初始页
+                    currentPage4: 1, //初始页
+                    currentPage5: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    pagesize2: 10, //    每页的数据
+                    pagesize3: 10, //    每页的数据
+                    pagesize4: 10, //    每页的数据
+                    pagesize5: 10, //    每页的数据
+                    model: 0,
+                    answer: {
+                        mobile1: 'hehe',
+                        ask_time: '2014-08-20 09:20:10',
+                        tea_name: '江山',
+                        submit_name: '江山',
+                        bigproblem: '你为什么',
+                        problem_note: '召唤师可从以下28名LPL候选人中，选出两名选手参加2018全明星赛。在投票截止之后，得票最高的两名候选人将代表LPL赛区参加本次全明星赛。投票期间，每个QQ号只能投一次票，且游戏等级需满31级及以上。在投票结束后，2018全明星赛组委会在综合投票情况后会在全球候选人范围内额外选出4名选手参加本次全明星赛！',
+                        smallproblem: '不说话',
+                        annex: 'aaa.jpg',
+                        process_note: '1323232323',
+                        process_status: '已处理',
+                    },
+                    pickerOptions: {
+                        shortcuts: [{
+                            text: '最近一周',
+                            onClick(picker) {
+                                const end = new Date();
+                                const start = new Date();
+                                start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                                picker.$emit('pick', [start, end]);
+                            }
+                        }, {
+                            text: '最近一个月',
+                            onClick(picker) {
+                                const end = new Date();
+                                const start = new Date();
+                                start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                                picker.$emit('pick', [start, end]);
+                            }
+                        }, {
+                            text: '最近三个月',
+                            onClick(picker) {
+                                const end = new Date();
+                                const start = new Date();
+                                start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                                picker.$emit('pick', [start, end]);
+                            }
+                        }]
+                    },
+                    value1: '',
+                    value2: ''
+                }
+            },
+            created() {
+                stu_id = window.location.href.split('=')[1];
+                console.log(stu_id)
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                this.init();
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/student/queryMiniStudentList',
+                    type: 'post',
+                    // contentType:'application/json',
+                    // data:JSON.stringify({stu_id:stu_id}),
+                    data: {
+                        stu_id: stu_id
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(1)
+                        _this.stu_small = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                // $.ajax({
+                //     url: './cn.json',
+                //     type: 'get',
+                //     // data:'',
+                //     dataType: 'json',
+                //     success: function (data) {
+                //         console.log(1)
+                //         _this.userList = data
+                //         _this.userList1 = data
+                //         // _this.userList = []
+
+                //     },
+                //     error: function () {
+
+                //     }
+                // })
+
+            },
+            methods: {
+                active(num) {
+                    this.activeIndexb = num
+                    console.log(1)
+                    let _this = this
+                    _this.initb()
+                },
+                activeC(num) {
+                    this.activeIndexc = num
+                    this.initc()
+                    let _this = this
+                },
+                change_son_tikus() {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/ItemBank/queryIBS',
+                        type: 'post',
+                        contentType: 'application/json',
+                        // data:JSON.stringify(_this.stu),
+                        data: JSON.stringify({
+                            item_bank_id: _this.search_question_record.item_bank_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(1)
+                            _this.search_question_record.ibs_id = ""
+                            _this.son_tikus = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                    this.init()
+                    let _this = this
+                    // $.ajax({
+                    //     url: './cn.json',
+                    //     type: 'get',
+                    //     // data:'',
+                    //     dataType: 'json',
+                    //     success: function (data) {
+                    //         console.log(1)
+                    //         _this.userList = data
+                    //         _this.userList1 = data
+                    //     },
+                    //     error: function () {
+
+                    //     }
+                    // })
+                },
+                init() {
+                    _this = this
+                    console.log(this.activeIndexa)
+                    switch (this.activeIndexa) {
+                        case 0:
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/student/queryBasicInfo',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(1)
+                                    _this.stu_big = data
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case 1:
+                            this.initb()
+                            break;
+                        case 2:
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/student/courseRateOfLearning',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(1)
+                                    _this.userList1 = data
+                                    for (let i = 0; i < _this.userList1.length; i++) {
+                                        _this.userList1[i].rate = Math.floor(_this.userList1[i]
+                                            .total_sum_class_hour / _this.userList1[i]
+                                            .total_total_hours * 10000) / 100 + '%';
+
+                                    }
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/student/courseTimesRateOfLearning',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(1)
+                                    _this.userList2 = data
+                                    // for (let i = 0; i < _this.userList1.length; i++) {
+                                    //     _this.userList1[i].rate = Math.floor(_this.userList1[i].total_sum_class_hour/_this.userList1[i].total_total_hours*10000)/100+'%';
+
+                                    // }
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/student/coursePackageRateOfLearning',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(1)
+                                    _this.userList3 = data
+                                    for (let i = 0; i < _this.userList3.length; i++) {
+                                        if (_this.userList3[i].total_sum_class_hour == null || _this
+                                            .userList3[i].total_total_hours == null) {
+                                            _this.userList3[i].rate = 0
+                                        } else {
+                                            _this.userList3[i].rate = Math.floor(_this.userList3[i]
+                                                .total_sum_class_hour / _this.userList3[i]
+                                                .total_total_hours * 10000) / 100 + '%';
+                                        }
+                                    }
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/student/projectRateOfLearning',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(1)
+                                    _this.userList4 = data
+                                    for (let i = 0; i < _this.userList4.length; i++) {
+                                        _this.userList4[i].rate = Math.floor(_this.userList4[i]
+                                            .total_sum_class_hour / _this.userList4[i]
+                                            .total_total_hours * 10000) / 100 + '%';
+
+                                    }
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case 3:
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/ItemBank/queryItemBank',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    // stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data)
+                                    _this.tikus = data
+                                    $.ajax({
+                                        url: 'http://192.168.10.166:8080/ItemBank/queryIBS',
+                                        type: 'post',
+                                        contentType: 'application/json',
+                                        // data:JSON.stringify(_this.stu),
+                                        data: JSON.stringify({
+                                            item_bank_id: _this
+                                                .search_question_record.item_bank_id
+                                        }),
+                                        dataType: 'json',
+                                        success: function (data) {
+                                            console.log(1)
+                                            _this.son_tikus = data
+                                        },
+                                        error: function () {
+
+                                        }
+                                    })
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            obj = {
+                                //         "item_bank_id": '',
+                                // "ibs_id": '',
+                                // "type": '',
+                                // "time": "",
+                                student_id: window.location.href.split('=')[1]
+                            }
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/ItemBank/queryQuestionRecord',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(obj),
+                                // data: {
+                                //     stu_id: stu_id
+                                // },
+                                dataType: 'json',
+                                success: function (data) {
+                                    data.map((item) => {
+                                        item.time = _this.getNowFormatDate(new Date(item.time)).split(' ')[0]
+                                        item.score = item.score == null?0:item.score
+                                        item.zql = Math.floor(item.zql * 1000)/10+"%"
+                                        switch (item.type) {
+                                            case 1:
+                                            item.type = "快速做题"
+                                                break;
+                                            case 2:
+                                            item.type = "章节练习"
+                                                break;
+                                            case 3:
+                                            item.type = "模拟题/真"
+                                                break;
+                                            case 4:
+                                            item.type = "课后练习"
+                                                break;
+                                            case 5:
+                                            item.type = "章节测验"
+                                                break;
+                                            case 6:
+                                            item.type = "课后作业"
+                                                break;
+                                            case 7:
+                                            item.type = "每日一练"
+                                                break;
+                                            case 8:
+                                            item.type = "智能组卷"
+                                                break;
+                                            case 9:
+                                            item.type = "快速15道"
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                    })
+                                    console.log(data)
+                                    _this.userList5 = data
+                                    // _this.stu_small = data
+                                },
+                                error: function () {
+
+                                }
+                            })
+
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                search_question_records() {
+                    let _this = this
+                    obj = _this.search_question_record
+                    if (_this.value1 != "" && _this.value1 != null) {
+                        obj.time = _this.getNowFormatDate(_this.value1).split(' ')[0]
+                    }else{
+                        obj.time = ''
+                    }
+                    console.log(obj)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080//ItemBank/queryQuestionRecord',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        // data: {
+                        //     stu_id: stu_id
+                        // },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            data.map((item) => {
+                                        item.time = _this.getNowFormatDate(new Date(item.time)).split(' ')[0]
+                                        item.zql = item.zql*100+"%"
+                                        switch (item.type) {
+                                            case 1:
+                                            item.type = "快速做题"
+                                                break;
+                                            case 2:
+                                            item.type = "章节练习"
+                                                break;
+                                            case 3:
+                                            item.type = "模拟题/真"
+                                                break;
+                                            case 4:
+                                            item.type = "课后练习"
+                                                break;
+                                            case 5:
+                                            item.type = "章节测验"
+                                                break;
+                                            case 6:
+                                            item.type = "课后作业"
+                                                break;
+                                            case 7:
+                                            item.type = "每日一练"
+                                                break;
+                                            case 8:
+                                            item.type = "智能组卷"
+                                                break;
+                                            case 9:
+                                            item.type = "快速15道"
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                    })
+                                    _this.userList5 = data
+                            // _this.stu_small = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                initb() {
+                    _this = this
+                    console.log(this.activeIndexb)
+                    switch (this.activeIndexb) {
+                        case 0:
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/student/queryPurchaseHistoryCourse',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(1)
+                                    _this.class_record = data
+
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case 1:
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/student/queryPurchaseHistoryCoursePackage',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(1)
+                                    _this.classes_record = data
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case 2:
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/student/selectBalanceByStuid',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(1)
+                                    for (let i = 0; i < data.length; i++) {
+                                        data[i].p_c_type = data[i].p_c_type == 1 ? '购买' : '消费'
+                                    }
+                                    _this.surplus = data
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        case 3:
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/student/queryTransactionReasonByStuid',
+                                type: 'post',
+                                // contentType:'application/json',
+                                // data:JSON.stringify(_this.stu),
+                                data: {
+                                    stu_id: stu_id
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(1)
+                                    _this.yidong = data
+                                    // for (let i = 0; i < _this.surplus.length; i++) {
+                                    //     _this.surplus[i].p_c_type = _this.surplus[i].p_c_type == 1?'购买':'消费'                    
+                                    // }
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                initc() {
+                    _this = this
+                    console.log(this.activeIndexa)
+                    switch (this.activeIndexc) {
+                        case 0:
+                            break;
+                        case 1:
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                exportList() {
+                    _this = this
+                    console.log(_this.userList2)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出【'+_this.stu_small.stu_name+'】学习记录【'+_this.userList2.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    str = "课程名称,课次名称,教学形式,最后上课时间,完成情况,最长上课时间,课次学习进度" + '\r\n'
+                    for (let k = 0; k < _this.userList2.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList2[k].course_id + ','
+                        stra += _this.userList2[k].ct_name + ','
+                        stra += _this.userList2[k].study_style + ','
+                        stra += _this.userList2[k].last_class_time + ','
+                        stra += _this.userList2[k].completion_status + ','
+                        stra += _this.userList2[k].max_class_time + ','
+                        stra += _this.userList2[k].rate_of_learning + ','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "学习记录".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                export_tiku() {
+                    _this = this
+                    console.log(_this.userList2)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/Ex/Ex',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            operation: '导出【'+_this.stu_small.stu_name+'】做题记录【'+_this.userList5.length+'】条',
+                            user_id: JSON.parse(localStorage.login_user_info).user_id,
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    str = "做题时间,题库,科目,类型,做题数,得分,正确率,错题数" + '\r\n'
+                    for (let k = 0; k < _this.userList5.length; k++) {
+
+                        stra = ""
+                        stra += _this.userList5[k].time + ','
+                        stra += _this.userList5[k].item_bank_name + ','
+                        stra += _this.userList5[k].ibs_name + ','
+                        stra += _this.userList5[k].type + ','
+                        stra += _this.userList5[k].question_num + ','
+                        stra += _this.userList5[k].score + ','
+                        stra += _this.userList5[k].zql + ','
+                        stra += _this.userList5[k].error_num + ','
+                        str += stra + '\r\n';
+                        // const element = array[k];
+
+                    }
+                    console.log(str)
+                    var fileName = "";
+                    fileName += "做题记录".replace(/ /g, "_");
+                    var uri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(str);
+                    var link = document.createElement("a");
+                    link.href = uri;
+                    link.style = "visibility:hidden";
+                    link.download = fileName + ".CSV";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleSizeChange2: function (size) {
+                    this.pagesize2 = size;
+                },
+                handleSizeChange3: function (size) {
+                    this.pagesize3 = size;
+                },
+                handleSizeChange4: function (size) {
+                    this.pagesize4 = size;
+                },
+                handleSizeChange5: function (size) {
+                    this.pagesize5 = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                handleCurrentChange2: function (currentPage) {
+                    this.currentPage2 = currentPage;
+                },
+                handleCurrentChange3: function (currentPage) {
+                    this.currentPage3 = currentPage;
+                },
+                handleCurrentChange4: function (currentPage) {
+                    this.currentPage4 = currentPage;
+                },
+                handleCurrentChange5: function (currentPage) {
+                    this.currentPage5 = currentPage;
+                },
+
+                flexColumnWidth() {
+                    console.log($('.recordBox').width())
+                    return $('.recordBox').width() / 4
+                },
+                flexColumnWidthc() {
+                    return $('.el-table__header-wrapper').width() / 100 * 3
+                },
+                flexColumnWidthd() {
+                    return $('.el-table__header-wrapper').width() / 2
+                },
+                flexColumnWidthe() {
+                    return $('.el-table__header-wrapper').width() / 7
+                },
+                flexColumnWidthf() {
+                    return $('.el-table__header-wrapper').width() / 9
+                },
+                dangan(scope) {
+                    console.log(scope)
+                    window.location.href = "indexdossiercz.html?answer_id="+scope.answer_id
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,321 @@
+img {
+    cursor: pointer;
+}
+
+.main-content .block .b-title .tt .h3 b {
+    font-size: 18px;
+    padding: 15px 52px 5px 0px;
+    display: block;
+}
+
+.pages span.search-input input {
+    height: 28px;
+}
+
+.proxySearch {
+    font-size: 0;
+    /* margin-bottom: 20px; */
+}
+
+.proxySearch select {
+    width: 160px;
+    height: 26px;
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    margin-right: 15px;
+    font-size: 12px;
+    color: #666;
+    padding: 0;
+    vertical-align: top;
+}
+
+.proxySearch span {
+    display: inline-block;
+    width: 70px;
+    font-size: 14px;
+    color: #999;
+    padding-right: 10px;
+    line-height: 26px;
+    text-align: right;
+}
+
+.proxySearch input[type='button'] {
+    margin-left: 20px;
+    padding: 7px 11px;
+    background-color: #07bbee;
+    font-size: 12px;
+    color: #fff;
+    line-height: 12px;
+    border: none;
+    outline: none;
+    vertical-align: top;
+    border-radius: 4px;
+}
+
+.r-list .table-bot {
+    height: auto;
+}
+
+.layui-layer-dialog .layui-layer-content {
+    overflow-y: hidden;
+}
+#courseDetail {
+    height: 600px;
+}
+
+#courseDetail .layer-tips-title {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 8px;
+    padding-top: 10px;
+    border: 0;
+    font-size: 22px;
+    color: #333;
+}
+
+#courseDetail .layer-tips-title i.close {
+    top: 20px;
+    font-size: 14px;
+}
+
+#coursePackageDetail {
+    height: 600px;
+}
+
+#coursePackageDetail .layer-tips-title {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 8px;
+    padding-top: 10px;
+    border: 0;
+    font-size: 22px;
+    color: #333;
+}
+
+#coursePackageDetail .layer-tips-title i.close {
+    top: 20px;
+    font-size: 14px;
+}
+
+.table.table-bordered td {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.searchBook a.btn-primary:hover, .searchAdmin a.btn-primary:hover {
+    background: #01aadd;
+    border: 0;
+}
+
+/*css从这里复制样式代码即可复制样式代码即可复制样式代码即可复制样式代码即可复制样式代码即可start*/
+.cengbg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+.editprotocol {
+    width: 420px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: fixed;
+    padding: 20px 20px 30px 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.editprotocol_tit {
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 25px;
+}
+
+.editprotocol_tit h3 {
+    color: #333;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.editprotocol_tit em {
+    display: block;
+    font-size: 30px;
+    color: #bbb;
+    cursor: pointer;
+}
+
+.editprotocol p {
+    width: 392px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+    margin-bottom: 65px;
+}
+
+.editprotocollast_l input {
+    width: 12px;
+    height: 12px;
+}
+
+.editprotocollast_l label {
+    display: inline-block;
+    font-size: 12px;
+    color: #333;
+}
+
+.editprotocollast_l input[type=radio] {
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+    clip: rect(0, 0, 0);
+}
+
+.editprotocollast_l input[type=radio]:after {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: -1px;
+    content: " ";
+    border: 1px solid #dadee0;
+    background-color: #fff;
+    color: #fff;
+    display: inline-block;
+    visibility: visible;
+    border-radius: 50%;
+}
+
+.editprotocollast_l input[type=radio]:checked:before {
+    content: "";
+    display: block;
+    position: relative;
+    top: -0.6px;
+    left: 0px;
+    width: 10px;
+    height: 10px;
+    color: #fff;
+    font-weight: 400;
+    z-index: 1;
+    border: 2px solid #0099ff;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.editprotocollast_r button {
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.editprotocollast_r button.endingbox_cancel {
+    color: #333;
+    border: 1px solid #ECECEC;
+    width: 60px;
+    background: #fff;
+}
+
+.editprotocollast_r button.endingbox_submit {
+    color: #FAFAFA;
+    background-color: #00AAFF;
+    width: 88px;
+    border: none;
+    margin-left: 20px;
+}
+.iconfontH{color: red;}
+.tipsH{color: red;}
+.iii{
+  position: absolute;
+  top: 23px;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top-color: #ddd;
+}
+.cc{
+  height: 62px;
+  padding: 0 1%;
+  line-height: 1.5;
+}
+.alert {
+    padding: 15px;
+    border: 1px solid transparent;
+    margin:0 auto;
+}
+
+.alert-warning {
+    color: #c09853;
+    background-color: #fcf8e3;
+    border-color: #fbeed5
+}
+.alert-dismissable .cloze {
+    position: relative;
+    right: 50px;
+    color: inherit;
+    font-size:1.6rem;
+    cursor:pointer;
+}
+.cloze {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    filter: alpha(opacity=20);
+    display: inline-block;
+	margin-top: 0px;
+	margin-right: 0px;
+	width: 9px;
+	height: 9px;
+	background-repeat: no-repeat !important;
+}
+
+.noalert {
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    filter: alpha(opacity=20);
+    display: inline-block;
+	margin: 1px -15px 0 15px;
+	width: 80px;
+	height: 9px;
+	background-repeat: no-repeat !important;
+	cursor:pointer;
+}
+
+.cloze:hover,.cloze:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+button.cloze {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none
+}
+    .dropdown{
+        position: absolute;
+    }

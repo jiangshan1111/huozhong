@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/system.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/common.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/system.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .el-input--prefix .el-input__inner {
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 5%;
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav"> </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data"></form>
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-account"></i> 系统
+                    <ul class="row page-ul">
+                        <li onclick="window.location.href='system.html'" style="width: 20%">开通服务</li>
+                        <li onclick="window.location.href='systemLimit.html'" style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;width: 20%">用户权限</li>
+                        <li onclick="window.location.href='systemLimitrizhi.html'" style="width: 20%">操作日志</li>
+                        <li style="width: 20%">机构订单</li>
+                        <li style="width: 20%">下载任务</li>
+
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="containers space-line clearfloat">
+                <div class="containers_main" style="    margin-top: 0;
+                padding-top: 1px;">
+                    <div class="user_right clearfloat">
+                        <div class="title_bar clearfloat">
+                            <h6 class="fl">添加用户</h6>
+                            <input type="hidden" id="type" value="save">
+                            <div class="add_user fr"><span class="line2"></span></div>
+                        </div>
+                        <div class="improve_teacher clearfloat">
+                            <form id="saveUserForm" method="post" novalidate="novalidate">
+                                <h5>账号信息</h5>
+                                <div class="improve_box clearfloat">
+                                    <div class="box fl">
+                                        <p class="improve_box_l"><span class="improve_title">
+                                                <label for="">所属分校</label></span><span class="improve_main">
+                                                <select name="schoolId" id="schoolId"
+                                                    v-model="user_info.branch_school_id">
+
+
+                                                    <option value="1">默认分校</option>
+
+
+
+                                                </select></span></p>
+                                    </div>
+                                    <div class="box fl">
+                                        <p class="improve_box_l"><span class="improve_title"><span
+                                                    class="asterisk">*</span>
+                                                <label for="">登录账号</label></span><span class="improve_main">
+
+                                                <input id="userName" v-model="user_info.user_name" name="username"
+                                                    type="text">
+
+
+                                            </span></p>
+                                    </div>
+                                </div>
+                                <div class="improve_box clearfloat">
+                                    <div class="box fl">
+                                        <p class="improve_box_l"><span class="improve_title">
+                                                <label for="">性别</label></span><span class="improve_main">
+                                                <input name="sex" v-model="user_info.sex" type="radio" value="男"><span
+                                                    class="sex">男</span>
+                                                <input name="sex" v-model="user_info.sex" type="radio" value="女"><span
+                                                    class="sex">女</span></span></p>
+                    </div>
+                                    <div class="box fl">
+                                        <p class="improve_box_l"><span class="improve_title"><span
+                                                    class="asterisk">*</span>
+                                                <label for="">姓名</label></span><span class="improve_main">
+                                                <input id="realName" v-model="user_info.true_name" name="realName"
+                                                    type="text" value=""></span></p>
+                                    </div>
+                                </div>
+                                <div class="improve_box clearfloat">
+                                    <div class="box fl">
+                                        <p class="improve_box_l"><span class="improve_title"><span
+                                                    class="asterisk">*</span>
+                                                <label for="">密码</label></span><span class="improve_main">
+                                                <input id="password" v-model="user_info.user_pass" name="password"
+                                                    type="text"></span></p>
+                                    </div>
+                                    <div class="box fl">
+                                        <p class="improve_box_l"><span class="improve_title"><span
+                                                    class="asterisk">*</span>
+                                                <label for="">确认密码</label></span><span class="improve_main">
+                                                <input id="confirmPassword" v-model="qr_pass" name="confirmPassword"
+                                                    type="text"></span></p>
+                                    </div>
+                                </div>
+                                <div class="improve_box clearfloat">
+                                    <div class="box fl">
+                                        <p class="improve_box_l"><span class="improve_title">
+                                                <label for="">邮箱</label></span><span class="improve_main">
+                                                <input id="email" v-model="user_info.email" name="email" type="text"
+                                                    value=""></span></p>
+                                    </div>
+                                    <div class="box fl">
+                                        <p class="improve_box_l"><span class="improve_title">
+                                                <label for="">手机号</label></span><span class="improve_main">
+                                                <input id="mobile" v-model="user_info.tel" name="mobile" type="text"
+                                                    value=""></span></p>
+                                    </div>
+                                </div>
+                                <div class="improve_box clearfloat">
+                                    <div class="improve_box_l fl">
+                                        <span class="improve_title"> <label for="">角色选择</label></span>
+                                        <span class="adduser_main_button" style="position:relative">
+                                            <input type="hidden" id="roleIds" name="roleIds">
+
+                                            <a v-for="(item,index) in powers" @click="check_power(item.power_id)"
+                                                :class="power_check.indexOf(item.power_id) == -1?'button button-pad-414 button-color-89 button-bg-fail button-border-ccc fsize_14':'button button-pad-414 button-border-ccc fsize_14 button-bg-success button-color-fff'"
+                                                ids="2269" roletype="teacher">{{item.power_name}}</a>
+
+
+                                            <span
+                                                onclick="window.open('systemLimitAddpower.html');localStorage.add_power_status = true"
+                                                class="button button-color-89 button-bg-add button-border-ccc roles roles_btn"><i
+                                                    class="iconfont"></i><span class="addRole">添加角色 </span></span>
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="teacher" v-if="power_check.indexOf(1) > -1 || power_check.indexOf(2) > -1">
+                                    <h5>教师介绍</h5>
+                                    <div class="improve_box clearfloat">
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">头像</label></span>
+                                                <span class="improve_main">
+
+
+                                                    <b id="choiceHead" class="head_img" style="position:relative">
+                                                        <img :src="head" alt="">
+                                                        <span class="btns" style="    position: absolute;
+                                                right: -100%;
+                                                bottom: 0;">
+                                                            <!-- <input type="file" name="" id=""> -->
+                                                            <!-- <form id="uploadForm" enctype="multipart/form-data"> -->
+                                                            <label class="control-label btn" for="uploadform-excelfiles"
+                                                                style="    border: 1px solid rgb(200,200,200);margin-bottom: 0;">上传头像</label><input
+                                                                type="file" id="uploadform-excelfiles" @change="file"
+                                                                multiple class="attachment-upload"
+                                                                style="left:-9999px;position:absolute;">
+                                                            <!-- </form> -->
+
+                                                            <!-- <a href="javascript:;"
+                                                        class="btn btn-default btn-upload">选择封面</a> -->
+                                                        </span></b>
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="box icon_img fl clearfloat">
+                                            <!-- js判断教师 还是助教 start-->
+                                            <p class="improve_box_l clearfloat isDistinguished"
+                                                v-if="power_check.indexOf(1) > -1"><span class="improve_title">
+                                                    <label for="">是否名师</label></span><span class="improve_main"><span
+                                                        class="improve_main"></span>
+                                                    <input type="radio" v-model="user_info.tf_famous_teacher"
+                                                        name="isDistinguished" value="1"><span class="sex">是</span>
+                                                    <input type="radio" v-model="user_info.tf_famous_teacher"
+                                                        name="isDistinguished" value="2"><span
+                                                        class="sex">否</span></span></p>
+                                            <!-- js判断教师 还是助教 end-->
+                                            <p class="improve_box_l clearfloat"><span class="improve_title">
+                                                    <label for="">出生日期</label></span><span class="improve_main">
+                                                    <el-date-picker v-model="user_info.birthday" type="date"
+                                                        style="padding-right: 30px;" placeholder="选择日期">
+                                                    </el-date-picker>
+                                            </p>
+                                            <p class="improve_box_l clearfloat"><span class="improve_title">
+                                                    <label for="">现居住地</label></span><span class="improve_main">
+                                                    <input type="text" v-model="user_info.now_address" id="address"
+                                                        name="address" value=""></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="improve_box clearfloat">
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">最高学历</label></span><span class="improve_main">
+                                                    <select name="educationCode" id="educationCode"
+                                                        v-model="user_info.education">
+                                                        <option value="">请选择</option>
+                                                        <option value="大专以下">大专以下</option>
+                                                        <option value="大专">大专</option>
+                                                        <option value="本科">本科</option>
+                                                        <option value="研究生">研究生</option>
+                                                        <option value="博士生及以上">博士生及以上</option>
+                                                    </select></span></p>
+                                        </div>
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">身份证</label></span><span class="improve_main">
+                                                    <input type="text" v-model="user_info.ID_number" id="idNumber"
+                                                        name="idNumber" value=""></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="improve_box clearfloat">
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">开户行</label></span><span class="improve_main">
+                                                    <input type="text" v-model="user_info.opening_bank" id="bankName"
+                                                        name="bankName" value=""></span></p>
+                                        </div>
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">开户名</label></span><span class="improve_main">
+                                                    <input type="text" v-model="user_info.bank_name"
+                                                        id="bankAccountName" name="bankAccountName" value=""></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="improve_box clearfloat">
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">银行卡号</label></span><span class="improve_main">
+                                                    <input type="text" v-model="user_info.bank_card_number"
+                                                        id="bankAccountNum" name="bankAccountNum" value=""></span></p>
+                                        </div>
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">办公电话</label></span><span class="improve_main">
+                                                    <input type="text" v-model="user_info.office_tel" id="workPhone"
+                                                        name="workPhone" value=""></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="improve_box clearfloat">
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">紧急联系人</label></span><span class="improve_main">
+                                                    <input type="text" v-model="user_info.urgent_people"
+                                                        id="emergencyContactName" name="emergencyContactName"
+                                                        value=""></span></p>
+                                        </div>
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">紧急联系人电话</label></span><span class="improve_main">
+                                                    <input type="text" v-model="user_info.urgent_people_tel"
+                                                        id="emergencyContactPhone" name="emergencyContactPhone"
+                                                        value=""></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="improve_box clearfloat">
+                                        <div class="box fl">
+                                            <p class="improve_box_l"><span class="improve_title">
+                                                    <label for="">家庭电话</label></span><span class="improve_main">
+                                                    <input type="text" v-model="user_info.home_tel" id="homePhone"
+                                                        name="homePhone" value=""></span></p>
+                                        </div>
+                                    </div>
+
+                                    <h5>基础信息 </h5>
+                                    <div class="improve_box clearfloat">
+                                        <p class="improve_box_l"><span class="improve_title">
+                                                <label for="">简介</label></span><span class="improve_main">
+                                                <textarea name="resume" v-model="user_info.introduction"
+                                                    id="resume"></textarea></span></p>
+                                    </div>
+
+                                </div>
+
+                                <div class="isDistinguished" v-if="power_check.indexOf(1) > -1">
+                                    <h5>授课信息</h5>
+                                    <div class="improve_box clearfloat">
+                                        <div class="improve_box_l fl"><span class="improve_title fl">
+                                                <label for="">授课学科</label></span><span class="improve_main_subject">
+                                                <input type="hidden" id="hiddenItemIds" name="itemIds">
+
+
+
+                                                <span class="itemBox">
+                                                    <select class="itemOneId" v-model="user_info.project_id">
+                                                        <option value="">请选择学科</option>
+
+                                                        <option v-for="(item,index) in projects" :value="item.pse_id">
+                                                            {{item.pse_name}}</option>
+
+                                                    </select>
+                                                </span>
+
+
+                                            </span></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="role_btn">
+                            <!-- <a href="javascript:Form.roleDetail();"
+                                class="button button-pad-618 button-border-ccc button-color-89 button-bg-fail font_14">功能权限预览</a> -->
+                            <!-- <a href="javascript:Form.editUserMsg();" class="button button-pad-618 button-border-ccc button-color-fff button-bg-search font_14">保存</a></div> -->
+                            <a id="editUserMsg" v-if="view_user_status == 'false'"
+                                class="button button-pad-618 button-border-ccc button-color-fff button-bg-search font_14"
+                                @click="submit_user">保存</a></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: '',
+                    activeIndexb: 0,
+                    activeIndexc: '',
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    userList: [],
+                    view_user_status: localStorage.view_user_status,
+                    types: [],
+                    projects: [],
+                    powers: [],
+                    qr_pass: '',
+                    head: '',
+                    power_check: [],
+                    user_info: {
+                        "user_name": '',
+                        "user_pass": '',
+                        // "power_id": '#1#2#',
+                        "branch_school_id": 1,
+                        "tel": '',
+                        "true_name": '',
+                        "sex": '',
+                        "email": '',
+                        "head": '',
+                        "education": '',
+                        "opening_bank": '',
+                        "bank_card_number": '',
+                        "urgent_people": '',
+                        "home_tel": '',
+                        "tf_famous_teacher": '',
+                        "birthday": '1990-01-01',
+                        "now_address": '',
+                        "ID_number": '',
+                        "bank_name": '',
+                        "office_tel": '',
+                        "urgent_people_tel": '',
+                        "introduction": '',
+                        "project_id": '',
+                        "tf_enable": 1
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function () {
+                    $("#topnav").load("header.html");
+                });
+                obj = {}
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/user/queryRoles',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(obj),
+                    dataType: 'json',
+                    success: function (data) {
+                        data = data.filter((item) => {
+                            return item.tf_delete == 2
+                        })
+                        console.log(data)
+                        _this.powers = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                if (localStorage.add_user_status == 'true') {
+                    _this.user_info = {
+                        "user_name": '',
+                        "user_pass": '',
+                        "power_id": '#1#2#',
+                        "branch_school_id": 1,
+                        "tel": '',
+                        "true_name": '',
+                        "sex": '',
+                        "email": '',
+                        "head": '',
+                        "education": '',
+                        "opening_bank": '',
+                        "bank_card_number": '',
+                        "urgent_people": '',
+                        "home_tel": '',
+                        "tf_famous_teacher": '',
+                        "birthday": '1990-01-01',
+                        "now_address": '',
+                        "ID_number": '',
+                        "bank_name": '',
+                        "office_tel": '',
+                        "urgent_people_tel": '',
+                        "introduction": '',
+                        "project_id": '',
+                        "tf_enable": 1
+                    }
+                } else {
+                    user_obj = JSON.parse(localStorage.add_user_info)
+                    for (var k in user_obj) {
+                        _this.user_info[k] = user_obj[k]
+                    }
+                    _this.user_info.tf_enable = _this.user_info.tf_enable == "启用" ? 1 : 2
+                    delete _this.user_info.power_name
+                    if (user_obj.power_id != '') {
+                        _this.power_check = user_obj.power_id.substring(1, user_obj.power_id.length - 1).split(
+                            '#')
+                        for (let i = 0; i < _this.power_check.length; i++) {
+                            _this.power_check[i] = parseInt(_this.power_check[i])
+                        }
+                        _this.qr_pass = user_obj.user_pass
+                        console.log(_this.power_check)
+                        _this.head = user_obj.head
+                    }
+                }
+            },
+            methods: {
+                submit_user() {
+                    let _this = this
+                    _this.user_info.power_id = '#' + _this.power_check.join('#') + '#'
+                    console.log(_this.user_info)
+                    obj = JSON.parse(JSON.stringify(_this.user_info))
+                    if (obj.birthday != null && obj.birthday != '') {
+                        obj.birthday = _this.getNowFormatDate(new Date(obj.birthday)).split(' ')[0]
+                    }
+                    for (var k in obj) {
+                        if (obj[k] == '' || obj[k] == null) {
+                            delete obj[k]
+                        }
+                    }
+                    if (localStorage.add_user_status == 'true') {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/user/addUser',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                if (data.code == 200) {
+                                    _this.$notify.success({
+                                        title: '提示',
+                                        message: '新建成功',
+                                        duration: 2000
+                                    });
+                                } else {
+                                    _this.$notify.error({
+                                        title: '错误',
+                                        message: data.message,
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    } else {
+                        if (obj.power_id.indexOf('#1#') > -1 || obj.power_id.indexOf('#2#') > -1) {
+                            if (obj.introduction == undefined || obj.true_name == undefined || obj.user_pass == undefined) {
+                                _this.$notify.error({
+                                    title: '提示',
+                                    message: '老师或者教务修改信息时个人简介，姓名，密码不能为空',
+                                    duration: 2000
+                                });
+                                console.log(1111)
+                                return
+                            }
+                        }
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/user/editUser',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            dataType: 'json',
+                            success: function (data) {
+                                if (data.code == 200) {
+                                    _this.$notify.success({
+                                        title: '提示',
+                                        message: '修改成功',
+                                        duration: 2000
+                                    });
+                                } else {
+                                    _this.$notify.error({
+                                        title: '错误',
+                                        message: '修改失败',
+                                        duration: 2000
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: '服务器错误',
+                                    duration: 2000
+                                });
+                            }
+                        })
+                    }
+                },
+                file(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        var maxsize = 2 * 1024 * 1024
+                        if (type.indexOf("image/") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择图片上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            var form = document.getElementById("addFormOne");
+                            var formData = new FormData(form);
+                            formData.set('multipartFile', item)
+                            $.ajax({
+                                url: 'http://192.168.10.166:8080/pse/uploadFile',
+                                type: 'post',
+                                // contentType: 'application/json',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                // dataType: 'json',
+                                success: function (data) {
+                                    _this.user_info.head = data
+                                },
+                                error: function () {
+
+                                }
+                            })
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                _this.head = e.target.result
+                                console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    $(e.target).val('')
+                },
+                check_power(power_id) {
+                    if (this.power_check.indexOf(power_id) > -1) {
+                        this.power_check.splice(this.power_check.indexOf(power_id), 1)
+                    } else {
+                        this.power_check.push(power_id)
+                    }
+                    console.log(this.power_check)
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute + seperator2 + second;
+                    return currentdate;
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

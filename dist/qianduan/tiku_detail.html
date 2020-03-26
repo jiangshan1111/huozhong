@@ -1,0 +1,656 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/class-bag.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/tiku.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <link href="css/queStyle.css" rel="stylesheet" type="text/css">
+    <link href="css/queStyle.css" rel="stylesheet" type="text/css">
+    <link href="css/simulExam.css" rel="stylesheet" type="text/css">
+    <link href="css/printTestAlert.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/newHomeIndex.css"> -->
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix"> </div>
+    <!-- register-end-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <div id="app" v-cloak style="margin-top: 60px;">
+        <div class="queContainer">
+            <div class="que_container w1200">
+                <div class="que_quechoose simu-quechoose">
+                    <!-- 前端新加html 开始 -->
+                    <div class="simulexamBox">
+                        <!--  标题栏 -->
+                        <div class="classPaper clear">
+                            <div class="fl clear">
+                                <div class="fl selCurTitle">
+                                    <span>{{bigtitle.ibs_name}}<i class="iconfont"></i></span>
+                                    <div class="moresection">
+                                        <a @click="changeSubject(nav.ibs_id)" :title="nav.ibs_name"
+                                            v-for="nav in navList">
+                                            {{nav.ibs_name}}
+                                        </a>
+                                    </div>
+                                </div>
+                                <ul class="fl selcurRec">
+                                    <li>
+                                        <a :href="'tiku_wrong.html?title='+ bigtitle.ibs_name + '&ibs_id=' + bigtitle.ibs_id + '&total=' + errorTotal"
+                                            class="recimg-arror"></a>
+                                        <span class="recNum">错题本<em>({{errorTotal}})</em></span>
+                                    </li>
+                                    <li>
+                                        <a :href="'tiku_shoucang.html?title=' + bigtitle.ibs_name+ '&ibs_id='+ bigtitle.ibs_id + '&total='+ collectionTotal"
+                                            class="recimg-hide"></a>
+                                        <span class="recNum">收藏<em>({{collectionTotal}})</em></span>
+                                    </li>
+                                    <li>
+                                        <a :href="'tiku_record.html?samlltype='+ bigtitle.ibs_name + '&bigtype='+ fatherTitle"
+                                            _href="" class="recimg-rec"></a>
+                                        <span class="recNum">记录<em>({{recordTotal}})</em></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <div class="fr opeType">
+                                <button class="dospeed" data-id="22522">快速做题</button>
+                            </div> -->
+                        </div>
+                        <!-- 做题记录 -->
+
+                        <!-- <p class="historyRecord">
+                            最近做题记录 :
+                            <span>&nbsp;&nbsp;已做<em>0</em>/<em>100</em></span>
+                            <a class="keeptopic" href="javascript:void(0)"
+                                _href="/tikuUserBatch/keepTopic/15494304 ">继续做题</a>
+                            <i class="iconfont"></i>
+                        </p> -->
+
+                        <!-- 章节模考切换 -->
+                        <div class="queClassified">
+                            <div class="queClass-title">
+                                <ul class="clatitName">
+                                    <li :class="activeIndexa==0?'chapterli actli':'chapterli'" @click="activeA(0)">章节练习
+                                    </li>
+                                    <li :class="activeIndexa==1?'dryrunli actli':'dryrunli'" @click="activeA(1)">模拟真题
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="chapterCon">
+                                <!-- 按章节 -->
+                                <div v-if="activeIndexa == 0" v-loading="fullscreenLoading">
+                                    <ul class="chapterList" v-if="chapterlist.length">
+                                        <li class="chapter-item" v-for="(chapter,i) in chapterlist"
+                                            data-chapterid="51612">
+                                            <div class="clear chapter-itemName">
+                                                <span class="fl preschool-par">{{chapter.name}}
+                                                    <i :class="chapter.show ? 'hovblue' : ''"
+                                                        @click="chapterShow(i)"></i>
+                                                </span>
+                                                <span class="fr doque-par">
+                                                    <em>共{{chapter.num}}道</em>
+                                                    <button class="doChapter" chapter-id="51612" topic-count="69"
+                                                        done-count="0" is-finish="" exercise-id=""
+                                                        @click="startSubject(chapter)">开始做题</button>
+                                                </span>
+                                            </div>
+                                            <transition name="draw">
+                                                <dl class="chapter-itemBox" v-if="chapter.show">
+                                                    <dd class="clear" v-for="j in chapter.jie">
+                                                        <span class="fl preschool-sec">{{j.name}}<b></b></span>
+                                                        <em class="fr">共{{j.num}}道<img @click="startChild(j)"
+                                                                class="doSection" sectionid="76867" chapterid="51612"
+                                                                src="./image/tiku_section_edit.png"></em>
+                                                    </dd>
+                                                </dl>
+                                            </transition>
+                                        </li>
+                                    </ul>
+                                    <ul class="dryrunList" v-else>
+                                        <li class="chapterTip">
+                                            <p class="noPractice noCollect noError noRecord"></p>
+                                            <span>目前还没有试卷可做哦～</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 模考-真题-->
+                                <div v-else v-loading="fullscreenLoading">
+                                    <ul class="dryrunList" v-if="simulationlist.length">
+                                        <li class="dryrun-item" v-for="simulation in simulationlist">
+                                            <div class="clear dryrun-itemName">
+                                                <div class="fl clear parperName">
+                                                    <strong class=" fl mockSub"></strong>
+                                                    <em class="fl parperType">{{simulation.test_paper_name}}</em>
+                                                    <em class="fl parperDescr"></em>
+                                                    <div class="fl progressBox">
+                                                        <p class="progress-par">
+                                                            <i class="progress-son"
+                                                                :style="{width: (parseInt(simulation.jindu)/ parseInt(simulation.zongshu)) * 100 + '%'}"></i>
+                                                        </p>
+                                                        <span>
+                                                            <b>{{simulation.jindu}}</b>/{{simulation.zongshu}}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="fr clear doParper">
+                                                    <span>总分 : <em>{{simulation.total_score}}</em>分</span>
+                                                    <span>时间 : <em>{{simulation.answer_time}}</em>分钟</span>
+                                                    <button v-if="parseInt(simulation.state) === 1"
+                                                        class="showAly checkAnswer"
+                                                        @click="realStart(simulation,'查看解析')">查看解析</button>
+                                                    <button v-if="parseInt(simulation.state) === 1"
+                                                        class="doagain examAlign"
+                                                        @click="realStart(simulation,'再考一遍')">再考一遍</button>
+                                                    <button v-if="parseInt(simulation.state) === 0" class="dopaper"
+                                                        @click="realStart(simulation,'开始做题')">开始做题</button>
+                                                    <button v-if="parseInt(simulation.state) === 2"
+                                                        class="doexercise clickyell"
+                                                        @click="realStart(simulation,'继续做题')">继续做题</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="dryrunList" v-else>
+                                        <li class="chapterTip">
+                                            <p class="noPractice noCollect noError noRecord"></p>
+                                            <span>目前还没有试卷可做哦～</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 前端新加html 结束 -->
+                </div>
+            </div>
+        </div>
+        <div class="queChooseTc2 testAlertBox" style="display:none;">
+            <div class="testAlertContent">
+                <div class="alertContentTitle">
+                    <h3>继续做题</h3>
+                    <i class="deleBut"></i>
+                </div>
+                <div class="alertContent">
+                    <div class="progress">
+                        <div class="progress-box">
+                            <p class="step-pro">
+                                <span>做题进度：<b>3</b><em>/10</em></span>
+                            </p>
+                            <p class="defaul-pro"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="actionBut">
+                    <button class="success">继续上次未完成</button>
+                </div>
+            </div>
+        </div>
+        <div class="queChooseTc testAlertBox" style="display: none;">
+            <div class="testAlertContent">
+                <div class="alertContentTitle">
+                    <h3>按章节做题</h3>
+                    <i class="deleBut"></i>
+                </div>
+                <div class="alertContent">
+                    <div class="testList">
+                        <p>
+                            <span><b>10</b>题</span>
+                        </p>
+                        <p>
+                            <span><b>20</b>题</span>
+                        </p>
+                        <p>
+                            <span><b>30</b>题</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="actionBut">
+                    <button class="default" total="10">开始</button>
+                    <button class="default" total="20">开始</button>
+                    <button class="default" total="30">开始</button>
+                </div>
+            </div>
+        </div>
+        <!-- 选择题库弹出框 -->
+        <div class="doSectionDiv" v-if="subjectModel">
+            <div class="choseChapter">
+                <i class="closeBtn iconfont" @click="subjectModel = false"></i>
+                <p class="title">做题设置<span>（共{{subjectData.total}}题）</span></p>
+                <ul class="topicChoseBox">
+                    <li>
+                        <p>题型</p>
+                        <ol class="typeList topic clear">
+                            <li @click="sujectBtnFn(1,subjectData.danXuan)"
+                                :class="{'active' : sujectCheckbox.some(el=> el === 1), 'disChose' : !subjectData.danXuan} ">
+                                单选题（<span id="radio">{{subjectData.danXuan.zongShu}}</span>）</li
+                                @click="typeBtnIndex = 0" :class="typeBtnIndex === 0 ? 'active' : '' ">
+                            <li @click="sujectBtnFn(2,subjectData.duoXuan)"
+                                :class="{'active' : sujectCheckbox.some(el=> el === 2), 'disChose' : !subjectData.duoXuan} ">
+                                多选题（<span id="multiple">{{subjectData.duoXuan.zongShu}}</span>）</li>
+                            <li @click="sujectBtnFn(3,subjectData.tianKong)"
+                                :class="{'active' : sujectCheckbox.some(el=> el === 3), 'disChose' : !subjectData.tianKong} ">
+                                填空题（<span id="fill">0</span>）</li>
+                            <li @click="sujectBtnFn(7,subjectData.buDingXuanZei)"
+                                :class="{'active' : sujectCheckbox.some(el=> el === 7), 'disChose' : !subjectData.buDingXuanZei} ">
+                                不定选择题（<span id="undefined">0</span>）</li>
+                            <li @click="sujectBtnFn(5,subjectData.panDuan)"
+                                :class="{'active' : sujectCheckbox.some(el=> el === 5), 'disChose' : !subjectData.panDuan} ">
+                                判断题（<span id="judge">0</span>）</li>
+                            <li @click="sujectBtnFn(4,subjectData.jianDa)"
+                                :class="{'active' : sujectCheckbox.some(el=> el === 4), 'disChose' : !subjectData.jianDa} ">
+                                简答题（<span id="answer">{{subjectData.jianDa.zongShu}}</span>）</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p>分类</p>
+                        <ol class="typeList type clear">
+                            <li @click="typeBtnFn(1,subjectData.total)" :class="typeBtnIndex === 1 ? 'active' : '' ">
+                                全部题（<span id="allTopic">{{subjectData.total}}</span>）</li>
+                            <li @click="typeBtnFn(2,subjectData.danXuan.weiZuo + subjectData.duoXuan.weiZuo + subjectData.jianDa.weiZuo)"
+                                :class="{'active': typeBtnIndex === 2, 'disChose' : subjectData.danXuan.weiZuo + subjectData.duoXuan.weiZuo + subjectData.jianDa.weiZuo === 0}">
+                                未做题（<span
+                                    id="noDoTopic">{{subjectData.danXuan.weiZuo + subjectData.duoXuan.weiZuo + subjectData.jianDa.weiZuo}}</span>）
+                            </li :class="typeBtnIndex === 0 ? 'active' : '' ">
+                            <li @click="typeBtnFn(3,subjectData.danXuan.cuoTi + subjectData.duoXuan.cuoTi + subjectData.jianDa.cuoTi)"
+                                :class="{'active': typeBtnIndex === 3, 'disChose' : subjectData.danXuan.cuoTi + subjectData.duoXuan.cuoTi + subjectData.jianDa.cuoTi === 0}">
+                                错题（<span
+                                    id="errTopic">{{subjectData.danXuan.cuoTi + subjectData.duoXuan.cuoTi + subjectData.jianDa.cuoTi}}</span>）
+                            </li @click="typeBtnIndex = 0">
+                        </ol>
+                    </li>
+                    <li>
+                        <p>题量</p>
+                        <ol class="typeList clear" id="topicNum">
+                            <li @click="subjectNum = 10" :class="subjectNum === 10 ? 'active' : '' "><span>10</span>道题
+                            </li>
+                            <li @click="subjectNum = 20" :class="subjectNum === 20 ? 'active' : '' "><span>20</span>道题
+                            </li>
+                            <li @click="subjectNum = 100" :class="subjectNum === 100 ? 'active' : '' ">
+                                <span>100</span>道题</li>
+                        </ol>
+                        <dl class="typeBox clear">
+                            <dd class="type1" @click="goChapterExercises(1)"></dd>
+                            <dd class="type2" @click="goChapterExercises(2)"></dd>
+                        </dl>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="goOnModel" v-if="goonshow">
+            <div class="testAlertContent">
+                <div class="alertContentTitle">
+                    <h3>继续做题</h3>
+                    <i class="deleBut" @click="goonshow = false"></i>
+                </div>
+                <div class="alertContent">
+                    <div class="progress">
+                        <div class="progress-box">
+                            <p class="step-pro" :style="{width: goonNum/goonTotal * 100 + '%'}">
+                                <span>做题进度：<b>{{goonNum}}</b><em>/{{goonTotal}}</em></span>
+                            </p>
+                            <p class="defaul-pro"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="actionBut">
+                    <button class="success" @click="goon">继续上次未完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <!-- <form method="post" id="myForm">
+            <input type="hidden" name="type" id="typeValue">
+        </form> -->
+        <!-- footer end -->
+
+
+
+    </div>
+    <!-- <form method="post" id="myForm">
+        <input type="hidden" name="type" id="typeValue">
+    </form> -->
+    <!-- footer end -->
+    <!--百度统计代码-->
+
+
+
+
+
+
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<script src="js/vue.min.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                domain: 'http://192.168.10.166:8080',
+                ibs_id: '', // 题库id
+                chapter_id: '',
+                answer_id: '',
+                fatherTitle: '', // 父标题
+                childTitle: '', // 点击开始做题获取题名字
+                sujectCheckbox: [1], // 选中题库
+                typeBtnIndex: 1, // 分类切换class
+                subjectNum: 10, // 题量切换class
+                chapterlist: [], // 章节数据
+                simulationlist: false, // 模拟真题
+                activeIndexa: 0, // 切换标签
+                subjectModel: false, // 显示章节弹出框
+                subjectData: {}, // 题目弹出框数据
+                navList: [], // 大标题导航栏数据
+                bigtitle: [], // 显示点击过来的标题
+                errorTotal: 0, // 错题总数
+                collectionTotal: 0, //收藏总数
+                recordTotal: 0, // 记录总数
+                fullscreenLoading: false,
+                goonshow: false, // 继续做题显示框
+                goonTotal: 0, // 继续做题总数
+                goonNum: 0, // 继续做题余数
+            }
+        },
+        created() {
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+            if(localStorage.stu_id == 0 || localStorage.stu_id == undefined){
+                this.$message.error({
+                    type: 'info',
+                    message: '请先登录',
+                    // position: 'bottom-left',
+                    duration: '2000'
+                });
+                setTimeout(()=>{window.location.href="tiku.html"},2000)
+                return
+            }
+            // 初始化章数据
+            this.ibs_id = window.location.search.split('=')[1]
+            this.subjectAjax(this.ibs_id)
+            // 保存大标题与切换栏
+            this.navList = JSON.parse(sessionStorage.getItem('tiku')).sub_library
+            // 保存父标题
+            this.fatherTitle = JSON.parse(sessionStorage.getItem('tiku')).item_bank_name
+            this.bigtitle = this.navList.find(el => el.ibs_id === parseInt(this.ibs_id))
+        },
+        computed: {},
+        methods: {
+            // 公用请求题库
+            subjectAjax(id) {
+                this.fullscreenLoading = true;
+                $.ajax({
+                    type: 'post',
+                    url: this.domain + '/stu/ItemBank/queryCTP',
+                    data: JSON.stringify({
+                        'ibs_id': id,
+                        "stu_id": localStorage.stu_id
+                    }),
+                    contentType: 'application/json',
+                    start_time: new Date().getTime(),
+                    // complete: function(data) {
+                    //     alert('This request took '+(new Date().getTime() - this.start_time)+' ms');
+                    // },
+                    success: res => {
+                        setTimeout(() => {
+                            this.fullscreenLoading = false;
+                            this.errorTotal = res.err_num
+                            this.collectionTotal = res.coll_num
+                            this.recordTotal = res.jilu_num
+                            // console.log(res)
+                            this.chapterlist = res.zhangjiekey.length === 0 ? [] : res
+                                .zhangjiekey.map((el, i) => {
+                                    el.show = i === 0 ? true : false
+                                    return el
+                                })
+                            this.simulationlist = res.monizhentikey
+                        }, 1000);
+                    }
+                })
+            },
+            // 题型
+            sujectBtnFn(subjectId, item) {
+                if (item === undefined) return
+                if (this.sujectCheckbox.some(el => el === subjectId)) {
+                    if (this.sujectCheckbox.length === 1) return
+                    let i = this.sujectCheckbox.findIndex(itm => itm === subjectId)
+                    this.sujectCheckbox.splice(i, 1)
+                } else {
+                    this.sujectCheckbox.push(subjectId)
+                }
+            },
+            // 分类
+            typeBtnFn(index, total) {
+                if (!total) return
+                this.typeBtnIndex = index
+            },
+            // 跳转章节练习页面
+            goChapterExercises(type) {
+                let exercisesParams = {
+                    "stu_id": localStorage.stu_id,
+                    "chapter_test_point_id": this.chapter_id,
+                    "question_type_group": this.sujectCheckbox.join(';') + ';7',
+                    "classification": this.typeBtnIndex,
+                    "questionNum": this.subjectNum,
+                    "tf_Practice": type
+                }
+                sessionStorage.setItem('tiku_exercisesParams', JSON.stringify(exercisesParams))
+                window.location.href = 'tiku_exercises.html'
+
+            },
+            pubStart(chapter) {
+                $.ajax({
+                    type: 'post',
+                    url: this.domain + '/stu/ItemBank/StuTfContinue',
+                    data: JSON.stringify({
+                        "chapter_test_point_id": chapter.chapter_test_point_id,
+                        "stu_id": localStorage.stu_id
+                    }),
+                    contentType: 'application/json',
+                    success: res => {
+                        if (res.code === 211) {
+                            this.goonshow = true
+                            this.answer_id = res.answer_id
+                            this.childTitle = chapter.name
+                            this.goonTotal = res.zongshu
+                            this.goonNum = res.jindu
+                        } else {
+                            this.subjectData.total = chapter.num
+                            this.chapter_id = chapter.chapter_test_point_id
+                            $.ajax({
+                                type: 'post',
+                                url: this.domain + '/stu/ItemBank/queryChapter',
+                                data: JSON.stringify({
+                                    "ibs_id": this.ibs_id,
+                                    "chapter_test_point_id": chapter
+                                        .chapter_test_point_id,
+                                    "stu_id": localStorage.stu_id
+                                }),
+                                contentType: 'application/json',
+                                success: res => {
+                                    this.subjectData = Object.assign(this.subjectData,
+                                        res)
+                                    this.subjectModel = true
+                                }
+                            })
+                        }
+                    }
+                })
+            },
+            startChild(j) {
+                this.pubStart(j)
+            },
+            // 开始做题
+            startSubject(chapter) {
+                this.pubStart(chapter)
+            },
+            // 切换章节子内容
+            chapterShow(index) {
+                this.$set(this.chapterlist[index], 'show', !this.chapterlist[index].show)
+            },
+            // 格式化时间
+            getNowFormatDate(date) {
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                if (hour >= 0 && hour <= 9) {
+                    hour = "0" + hour;
+                }
+                if (minute >= 0 && minute <= 9) {
+                    minute = "0" + minute;
+                }
+                if (second >= 0 && second <= 9) {
+                    second = "0" + second;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                    " " + hour + seperator2 + minute +
+                    seperator2 + second;
+                return currentdate;
+            },
+            // 切换大标签
+            activeA(num) {
+                this.activeIndexa = num
+                this.fullscreenLoading = true;
+                setTimeout(() => {
+                    this.fullscreenLoading = false;
+                }, 1000);
+            },
+            // 切换题库种类
+            changeSubject(id) {
+                this.activeIndexa = 0
+                this.subjectAjax(id)
+                this.bigtitle = this.navList.find(el => el.ibs_id === parseInt(id))
+            },
+            // 继续上一次点击事件
+            goon() {
+                window.location.href = "tiku_exercises_goon.html?answer_id=" + this.answer_id + "&smalltitle=" +
+                    this.childTitle
+            },
+            // 模拟真题开始做题
+            realStart(simulation, type) {
+                let url = ''
+                switch (type) {
+                    case '开始做题':
+                        url = 'tiku_exercises.html?test_paper_id=' + simulation.test_paper_id
+                        break;
+                    case '继续做题':
+                        url = 'tiku_exercises_goon.html?answer_id=' + simulation.answer_id + "&smalltitle=" +
+                            this.childTitle
+                        break;
+                    case '再考一遍':
+                        url = 'tiku_exercises_again.html?answer_id=' + simulation.answer_id + "&smalltitle=" +
+                            this.childTitle
+                        break;
+                    case '查看解析':
+                        url = 'tiku_exercises_view.html?answer_id=' + simulation.answer_id + "&smalltitle=" +
+                            this.childTitle
+                        break;
+                    default:
+                        break;
+                }
+                window.location.href = url
+            }
+        }
+    })
+</script>
+
+</html>

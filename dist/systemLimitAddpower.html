@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/allAnswer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/questionIndex.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/system.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/common.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/system.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .classComment {
+            width: auto;
+            margin: 20px auto;
+            padding: 22px 15px 15px;
+            background: #f7f7f7;
+        }
+        .page-ul {
+    width: 65%;
+    display: inline-flex;
+    margin: 0;
+    margin-left: 5%;
+}
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: 80% */
+        }
+
+        .el-table__empty-text {
+            width: 100%;
+            color: #909399;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+
+        .page-ul {
+            width: 65%;
+            display: inline-flex;
+            margin: 0;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data"></form>
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-account"></i> 系统
+                    <ul class="row page-ul">
+                            <li onclick="window.location.href='system.html'" style="width: 20%">开通服务</li>
+                        <li onclick="window.location.href='systemLimit.html'" style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;width: 20%">用户权限</li>
+                        <li onclick="window.location.href='systemLimitrizhi.html'" style="width: 20%">操作日志</li>
+                        <li style="width: 20%">机构订单</li>
+                        <li style="width: 20%">下载任务</li>
+
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="containers space-line clearfloat">
+                <div class="containers_main">
+                    <div class="title_bar clearfloat">
+
+
+
+                        <h6 class="fl">编辑角色</h6>
+
+
+
+                        <span class="line2"></span>
+                    </div>
+                    <div class="role_bar clearfloat">
+                        <div class="role_bar_box guide_7" id="custom_boot_add_role_step1"><span>角色名称</span>
+                            <input type="text" placeholder="请输入角色名称" v-model="power_info.power_name" id="role_name">
+                        </div>
+                    </div>
+                    <div class="ztrre_describe" style="margin-top: 20px">机构全部数据功能权限：</div>
+                    <div class="tree_shape row " style="padding-top: 20px">
+                        <div class="block col-md-12" style="padding: 10px;">
+                            <el-cascader :options="options" :show-all-levels="false" v-model="stu" :props="props" collapse-tags multiple clearable>
+                            </el-cascader>
+                        </div>
+                        <div class="fixed_layer_main" style="display: none; left: 751.953px;"></div>
+                    </div>
+
+                    <div class="role_btn">
+                        <!-- <a
+                            class="button button-pad-720 button-border-ccc button-color-89 button-bg-fail fsize_14 cancel_role">取消</a> -->
+                        <a @click="submit"
+                            class="button button-pad-720 button-border-ccc button-color-fff button-bg-search fsize_14 save_role">保存</a>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="//unpkg.com/element-ui@2.13.0/lib/index.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: '',
+                    activeIndexb: 0,
+                    activeIndexc: '',
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    userList: [],
+                    stu:[],
+                    props: {
+                        multiple: true
+                    },
+                    options: [],
+                     types: [],
+                     power_info:{
+                        "power_name": "权限名",
+                        "power_function": 1,
+                        "power_status": 1,
+                        "tf_delete": 2,
+                        "user_id": parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                    }
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                obj = {}
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/user/queryJurisdiction',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({}),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        data.map((item)=>{
+                            item.value = item.fid
+                            item.label = item.modular
+                            item.children = item.datalist
+                            item.children.map((item1)=>{
+                                item1.value = item1.jurisdiction_id
+                                item1.label = item1.function
+                            })
+                        })
+                        _this.options = data
+                    },
+                    error: function () {
+
+                    }
+                })
+                if(localStorage.add_power_status == 'false'){
+                    _this.power_info = JSON.parse(localStorage.edit_power_info)
+                    console.log(_this.power_info)
+                    _this.stu = JSON.parse(JSON.parse(localStorage.edit_power_info).power_function)
+                }
+            },
+            methods: {
+                submit(){
+                    let _this = this
+                    _this.power_info.power_function = JSON.stringify(this.stu)
+                    if(localStorage.add_power_status == 'false'){
+
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/user/editRoles',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(_this.power_info),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if(data == 1){
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '修改成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }else{
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '修改失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message({
+                                    type: 'warning',
+                                    message: '已取消',
+                                    position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }else{
+
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/user/addRoles',
+                            type: 'post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(_this.power_info),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if(data == 1){
+                                    _this.$message.success({
+                                        type: 'info',
+                                        message: '添加成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }else{
+                                    _this.$message.error({
+                                        type: 'info',
+                                        message: '添加失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                }
+                            },
+                            error: function () {
+                                _this.$message({
+                                    type: 'warning',
+                                    message: '已取消',
+                                    position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                        })
+                    }
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

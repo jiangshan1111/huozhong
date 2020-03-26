@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/recourse.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/addTitle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classedit.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/splitScreen.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/manger.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classNum.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/opera.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 38px;
+        }
+        .el-table__empty-text {
+    width: 100%;
+    color: #909399;
+}
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        /* .el-message-box {
+            width: 80%
+        } */
+
+        .table-noline td {
+            width: 40%;
+        }
+
+        .table-noline tr td:last-of-type {
+            width: 20%;
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .list-infos li {
+            width: 50%;
+        }
+
+        select,
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"] {
+            margin: 7px 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">      </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+            <form id="addFormOne" method="post" novalidate="novalidate" enctype="multipart/form-data"></form>
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li style="color:e #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap company">
+                <div class="block clear">
+
+
+
+                    <div class="labels classStatus else1">
+                        <s id="statusText">{{course_info.course_status}}</s>
+                        <div class="sanjiao"></div>
+                    </div>
+
+
+
+                    <div class="class-title">课程名称 ： {{course_info.course_name}}</div>
+                    <input type="hidden" value="832295" id="classTypeId">
+                    <div class="sum">
+
+
+
+
+
+
+
+                        <span>授课类型：{{course_info.course_type}}</span>
+
+
+                    </div>
+
+                    <div class="price">
+                        价格：{{course_info.special_price}}元
+                    </div>
+
+
+
+
+
+                    
+
+
+
+
+                </div>
+            </div>
+            <div class="u-wrap company overflow points-use-class" style="    margin-top: 20px;">
+                <div class="left-side">
+                    <div class="left-sides-title courseCancle">
+                        <!-- <em>返回</em> -->
+                    </div>
+                    <div class="left-sides-title pop">
+                        <em class="iconfont" style="font-size:13px">| |</em>
+                    </div>
+                    <ul class="menuList_choose">
+                            <li class="subentry" @click="goManage" code="baseCode" mark="/editClass/editClassBaseInfo/832295/togther">
+                                <i class="mdi mdi-information"></i><em>基本信息</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '直播'" @click="goVideo" code="videoCode" mark="/editClass/editClassVideoInfo/832295/togther">
+                                    <i class="mdi mdi-television-classic"></i><em>视频课</em></li>
+                                <li class="subentry" v-if="course_info.course_type != '录播'" code="moduleLive" @click="goZhibo" mark="/editClass/editClassModuleLive/832295/togther">
+                                    <i class="mdi mdi-television"></i><em><em>直播课</em></li>
+                                <!-- <li class="subentry" code="moduleFace" mark="/editClass/editClassModuleFace/832295/togther">
+                                    <i class="mdi mdi-worker"></i><em>面授课</em></li> -->
+        
+                                <li class="subentry" v-if="course_info.course_type != '录播'" @click="goClassTable" code="listCode" mark="/editClass/editCourseList/832295/togther">
+                                    <i class="mdi mdi-equal-box"></i><em>排课表</em></li>
+                            <li class="lines"></li>
+                            <li class="subentry t1" @click="goClassStu" code="studentsCode" mark="/classStu/studentList/832295/togther">
+                                <i class=" mdi mdi-human-male"></i><em>学员管理</em></li>
+                            <li class="subentry active" code="classResource" @click="goClassZL"
+                                mark="/classModuleLesson/classesResource/832295/togther">
+                                <i class=" mdi mdi-database-plus"></i><em>课程资料</em></li>
+                            <li class="subentry t1" code="statisticsCode" @click="goClassTJ" 
+                                mark="/companyLiveStaticDetail/companyLiveStaticDetailList/832295/togther">
+                                <i class=" mdi mdi-table-of-contents"></i><em>直播上课统计</em></li>
+                    </ul>
+                </div>
+                <input type="hidden" id="courseUseMethod" value="simple">
+                <div class="right-side">
+                    <div class="u-wrap operate" style="width: 97%;margin:0 auto;">
+                        <div class="mainbackground">
+                            <div class="heading">
+                                <h2 class="h5" style="    float: left;
+                                line-height: 28px;">课程资料</h2>
+
+                                <a style="    float: right;margin-left:20px" href="javascript:;"
+                                    class="btn btn-mini btn-primary btn-upload" @click="go_ziliao">上传资料</a>
+                                <a style="    float: right;" href="javascript:;"
+                                    class="btn btn-mini btn-primary btn-upload"  @click="go_ziliao1">批量删除</a>
+                                <span class="line"></span>
+                            </div>
+                            <div class="select-option clear" style="display: none;">
+                                <ul>
+                                    <li>
+                                        <span class="s-title">学科</span>
+                                        <span class="s-list" id="one">
+
+                                            <a class="btn btn-sm oneItem btn-success" ids="86683" href="javascript:;"
+                                                data-id="86683">基金从业资格考试</a>
+
+                                            <a class="btn btn-sm btn-default oneItem" ids="128040" href="javascript:;"
+                                                data-id="128040">注册消防工程师</a>
+
+                                        </span>
+                                    </li>
+                                    <li id="two">
+                                        <span class="s-title">学科小类</span>
+                                        <span class="s-list"><a class="btn btn-sm btn-default twoItem"
+                                                href="javascript:;" data-id="220411">定金班</a><a
+                                                class="btn btn-sm btn-default twoItem" href="javascript:;"
+                                                data-id="86684">科目一法律法规</a><a class="btn btn-sm btn-default twoItem"
+                                                href="javascript:;" data-id="86685">科目二证券基础</a><a
+                                                class="btn btn-sm btn-success twoItem" href="javascript:;"
+                                                data-id="86686">科目三私募股权</a><a class="btn btn-sm btn-default twoItem"
+                                                href="javascript:;" data-id="89460">体验课</a><a
+                                                class="btn btn-sm btn-default twoItem" href="javascript:;"
+                                                data-id="206236">开学典礼</a><a class="btn btn-sm btn-default twoItem"
+                                                href="javascript:;" data-id="93193">内部教研专用</a></span>
+                                    </li>
+                                    <li id="term">
+                                        <span class="s-title">课程</span>
+                                        <span class="s-list">
+                                            <select id="class" class="js-example-basic-single select2-hidden-accessible"
+                                                style="width: 180px;" tabindex="-1" aria-hidden="true">
+                                                <option selected="selected" value="655279">基金考试科目三：VIP一次取证班</option>
+                                                <option value="655277">基金考试科目三：签约特招班</option>
+                                                <option value="552666">基金考试科目三：高校取证班</option>
+                                                <option value="414588">基金考试科三：VIP不过退费班</option>
+                                                <option value="414553">基金考试科三：一次取证班</option>
+                                                <option value="313706">基金科三：直播密训班（20180526）</option>
+                                                <option value="313696">基金科三：基础精讲班（20170917）</option>
+                                                <option value="239423">基金考试科目三：VIP不过退费班</option>
+                                                <option value="239410">基金考试科目三：一次取证班</option>
+                                                <option value="239405">基金考试科目三：直播密训班</option>
+                                                <option value="239401">基金考试科目三：基础精讲班</option>
+                                            </select><span class="select2 select2-container select2-container--default"
+                                                dir="ltr" style="width: 180px;"><span class="selection"><span
+                                                        class="select2-selection select2-selection--single"
+                                                        role="combobox" aria-autocomplete="list" aria-haspopup="true"
+                                                        aria-expanded="false" tabindex="0"
+                                                        aria-labelledby="select2-class-container"><span
+                                                            class="select2-selection__rendered"
+                                                            id="select2-class-container"
+                                                            title="基金考试科目三：VIP一次取证班">基金考试科目三：VIP一次取证班</span><span
+                                                            class="select2-selection__arrow" role="presentation"><b
+                                                                role="presentation"></b></span></span></span><span
+                                                    class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="s-title">资料类型</span>
+                                        <span class="s-list">
+                                            <a class="btn btn-sm btn-success resource" href="javascript:;"
+                                                data-type="">全部</a>
+
+                                            <a class="btn btn-sm btn-default resource" href="javascript:;"
+                                                data-type="COURSE_RESOURCE_OTHER">其他</a>
+
+                                            <a class="btn btn-sm btn-default resource" href="javascript:;"
+                                                data-type="COURSE_RESOURCE_SUPPLY">教辅</a>
+
+                                            <a class="btn btn-sm btn-default resource" href="javascript:;"
+                                                data-type="COURSE_RESOURCE_TEACHING">教材</a>
+
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="u-wrap operate">
+                                <div class="mainbackground" style="padding:0">
+                                    <div class="operate_list">
+                                        <div class="op-list">
+
+
+                                            <template>
+                                                <el-table border
+                                                    :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                                    :data="tableData" style="overflow: auto;" @selection-change="handleSelectionChange">
+                                                    
+                                                    <el-table-column
+                                                    type="selection"
+                                                    :width="flexColumnWidth(6)">
+                                                  </el-table-column>
+                                                    <el-table-column prop="course_name" label="课程名称"
+                                                        :width="flexColumnWidth(14)" style="text-align: center">
+                                                    </el-table-column>
+                                                    <el-table-column prop="c_recourses_name" label="资料名称"
+                                                        :width="flexColumnWidth(20)">
+                                                    </el-table-column>
+                                                    <el-table-column prop="c_recourses_size" label="资料大小"
+                                                        :width="flexColumnWidth(10)">
+                                                    </el-table-column>
+                                                    <el-table-column prop="user_id" label="上传人"
+                                                        :width="flexColumnWidth(10)">
+                                                    </el-table-column>
+                                                    <el-table-column prop="create_time" label="上传时间"
+                                                        :width="flexColumnWidth(15)">
+                                                    </el-table-column>
+                                                    <el-table-column prop="c_recourses_source" label="	上传来源"
+                                                        :width="flexColumnWidth(10)">
+                                                    </el-table-column>
+                                                    <el-table-column label="操作" :width="flexColumnWidth(15)">
+                                                        <template slot-scope="scope">
+                                                            <el-button type="text" size="small"
+                                                                @click="delete_record(scope.row)">删除</el-button>
+                                                        </template>
+                                                    </el-table-column>
+                                                </el-table>
+                                                <el-pagination @size-change="handleSizeChange"
+                                                    @current-change="handleCurrentChange" :current-page="currentPage"
+                                                    :page-sizes="[5, 10, 20, 40]" :page-size="pagesize"
+                                                    layout="total, sizes, prev, pager, next, jumper"
+                                                    :total="userList.length">
+                                                </el-pagination>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="dialog uploadDialog" v-show="model == 4" style="display: none;" id="class-resource">
+                        <input type="hidden" id="moduleNoId" value="131022">
+                        <div class="prompt course_information"><i class="iconfont closeBtn" @click="model = 0">x</i>
+                            <h5>课程资料</h5>
+                            <div class="course_information_main">
+                                <div class="nano">
+                                    <div class="" style="right: -17px;">
+                                        <div class="course_box">
+                                            <div class="course_title">资料类型：</div><input type="file" id="doctype" lecid="549741"
+                                                style="border: none; display: none; position: relative; z-index: 1;" url="" mark=""
+                                                cname="" name="doc">
+                                            <div class="course_main">
+                                                <select id="sourceType" v-model="ziliao_info.c_recourses_type">
+                                                    <option value="教材">教材</option>
+                                                    <option value="教辅">教辅</option>
+                                                    <option value="其他">其他</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="course_box">
+                                            <div class="course_title">上传资料：</div>
+                                            <div class="course_main">
+                                                <label class="control-label btn" for="uploadform-excelfiles"
+                                                    style="    border: 1px solid rgb(200,200,200);">上传资料</label><input type="file"
+                                                    id="uploadform-excelfiles" @change="file" multiple class="attachment-upload"
+                                                    style="left:-9999px;position:absolute;">
+                                                <span
+                                                    class="upload_explain">支持上传类型:doc,pdf,xls,ppt,docx,pptx,xlsx,zip,rar;文件不能大于1G</span>
+                                            </div>
+                                        </div>
+                                        <div class="course_box">
+                                            <div class="course_title">课程资料：</div>
+                                            <div class="course_main">
+                                                <ul class="clearfloat courseSourceUl">
+                                                    <li v-for="(item,index) in file_con" type="add" id="o_1dpuhd9g9170616g31vndg8e126416" fileid="345435">
+                                                        <span>{{item.name}}</span><i class="iconfont" @click="closeFile(item.name)"></i></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nano-pane" style="display: none;">
+                                        <div class="nano-slider" style="height: 248px; transform: translate(0px, 0px);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="save_btn">
+                                <!-- <a class="btn btn-default btn-lg closeUpload">取消</a> -->
+                                <a class="btn btn-primary btn-lg saveUpload" @click="submit_ziliao" style="color:white">确定</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
+        </div> <!-- end container -->
+        
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: 0,
+                    activeIndexc: 0,
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    multipleSelection1:[],
+                    file_con: [],
+                    ziliao_info:{
+                        c_recourses_type:"教材"
+                    },
+                    userList: [],
+                    value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+                    value2: '',
+                    course_info:{}
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function(){              $("#topnav").load("header.html");              }); 
+                _this.course_info = JSON.parse(localStorage.course_info)
+                this.inita()
+            },
+            methods: {
+                active() {
+                    console.log(1)
+                },
+                file(e) {
+                    // var allFile = [];
+                    console.log(e.target)
+                    var fileError = 0;
+                    fileList = e.currentTarget.files;
+                    console.log(fileList)
+                    _this = this
+                    //  console.log(this.filecon[0].name)
+                    $.each(fileList, function (index, item) {
+                        index = 0 // $(itme).setAttribute('type','file');
+                        var fileName = item.name;
+                        var fileEnd = fileName.substring(fileName.indexOf("."));
+                        console.log(item.size)
+                        //上传文件格式判断
+                        type = item.type;
+                        console.log(type)
+                        var maxsize = 1024 * 1024 * 1024
+                        if (fileEnd.indexOf("doc") < 0 && fileEnd.indexOf("pdf") < 0 && fileEnd.indexOf(
+                                "xls") < 0 &&
+                            fileEnd.indexOf("ppt") < 0 && fileEnd.indexOf("docx") < 0 && fileEnd
+                            .indexOf("pptx") < 0 &&
+                            fileEnd.indexOf("xlsx") < 0 && fileEnd.indexOf("zip") < 0 && fileEnd
+                            .indexOf("rar") < 0) {
+                            console.log(1)
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '请选择正确的格式上传',
+                                duration: 2000
+                            });
+                        } else if (item.size > maxsize) {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: '图片尺寸不能超过2MB',
+                                duration: 2000
+                            });
+                        } else if (window.FileReader) {
+                            var form = document.getElementById("addFormOne");
+                            var formData = new FormData(form);
+                            // console.log(_this.file_con[0]==item)
+                            
+                            index = 0
+                            for (let i = 0; i < _this.file_con.length; i++) {
+                                if(_this.file_con[i].name == item.name){
+                                    index += 1
+                                }
+                            }
+                            if(index == 0){
+                                formData.set('multipartFile',item)
+                                $.ajax({
+                                    url: 'http://192.168.10.166:8080/pse/uploadFile',
+                                    type: 'post',
+                                    // contentType: 'application/json',
+                                    data: formData,
+    processData: false,
+contentType: false,
+                                    // dataType: 'json',
+                                    success: function (data) {
+                                        item.HTC = data
+                                        console.log(item)
+                                        _this.file_con.push(item)
+                                    },
+                                    error: function () {
+
+                                    }
+                                }) 
+                            }else{
+                                _this.$notify.error({
+                                title: '错误',
+                                message: '不能上传命名相同的文件',
+                                duration: 2000
+                            });
+                            }
+                            // if(_this.file_con.indexOf(item) < 0){
+                            // _this.file_con.push(item)
+                            // }
+                            console.log(_this.file_con)
+                            var reader = new FileReader();
+                            reader.readAsDataURL(item);
+                            reader.onloadend = function (e) {
+                                // _this.imgSrc = e.target.result
+                                // console.log(e.target.result)
+                            };
+                        }
+                        // 
+                    });
+                    // $(e.target).val('')
+                },
+                handleSelectionChange(val) {
+
+                this.multipleSelection1 = val;
+                console.log(this.multipleSelection1)
+                },
+                go_ziliao(){
+                    _this = this
+                    console.log(_this.model)
+                    _this.ziliao_info.course_id = parseInt(window.location.href.split('=')[1])
+                    _this.ziliao_info.user_id = 1
+                    _this.ziliao_info.course_unit_id = 0
+                    _this.ziliao_info.course_times_id = 0
+                    _this.ziliao_info.c_recourses_source = '课程'
+                    _this.model = 4
+                },
+                go_ziliao1(){
+                    _this = this
+                    console.log(_this.multipleSelection1)
+                },
+                change(limit){
+                     var size = "";
+                     if(limit < 0.1 * 1024){                            //小于0.1KB，则转化成B
+                         size = limit.toFixed(2) + "B"
+                     }else if(limit < 0.1 * 1024 * 1024){            //小于0.1MB，则转化成KB
+                         size = (limit/1024).toFixed(2) + "KB"
+                     }else if(limit < 0.1 * 1024 * 1024 * 1024){        //小于0.1GB，则转化成MB
+                         size = (limit/(1024 * 1024)).toFixed(2) + "MB"
+                     }else{                                            //其他转化成GB
+                         size = (limit/(1024 * 1024 * 1024)).toFixed(2) + "GB"
+                     }
+                 
+                     var sizeStr = size + "";                        //转成字符串
+                     var index = sizeStr.indexOf(".");                    //获取小数点处的索引
+                     var dou = sizeStr.substr(index + 1 ,2)            //获取小数点后两位的值
+                     if(dou == "00"){                                //判断后两位是否为00，如果是则删除00                
+                         return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2)
+                     }
+                     return size;
+                 },
+                submit_ziliao(){
+                    _this = this
+                    arr = []
+                    for (let i = 0; i < _this.file_con.length; i++) {
+                        obj = {}
+                        obj.c_recourses_name = _this.file_con[i].name
+                        obj.c_recourses_size = _this.change(_this.file_con[i].size)
+                        obj.recourses_address = _this.file_con[i].HTC
+                        obj.user_id = parseInt(JSON.parse(localStorage.login_user_info).user_id)
+                        obj.c_recourses_source = _this.ziliao_info.c_recourses_source
+                        obj.c_recourses_type = _this.ziliao_info.c_recourses_type
+                        obj.course_id = _this.ziliao_info.course_id
+                        obj.course_unit_id = _this.ziliao_info.course_unit_id
+                        obj.course_times_id = _this.ziliao_info.course_times_id
+                        arr.push(obj)
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/bindingRecourse',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(arr),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data.code == 200){
+                                _this.$message.success({
+                                    type: 'info',
+                                    message: '上传成功',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }else{
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: '上传失败',
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                            // _this.changeKecheng()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                closeFile(index){
+                    _this = this
+                    console.log(index)
+                    _this.file_con = _this.file_con.filter((i)=>{
+                        return i.name != index
+                    })
+
+                },
+                delete_record(scope){
+                    console.log(scope)
+                    _this = this
+                    _this.$confirm(`是否确认删除该课程资料?`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'info'
+                    }).then(() => {
+                    $.ajax({
+                            url: 'http://192.168.10.166:8080/course/deleteCourseData',
+                            type: 'get',
+                            data: {
+                                c_recourses_id: scope.c_recourses_id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                               if(data.message == '删除此课程资料成功'){
+                                _this.$message.success({
+                                        type: 'info',
+                                        message: '删除此课程资料成功',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                                    _this.inita()
+                               }else{
+                                _this.$message.info({
+                                        type: 'info',
+                                        message: '删除失败',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                               }
+                            },
+                            error: function () {
+                                _this.$message.error({
+                                        type: 'info',
+                                        message: '服务器错误',
+                                        // position: 'bottom-left',
+                                        duration: '2000'
+                                    });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'warning',
+                            message: '已取消',
+                            position: 'bottom-left',
+                            duration: '2000'
+                        });
+                    });
+                },
+                inita(){
+                    let _this = this
+                    course_id = window.location.href.split('=')[1]
+                    obj = {
+                        course_id: course_id
+                    }
+                    if (course_id == undefined) {
+
+                    } else {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/exhibitionCourseData',
+                            type: 'get',
+                            data: {
+                                course_id: course_id
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                _this.userList = data
+                                for (let i = 0; i < _this.userList.length; i++) {
+                                    _this.userList[i].create_time = _this.getNowFormatDate(new Date(_this.userList[i].create_time))
+                                }
+                            },
+                            error: function () {
+
+                            }
+                        })
+                    }
+                },
+                activea(num) {
+
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                goZhibo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageTelecast.html?course_id='+course_id)
+                    }
+                },
+                goClassStu(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageStu.html?course_id='+course_id)
+                    }
+                },
+                goClassZL(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageziliao.html?course_id='+course_id)
+                    }
+                },
+                goClassTJ(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanagezhibo.html?course_id='+course_id)
+                    }
+                },
+                goVideo(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageVideo.html?course_id='+course_id)
+                    } 
+                },
+                goManage(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanage.html?course_id='+course_id)
+                    } 
+                },
+                goClassTable(){
+                    course_id = window.location.href.split('=')[1]
+                    if(course_id != undefined){
+                        window.open('classmanageClasstable.html?course_id='+course_id)
+                    }
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                },
+                flexColumnWidth(num) {
+
+                    return $('.el-table__header-wrapper').width() > 600 ? $('.el-table__header-wrapper')
+                        .width() / 100 * num : 12 * num
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

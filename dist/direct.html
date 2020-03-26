@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/golive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/popwin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dialog.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+        .el-pager li {
+            padding: 0 4px !important;
+            font-size: 13px;
+            min-width: 35.5px;
+            height: 28px !important;
+            line-height: 28px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .el-range-editor.el-input__inner {
+            vertical-align: top;
+            height: 26px;
+        }
+
+        .el-date-editor .el-range__icon {
+            line-height: 26px;
+        }
+
+        .el-date-editor .el-range-separator {
+            line-height: 26px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            width: 80%
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+
+        .proxyBox .liveList li {
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav"> </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 教学
+                    <ul class="lrow page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='direct.html'">上直播</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap resource">
+                <div class="mainbackground nopadding main2" style="display:none">
+                    <div class="impotrArea">
+                        <div class="proxyBox">
+                            <ul class="liveList liveList2">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainbackground nopadding main1">
+                    <div class="heading headingImp">
+                        <h2 class="h5">上直播</h2>
+
+                        <div class="search searchAdmin">
+
+
+                        </div>
+                        <span class="line"></span>
+                    </div>
+                    <div class="impotrArea">
+
+
+                        <div class="timeSearch clear">
+                            <em class="fl">日期 :</em>
+                            <div class="fl butList">
+                                <a @click="activea(0)"
+                                    :class="activeIndexa == 0?'btn btn-default btn-day btn-success':'btn btn-default btn-day'"
+                                    href="javascript:;" data-time="0" mark="">全部</a>
+                                <a @click="activea(1)"
+                                    :class="activeIndexa == 1?'btn btn-default btn-day btn-success':'btn btn-default btn-day'"
+                                    href="javascript:;" data-time="1" mark="today">今天</a>
+                                <a @click="activea(2)"
+                                    :class="activeIndexa == 2?'btn btn-default btn-day btn-success':'btn btn-default btn-day'"
+                                    href="javascript:;" data-time="2" mark="tomday">明天</a>
+                                <a @click="activea(3)"
+                                    :class="activeIndexa == 3?'btn btn-default btn-day btn-success':'btn btn-default btn-day'"
+                                    href="javascript:;" data-time="3" mark="yesday">昨天</a>
+                                <a @click="activea(4)"
+                                    :class="activeIndexa == 4?'btn btn-default btn-day btn-success':'btn btn-default btn-day'"
+                                    href="javascript:;" id="zhidingshijian" data-time="0" mark="nos">指定时间</a>
+                                <template v-if="activeIndexa == 4">
+                                    <el-date-picker v-model="value1" type="datetimerange" range-separator="至"
+                                        start-placeholder="开始日期" end-placeholder="结束日期">
+                                    </el-date-picker>
+                                </template>
+                            </div>
+                        </div>
+                        <div class="timeSearch clear">
+                            <em class="fl">状态 :</em>
+                            <div class="fl">
+                                <a @click="activeb('')"
+                                    :class="activeIndexb == ''?'btn btn-default btn-ing btn-success':'btn btn-default btn-ing'"
+                                    href="javascript:;" data-time="0">全部</a>
+                                <a @click="activeb('进行中')"
+                                    :class="activeIndexb == '进行中'?'btn btn-default btn-ing btn-success':'btn btn-default btn-ing'"
+                                    href="javascript:;" data-time="4">进行中</a>
+                                <a @click="activeb('未开始')"
+                                    :class="activeIndexb == '未开始'?'btn btn-default btn-ing btn-success':'btn btn-default btn-ing'"
+                                    href="javascript:;" data-time="5">未开始</a>
+                                <a @click="activeb('已结束')"
+                                    :class="activeIndexb == '已结束'?'btn btn-default btn-ing btn-success':'btn btn-default btn-ing'"
+                                    href="javascript:;" data-time="6">已结束</a>
+                            </div>
+                        </div>
+                        <div class="timeSearch clear">
+                            <em class="fl">关键词 :</em>
+                            <div class="fl">
+
+                                <span class="namemob">
+
+                                    <input type="text" name="teacherName" v-model="search_info.true_name"
+                                        placeholder="教师名称">
+
+                                    <input type="text" name="classModuleLessonName" v-model="search_info.ct_name"
+                                        placeholder="课次名称">
+                                    <button @click="search_kcs()">搜索</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="proxyBox">
+                            <ul class="liveList mainList">
+                                <div v-if="kcs.length == 0"
+                                    style="height: 100px; padding-top: 20px;text-align: center;color: #999;font-size: 14px;">
+                                    没有发现您要找的内容!</div>
+                                <li class="clear" v-for="(item,index) in kcs">
+                                    <div class="fl liveTit">
+
+
+
+
+                                        <h2>
+                                            <em
+                                                class="over">{{new Date(item.begin_class_date) > new Date()?'直播未开始':new Date(item.end_time_datess) > new Date()?'直播进行中':'直播已结束'}}</em>
+                                            <b>{{getNowFormatDate(new Date(item.begin_class_date))}}</b>
+                                        </h2>
+
+                                    </div>
+                                    <div class="fl liveCur">
+
+
+                                        <p class="addPad">
+                                            <span>课次名称 :<em>{{item.ct_name}}</em></span>
+                                        </p>
+                                        <p>
+                                            <span>授课教师 :<em>{{item.true_name}}</em></span>
+                                            <span>时长 :<em>{{item.total_hours}}小时</em></span>
+
+                                            <span class="stuNum">学员数量 :<em>{{item.num_of_student}}人</em></span>
+
+
+                                            <span>课程类型 :<em>直播课</em></span>
+                                        </p>
+                                    </div>
+
+
+
+
+                                    <div class="fr uploadArea" data-id="34270" data-company="34270">
+                                        <span class="btn-sel" data-id="865947" data-name="2019一级消防工程师试讲课"
+                                            data-module="646641" data-classtype="1" @click="goDetail(item)">详情</span>
+                                        <el-dropdown>
+                                            <!-- <el-button type="primary"> -->
+                                            <span class="getmore">更多
+
+                                            </span>
+                                            <!-- </el-button> -->
+                                            <el-dropdown-menu slot="dropdown"
+                                                v-if="new Date(item.begin_class_date) > new Date()">
+                                                <el-dropdown-item @click.native="review(item)">修改课次</el-dropdown-item>
+                                            </el-dropdown-menu>
+                                        </el-dropdown>
+
+                                    </div>
+<!-- v-if="new Date(item.begin_class_date) < new Date() && new Date(item.end_time_datess) > new Date()" -->
+                                    
+                                    <p class="fr playback"  @click="into_class(item)" style="background-color: #00aaff;">
+                                        <span class="btn-up" living-type="1" data-type="huifang" data-id="865947"
+                                            data-classtype="1">进入教室</span>
+                                    </p>
+
+                                    <p class="fr playback" v-if="new Date(item.end_time_datess) < new Date()" @click="view_hf(item)"><span class="btn-up" living-type="1" data-type="huifang"
+                                            data-id="865947" data-classtype="1">查看回放</span>
+                                    </p>
+
+
+
+
+
+
+                                </li>
+                                <div v-if="kcs.length>0" class="myPagination">
+                                    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                        :current-page.sync="currentPage1" :page-size="10" layout="total, prev, pager, next"
+                                        :total="pageTotal">
+                                    </el-pagination>
+                                </div>
+
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+        <div id="addLessonDialog" class="dialog" style="" v-show="model == 1">
+            <div class="upload-layer"
+                style="width: 580px; height: 300px; margin-left: -290px; top: 60%; background: rgb(255, 255, 255); box-shadow: rgb(153, 153, 153) 0px 0px 6px; border: none; border-radius: 5px;">
+                <div class="upload-title">
+                    <h2 class="h5">选择方式</h2> <i class="close iconfont" @click="model = 0"></i>
+                </div>
+                <div id="lsOne" class="main">
+                    <ul class="tabsn " style="margin: 40px 50px;">
+                        <li class="b1" style="    float: left;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    margin: 10px 10px 0 0;
+                    border: none;
+                    border-radius: 5px;
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    background: #33d5f9;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.protocol)">win电脑启动协议</li>
+                        <li class="b2" style="    float: left;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    margin: 10px 10px 0 0;
+                    border: none;
+                    border-radius: 5px;
+                    position: relative;
+                    color: #fff;
+                    background: #fb8800;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.protocolMac)">mac启动协议</li>
+                        <li class="b3" style="    float: left;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    margin: 10px 10px 0 0;
+                    border: none;
+                    border-radius: 5px;
+                    background: #06e289;
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.download)">win下载软件地址 </li>
+                        <li style="    float: left;
+                        width: 470px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    margin: 10px 10px 0 0;
+                    border: none;
+                    border-radius: 5px;
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;"><span style="    display: inline-block;
+                    display: inline-block;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    border: none;
+                    border-radius: 5px;
+                    margin: 10px 10px 0 0;
+                    background: #78e669;
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.downloadMac)">mac下载软件地址</span><span style="    display: inline-block;
+                    display: inline-block;
+                    width: 150px;
+                    padding: 0;
+                    text-align: center;
+                    height: 70px;
+                    border: none;
+                    border-radius: 5px;
+                    margin: 10px 10px 0 0;
+                    background: rgb(230, 203, 105);
+                    position: relative;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    line-height: 70px;" @click="goNext(url_info.url)">登录页地址</span></li>
+                        <!-- <li class="b5">混合</li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 1,
+                    activeIndexb: '',
+                    activeIndexc: 0,
+                    currentPage1: 1,
+                    pageTotal: 0,
+                    user_id: parseInt(JSON.parse(localStorage.login_user_info).user_id),
+                    recordList: [],
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    url_info:{},
+                    search_info: {
+                        "begin_time": "",
+                        "end_time": "",
+                        "true_name": "",
+                        "ct_name": ""
+                    },
+                    kcs: []
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function () {
+                    $("#topnav").load("header.html");
+                });
+                obj = {
+                    pageNum:1,
+                    pageSize:10,
+                    begin_time: _this.getNowFormatDate(new Date()).split(' ')[0] + ' ' + '00:00:00',
+                    end_time: _this.getNowFormatDate(new Date()).split(' ')[0] + ' ' + '23:59:59'
+                }
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/teaching/queryAllLiveCourseTimes',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify(obj),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        switch (_this.activeIndexb) {
+                            case '':
+                                _this.kcs = data.list
+                                break;
+                            case '进行中':
+                                _this.kcs = data.list.filter((item) => {
+                                    return new Date(item.begin_class_date) < new Date() &&
+                                        new Date(item.end_time_datess) > new Date()
+                                })
+                                break;
+                            case '未开始':
+                                _this.kcs = data.list.filter((item) => {
+                                    return new Date(item.begin_class_date) > new Date()
+                                })
+                                break;
+                            case '已结束':
+                                _this.kcs = data.list.filter((item) => {
+                                    return new Date(item.end_time_datess) < new Date()
+                                })
+                                break;
+                            default:
+                                break;
+                        }
+                    },
+                    error: function () {
+
+                    }
+                })
+
+            },
+            methods: {
+                active() {
+
+                },
+                //查看回放
+                view_hf(item){
+                    console.log(this.user_id)
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/teaching/courseAccessPlayback',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "user_id":_this.user_id, 
+                            "course_times_id":item.course_times_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data.code == 200){
+                                window.open(data.data.playbackUrl)
+                            }else{
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                            // _this.kcs = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                handleSizeChange(val) {
+                console.log(`每页 ${val} 条`);
+                },
+                handleCurrentChange(val) {
+                    console.log(val)
+                    this.search_kcs(val - 0)
+                },
+                goNext(url){
+                    window.open(url)
+                },
+                search_kcs(num) {
+                    console.log(num)
+                    let _this = this
+                    obj = _this.search_info
+                    switch (_this.activeIndexa) {
+                        case 0:
+                            obj.begin_time = ""
+                            obj.end_time = ""
+                            break;
+                        case 1:
+                            obj.begin_time = _this.getNowFormatDate(new Date()).split(' ')[0] + ' ' + '00:00:00'
+                            obj.end_time = _this.getNowFormatDate(new Date()).split(' ')[0] + ' ' + '23:59:59'
+                            break;
+                        case 2:
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date().getTime() + 1 * 24 *
+                                3600 * 1000)).split(' ')[0] + ' ' + '00:00:00'
+                            obj.end_time = _this.getNowFormatDate(new Date(new Date().getTime() + 1 * 24 *
+                                3600 * 1000)).split(' ')[0] + ' ' + '23:59:59'
+                            break;
+                        case 3:
+                            obj.begin_time = _this.getNowFormatDate(new Date(new Date().getTime() - 1 * 24 *
+                                3600 * 1000)).split(' ')[0] + ' ' + '00:00:00'
+                            obj.end_time = _this.getNowFormatDate(new Date(new Date().getTime() - 1 * 24 *
+                                3600 * 1000)).split(' ')[0] + ' ' + '23:59:59'
+                            break;
+                        case 4:
+                            console.log(_this.value1)
+                            if (_this.value1.length == 0 || _this.value1.length == null) {
+                                obj.begin_time = ''
+                                obj.end_time = ''
+                            } else {
+                                obj.begin_time = _this.getNowFormatDate(new Date(_this.value1[0]))
+                                obj.end_time = _this.getNowFormatDate(new Date(_this.value1[1]))
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    if(num == undefined
+                    ){
+                        obj.pageNum = 1
+                    }else{
+                        obj.pageNum = num
+                    }
+                    obj.pageSize = 10
+                    console.log(obj)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/teaching/queryAllLiveCourseTimes',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.pageTotal = data.total
+                            switch (_this.activeIndexb) {
+                                case '':
+                                    _this.kcs = data.list
+                                    break;
+                                case '进行中':
+                                    _this.kcs = data.list.filter((item) => {
+                                        return new Date(item.begin_class_date) <
+                                            new Date() && new Date(item.end_time_datess) >
+                                            new Date()
+                                    })
+                                    break;
+                                case '未开始':
+                                    _this.kcs = data.list.filter((item) => {
+                                        return new Date(item.begin_class_date) > new Date()
+                                    })
+                                    break;
+                                case '已结束':
+                                    _this.kcs = data.list.filter((item) => {
+                                        return new Date(item.end_time_datess) < new Date()
+                                    })
+                                    break;
+                                default:
+                                    break;
+                            }
+                            // _this.kcs = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                },
+                into_class(item){
+                    let _this = this
+                    console.log(item.js_user_id,_this.user_id)
+                    if(item.js_user_id == _this.user_id){
+                                _this.choose_zb_type(item)
+                    }else{
+                                _this.into_zb(item)
+                    }
+                },
+                into_zb(item){
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/teaching/courseAccess',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "user_id":_this.user_id, 
+                            "course_times_id":item.course_times_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data.code == 200){
+                                window.open(data.data.liveUrl)
+                            }else{
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }
+                            // _this.kcs = data
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                choose_zb_type(item) {
+                    let _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/teaching/startLive',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            user_id:_this.user_id,
+                            course_times_id:item.course_times_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if(data.code != 200){
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message,
+                                    // position: 'bottom-left',
+                                    duration: '2000'
+                                });
+                            }else{
+                                _this.model = 1
+                                _this.url_info = data.data.data
+                            }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activeb(num) {
+                    this.activeIndexb = num
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                getNowFormatDate(date) {
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    if (hour >= 0 && hour <= 9) {
+                        hour = "0" + hour;
+                    }
+                    if (minute >= 0 && minute <= 9) {
+                        minute = "0" + minute;
+                    }
+                    if (second >= 0 && second <= 9) {
+                        second = "0" + second;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+                        " " + hour + seperator2 + minute +
+                        seperator2 + second;
+                    return currentdate;
+                },
+                // handleSizeChange: function (size) {
+                //     this.pagesize = size;
+                // },
+                // handleCurrentChange: function (currentPage) {
+                //     this.currentPage = currentPage;
+                // },
+                review(item) {
+                    item.type = "修改"
+                    console.log(item)
+                    localStorage.kc_detail = JSON.stringify(item)
+                    window.open('directdetail.html')
+                },
+                goDetail(item) {
+                    item.type = "详情"
+                    console.log(item)
+                    localStorage.kc_detail = JSON.stringify(item)
+                    window.open('directdetail.html')
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

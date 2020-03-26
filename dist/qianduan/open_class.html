@@ -1,0 +1,488 @@
+<html lang="zh-cn">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/fatstyle.css">
+    <link rel="icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="http://image.yunduoketang.com/company/34270/20181119/0466e563-280a-4da1-9b14-1a86ff76d14c.ico"
+        type="image/x-icon">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/Plus/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/head.css">
+    <link data-id="header-theme" rel="stylesheet" href="css/header.css">
+    <link data-id="theme-header" rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/head-case.css">
+    <link rel="stylesheet" href="css/app-icon1.css">
+    <link rel="stylesheet" href="css/register_thirdLogin.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+    <link href="css/newIndex.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/openClass-two.css">
+
+    <meta name="keywords"
+        content="基金从业资格考试,基金从业,基金考试,基金从业资格证,基金从业考试,基金从业资格证报名,基金从业资格,基金从业考试时间,基金从业资格考试时间,基金从业资格考试网2019,基金从业资格考试时间,基金从业资格考试科目,基金考试时间,基金从业资格证考试时间,基金从业资格证考试,基金从业从业资格,基金考试报名,基金考试科目2019,基金从业资格考试,基金从业资格证有效期,消防工程师报考条件,消防工程师,一级消防工程师报考条件,注册消防工程师,消防工程师报名时间,注册消防工程师报考条件,一级消防工程师,消防证,消防工程师考试,消防证报考条件,注册消防工程师报名条件,一级消防工程师报名时间,消防师报名条件,二级消防工程师报考条件,一级注册消防工程师,一级注册消防工程师报考条件,消防工程师考试科目,2019消防工程师报名时间,注册消防工程师报名时间,消防证怎么考,2019年消防工程师报名时间,火种教育,火种,火种消防,火种教育消防工程师">
+    <meta name="description"
+        content="火种教育-火种教你考证书，是中国首批注册消防工程师和金融资格证书人才培训机构之一，学员遍及全国各地，目前累计培训学员共万余人次。 火种教育于创办之初已累积多年教学教研经验，具备相当的行业经验和专业深度。火种教育2018年加大教研力度，课程内容不断丰富，学员好评如潮。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title>火种教育−火种教你考证书</title>
+    <link id="dynamic-style" rel="stylesheet" charset="utf-8" media="all" type="text/css" href="css/sidebar2.css">
+</head>
+
+<body class="background-cyan" data-personhomepage="">
+    <link rel="stylesheet" type="text/css" href="css/jquery.slider.css">
+    <div id="header" class="header header-fix"> </div>
+    <!-- register-end-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/plugins/captcha/index-captcha.js"></script>
+    <!-- <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/header.js"></script> -->
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/register.js"></script>
+    <script type="text/javascript" src="http://ketang.huozhongedu.com/javascripts/user/head.js"></script>
+    <article style="margin-top:60px" id="app" v-cloak style="margin-top:60px">
+        <section class="headerSwiper">
+            <div class="swiper-container swiperwell-container swiper-container-horizontal" id="banner">
+                <div class="swiper-wrapper" style="height: 360px">
+
+                    <div class="swiper-slide"
+                        style="height: 360px;background: url(http://image.yunduoketang.com/cycllepic/34270/20181119/81b05d5d-5bf5-4a7b-ae46-b099ba524800.jpg) center no-repeat;background-size: auto 100%;"
+                        data-url="http://www.huozhongjiaoyu.com/hexin/"></div>
+                    <div class="swiper-slide"
+                        style="height: 360px;background: url(http://image.yunduoketang.com/cycllepic/34270/20181119/2d1185fb-2ea4-4ef7-9741-fb9b2d45f4d8.jpg) center no-repeat; cursor: pointer;background-size: auto 100%;"
+                        data-url="http://www.huozhongjiaoyu.com/hexin/"></div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+        <section class="oC-class-today old-home-today" id="todayopenclass" v-if="todayList.length">
+            <div class="articleBox" v-for="today in todayList">
+                <div class="clear publicBox">
+                    <div class="fl publicBut public-But">
+                        <div class="memberzhuan">
+                            <span class="limit">今日公开课</span>
+                            <img src="/images/gkk1_img.png" alt="">
+                        </div>
+                    </div>
+                    <figure class="fr publicCon">
+                        <div class="fl zhizhen">
+                            <!-- <img :src="today.pc_cover"> -->
+                            <img src="http://image.yunduoketang.com/course/34270/20200114/4e7586ff-7e42-4556-9eee-5168ea80e5b4.jpg"
+                                alt=""  @click="view_zb(today)">
+                        </div>
+                        <div class="fr">
+                            <figcaption id="openclassname" class="zhizhen">{{today.pc_name}}</figcaption>
+                            <p class="figText"></p>
+                            <p class="figTime">{{filterTime(today.begin_time,today.end_time,'全部时间')}}</p>
+                        </div>
+                    </figure>
+                    <ol class="publicList">
+                        <li class="active">
+                            <b></b>
+                            <time>{{filterTime(today.begin_time,today.end_time,'开始时间')}}</time>
+                            <time>{{filterTime(today.begin_time,today.end_time,'结束时间')}}</time>
+                            <span>{{today.pc_name}}</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section class="oC-near-class" id="nearopencourse" v-if="recentlyList.length">
+            <div class="open-class-title">
+                <h2>近期公开课</h2>
+            </div>
+            <div class="near-class-box">
+                <div class="near-class-box">
+                    <ul id="ttwonearopenclass">
+                        <li class="active" v-for="rec in recentlyList">
+                            <div class="near-left-box wait">
+                                <img src="http://image.yunduoketang.com/course/34270/20200114/4e7586ff-7e42-4556-9eee-5168ea80e5b4.jpg"
+                                    style="cursor:pointer" alt="">
+                                <!-- <img :src="rec.pc_cover" style="cursor:pointer" alt=""> -->
+                            </div>
+                            <div class="near-right-box">
+                                <h3 style="cursor:pointer">{{rec.pc_name}}</h3>
+                                <div class="date-time">
+                                    <img src="./image/dat_smll.png" alt="">
+                                    <span>{{filterTime(rec.begin_time,rec.end_time,'全部时间')}}</span>
+                                </div>
+                                <p class="near-class-desc"></p>
+                                <div class="clear near-class-but mgt45">
+                                    <div class="fl today-left">
+                                        <img src="http://image.yunduoketang.com/headpic/34270/20190515/5257de18-159a-46a2-b1b9-7d936878bb74.jpg"
+                                            alt="">
+                                        <span>
+                                            <small>主讲：</small>
+                                            <b>{{rec.true_name}}</b>
+                                        </span>
+                                        <span class="timech">距离上课：
+                                            <em>{{rec.hours}}</em>
+                                            <b>时</b>
+                                            <em>{{rec.minutes}}</em>
+                                            <b>分</b>
+                                            <em>{{rec.seconds}}</em>
+                                            <b>秒</b>
+                                        </span>
+                                    </div><button class="fr class-button" @click="view_zb(rec)">进入教室</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="moreBut" style="display: none;">
+                        <button>加载更多 <i class="iconRight"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pastclass-one" v-if="pastTimesClass.length">
+            <div class="centerClass pastclass-box">
+                <h2 class="pastTitle">往期公开课</h2>
+                <div>
+                    <ul class="clear courseList">
+                        <li class="fl" v-for="past in pastTimesClass" style="cursor: pointer;"  @click="view_zb(past)">
+                            <div class="picbox">
+                                <img src="http://image.yunduoketang.com/course/34270/20190107/e3210a57-7cc6-4d93-863e-ac164f6db0de.jpg"
+                                    alt="">
+                                <!-- <img :src="past.pc_cover"
+                                    alt=""> -->
+                                <!-- <a class="picb" href="javascript:return fasle;"></a> -->
+                            </div>
+                            <div class="detailbox">
+                                <h4 style="cursor:pointer">{{past.pc_name}}</h4>
+                                <p class="clear live">
+                                    <span class="fl liveTime">
+                                        <img src="./image/dat_smll.png" alt="">
+                                        <em>{{filterTime(past.begin_time,past.end_time,'全部时间')}}</em>
+                                    </span>
+                                    <b class="fr">主讲：{{past.true_name}}</b>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="pages pages-find"></div>
+                </div>
+            </div>
+        </section>
+        <section class="" v-if="everyWatch.length">
+            <div class="centerClass pastclass-box">
+                <h2 class="pastTitle">大家都在看</h2>
+                <div>
+                    <ul class="clear everyList">
+                        <li class="fl" cid="911091" style="cursor: pointer;" v-for="eve in everyWatch"
+                            @click="go_course(eve.course_id)">
+                            <div class="tubox">
+                                <!-- <img src="http://image.yunduoketang.com/course/34270/20190829/11c506e7-d6f2-47c6-831c-9d19fa0b5c13.png"
+                                    alt=""> -->
+                                <img :src="eve.cover" alt="">
+                            </div>
+                            <div class="classbox">
+                                <h4>{{eve.course_name}}</h4>
+                                <p class="clear classlive"><em class="fl">主讲 :{{eve.true_name}} </em></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </article>
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
+
+    <!-- footer start -->
+    <div id="footerContents">
+
+
+        <!-- footer start -->
+        <div class="c-footer c-footer-3">
+            <div class="footer-content clear content-3">
+                <div class="f-3-left record3 recordt">
+                    <div>
+                        <p class="l-word" id="show_logo">火种教育</p>
+                        <p id="show_companyOveriew">服务热线：010-60703671 010-81705189 服务时间：9：00-21：00</p>
+                        <p id="companyAddressNode" class="record3-top"></p>
+                        <p id="copyrightList" mark="middle" class="record3-top">Copyright@2017 北京智汇火种教育科技有限公司　版权所有<br><a
+                                class="footer_beian" href="http://www.beian.miit.gov.cn/"
+                                target="_blank">京ICP备16043550号-1</a></p>
+                    </div>
+                </div>
+                <div class="f-3-middle recordt">
+                    <div id="foot_showContents"><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422013"
+                            target="_blank">关于我们</a><a
+                            href="http://ketang.huozhongedu.com/sysPageHeadFoot/showDetail/422014"
+                            target="_blank">联系我们</a></div>
+                </div>
+                <div class="f-3-right recordt">
+                    <div class="clear">
+                        <div>
+                            <p style="font-size: 12px;margin-top: 40px;color: #999;">在这里关注我们的动向</p>
+                            <p style="margin-top: -10px;position: relative;margin-left: -5px;"
+                                class="img-hover qimg_hover">
+                                <span id="tengxuns" style="cursor: pointer;display: none;">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="wbUrl" style="">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <span id="txUrl" style="cursor: pointer;" class="weixin-logo">
+                                    <i class="iconfont"></i>
+                                </span>
+                                <!--                         <em class="pop-ewm pop-ewm1 wxPic" id="show_wxPic" style="display: ;"></em> -->
+                            </p>
+                        </div>
+                        <div class="erwm wxPic" id="show_wxPic"><img
+                                src="http://image.yunduoketang.com/company/34270/20190829/a3fd3283-dfaa-44ad-9b6e-d01e56062338.jpg"
+                                alt="" width="85" height="85"><span class="opcMask"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="sys_middle" id="showPageType">
+        <!-- footer end -->
+    </div>
+    <!-- footer end -->
+    <!--百度统计代码-->
+
+
+
+
+
+
+    <input type="hidden" id="userGhId" value="">
+    <input type="hidden" id="userZsId" value="">
+    <input type="hidden" id="userName" value="">
+    <input type="hidden" id="indextitle" value="火种教你考证书">
+
+</body>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+<script src="./js/vue.min.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                domain: 'http://192.168.10.166:8080',
+                pastTimesClass: [], // 往期公开课
+                everyWatch: [], // 大家都在看
+                todayList: [], // 今日公开课
+                recentlyList: [], // 近日公开课
+                stu_id: localStorage.stu_id,
+            }
+        },
+        created() {
+            $(document).ready(function () {
+                $("#header").load("header.html");
+            });
+            // 往期
+            $.ajax({
+                type: 'post',
+                url: this.domain + '/stu/publicClass/pastPublicClass',
+                data: JSON.stringify({}),
+                contentType: 'application/json',
+                success: res => {
+                    this.pastTimesClass = res
+                }
+            })
+            // 大家都在看
+            $.ajax({
+                type: 'post',
+                url: this.domain + '/stu/publicClass/everyoneSeePublicClass',
+                data: JSON.stringify({}),
+                contentType: 'application/json',
+                success: res => {
+                    this.everyWatch = res
+                }
+            })
+            // 今日公开课
+            $.ajax({
+                type: 'post',
+                url: this.domain + '/stu/publicClass/todayPublicClass',
+                data: JSON.stringify({}),
+                contentType: 'application/json',
+                success: res => {
+                    this.todayList = res
+                }
+            })
+            // 近日公开课
+            $.ajax({
+                type: 'post',
+                url: this.domain + '/stu/publicClass/nearPublicClass',
+                data: JSON.stringify({}),
+                contentType: 'application/json',
+                success: res => {
+                    this.recentlyList = res
+                    this.getCountDown(this.recentlyList)
+                }
+            })
+        },
+        methods: {
+            view_zb(item) {
+                console.log(item)
+                let _this = this
+                if (_this.stu_id == 0 || _this.stu_id == undefined) {
+                    _this.$message.error({
+                        type: 'info',
+                        message: "请先登录",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                }
+                //判断该课次是直播还是回放
+                if (new Date(item.begin_time) > new Date()) {
+                    _this.$message.error({
+                        type: 'info',
+                        message: "直播还未开始",
+                        // position: 'bottom-left',
+                        duration: '2000'
+                    });
+                    return
+                } else if (new Date(item.end_time) > new Date()) {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/Discovery/stuCourseAccess',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "course_times_id": item.public_class_id,
+                            "stu_id": _this.stu_id
+                        }),
+                        // dataType: 'json',
+                        success: function (data) {
+                            // window.open(data.liveUrl)
+                            if (data.code == 200) {
+                                window.open(data.data.liveUrl)
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message
+                                })
+                            }
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                } else {
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/stu/Discovery/stuCourseAccessPlayback',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "course_times_id": item.public_class_id,
+                            "stu_id": _this.stu_id
+                        }),
+                        // dataType: 'json',
+                        success: function (data) {
+                            // window.open(data.liveUrl)
+                            if (data.code == 200) {
+                                window.open(data.data.playbackUrl)
+                            } else {
+                                _this.$message.error({
+                                    type: 'info',
+                                    message: data.message
+                                })
+                            }
+                            console.log(data)
+                        },
+                        error: function () {
+
+                        }
+                    })
+                }
+
+            },
+            getCountDown(arr) {
+                let nowtime = new Date().getTime()
+                let timeD = null
+                this.recentlyList = arr.map((item, i) => {
+                    timeD = new Date(item.begin_time).getTime() - nowtime
+                    var dayDiff = Math.floor(timeD / (24 * 3600 * 1000)); //计算出相差天数
+                    var leave1 = timeD % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+                    var hours = Math.floor(leave1 / (3600 * 1000)) //计算出小时数
+                    //计算相差分钟数
+                    var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+                    var minutes = Math.floor(leave2 / (60 * 1000)) //计算相差分钟数
+                    //计算相差秒数
+                    var leave3 = leave2 % (60 * 1000) //计算分钟数后剩余的毫秒数
+                    var seconds = Math.round(leave3 / 1000)
+                    hours = dayDiff * 24 + hours
+                    item.hours = hours.toString().padStart(2, 0)
+                    item.minutes = minutes.toString().padStart(2, 0)
+                    item.seconds = seconds.toString().padStart(2, 0)
+                    return item
+                })
+            },
+            go_course(course_id) {
+                window.open('open_classDetail.html?course_id=' + course_id)
+            },
+            filterTime(s_time, e_time, type) {
+                let s = new Date(s_time)
+                let e = new Date(e_time)
+                let year = s.getFullYear()
+                let mounth = (s.getMonth() + 1 + '').padStart(2, 0)
+                let day = (s.getDate() + '').padStart(2, 0)
+                let s_hours = (s.getHours() + '').padStart(2, 0)
+                let e_hours = (e.getHours() + '').padStart(2, 0)
+                let s_minutes = (s.getMinutes() + '').padStart(2, 0)
+                let e_minutes = (e.getMinutes() + '').padStart(2, 0)
+                switch (type) {
+                    case '全部时间':
+                        return `${year}-${mounth}-${day}   ${s_hours}:${s_minutes}-${e_hours}:${e_minutes}`
+                    case '开始时间':
+                        return `${s_hours}:${s_minutes}`
+                    case '结束时间':
+                        return `${e_hours}:${e_minutes}`
+                }
+            }
+        },
+        mounted() {
+            window.onload = function () {
+                var mySwiper = new Swiper('#banner', {
+                    // direction: 'vertical', // 垂直切换选项
+                    // loop: true, // 循环模式选项
+                    autoplay: true,
+                    // 如果需要分页器
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                    // observer: true,//实时检测，动态更新
+
+
+                    // 如果需要前进后退按钮
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+
+                    // 如果需要滚动条
+                    scrollbar: {
+                        el: '.swiper-scrollbar',
+                    },
+                })
+            }
+            this.timer = setInterval(() => {
+                this.getCountDown(this.recentlyList)
+            }, 1000);
+        },
+        watch: {
+            recentlyList: {
+                handler(newval, oldval) {
+                    let timeout = newval.every(el => (el.hours && el.minutes && el.seconds) === '00')
+                    if (timeout) {
+                        clearInterval(this.timer)
+                    }
+                },
+                deep: true
+            }
+        }
+    })
+</script>
+
+</html>

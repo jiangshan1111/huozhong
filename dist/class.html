@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火种教育</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/element-ui.css">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/dripicons/webfont/webfont.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/studentArchive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/fatstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/student.css" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./assets/css/manger.css"> -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/editor.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/classes-add.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            color: black;
+        }
+
+        .copyclass_tk_mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .wrapper {
+            padding-top: 60px;
+        }
+
+        .navbar-custom .nav-link {
+            padding: 0;
+            line-height: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .el-input__icon {
+            line-height: 30px;
+        }
+
+        .el-message-box {
+            /* width: au */
+        }
+
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-radius: 0.2rem;
+        }
+
+        .navbar-custom {
+            border-radius: 0;
+            min-height: 60px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            #topnav .topbar-menu {
+                padding-bottom: 0;
+            }
+        }
+
+        .container-fluid {
+            max-width: 95%;
+        }
+
+        /* .el-pagination {
+            white-space: nowrap;
+            padding: 2px 5px;
+            color: #303133;
+            overflow: auto;
+            font-weight: 700;
+        } */
+
+        .el-table td,
+        .el-table th {
+            text-align: center;
+            padding: .2rem 0;
+        }
+
+        .el-pagination {
+            text-align: center;
+            margin: .2rem 0;
+        }
+
+        .title_bar {
+            margin: 5px 0 24px 0;
+            position: relative
+        }
+
+        .title_bar h6 {
+            width: 200px;
+            font-size: 16px;
+            position: relative;
+            border-left: 3px solid #fa6900;
+            padding: 2px 8px;
+            line-height: 18px
+        }
+
+        .title_bar .type_button {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 120px;
+            font-size: 12px
+        }
+
+        .title_bar .updateTime {
+            font-style: normal;
+            line-height: 30px;
+            margin-right: 40px
+        }
+
+        .title_bar .updateTime b {
+            font-weight: 400
+        }
+
+        .title_bar .space {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            font-size: 12px
+        }
+
+        .title_bar .space .zi_space {
+            margin-right: 120px
+        }
+
+        .title_bar .space .zi_space i {
+            color: #33c
+        }
+
+        .title_bar .space b {
+            font-weight: 400
+        }
+
+        .title_bar .ttle_bar_btn {
+            position: absolute;
+            top: -6px;
+            right: 0
+        }
+
+        .title_bar .ttle_bar_btn a {
+            font-size: 12px;
+            margin-right: 0;
+            margin-left: 15px;
+        }
+
+        .title_bar .ttle_bar_btn a i {
+            font-size: 12px;
+        }
+
+        .title_bar .ttle_bar_btn .input_search {
+            width: 262px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        .title_bar .ttle_bar_btn .input_search input {
+            width: 230px;
+            height: 30px;
+            float: left;
+            border-radius: 3px 0 0 3px;
+            padding: 0;
+            text-indent: 1em;
+        }
+
+        .title_bar .ttle_bar_btn .input_search i {
+            display: inline-block;
+            width: 32px;
+            height: 30px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer
+        }
+
+        .title_bar .ttle_bar_btn .input_search i img {
+            display: block;
+            margin: 7px auto 0
+        }
+
+        .title_bar .ttle_bar_btn i.tips {
+            position: absolute;
+            top: -35px;
+            padding: 5px 10px;
+            color: red;
+            background-color: #000;
+            font-style: normal;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 12px
+        }
+
+        .title_bar .ttle_bar_btn .tips:after {
+            content: '\20';
+            position: absolute;
+            left: 10px;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #000
+        }
+
+        .title_bar .ttle_bar_btn .input-ctrl {
+            padding: 0;
+            padding-left: 10px;
+            width: 160px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 2px
+        }
+
+        .title_bar .dynamics {
+            position: absolute;
+            top: -4px;
+            right: 0
+        }
+
+        .title_bar .dynamics input {
+            width: 175px;
+            height: 25px;
+            padding: 0;
+        }
+
+        .title_bar .add_user a i {
+            font-size: 12px
+        }
+
+        .title_bar span {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            left: -5px;
+            height: 0
+        }
+
+        .title_bar span.line {
+            border-bottom: 1px solid #ddd
+        }
+
+        .title_bar span.line2 {
+            border-bottom: 2px solid #ddd
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 4px;
+            font-size: 12px;
+            padding: 7px 18px;
+            border: 1px solid #ccc;
+            color: #FFF !important;
+            background: #0af;
+            border: none;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background: #009eed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+
+    </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper" id="app">
+        <div class="container-fluid" style="margin-bottom: 60px">
+
+            <!-- Page title box -->
+            <div class="page-title-box" style="    margin-right: -15px;
+            margin-left: -15px;">
+
+                <div class="page-title"><i class=" mdi mdi-book-open-page-variant"></i> 课程
+                    <ul class="row page-ul">
+                        <li style="color: #fa6900;
+                        border-bottom: 2px solid #fa6900;" onclick="window.location.href='class.html'">课程</li>
+                        <li onclick="window.location.href='publicClass.html'">公开课</li>
+                        <li onclick="window.location.href='classes.html'">课程包</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- End page title box -->
+            <div class="u-wrap classes row">
+                <div class="mainbackground nopadding" style="width:100%">
+                    <div class="title_bar">
+                        <h6>课程</h6>
+                        <div class="ttle_bar_btn">
+                            <!-- <div class="input_search">
+                                <input type="text" id="classTypeName" placeholder="请输入课程名称"><i onclick=""><img
+                                        src="http://manage.yunduoketang.com/images/fang_search.png" alt=""></i>
+                            </div> -->
+
+                        </div><span class="line"></span>
+                    </div>
+
+                    <div class="classes-type">
+                        <p class="c">
+                            <span class="t-title">学科</span>
+                            <span class="t-content" id="itemOneList">
+
+
+                                <a href="javascript:;" ids="86683" v-for="(item,index) in projects"
+                                    @click="activea(item.pse_id)"
+                                    :class="activeIndexa == item.pse_id?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">{{item.pse_name}}</a>
+
+
+
+
+
+                                <!-- <a href="javascript:;" ids="128040"
+                                    class="btn btn-mini btn-default btn-success">注册消防工程师</a> -->
+
+
+                            </span>
+                        </p>
+                        <p class="c">
+                            <span class="t-title">学科小类</span>
+                            <span class="t-content" id="itemSecondList">
+                                <a href="javascript:;" ids="86683" @click="activeb('')"
+                                    :class="activeIndexb == ''?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">全部</a>
+                                <a href="javascript:;" ids="86683" v-for="(item,index) in kemus"
+                                    @click="activeb(item.pse_id)"
+                                    :class="activeIndexb == item.pse_id?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">{{item.pse_name}}</a>
+                            </span>
+                        </p>
+                        <p class="c">
+                            <span class="t-title">类型</span>
+                            <span class="t-content" id="course_type">
+                                <a href="javascript:;" data-flag="all" @click="activec('')"
+                                    :class="activeIndexc == ''?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">全部</a>
+                                <a href="javascript:;" data-flag="live_flag" @click="activec('直播')"
+                                    :class="activeIndexc == '直播'?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">直播</a>
+                                <a href="javascript:;" data-flag="video_flag" @click="activec('录播')"
+                                    :class="activeIndexc == '录播'?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">录播</a>
+                                <a href="javascript:;" data-flag="blend_flag" @click="activec('直播,录播')"
+                                    :class="activeIndexc == '直播,录播'?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">混合</a>
+                            </span>
+                        </p>
+                        <p class="c">
+                            <span class="t-title">状态</span>
+                            <span class="t-content" id="statusList">
+                                <a href="javascript:;" data-flag="all" @click="actived('')"
+                                    :class="activeIndexd == ''?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">全部</a>
+                                <a href="javascript:;" data-flag="live_flag" @click="actived('未上架')"
+                                    :class="activeIndexd == '未上架'?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">未上架</a>
+                                <a href="javascript:;" data-flag="video_flag" @click="actived('招生中')"
+                                    :class="activeIndexd == '招生中'?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">招生中</a>
+                                <a href="javascript:;" data-flag="blend_flag" @click="actived('已下架')"
+                                    :class="activeIndexd == '已下架'?' btn btn-mini btn-default btn-success':'btn btn-mini btn-default'">已下架</a>
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="u-wrap classes">
+                <div class="mainbackground nopadding">
+                    <div id="commodityDetailList">
+
+
+
+                        <form method="post" id="myForm">
+                            <input type="hidden" name="id" id="classTypeId">
+                            <input type="hidden" name="type" value="update">
+                            <input type="hidden" name="typeCode" id="typeCode">
+                            <input type="hidden" name="itemOneId" id="oneId">
+                            <input type="hidden" name="itemSecondId" id="twoId">
+                            <input type="hidden" name="lable" id="lab">
+                        </form>
+                        <div class="m-list clear">
+                            <ul class="clear" id="ulListss">
+
+                                <li class="add-class" @click="addClass"> <a href="javascript:;"
+                                        class="checkStudent operate_btn btn-sel-stu"><i class="iconfont icons" style="background: url(./assets/images/add.svg) center no-repeat;    width: 46px;
+                                display: inline-block;">&nbsp;</i></a></li>
+
+
+                                <li id="commodityLi825290" v-for="(item,index) in kcs" @mouseover="mouse_in(index)"
+                                    @mouseout="leave(index)">
+
+
+                                    <i class="tips"
+                                        :style="item.course_status == '未上架'?'':'background-color: rgba(231,31,26,0.8);color: white;'">
+
+
+
+                                        {{item.course_status}}
+                                    </i>
+
+
+
+                                    <i class="add-com" id="com825290" marks="0" v-show="item.mouse_status == 'true'"
+                                        style="display:block"
+                                        @click="tuijian(index)">{{item.tf_recommended == 1?'取消推荐':'加入推荐'}}</i>
+                                    <div class="infos-pic">
+                                        <a href="javascript:;">
+
+                                            <img :src="item.cover" alt="">
+
+
+                                        </a>
+                                    </div>
+                                    <div class="infos-title">
+                                        <h2 class="h5">
+                                            <a href="javascript:;" :title="item.course_name">
+
+
+
+                                                {{item.course_name}}
+
+
+                                            </a>
+                                        </h2>
+                                        <div class="type" id="lab825290">
+
+                                            <a href="javascript:;" mark="live"
+                                                class="btn btn-mini btn-default">{{item.course_type == "直播,录播"?'混合':item.course_type}}</a>
+                                        </div>
+                                        <p class="descript" :title="item.course_describe">
+
+
+                                            {{item.course_describe}}
+
+
+                                        </p>
+                                    </div>
+                                    <div class="infos-tips clear">
+                                        <p><span class="price">￥
+                                                {{item.special_price}}</span><del>{{item.price}}</del><span
+                                                style="float:right; color: gray;font-size: 10px;">{{item.stu_num == null?'0':item.stu_num}}人学习</span>
+                                        </p>
+                                    </div>
+                                    <div class="btns" style="padding:0px;">
+                                        <el-dropdown>
+                                            <!-- <span class="el-dropdown-link">
+                                                      下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+                                                    </span> -->
+                                            <a href="javascript:;" class="btn btn-sm btn-default deleteGoods">操作</a>
+                                            <el-dropdown-menu slot="dropdown">
+                                                <el-dropdown-item @click.native="deleteClass(item.course_id)">删除课程
+                                                </el-dropdown-item>
+                                                <!-- <el-dropdown-item>关联课程包</el-dropdown-item> -->
+                                                <el-dropdown-item v-if="item.course_status != '招生中'"
+                                                    @click.native="shangjia(item.course_id,'招生中')">上架
+                                                </el-dropdown-item>
+                                                <el-dropdown-item v-if="item.course_status == '招生中'"
+                                                    @click.native="shangjia(item.course_id,'已下架')">下架
+                                                </el-dropdown-item>
+                                                <el-dropdown-item v-if="item.course_type != '直播'"
+                                                    @click.native="copy_co(item.course_id)">复制课程
+                                                </el-dropdown-item>
+                                            </el-dropdown-menu>
+                                        </el-dropdown>
+
+                                        <a href="javascript:;" class="btn btn-sm btn-primary"
+                                            @click="class_detail(item.course_id)">管理</a>
+
+
+
+
+
+
+
+
+
+
+                                        <!-- <a href="javascript:;" mark="825290" id1="1" id2="0" id3="1"
+                                            class="btn btn-sm btn-primary course_timetable">排课表</a> -->
+
+
+
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <input type="hidden" id="itemOneId" name="itemOneId" value="86683">
+                        <input type="hidden" id="searchName" value="">
+
+                        <input type="hidden" id="class_type_add" value="1">
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end container -->
+        <div v-show="model == 1" class="upload-layer"
+            style="display:none;width: auto; height: 350px; margin-left: -272px; top: 60%; background: rgb(255, 255, 255); box-shadow: rgb(153, 153, 153) 0px 0px 6px; border: none; border-radius: 5px;">
+            <div class="upload-title">
+                <h2 class="h5">新增课程</h2>
+                <i class="close iconfont" @click="model = 0"></i>
+            </div>
+            <div class="main" id="lsOne">
+
+
+
+                <ul class="tabsn ">
+                    <li class="b1" @click="addclassZB('直播')">直播</li>
+                    <li class="b2" @click="addclassZB('录播')">录播</li>
+                    <li class="b3" @click="addclassZB('直播,录播')">混合</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyclass_tk_mask" v-show="model == 2" style="display: none">
+            <div class="copyclass_tk">
+                <div class="copyclass_tit">
+                    <h3 class="fl" style="margin:0;float: left;">复制课程</h3>
+                    <em class="fr" style="margin:0;float: right;" @click="model = 0">×</em>
+                </div>
+                <div class="formcont">
+                    <div class="classname_box forminp classTypeNameDiv">
+                        <label>新课程名</label>
+                        <input type="text" v-model="copy_course.course_name" id="typeName" placeholder="请输入课程名称"
+                            style="margin-left: 0;">
+                        <sb>*</sb>
+                        <p class="tshi" style="margin-left:94px;"></p>
+                    </div>
+                    <div class="price_box forminp originalPriceDiv">
+                        <label>定价</label>
+                        <input type="text" v-model="copy_course.price" class="originalPrice" id="originalPrice"
+                            name="originalPrice" placeholder="请输入定价" style="margin-left: 0;">
+                        <sb>*</sb>
+                        <p class="tshi" style="margin-left:94px;"></p>
+                    </div>
+                    <div class="price_box forminp preferentialPriceDiv">
+                        <label>优惠价</label>
+                        <input type="text" v-model="copy_course.special_price" class="realPrice" id="realPrice"
+                            name="realPrice" placeholder="请输入优惠价" style="margin-left: 0;">
+                        <sb>*</sb>
+                        <p class="tshi" style="margin-left:94px;"></p>
+                    </div>
+                    <div class="join_box forminp recommendDiv">
+                        <label>是否推荐</label>
+                        <div class="joininfo" style="width: 130px;">
+                            <input id="yesy" v-model="copy_course.tf_recommended" type="radio" name="recommendFlag"
+                                value="1"><label for="yesy">是</label>
+                        </div>
+                        <div class="nojoininfo" style="width: 130px;">
+                            <input id="nono" v-model="copy_course.tf_recommended" type="radio" name="recommendFlag"
+                                checked="checked" value="2"><label for="nono">否</label>
+                        </div>
+                        <p class="tshi" style="margin-left:94px;"></p>
+                    </div>
+                    <div class="sele_box forminp itemOneDiv">
+                        <label>学科</label>
+                        <select id="copyCpItemOne" v-model="copy_course.project_id" @change="search_copy_kemus">
+                            <option value="">请选择</option>
+                            <option v-for="(item,index) in projects" :value="item.pse_id" ids="128040">{{item.pse_name}}
+                            </option>
+                        </select>
+                        <p class="tshi" style="margin-left:94px;"></p>
+                    </div>
+                    <div class="sele_box forminp itemTwoDiv">
+                        <label>学科分类</label>
+                        <select id="copyCpItemTwo" v-model="copy_course.subject_id">
+                            <option value="" ids="249698">请选择</option>
+                            <option v-for="(item,index) in copy_kemus" :value="item.pse_id" ids="249698">
+                                {{item.pse_name}}</option>
+                        </select>
+                        <p class="tshi" style="margin-left:94px;"></p>
+                    </div>
+
+                    <div class="join_box forminp yxqDiv setting" style="">
+                        <label>课程有效期</label>
+                        <div class="joininfo" style="width: 130px;">
+                            <input id="days" v-model="copy_course.effictive_days_type" type="radio" name="ddaty"
+                                class="validityFlag" value="有效天数"><label for="days">固定天数</label>
+
+                        </div>
+                        <div class="nojoininfo" style="position: relative;width: 130px;">
+                            <input id="dates" v-model="copy_course.effictive_days_type" type="radio"
+                                class="validityFlag" name="ddaty" value="有效日期"><label for="dates">固定日期</label>
+
+                            <!-- <i class="iconfont askicon"></i>
+                            <div class="blackbgtxt" style="display: none;">
+                                有效天数代表购买后可学习n天，有效期至 代表无论何时购买都在固定日期到期
+                            </div> -->
+                        </div>
+                        <p class="tshi" style="margin-left:94px;"></p>
+                    </div>
+                    <div v-show="copy_course.effictive_days_type == '有效天数'" class="sele_box forminp yxq_daysDiv"
+                        style="display: none;">
+                        <label>有效天数</label>
+                        <input type="text" v-model="copy_course.effictive_days" class="settingcount" id="validityDay"
+                            name="validityDay" placeholder="0或者不填为不限天数">
+                        <p class="tshi" style="margin-left:94px;"></p>
+                    </div>
+                    <div v-show="copy_course.effictive_days_type == '有效日期'" class="sele_box forminp yxq_dateDiv"
+                        style="">
+                        <label>有效期至</label>
+                        <input type="text" v-model="copy_course.effictive_date" class="realPrice" id="realPrice"
+                            name="realPrice" placeholder="请输入优惠价" style="margin-left: 0;">
+                        <sb>*</sb>
+                    </div>
+
+
+                </div>
+                <input type="hidden" id="copyClassTypeId" value="780395">
+                <div class="endingbox">
+                    <button class="endingbox_cancel fl" @click="model = 0">取消</button>
+                    <button class="endingbox_submit fr" @click="copy_submit">生成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2019 © 火种教育
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- jQuery  -->
+
+
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.flash.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script> -->
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/element-ui.js"></script>
+    <!-- <script src="assets/js/notice.js"></script> -->
+    <!-- <script src="http://manage.yunduoketang.com/javascripts/common/utils.js?version=1563474866721"></script>
+    <script type="text/javascript"
+        src="http://manage.yunduoketang.com/plugins/ckeditor/ckeditor.js?version=1563474866721"></script> -->
+    <script type="text/javascript">
+
+    </script>
+    <script>
+        function downloadTemplate() {
+            var url = './assets/images/学员导入模版.xls';
+            window.open(url);
+        }
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1, //初始页
+                    activeIndexa: 0,
+                    activeIndexb: '',
+                    activeIndexc: '',
+                    activeIndexd: '',
+                    pagesize: 10, //    每页的数据
+                    model: 0,
+                    value1: '',
+                    value2: '',
+                    copy_course: {
+                        "course_id": 1,
+                        "project_id": '',
+                        "subject_id": '',
+                        "course_name": "",
+                        "price": '',
+                        "special_price": '',
+                        "effictive_days_type": "有效天数",
+                        "effictive_date": "",
+                        "effictive_days": "",
+                        "tf_recommended": 1,
+                        "user_id": 1
+                    },
+                    copy_kemus: [],
+                    projects: [],
+                    kemus: [],
+                    kcs: [{
+                        //     "cover": 封面,
+                        // "course_id": 课程id,
+                        // "course_describe":课程描述
+                        // "course_type": 课程类型（直播、录播……）
+                        // "course_name": 课程名称
+                        // "special_price": 课程优惠价
+                        //course_status: "未上架",
+                        // "price": 课程定价
+                        // "stu_num": 多少人学习,
+                        // "course_status":课程状态（招生中、未上架……）
+                        // "tf_recommended": 是否被推荐（1代表是，2代表否）
+                    }]
+                }
+            },
+            created() {
+                let _this = this
+                $(document).ready(function () {
+                    $("#topnav").load("header.html");
+                });
+                $.ajax({
+                    url: 'http://192.168.10.166:8080/pse/queryAllProjectInfo',
+                    type: 'get',
+                    // contentType: 'application/json',
+                    // data: JSON.stringify(_this.stu),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        _this.projects = data
+                        _this.activeIndexa = _this.projects[0].pse_id
+                        _this.inita()
+                        _this.searchClass()
+                        // _this.kc.project_id = _this.projects[0].pse_id
+                        // _this.changeKemu()
+                        // _this.userList = data
+                        // for (let i = 0; i < _this.userList.length; i++) {
+                        //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                        //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                        //     _this.userList[i].enrollment_status = _this.userList[i]
+                        //         .enrollment_status == 1 ? '已报名' : '未报名'
+                        // }
+                    },
+                    error: function () {
+
+                    }
+                })
+            },
+            methods: {
+                active() {
+
+                },
+                copy_co(id) {
+                    this.copy_course.course_id = id
+                    this.model = 2
+                },
+                addclassZB(str) {
+                    window.open('classAdd.html')
+                    localStorage.addclassZB = str
+                },
+                search_copy_kemus() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.copy_course.project_id
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.copy_kemus = data
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                copy_submit() {
+                    _this = this
+                    console.log(this.copy_course)
+                    obj = this.copy_course
+                    if (obj.effictive_days_type == "有效天数") {
+                        delete obj.effictive_date
+                    } else {
+                        delete obj.effictive_days
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/copyCourse',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify(obj),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.message == 'success') {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '复制成功',
+                                    duration: 2000
+                                });
+                                _this.searchClass()
+                            } else {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '复制失败',
+                                    duration: 2000
+                                });
+                            }
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: data,
+                                duration: 0
+                            });
+                        }
+                    })
+                },
+                searchClass() {
+                    _this = this
+                    // obj = {};
+                    // if(this.activeIndexb != ""){
+                    //     obj.subject_id = _this.activeIndexb
+                    // }
+                    // if(this.activeIndexb != ""){
+                    //     obj.subject_id = _this.activeIndexb
+                    // }
+                    // if(this.activeIndexb != ""){
+                    //     obj.subject_id = _this.activeIndexb
+                    // }
+                    console.log(this.activeIndexa, this.activeIndexb, this.activeIndexc, this.activeIndexd)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/courseSearchBox',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.activeIndexa,
+                            subject_id: _this.activeIndexb,
+                            course_type: _this.activeIndexc,
+                            course_status: _this.activeIndexd
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kcs = data
+                            for (let k = 0; k < _this.kcs.length; k++) {
+                                _this.kcs[k].mouse_status = 'false'
+                            }
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                activeb(num) {
+                    this.activeIndexb = num
+                    this.searchClass()
+                },
+                class_detail(id) {
+                    window.open('classmanage.html?course_id=' + id)
+                },
+                deleteClass(id) {
+                    _this = this
+                    this.$confirm(`您确定要删除此课程？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        dangerouslyUseHTMLString: true,
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: 'http://192.168.10.166:8080/course/deleteCourseById',
+                            type: 'get',
+                            // contentType: 'application/json',
+                            data: {
+                                course_id: id,
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data)
+                                if (data.message == 'success') {
+
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除成功',
+                                        duration: 2000
+                                    });
+                                    _this.searchClass()
+                                } else {
+                                    _this.$notify.info({
+                                        title: '提示',
+                                        message: '删除失败',
+                                        duration: 2000
+                                    });
+                                }
+                                // _this.kemus = data
+                                // _this.activeIndexb = _this.kemus[0].pse_id
+                                // _this.userList = data
+                                // for (let i = 0; i < _this.userList.length; i++) {
+                                //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                                //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                                //     _this.userList[i].enrollment_status = _this.userList[i]
+                                //         .enrollment_status == 1 ? '已报名' : '未报名'
+                                // }
+                            },
+                            error: function () {
+                                _this.$notify.error({
+                                    title: '错误',
+                                    message: data,
+                                    duration: 0
+                                });
+                            }
+                        })
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '已取消'
+                        });
+                    });
+                },
+                activec(jj) {
+                    this.activeIndexc = jj
+                    this.searchClass()
+                },
+                shangjia(id, status) {
+                    console.log(id)
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/updateCourseStatus',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            course_id: id,
+                            course_status: status
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            if (data.message == 'success') {
+
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '上架成功',
+                                    duration: 2000
+                                });
+                                _this.searchClass()
+                            } else {
+                                _this.$notify.info({
+                                    title: '提示',
+                                    message: '上架失败',
+                                    duration: 2000
+                                });
+                            }
+                            // _this.kemus = data
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+                            _this.$notify.error({
+                                title: '错误',
+                                message: data,
+                                duration: 0
+                            });
+                        }
+                    })
+                },
+                actived(jj) {
+                    this.activeIndexd = jj
+                    this.searchClass()
+                },
+                activea(num) {
+                    this.activeIndexa = num
+                    this.inita()
+                    this.searchClass()
+                },
+                inita() {
+                    _this = this
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/pse/selectSubjectByProject',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            project_id: _this.activeIndexa
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            _this.kemus = data
+                            // _this.activeIndexb = _this.kemus[0].pse_id
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                },
+                init() {
+                    this.activeIndexb = 0;
+                    this.activeIndexc = 0;
+                },
+                tuijian(index) {
+                    if (_this.kcs[index].tf_recommended == 1) {
+
+                        _this.kcs[index].tf_recommended = 2
+                    } else {
+                        _this.kcs[index].tf_recommended = 1
+                    }
+                    $.ajax({
+                        url: 'http://192.168.10.166:8080/course/joinRecommendation',
+                        type: 'get',
+                        // contentType: 'application/json',
+                        data: {
+                            course_id: _this.kcs[index].course_id,
+                            recommendation_status: _this.kcs[index].tf_recommended
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+                            // _this.kc.project_id = _this.projects[0].pse_id
+                            // _this.changeKemu()
+                            // _this.userList = data
+                            // for (let i = 0; i < _this.userList.length; i++) {
+                            //     _this.userList[i].fontdesk_account_status = _this.userList[i]
+                            //         .fontdesk_account_status == 1 ? '启用' : '禁用'
+                            //     _this.userList[i].enrollment_status = _this.userList[i]
+                            //         .enrollment_status == 1 ? '已报名' : '未报名'
+                            // }
+                        },
+                        error: function () {
+
+                        }
+                    })
+                    kcs = JSON.parse(JSON.stringify(_this.kcs))
+                    _this.kcs = kcs
+                },
+                mouse_in(index) {
+                    _this = this
+                    _this.kcs[index].mouse_status = 'true'
+
+                    kcs = JSON.parse(JSON.stringify(_this.kcs))
+                    _this.kcs = kcs
+                    // item.mouse_status == 'true'
+                },
+                leave(index) {
+                    _this = this
+                    _this.kcs[index].mouse_status = 'false'
+
+                    kcs = JSON.parse(JSON.stringify(_this.kcs))
+                    _this.kcs = kcs
+                    // item.mouse_status == 'true'
+                },
+                addClass() {
+                    this.model = 1
+                },
+                handleSizeChange: function (size) {
+                    this.pagesize = size;
+                },
+                handleCurrentChange: function (currentPage) {
+                    this.currentPage = currentPage;
+                },
+                dangan(scope) {
+                    console.log(scope)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

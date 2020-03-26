@@ -1,0 +1,257 @@
+.themBlue .questionTitle h3 i, .themBlue .current {
+	color: #00aaff;
+}
+
+.themBlue dt.list-title span, .themBlue .errorList .on, .themBlue .errorList .on:hover
+	{
+	background-color: #00aaff;
+}
+
+strong, b, h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+em, i {
+	font-style: normal;
+}
+
+.box-sizing {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.bgColor {
+	background-color: #f5f8fa;
+}
+
+.containerBox {
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+.boxShadow {
+	-webkit-box-shadow: 0px 1px 5px 0px #eeeeee;
+	-moz-box-shadow: 0px 1px 5px 0px #eeeeee;
+	box-shadow: 0px 1px 5px 0px #eeeeee;
+}
+
+.containerBox:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+.containerBox {
+	zoom: 1;
+}
+
+.questionLeft {
+	float: left;
+	width: 300px;
+}
+
+.questionLeft, .questionLRight {
+	background-color: #fff;
+	min-height: 495px;
+}
+
+.questionLRight {
+	float: right;
+	width: 880px;
+}
+
+.questionTitle {
+	padding-bottom: 12px;
+	border-bottom: 1px dashed #eee;
+	width: 100%;
+}
+
+.questionTitle h3 {
+	font-size: 14px;
+	line-height: 20px;
+	color: #666;
+	text-align: center;
+	padding: 21px 0;
+}
+
+.questionTitle h3 i {
+	color: #07bbee;
+}
+
+.questionStatus {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 12px;
+	text-align: center;
+}
+
+.questionStatus li {
+	font-size: 0;
+	display: inline;
+}
+
+.questionStatus span {
+	font-size: 12px;
+	color: #999;
+	line-height: 26px;
+}
+
+.questionStatus strong {
+	display: inline-block;
+	text-align: center;
+	line-height: 24px;
+	font-size: 12px;
+	margin: 0 12px 0 10px;
+}
+
+.finish {
+	height: 26px;
+	width: 26px;
+	background-color: #f6f6f6;
+	color: #999;
+}
+
+.notDone, .current, .right, .wrong, .less {
+	width: 24px;
+	height: 24px;
+}
+
+.notDone {
+	border: 1px solid #eee;
+	color: #666;
+}
+
+.right {
+	border: 1px solid #eee;
+	color: #00cc99;
+}
+
+.wrong {
+	border: 1px solid #eee;
+	color: #ff6666;
+}
+
+.less {
+	border: 1px solid #eee;
+	color: #00cc99;
+}
+
+.less span{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 0px;
+	border-bottom: 15px solid #e5d8d8;
+	border-right: 15px solid transparent;
+}
+
+
+.redDot {
+	width: 4px;
+	height: 4px;
+	background-color: #ff0000;
+	line-height: 24px;
+	position: relative;
+	top: -3px;
+}
+
+.current {
+	border: 1px solid #07bbee;
+	color: #07bbee;
+}
+
+.questionList {
+	width: 100%;
+	padding-left: 10px;
+	padding-top: 16px;
+	padding-bottom: 24px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+dt.list-title {
+	font-size: 0;
+	margin-bottom: 12px;
+}
+
+dt.list-title span {
+	display: inline-block;
+	font-size: 12px;
+	color: #fff;
+	line-height: 24px;
+	padding: 0 16px;
+	background-color: #07bbee;
+}
+
+.listCon {
+	width: 100%;
+}
+
+.listCon strong {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 16px;
+	position: relative;
+	font-size: 12px;
+	text-align: center;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.listCon .redDot {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.errorTitle {
+	padding-bottom: 0;
+}
+
+.errorTitle h3 {
+	padding: 20px 0;
+}
+
+.errorList li {
+	overflow: hidden;
+	width: 100%;
+	font-size: 12px;
+	line-height: 48px;
+	cursor: pointer;
+}
+
+.errorList span {
+	float: left;
+	width: 129px;
+	color: #666;
+	text-align: right;
+}
+
+.errorList b {
+	float: right;
+	width: 124px;
+	color: #999;
+	text-align: left;
+}
+
+.errorList .on, .errorList .on:hover {
+	background-color: #07bbee;
+}
+
+.errorList .on span, .errorList .on b {
+	color: #fff;
+}
+
+.errorList li:hover {
+	background-color: #f6f6f6;
+}
+
+.errorList {
+	padding-bottom: 22px;
+}
