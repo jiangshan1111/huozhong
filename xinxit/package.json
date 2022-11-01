@@ -4,13 +4,13 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-minify-css": "^1.2.4",
     "gulp-uglify": "^3.0.1",
     "minify": "^4.0.1"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-minify": "^3.1.0"
   },
   "scripts": {
